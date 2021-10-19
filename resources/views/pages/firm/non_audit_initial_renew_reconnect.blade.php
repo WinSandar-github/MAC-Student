@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Non-Audit <span>Service </span><span>Reconnect Registration</span></h2>
+                    <h2 class="title">Non-Audit <span>Service </span><span>Existing User Registration</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -1148,16 +1148,16 @@
 
 								<div class="row mb-5">
 										<label for="" class="col-md-1 col-form-label">14.</label>
-										<label for="" class="col-md-4 col-form-label">Last Registration Fee Payment Date</label>
+										<label for="" class="col-md-4 col-form-label">Last Registered Year</label>
 
 										<div class="col-md-3">
-												<input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_date" class="form-control" autocomplete="off">
+												<input type="text" placeholder="YYYY" name="last_registered_year" class="form-control" autocomplete="off">
 										</div>
 								</div>
 
                 <div class="row mb-5">
                     <label for="" class="col-md-1 col-form-label">15.</label>
-                    <label for="" class="col-md-4 col-form-label">Request to Disconnect</label>
+                    <label for="" class="col-md-4 col-form-label">Suspended Year</label>
                     <div class="row col-md-7 py-2">
                         <div class="col-md-3 form-check-radio mx-2">
                             <label class="form-check-label">
@@ -1185,21 +1185,10 @@
 											<label for="" class="col-md-1 col-form-label"></label>
 											<label for="" class="col-md-4 col-form-label"></label>
 											<div class="col-md-2">
-													<label for="" class="col-form-label">Start Date</label>
+													<label for="" class="col-form-label">Year</label>
 											</div>
 											<div class="col-md-3">
-													<input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_start" class="form-control" autocomplete="off">
-											</div>
-									</div>
-
-									<div class="row mb-5">
-											<label for="" class="col-md-1 col-form-label"></label>
-											<label for="" class="col-md-4 col-form-label"></label>
-											<div class="col-md-2">
-													<label for="" class="col-form-label">End Date</label>
-											</div>
-											<div class="col-md-3">
-													<input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_end" class="form-control" autocomplete="off">
+													<input type="text" placeholder="YYYY" name="suspended_year" class="form-control" autocomplete="off">
 											</div>
 									</div>
 								</div>
@@ -1408,26 +1397,21 @@
 <script>
 
 $(document).ready(function(e){
-  $("input[name='last_reg_payment_start']").flatpickr({
+  $("input[name='last_registered_year']").flatpickr({
       enableTime: false,
-      dateFormat: "M-Y",
+      dateFormat: "Y",
       //dateFormat: "Y",
       allowInput: true,
   });
 
-  $("input[name='last_reg_payment_end']").flatpickr({
+  $("input[name='suspended_year']").flatpickr({
       enableTime: false,
-      dateFormat: "M-Y",
+      dateFormat: "Y",
       //dateFormat: "Y",
       allowInput: true,
   });
 
-	$("input[name='last_reg_payment_date']").flatpickr({
-      enableTime: false,
-      dateFormat: "M-Y",
-      //dateFormat: "Y",
-      allowInput: true,
-  });
+
 
   $("input[id*='declaration_mm'], text[id*='declaration_mm']").change(function (e) {
 			myanmarLetterOnly($(this));
