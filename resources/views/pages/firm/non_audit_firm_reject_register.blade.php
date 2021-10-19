@@ -221,7 +221,7 @@
                   <label class="col-md-4 col-form-label label"><span class="pull-left"></span></label>
                   <div class="col-md-8">
                       <label for="" class="control-label text-muted fw-bolder"><small>Head Office Address(Myanmar)</small></label>
-                      <textarea name="head_office_address_mm" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                      <textarea id="head_office_address_mm" name="head_office_address_mm" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
                   </div>
                 </div>
 
@@ -1238,7 +1238,7 @@
 											<div class="form-group" style="display:flex;">
 													<label class="col-form-label" style="font-weight:bold;padding-right:10px;">{{ __('I') }}</label>
 													<input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(managing director)(English)" >
-													<input type="text" name="declaration_mm" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="" placeholder="(managing director)(Myanmar)" >
+													<input type="text" id="declaration_mm" name="declaration_mm" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="" placeholder="(managing director)(Myanmar)" >
 											</div>
 									</div>
 

@@ -91,8 +91,15 @@ function user_profile() {
             } else if (data.school && data.teacher) {
                 $('.dashboard_name').append('Teacher And School ');
                 $('.teacher_pw').hide();
-                laodTeacherByDash(data.teacher);
-                loadSchoolByDash(data.school);
+                var invoice = data.invoice.filter( val => {
+                    if(val.invoiceNo=="init_tec" || val.invoiceNo=="renew_tec" ){
+                        laodTeacherByDash(data.teacher,val.invoiceNo);
+                    }else if(val.invoiceNo=="init_sch" || val.invoiceNo=="renew_sch" || val.invoiceNo=="exit_sch" || val.invoiceNo=="renew_exit_sch"){
+                        loadSchoolByDash(data.school,val.invoiceNo);
+                    }
+                    
+                });
+                
 
             } else if (data.cpa_ff && data.student_course_regs == '' && data.cpa_ff.length !== 0) {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
@@ -108,12 +115,12 @@ function user_profile() {
                 $('#cpaff_phone').text(cpaff_initial.phone);
                 var papp_url = FRONTEND_URL + "/student_papp";
                 var cpaff_url = FRONTEND_URL + "/cpa_ff_register";
-                
+
                 // var cpaff_reject_url = FRONTEND_URL + "/cpa_ff_reject";
                 var reject_initial = FRONTEND_URL + "/update_cpaff_initial";
                 var reject_renewal = FRONTEND_URL + "/update_cpaff_renewal";
                 var is_renew;
-                
+
                 if(data.invoice.length!=0){
                     if (cpaff_latest_data.type == 0) {
                         is_renew = "Initial";
@@ -714,7 +721,7 @@ function user_profile() {
                             <td>${formatDate(cpaff_latest_data.created_at)}</td>
                             <td>${formatDate(cpaff_latest_data.updated_at)}</td>
                             <td><span class="badge bg-success">Approved</span><br/><a href='${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info">Payment</a></td>
-                            
+
                         </tr>
                         `);
                         // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
@@ -779,13 +786,13 @@ function user_profile() {
                         if(data.invoice.length!=0){
                             if (papp_latest_data.type == 0) {
                                 is_renew_papp = "Initial";
-                                
+
                                 var invoice = data.invoice.filter(val => {
                                     return val.invoiceNo == "papp-initial" && val.status == 0;
                                 });
                             }
                             else if (papp_latest_data.type == 1) {
-                                is_renew_papp = "Renewal";                            
+                                is_renew_papp = "Renewal";
                                 var invoice = data.invoice.filter(val => {
                                     return val.invoiceNo == "papp-renew" && val.status == 0;
                                 });
@@ -799,7 +806,7 @@ function user_profile() {
                                 is_renew_papp = "Initial";
                             }
                             else if (papp_latest_data.type == 1) {
-                                is_renew_papp = "Renewal";       
+                                is_renew_papp = "Renewal";
                             }
                             else {
                                 is_renew_papp = ""
@@ -822,7 +829,7 @@ function user_profile() {
                                 <td>${formatDate(papp_latest_data.created_at)}</td>
                                 <td>${formatDate(papp_latest_data.updated_at)}</td>
                                 <td><span class="badge bg-success">Approved</span><br/><a href='${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info">Payment</a></td>
-                                
+
                             </tr>
                             `);
                             $('.papp_btn').css('display', 'none');
@@ -3106,13 +3113,19 @@ function loadSchoolByDash(school_data,school_invoice) {
                 $('.sch_status_history').append('School Registration is Approved.');
                 if(school.offline_user!='true'){
                     $('.sch_payment-btn').show();
-                    var invoice = school_invoice.filter( val => {
+                    if(school_invoice=='init_sch' || school_invoice=='renew_sch' || school_invoice=="exit_sch" || school_invoice=="renew_exit_sch"){
+                        var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+school_invoice;
+                    }else {
+                        var invoice = school_invoice.filter( val => {
 
-                        return val.invoiceNo == school.payment_method && val.status == 0;
-    
-                    });
-    
-                    var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+invoice[0].invoiceNo;
+                            return val.invoiceNo == val.status == 0;
+                                //school.payment_method && 
+                        });
+                        var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+invoice[0].invoiceNo;
+                    }
+                    
+                    
+                    
                     $('.sch_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment</a>`);
                     $('.sch_payment-status').show();
                 }else{
@@ -3132,7 +3145,7 @@ function loadSchoolByDash(school_data,school_invoice) {
                 $('.sch_reject-reason').append(school.reason);
             }
 
-            if (school.from_valid_date !=null)
+            if (school.payment_method !=null)
                 //school.payment_method != "init_sch" || school.payment_method != "renew_sch" || school.payment_method != "renew_exit_sch"
                  {
                 $('.sch_period').show();
@@ -3198,15 +3211,19 @@ function laodTeacherByDash(teacher_data, _invoice) {
             } else if (teacher.approve_reject_status == 1) {
                 $('.teacher_status_history').append('Teacher Registration is Approved.');
                 $('.teacher_payment-btn').show();
+                if(_invoice=="init_tec" || _invoice=="renew_tec" || _invoice=="exit_tec" ){
+                    var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+_invoice;
+                }else{
+                    var invoice = _invoice.filter( val => {
 
+                        return val.invoiceNo ==  val.status == 0;
+                        //teacher.payment_method &&
+                    });
+    
+                    var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+invoice[0].invoiceNo;
+                }
             
-                var invoice = _invoice.filter( val => {
-
-                    return val.invoiceNo == teacher.payment_method && val.status == 0;
-
-                });
-
-                var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+invoice[0].invoiceNo;
+                
                 
                 $('.teacher_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a>`);
                 $('.teacher_payment-status').show();
@@ -3311,6 +3328,7 @@ function firmDashboardData() {
                     $("#audit_address_mm").val(acc_firm.head_office_address_mm);
                     $("#audit_address_eng").val(acc_firm.head_office_address);
 
+                    document.getElementById('firm_img').src = BASE_URL + acc_firm.image;
                     $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
                     $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
                     $("#head_office").text(acc_firm.head_office_address);
