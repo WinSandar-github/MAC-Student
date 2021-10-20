@@ -85,8 +85,8 @@
 
                                   <div class="row mb-5">
                                       <h5 class="card-title text-center fw-bolder">
-                                          မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
-                                          စာရင်းကိုင်အလုပ်သင်များလက်ခံသင်ကြားပေးမည့်အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ်ကိုင်သူ<br>
+                                          မြန်မာနိုင်ငံစာရင်းကောင်စီ<br><br>
+                                          စာရင်းကိုင်အလုပ်သင်များအား အလုပ်သင်ကြားပေးသည့် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူ<br><br>
                                           (Professional Accountant in Public Practice - PAPP)၏အချက်အလက်များ
                                       </h5>
                                       {{--<div class="d-flex justify-content-between">
@@ -650,7 +650,7 @@
 
         var items= $(this).val();
         for (var i = 0; i <= items.length-1; i++) {
-            if(items[i] == 9){
+            if(items[i] == 10){
                 $("#check_service_other").show();
             }
         }

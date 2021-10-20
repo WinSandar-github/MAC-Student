@@ -87,6 +87,7 @@
     <script src="{{ asset('assets/js/auth.js') }}"></script>
     <script src="{{ asset('assets/js/exam_register.js') }}"></script>
     <script src="{{ asset('assets/js/da_register.js') }}"></script>
+    <script src="{{ asset('assets/js/da_one_existing.js') }}"></script>
     <script src="{{ asset('assets/js/da_register.js') }}"></script>
     <script src="{{ asset('assets/js/da_two_exam_register.js') }}"></script>
     <!-- <script src="{{ asset('assets/js/audit_firm.js') }}"></script> -->

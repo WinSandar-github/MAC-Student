@@ -90,8 +90,15 @@ function user_profile() {
             } else if (data.school && data.teacher) {
                 $('.dashboard_name').append('Teacher And School ');
                 $('.teacher_pw').hide();
-                laodTeacherByDash(data.teacher);
-                loadSchoolByDash(data.school);
+                var invoice = data.invoice.filter( val => {
+                    if(val.invoiceNo=="init_tec" || val.invoiceNo=="renew_tec" ){
+                        laodTeacherByDash(data.teacher,val.invoiceNo);
+                    }else if(val.invoiceNo=="init_sch" || val.invoiceNo=="renew_sch" || val.invoiceNo=="exit_sch" || val.invoiceNo=="renew_exit_sch"){
+                        loadSchoolByDash(data.school,val.invoiceNo);
+                    }
+
+                });
+
 
             } else if (data.cpa_ff && data.student_course_regs == '' && data.cpa_ff.length !== 0) {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
@@ -148,11 +155,15 @@ function user_profile() {
                     // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
                 } else if (cpaff_latest_data.status == 1) {
                     var cpaff_renew_url = FRONTEND_URL + "/cpaff_renew";
+                    var cpaff_offline_renew_url = FRONTEND_URL + "/cpaff_offline_renew";
                     $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is Approved.<br><br>');
                     if(cpaff_latest_data.offline_user == 0){
                         $('.status_history').append('Action &nbsp;&nbsp;');
                         $('.status_history').append(`<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`);
                     }
+                    $('.status_history').append('Action &nbsp;&nbsp;');
+                    $('.status_history').append(`<a href= ${cpaff_offline_renew_url} class="btn btn-success btn-sm xl-auto" > CPA(Full-Fledged) Renew Form </a><hr>`);
+
 
                     // $('.status_papp').append('Action &nbsp;&nbsp;');
                     // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
@@ -535,7 +546,7 @@ function user_profile() {
                             }
                             if(!latest_article[0].mentor_attach_file){
                                 $('.qt_article_status').append(`<tr><td></td><td colspan=2>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">Download File</div></div></td></tr>`);
-                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>Submit Attachment File</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='attach_file'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
+                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='attach_file'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
                             }
                             if(latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null){
                                 $('.qt_article_status').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
@@ -1057,30 +1068,30 @@ function user_profile() {
                                     var invoice = data.invoice.filter(val => {
                                         return val.invoiceNo == $invoice_code && val.status == 0;
                                     });
+                                    if(latest_course_reg[0]?.isFinished==0){
+                                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
 
-                                    if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
+                                            $('.status').append(`
+                                            <tr>
+                                                <td>${latest_course_reg[0].batch.course.name} Application Form</td>
+                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                                <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info">Payment for App Form</a></td>
+                                            </tr>
+                                            `);
 
-                                        $('.status').append(`
-                                        <tr>
-                                            <td>${latest_course_reg[0].batch.course.name} Application Form</td>
-                                            <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                            <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                            <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info">Payment for App Form</a></td>
-                                        </tr>
-                                        `);
+                                        } else {
 
-                                    } else {
-
-                                        $('.status').append(`
-                                        <tr>
-                                            <td>${latest_course_reg[0].batch.course.name} Application Form</td>
-                                            <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                            <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                            <td><span class='badge bg-info'>Payment Success</span></td>
-                                        </tr>
-                                        `);
+                                            $('.status').append(`
+                                            <tr>
+                                                <td>${latest_course_reg[0].batch.course.name} Application Form</td>
+                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                                <td><span class='badge bg-info'>Payment Success</span></td>
+                                            </tr>
+                                            `);
+                                        }
                                     }
-
                                 }
 
                                 // $('.status').append(`
@@ -1096,7 +1107,7 @@ function user_profile() {
                                 //show data depend on Student Register status
 
 
-                                if (latest_stu_reg[0] && latest_course_reg[0].batch.course.code == latest_stu_reg[0].course.code) {
+                                if (latest_stu_reg[0] && latest_course_reg[0].batch.course.code == latest_stu_reg[0].batch.course.code) {
                                     $('.regi_fee_txt').text('Exam Registration Date')
                                     $('.self_study').hide();
                                     $('.private_school').hide();
@@ -1128,29 +1139,29 @@ function user_profile() {
                                                     || val.invoiceNo == 'prv_reg_' + latest_course_reg[0].batch.course.code
                                                     || val.invoiceNo == 'self_reg_' + latest_course_reg[0].batch.course.code ) && val.status == 0;
                                         });
+                                        if(latest_course_reg[0]?.isFinished==0){
+                                            if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
-                                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                                                $('.status').append(`
+                                                <tr>
+                                                    <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
+                                                    <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                    <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                                    <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info" >Payment for Reg Form</a></td>
+                                                </tr>
+                                                `);
 
-                                            $('.status').append(`
-                                            <tr>
-                                                <td>${latest_course_reg[0].batch.course.name} Application Form</td>
-                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                                <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                                <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info" >Payment for Reg Form</a></td>
-                                            </tr>
-                                            `);
-
-                                        } else {
-                                            $('.status').append(`
-                                            <tr>
-                                                <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
-                                                <td>${formatDate(latest_stu_reg[0].created_at)}</td>
-                                                <td>${formatDate(latest_stu_reg[0].updated_at)}</td>
-                                                <td><span class="badge bg-success">Approved</span></td>
-                                            </tr>
-                                            `);
+                                            } else {
+                                                $('.status').append(`
+                                                <tr>
+                                                    <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
+                                                    <td>${formatDate(latest_stu_reg[0].created_at)}</td>
+                                                    <td>${formatDate(latest_stu_reg[0].updated_at)}</td>
+                                                    <td><span class="badge bg-success">Approved</span></td>
+                                                </tr>
+                                                `);
+                                            }
                                         }
-
 
                                         var module = [];
 
@@ -1185,29 +1196,29 @@ function user_profile() {
                                                     var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
                                                     });
+                                                    if(latest_course_reg[0]?.isFinished==0){
+                                                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
-                                                    if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                                                            $('.status').append(`
+                                                            <tr>
+                                                                <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                                <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                                                <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info" >Payment for Exam Form</a></td>
+                                                            </tr>
+                                                            `);
 
-                                                        $('.status').append(`
-                                                        <tr>
-                                                            <td>${latest_course_reg[0].batch.course.name} Application Form</td>
-                                                            <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                                            <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                                            <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info" >Payment for Exam Form</a></td>
-                                                        </tr>
-                                                        `);
-
-                                                    }else{
-                                                        $('.status').append(`
-                                                        <tr>
-                                                            <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
-                                                            <td>${formatDate(last_exam[0].created_at)}</td>
-                                                            <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                            <td><span class="badge bg-success">Approved</span></td>
-                                                        </tr>
-                                                        `);
+                                                        }else{
+                                                            $('.status').append(`
+                                                            <tr>
+                                                                <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                                                <td>${formatDate(last_exam[0].created_at)}</td>
+                                                                <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                                <td><span class="badge bg-success">Approved</span></td>
+                                                            </tr>
+                                                            `);
+                                                        }
                                                     }
-
 
                                                     if (last_exam[0].grade == 1) {
 
@@ -1300,22 +1311,36 @@ function user_profile() {
 
                                                                                 let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
                                                                                 let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
-
-                                                                                $('.status').append(`
-                                                                                    <tr> <td colspan=2 ></td ><td>Action</td>
-                                                                                        <td>
-                                                                                        <span class="nav-item dropdown ">
-                                                                                            <a href="#" class="nav-link dropdown-toggle bg-success text-white" data-toggle="dropdown">Registration for<br> ${batch.course.name}</a>
-                                                                                            <div class="dropdown-menu">
-                                                                                                <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=3" class="dropdown-item">Mac</a>
-                                                                                                <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=1" class="dropdown-item">Selfstudy</a>
-                                                                                                <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=2" class="dropdown-item">Private School</a>
-                                                                                            </div>
-                                                                                        </span>
+                                                                                if(last_exam[0]?.batch_id!=batch.id)
+                                                                                {
+                                                                                    $('.status').append(`
+                                                                                        <tr> <td colspan=2 ></td ><td>Action</td>
+                                                                                            <td>
+                                                                                            <span class="nav-item dropdown ">
+                                                                                                <a href="#" class="nav-link dropdown-toggle bg-success text-white" data-toggle="dropdown">Registration for<br> ${batch.course.name}</a>
+                                                                                                <div class="dropdown-menu">
+                                                                                                    <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=3" class="dropdown-item">Mac</a>
+                                                                                                    <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=1" class="dropdown-item">Selfstudy</a>
+                                                                                                    <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=2" class="dropdown-item">Private School</a>
+                                                                                                </div>
+                                                                                            </span>
+                                                                                            </td>
                                                                                         </td>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            `);
+                                                                                    </tr>
+                                                                                `);
+                                                                                }
+                                                                                else{
+                                                                                    $('.status').append(`
+                                                                                        <tr> <td colspan=2 ></td ><td>Action</td>
+                                                                                            <td>
+                                                                                            <span class="nav-item dropdown ">
+                                                                                                <a href="javascript:void(0)" class="btn-sm btn btn-success">Coming Soon</a>
+                                                                                            </span>
+                                                                                            </td>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                `);
+                                                                                }
                                                                             } else {
                                                                                 $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td><a href='${FRONTEND_URL}${form_url}${batch.id}' class="btn btn-sm btn-success" > ${data.data[0].name} ${show_text}</a></td></tr > `);
                                                                             }
@@ -1452,29 +1477,29 @@ function user_profile() {
                                                     var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
                                                     });
+                                                    if(latest_course_reg[0]?.isFinished==0){
+                                                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
-                                                    if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                                                            $('.status').append(`
+                                                            <tr>
+                                                                <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                                <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                                                <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info" >Payment for Exam Form</a></td>
+                                                            </tr>
+                                                            `);
 
-                                                        $('.status').append(`
-                                                        <tr>
-                                                            <td>${latest_course_reg[0].batch.course.name} Application Form</td>
-                                                            <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                                            <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                                            <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info" >Payment for Exam Form</a></td>
-                                                        </tr>
-                                                        `);
-
-                                                    } else {
-                                                        $('.status').append(`
-                                                        <tr>
-                                                            <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
-                                                            <td>${formatDate(last_exam[0].created_at)}</td>
-                                                            <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                            <td><span class="badge bg-success">Approved</span></td>
-                                                        </tr>
-                                                        `);
+                                                        } else {
+                                                            $('.status').append(`
+                                                            <tr>
+                                                                <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                                                <td>${formatDate(last_exam[0].created_at)}</td>
+                                                                <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                                <td><span class="badge bg-success">Approved</span></td>
+                                                            </tr>
+                                                            `);
+                                                        }
                                                     }
-
                                                     if (last_exam[0].grade == 1) {
 
                                                         $('.regi_fee_txt').text('Application Form Fees')
@@ -1645,7 +1670,8 @@ function user_profile() {
 
                                                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
                                                                     // <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration for ${next_batch[0].course.name} </a>
-
+                                                                   if( next_batch[0].id!=last_exam[0]?.batch_id)
+                                                                   {
                                                                     $('.status').append(`
                                                                         <tr><td colspan=2></td><td>Action</td>
                                                                             <td>
@@ -1661,6 +1687,20 @@ function user_profile() {
                                                                         </td>
                                                                         </tr>
                                                                     `);
+                                                                   }
+                                                                   else{
+                                                                    $('.status').append(`
+                                                                    <tr><td colspan=2></td><td>Action</td>
+                                                                        <td>
+                                                                            <span class="nav-item dropdown ">
+                                                                                <a href="javascript:void(0)" class="btn-sm btn btn-success">Coming Soon</a>
+
+                                                                            </span>
+                                                                        <td>
+                                                                    </td>
+                                                                    </tr>
+                                                                `);
+                                                                   }
                                                                 } else {
                                                                     $('.status').append(`
                                                                     <tr><td colspan=2></td><td>Action</td>
@@ -2259,7 +2299,7 @@ function user_profile() {
                                 }
                                 if (!latest_article[0].mentor_attach_file) {
                                     $('.article_btn').append(`<tr><td></td><td colspan=2>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">Download File</div></div></td></tr>`);
-                                    $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Attachment File</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='attach_file'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
+                                    $('.article_btn').append(`<tr><td colspan=2></td><td>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='attach_file'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
                                 }
                                 if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
@@ -2476,7 +2516,7 @@ function user_profile() {
                                     }
                                     if (!latest_article[0].mentor_attach_file) {
                                         $('.article_btn').append(`<tr><td></td><td colspan=2>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">Download File</div></div></td></tr>`);
-                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Attachment File</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='attach_file'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='attach_file'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
                                     }
                                     if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
@@ -3105,13 +3145,19 @@ function loadSchoolByDash(school_data,school_invoice) {
                 $('.sch_status_history').append('School Registration is Approved.');
                 if(school.offline_user!='true'){
                     $('.sch_payment-btn').show();
-                    var invoice = school_invoice.filter( val => {
+                    if(school_invoice=='init_sch' || school_invoice=='renew_sch' || school_invoice=="exit_sch" || school_invoice=="renew_exit_sch"){
+                        var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+school_invoice;
+                    }else {
+                        var invoice = school_invoice.filter( val => {
 
-                        return val.invoiceNo == school.payment_method && val.status == 0;
+                            return val.invoiceNo == val.status == 0;
+                                //school.payment_method &&
+                        });
+                        var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+invoice[0].invoiceNo;
+                    }
 
-                    });
 
-                    var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+invoice[0].invoiceNo;
+
                     $('.sch_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment</a>`);
                     $('.sch_payment-status').show();
                 }else{
@@ -3131,7 +3177,7 @@ function loadSchoolByDash(school_data,school_invoice) {
                 $('.sch_reject-reason').append(school.reason);
             }
 
-            if (school.from_valid_date !=null)
+            if (school.payment_method !=null)
                 //school.payment_method != "init_sch" || school.payment_method != "renew_sch" || school.payment_method != "renew_exit_sch"
                  {
                 $('.sch_period').show();
@@ -3197,15 +3243,19 @@ function laodTeacherByDash(teacher_data, _invoice) {
             } else if (teacher.approve_reject_status == 1) {
                 $('.teacher_status_history').append('Teacher Registration is Approved.');
                 $('.teacher_payment-btn').show();
+                if(_invoice=="init_tec" || _invoice=="renew_tec" || _invoice=="exit_tec" ){
+                    var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+_invoice;
+                }else{
+                    var invoice = _invoice.filter( val => {
+
+                        return val.invoiceNo ==  val.status == 0;
+                        //teacher.payment_method &&
+                    });
+
+                    var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+invoice[0].invoiceNo;
+                }
 
 
-                var invoice = _invoice.filter( val => {
-
-                    return val.invoiceNo == teacher.payment_method && val.status == 0;
-
-                });
-
-                var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+invoice[0].invoiceNo;
 
                 $('.teacher_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a>`);
                 $('.teacher_payment-status').show();
@@ -3253,7 +3303,7 @@ function laodTeacherByDash(teacher_data, _invoice) {
 }
 
 function loadMentorByDash(mentor) {
-    $('.mentor-title').text('Teacher Information')
+    $('.mentor-title').text('Mentor Information')
     $('.mentor').show();
     $('.cpaff_other').hide();
     $('.da-card').hide();

@@ -1388,8 +1388,8 @@
                                         src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg"
                                         alt="">
                                     <p class="mt-2 " style="margin-right: 10px;">
-                                        <input type="file" class="custom-file-input" id="profile_photo" name="image"
-                                            accept="image/*" onchange="previewImageFile(this);">
+                                        <input type="file" class="custom-file-input" id="profile_photo" name="image_cpaff"
+                                            accept="image/*" onchange="previewImageFileCPAFF(this);">
                                     </p>
                                     <div class="form-text mb-2">Allowed Jpeg Image.</div>
                                     <input type="hidden" name="old_image_cpaff" id="old_image_cpaff">
@@ -2109,7 +2109,7 @@
                             <input type="hidden" id="leave_request_id">
                             <div class="form-group row">
                                 <div class="col-md-3">
-                                    <label>Leave Request Reason</label>
+                                    <label>Leave Type</label>
                                     <input type="text"  name="remark" id="remark" class="form-control">
                                 </div>
                                 <div class="col-md-3">
@@ -2139,7 +2139,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Leave Request Reason</th>
+                                            <th>Leave Type</th>
                                             <th>Start Date</th>
                                             <th>End Date</th>
                                             <th>Total Date</th>

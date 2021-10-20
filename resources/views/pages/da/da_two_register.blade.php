@@ -1589,7 +1589,7 @@ $nrc_characters = config('myanmarnrc.characters');
         $('document').ready(function() {
             const queryString = location.search;
             const urlParams = new URLSearchParams(queryString);
-
+            $('#form_type').val(localStorage.getItem("course_id"));
             selectedRegistration(urlParams.get("study_type"));
 
             get_student_info(student_id).then(data => {
@@ -1656,7 +1656,7 @@ $nrc_characters = config('myanmarnrc.characters');
                             $('#batch_name').text(res.data.name);
                             
                             $('.batch_no').val(res.data.number);
-                            $('.batch_id').val(re.data.id);
+                            $('.batch_id').val(res.data.id);
                             $('.personal_no').val(data.data.personal_no);
                             $('#remain_module').val(last_exam[0].is_full_module)
 

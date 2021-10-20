@@ -223,6 +223,8 @@
 <script src="{{ asset('assets/js/da_register.js') }}"></script>
 <script src="{{ asset('assets/js/user_profile.js') }}"></script>
 
+<script src="{{ asset('assets/js/da_one_existing.js') }}"></script>
+
 <!-- <script src="{{ asset('assets/js/da_two_exam_register.js') }}"></script> -->
 <script src="{{ asset('assets/js/non_audit_firm.js') }}"></script>
 <script src="{{ asset('assets/js/mentor_mac.js') }}"></script>
