@@ -59,6 +59,7 @@ Route::get('update_cpaff_initial','CPAFFController@reject_initial');
 Route::get('update_cpaff_renewal','CPAFFController@reject_renewal');
 Route::get('cpaff_reconnect','CPAFFController@cpaffReconnect');
 Route::get('cpaff_renew', 'CPAFFController@cpaffRenew');
+Route::get('cpaff_offline_renew', 'CPAFFController@cpaffOfflineRenew');
 
 // CPA_FF Information Page
 Route::get('cpa_ff_information', 'CPAFFInfoController@info');
