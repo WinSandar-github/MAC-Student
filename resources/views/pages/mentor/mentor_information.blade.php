@@ -151,22 +151,23 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-12 widget-information">
-														<h4 class="col-md-12 card-title text-success">Fees</h4>
+														<h4 class="col-md-12 card-title text-success">Register</h4>
 														<hr>
 														<div class="info-list">
 															<div class="col-md-12">
-																<ul>
-																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> <span class='application-fee'></li>
+																<!-- <ul> -->
+																		<!-- <li><i class="icofont-money"></i> <strong>Application Fee</strong> <span class='application-fee'></li>
 																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
 																		<li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
-																		<div class="pull-right mt-4">
-																			<p class="info-btn col-md-2 mb-4 text-dark h6">
-																				<a href="{{url('mentor_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
-																			</p>
-																		</div>
-																</ul>
+                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li> -->
+																		
+																<!-- </ul> -->
+																<div class="mt-4" align="center">
+																	<p class="info-btn col-md-2 mb-4 text-dark h6">
+																		<a href="{{url('mentor_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
+																	</p>
+																</div>
 															</div>
 														</div>
 													</div>
