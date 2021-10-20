@@ -59,6 +59,7 @@ Route::get('update_cpaff_initial','CPAFFController@reject_initial');
 Route::get('update_cpaff_renewal','CPAFFController@reject_renewal');
 Route::get('cpaff_reconnect','CPAFFController@cpaffReconnect');
 Route::get('cpaff_renew', 'CPAFFController@cpaffRenew');
+Route::get('cpaff_offline_renew', 'CPAFFController@cpaffOfflineRenew');
 
 // CPA_FF Information Page
 Route::get('cpa_ff_information', 'CPAFFInfoController@info');
@@ -104,6 +105,7 @@ Route::get('cpa_one_dapass_form/{id}', 'CPAOneRegisterController@cpaOneDaPassFor
 Route::get('cpa_one_entry_app_form/{id}', 'CPAOneRegisterController@cpaOneEntryAppForm');
 
 Route::get('cpa_edit', 'CPAOneRegisterController@cpaEdit');
+Route::get('existing_user_cpa_one', 'CPAOneRegisterController@existing_user_cpa_one');
 
 //Entry Exam form edit
 Route::get('entry_edit', 'CPAOneRegisterController@entry_edit');
@@ -221,9 +223,9 @@ Route::get('qt_edit/{id}', 'QtController\QtController@edit');
 Route::get('reconnect','ReconnectController\ReconnectController@reconnect');
 Route::get('reconnect_papp','ReconnectController\ReconnectController@reconnect_papp');
 
-//da_two_register for da_one_pass
-// Route::get('da_two_reg_daone_pass', 'DARegisterController@da_two_registerForm');
-Route::get('da_two_reg_daone_pass','ReconnectController\ReconnectController@da_two_registerForm');
+//da existing register
+Route::get('da_one_existing_reg_form', 'ReconnectController\ReconnectController@DAOneExistingRegForm');
+Route::get('da_two_existing_reg_form','ReconnectController\ReconnectController@da_two_registerForm');
 
 //cpa_two_register for cpa_one_pass
 // Route::get('cpa_two_reg_cpaone_pass', 'CPATwoRegisterController@CPATwoRegCpaOnePassForm');
