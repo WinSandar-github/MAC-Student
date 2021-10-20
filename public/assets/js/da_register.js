@@ -85,6 +85,8 @@ function loadCurrentBatchList(){
 }
 
 
+
+
 function createDARegister() {
     if ($("input[name=password]").val() != $("input[name=confirm_password]").val()) {
         alert("Your password and confirm password do not match!");
@@ -225,7 +227,7 @@ function check_da_two_reg_email() {
         // $('#exampleModal').modal('show');
     } else {
         // $('#exampleModal1').modal('show');
-        createDATwoRegDAOnePass();
+        createDATwoExistingRegister();
         $('#DATwoRegEmailModal').modal('hide');
     }
 }
@@ -530,7 +532,7 @@ function createDaTwoMac() {
 }
 
 
-function createDATwoRegDAOnePass(){
+function createDATwoExistingRegister(){
     if ($("input[name=password]").val() != $("input[name=confirm_password]").val()) {
         alert("Your password and confirm password do not match!");
         return;
@@ -967,6 +969,19 @@ function loadPrivateSchoolList() {
     });
 }
 
+function DAOneselectType() {
+
+    var radioValue = $("input[name='da_one_attend_place']:checked").val();
+
+    if (radioValue == 2) {
+        $('#da_one_blk_mac').css('display', 'inline-block');
+    } else {
+
+        $('#da_one_blk_mac').css('display', 'none');
+
+    }
+}
+
 function selectType() {
 
     var radioValue = $("input[name='attend_place']:checked").val();
@@ -993,18 +1008,7 @@ function CPAOneselectType() {
     }
 }
 
-function DAOneselectType() {
 
-    var radioValue = $("input[name='da_one_attend_place']:checked").val();
-
-    if (radioValue == 2) {
-        $('#da_one_blk_mac').css('display', 'inline-block');
-    } else {
-
-        $('#da_one_blk_mac').css('display', 'none');
-
-    }
-}
 
 
 function selectdType() {
