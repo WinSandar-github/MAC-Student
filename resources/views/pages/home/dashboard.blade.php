@@ -2108,7 +2108,7 @@
                             <input type="hidden" id="leave_request_id">
                             <div class="form-group row">
                                 <div class="col-md-3">
-                                    <label>Leave Request Reason</label>
+                                    <label>Leave Type</label>
                                     <input type="text"  name="remark" id="remark" class="form-control">
                                 </div>
                                 <div class="col-md-3">
@@ -2138,7 +2138,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Leave Request Reason</th>
+                                            <th>Leave Type</th>
                                             <th>Start Date</th>
                                             <th>End Date</th>
                                             <th>Total Date</th>
