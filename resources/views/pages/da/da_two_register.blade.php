@@ -1589,7 +1589,7 @@ $nrc_characters = config('myanmarnrc.characters');
         $('document').ready(function() {
             const queryString = location.search;
             const urlParams = new URLSearchParams(queryString);
-
+            $('#form_type').val(localStorage.getItem("course_id"));
             selectedRegistration(urlParams.get("study_type"));
 
             get_student_info(student_id).then(data => {
