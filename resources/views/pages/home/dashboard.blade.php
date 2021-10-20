@@ -525,12 +525,13 @@
                                 </div>
                             </div>
                         </div>--}}
-                        <div class="row" >
+
+                        <div class="row">
                             <div class="col-md-6"></div>
                             <div class="">
-                                <div class="mt-4" align="center" id="firm_payment_btn">
+                              <div class="mt-4" align="center" id="firm_payment_btn">
 
-                                </div>
+                              </div>
                             </div>
                         </div>
                         {{--<div class="row nonaudit-payment-btn" style="display:none;">
