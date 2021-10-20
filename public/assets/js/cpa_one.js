@@ -173,10 +173,10 @@ function createCPATwoRegDAOnePass(){
         success: function (result) {
             console.log('result',result)
             EasyLoading.hide();
-            // successMessage("You have successfully registered. Use your email and password to login.");
-            // setInterval(() => {
-            //     location.href = FRONTEND_URL + '/';
-            // }, 3000);
+            successMessage("You have successfully registered. Use your email and password to login.");
+            setInterval(() => {
+                location.href = FRONTEND_URL + '/';
+            }, 3000);
         },
         error: function (message) {
             EasyLoading.hide();
