@@ -154,10 +154,15 @@
                                                             <dd class="col-sm-6 my-1">{{  number_format($c['privateschool_registration_fee']) }}
                                                                 Kyats
                                                             </dd>
-                                                            <dt class="col-sm-6 text-end my-1">Exam Fee</dt>
+                                                            <dt class="col-sm-6 text-end my-1">Exam Registration Fee</dt>
                                                             <dd class="col-sm-6 my-1">{{  number_format($c['exam_fee'] ) }}
                                                                 Kyats
                                                             </dd>
+                                                            <dt class="col-sm-6 text-end my-1">Entry Exam Registration Fee</dt>
+                                                            <dd class="col-sm-6 my-1">{{  number_format($c['entry_exam_fee'] ) }}
+                                                                Kyats
+                                                            </dd>
+                                                            
                                                             <dt class="col-sm-6 text-end my-1">Course Fee for MAC
                                                                 Class
                                                             </dt>

@@ -51,7 +51,13 @@
                 <!-- All Courses Tabs Menu Start -->
                 <div class="courses-tabs-menu">
                     <div class="swiper-container">
+
                         <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
+                        
+                            <li>
+                                    <button value="course_list" onclick="location.href =`${FRONTEND_URL}/da_one_existing_reg_form`"> Diploma In Accountancy Part One Registration</button>
+                            </li>                            
+                       
                             <li>
                                     <button class="course_list" onclick="location.href =`${FRONTEND_URL}/existing_user_cpa_one`"> Certified Public Accountant Part One Registration</button>
                             </li>
@@ -59,7 +65,7 @@
                         <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
                         
                             <li>
-                                    <button value="course_list" onclick="location.href =`${FRONTEND_URL}/da_two_reg_daone_pass`"> Diploma In Accountancy Part Two Registration</button>
+                                    <button value="course_list" onclick="location.href =`${FRONTEND_URL}/da_two_existing_reg_form`"> Diploma In Accountancy Part Two Registration</button>
                             </li>
                             <li>
                                     <button class="course_list" onclick="location.href =`${FRONTEND_URL}/cpa_two_reg_cpaone_pass`"> Certified Public Accountant Part Two Registration</button>
