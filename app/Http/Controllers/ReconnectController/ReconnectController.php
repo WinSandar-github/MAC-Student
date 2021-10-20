@@ -18,10 +18,14 @@ class ReconnectController extends Controller
     }
 
     
-    //show da_two_register for da one pass
+    //show da existing register form
     public function da_two_registerForm()
     {
-        return view('pages.da.da_two_reg_daone_pass');
+        return view('pages.da.da_two_existing_reg_form');
+    }
+    public function DAOneExistingRegForm()
+    {
+        return view('pages.da.da_one_existing_reg_form');
     }
 
     //show cpa_two_register for cpa one pass

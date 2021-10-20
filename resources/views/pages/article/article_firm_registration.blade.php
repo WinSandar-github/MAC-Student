@@ -92,8 +92,8 @@
 
                                         <div class="row mb-3">
                                             <h5 class="card-title text-center fw-bolder">
-                                                ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော်<br>
-                                                ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး<br>
+                                                ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော်<br><br>
+                                                ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး<br><br>
                                                 စာရင်းကိုင်အလုပ်သင်လျှောက်လွှာပုံစံ
                                             </h5>
                                             <div>
@@ -157,12 +157,12 @@
                                                 <div class="col-md-11">
                                                     <ul>
                                                         <li>
-                                                            <input type="radio" class="form-check-input" value="1" id="male2" name="gender2" >
+                                                            <input type="radio" class="form-check-input" value="1" id="male3" name="gender3" >
                                                             <label class="form-check-label " for="">ကျွန်တော်</label>
-                                                            <input type="radio" class="form-check-input" value="0" id="female2" name="gender2" >
+                                                            <input type="radio" class="form-check-input" value="0" id="female3" name="gender3" >
                                                             <label class="form-check-label " for="">ကျွန်မ</label>
                                                         </li>
-                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( ဒုတိယပိုင်း ) စာမေးပွဲကို <br> <span id="pass_year"> -----</span> ခုနှစ် <span id="pass_month">-----</span> လ တွင်ကျင်းပခဲ့သော CPA II <span id="">-----</span> တွင်အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li>
+                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( ဒုတိယပိုင်း ) စာမေးပွဲကို <br> <span id="pass_year"> -----</span> ခုနှစ် <span id="pass_month">-----</span> လ တွင်ကျင်းပခဲ့သော CPA II <span id="batch_name">-----</span> တွင်အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -504,7 +504,7 @@
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_address_label">{{ __('၁၀။') }}</span>ဆက်သွယ်ရန်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
-                                                <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="current_address"  class="form-control">
+                                                <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="current_address"  class="form-control" id="current_address">
                                             </div>
                                         </div>
 
@@ -578,7 +578,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>လက်ခံသင်ကြားပေးကြောင်းအကြောင်းကြားစာ</label>
                                             <div class="col-md-9">
                                                 <input type="file" name="request_papp_attach" class="form-control">
                                             </div>
@@ -621,12 +621,30 @@
                                                 <label class="form-check-label">
                                                     <input class="form-check-input" type="checkbox" name="confirm_status">
                                                     <span class="form-check-sign"></span>
-                                                    <p class="fw-bolder">
-                                                        * ၁။ ကျွန်တော်/ ကျွန်မသည် ယခုလက်ရှိအချိန်တွင် အစိုးရနှင့် ပုဂ္ဂလိက အဖွဲ့အစည်းများတွင် အချိန်ပြည့်ဝန်ထမ်းအဖြစ် တာဝန်ထမ်းဆောင်နေခြင်းမရှိပါ။ Non Audit Service လုပ်ငန်းများလုပ်ကိုင် ဆောက်ရွက်နေခြင်းမရှိပါ။<br>
-                                                        ၂။ စာရင်းကိုင်အလုပ်သင်အဖြစ်ဆောင်ရွက်ရမည့် အချိန်အတွင်း အချိန်ပြည့်ဝန်ထမ်းအဖြစ် ဆောင်ရွက်ခြင်း၊ Non Audit Service လုပ်ငန်းများလုပ်ကိုင်မည်ဆိုပါက အလုပ်သင်အဖြစ်ဆောင်ရွက်ခြင်းမှ ရပ်ဆိုင်းခွင့်ပြုပါရန် မြန်မာနိုင်ငံစာရင်းကောင်စီသို့ မပျက်မကွက်အသိပေးပါမည်။ အလုပ်သင်ကာလအတွင်း အလုပ်သင်ကြားခြင်းနှင့်ဆိုင်သည့် လုပ်ငန်းတာဝန်များကို သာအချိန်ပြည့်တာဝန် ထမ်းဆောင်ရမည်ကို သိရှိပါသည်။<br>
-                                                        ၃။ စာရင်းကိုင်အလုပ်သင်နှင့် ကိုယ်ပိုင်စာရင်းကိုင် သင်တန်းကျောင်းများ ကြီးကြပ်ရေးကော်မတီ၏ ၇-၄-၂၀၂၀ ရက်စွဲပါ ရုံးအမိန့်အမှတ် ၁၂၈ ပါ စာရင်းကိုင်အလုပ်သင်များလိုက်နာရမည့် စည်းကမ်းချက်များနှင့် ရပိုင်ခွင့်များကို သိရှိနားလည် ပြီးဖြစ်ပါသည်။<br>
-                                                        ၄။ ဤဝန်ခံချက် ပျက်ကွက်ပါက အလုပ်သင်စည်းမျဥ်းများနှင့်အညီ အရေးယူခြင်းကို ခံရမည်ဖြစ်ကြောင်း သဘောတူပါသည်။
-                                                    </p>
+                                                    * <div class="row">
+                                                        <div class="col-md-1">၁ ။</div>
+                                                        <div class="col-md-11">
+                                                            <p class="fw-bolder">ကျွန်တော်/ ကျွန်မသည် ယခုလက်ရှိအချိန်တွင် အစိုးရနှင့် ပုဂ္ဂလိက အဖွဲ့အစည်းများတွင် အချိန်ပြည့်ဝန်ထမ်းအဖြစ် တာဝန်ထမ်းဆောင်နေခြင်းမရှိပါ။ Non Audit Service လုပ်ငန်းများလုပ်ကိုင် ဆောက်ရွက်နေခြင်းမရှိပါ။</p>
+                                                        </div>
+                                                    </div><br>
+                                                    <div class="row">
+                                                        <div class="col-md-1">၂ ။</div>
+                                                        <div class="col-md-11">
+                                                            <p class="fw-bolder">စာရင်းကိုင်အလုပ်သင်အဖြစ်ဆောင်ရွက်ရမည့် အချိန်အတွင်း အချိန်ပြည့်ဝန်ထမ်းအဖြစ် ဆောင်ရွက်ခြင်း၊ Non Audit Service လုပ်ငန်းများလုပ်ကိုင်မည်ဆိုပါက အလုပ်သင်အဖြစ်ဆောင်ရွက်ခြင်းမှ ရပ်ဆိုင်းခွင့်ပြုပါရန် မြန်မာနိုင်ငံစာရင်းကောင်စီသို့ မပျက်မကွက်အသိပေးပါမည်။ အလုပ်သင်ကာလအတွင်း အလုပ်သင်ကြားခြင်းနှင့်ဆိုင်သည့် လုပ်ငန်းတာဝန်များကို သာအချိန်ပြည့်တာဝန် ထမ်းဆောင်ရမည်ကို သိရှိပါသည်။</p>
+                                                        </div>
+                                                    </div><br>
+                                                    <div class="row">
+                                                        <div class="col-md-1">၃ ။</div>
+                                                        <div class="col-md-11">
+                                                            <p class="fw-bolder">စာရင်းကိုင်အလုပ်သင်နှင့် ကိုယ်ပိုင်စာရင်းကိုင် သင်တန်းကျောင်းများ ကြီးကြပ်ရေးကော်မတီ၏ ၇-၄-၂၀၂၀ ရက်စွဲပါ ရုံးအမိန့်အမှတ် ၁၂၈ ပါ စာရင်းကိုင်အလုပ်သင်များလိုက်နာရမည့် စည်းကမ်းချက်များနှင့် ရပိုင်ခွင့်များကို သိရှိနားလည် ပြီးဖြစ်ပါသည်။</p>
+                                                        </div>
+                                                    </div><br>
+                                                    <div class="row">
+                                                        <div class="col-md-1">၄ ။</div>
+                                                        <div class="col-md-11">
+                                                            <p class="fw-bolder">ဤဝန်ခံချက် ပျက်ကွက်ပါက အလုပ်သင်စည်းမျဥ်းများနှင့်အညီ အရေးယူခြင်းကို ခံရမည်ဖြစ်ကြောင်း သဘောတူပါသည်။</p>
+                                                        </div>
+                                                    </div>
                                                 </label><br>
                                                 <label  class="error attend_place_error" style="display:none;" for="confirm_status">Please check one</label>
                                             </div>
@@ -703,7 +721,7 @@
             let exam_result = student_reg[lastest_row].status;  // pass/fail
             let module = student_reg[lastest_row].module;  // module 1/2/all
             let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
-            let batch = student_reg[lastest_row].batch_no;  // module 1/2/all
+            let batch = student_reg[lastest_row].batch;  // module 1/2/all
 
             $("#student_info_id").val(student_reg[lastest_row].student_info_id);
 
@@ -731,16 +749,25 @@
             if(batch == "undefined"){
                 $("#batch_no").text("-");
             }else{
-                $("#batch_no").text(batch);
+                $("#batch_no").text(batch.number);
+            } 
+
+            if(batch == "undefined"){
+                $("#batch_name").text("-");
+            }else{
+                $("#batch_name").text(batch.name_mm);
             } 
             
-            if(type == 0){
-                $("#type_name").text("ကိုယ်တိုင်လေ့လာသင်ယူသူအဖြစ်");
-            }else if(type == 1){
-                $("#type_name").text("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်ကျောင်း");
-            }else{
-                $("#type_name").text("သင်တန်းကျောင်း");
-            }
+            // if(type == 0){
+            //     $("#type_name").text("ကိုယ်တိုင်လေ့လာသင်ယူသူအဖြစ်");
+            //     $("#type_name1").text("ကိုယ်တိုင်လေ့လာသင်ယူသူအဖြစ်");
+            // }else if(type == 1){
+            //     $("#type_name").text("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်ကျောင်း");
+            //     $("#type_name1").text("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်ကျောင်း");
+            // }else{
+            //     $("#type_name").text("သင်တန်းကျောင်း");
+            //     $("#type_name1").text("သင်တန်းကျောင်း");
+            // }
 
             if(exam_result == 0){
                 $("#result_name").text("တက်ရောက်နေ");
@@ -750,6 +777,16 @@
                 $("#result_name").text("ကျရုံး");
                 $("#renew_row").show();
                 document.getElementById('request_label').innerHTML="၃။";
+            }
+
+            if(student_info.gender == "Male"){
+                $('input:radio[name=gender1][value=1]').attr('checked',true);
+                $('input:radio[name=gender2][value=1]').attr('checked',true);
+                $('input:radio[name=gender3][value=1]').attr('checked',true);
+            }else{
+                $('input:radio[name=gender1][value=0]').attr('checked',true);
+                $('input:radio[name=gender2][value=0]').attr('checked',true);
+                $('input:radio[name=gender3][value=0]').attr('checked',true);
             }
 
             if(get_data == "c2_pass_3yr"){
@@ -772,6 +809,23 @@
                 $("#previous_papp_date_row").css('display','block');
                 document.getElementById('papp_name_label').innerHTML="၁၅။";
                 $("#previous_exam_pass_row").css('display','block');
+
+                let latest_article = data.data.article.slice(-1);
+                let latest_gov_article = data.data.gov_article.slice(-1);
+
+                if(latest_gov_article[0]){
+                    $("#m_email").val(latest_gov_article[0].m_email);
+                    $("#current_address").val(latest_gov_article[0].current_address);
+                    //$("#previous_papp_name").val(latest_gov_article[0].current_address);
+                    $("#previous_papp_start_date").val(latest_gov_article[0].contract_start_date);
+                    $("#previous_papp_end_date").val(latest_gov_article[0].contract_end_date);
+                }else{
+                    $("#m_email").val(latest_article[0].m_email);
+                    $("#current_address").val(latest_article[0].current_address);
+                    $("#previous_papp_name").val(latest_article[0].request_papp);
+                    $("#previous_papp_start_date").val(latest_article[0].contract_start_date);
+                    $("#previous_papp_end_date").val(latest_article[0].contract_end_date);
+                }
             }
             console.log(student_info.cpersonal_no);
             $('#name_mm').val(student_info.name_mm);
