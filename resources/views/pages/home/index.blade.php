@@ -316,9 +316,13 @@
                                 <h4 class="d-inline-block">Mentor </h4> 
                                 <a href="{{ url('mentor_information') }}" class="btn btn-success" style="float:right !important">  Read More</a>
                                 <hr>
-
+                                <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <div class="mentor-description"></div>
+                                        </div>
+                                </div>
                                 
-                                    <ul style="line-height:180%; font-family: Arial, Helvetica, sans-serif; text-align: justify;">
+                                    <!-- <ul style="line-height:180%; font-family: Arial, Helvetica, sans-serif; text-align: justify;">
                                         <li>လျှောက်လွှာကြေး ၁၀၀၀ ကျပ်ပေးသွင်းပြီး လျှောက်လွှာ (ဆရာပုံစံ-၁) ဖြင့် လျှောက်ထား ရမည်။ (ပူးတွဲ တင်ပြရမည့်အထောက်အထားများအပါအဝင်)</li>
                                             <ul>
                                                 <li>- PAPP အဖြစ်မှတ်ပုံတင်ထားပြီး ယင်းလုပ်ငန်းကို ၃ နှစ်တစ်ဆက်တည်းလုပ်ကိုင်ခဲ့သူ (မှတ်ပုံတင်သက်တမ်းပြတ်တောက်နေသူများကို ခွင့်မပြုပါ)</li>
@@ -327,7 +331,7 @@
                                         <li>သတ်မှတ်လျှောက်လွှာပုံစံဖြင့်လျှောက်ထားရမည်၊ (လျှောက်လွှာကြေးမကောက်ခံပါ)</li>
                                         <li>သတ်မှတ်ချက်များနှင့်ကိုက်ညီပါက အလုပ်သင်ကြားပေးနိုင်သည့် PAPP အမည်စာရင်း ထုတ် ပြန်ပါသည်။</li>
                                         <li>. . .</li>
-                                    </ul>
+                                    </ul> -->
                             </div>
                             <!-- Single Courses End -->
                         </div>
@@ -372,5 +376,6 @@
     loadDescription('Teacher','teacher-description');
     loadDescription('PAPP','papp-description');
     loadDescription('CPAFF','cpaff-description');
+    loadDescription('Mentor','mentor-description');
 </script>
 @endpush
