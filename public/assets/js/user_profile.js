@@ -91,14 +91,16 @@ function user_profile() {
             } else if (data.school && data.teacher) {
                 $('.dashboard_name').append('Teacher And School ');
                 $('.teacher_pw').hide();
-                var invoice = data.invoice.filter( val => {
-                    if(val.invoiceNo=="init_tec" || val.invoiceNo=="renew_tec" ){
-                        laodTeacherByDash(data.teacher,val.invoiceNo);
-                    }else if(val.invoiceNo=="init_sch" || val.invoiceNo=="renew_sch" || val.invoiceNo=="exit_sch" || val.invoiceNo=="renew_exit_sch"){
-                        loadSchoolByDash(data.school,val.invoiceNo);
-                    }
+                laodTeacherByDash(data.teacher,data.invoice);
+                loadSchoolByDash(data.school,data.invoice);
+                // var invoice = data.invoice.filter( val => {
+                //     if(val.invoiceNo=="init_tec" || val.invoiceNo=="renew_tec" ){
+                //         laodTeacherByDash(data.teacher,val.invoiceNo);
+                //     }else if(val.invoiceNo=="init_sch" || val.invoiceNo=="renew_sch" || val.invoiceNo=="exit_sch" || val.invoiceNo=="renew_exit_sch"){
+                //         loadSchoolByDash(data.school,val.invoiceNo);
+                //     }
                     
-                });
+                // });
                 
 
             } else if (data.cpa_ff && data.student_course_regs == '' && data.cpa_ff.length !== 0) {
@@ -3112,22 +3114,54 @@ function loadSchoolByDash(school_data,school_invoice) {
             } else if (school.approve_reject_status == 1) {
                 $('.sch_status_history').append('School Registration is Approved.');
                 if(school.offline_user!='true'){
-                    $('.sch_payment-btn').show();
-                    if(school_invoice=='init_sch' || school_invoice=='renew_sch' || school_invoice=="exit_sch" || school_invoice=="renew_exit_sch"){
-                        var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+school_invoice;
-                    }else {
+                    
                         var invoice = school_invoice.filter( val => {
-
-                            return val.invoiceNo == val.status == 0;
+                            if(val.invoiceNo=='init_sch'+school.id || val.invoiceNo=='renew_sch'+school.id ){
+                                return val.invoiceNo ==  val.status == 0 == val.dateTime!=null;
+                            }
+                            
                                 //school.payment_method && 
                         });
-                        var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+invoice[0].invoiceNo;
-                    }
+                        
+                        var sch_invoice=invoice.pop();
+                        if (sch_invoice.status=="AP")
+                            
+                            {
+                            $('.sch_period').show();
+                            var now = new Date();
+                            if (school.initial_status == 0) {
+                                //var period_date = school.from_valid_date.split(' ');
+                                var new_period_date = sch_invoice.dateTime.split('-');
+                                var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
+                                $('#sch_period_time').text(period + " to 31-12-" + now.getFullYear());
+                            } else if (school.initial_status == 1) {
+                                var period_date = school.renew_date.split(' ');
+                                var new_period_date = period_date[0].split('-');
+                                var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
+                                $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear() + 3);
+                            }
+
+                            if (school.initial_status == 2) {
+                                $('.sch_renew-btn').hide();
+                            } else {
+                                $('.sch_renew-btn').show();
+                                $('.sch_renew-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
+                            }
+                            
+                            $('.sch_payment-status').show();
+                            $('.sch_payment-btn').hide();
+                            $(".sch_payment_status").text("Complete");
+                            
+                        }else {
+                            $(".sch_payment_status").text("Incomplete");
+                            $('.sch_payment-btn').show();
+                            var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+sch_invoice.invoiceNo;
+                            $('.sch_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment</a>`);
+                            $('.sch_payment-status').show();
+                        }
                     
                     
                     
-                    $('.sch_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment</a>`);
-                    $('.sch_payment-status').show();
                 }else{
                     $('.sch_renew-btn').show();
                     $('.sch_renew-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
@@ -3145,36 +3179,36 @@ function loadSchoolByDash(school_data,school_invoice) {
                 $('.sch_reject-reason').append(school.reason);
             }
 
-            if (school.payment_method !=null)
-                //school.payment_method != "init_sch" || school.payment_method != "renew_sch" || school.payment_method != "renew_exit_sch"
-                 {
-                $('.sch_period').show();
-                var now = new Date();
-                if (school.initial_status == 0) {
-                    var period_date = school.from_valid_date.split(' ');
-                    var new_period_date = period_date[0].split('-');
-                    var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                    $('#sch_period_time').text(period + " to 31-12-" + now.getFullYear());
-                } else if (school.initial_status == 1) {
-                    var period_date = school.renew_date.split(' ');
-                    var new_period_date = period_date[0].split('-');
-                    var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                    $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear() + 3);
-                }
+            // if (school.payment_method !=null)
+            //     //school.payment_method != "init_sch" || school.payment_method != "renew_sch" || school.payment_method != "renew_exit_sch"
+            //      {
+            //     $('.sch_period').show();
+            //     var now = new Date();
+            //     if (school.initial_status == 0) {
+            //         var period_date = school.from_valid_date.split(' ');
+            //         var new_period_date = period_date[0].split('-');
+            //         var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
+            //         $('#sch_period_time').text(period + " to 31-12-" + now.getFullYear());
+            //     } else if (school.initial_status == 1) {
+            //         var period_date = school.renew_date.split(' ');
+            //         var new_period_date = period_date[0].split('-');
+            //         var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
+            //         $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear() + 3);
+            //     }
 
-                if (school.initial_status == 2) {
-                    $('.sch_renew-btn').hide();
-                } else {
-                    $('.sch_renew-btn').show();
-                    $('.sch_renew-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
-                }
+            //     if (school.initial_status == 2) {
+            //         $('.sch_renew-btn').hide();
+            //     } else {
+            //         $('.sch_renew-btn').show();
+            //         $('.sch_renew-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
+            //     }
                 
-                $('.sch_payment-status').show();
-                $('.sch_payment-btn').hide();
-                $(".sch_payment_status").text("Complete");
-            }else {
-                $(".sch_payment_status").text("Incomplete");
-            }
+            //     $('.sch_payment-status').show();
+            //     $('.sch_payment-btn').hide();
+            //     $(".sch_payment_status").text("Complete");
+            // }else {
+            //     $(".sch_payment_status").text("Incomplete");
+            // }
 
 
         }
@@ -3210,62 +3244,75 @@ function laodTeacherByDash(teacher_data, _invoice) {
                 $('.teacher_status_history').append('Teacher Registration is checking.');
             } else if (teacher.approve_reject_status == 1) {
                 $('.teacher_status_history').append('Teacher Registration is Approved.');
-                $('.teacher_payment-btn').show();
-                if(_invoice=="init_tec" || _invoice=="renew_tec" || _invoice=="exit_tec" ){
-                    var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+_invoice;
+                
+                if(teacher.offline_user!=1){
+                        var invoice = _invoice.filter( val => {
+                            if(val.invoiceNo=="init_tec" || val.invoiceNo=="renew_tec"){
+                                return val.invoiceNo ==  val.status == 0 == val.dateTime!=null;
+                            }
+                        });
+                        
+                        var invoice=invoice.pop();
+                       if(invoice.status=="AP"){
+                            $('.teacher_period').show();
+                            var now = new Date();
+                            if (teacher.initial_status == 0) {
+                                //var period_date = invoice[0].dateTime.split(' ');
+                                var new_period_date = invoice.dateTime.split('-');
+                                var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
+                                $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
+                            } else if (teacher.initial_status == 1) {
+                                $('#teacher_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear());
+                            }
+            
+                            $('.teacher_renew-btn').show();
+                            $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
+                            $('.teacher_payment-status').show();
+                            $('.teacher_payment-btn').hide();
+                            $(".teacher_payment_status").text("Complete");
+                       }else {
+                            $(".teacher_payment_status").text("Incomplete");
+                            var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+invoice.invoiceNo;
+                            $('.teacher_payment-btn').show();
+                            $('.teacher_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a>`);
+                            $('.teacher_payment-status').show();
+                        }
+                       
+                    
+                    
                 }else{
-                    var invoice = _invoice.filter( val => {
-
-                        return val.invoiceNo ==  val.status == 0;
-                        //teacher.payment_method &&
-                    });
-    
-                    var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+invoice[0].invoiceNo;
+                    $('.teacher_renew-btn').show();
+                    $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
                 }
             
                 
-                
-                $('.teacher_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a>`);
-                $('.teacher_payment-status').show();
             } else {
                 $('.teacher_status_history').append('Teacher Registration is Rejected.');
                 $('.teacher_reject-btn').show();
                 $('.teacher_reject-p').append(`<a href='${FRONTEND_URL}/teacher_register' class="btn btn-success btn-hover-dark" > Update </a>`);
                 $('.teacher_reject-reason').append(teacher.reason);
             }
+            
             // if (teacher.payment_method != null) {
             //     $('.teacher_period').show();
             //     var now = new Date();
-            //     if(teacher.initial_status==0){
+            //     if (teacher.initial_status == 0) {
             //         var period_date = teacher.from_valid_date.split(' ');
             //         var new_period_date = period_date[0].split('-');
             //         var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
             //         $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
-            //     }else if(teacher.initial_status==1){
-            //        $('#teacher_period_time').text('01-01-'+ now.getFullYear() + " to 31-12-" + now.getFullYear());
+            //     } else if (teacher.initial_status == 1) {
+            //         $('#teacher_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear());
             //     }
 
+            //     $('.teacher_renew-btn').show();
+            //     $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
+            //     $('.teacher_payment-status').show();
+            //     $('.teacher_payment-btn').hide();
+            //     $(".teacher_payment_status").text("Complete");
+            // } else {
+            //     $(".teacher_payment_status").text("Incomplete");
             // }
-            if (teacher.payment_method != null) {
-                $('.teacher_period').show();
-                var now = new Date();
-                if (teacher.initial_status == 0) {
-                    var period_date = teacher.from_valid_date.split(' ');
-                    var new_period_date = period_date[0].split('-');
-                    var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                    $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
-                } else if (teacher.initial_status == 1) {
-                    $('#teacher_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear());
-                }
-
-                $('.teacher_renew-btn').show();
-                $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
-                $('.teacher_payment-status').show();
-                $('.teacher_payment-btn').hide();
-                $(".teacher_payment_status").text("Complete");
-            } else {
-                $(".teacher_payment_status").text("Incomplete");
-            }
         }
     });
 }

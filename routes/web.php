@@ -167,6 +167,9 @@ Route::get('renew_school_edit', 'SchoolController@renew_edit');
 //Teacher Register Form
 Route::get('teacher_register', 'TeacherController@info');
 
+//Teacher existing Register Form
+Route::get('teacher_existing_user_register', 'TeacherController@existing_user');
+
 // Teacher Information Page
 Route::get('teacher_information', 'TeacherInfoController@info');
 

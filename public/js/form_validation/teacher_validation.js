@@ -93,27 +93,43 @@ if($("#teacher_register_form").validate({
     
             var send_data = new FormData();
             send_data.append('email',$("input[name='email']").val());
+            send_data.append('teacher_id',null);
             send_data.append('nrc_state_region',$("#nrc_state_region").val());
             send_data.append('nrc_township',$("#nrc_township").val());
             send_data.append('nrc_citizen',$("#nrc_citizen").val());
             send_data.append('nrc_number',$("#nrc_number").val());
             
             $.ajax({
-                url: BACKEND_URL+"/unique_email",
+                url: BACKEND_URL+"/checkEmail",//unique_email
                 type: 'post',
                 data:send_data,
                 contentType: false,
                 processData: false,
                 success: function(result){
-                    if(result.email!=null){
-                        Swal.fire("Email has been used, please check again!");
-                    }
-                    else if(result.nrc!=null){
-                        Swal.fire("NRC has been used, please check again!");
-                    }
-                    else if(result.email==null && result.nrc==null){                    
+                    // if(result.email!=null){
+                    //     Swal.fire("Email has been used, please check again!");
+                    // }
+                    // else if(result.nrc!=null){
+                    //     Swal.fire("NRC has been used, please check again!");
+                    // }
+                    // else if(result.email==null && result.nrc==null){                    
+                    //     $('#teacherModal').modal('show');
+                    //     send_email();                   
+                    // }
+                    
+                    if(result==2){
+                        $('#student_info_id').val(0);
                         $('#teacherModal').modal('show');
-                        send_email();                   
+                        send_email(); 
+                    }else if(result==1){                    
+                      Swal.fire("Email has been used, please check again!");
+                    }
+                    else if(result.length==1){
+                        
+                        $('#student_info_id').val(result[0].id);
+                      $('#teacherModal').modal('show');
+                      send_email();
+                      
                     }
                 }
             });
