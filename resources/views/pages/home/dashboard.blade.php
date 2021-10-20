@@ -1387,8 +1387,8 @@
                                         src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg"
                                         alt="">
                                     <p class="mt-2 " style="margin-right: 10px;">
-                                        <input type="file" class="custom-file-input" id="profile_photo" name="image"
-                                            accept="image/*" onchange="previewImageFile(this);">
+                                        <input type="file" class="custom-file-input" id="profile_photo" name="image_cpaff"
+                                            accept="image/*" onchange="previewImageFileCPAFF(this);">
                                     </p>
                                     <div class="form-text mb-2">Allowed Jpeg Image.</div>
                                     <input type="hidden" name="old_image_cpaff" id="old_image_cpaff">

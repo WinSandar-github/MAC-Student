@@ -60,4 +60,9 @@ class CPAOneRegisterController extends Controller
     {
         return view('pages.aa_register.aa_private_register');
     }
+
+    public function existing_user_cpa_one()
+    {
+        return view('pages.cpa.existing_user_cpa_one');
+    }
 }

@@ -1069,30 +1069,30 @@ function user_profile() {
                                     var invoice = data.invoice.filter(val => {
                                         return val.invoiceNo == $invoice_code && val.status == 0;
                                     });
+                                    if(latest_course_reg[0]?.isFinished==0){
+                                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
 
-                                    if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
+                                            $('.status').append(`
+                                            <tr>
+                                                <td>${latest_course_reg[0].batch.course.name} Application Form</td>
+                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                                <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info">Payment for App Form</a></td>
+                                            </tr>
+                                            `);
 
-                                        $('.status').append(`
-                                        <tr>
-                                            <td>${latest_course_reg[0].batch.course.name} Application Form</td>
-                                            <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                            <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                            <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info">Payment for App Form</a></td>
-                                        </tr>
-                                        `);
+                                        } else {
 
-                                    } else {
-
-                                        $('.status').append(`
-                                        <tr>
-                                            <td>${latest_course_reg[0].batch.course.name} Application Form</td>
-                                            <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                            <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                            <td><span class='badge bg-info'>Payment Success</span></td>
-                                        </tr>
-                                        `);
+                                            $('.status').append(`
+                                            <tr>
+                                                <td>${latest_course_reg[0].batch.course.name} Application Form</td>
+                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                                <td><span class='badge bg-info'>Payment Success</span></td>
+                                            </tr>
+                                            `);
+                                        }
                                     }
-
                                 }
 
                                 // $('.status').append(`
@@ -1108,7 +1108,7 @@ function user_profile() {
                                 //show data depend on Student Register status
 
 
-                                if (latest_stu_reg[0] && latest_course_reg[0].batch.course.code == latest_stu_reg[0].course.code) {
+                                if (latest_stu_reg[0] && latest_course_reg[0].batch.course.code == latest_stu_reg[0].batch.course.code) {
                                     $('.regi_fee_txt').text('Exam Registration Date')
                                     $('.self_study').hide();
                                     $('.private_school').hide();
@@ -1140,29 +1140,29 @@ function user_profile() {
                                                     || val.invoiceNo == 'prv_reg_' + latest_course_reg[0].batch.course.code
                                                     || val.invoiceNo == 'self_reg_' + latest_course_reg[0].batch.course.code ) && val.status == 0;
                                         });
+                                        if(latest_course_reg[0]?.isFinished==0){
+                                            if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
-                                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                                                $('.status').append(`
+                                                <tr>
+                                                    <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
+                                                    <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                    <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                                    <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info" >Payment for Reg Form</a></td>
+                                                </tr>
+                                                `);
 
-                                            $('.status').append(`
-                                            <tr>
-                                                <td>${latest_course_reg[0].batch.course.name} Application Form</td>
-                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                                <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                                <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info" >Payment for Reg Form</a></td>
-                                            </tr>
-                                            `);
-
-                                        } else {
-                                            $('.status').append(`
-                                            <tr>
-                                                <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
-                                                <td>${formatDate(latest_stu_reg[0].created_at)}</td>
-                                                <td>${formatDate(latest_stu_reg[0].updated_at)}</td>
-                                                <td><span class="badge bg-success">Approved</span></td>
-                                            </tr>
-                                            `);
+                                            } else {
+                                                $('.status').append(`
+                                                <tr>
+                                                    <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
+                                                    <td>${formatDate(latest_stu_reg[0].created_at)}</td>
+                                                    <td>${formatDate(latest_stu_reg[0].updated_at)}</td>
+                                                    <td><span class="badge bg-success">Approved</span></td>
+                                                </tr>
+                                                `);
+                                            }
                                         }
-
 
                                         var module = [];
 
@@ -1197,29 +1197,29 @@ function user_profile() {
                                                     var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
                                                     });
+                                                    if(latest_course_reg[0]?.isFinished==0){
+                                                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
-                                                    if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                                                            $('.status').append(`
+                                                            <tr>
+                                                                <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                                <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                                                <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info" >Payment for Exam Form</a></td>
+                                                            </tr>
+                                                            `);
 
-                                                        $('.status').append(`
-                                                        <tr>
-                                                            <td>${latest_course_reg[0].batch.course.name} Application Form</td>
-                                                            <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                                            <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                                            <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info" >Payment for Exam Form</a></td>
-                                                        </tr>
-                                                        `);
-
-                                                    }else{
-                                                        $('.status').append(`
-                                                        <tr>
-                                                            <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
-                                                            <td>${formatDate(last_exam[0].created_at)}</td>
-                                                            <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                            <td><span class="badge bg-success">Approved</span></td>
-                                                        </tr>
-                                                        `);
+                                                        }else{
+                                                            $('.status').append(`
+                                                            <tr>
+                                                                <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                                                <td>${formatDate(last_exam[0].created_at)}</td>
+                                                                <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                                <td><span class="badge bg-success">Approved</span></td>
+                                                            </tr>
+                                                            `);
+                                                        }
                                                     }
-
 
                                                     if (last_exam[0].grade == 1) {
 
@@ -1312,22 +1312,36 @@ function user_profile() {
 
                                                                                 let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
                                                                                 let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
-
-                                                                                $('.status').append(`
-                                                                                    <tr> <td colspan=2 ></td ><td>Action</td>
-                                                                                        <td>
-                                                                                        <span class="nav-item dropdown ">
-                                                                                            <a href="#" class="nav-link dropdown-toggle bg-success text-white" data-toggle="dropdown">Registration for<br> ${batch.course.name}</a>
-                                                                                            <div class="dropdown-menu">
-                                                                                                <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=3" class="dropdown-item">Mac</a>
-                                                                                                <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=1" class="dropdown-item">Selfstudy</a>
-                                                                                                <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=2" class="dropdown-item">Private School</a>
-                                                                                            </div>
-                                                                                        </span>
+                                                                                if(last_exam[0]?.batch_id!=batch.id)
+                                                                                {
+                                                                                    $('.status').append(`
+                                                                                        <tr> <td colspan=2 ></td ><td>Action</td>
+                                                                                            <td>
+                                                                                            <span class="nav-item dropdown ">
+                                                                                                <a href="#" class="nav-link dropdown-toggle bg-success text-white" data-toggle="dropdown">Registration for<br> ${batch.course.name}</a>
+                                                                                                <div class="dropdown-menu">
+                                                                                                    <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=3" class="dropdown-item">Mac</a>
+                                                                                                    <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=1" class="dropdown-item">Selfstudy</a>
+                                                                                                    <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=2" class="dropdown-item">Private School</a>
+                                                                                                </div>
+                                                                                            </span>
+                                                                                            </td>
                                                                                         </td>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            `);
+                                                                                    </tr>
+                                                                                `);
+                                                                                }
+                                                                                else{
+                                                                                    $('.status').append(`
+                                                                                        <tr> <td colspan=2 ></td ><td>Action</td>
+                                                                                            <td>
+                                                                                            <span class="nav-item dropdown ">
+                                                                                                <a href="javascript:void(0)" class="btn-sm btn btn-success">Coming Soon</a>
+                                                                                            </span>
+                                                                                            </td>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                `);
+                                                                                }
                                                                             } else {
                                                                                 $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td><a href='${FRONTEND_URL}${form_url}${batch.id}' class="btn btn-sm btn-success" > ${data.data[0].name} ${show_text}</a></td></tr > `);
                                                                             }
@@ -1464,29 +1478,29 @@ function user_profile() {
                                                     var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
                                                     });
+                                                    if(latest_course_reg[0]?.isFinished==0){
+                                                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
-                                                    if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                                                            $('.status').append(`
+                                                            <tr>
+                                                                <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                                <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                                                <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info" >Payment for Exam Form</a></td>
+                                                            </tr>
+                                                            `);
 
-                                                        $('.status').append(`
-                                                        <tr>
-                                                            <td>${latest_course_reg[0].batch.course.name} Application Form</td>
-                                                            <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                                            <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                                            <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info" >Payment for Exam Form</a></td>
-                                                        </tr>
-                                                        `);
-
-                                                    } else {
-                                                        $('.status').append(`
-                                                        <tr>
-                                                            <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
-                                                            <td>${formatDate(last_exam[0].created_at)}</td>
-                                                            <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                            <td><span class="badge bg-success">Approved</span></td>
-                                                        </tr>
-                                                        `);
+                                                        } else {
+                                                            $('.status').append(`
+                                                            <tr>
+                                                                <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                                                <td>${formatDate(last_exam[0].created_at)}</td>
+                                                                <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                                <td><span class="badge bg-success">Approved</span></td>
+                                                            </tr>
+                                                            `);
+                                                        }
                                                     }
-
                                                     if (last_exam[0].grade == 1) {
 
                                                         $('.regi_fee_txt').text('Application Form Fees')
@@ -1657,7 +1671,8 @@ function user_profile() {
 
                                                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
                                                                     // <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration for ${next_batch[0].course.name} </a>
-
+                                                                   if( next_batch[0].id!=last_exam[0]?.batch_id)
+                                                                   {
                                                                     $('.status').append(`
                                                                         <tr><td colspan=2></td><td>Action</td>
                                                                             <td>
@@ -1673,6 +1688,20 @@ function user_profile() {
                                                                         </td>
                                                                         </tr>
                                                                     `);
+                                                                   }
+                                                                   else{
+                                                                    $('.status').append(`
+                                                                    <tr><td colspan=2></td><td>Action</td>
+                                                                        <td>
+                                                                            <span class="nav-item dropdown ">
+                                                                                <a href="javascript:void(0)" class="btn-sm btn btn-success">Coming Soon</a>
+                                                                                
+                                                                            </span>
+                                                                        <td>
+                                                                    </td>
+                                                                    </tr>
+                                                                `);
+                                                                   }
                                                                 } else {
                                                                     $('.status').append(`
                                                                     <tr><td colspan=2></td><td>Action</td>
