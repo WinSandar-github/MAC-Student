@@ -215,7 +215,7 @@ function check_email() {
     }
 }
 
-function check_da_two_reg_email() {
+function check_da_existing_reg_email() {
     var text = localStorage.getItem('verify_code');
     var obj = JSON.parse(text);
     var verify_code = obj.data.verify_code;
@@ -227,7 +227,7 @@ function check_da_two_reg_email() {
         // $('#exampleModal').modal('show');
     } else {
         // $('#exampleModal1').modal('show');
-        createDATwoExistingRegister();
+        CreateDAExistingRegister();
         $('#DATwoRegEmailModal').modal('hide');
     }
 }
@@ -532,7 +532,7 @@ function createDaTwoMac() {
 }
 
 
-function createDATwoExistingRegister(){
+function CreateDAExistingRegister(){
     if ($("input[name=password]").val() != $("input[name=confirm_password]").val()) {
         alert("Your password and confirm password do not match!");
         return;
@@ -602,13 +602,20 @@ function createDATwoExistingRegister(){
     send_data.append('da_pass_roll_number', $("input[name=da_one_pass_personal_no]").val());
 
     send_data.append('type', $("input[name='attend_place']:checked").val());
-    // send_data.append('pass_type', $("input[name='da_one_attend_place']:checked").val());
+
+    if($("#da_type").val()=='da_2'){
+        send_data.append('type_da2', $("input[name='da_two_attend_place']:checked").val());
+        send_data.append('da_two_pass_level', $("input[name=da_two__pass_level]").val());
+        send_data.append('da_two_pass_exam_date', $("input[name=da_two__pass_exam_date]").val());
+        send_data.append('da_two_pass_personal_no', $("input[name=da_two__pass_personal_no]").val());
+        send_data.append('da_two_mac_type', $("input[name='da_two_attend_place']:checked").val() == 2 ? $("input[name='da_two_mac_type']:checked").val() : 99);
+    }
     send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
-    // send_data.append('pass_mac_type', $("input[name='da_one_attend_place']:checked").val() == 2 ? $("input[name='da_one_mac_type']:checked").val() : 88);
-    // send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
+    send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
+    send_data.append('da_type', $("#da_type").val());
     show_loader();
     $.ajax({
-        url: BACKEND_URL + "/da_two_reg_daonepass",
+        url: BACKEND_URL + "/da_existing_register",
         type: 'post',
         data: send_data,
         contentType: false,

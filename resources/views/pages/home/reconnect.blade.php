@@ -57,8 +57,7 @@
                             <li>
                                     <button value="course_list" onclick="location.href =`${FRONTEND_URL}/da_one_existing_reg_form`"> Diploma In Accountancy Part One Registration</button>
                             </li>                            
-                        </ul>
-                        <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
+                       
                             <li>
                                     <button class="course_list" onclick="location.href =`${FRONTEND_URL}/existing_user_cpa_one`"> Certified Public Accountant Part One Registration</button>
                             </li>

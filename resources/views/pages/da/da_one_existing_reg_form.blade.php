@@ -466,14 +466,14 @@
                                                     Module 2
                                                 </label>
                                             </div>
-                                            <div class="col-md-3 form-check-radio module_full">
+                                            {{-- <div class="col-md-3 form-check-radio module_full">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input" type="radio"
                                                             name="is_full_module" value='3' required>
                                                     <span class="form-check-sign"></span>
                                                     All Modules
                                                 </label>
-                                            </div>
+                                            </div> --}}
                                             <div class="col-md-3 form-check-radio module_full">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input" type="radio"
@@ -633,6 +633,7 @@
 
                                     <input type="hidden" id="passed_course_id" value="1">
                                     <input type="hidden" id="current_course_id" value="1">
+                                    <input type="hidden" id="da_type" value="da_1">
                                     <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span class="pull-left">၂၄။</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
                                         <div class="col-md-8">
@@ -700,7 +701,7 @@
                         </div>
                     </div>
                     <center>
-                        <button type="submit" id="btn1" onclick="check_da_one_existing_email()"
+                        <button type="submit" id="btn1" onclick="check_da_existing_reg_email()"
                                 class="btn btn-success btn-hover-dark w-30">Verify
                         </button>
                     </center>

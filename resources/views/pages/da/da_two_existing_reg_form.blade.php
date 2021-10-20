@@ -575,8 +575,8 @@
                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(င)</span>သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ<span style="color:red">*</span></label>
                                         <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
                                             <div class="form-check-radio px-0">
-                                                <label class="form-check-label" for="da_one_main_mac">
-                                                <input class="form-check-input " type="radio" id="da_one_main_mac" name="da_one_attend_place" value='2'  onclick="DAOneselectType()">
+                                                <label class="form-check-label" for="main_mac">
+                                                <input class="form-check-input " type="radio" id="main_mac" name="attend_place" value='2'  onclick="DAOneselectType()">
                                                     <span class="form-check-sign"></span>
                                                     ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး
                                                 </label>
@@ -585,8 +585,8 @@
                                                 <div class="mx-5 row  ">
 
                                                     <div class="col-md-5 form-check-radio px-0  ">
-                                                        <label class="form-check-label" for="da_one_sub_mac">
-                                                        <input class="form-check-input" type="radio" id="da_one_sub_mac" name="da_one_mac_type" value='1'    >
+                                                        <label class="form-check-label" for="sub_mac">
+                                                        <input class="form-check-input" type="radio" id="sub_mac" name="mac_type" value='1'    >
                                                             <span class="form-check-sign"></span>
                                                             ရန်ကုန်သင်တန်းကျောင်း
                                                         </label>
@@ -595,13 +595,13 @@
                                                 </div>
                                                 <div class="mx-5 row  ">
                                                 <div class="col-md-5  form-check-radio px-0  ">
-                                                    <label class="form-check-label" for="da_one_sub_mac2">
-                                                    <input class="form-check-input" type="radio" id="da_one_sub_mac2" name="da_one_mac_type" value='2'    >
+                                                    <label class="form-check-label" for="sub_mac2">
+                                                    <input class="form-check-input" type="radio" id="sub_mac2" name="mac_type" value='2'    >
                                                         <span class="form-check-sign"></span>
                                                         နေပြည်တော်သင်တန်းကျောင်း
                                                     </label>
                                                 </div>
-                                                <label  class="error attend_place_error" style="display:none;" for="da_one_mac_type">Please select one</label>
+                                                <label  class="error attend_place_error" style="display:none;" for="mac_type">Please select one</label>
 
                                             </div>
 
@@ -609,30 +609,31 @@
 
                                             <div class="form-check-radio px-0">
                                                 <!-- <input class="form-check-input" type="radio" name="type" value='1'  onclick="selectType()"> -->
-                                                <label class="form-check-label" for="da_one_private">
+                                                <label class="form-check-label" for="private">
 
-                                                    <input class="form-check-input" type="radio" id="da_one_private" name="da_one_attend_place" value='1' onclick="DAOneselectType()">
+                                                    <input class="form-check-input" type="radio" id="private" name="attend_place" value='1' onclick="DAOneselectType()">
                                                     <span class="form-check-sign" ></span>
                                                     ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
                                                 </label>
                                             </div>
                                             <div class="form-check-radio px-0">
                                                 <!-- <input class="form-check-input " type="radio" name="type" value='0'  onclick="selectType()"> -->
-                                                <label class="form-check-label" for="da_one_self">
+                                                <label class="form-check-label" for="self">
                                                     <!-- <span class="form-check-sign"></span> -->
-                                                    <input class="form-check-input" id="da_one_self" type="radio" name="da_one_attend_place" value='0' onclick="DAOneselectType()">
+                                                    <input class="form-check-input" id="self" type="radio" name="attend_place" value='0' onclick="DAOneselectType()">
                                                     <span class="form-check-sign" ></span>
                                                     ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
                                                 </label>
                                             </div>
                                             <div class="form-check-radio px-0">
-                                                <label  class="error attend_place_error" style="display:none;" for="da_one_attend_place">Please select one</label>
+                                                <label  class="error attend_place_error" style="display:none;" for="attend_place">Please select one</label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <input type="hidden" id="passed_course_id" value="1">
                                     <input type="hidden" id="current_course_id" value="2">
+                                    <input type="hidden" id="da_type" value="da_2">
                                     {{-- <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span class="pull-left">၂၄။</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
                                         <div class="col-md-8">
@@ -788,8 +789,8 @@
                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(စ)</span>သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ<span style="color:red">*</span></label>
                                         <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
                                             <div class="form-check-radio px-0">
-                                                <label class="form-check-label" for="main_mac">
-                                                <input class="form-check-input " type="radio" id="main_mac" name="attend_place" value='2'  onclick="selectType()">
+                                                <label class="form-check-label" for="da_two_main_mac">
+                                                <input class="form-check-input " type="radio" id="da_two_main_mac" name="da_two_attend_place" value='2'  onclick="selectType()">
                                                     <span class="form-check-sign"></span>
                                                     ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး
                                                 </label>
@@ -798,8 +799,8 @@
                                                 <div class="mx-5 row  ">
 
                                                     <div class="col-md-5 form-check-radio px-0  ">
-                                                        <label class="form-check-label" for="sub_mac">
-                                                        <input class="form-check-input" type="radio" id="sub_mac" name="mac_type" value='1'    >
+                                                        <label class="form-check-label" for="da_two_sub_mac">
+                                                        <input class="form-check-input" type="radio" id="da_two_sub_mac" name="da_two_mac_type" value='1'    >
                                                             <span class="form-check-sign"></span>
                                                             ရန်ကုန်သင်တန်းကျောင်း
                                                         </label>
@@ -808,13 +809,13 @@
                                                 </div>
                                                 <div class="mx-5 row  ">
                                                 <div class="col-md-5  form-check-radio px-0  ">
-                                                    <label class="form-check-label" for="sub_mac2">
-                                                    <input class="form-check-input" type="radio" id="sub_mac2" name="mac_type" value='2'    >
+                                                    <label class="form-check-label" for="da_two_sub_mac2">
+                                                    <input class="form-check-input" type="radio" id="da_two_sub_mac2" name="da_two_mac_type" value='2'    >
                                                         <span class="form-check-sign"></span>
                                                         နေပြည်တော်သင်တန်းကျောင်း
                                                     </label>
                                                 </div>
-                                                <label  class="error attend_place_error" style="display:none;" for="mac_type">Please select one</label>
+                                                <label  class="error attend_place_error" style="display:none;" for="da_two_mac_type">Please select one</label>
 
                                             </div>
 
@@ -822,24 +823,24 @@
 
                                             <div class="form-check-radio px-0">
                                                 <!-- <input class="form-check-input" type="radio" name="type" value='1'  onclick="selectType()"> -->
-                                                <label class="form-check-label" for="private">
+                                                <label class="form-check-label" for="da_two_private">
 
-                                                    <input class="form-check-input" type="radio" id="private" name="attend_place" value='1' onclick="selectType()">
+                                                    <input class="form-check-input" type="radio" id="da_two_private" name="da_two_attend_place" value='1' onclick="selectType()">
                                                     <span class="form-check-sign" ></span>
                                                     ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
                                                 </label>
                                             </div>
                                             <div class="form-check-radio px-0">
                                                 <!-- <input class="form-check-input " type="radio" name="type" value='0'  onclick="selectType()"> -->
-                                                <label class="form-check-label" for="self">
+                                                <label class="form-check-label" for="da_two_self">
                                                     <!-- <span class="form-check-sign"></span> -->
-                                                    <input class="form-check-input" id="self" type="radio" name="attend_place" value='0' onclick="selectType()">
+                                                    <input class="form-check-input" id="da_two_self" type="radio" name="da_two_attend_place" value='0' onclick="selectType()">
                                                     <span class="form-check-sign" ></span>
                                                     ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
                                                 </label>
                                             </div>
                                             <div class="form-check-radio px-0">
-                                                <label  class="error attend_place_error" style="display:none;" for="attend_place">Please select one</label>
+                                                <label  class="error attend_place_error" style="display:none;" for="da_two_attend_place">Please select one</label>
                                             </div>
                                         </div>
                                     </div>
@@ -878,7 +879,7 @@
     <form method="post" id="form1" class="needs-validation" action="javascript:void(0);" enctype="multipart/form-data"
           novalidate>
         @csrf
-        <div class="modal fade" id="DATwoRegEmailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="DATwoExistingEmailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -900,7 +901,7 @@
                         </div>
                     </div>
                     <center>
-                        <button type="submit" id="btn1" onclick="check_da_two_reg_email()"
+                        <button type="submit" id="btn1" onclick="check_da_existing_reg_email()"
                                 class="btn btn-success btn-hover-dark w-30">Verify
                         </button>
                     </center>
