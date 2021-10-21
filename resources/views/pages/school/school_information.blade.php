@@ -514,7 +514,15 @@
                                         <input type="text" class="form-control" id="s_code" name="s_code" readonly>
                                         
                                     </div>
-                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label"><span
+                                                class="pull-left">၁၀။</span>ကျောင်းမှတ်ပုံတင်ကတ်ပြား</label>
+                                    <div class="col-md-8">
+                                        <input type="file" class="form-control" id="school_card" name="school_card" required>
+                                        
+                                    </div>
+                            </div>
                                 <!-- <div class="row mb-3">
                                     <label class="col-md-4 col-form-label label"><span
                                                 class="pull-left">၉။</span>Applied Date</label>
@@ -525,7 +533,7 @@
                                 </div> -->
                                 <div class="row mb-3">
                                     <label class="col-md-4 col-form-label label"><span
-                                                class="pull-left">၁၀။</span>Status</label>
+                                                class="pull-left">၁၁။</span>Status</label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" id="message" readonly>
                                        
@@ -533,7 +541,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-md-8 col-form-label label"><span
-                                                class="pull-left">၁၁။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
+                                                class="pull-left">၁၂။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
 
                                     
                                 </div>
@@ -685,12 +693,22 @@
                                             </div>
                                     </div>
                                     <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span
-                                                        class="pull-left">၃။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ') }}</label>
-                                            <div class="col-md-8">
-                                            <textarea type="text" style="resize:none;" name="school_address" class="form-control" autocomplete='off' ></textarea>
-                                            </div>
-                                        
+                                        <label class="col-md-4 col-form-label label"><span
+                                                    class="pull-left">၃။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ(မြန်မာ)') }}</label>
+                                        <div class="col-md-8">
+                                            <textarea type="text" style="resize:none;" name="school_address"
+                                                        class="form-control" autocomplete='off' ></textarea>
+
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label class="col-md-4 col-form-label label"><span
+                                                    class="pull-left">၄။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ(အင်္ဂလိပ်)') }}</label>
+                                        <div class="col-md-8">
+                                            <textarea type="text" style="resize:none;" name="eng_school_address"
+                                                        class="form-control" autocomplete='off' ></textarea>
+
+                                        </div>
                                     </div>
                                     <div class="row mb-3">
 
@@ -711,7 +729,7 @@
                                     </div>
                                     <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span
-                                                    class="pull-left">၄။</span>{{ __('ပိုင်ဆိုင်မှုပုံစံ') }}</label>
+                                                    class="pull-left">၅။</span>{{ __('ပိုင်ဆိုင်မှုပုံစံ') }}</label>
 
                                         <div class="col-md-8">
                                             
@@ -771,7 +789,7 @@
                                         <div class="row mb-3">
 
                                             <label class="col-md-4 col-form-label label"><span
-                                                        class="pull-left">၅။</span>{{ __('ကျောင်းခွဲတည်နေရာလိပ်စာ') }}</label>
+                                                        class="pull-left">၆။</span>{{ __('ကျောင်းခွဲတည်နေရာလိပ်စာ') }}</label>
                                         </div>
                                         <div class="row">
 
