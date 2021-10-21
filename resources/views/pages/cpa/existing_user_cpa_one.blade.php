@@ -35,7 +35,7 @@
                         <li><a href="/">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">CPA One Existing User Registration <span>Form</span></h2>
+                    <h2 class="title">Existing Registration For CPA Part One<span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -78,7 +78,7 @@
                                     <div class="row mb-5">
                                         <h5 class="card-title text-center fw-bolder">
                                             မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
-                                            လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ
+                                            လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
@@ -490,7 +490,7 @@
                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>ခုနှစ်/လ</label>                                            
                                         <div class="col-md-8">
                                             <div class="">
-                                            <input type="text" class="form-control" name="cpa_one_pass_exam_date" required>
+                                            <input type="text" class="form-control" name="cpa_one_pass_exam_date"  placeholder="ခုနှစ်၊လ(MM-YYYY)" required>
                                             </div>
                                         </div>                                            
                                     </div>
@@ -548,7 +548,6 @@
                                             </div>
 
                                             <div class="form-check-radio px-0">
-                                                <!-- <input class="form-check-input" type="radio" name="type" value='1'  onclick="selectType()"> -->
                                                 <label class="form-check-label" for="private">
 
                                                     <input class="form-check-input" type="radio" id="private" name="attend_place" value='1' onclick="selectType()">
@@ -557,9 +556,7 @@
                                                 </label>
                                             </div>
                                             <div class="form-check-radio px-0">
-                                                <!-- <input class="form-check-input " type="radio" name="type" value='0'  onclick="selectType()"> -->
                                                 <label class="form-check-label" for="self">
-                                                    <!-- <span class="form-check-sign"></span> -->
                                                     <input class="form-check-input" id="self" type="radio" name="attend_place" value='0' onclick="selectType()">
                                                     <span class="form-check-sign" ></span>
                                                     ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
@@ -748,7 +745,7 @@
             });
             $('#btn_cash').prop('disabled', true);
         });
-        loadPassedBatchList();
+        // loadPassedBatchList();
         loadCurrentBatchList();
     </script>
 @endpush
