@@ -337,7 +337,7 @@ function Papp_Submit(){
     data.append('address', $("input[name=address]").val());
     data.append('phone', $("input[name=phone]").val());
     data.append('contact_mail', $("input[name=contact_mail]").val());
-    data.append('reg_no', $("input[name=reg_no]").val());
+    data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
     data.append('type',0);
     data.append('self_confession',JSON.stringify($arr));
     show_loader(); 
@@ -438,7 +438,7 @@ function loadPappData()
             $('#address').val(papp_data.address);
             $('#phone').val(papp_data.phone);
             $('#contact_mail').val(papp_data.contact_mail);
-            $('#cpaff_reg_no').val(papp_data.cpa_batch_no);
+            $('#cpaff_reg_no').val(papp_data.cpaff_reg_no);
             //$('#remark_description').text(papp_data.reject_description);
         }
     });
@@ -750,8 +750,10 @@ function RenewPAPP(){
                 send_data.append('papp_date', $("input[name=papp_date]").val());
                 send_data.append('papp_renew_date', $("input[name=papp_renew_year]").val());
                 send_data.append('papp_reg_date', $("input[name=papp_reg_date]").val());
+                send_data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
                 send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
-                send_data.append('audit_work', $("input[name=total_audit]").val());
+                send_data.append('audit_work', $("input[name=audit_work]").val());
+                send_data.append('audit_year', $("input[name=audit_year]").val());
 
                 send_data.append('cpa_ff_recommendation', papp_file);
                 // send_data.append('recommendation_183', file_183);
@@ -769,7 +771,7 @@ function RenewPAPP(){
                 send_data.append('address', $("input[name=address]").val());
                 send_data.append('phone', $("input[name=phone]").val());
                 send_data.append('contact_mail', $("input[name=contact_mail]").val());
-                send_data.append('reg_no', $("input[name=reg_no]").val());
+                // send_data.append('reg_no', $("input[name=reg_no]").val());
                 send_data.append('type',1);
                 //send_data.append('_method', 'POST');
                 show_loader();
@@ -957,13 +959,15 @@ function createReconnectPapp(){
 
     //cpaff_data    
     send_data.append('cpa_certificate', cpa_certificate);
-    send_data.append('reg_no', $("input[name=reg_no]").val());
+    send_data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
     send_data.append('old_card_no', $("input[name=reg_card_no]").val());
     send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());
     send_data.append('old_card_file', $("input[name=renew_file]")[0].files[0]);
     send_data.append('is_convicted', $("input[name=fine_person]").val());
     send_data.append('last_paid_year', $("input[name=cpaff_last_renew_year]").val());
-    send_data.append('reg_date', $("input[name=papp_reg_year]").val());
+    send_data.append('cpaff_reg_year', $("input[name=cpaff_reg_year]").val());
+    send_data.append('resign', $("input[name=resign]").val());
+    send_data.append('resign_date', $("input[name=resign_date]").val());
     send_data.append('is_renew',2);
 
     //papp_data
@@ -971,8 +975,9 @@ function createReconnectPapp(){
     send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
     send_data.append('papp_reg_date', $("input[name=papp_reg_year]").val());
     send_data.append('cpa_ff_recommendation', papp_file);
-    send_data.append('submitted_from_date', $("input[name=from_date]").val());
-    send_data.append('submitted_to_date', $("input[name=to_date]").val());
+    // send_data.append('submitted_from_date', $("input[name=from_date]").val());
+    // send_data.append('submitted_to_date', $("input[name=to_date]").val());
+    send_data.append('papp_resign_date', $("input[name=papp_resign_date]").val());
     send_data.append('latest_reg_year', $("input[name=latest_reg_year]").val());
     send_data.append('submitted_stop_form', $("input[type='radio'][name='submitted_stop_form']:checked").val());
     if(firm_check.checked==true){
