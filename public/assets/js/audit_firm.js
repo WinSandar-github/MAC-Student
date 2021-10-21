@@ -169,55 +169,55 @@ function dateQuery(){
     }
 }
 
-function allowToRenew()
-{
-    var student =JSON.parse(localStorage.getItem("studentinfo"));
-    var student_id = student.id;
-    if(student!=null){
-      $.ajax({
-        type: "GET",
-        url: BACKEND_URL+"/checkVerify/"+student_id,
-        success: function (data){
-          console.log("allow to renew",data);
-            if(data.audit_firm_type_id == 1){
-              // audit firm
-              if(data.status == 1 && data.is_renew == 0 && data.offline_user == 1){
-                // to renew approved offline users
-                $('#check_renew').css('display','block');
-                $('#check_renew_nonaudit').css('display','none');
-                $("#renew_btn").css('display','block'); // renew btn in information page
-                $(".register-btn").css('display','none'); // register btn in information page
-              }
-              else if(data.status == 1 && data.is_renew == 1 && data.offline_user != 1){
-                // to renew normal users who are expired
-                $('#check_renew').css('display','block');
-                $('#check_renew_nonaudit').css('display','none');
-                $("#renew_btn").css('display','block'); // renew btn in information page
-                $(".register-btn").css('display','none'); // register btn in information page
-              }
-            }
-            else{
-              console.log("4");
-              // non-audit firm
-              if(data.status == 1 && data.is_renew == 0 && data.offline_user == 1){
-                // to renew approved offline users
-                $('#check_renew').css('display','none');
-                $('#check_renew_nonaudit').css('display','block');
-                $("#renew_btn_nonaudit").css('display','block'); // renew btn in information page
-                $(".register-btn").css('display','none'); // register btn in information page
-              }
-              else if(data.status == 1 && data.is_renew == 1 && data.offline_user != 1){
-                // to renew normal users who are expired
-                $('#check_renew').css('display','none');
-                $('#check_renew_nonaudit').css('display','block');
-                $("#renew_btn_nonaudit").css('display','block'); // renew btn in information page
-                $(".register-btn").css('display','none'); // register btn in information page
-              }
-            }
-          }
-        })
-    }
-}
+// function allowToRenew()
+// {
+//     var student =JSON.parse(localStorage.getItem("studentinfo"));
+//     var student_id = student.id;
+//     if(student!=null){
+//       $.ajax({
+//         type: "GET",
+//         url: BACKEND_URL+"/checkVerify/"+student_id,
+//         success: function (data){
+//           console.log("allow to renew",data);
+//             if(data.audit_firm_type_id == 1){
+//               // audit firm
+//               if(data.status == 1 && data.is_renew == 0 && data.offline_user == 1){
+//                 // to renew approved offline users
+//                 $('#check_renew').css('display','block');
+//                 $('#check_renew_nonaudit').css('display','none');
+//                 $("#renew_btn").css('display','block'); // renew btn in information page
+//                 $(".register-btn").css('display','none'); // register btn in information page
+//               }
+//               else if(data.status == 1 && data.is_renew == 1 && data.offline_user != 1){
+//                 // to renew normal users who are expired
+//                 $('#check_renew').css('display','block');
+//                 $('#check_renew_nonaudit').css('display','none');
+//                 $("#renew_btn").css('display','block'); // renew btn in information page
+//                 $(".register-btn").css('display','none'); // register btn in information page
+//               }
+//             }
+//             else{
+//               console.log("4");
+//               // non-audit firm
+//               if(data.status == 1 && data.is_renew == 0 && data.offline_user == 1){
+//                 // to renew approved offline users
+//                 $('#check_renew').css('display','none');
+//                 $('#check_renew_nonaudit').css('display','block');
+//                 $("#renew_btn_nonaudit").css('display','block'); // renew btn in information page
+//                 $(".register-btn").css('display','none'); // register btn in information page
+//               }
+//               else if(data.status == 1 && data.is_renew == 1 && data.offline_user != 1){
+//                 // to renew normal users who are expired
+//                 $('#check_renew').css('display','none');
+//                 $('#check_renew_nonaudit').css('display','block');
+//                 $("#renew_btn_nonaudit").css('display','block'); // renew btn in information page
+//                 $(".register-btn").css('display','none'); // register btn in information page
+//               }
+//             }
+//           }
+//         })
+//     }
+// }
 
 function verifyStatus()
 {

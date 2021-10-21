@@ -18,10 +18,10 @@ function user_profile() {
               //checkPaymentAudit();
               //audit_reg_feedback();
 
-              if(firm_info.audit_firm_type_id == 1){
+              if(firm_info[0].audit_firm_type_id == 1){
                 // Audit Firm
-                if(firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user != 1){
-                  // to do payment for approved normal user
+                if(firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user == 0){
+                  // to do payment for approved normal renew user
                   console.log('to do payment for approved normal user');
                   var invoice = data.invoice.filter(val => {
                     return val.invoiceNo == 'audit_renew' && val.status == 0;
@@ -33,6 +33,21 @@ function user_profile() {
                     $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
                   }
                 }
+
+                else if(firm_info[0].status == 1 && firm_info[0].is_renew == 0 && firm_info[0].offline_user == 0){
+                  // to do payment for approved initial user
+                  console.log('to do payment for approved initial user');
+                  var invoice = data.invoice.filter(val => {
+                    return val.invoiceNo == 'audit_initial' && val.status == 0;
+                  });
+
+                  if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
+                    $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
+                  }else{
+                    $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                  }
+                }
+
                 else if(firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user == 1){
                   // to do payment for approved offline user
                  console.log('to do payment for approved offline user');
@@ -50,7 +65,7 @@ function user_profile() {
               else{
                 // Non-Audit Firm
                 if(firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user != 1){
-                  // to do payment for approved normal user
+                  // to do payment for approved normal renew user
                   console.log("non audit 1");
                   var invoice = data.invoice.filter(val => {
                     return val.invoiceNo == 'non_audit_renew' && val.status == 0;
@@ -62,6 +77,21 @@ function user_profile() {
                     $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
                   }
                 }
+
+                else if(firm_info[0].status == 1 && firm_info[0].is_renew == 0 && firm_info[0].offline_user == 0){
+                  // to do payment for approved initial user
+                  console.log('non audit 2');
+                  var invoice = data.invoice.filter(val => {
+                    return val.invoiceNo == 'non_audit_initial' && val.status == 0;
+                  });
+
+                  if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
+                    $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
+                  }else{
+                    $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                  }
+                }
+
                 else if(firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user == 1){
                   // to do payment for approved offline user
                  console.log("non audit 2");
@@ -529,14 +559,17 @@ function user_profile() {
                             if (end_time <= today_time && latest_article[0].done_status == 0) {
                                 if (latest_article[0].done_form_attach && latest_article[0].done_status == 0) {
                                     $('.qt_article_status').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
-                                } else {
-                                    $('.qt_article_status').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/Article_1year_Completed_Form.doc" target="_blank">Download File</div></div></td></tr>`);
+                                } else if(latest_article[0].yes_done_attach == 1){
+                                    $('.qt_article_status').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/Article_1year_Completed_Form.pdf" target="_blank">Download File</div></div></td></tr>`);
                                     $('.qt_article_status').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='done_form'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='done_form_btn' onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
+                                }else{
+                                    $('.qt_article_status').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
                                 }
                             } else if (latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1 && latest_article[0].done_status == 0) {
                                 resign_article_url = '/article_resign_registration';
                                 $('.qt_article_status').append(`<tr><td colspan=2></td><td>Leave Request Register</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs leave_request_btn' onclick='leaveRequestRegister(${latest_article[0].id})'>Leave Request</button></div></div></td></tr>`);
                                 $('.qt_article_status').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
+                                // $('.qt_article_status').append(`<tr><td colspan=2></td><td>Resign Register</td><td><button type='button' class='btn btn-md btn-success' id='resign_btn' onclick='resignRegister();'>Resign Register</button></td></tr>`);
                             } else if (latest_article[0].done_status == 1) {
                                 if (latest_stu_reg[0].course.code == "cpa_2" && exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)) {
                                     article_url = '/article_information';
@@ -553,28 +586,42 @@ function user_profile() {
                                 }
                             }
                             if(!latest_article[0].mentor_attach_file){
-                                $('.qt_article_status').append(`<tr><td></td><td colspan=2>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">Download File</div></div></td></tr>`);
+                                $('.qt_article_status').append(`<tr><td></td><td colspan=2>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/contract_CIIPass_QTPass.pdf" target="_blank">Download File</div></div></td></tr>`);
+                                $('.qt_article_status').append(`<tr><td></td><td colspan=3>Download ရယူပီးစာရွက်စာတမ်းများကို MACရုံးဒုညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံလက်မှတ်ရေးထိုးပြီးမှသာတင်သွင်းရန်</td><td></td></tr>`);
                                 $('.qt_article_status').append(`<tr><td colspan=2></td><td>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='attach_file'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
                             }
                             if(latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null){
                                 $('.qt_article_status').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                             }
                         }else if(latest_article[0]?.article_form_type == 'resign' && latest_article[0].resign_status == 1){
-                            if(latest_article[0].done_status == 0){
-                                // $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Resign Fee</button></div></div></td></tr>`);
-                                if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
-                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
-                                }else{
-                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </div></div></td></tr>`);
-                                }
-                            }
-                            // else if(latest_article[0].done_status == 0 && latest_article[0].registration_fee != null){
-                            //     $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
+                            // if(latest_article[0].done_status == 0){
+                            //     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                            //         $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
+                            //     }else{
+                            //         $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </div></div></td></tr>`);
+                            //     }
                             // }
-                            else if(latest_article[0].done_status == 1){
+                            // // else if(latest_article[0].done_status == 0 && latest_article[0].registration_fee != null){
+                            // //     $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
+                            // // }
+                            // else if(latest_article[0].done_status == 1){
+                                var resign_date=new Date(latest_article[0].resign_date);
+                                var year = resign_date.getFullYear();
+                                var month = resign_date.getMonth();
+                                var day = resign_date.getDate();
+
+                                resign_date = new Date(year + 1, month, day-1);
+                                var today = new Date();
+                                var resign_time = resign_date.getTime();
+                                var today_time = today.getTime();
+
                                 article_url = '/article_information';
-                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
-                            }
+                                if(resign_time <= today_time){
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
+                                }else{
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
+                                }
+                            // }
                         }
 
                     } else {
@@ -2281,15 +2328,18 @@ function user_profile() {
                                 if (end_time <= today_time && latest_article[0].done_status == 0) {
                                     if (latest_article[0].done_form_attach && latest_article[0].done_status == 0) {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
-                                    } else {
+                                    } else if(latest_article[0].yes_done_attach == 1){
                                         //
-                                        $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/Article_1year_Completed_Form.doc" target="_blank">Download File</div></div></td></tr>`);
+                                        $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/Article_1year_Completed_Form.pdf" target="_blank">Download File</div></div></td></tr>`);
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='done_form'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='done_form_btn' onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
+                                    }else{
+                                        $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
                                     }
                                 } else if (latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1 && latest_article[0].done_status == 0) {
                                     resign_article_url = '/article_resign_registration';
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Leave Request Register</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs leave_request_btn' onclick='leaveRequestRegister(${latest_article[0].id})'>Leave Request</button></div></div></td></tr>`);
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
+                                    // $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td><button type='button' class='btn btn-md btn-success' id='resign_btn' onclick='resignRegister();'>Resign Register</button></td></tr>`);
                                 } else if (latest_article[0].done_status == 1) {
                                     if (latest_stu_reg[0].course.code == "cpa_2" && exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)) {
                                         article_url = '/article_information';
@@ -2306,28 +2356,42 @@ function user_profile() {
                                     }
                                 }
                                 if (!latest_article[0].mentor_attach_file) {
-                                    $('.article_btn').append(`<tr><td></td><td colspan=2>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">Download File</div></div></td></tr>`);
+                                    $('.article_btn').append(`<tr><td></td><td colspan=2>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/contract_CIIPass_QTPass.pdf" target="_blank">Download File</div></div></td></tr>`);
+                                    $('.article_btn').append(`<tr><td></td><td colspan=3>Download ရယူပီးစာရွက်စာတမ်းများကို MACရုံးဒုညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံလက်မှတ်ရေးထိုးပြီးမှသာတင်သွင်းရန်</td><td></td></tr>`);
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='attach_file'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
                                 }
                                 if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                                 }
                             } else if (latest_article[0]?.article_form_type == 'resign' && latest_article[0].resign_status == 1) {
-                                if (latest_article[0].done_status == 0) {
-                                    // $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Resign Fee</button></div></div></td></tr>`);
-                                    if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
-                                        $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
-                                    }else{
-                                        $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </div></div></td></tr>`);
-                                    }
-                                }
-                                // else if (latest_article[0].done_status == 0 && latest_article[0].registration_fee != null) {
-                                //     $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
-                                // }
-                                else if (latest_article[0].done_status == 1) {
+                                // if (latest_article[0].done_status == 0) {
+                                //     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                                //         $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
+                                //     }else{
+                                //         $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </div></div></td></tr>`);
+                                //     }
+                                // } 
+                                // // else if (latest_article[0].done_status == 0 && latest_article[0].registration_fee != null) {
+                                // //     $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
+                                // // } 
+                                // else if (latest_article[0].done_status == 1) {
+                                    var resign_date=new Date(latest_article[0].resign_date);
+                                    var year = resign_date.getFullYear();
+                                    var month = resign_date.getMonth();
+                                    var day = resign_date.getDate();
+
+                                    resign_date = new Date(year + 1, month, day-1);
+                                    var today = new Date();
+                                    var resign_time = resign_date.getTime();
+                                    var today_time = today.getTime();
+
                                     article_url = '/article_information';
-                                    $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
-                                }
+                                    if(resign_time <= today_time){
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
+                                    }else{
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
+                                    }
+                                // }
                             }
 
                         } else {
@@ -2497,15 +2561,18 @@ function user_profile() {
                                     if (end_time <= today_time && latest_article[0].done_status == 0) {
                                         if (latest_article[0].done_form_attach && latest_article[0].done_status == 0) {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
-                                        } else {
+                                        } else if(latest_article[0].yes_done_attach == 1){
                                             //$('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
-                                            $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/Article_1year_Completed_Form.doc" target="_blank">Download File</div></div></td></tr>`);
+                                            $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/Article_1year_Completed_Form.pdf" target="_blank">Download File</div></div></td></tr>`);
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='done_form'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='done_form_btn' onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
+                                        }else{
+                                            $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
                                         }
                                     } else if (latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1 && latest_article[0].done_status == 0) {
                                         resign_article_url = '/article_resign_registration';
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Leave Request Register</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs leave_request_btn' onclick='leaveRequestRegister(${latest_article[0].id})'>Leave Request</button></div></div></td></tr>`);
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
+                                        //$('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td><button type='button' class='btn btn-md btn-success' id='resign_btn' onclick='resignRegister();'>Resign Register</button></td></tr>`);
                                     } else if (latest_article[0].done_status == 1) {
                                         if (latest_stu_reg[0].course.code == "cpa_2" && exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)) {
                                             article_url = '/article_information';
@@ -2523,28 +2590,42 @@ function user_profile() {
                                         }
                                     }
                                     if (!latest_article[0].mentor_attach_file) {
-                                        $('.article_btn').append(`<tr><td></td><td colspan=2>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">Download File</div></div></td></tr>`);
+                                        $('.article_btn').append(`<tr><td></td><td colspan=2>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/contract_CIIPass_QTPass.pdf" target="_blank">Download File</div></div></td></tr>`);
+                                        $('.article_btn').append(`<tr><td></td><td colspan=3>Download ရယူပီးစာရွက်စာတမ်းများကို MACရုံးဒုညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံလက်မှတ်ရေးထိုးပြီးမှသာတင်သွင်းရန်</td><td></td></tr>`);
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='attach_file'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
                                     }
                                     if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                                     }
                                 } else if (latest_article[0]?.article_form_type == 'resign' && latest_article[0].resign_status == 1) {
-                                    if (latest_article[0].done_status == 0) {
-                                        // $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Resign Fee</button></div></div></td></tr>`);
-                                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
-                                            $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
-                                        }else{
-                                            $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </div></div></td></tr>`);
-                                        }
-                                    }
+                                    // if (latest_article[0].done_status == 0) {
+                                    //     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                                    //         $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
+                                    //     }else{
+                                    //         $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </div></div></td></tr>`);
+                                    //     }
+                                    // } 
                                     // else if (latest_article[0].done_status == 0 && latest_article[0].registration_fee != null) {
                                     //     $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
-                                    // }
-                                    else if (latest_article[0].done_status == 1) {
+                                    // } 
+                                    // if (latest_article[0].done_status == 1) {
+                                        var resign_date=new Date(latest_article[0].resign_date);
+                                        var year = resign_date.getFullYear();
+                                        var month = resign_date.getMonth();
+                                        var day = resign_date.getDate();
+
+                                        resign_date = new Date(year + 1, month, day-1);
+                                        var today = new Date();
+                                        var resign_time = resign_date.getTime();
+                                        var today_time = today.getTime();
+
                                         article_url = '/article_information';
-                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
-                                    }
+                                        if(resign_time <= today_time){
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
+                                        }else{
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
+                                        }
+                                    // }
                                 }
                             } else {
 
@@ -2564,14 +2645,17 @@ function user_profile() {
                                     if (end_time <= today_time && latest_gov_article[0].done_status == 0) {
                                         if (latest_gov_article[0].done_form_attach && latest_gov_article[0].done_status == 0) {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
-                                        } else {
-                                            $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/Article_1year_Completed_Form.doc" target="_blank">Download File</div></div></td></tr>`);
+                                        } else if(latest_gov_article[0].yes_done_attach == 1){
+                                            $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/Article_1year_Completed_Form.pdf" target="_blank">Download File</div></div></td></tr>`);
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='gov_done_form'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='gov_done_form_btn' onclick='saveGovDoneForm(${latest_gov_article[0].id})'>Submit</button></div></div></td></tr>`);
+                                        }else{
+                                            $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
                                         }
                                     } else if (latest_gov_article[0].status == 1 && latest_gov_article[0].done_status == 0) {
                                         resign_article_url = '/article_resign_registration';
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Leave Request Register</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs leave_request_btn' onclick='leaveGovRequestRegister(${latest_gov_article[0].id})'>Leave Request</button></div></div></td></tr>`);
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
+                                        // $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td><button type='button' class='btn btn-md btn-success' id='resign_btn' onclick='resignRegister();'>Resign Register</button></td></tr>`);
                                     } else if (latest_gov_article[0].done_status == 1) {
                                         if (latest_stu_reg[0].course.code == "cpa_2" && exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)) {
                                             article_url = '/article_information';
@@ -2782,6 +2866,15 @@ function isEmpty(obj) {
 
         return Object.keys(obj).length === 0;
     }
+}
+
+function resignRegister(){
+    
+}
+
+function renewRegister(){
+    alert("အလုပ်သင်ပြန်လည်ဆင်းမည်ဆိုပါက နုတ်ထွက်ခွင့်ပြုသည့်နေ့မှစ၍ အနည်းဆုံးတစ်နှစ်ကြာမှသာ ပြန်လည်ဆင်းခွင့်ရှိပါမည်။");
+    $("#article_renew_btn").prop('disabled', true);
 }
 
 function leaveRequestRegister(id){
@@ -3647,4 +3740,54 @@ function updateProfileMentor() {
             location.reload();
         }
     });
+}
+
+function allowToRenew()
+{
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    var student_id = student.id;
+    if(student!=null){
+      $.ajax({
+        type: "GET",
+        url: BACKEND_URL+"/checkVerify/"+student_id,
+        success: function (data){
+          console.log("allow to renew",data);
+            if(data.audit_firm_type_id == 1){
+              // audit firm
+              if(data.status == 1 && data.is_renew == 0 && data.offline_user == 1){
+                // to renew approved offline users
+                $('#check_renew').css('display','block');
+                $('#check_renew_nonaudit').css('display','none');
+                $("#renew_btn").css('display','block'); // renew btn in information page
+                $(".register-btn").css('display','none'); // register btn in information page
+              }
+              else if(data.status == 1 && data.is_renew == 1 && data.offline_user != 1){
+                // to renew normal users who are expired
+                $('#check_renew').css('display','block');
+                $('#check_renew_nonaudit').css('display','none');
+                $("#renew_btn").css('display','block'); // renew btn in information page
+                $(".register-btn").css('display','none'); // register btn in information page
+              }
+            }
+            else{
+              console.log("4");
+              // non-audit firm
+              if(data.status == 1 && data.is_renew == 0 && data.offline_user == 1){
+                // to renew approved offline users
+                $('#check_renew').css('display','none');
+                $('#check_renew_nonaudit').css('display','block');
+                $("#renew_btn_nonaudit").css('display','block'); // renew btn in information page
+                $(".register-btn").css('display','none'); // register btn in information page
+              }
+              else if(data.status == 1 && data.is_renew == 1 && data.offline_user != 1){
+                // to renew normal users who are expired
+                $('#check_renew').css('display','none');
+                $('#check_renew_nonaudit').css('display','block');
+                $("#renew_btn_nonaudit").css('display','block'); // renew btn in information page
+                $(".register-btn").css('display','none'); // register btn in information page
+              }
+            }
+          }
+        })
+    }
 }
