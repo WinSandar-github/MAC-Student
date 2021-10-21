@@ -24,34 +24,34 @@ function AddDAEdu() {
     count++;
 }
 
-function loadPassedBatchList(){
-    var course_id = document.getElementById("passed_course_id").value;
-    var select = document.getElementById("selected_batch_id");
-    $.ajax({
-        url: BACKEND_URL + "/get_passed_batch/" + course_id,
-        type: 'get',
-        data: "",
-        success: function (data) {
-            var batch_data = data.data;
-            batch_data.forEach(function (element) {
-                console.log('batch_data',element);
-                var option = document.createElement('option');
-                option.text = element.name + "/" + element.name_mm;
-                option.value = element.id;
-                select.add(option, 1);
-                //$("#selected_school_id").css('display','inline');
-                //$("#selected_school_id").siblings(".nice-select").css('display','none');
-                //$("#selected_school_id").siblings(".check-service-other").css('display','inline-table');
+// function loadPassedBatchList(){
+//     var course_id = document.getElementById("passed_course_id").value;
+//     var select = document.getElementById("selected_batch_id");
+//     $.ajax({
+//         url: BACKEND_URL + "/get_passed_batch/" + course_id,
+//         type: 'get',
+//         data: "",
+//         success: function (data) {
+//             var batch_data = data.data;
+//             batch_data.forEach(function (element) {
+//                 console.log('batch_data',element);
+//                 var option = document.createElement('option');
+//                 option.text = element.name + "/" + element.name_mm;
+//                 option.value = element.id;
+//                 select.add(option, 1);
+//                 //$("#selected_school_id").css('display','inline');
+//                 //$("#selected_school_id").siblings(".nice-select").css('display','none');
+//                 //$("#selected_school_id").siblings(".check-service-other").css('display','inline-table');
 
 
-            });
-        },
-        error: function (message) {
+//             });
+//         },
+//         error: function (message) {
 
-        }
+//         }
 
-    });
-}
+//     });
+// }
 
 function loadCurrentBatchList(){
     var course_id = document.getElementById("current_course_id").value;
@@ -228,7 +228,7 @@ function check_da_existing_reg_email() {
     } else {
         // $('#exampleModal1').modal('show');
         CreateDAExistingRegister();
-        $('#DATwoRegEmailModal').modal('hide');
+        $('#DAExistingEmailModal').modal('hide');
     }
 }
 
@@ -605,9 +605,9 @@ function CreateDAExistingRegister(){
 
     if($("#da_type").val()=='da_2'){
         send_data.append('type_da2', $("input[name='da_two_attend_place']:checked").val());
-        send_data.append('da_two_pass_level', $("input[name=da_two__pass_level]").val());
-        send_data.append('da_two_pass_exam_date', $("input[name=da_two__pass_exam_date]").val());
-        send_data.append('da_two_pass_personal_no', $("input[name=da_two__pass_personal_no]").val());
+        send_data.append('da_two_pass_level', $("input[name=da_two_pass_level]").val());
+        send_data.append('da_two_pass_exam_date', $("input[name=da_two_pass_exam_date]").val());
+        send_data.append('da_two_pass_personal_no', $("input[name=da_two_pass_personal_no]").val());
         send_data.append('da_two_mac_type', $("input[name='da_two_attend_place']:checked").val() == 2 ? $("input[name='da_two_mac_type']:checked").val() : 99);
     }
     send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
@@ -976,15 +976,28 @@ function loadPrivateSchoolList() {
     });
 }
 
-function DAOneselectType() {
+function selectCurrentType() {
 
-    var radioValue = $("input[name='da_one_attend_place']:checked").val();
-
-    if (radioValue == 2) {
-        $('#da_one_blk_mac').css('display', 'inline-block');
+    var da_radioValue = $("input[name='da_two_attend_place']:checked").val();
+    
+    if (da_radioValue == 2) {
+        $('#current_blk_mac').css('display', 'inline-block');
     } else {
 
-        $('#da_one_blk_mac').css('display', 'none');
+        $('#current_blk_mac').css('display', 'none');
+
+    }
+}
+
+function selectCPACurrentType() {
+
+    var cpa_radioValue = $("input[name='cpa2_attend_place']:checked").val();
+    
+    if (cpa_radioValue == 2) {
+        $('#current_blk_mac').css('display', 'inline-block');
+    } else {
+
+        $('#current_blk_mac').css('display', 'none');
 
     }
 }
