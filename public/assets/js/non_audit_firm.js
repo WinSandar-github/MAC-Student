@@ -717,7 +717,7 @@ function getNonAuditData(){
       type: "GET",
       url: BACKEND_URL+"/get_non_audit_data_for_renew/"+student_id,
       success: function (data){
-        //console.log("na >>",data);
+        console.log("na >>",data);
           var non_audit_data = data.data;
           var other_data = data.other_data;
           var student_data = data.student_infos;
@@ -734,6 +734,12 @@ function getNonAuditData(){
             $('#local_info').css('display','none');
             $('#foreign_info').css('display','block');
           }
+
+          $("input[name=offline_user]").val(non_audit_data.offline_user);
+          $("input[name=local_foreign_type]").val(non_audit_data.local_foreign_type);
+          $("input[name=req_for_stop]").val(non_audit_data.req_for_stop);
+          $("input[name=last_registered_year]").val(non_audit_data.last_registered_year);
+          $("input[name=suspended_year]").val(non_audit_data.suspended_year);
 
           $('input[name=email]').val(student_data[0].email);
           $("#accountancy_firm_name").val(non_audit_data.accountancy_firm_name);
@@ -914,6 +920,10 @@ function nonAuditRenewSubscribe()
   send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
   send_data.append('local_foreign_type',$("input[name=local_foreign_type]").val());
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
+  send_data.append('last_registered_year',$("input[name=last_registered_year]").val());
+  send_data.append('offline_user',$("input[name=offline_user]").val());
+  send_data.append('req_for_stop',$("input[name=req_for_stop]").val());
+  send_data.append('suspended_year',$("input[name=suspended_year]").val());
   //send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
   // var t_s_p_id_val = new Array();
   //       $('input[name=t_s_p_id]:checked').each(function(i){
