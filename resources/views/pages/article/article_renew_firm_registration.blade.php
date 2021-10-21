@@ -22,6 +22,13 @@
     ul{
         padding-left: 0px !important;
     }
+    .p-input {
+        border:none;
+        border-bottom: 1px solid #1890ff;
+        padding: 5px 10px;
+        outline: none;
+        text-align: center;
+    }
 </style>
 @section('content')
     <div class="main-wrapper">
@@ -162,7 +169,7 @@
                                                             <input type="radio" class="form-check-input" value="0" id="female2" name="gender3" >
                                                             <label class="form-check-label " for="">ကျွန်မ</label>
                                                         </li>
-                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( <span class="course_name">-----</span> ) စာမေးပွဲကို <br> <span id="pass_year"> -----</span> ခုနှစ် <span id="pass_month">-----</span> လ တွင်ကျင်းပခဲ့သော CPA II <span id="">-----</span> တွင်အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li>
+                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( <span class="course_name">-----</span> ) စာမေးပွဲကို <br> <span id="pass_year"> -----</span> ခုနှစ် <span id="pass_month">-----</span> လ တွင်ကျင်းပခဲ့သော CPA II <span id="batch_name">-----</span> တွင်အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -173,7 +180,7 @@
                                                 <label class="col-md-1 col-form-label label"><span class="pull-left">{{__('၂။')}}</span></label>
                                                 <div class="col-md-11">
                                                     <ul>
-                                                        <li>ယခင်က လက်တွေ့အလုပ်သင်ကြားမှုကို အလုပ်သင်ကြားပေးသည့် <span id="mentor_id">-----</span> ထံတွင် <span id="start_date">-----</span> နေ့မှ <span id="end_date">-----</span> နေ့အထိ <span id="result_name">----နှစ် ၊ ----လ ၊ ----ရက် </span> အလုပ်သင်ကြားမှုခံယူခဲ့ပါသည်။</li>
+                                                        <li>ယခင်က လက်တွေ့အလုပ်သင်ကြားမှုကို အလုပ်သင်ကြားပေးသည့် <span id="mentor_name_mm">-----</span> ထံတွင် <span id="start_date">-----</span> နေ့မှ <span id="end_date">-----</span> နေ့အထိ <span id="result_name"><input class="p-input" type="text"> နှစ် ၊ <input class="p-input" type="text"> လ ၊ <input class="p-input" type="text"> ရက် </span> အလုပ်သင်ကြားမှုခံယူခဲ့ပါသည်။</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -449,7 +456,7 @@
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_address_label">{{ __('၈။') }}</span>ဆက်သွယ်ရန်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
-                                                <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="current_address" class="form-control">
+                                                <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="current_address" id="current_address" class="form-control">
                                             </div>
                                         </div>
 
@@ -647,6 +654,7 @@
 
             let latest_article = data.data.article.slice(-1);
             let qualified_test = data.data.qualified_test;
+            let latest_gov_article = data.data.gov_article.slice(-1);
 
             if(qualified_test == null){
                 let student_reg = data.data.student_register
@@ -656,6 +664,18 @@
                 let module = student_reg[lastest_row].module;  // module 1/2/all
                 let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
                 let batch = student_reg[lastest_row].batch;
+                let article_length = data.data.article.length - 2;
+
+                if(article_length == -1){
+                    //console.log("Not Firm Article");
+                    $("#mentor_name_mm").text("အစိုးရ ဌာန");
+                    $("#start_date").text(data.data.gov_article[0].contract_start_date);
+                    $("#end_date").text(latest_article[0].resign_date);
+                }else{
+                    $("#mentor_name_mm").text(data.data.article[article_length].mentor.name_mm);
+                    $("#start_date").text(data.data.article[article_length].contract_start_date);
+                    $("#end_date").text(latest_article[0].resign_date);
+                }
 
                 if(course == "cpa_1"){
                     $(".course_name").text("ပထမပိုင်း");
@@ -673,6 +693,12 @@
                     $("#batch_no").text("-");
                 }else{
                     $("#batch_no").text(batch.number);
+                } 
+
+                if(batch == "undefined"){
+                    $("#batch_name").text("-");
+                }else{
+                    $("#batch_name").text(batch.name_mm);
                 } 
                 
                 if(type == 0){
@@ -713,6 +739,31 @@
                     $('input:radio[name=gender3][value=0]').attr('checked',true);
                 }
                 
+            }else{
+                let student_reg = data.data.student_register
+                let lastest_row = student_reg.length - 1;
+                let article_length = data.data.article.length - 2;
+
+                if(student_info.gender == "Male"){
+                    $('input:radio[name=gender1][value=1]').attr('checked',true);
+                    $('input:radio[name=gender2][value=1]').attr('checked',true);
+                    $('input:radio[name=gender3][value=1]').attr('checked',true);
+                }else{
+                    $('input:radio[name=gender1][value=0]').attr('checked',true);
+                    $('input:radio[name=gender2][value=0]').attr('checked',true);
+                    $('input:radio[name=gender3][value=0]').attr('checked',true);
+                }
+
+                if(article_length == -1){
+                    //console.log("Not Firm Article");
+                    $("#mentor_name_mm").text("အစိုးရ ဌာန");
+                    $("#start_date").text(data.data.gov_article[0].contract_start_date);
+                    $("#end_date").text(latest_article[0].resign_date);
+                }else{
+                    $("#mentor_name_mm").text(data.data.article[article_length].mentor.name_mm);
+                    $("#start_date").text(data.data.article[article_length].contract_start_date);
+                    $("#end_date").text(latest_article[0].resign_date);
+                }
             }
 
             $("#student_info_id").val(latest_article[0].student_info_id);
@@ -751,6 +802,22 @@
             }
             $("#address").val(student_info.address);
             $("#phone_no").val(student_info.phone);
+
+            let article_length = data.data.article.length - 2;
+            let gov_article_length = data.data.gov_article.length - 2;
+
+            if(article_length == -1){
+                $("#m_email").val(latest_gov_article[0].m_email);
+                $("#current_address").val(latest_gov_article[0].current_address);
+                //$("#previous_papp_name").val(student_info.address);
+                $("#previous_papp_start_date").val(latest_gov_article[0].contract_start_date);
+            }else{
+                $("#m_email").val(data.data.article[article_length].m_email);
+                $("#current_address").val(data.data.article[article_length].current_address);
+                $("#previous_papp_name").val(data.data.article[article_length].request_papp);
+                $("#previous_papp_start_date").val(data.data.article[article_length].contract_start_date);
+            }
+            $("#previous_papp_end_date").val(latest_article[0].resign_date);
 
             document.getElementById('previewImg').src = BASE_URL + student_info.image;
             document.getElementById('previewNRCFrontImg').src = BASE_URL + student_info.nrc_front;
