@@ -625,6 +625,12 @@ function loadPAPP(){
         });
     }
 }
+
+
+function selfConfession(){
+    // console.log("self");
+    $('#pappRenewModal').modal('show');
+}
 function RenewPAPP(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     show_loader()
