@@ -867,7 +867,7 @@
         // console.log('course_type',course_type[2]);
         var student = JSON.parse(localStorage.getItem('studentinfo'));
         if(!student){
-        localStorage.setItem('course_type',course_type[2])
+        localStorage.setItem('course_type',course_type[2]);
         }
         loadDescription('PAPP');
         Papp_feedback();

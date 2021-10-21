@@ -23,6 +23,11 @@ $().ready(function (){
             mpa_mem_card_back : "required",
             letter : "required",
             reg_no : "required",
+            work_name:"required",
+            papp_reg_date:"required",
+            papp_renew_year:"required",
+            papp_reg_no:"required",
+            old_papp_reg_no:"required"
         },
         messages:{
             profile_photo : "Upload photo",
@@ -46,8 +51,12 @@ $().ready(function (){
             mpa_mem_card_front : "Please upload MPA member card (Front)",
             mpa_mem_card_back : "Please upload MPA member card (Back)",
             letter : "Please upload your file",
-            reg_no : "Please upload your registeration number",
-
+            reg_no : "Please enter your CPAFF registeration number",
+            work_name:"Please select one.",
+            papp_reg_date:"Please fill this field",
+            papp_renew_year:"Please fill this field",
+            papp_reg_no:"Please enter your PAPP registeration number",
+            old_papp_reg_no:"Please fill this field"
         },
     });
 });

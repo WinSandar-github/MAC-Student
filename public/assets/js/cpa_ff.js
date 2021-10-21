@@ -826,9 +826,9 @@ function form_feedback() {
                         $('.payment-btn').css('display', 'none');
                     }
                     else if (data.status == 1 || data.renew_status == 1) {
-                        document.getElementById('approved').style.display = 'block';
+                        //document.getElementById('approved').style.display = 'block';
                         document.getElementById('pending').style.display = 'none';
-                        $('.payment-btn').css('display', 'block');
+                        //$('.payment-btn').css('display', 'block');
                         $('.register-btn').css({ 'display': 'none' });
                         $('.register-btn').removeClass('mt-4');
                     }
