@@ -259,7 +259,7 @@
                                             <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists"
                                                data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                         </div>
-                                        <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                        <span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -280,7 +280,7 @@
                                             <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists"
                                                data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                         </div>
-                                        <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                        <span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
                                     </div>
                                 </div>
                             </div>

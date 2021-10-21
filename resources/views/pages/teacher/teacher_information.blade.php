@@ -566,6 +566,7 @@
                                                             <input type="hidden" id="renew_teacher_id">
                                                             <input type="hidden" id="payment_date">
                                                             <input type="hidden" id="regno">
+                                                            <input type="hidden" id="from_valid_date">
                                                     </div>
                                                     
                                                     <div class="row mb-3">
