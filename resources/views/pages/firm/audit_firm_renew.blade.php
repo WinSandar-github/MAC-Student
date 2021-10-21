@@ -34,6 +34,10 @@
         <div class="email_verify" style="display:block; margin-top:5%; margin-bottom: 5%;">
             <form id="audit_renew_form" method="post" class="" action="javascript:void();" enctype="multipart/form-data" >
                         <input type="hidden" name="audit_firm_type_id" value="1" />
+                        <input type="hidden" value="" name="offline_user">
+                        <input type="hidden" value="" name="req_for_stop">
+                        <input type="hidden" value="" name="last_registered_year">
+                        <input type="hidden" value="" name="suspended_year">
                         <div class="col-md-12">
                             <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
                               <div class="row mb-5">
