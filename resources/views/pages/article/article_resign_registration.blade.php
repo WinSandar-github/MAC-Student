@@ -469,8 +469,10 @@
 
             if(latest_article[0]){
                 $("#student_info_id").val(latest_article[0].student_info_id);
+                $("#recent_org").val("Firm");
             }else{
                 $("#student_info_id").val(latest_gov_article[0].student_info_id);
+                $("#recent_org").val("Government");
             }
 
             $('#name_mm').val(student_info.name_mm);
@@ -510,7 +512,11 @@
             $("#address").val(student_info.address);
             $("#phone_no").val(student_info.phone);
 
-            student_info.article[0] == undefined ? $("#m_email").val() : $("#m_email").val(student_info.article[student_info.article.length-1].m_email);
+            if(student_info.article[0]){
+                student_info.article[0] == undefined ? $("#m_email").val() : $("#m_email").val(student_info.article[student_info.article.length-1].m_email);
+            }else{
+                student_info.gov_article[0] == undefined ? $("#m_email").val() : $("#m_email").val(student_info.gov_article[student_info.gov_article.length-1].m_email);
+            }
 
             document.getElementById('previewImg').src = BASE_URL + student_info.image;
             document.getElementById('previewNRCFrontImg').src = BASE_URL + student_info.nrc_front;
