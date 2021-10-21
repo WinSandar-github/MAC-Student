@@ -91,6 +91,9 @@
                             </li>
                             
                             <li>
+                                 <button class="course_list" onclick="location.href =`${FRONTEND_URL}/teacher_existing_user_register`"> Teacher </button>
+                            </li>
+                            <li>
                                  <button class="course_list" onclick="location.href =`${FRONTEND_URL}/school_register_reconnected`"> School </button>
                             </li>
                         </ul>       
