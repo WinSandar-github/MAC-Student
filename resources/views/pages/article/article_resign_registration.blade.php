@@ -92,8 +92,8 @@
 
                                         <div class="row mb-3">
                                             <h5 class="card-title text-center fw-bolder">
-                                                ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော်<br>
-                                                ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး<br>
+                                                ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော်<br><br>
+                                                ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး<br><br>
                                                 စာရင်းကိုင်အလုပ်သင်လျှောက်လွှာပုံစံ
                                             </h5>
                                             <div>
@@ -265,10 +265,21 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
-                                            <div class="col-md-9">
-                                                <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း" readonly>
+                                        <div id="firm_education">
+                                            <div class="row mb-3">
+                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="qt_education" style="display:none;">
+                                            <div class="row mb-3">
+                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
+                                                <div class="col-md-9  pt-2">
+                                                    <span id="add_qt_education"></span>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -380,7 +391,7 @@
                                                     <input class="form-check-input" type="checkbox" name="confirm_142">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
-                                                        * <a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၂၆) </a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
+                                                        * <a href="https://demo.aggademo.me/MAC/public/storage/article/126.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၂၆) </a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
                                                     </p>
                                                 </label><br>
                                                 <label  class="error attend_place_error" style="display:none;" for="confirm_142">Please check one</label>
@@ -446,14 +457,21 @@
 
         get_student_info(student_id).then(data => {
             let student_info = data.data
-            let student_reg = data.data.student_register
-            let lastest_row = student_reg.length - 1;
-            let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
-            let exam_result = student_reg[lastest_row].status;  // pass/fail
-            let module = student_reg[lastest_row].module;  // module 1/2/all
-            let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
+            // let student_reg = data.data.student_register
+            // let lastest_row = student_reg.length - 1;
+            // let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
+            // let exam_result = student_reg[lastest_row].status;  // pass/fail
+            // let module = student_reg[lastest_row].module;  // module 1/2/all
+            // let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
+            let latest_gov_article = data.data.gov_article.slice(-1);
+            let latest_article = data.data.article.slice(-1);
+            let qualified_test = data.data.qualified_test;
 
-            $("#student_info_id").val(student_reg[lastest_row].student_info_id);
+            if(latest_article[0]){
+                $("#student_info_id").val(latest_article[0].student_info_id);
+            }else{
+                $("#student_info_id").val(latest_gov_article[0].student_info_id);
+            }
 
             $('#name_mm').val(student_info.name_mm);
             $("#name_eng").val(student_info.name_eng);
@@ -467,7 +485,28 @@
             $("#race").val(student_info.race);
             $("#religion").val(student_info.religion);
             $("#date_of_birth").val(student_info.date_of_birth);
-            $("#education").val(student_info.student_education_histroy.degree_name);
+
+            if(qualified_test != null){
+                $("#firm_education").hide();
+                $("#qt_education").show();
+                let lcl = JSON.parse(qualified_test.local_education);
+                lcl.map(lcl_edu => $('#add_qt_education').append(`<p>${lcl_edu}</p>`));
+
+                let certificate = JSON.parse(qualified_test.local_education_certificate);
+                $.each(certificate,function(fileCount,fileName){
+                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
+                   
+                })
+            }else{
+                $("#education").val(student_info.student_education_histroy.degree_name);
+                let certificate = JSON.parse(student_info.student_education_histroy.certificate);
+                $.each(certificate,function(fileCount,fileName){
+                   
+                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
+                   
+                })
+            }
+            
             $("#address").val(student_info.address);
             $("#phone_no").val(student_info.phone);
 
@@ -476,14 +515,6 @@
             document.getElementById('previewImg').src = BASE_URL + student_info.image;
             document.getElementById('previewNRCFrontImg').src = BASE_URL + student_info.nrc_front;
             document.getElementById('previewNRCBackImg').src = BASE_URL + student_info.nrc_back;
-
-            let certificate = JSON.parse(student_info.student_education_histroy.certificate);
-                $.each(certificate,function(fileCount,fileName){
-                   
-                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
-                   
-                })
-
         });
     })
 

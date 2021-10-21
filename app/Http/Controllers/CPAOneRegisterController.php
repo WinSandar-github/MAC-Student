@@ -39,6 +39,11 @@ class CPAOneRegisterController extends Controller
     {
         return view('pages.cpa.cpa_edit');
     }
+
+    public function entry_edit()
+    {      
+        return view('pages.cpa.entry_edit');
+    }
     public function cpaExamRegister()
     {
         return view('pages.cpa.cpa_exam_register');
@@ -54,5 +59,10 @@ class CPAOneRegisterController extends Controller
     public function aaPrivateRegister()
     {
         return view('pages.aa_register.aa_private_register');
+    }
+
+    public function existing_user_cpa_one()
+    {
+        return view('pages.cpa.existing_user_cpa_one');
     }
 }

@@ -12,198 +12,25 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title cpaff_initial" style="display:block;">CPA (Full-Fledged) Initial Registration  <span>Form</span></h2>
-                    <h2 class="title cpaff_renew" style="display:none;">CPA (Full-Fledged) Renewal Registration  <span>Form</span></h2>
+                    <h2 class="title" style="display:none;">CPA (Full-Fledged) Renewal Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
 
             </div>
             <!-- Shape Icon Box Start -->
-            {{--<div class="shape-icon-box">
-                <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}" alt="Shape">
-                <div class="box-content">
-                    <div class="box-wrapper">
-                        <i class="flaticon-badge"></i>
-                    </div>
-                </div>
-                <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
-            </div>--}}
-            <!-- Shape Icon Box End -->
-            <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
-            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
+            
         </div>
         <div class="section"> <!-- section-padding mt-n10 -->
             <div class="container mt-5"> <!-- container-fluid p-4 -->
-                <div class="status-reject" style="display:none">
-                    <div class="card text-white bg-dark mb-3">
-
-                        <div class="card-body">
-                            <p class="card-text reject">Your Registration Form need to prepare.Please update your form
-                             </p>
-                        </div>
-                    </div>
-                </div>
-                <div id="rejected" style="display:none">
-                    <div class="card text-white bg-dark my-3">                            
-                        <div class="card-body">
-                            <p class="card-text reject">Your CPAFF registration form is rejected. Please update your information. 
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div id="pending" style="display:none;">
-                    <div class="card text-white bg-primary my-3">
-                        
-                        <div class="card-body">
-                            <p class="card-text">Your CPAFF registration form is being checked.</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="approved" style="display:none;">
-                    <div class="card text-white bg-primary my-3">
-                        
-                        <div class="card-body">
-                            <p class="card-text">Your CPAFF registration form is approved! You need to subscribe your service with desire payment method!</p>
-                        </div>
-                    </div>
-                    <!-- <center>
-                        <button id="cpaff_modal" value="submit" class="btn btn-success btn-hover-dark w-30"> Go to payment</button>
-                    </center> -->
-                </div>
+                
                 <div class="col-md-12 text-center mb-5" style="font-weight:bold;font-size:20px;" name="remark" id="remark">
                     <label>Reject လုပ်ရသည့်အကြောင်းအရင်း</label><label class="col-md-12 col-form-label text-danger" id="remark_description"></label>
                 </div>
 
 
-                                <div id="cpa_initial">
-                                    <div class="row">
-                                        <div class="card col-md-7 m-2">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-md-12 widget-information">
-                                                        <h4 class="col-md-12 card-title text-success">Description</h4>
-                                                        <hr>
-                                                        <div class="info-list">
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-12">
-                                                                    <div class="description-info"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <h4 class="col-md-12 card-title text-success">Requirement</h4>
-                                                                    <hr>
-                                                                    <div class="requirement-info">
-                                                                
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card col-md-4 m-2">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-md-12 widget-information">
-                                                        <h4 class="col-md-12 card-title text-success">Fees</h4>
-                                                        <hr>
-                                                        <div class="info-list">
-                                                            <div class="col-md-12">
-                                                                <ul>
-                                                                        <li><i class="icofont-money"></i> <strong>Application Fee</strong><span class='application-fee'> </li>
-                                                                        <li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee(per year)</strong><span class='reconnected-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renewal Fee</strong><span class='renew-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee(Within January)</strong><span class='delay-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee(From February to April)</strong><span class='late-feb-fee'></li><br>
-                                                                        <div class="row register-btn">
-                                                                            <div class="col-md-6"></div>
-                                                                            <div class="col-md-6 pull-right">
-                                                                                <div class="pull-right mt-4">
-                                                                                    <p class="info-btn col-md-2 mb-4 text-dark h6">
-                                                                                        <a href="{{url('cpa_ff_register')}}" class="btn btn-success btn-hover-dark" style="padding-left: 5%;">Register</a>
-                                                                                        
-                                                                                    </p>
-                                                                                    
-                                                                                </div>
-                                                                                
-                                                                            </div>
-                                                                            
-                                                                        </div>
-                                                                        <div class="row payment-btn" style="display:none;">
-                                                                            <div class="col-md-6"></div>
-                                                                            <div class="">
-                                                                                <div class="pull-right mt-4">
-                                                                                    <p class="info-btn text-dark h6">
-                                                                                        
-                                                                                        <button id="cpaff_modal" value="submit" class="btn btn-success btn-hover-dark"> Go to payment</button>
-                                                                                    </p>
-                                                                                    
-                                                                                </div>
-                                                                            </div>
-                                                                            
-                                                                        </div>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-<!--Modal-->
-<form method="post" class="needs-validation" action="javascript:cpaffPaymentSubmit();" enctype="multipart/form-data"
-          novalidate>
-        @csrf
-        <div class="modal fade" id="cpaffpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <br>
-                    <div class="modal-body">
-                        <div class="row justify-content-center">
-                            <center>
-                                <h4 style="margin-bottom:5%;">Certified Public Accountant(Full-fledged)-CPA(Full-Fledged) Registeration Form Fee - ****** MMK</h4>
-                            </center>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
-                                         data-value="CBPAY" name="payment_method" id="cb_img">
-                                </center>
-                                <br>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
-                                         data-value="MPU" name="payment_method" id="mpu_img">
-                                </center>
-                                <br>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
-                                         data-value="CASH" name="payment_method" id="cash_img">
-                                </center>
-                                <br>
-                            </div>
-                            <input type="hidden" name="payment_method" value="CASH">
-                            <center>
-                                <button type="submit" id="cpaff_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
-                            </center>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-            </div>
-        </div>
-    </form>
+                                
 
-            <div class="card border-success mb-3" id="cpaff_renew_form" style="display:none;"><br/><!---->
+            <div class="card border-success mb-3" id="cpaff_renew_form"><br/><!---->
                 <div class="row mb-5">
                     <div style="text-align: right;margin-top:1%;">
                         <h6 style="font-weight:bold;">ပုံစံ၊ မစက(၂)</h6>
@@ -218,7 +45,6 @@
                     </div>--}}
                 </div>
                 <form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit" action="javascript:void(0)">
-                {{--<form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit">--}}
                     @csrf
                     <div class="card-body">
                         <input type="hidden" id="cpaff_id" name="cpaff_id"/>
@@ -438,17 +264,17 @@
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
 
-                                <div class="col-md-7 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ်</div>
+                                <div class="col-md-7 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်</div>
                                 <div class="col-md-3">
-                                    <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="width:90%;">
+                                    <input type="text" name="reg_no" id="reg_no" class="form-control" style="width:90%;">
                                 </div>
 
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label"></label>
 
-                                <div class="col-md-7 col-form-label">မှတ်ပုံတင်အမှတ်</div>
+                                <div class="col-md-7 col-form-label">လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ်</div>
                                 <div class="col-md-3">
-                                    <input type="text" name="reg_no" id="reg_no" class="form-control" style="width:90%;">
+                                    <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="width:90%;">
                                 </div><br><br>
 
                                 <div class="col-md-1"></div>
@@ -511,37 +337,43 @@
                                 <div class="col-md-1 col-form-label">{{ __('(ဂ)') }}</div>
                                 <div class="col-md-10">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="row">
-                                            <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                        <div class="col-md-6 text-center">
+                                            <div class="fileinput fileinput-new text-center mt-4" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail shadow">
+                                                    <img src="{{ asset('assets/images/image_placeholder.png') }}" alt="Upload Photo" id="nrc_front">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail" style=""></div>
+                                                <div>
+                                                    <span class="btn btn-secondary btn-round btn-file">
+                                                        <span class="fileinput-new">နိုင်ငံသားစိစစ်ရေးကတ်ပြား(အရှေ့)</span>
+                                                        <span class="fileinput-exists">Change</span>
+                                                        <input type="hidden" value="">
+                                                        <input type="file" id="nrc_front" name="nrc_front" value="{{ old('nrc_front') }}" accept="image/*">
+                                                    </span>
+                                                    <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                </div>
+                                                <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                            </div>
                                         </div>
-                                        <div class="row">
-                                        <input type="hidden" id="hidden_nrc_front">
-                                            <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" accept="image/png,image/jpeg" alt="">
-                                            <p class="mt-2">
-                                                <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
-                                                value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" >
-                                                <br><span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
-                                            </p>
-                                                                                                   
-                                        </div>                                                    
-                                    </div>
 
-                                    <div class="col-md-6">
-                                        <div class="row">
-                                            <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                        <div class="col-md-6 text-center">
+                                            <div class="fileinput fileinput-new text-center mt-4" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail shadow">
+                                                    <img src="{{ asset('assets/images/image_placeholder.png') }}"
+                                                         alt="Upload Photo" id="nrc_back">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail" style=""></div>
+                                                <div>
+                                                     <span class="btn btn-secondary btn-round btn-file">
+                                                         <span class="fileinput-new">နိုင်ငံသားစိစစ်ရေးကတ်ပြား(အနောက်)</span>
+                                                         <span class="fileinput-exists">Change</span>
+                                                         <input type="hidden" value=""><input type="file" id="nrc_back" name="nrc_back" value="{{ old('nrc_back') }}" accept="image/*">
+                                                     </span>
+                                                    <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                </div>
+                                                <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                            </div>
                                         </div>
-                                        <div class="row">
-                                        <input type="hidden" id="hidden_nrc_back">
-                                            <img class="col-md-12 nrc-image-style" id="previewNRCBackImg"  accept="image/png,image/jpeg" alt="">
-                                            <p class="mt-2">
-                                            <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
-                                                value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" >
-                                                <br><span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
-                                            </p>
-                                                                                                  
-                                        </div>
-                                    </div>
                                 </div>
                             </div>                                        
                           </div><br> 
@@ -565,25 +397,6 @@
 
                               </div>
                           </div><br/><br>
-
-                          {{--<div class="row">
-                              <div class="col-md-1"></div>
-                              <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
-                              <div class="col-md-6 col-form-label">{{ __('ပတ်စပို့အရွယ်ဓာတ်ပုံ') }}</div>
-                              <div class="col-md-4">
-                                          <input type="file"  class="form-control" name="passport_image">
-                              </div>
-                          </div><br/><br>--}}
-
-                          {{-- <div class="row">
-                              <div class="col-md-1"></div>
-                              <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
-
-                              <div class="col-md-6 col-form-label">ကိုယ်တိုင်ဝန်ခံချက်</div>
-                              <div class="col-md-4">
-                                <input type="file"  class="form-control" name="letter" >
-                              </div>
-                          </div><br/><br> --}}
 
                             <div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
@@ -688,9 +501,9 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     });
-    form_feedback();
-    loadDescription('CPAFF');
-    checkPaymentCpaff();
+    // form_feedback();
+    // loadDescription('CPAFF');
+    // checkPaymentCpaff();
     loadCpaffData();
     // loadCpaffInitialData();
 
@@ -714,11 +527,12 @@
             $('#contact_mail').val(cpaff.contact_mail);
             $('#total_hours').val(cpaff.total_hours);
             $('#fine_person').val(cpaff.fine_person);
+            $('#reg_no').val(cpaff.reg_no);
 
             var cpaff_pass_date=new Date(cpaff.cpaff_pass_date);
             $('#cpaff_pass_date').val(cpaff_pass_date.getFullYear());
-            // var renew_accepted_date=new Date(cpaff.renew_accepted_date);
-            // $('#renew_accepted_date').val(renew_accepted_date.getFullYear());
+            var renew_accepted_date=new Date(cpaff.renew_accepted_date);
+            $('#renew_accepted_date').val(renew_accepted_date.getFullYear());
             var old_card_no_year=new Date(cpaff.old_card_no_year);
             $('#old_card_no_year').val(old_card_no_year.getFullYear());
 

@@ -34,6 +34,10 @@
         <div class="email_verify" style="display:block; margin-top:5%; margin-bottom: 5%;">
             <form id="audit_renew_form" method="post" class="" action="javascript:void();" enctype="multipart/form-data" >
                         <input type="hidden" name="audit_firm_type_id" value="1" />
+                        <input type="hidden" value="" name="offline_user">
+                        <input type="hidden" value="" name="req_for_stop">
+                        <input type="hidden" value="" name="last_registered_year">
+                        <input type="hidden" value="" name="suspended_year">
                         <div class="col-md-12">
                             <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
                               <div class="row mb-5">
@@ -139,7 +143,7 @@
                                       <label class="col-md-4 col-form-label label"><span class="pull-left"></span></label>
                                       <div class="col-md-8">
                                           <label for="" class="control-label text-muted fw-bolder"><small>Head Office Address(Myanmar)</small></label>
-                                          <textarea name="head_office_address_mm" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                                          <textarea id="head_office_address_mm" name="head_office_address_mm" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
                                       </div>
                                     </div>
 
@@ -739,7 +743,7 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label"></label>
-                                        <label for="" class="col-md-11 col-form-label text-warning">
+                                        <label for="" class="col-md-11 col-form-label text-primary">
                                           Only Public Practice Accountants can be sole proprietor,partners or shareholders of an accountancy firm.
                                           (Please list down sole proprietor,partners or shareholders including all engagement partner(s) who will be signing
                                           auditor's report of the accountancy firm)
@@ -777,7 +781,7 @@
                                     </div>
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label"></label>
-                                        <label for="" class="col-md-11 col-form-label text-warning">
+                                        <label for="" class="col-md-11 col-form-label text-primary">
                                           All directors or officers of the audit firm may not need to be a CPA(Full-Fledged)
                                         </label>
                                     </div>
@@ -812,7 +816,7 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label"></label>
-                                        <label for="" class="col-md-11 col-form-label text-warning">
+                                        <label for="" class="col-md-11 col-form-label text-primary">
                                           Sole proprietor/managing partner will be fully responsible for the application and updates of the firm particulars
                                         </label>
                                     </div>

@@ -138,13 +138,15 @@ function loadService(){
         success: function(data){
             var service_data=data.data;
             service_data.forEach(function (element) {
-                var option = document.createElement('option');
-                option.text = element.name;
-                option.value = element.id;
-                select.add(option, 1);
-                $("#selected_service_id").css('display','inline');
-                $("#selected_service_id").siblings(".nice-select").css('display','none');
-                $("#selected_service_id").siblings(".check-service-other").css('display','inline-table');
+                if(element.type == 1){
+                    var option = document.createElement('option');
+                    option.text = element.name;
+                    option.value = element.id;
+                    select.add(option, 1);
+                    $("#selected_service_id").css('display','inline');
+                    $("#selected_service_id").siblings(".nice-select").css('display','none');
+                    $("#selected_service_id").siblings(".check-service-other").css('display','inline-table');
+                }
             });
         },
         error:function (message){

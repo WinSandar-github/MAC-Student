@@ -9,10 +9,11 @@
             line-height: 1.25;
         }
 
-        .cc-selector{
+        .cc-selector {
             display: flex;
             justify-content: space-between;
         }
+
         .cc-selector input {
             margin: 0;
             padding: 0;
@@ -20,19 +21,21 @@
             -moz-appearance: none;
             appearance: none;
         }
-        
+
         .mpu {
             background-image: url({{ asset('img/payment/mpu.png') }});
         }
+
         .cbpay {
             background-image: url({{ asset('img/payment/cbpay.png') }});
         }
+
         .visa {
-            background-image: url({{ asset('img/payment/visa.png')}});
+            background-image: url({{ asset('img/payment/visa.png') }});
         }
 
         .mastercard {
-            background-image: url({{ asset('img/payment/master.png')}});
+            background-image: url({{ asset('img/payment/master.png') }});
         }
 
         .cc-selector input:active+.drinkcard-cc {
@@ -84,7 +87,7 @@
     <div class="main-wrapper">
         <div class="overlay"></div>
         <div class="section page-banner">
-            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png') }}" alt="Shape">--}}
+            {{-- <img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png') }}" alt="Shape"> --}}
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png') }}" alt="Shape">
             <div class="container">
                 <!-- Page Banner Start -->
@@ -98,7 +101,7 @@
                 <!-- Page Banner End -->
             </div>
             <!-- Shape Icon Box Start -->
-            {{--<div class="shape-icon-box">
+            {{-- <div class="shape-icon-box">
                 <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png') }}" alt="Shape">
                 <div class="box-content">
                     <div class="box-wrapper">
@@ -106,10 +109,10 @@
                     </div>
                 </div>
                 <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png') }}" alt="Shape">
-            </div>--}}
+            </div> --}}
             <!-- Shape Icon Box End -->
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png') }}" alt="Shape">
-            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg') }}" alt="Shape">--}}
+            {{-- <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg') }}" alt="Shape"> --}}
         </div>
         <div class="container approve_request" style="overflow: hidden;">
             <div class="email_verify" style="display:block; margin-top:5%; margin-bottom: 5%;">
@@ -121,108 +124,130 @@
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-4 order-md-2 mb-4">
+                                            @php
+                                                $feeArray = explode(',', $invoice['productDesc']);
+                                                $amount = explode(',', $invoice['amount']);
+                                            @endphp
                                             <h4 class="d-flex justify-content-between align-items-center mb-3">
                                                 <span class="text-muted">Fees</span>
                                             </h4>
+                                            <span class="text-muted">@php echo end($feeArray) @endphp</span>
+
                                             <ul class="list-group mb-3 sticky-top">
-                                                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                                    <div>
-                                                        @php
-                                                            list($form_type, $course_type) = explode(',', $invoice['productDesc']);
-                                                            echo '<h6 class="my-0">' . $form_type . '</h6>' . "\n";
-                                                            echo '<small class="text-muted">' . $course_type . '(Part 1)</small>';
-                                                        @endphp
-                                                        {{-- <h6 class="my-0">Application Form Fee</h6>
-                                                        <small class="text-muted">Diploma in Accountancy(Part 1)</small> --}}
-                                                    </div>
-                                                    <span class="text-muted" name="fee" id="fee">{{ $invoice['amount'] }}</span>&nbsp;<span> MMK</span>
-                                                </li>
+                                                @foreach ($feeArray as $key => $fee)
+                                                    @if ($fee !== end($feeArray))
+                                                        <li
+                                                            class="list-group-item d-flex justify-content-between lh-condensed">
+                                                            <h6 class="my-0">{{ $fee }}</h6>
+                                                            <span class="text-muted">- {{ $amount[$key] }} MMK</span>
+                                                        </li>
+                                                    @endif
+                                                @endforeach
+
                                                 <li class="list-group-item d-flex justify-content-between">
                                                     <span>Total (MMK)</span>
-                                                    <strong><span id="total">{{ $invoice['amount'] }}</span> MMK</strong>
+                                                    <span id="total">
+                                                        - <strong>{{ array_sum($amount) }}</strong> MMK
+                                                    </span>
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="col-md-8 order-md-1">
                                             <h4 class="mb-3">User Information</h4>
-                                            
-                                                <div class="row">
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="firstName">Name</label>
-                                                        <input type="text" class="form-control" name="name_eng" id="name_eng" value="{{ $invoice["name_eng"] }}" readonly>
-                                                    </div>
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="lastName">Email</label>
-                                                        <input type="text" class="form-control" name="email" id="email" value="{{ $invoice['email'] }}" readonly>
-                                                    </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="firstName">Name</label>
+                                                    <input type="text" class="form-control" name="name_eng" id="name_eng"
+                                                        value="{{ $invoice['name_eng'] }}" readonly>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="firstName">Phone Number</label>
-                                                        <input type="text" class="form-control" name="phone" id="phone" value="{{ $invoice['phone'] }}" readonly>
-                                                    </div>
-                                                    <div class="col-md-6 mb-3">
-                                                        <label for="lastName">Invoice No.</label>
-                                                        <input type="text" class="form-control" name="invoice_no" value="{{ $invoice['invoiceNo'] }}" readonly>
-                                                    </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="lastName">Email</label>
+                                                    <input type="text" class="form-control" name="email" id="email"
+                                                        value="{{ $invoice['email'] }}" readonly>
                                                 </div>
-                                                <input type="hidden"  name="form_fee" id="form_fee">
-                                                {{--<div class="mb-3">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="firstName">Phone Number</label>
+                                                    <input type="text" class="form-control" name="phone" id="phone"
+                                                        value="{{ $invoice['phone'] }}" readonly>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="lastName">Invoice No.</label>
+                                                    <input type="text" class="form-control" name="invoice_no"
+                                                        value="{{ $invoice['invoiceNo'] }}" readonly>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="form_fee" id="form_fee">
+                                            {{-- <div class="mb-3">
                                                     <label for="email">Email <span class="text-muted"></span></label>
                                                     <input type="email" class="form-control" id="email" readonly="">
-                                                </div>--}}
-                                                <br>
-                                                <h4 class="mb-3">Choose Payment Method</h4>
-                                                <div class="d-block my-3">
-                                                    <div class="custom-control custom-radio">
-                                                        <input value="mpu" name="payment_method" type="radio" class="custom-control-input" required="">
-                                                        <label class="custom-control-label" for="credit">MPU</label>
+                                                </div> --}}
+                                            <br>
+                                            {{-- <h4 class="mb-3">Choose Payment Method</h4>
+                                            <div class="d-block my-3">
+                                                <div class="custom-control custom-radio">
+                                                    <input value="mpu" name="payment_method" type="radio"
+                                                        class="custom-control-input" required="">
+                                                    <label class="custom-control-label" for="credit">MPU</label>
+                                                </div>
+                                                <div class="custom-control custom-radio">
+                                                    <input value="cbpay" name="payment_method" type="radio"
+                                                        class="custom-control-input" required="">
+                                                    <label class="custom-control-label" for="debit">CBPAY</label>
+                                                </div>
+                                                <div class="custom-control custom-radio">
+                                                    <input value="visa_master" name="payment_method" type="radio"
+                                                        class="custom-control-input" required="">
+                                                    <label class="custom-control-label"
+                                                        for="paypal">VISA/MASTER/JCB/UPI</label>
+                                                </div>
+                                            </div> --}}
+
+                                            {{-- <h4 class="mb-3">Choose Payment Method</h4>
+                                            <div class="d-block my-3">
+                                                <div class="row justify-content-center mb-4 radio-group">
+                                                    <div class="col-sm-3 col-5">
+                                                        <div class='radio mx-auto'> <img class="fit-image"
+                                                                src="{{ asset('img/payment/mpu.png') }}" width="100px"
+                                                                height="60px" value="MPU" name="payment_method"> </div>
                                                     </div>
-                                                    <div class="custom-control custom-radio">
-                                                        <input value="cbpay" name="payment_method" type="radio" class="custom-control-input" required="">
-                                                        <label class="custom-control-label" for="debit">CBPAY</label>
+                                                    <div class="col-sm-3 col-5">
+                                                        <div class='radio mx-auto'> <img class="fit-image"
+                                                                src="{{ asset('img/payment/cbpay.png') }}" width="100px"
+                                                                height="60px" value="CBPAY" name="payment_method"> </div>
                                                     </div>
-                                                    <div class="custom-control custom-radio">
-                                                        <input value="visa_master" name="payment_method" type="radio" class="custom-control-input" required="">
-                                                        <label class="custom-control-label" for="paypal">VISA/MASTER/JCB/UPI</label>
+                                                    <div class="col-sm-3 col-5">
+                                                        <div class='radio mx-auto'> <img class="fit-image"
+                                                                src="{{ asset('img/payment/visa.png') }}" width="100px"
+                                                                height="60px" value="VISA" name="payment_method"> </div>
+                                                    </div>
+                                                    <div class="col-sm-3 col-5">
+                                                        <div class='radio mx-auto'> <img class="fit-image"
+                                                                src="{{ asset('img/payment/master.png') }}" width="100px"
+                                                                height="60px" value="MASTER" name="payment_method"> </div>
                                                     </div>
                                                 </div>
-                                                {{--<h4 class="mb-3">Choose Payment Method</h4>
-                                                <div class="d-block my-3">
-                                                    <div class="row justify-content-center mb-4 radio-group">
-                                                        <div class="col-sm-3 col-5">
-                                                            <div class='radio mx-auto'> <img class="fit-image"
-                                                                    src="{{ asset('img/payment/mpu.png') }}" width="100px" height="60px"
-                                                                    value="MPU" name="payment_method"> </div>
-                                                        </div>
-                                                        <div class="col-sm-3 col-5">
-                                                            <div class='radio mx-auto'> <img class="fit-image"
-                                                                    src="{{ asset('img/payment/cbpay.png') }}" width="100px"
-                                                                    height="60px" value="CBPAY" name="payment_method"> </div>
-                                                        </div>
-                                                        <div class="col-sm-3 col-5">
-                                                            <div class='radio mx-auto'> <img class="fit-image"
-                                                                    src="{{ asset('img/payment/visa.png') }}" width="100px" height="60px"
-                                                                    value="VISA" name="payment_method"> </div>
-                                                        </div>
-                                                        <div class="col-sm-3 col-5">
-                                                            <div class='radio mx-auto'> <img class="fit-image"
-                                                                    src="{{ asset('img/payment/master.png') }}" width="100px" height="60px"
-                                                                    value="MASTER" name="payment_method"> </div>
-                                                        </div>
-                                                    </div>
-                                                </div>--}}
-                                                <button class="btn btn-success btn-block" type="submit">Continue to checkout</button>
-                                                {{--<div class="cc-selector">
-                                                    <input id="mpu" type="radio" name="credit-card" value="mpu" />
+                                            </div> --}}
+
+                                            <h4 class="mb-3">Choose Pyament Method</h4>
+
+                                            <div class="d-block my-3">
+                                                <div class="cc-selector">
+                                                    <input id="mpu" type="radio" name="payment_method" value="mpu" />
                                                     <label class="drinkcard-cc mpu" for="mpu"></label>
-                                                    <input id="cbpay" type="radio" name="credit-card" value="cbpay" />
+                                                    <input id="cbpay" type="radio" name="payment_method" value="cbpay" />
                                                     <label class="drinkcard-cc cbpay" for="cbpay"></label>
-                                                    <input id="visa" type="radio" name="credit-card" value="visa" />
+                                                    <input id="visa" type="radio" name="payment_method" value="visa" />
                                                     <label class="drinkcard-cc visa" for="visa"></label>
-                                                    <input id="mastercard" type="radio" name="credit-card" value="mastercard" />
+                                                    <input id="mastercard" type="radio" name="payment_method" value="mastercard" />
                                                     <label class="drinkcard-cc mastercard" for="mastercard"></label>
-                                                </div>--}}
+                                                </div>
+                                            </div>
+                                                
+                                            <button class="btn btn-success btn-block" type="submit">Continue to checkout</button>
+
                                         </div>
                                     </div>
                                 </form>
@@ -236,6 +261,6 @@
 @endsection
 @push('scripts')
 
-<script src="{{ asset('assets/js/payment.js') }}"></script>
-    
+    <script src="{{ asset('assets/js/payment.js') }}"></script>
+
 @endpush

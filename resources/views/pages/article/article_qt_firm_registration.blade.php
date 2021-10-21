@@ -83,7 +83,7 @@
                         <!-- Form Wrapper Start -->
                         <div class="form-wrapper">
 
-                            <form method="post" id="article_register_form"  action="javascript:javascript:void(0);"
+                            <form method="post" id="article_register_form"  action="javascript:javascript:createArticleFirmRegister();"
                                     enctype="multipart/form-data" novalidate>
                                 @csrf
                                 
@@ -92,8 +92,8 @@
 
                                         <div class="row mb-3">
                                             <h5 class="card-title text-center fw-bolder">
-                                                ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော်<br>
-                                                ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး<br>
+                                                ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော်<br><br>
+                                                ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး<br><br>
                                                 စာရင်းကိုင်အလုပ်သင်လျှောက်လွှာပုံစံ
                                             </h5>
                                             <div>
@@ -180,9 +180,9 @@
                                                 </div>
 
                                                 <div class="row mb-5">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>ကိုယ်ပိုင်အမှတ်</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>ခုံအမှတ်</label>
                                                     <div class="col-md-8">
-                                                        <input type="text" placeholder="ကိုယ်ပိုင်အမှတ်" name="personal_no" id="personal_no" class="form-control" >
+                                                        <input type="text" placeholder="ခုံအမှတ်" name="personal_no" id="personal_no" class="form-control" >
                                                     </div>
                                                 </div>
 
@@ -301,8 +301,9 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
-                                            <div class="col-md-9">
-                                                <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း" readonly>
+                                            <div class="col-md-9 pt-2">
+                                                <!-- <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း" readonly> -->
+                                                <span id="education"></span>
                                             </div>
                                         </div>
 
@@ -476,10 +477,32 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
+                                        <!-- <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၄။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="papp_name" id="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်">
+                                            </div>
+                                        </div> -->
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၄။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
+                                            <div class="col-md-9">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <input id="papp_name" type="text" name="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="hidden" id="mentor_id">
+                                                        <input type="text" name="mentor_name" id="mentor_name" class="form-control" placeholder="Mentor Name">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>လက်ခံသင်ကြားပေးကြောင်းအကြောင်းကြားစာ</label>
+                                            <div class="col-md-9">
+                                                <input type="file" name="request_papp_attach" class="form-control">
                                             </div>
                                         </div>
 
@@ -520,12 +543,30 @@
                                                 <label class="form-check-label">
                                                     <input class="form-check-input" type="checkbox" name="confirm_status">
                                                     <span class="form-check-sign"></span>
-                                                    <p class="fw-bolder">
-                                                        * ၁။ ကျွန်တော်/ ကျွန်မသည် ယခုလက်ရှိအချိန်တွင် အစိုးရနှင့် ပုဂ္ဂလိက အဖွဲ့အစည်းများတွင် အချိန်ပြည့်ဝန်ထမ်းအဖြစ် တာဝန်ထမ်းဆောင်နေခြင်းမရှိပါ။ Non Audit Service လုပ်ငန်းများလုပ်ကိုင် ဆောက်ရွက်နေခြင်းမရှိပါ။<br>
-                                                        ၂။ စာရင်းကိုင်အလုပ်သင်အဖြစ်ဆောင်ရွက်ရမည့် အချိန်အတွင်း အချိန်ပြည့်ဝန်ထမ်းအဖြစ် ဆောင်ရွက်ခြင်း၊ Non Audit Service လုပ်ငန်းများလုပ်ကိုင်မည်ဆိုပါက အလုပ်သင်အဖြစ်ဆောင်ရွက်ခြင်းမှ ရပ်ဆိုင်းခွင့်ပြုပါရန် မြန်မာနိုင်ငံစာရင်းကောင်စီသို့ မပျက်မကွက်အသိပေးပါမည်။ အလုပ်သင်ကာလအတွင်း အလုပ်သင်ကြားခြင်းနှင့်ဆိုင်သည့် လုပ်ငန်းတာဝန်များကို သာအချိန်ပြည့်တာဝန် ထမ်းဆောင်ရမည်ကို သိရှိပါသည်။<br>
-                                                        ၃။ စာရင်းကိုင်အလုပ်သင်နှင့် ကိုယ်ပိုင်စာရင်းကိုင် သင်တန်းကျောင်းများ ကြီးကြပ်ရေးကော်မတီ၏ ၇-၄-၂၀၂၀ ရက်စွဲပါ ရုံးအမိန့်အမှတ် ၁၂၈ ပါ စာရင်းကိုင်အလုပ်သင်များလိုက်နာရမည့် စည်းကမ်းချက်များနှင့် ရပိုင်ခွင့်များကို သိရှိနားလည် ပြီးဖြစ်ပါသည်။<br>
-                                                        ၄။ ဤဝန်ခံချက် ပျက်ကွက်ပါက အလုပ်သင်စည်းမျဥ်းများနှင့်အညီ အရေးယူခြင်းကို ခံရမည်ဖြစ်ကြောင်း သဘောတူပါသည်။
-                                                    </p>
+                                                    * <div class="row">
+                                                        <div class="col-md-1">၁ ။</div>
+                                                        <div class="col-md-11">
+                                                            <p class="fw-bolder">ကျွန်တော်/ ကျွန်မသည် ယခုလက်ရှိအချိန်တွင် အစိုးရနှင့် ပုဂ္ဂလိက အဖွဲ့အစည်းများတွင် အချိန်ပြည့်ဝန်ထမ်းအဖြစ် တာဝန်ထမ်းဆောင်နေခြင်းမရှိပါ။ Non Audit Service လုပ်ငန်းများလုပ်ကိုင် ဆောက်ရွက်နေခြင်းမရှိပါ။</p>
+                                                        </div>
+                                                    </div><br>
+                                                    <div class="row">
+                                                        <div class="col-md-1">၂ ။</div>
+                                                        <div class="col-md-11">
+                                                            <p class="fw-bolder">စာရင်းကိုင်အလုပ်သင်အဖြစ်ဆောင်ရွက်ရမည့် အချိန်အတွင်း အချိန်ပြည့်ဝန်ထမ်းအဖြစ် ဆောင်ရွက်ခြင်း၊ Non Audit Service လုပ်ငန်းများလုပ်ကိုင်မည်ဆိုပါက အလုပ်သင်အဖြစ်ဆောင်ရွက်ခြင်းမှ ရပ်ဆိုင်းခွင့်ပြုပါရန် မြန်မာနိုင်ငံစာရင်းကောင်စီသို့ မပျက်မကွက်အသိပေးပါမည်။ အလုပ်သင်ကာလအတွင်း အလုပ်သင်ကြားခြင်းနှင့်ဆိုင်သည့် လုပ်ငန်းတာဝန်များကို သာအချိန်ပြည့်တာဝန် ထမ်းဆောင်ရမည်ကို သိရှိပါသည်။</p>
+                                                        </div>
+                                                    </div><br>
+                                                    <div class="row">
+                                                        <div class="col-md-1">၃ ။</div>
+                                                        <div class="col-md-11">
+                                                            <p class="fw-bolder">စာရင်းကိုင်အလုပ်သင်နှင့် ကိုယ်ပိုင်စာရင်းကိုင် သင်တန်းကျောင်းများ ကြီးကြပ်ရေးကော်မတီ၏ ၇-၄-၂၀၂၀ ရက်စွဲပါ ရုံးအမိန့်အမှတ် ၁၂၈ ပါ စာရင်းကိုင်အလုပ်သင်များလိုက်နာရမည့် စည်းကမ်းချက်များနှင့် ရပိုင်ခွင့်များကို သိရှိနားလည် ပြီးဖြစ်ပါသည်။</p>
+                                                        </div>
+                                                    </div><br>
+                                                    <div class="row">
+                                                        <div class="col-md-1">၄ ။</div>
+                                                        <div class="col-md-11">
+                                                            <p class="fw-bolder">ဤဝန်ခံချက် ပျက်ကွက်ပါက အလုပ်သင်စည်းမျဥ်းများနှင့်အညီ အရေးယူခြင်းကို ခံရမည်ဖြစ်ကြောင်း သဘောတူပါသည်။</p>
+                                                        </div>
+                                                    </div>
                                                 </label><br>
                                                 <label  class="error attend_place_error" style="display:none;" for="confirm_status">Please check one</label>
                                             </div>
@@ -586,18 +627,31 @@
 <script type="text/javascript">
     $('document').ready(function(){
 
+        loadMentorList();
+
         $("#article_form_type").val("qt_firm");
 
         get_student_info(student_id).then(data => {
             let student_info = data.data
-            let student_reg = data.data.student_register
-            let lastest_row = student_reg.length - 1;
-            let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
-            let exam_result = student_reg[lastest_row].status;  // pass/fail
-            let module = student_reg[lastest_row].module;  // module 1/2/all
-            let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
+            // let student_reg = data.data.student_register
+            // let lastest_row = student_reg.length - 1;
+            // let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
+            // let exam_result = student_reg[lastest_row].status;  // pass/fail
+            // let module = student_reg[lastest_row].module;  // module 1/2/all
+            // let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
+            let qualified_test = data.data.qualified_test
 
-            $("#student_info_id").val(student_reg[lastest_row].student_info_id);
+            if(student_info.gender == "Male"){
+                $('input:radio[name=gender1][value=1]').attr('checked',true);
+                $('input:radio[name=gender2][value=1]').attr('checked',true);
+                $('input:radio[name=gender3][value=1]').attr('checked',true);
+            }else{
+                $('input:radio[name=gender1][value=0]').attr('checked',true);
+                $('input:radio[name=gender2][value=0]').attr('checked',true);
+                $('input:radio[name=gender3][value=0]').attr('checked',true);
+            }
+
+            $("#student_info_id").val(qualified_test.student_info_id);
 
             $('#name_mm').val(student_info.name_mm);
             $("#name_eng").val(student_info.name_eng);
@@ -611,7 +665,8 @@
             $("#race").val(student_info.race);
             $("#religion").val(student_info.religion);
             $("#date_of_birth").val(student_info.date_of_birth);
-            $("#education").val(student_info.student_education_histroy.degree_name);
+            let lcl = JSON.parse(qualified_test.local_education);
+            lcl.map(lcl_edu => $('#education').append(`<p>${lcl_edu}</p>`));
             $("#address").val(student_info.address);
             $("#phone_no").val(student_info.phone);
 
@@ -619,7 +674,7 @@
             document.getElementById('previewNRCFrontImg').src = BASE_URL + student_info.nrc_front;
             document.getElementById('previewNRCBackImg').src = BASE_URL + student_info.nrc_back;
 
-            let certificate = JSON.parse(student_info.student_education_histroy.certificate);
+            let certificate = JSON.parse(qualified_test.local_education_certificate);
                 $.each(certificate,function(fileCount,fileName){
                    
                      $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    

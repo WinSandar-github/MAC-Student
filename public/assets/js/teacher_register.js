@@ -246,30 +246,38 @@ function checkPaymentTeacher(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     if(student!=null){
         $.ajax({
-            url: BACKEND_URL+"/getTeacher/"+student.id,//check_payment_teacher/"+student.teacher_id
+            url: BACKEND_URL+"/getTeacherStatus/"+student.id,//check_payment_teacher/"+student.teacher_id//getTeacher
             type: 'GET',
             success: function(result){
-                var teacher=result.data.pop();
-              
+                var data=result.pop();
+                var invoice=data.invoice.pop();
+                var teacher=data.teacher;
+                
                     if(teacher.initial_status==0){
-                        if(teacher.payment_method != null){
-                            $('#teacher_modal').prop('disabled', true);
-                            loadRenewTeacher();
-                            
-                            
+                        if(teacher.offline_user!=1){
+                            if(invoice.status != "AP"){//teacher.payment_method != null
+                                //$('#teacher_modal').prop('disabled', true);
+                                loadRenewTeacher();
+                                
+                                
+                            }else{
+                                //$('#teacher_modal').prop('disabled', false);
+                                loadRenewTeacher();
+                            }
                         }else{
-                            $('#teacher_modal').prop('disabled', false);
-                            
+                            loadRenewTeacher();
                         }
+                        
                     }else if(teacher.initial_status==1){
                         //var new_renew_teacher=teacher_renew.pop();
                         $('#teacher_id').val(teacher.id);
-                        if(teacher.payment_method !=null){
-                            $('#renewteacher_modal').prop('disabled', true);
+                        if(invoice.status != "AP"){
+                            //$('#renewteacher_modal').prop('disabled', true);
                             loadRenewTeacher();
                         }else{
-                            $('#renewteacher_modal').prop('disabled', false);
-                            }
+                            loadRenewTeacher();
+                            //$('#renewteacher_modal').prop('disabled', false);
+                        }
                                 
                     }
                     
@@ -288,7 +296,10 @@ function createTeacherRegister(){
         return;
     }
     let formData = new FormData($( "#teacher_register_form" )[0]);
-    
+    if($('#offline_user').val()){
+        formData.append('offline_user',$('#offline_user').val());
+    }
+    formData.append('student_info_id',$('#student_info_id').val());
       show_loader()
 
     $.ajax({
@@ -381,13 +392,13 @@ function loadRenewTeacher(){
             url : BACKEND_URL+"/getTeacher/"+student.id,//teacher
             success: function (result) {
                 var teacher=result.data.pop();
-                
+                console.log(teacher);
                 //teacher_data.forEach(function(teacher){
                     
                         if(teacher.approve_reject_status==1){
-                            $('#teacher_initial').css('display','none');
-                            $('#teacher_approve').css('display','none');
-                            $('#teacher_renew').css('display','block');
+                            $('#teacher_initial').hide();
+                            $('#teacher_approve').hide();
+                            $('#teacher_renew').show();
                                   
                                   $('input[name=email]').val(teacher.email);
                                   $('input[name=name_mm]').val(teacher.name_mm);
@@ -404,12 +415,33 @@ function loadRenewTeacher(){
                                  
                                   //$('#previewImg').attr("src",BASE_URL+teacher.image);
                                   $('#hidden_profile').val(teacher.image);
-                                  $('#hidden_nrc_front').val(teacher.nrc_front);
-                                  $('#hidden_nrc_back').val(teacher.nrc_back);
+                                  if(teacher.offline_user==1){
+                                    //$('input[name=teacher_card]').prop('disabled', true);
+                                    $('input[name=teacher_card]').prop('required', false);
+                                  }
+                                  
                                   $('#hschool_name').val(teacher.school_name);
-                                  $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
-                                  $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
-                                  //loadEductaionHistory(teacher.id,'tbl_degree');
+                                  if(teacher.nrc_front==null){
+                                    $("#nrc_front_img").attr("src",BASE_URL+result.data[0].nrc_front);
+                                    $('#hidden_nrc_front').val(result.data[0].nrc_front);
+                                  }else{
+                                    $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
+                                    $('#hidden_nrc_front').val(teacher.nrc_front);
+                                  }
+                                  if(teacher.nrc_back==null){
+                                    $("#nrc_back_img").attr("src",BASE_URL+result.data[0].nrc_back);
+                                    $('#hidden_nrc_back').val(result.data[0].nrc_back);
+                                  }else{
+                                    $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
+                                    $('#hidden_nrc_back').val(teacher.nrc_back);
+                                  }
+                                  $('#t_code').val(teacher.t_code);
+                                  $('#regno').val(teacher.regno);
+                                  if(teacher.initial_status==0){
+                                    loadEductaionHistory(teacher.id,'tbl_degree',teacher.initial_status);
+                                  }else{
+                                    loadEductaionHistory(teacher.student_info_id,'tbl_degree',teacher.initial_status);
+                                  }
                                     if(teacher.certificates.search(/[\'"[\]']+/g)==0){
                                         //loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject");
                                         //loadCertificates(teacher.diplomas.replace(/[\'"[\]']+/g, ''),"selected_da_subject");
@@ -429,57 +461,47 @@ function loadRenewTeacher(){
                                 $("input[id=position]").val(teacher.position);
                                 $("input[id=department]").val(teacher.department);
                                 $("input[id=organization]").val(teacher.organization);
-                                // $("input[id=gov_employee]").val(teacher.gov_employee);
-                                //   if(teacher.gov_employee == 1){
-                                //     $('input:radio[id=gov_employee1]').attr('checked',true);
-                                //     $('#rec_letter').css('display','block');
-                                //     if(teacher.recommend_letter!=""){
-                                //         $(".recommend_letter").append(`<a href='${BASE_URL+teacher.recommend_letter}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
-                                //     }
-                                //     $('#hrecommend_letter').val(teacher.recommend_letter);
-                                // }
-                                // else{
-                                //     $('input:radio[id=gov_employee2]').attr('checked',true);
-                                //     $('#rec_letter').css('display','none');
-                                // }
+                                
                                 $('#hinitial_status').val(1);
-                                //$('#payment_date').val(teacher.payment_date);
-                                  $('#regno').val(teacher.invoice_no);
-                                  
+                                
                                   $('#student_info_id').val(teacher.student_info_id);
+                                  $('#teacher_id').val(teacher.id);
                                   if(teacher.initial_status==0){
                                     var accept=new Date(teacher.from_valid_date);
-                                    var month=accept.getMonth()+1;
-                                    var year=accept.getFullYear();
-                                    var y=year+1;
-                                    var now=new Date();
-                                    $('#teacher_id').val(teacher.id);
+                                    
+                                    
                                     
                                   }else if(teacher.initial_status==1){
                                     var accept=new Date(teacher.renew_date);
-                                    var month=accept.getMonth()+1;
-                                    var year=accept.getFullYear();
-                                    var y=year+1;
-                                    var now=new Date();
-                                    $('#teacher_id').val(teacher.id);
+                                    
                                     
                                   }
-                                    
+                                  var month=accept.getMonth()+1;
+                                  var year=accept.getFullYear();
+                                  var y=year+1;
+                                  var now=new Date();
+                                  
                                    var current_date=(now.getMonth()+1)+'/'+now.getDate()+'/'+now.getFullYear();
                                    $('#register_date').val("Nov-1-"+now.getFullYear()+" to Dec-31-"+now.getFullYear());
-                                   if((now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
-                                    $("#message").val("Your renew form  can submit!");
+                                if((now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                                    $("#message").val("You can renew your form!");
                                     $('.renew_submit').prop('disabled', true);
                                     $('#submit_confirm').prop('disabled', false);
-                                    }else if(((now.getMonth()+1)=='11') || ((now.getMonth()+1)=='12')){
-                                    $("#message").val("Your renew form can submit!");
+                                }else if(((now.getMonth()+1)=='10') || ((now.getMonth()+1)=='11') || ((now.getMonth()+1)=='12')){
+                                    $("#message").val("You can renew your form!");//month=10 for test
                                     $('.renew_submit').prop('disabled', true);
                                     $('#submit_confirm').prop('disabled', false);
-                                    }else{
-                                        $('#message').val("You are verified!");
-                                        $('.renew_submit').prop('disabled', true);
-                                        $('#submit_confirm').prop('disabled', true);
-                                    }
+                                }else if(((now.getMonth()+1) >= '1')){
+                                    $('#message').val("Renew form month is expired! You can renew in November,December "+now.getFullYear());
+                                    $('.renew_submit').prop('disabled', true);
+                                    $('#submit_confirm').prop('disabled', true);
+                                }
+                                else{
+                                    $('#message').val("You are verified!");
+                                    $('.renew_submit').prop('disabled', true);
+                                    $('#submit_confirm').prop('disabled', true);
+                                }
+                                   
                                     // var period_date=teacher.payment_date.split('-');
                                     // var period=period_date[2]+'-'+period_date[1]+'-'+period_date[0];
                                     //$('#register_date').val(period+" to 31-12-"+now.getFullYear());
@@ -621,6 +643,7 @@ function renewTeacher(){
     send_data.append('teacher_id', $('#teacher_id').val());
     send_data.append('student_info_id', $('#student_info_id').val());
     send_data.append('initial_status',  $('#hinitial_status').val());
+    send_data.append('regno',  $('#regno').val());
   show_loader();
     $.ajax({
         url: BACKEND_URL+'/renewTeacher',
@@ -678,23 +701,43 @@ function selectSchoolType(value){
         $('.private_type').css('display','none');
     }
 }
-function loadEductaionHistory(id,table){
-    $.ajax({
-        type : 'POST',
-        url : BACKEND_URL+"/getEducationHistory",
-        data: 'teacher_id='+id,
-        success: function(result){
-            $.each(result.data, function( index, value ){
-                var tr="<tr>";
-                tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_degrees_id[]" class="form-control" value=`+value.id+`>${ index += 1 }</td>`;
-                tr += '<td><input type="text" name="old_degrees[]" class="form-control" value="'+value.university_name+'" readonly/></td>';
-                tr += '<td><input type="hidden" name="old_degrees_certificates_h[]" class="form-control" value='+value.certificate+'><a href='+BASE_URL+value.certificate+' style="margin-top:0.5px;" target="_blank" class="btn btn-success btn-md">View File</a></td>';//<input type="file" name="old_degrees_certificates[]" class="form-control">
-                tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("`+table+`")><li class="fa fa-times"></li></button></td>`;
-                tr += "</tr>";
-                $("table."+table).append(tr);
-            });
-        }
-    });
+function loadEductaionHistory(id,table,status){
+    if(status==0){
+        $.ajax({
+            type : 'POST',
+            url : BACKEND_URL+"/getEducationHistory",
+            data: 'teacher_id='+id,
+            success: function(result){
+                $.each(result.data, function( index, value ){
+                    var tr="<tr>";
+                    tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_degrees_id[]" class="form-control" value=`+value.id+`>${ index += 1 }</td>`;
+                    tr += '<td><input type="text" name="old_degrees[]" class="form-control" value="'+value.degree_name+'" readonly/></td>';
+                    tr += '<td><input type="hidden" name="old_degrees_certificates_h[]" class="form-control" value='+value.certificate+'><a href='+BASE_URL+value.certificate+' style="margin-top:0.5px;" target="_blank" class="btn btn-success btn-md">View File</a></td>';//<input type="file" name="old_degrees_certificates[]" class="form-control">
+                    tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("`+table+`")><li class="fa fa-times"></li></button></td>`;
+                    tr += "</tr>";
+                    $("table."+table).append(tr);
+                });
+            }
+        });
+    }else{
+        $.ajax({
+            type : 'POST',
+            url : BACKEND_URL+"/getEducationHistory",
+            data: 'student_info_id='+id,
+            success: function(result){
+                $.each(result.data, function( index, value ){
+                    var tr="<tr>";
+                    tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_degrees_id[]" class="form-control" value=`+value.id+`>${ index += 1 }</td>`;
+                    tr += '<td><input type="text" name="old_degrees[]" class="form-control" value="'+value.degree_name+'" readonly/></td>';
+                    tr += '<td><input type="hidden" name="old_degrees_certificates_h[]" class="form-control" value='+value.certificate+'><a href='+BASE_URL+value.certificate+' style="margin-top:0.5px;" target="_blank" class="btn btn-success btn-md">View File</a></td>';//<input type="file" name="old_degrees_certificates[]" class="form-control">
+                    tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("`+table+`")><li class="fa fa-times"></li></button></td>`;
+                    tr += "</tr>";
+                    $("table."+table).append(tr);
+                });
+            }
+        });
+    }
+    
 }
 function loadCertificates(name,select){
     var name=name.split(',');
@@ -787,7 +830,9 @@ function updateTeacher(){
                                   $('#hschool_name').val(teacher.school_name);
                                   $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
                                   $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
-                                  loadEductaionHistory(teacher.id,'tbl_degree_update');
+                                  loadEductaionHistory(teacher.id,'tbl_degree_update',teacher.initial_status);
+                                
+                                  
                                     if(teacher.certificates.search(/[\'"[\]']+/g)==0){
                                         loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject_up");
                                         loadSubject(2,"selected_cpa_subject_up");
@@ -1077,7 +1122,7 @@ function loadEductaionHistoryByRenew(id,table){
             $.each(result.data, function( index, value ){
                 var tr="<tr>";
                 tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_renewdegrees_id[]" class="form-control" value=`+value.id+`>${ index += 1 }</td>`;
-                tr += '<td><input type="text" name="old_renewdegrees[]" class="form-control" value="'+value.university_name+'" /></td>';
+                tr += '<td><input type="text" name="old_renewdegrees[]" class="form-control" value="'+value.degree_name+'" /></td>';
                 tr += '<td><input type="hidden" name="old_renewdegrees_certificates_h[]" class="form-control" value='+value.certificate+'><input type="file" name="old_renewdegrees_certificates[]" class="form-control"><a href='+BASE_URL+value.certificate+' style="margin-top:0.5px;" target="_blank" class="btn btn-success btn-md">View File</a></td>';
                 tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("`+table+`")><li class="fa fa-times"></li></button></td>`;
                 tr += "</tr>";

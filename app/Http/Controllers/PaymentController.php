@@ -15,19 +15,18 @@ define('pgw_live_Url','https://www.mpuecomuat.com:60145/UAT/Payment/Payment/pay'
 
 class PaymentController extends Controller
 {
-    public function paymentMethod($id)
+    public function paymentMethod($id, $form_type)
     {
         // pay form type => application / register form / exam form / ...
         // id
 
         $client = new \GuzzleHttp\Client();
-        $resp = $client->request('GET', Helper::$domain .'/get_invoice/' . $id);
+        $resp = $client->request('GET', Helper::$domain .'/get_invoice/' . $id ."/". $form_type);
         if($resp->getStatusCode() == 200){
 
             $invoice = json_decode($resp->getBody()->getContents(), true);
 
             Session::put('data', $invoice);
-
             return view('pages.payment.payment_method', compact('invoice'));
             
         }else{
@@ -52,7 +51,6 @@ class PaymentController extends Controller
             // $phone = Session::get('data')['phone'];
             // $invoice_no = Session::get('data')['invoiceNo'];
             // $form_fee = Session::get('data')['form_fee'];
-            
             $data = Session::get('data');
             $type = $request->payment_method;
             // return $type;

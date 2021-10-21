@@ -450,7 +450,91 @@ function loadCpaffInitialData() {
             $('#phone').val(cpaff_data.phone);
             $('#contact_mail').val(cpaff_data.contact_mail);
             $('#reg_no').val(cpaff_data.reg_no);
+            $('#cpaff_reg_no').val(cpaff_data.reg_no);
             console.log(cpaff_data.ra != null || cpaff_data.ra != "null");
+            if (cpaff_data.ra != null && cpaff_data.ra != "null") {
+                $('#ra_edu').attr('checked', true);
+                $('#cpa_edu').attr('disabled', true);   
+                $('#education').attr('disabled', true); 
+                getCPAEducation();        
+                $(".ra_file").append("<a href='"+BASE_URL+cpaff_data.ra+"'  target='_blank'>View File</a><br/>");
+            }
+            else {
+                getCPAEducation();
+                $(".ra_file").append("");
+            }
+            if(cpaff_data.cpa!=null && cpaff_data.cpa!="null"){
+                $('#cpa_edu').attr('checked', true);   
+                $('#education').attr('disabled', true); 
+                $('#ra_edu').attr('disabled', true);            
+                getCPAEducation();
+                $(".cpa_file").show();
+                $(".cpa_file").append("<a href='" + BASE_URL + cpaff_data.cpa + "'  target='_blank'>View File</a><br/>");
+            }
+            else {
+                getCPAEducation();
+                $(".cpa_file").append("");
+            }
+            if (cpaff_data.foreign_degree != null && cpaff_data.foreign_degree != "null") {
+                $('#education').attr('checked', true);
+                $('#cpa_edu').attr('disabled', true); 
+                $('#ra_edu').attr('disabled', true);
+                getCPAEducation();
+                let foreign_degree = JSON.parse(cpaff_data.foreign_degree);
+                let degree_name = JSON.parse(cpaff_data.degree_name);
+                let degree_pass_year = JSON.parse(cpaff_data.degree_pass_year);
+                for (let j = 0; j < degree_name.length - 1; j++) {
+                    AddCPAFFDegree();
+                }
+                for (let i = 0; i < degree_name.length; i++) {
+                    $('input[name="degree_name[]"]').eq(i).val(degree_name[i]);
+                    $('input[name="degree_pass_year[]"]').eq(i).val(degree_pass_year[i]);
+                    $($(".foreign_degree_file")[i]).append(jQuery("<a href='" + BASE_URL + foreign_degree[i] + "'  target='_blank'>View File</a><br/>"));
+                }
+            }
+        }
+    });
+}
+
+function loadCpaffOfflineInitialData() {
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+        url: BACKEND_URL + "/cpaff_by_stuId/" + student.id,
+        type: 'get',
+        data: "",
+        success: function (data) {
+            console.log(data)
+            var cpaff_data = data.data;
+
+            // document.getElementById('cpaff_img').src=BASE_URL + cpaff.profile_photo;
+            $('#cpaff_img').src = BASE_URL + cpaff_data.profile_photo;
+            console.log('cpaff_data11',cpaff_data)
+            $('#cpa_batch_no').val(cpaff_data.cpa_batch_no);
+            $('#address').val(cpaff_data.address);
+            $('#phone').val(cpaff_data.phone);
+            $('#contact_mail').val(cpaff_data.contact_mail);
+            // $('#reg_no').val(cpaff_data.reg_no);
+            $('#cpaff_reg_no').val(cpaff_data.cpaff_reg_no);
+            $('#cpaff_pass_date').val(cpaff_data.cpaff_pass_date);
+            $('#cpaff_renew_date').val(cpaff_data.cpaff_renew_date);
+            $('#papp_reg_no').val(cpaff_data.papp_reg_no);
+            $('#papp_reg_year').val(cpaff_data.papp_reg_year);
+            $('#fine_person').val(cpaff_data.fine_person);
+            $('#total_hours').val(cpaff_data.total_hours);
+            $('#last_paid_year').val(cpaff_data.last_paid_year);
+            $('#resign_date').val(cpaff_data.resign_date);
+            // console.log(cpaff_data.papp_reg_year)
+            // console.log(cpaff_data)
+            if(cpaff_data.renew_file !=null || cpaff_data.renew_file != "null")
+            {
+                $(".renew_file").append("<a href='" + BASE_URL + cpaff_data.renew_file + "'  target='_blank'>View File</a><br/>");
+            }
+            $(".cpa_certificate").append("<a href='" + BASE_URL + cpaff_data.cpa_certificate + "'  target='_blank'>View File</a><br/>");
+            $(".mpa_mem_card").append("<a href='" + BASE_URL + cpaff_data.mpa_mem_card + "'  target='_blank'>View File</a><br/>");
+            $(".mpa_mem_card_back").append("<a href='" + BASE_URL + cpaff_data.mpa_mem_card_back + "'  target='_blank'>View File</a><br/>");
+            $(".cpd_record").append("<a href='" + BASE_URL + cpaff_data.cpd_record + "'  target='_blank'>View File</a><br/>");
+            // console.log(cpaff_data.renew_file)
+            // console.log(cpaff_data.ra != null || cpaff_data.ra != "null");
             if (cpaff_data.ra != null && cpaff_data.ra != "null") {
                 $('#ra_edu').attr('checked', true);
                 $('#cpa_edu').attr('disabled', true);   
@@ -1058,11 +1142,15 @@ function RenewCPAFF() {
     }
     // send_data.append('old_card_year', $("input[name=cpa2_pass_date]").val());
     send_data.append('cpaff_pass_date', $("input[name=cpaff_pass_date]").val());
-    send_data.append('renew_accepted_date', $("input[name=renew_accepted_date]").val());
-    send_data.append('reg_no', $("input[name=reg_no]").val());
-    send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());
+    send_data.append('cpaff_renew_date', $("input[name=cpaff_renew_date]").val());
+    // send_data.append('renew_accepted_date', $("input[name=renew_accepted_date]").val());
+    // send_data.append('reg_no', $("input[name=reg_no]").val());
+    send_data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
+    send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
+    send_data.append('papp_reg_year', $("input[name=papp_reg_year]").val());
+    // send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());
     send_data.append('renew_file', $("input[name=renew_file]")[0].files[0]);
-    send_data.append('is_convicted', $("input[name=fine_person]").val());
+    // send_data.append('is_convicted', $("input[name=fine_person]").val());
     send_data.append('address', $("input[name=address]").val());
     send_data.append('phone', $("input[name=phone]").val());
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
@@ -1074,32 +1162,32 @@ function RenewCPAFF() {
     var self_confession_accept = document.getElementById("accept_cpaffRenew");
     var self_confession_not_accept = document.getElementById("not-accept_cpaffRenew");
     if(self_confession_accept.checked == true || self_confession_not_accept.checked == true){
-        if($('#cpaff_id').val()){
-                    send_data.append('cpaff_id',$('#cpaff_id').val());
-                    $.ajax({
-                        url: BACKEND_URL+"/update_cpaff_renewal",
-                        type: 'post',
-                        data:send_data,
-                        contentType: false,
-                        processData: false,
-                        success: function(result){
-                            EasyLoading.hide();
-                            successMessage(result.message);
-                            // location.reload();
-                            location.href = FRONTEND_URL+'/';
-                            document.getElementById('approved').style.display='none';
-                            document.getElementById('rejected').style.display='none';
-                            document.getElementById('pending').style.display='none';
-                            document.getElementById('papp_form').style.display='none';
-                            document.getElementById('papp_renew_form').style.display='none';
-                            document.getElementById('expiry_card').style.display='none';
-                        },
-                        error:function (message){
-                        }
-                    });
-                }
-                else
-                {
+        // if($('#cpaff_id').val()){
+        //             send_data.append('cpaff_id',$('#cpaff_id').val());
+        //             $.ajax({
+        //                 url: BACKEND_URL+"/update_cpaff_renewal",
+        //                 type: 'post',
+        //                 data:send_data,
+        //                 contentType: false,
+        //                 processData: false,
+        //                 success: function(result){
+        //                     EasyLoading.hide();
+        //                     successMessage(result.message);
+        //                     // location.reload();
+        //                     location.href = FRONTEND_URL+'/';
+        //                     document.getElementById('approved').style.display='none';
+        //                     document.getElementById('rejected').style.display='none';
+        //                     document.getElementById('pending').style.display='none';
+        //                     document.getElementById('papp_form').style.display='none';
+        //                     document.getElementById('papp_renew_form').style.display='none';
+        //                     document.getElementById('expiry_card').style.display='none';
+        //                 },
+        //                 error:function (message){
+        //                 }
+        //             });
+        //         }
+        //         else
+        //         {
                      $.ajax({
                         url: BACKEND_URL + "/renew_cpaff",
                         type: 'post',
@@ -1123,7 +1211,7 @@ function RenewCPAFF() {
                             EasyLoading.hide();
                         }
                     });
-                }
+                // }
          
     }
     else{

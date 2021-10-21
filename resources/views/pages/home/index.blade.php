@@ -215,15 +215,19 @@
                                 <a href="{{ url('cpa_ff_information') }}" class="btn btn-success" style="float:right !important">  Read More</a>
                                 <hr>
 
-                                
-                                <ul style="line-height:180%; font-family: Arial, Helvetica, sans-serif; text-align: justify;">
+                                <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <div class="cpaff-description"></div>
+                                        </div>
+                                </div>
+                                {{--<ul style="line-height:180%; font-family: Arial, Helvetica, sans-serif; text-align: justify;">
                                     <li> အသက် ၂၁ နှစ်ပြည့်ပြီးသူ </li>
                                     <li>  CPA Part-2 စာမေးပွဲအောင်မြင်သူ (သို့မဟုတ်) အရည်အချင်းစစ်စာမေးပွဲအောင်မြင်ပြီးသူ</li>
                                     <li>  သတ်မှတ်အလုပ်သင်လုပ်သက်ပြည့်မြောက်ပြီးသူ</li>
                                     <li> စတင်လျှောက်ထားသည့် နေ့မတိုင်မီ ၁၂ လအတွင်း အနဲဆုံး CPD ၂၀ နာရီ ပြည့်မီသူ
                                     <li>  MICPA အသင်းဝင် </li>
                                     <li> . . .</li>
-                                </ul>
+                                </ul>--}}
 
 
                                 
@@ -241,13 +245,17 @@
                                 <h4 class="d-inline-block"> Certificate of Professional Accountant in Public Practice (PAPP) </h4> 
                                 <a href="{{ url('student_papp_information') }}" class="btn btn-success" style="float:right !important">  Read More</a>
                                 <hr>
-
+                                <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <div class="papp-description"></div>
+                                        </div>
+                                </div>
                                 
-                                <ul style="line-height:180%; font-family: Arial, Helvetica, sans-serif; text-align: justify;">   
+                                {{--<ul style="line-height:180%; font-family: Arial, Helvetica, sans-serif; text-align: justify;">   
                                     <li> CPA(FF) မှတ်ပုံတင်သက်တမ်း ၁ နှစ် ပြည့်မြောက်သူများ</li>
                                     <li> စတင်လျှောက်ထားသည့် နေ့မတိုင်မီ ၁၂ လအတွင်း အနဲဆုံး CPD ၂၀ နာရီ ပြည့်မီသူ</li>
                                     <li> . . .</li>
-                            </ul>
+                            </ul>--}}
 
 
                                 
@@ -308,9 +316,13 @@
                                 <h4 class="d-inline-block">Mentor </h4> 
                                 <a href="{{ url('mentor_information') }}" class="btn btn-success" style="float:right !important">  Read More</a>
                                 <hr>
-
+                                <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <div class="mentor-description"></div>
+                                        </div>
+                                </div>
                                 
-                                    <ul style="line-height:180%; font-family: Arial, Helvetica, sans-serif; text-align: justify;">
+                                    <!-- <ul style="line-height:180%; font-family: Arial, Helvetica, sans-serif; text-align: justify;">
                                         <li>လျှောက်လွှာကြေး ၁၀၀၀ ကျပ်ပေးသွင်းပြီး လျှောက်လွှာ (ဆရာပုံစံ-၁) ဖြင့် လျှောက်ထား ရမည်။ (ပူးတွဲ တင်ပြရမည့်အထောက်အထားများအပါအဝင်)</li>
                                             <ul>
                                                 <li>- PAPP အဖြစ်မှတ်ပုံတင်ထားပြီး ယင်းလုပ်ငန်းကို ၃ နှစ်တစ်ဆက်တည်းလုပ်ကိုင်ခဲ့သူ (မှတ်ပုံတင်သက်တမ်းပြတ်တောက်နေသူများကို ခွင့်မပြုပါ)</li>
@@ -319,7 +331,7 @@
                                         <li>သတ်မှတ်လျှောက်လွှာပုံစံဖြင့်လျှောက်ထားရမည်၊ (လျှောက်လွှာကြေးမကောက်ခံပါ)</li>
                                         <li>သတ်မှတ်ချက်များနှင့်ကိုက်ညီပါက အလုပ်သင်ကြားပေးနိုင်သည့် PAPP အမည်စာရင်း ထုတ် ပြန်ပါသည်။</li>
                                         <li>. . .</li>
-                                    </ul>
+                                    </ul> -->
                             </div>
                             <!-- Single Courses End -->
                         </div>
@@ -362,5 +374,8 @@
 <script type="text/javascript">
     loadDescription('School','school-description');
     loadDescription('Teacher','teacher-description');
+    loadDescription('PAPP','papp-description');
+    loadDescription('CPAFF','cpaff-description');
+    loadDescription('Mentor','mentor-description');
 </script>
 @endpush

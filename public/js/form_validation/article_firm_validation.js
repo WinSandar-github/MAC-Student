@@ -24,6 +24,7 @@ $().ready(function (){
             phone_no : "required",
             m_email : "required",
             papp_name : "required",
+            mentor_name : "required",
             pass_date : "required",
             pass_no : "required",
             current_job : "required",
@@ -40,7 +41,7 @@ $().ready(function (){
             confirm_142 : "required",
             confirm_status : "required",
             mentor_declare : "required",
-            papp_attach : "required",
+            request_papp_attach : "required",
         },
         messages:{
             // name_mm : "Please enter your name",
@@ -66,6 +67,7 @@ $().ready(function (){
             phone_no : "Please enter your phone number",
             m_email : "Please enter your email",
             papp_name : "Please enter your papp name",
+            mentor_name : "Please select mentor name",
             current_job : "Please select one",
             position : "Please enter your position",
             job_started_date : "Please select your date",
@@ -75,7 +77,56 @@ $().ready(function (){
             experience_file : "Please enter your attachment",
             confirm_142 : "Please check one",
             confirm_status : "Please check one",
-            papp_attach : "Please enter your attachment",
+            request_papp_attach : "Please enter your attachment",
+        },
+        
+    });
+    $("#article_renew_register_form").validate({
+        rules:{
+            current_address : "required",
+            phone_no : "required",
+            m_email : "required",
+            papp_name : "required",
+            mentor_name : "required",
+            pass_date : "required",
+            pass_no : "required",
+            experience : "required",
+            experience_file : {
+                required : "#experience_yes:checked"
+            },
+            confirm_142 : "required",
+            confirm_status : "required",
+            mentor_declare : "required",
+            request_papp_attach : "required",
+        },
+        messages:{
+            current_address : "Please enter your current address",
+            phone_no : "Please enter your phone number",
+            m_email : "Please enter your email",
+            papp_name : "Please enter your papp name",
+            mentor_name : "Please select mentor name",
+            pass_date : "Please select your pass exam date",
+            pass_no : "Please enter your pass exam number",
+            experience : "Please select one",
+            experience_file : "Please enter your attachment",
+            confirm_142 : "Please check one",
+            confirm_status : "Please check one",
+            request_papp_attach : "Please enter your attachment",
+        },
+        
+    });
+    $("#leave_request_form").validate({
+        rules:{
+            remark : "required",
+            start_date : "required",
+            end_date : "required",
+            total_date : "required",
+        },
+        messages:{
+            remark : "Please enter your leave request",
+            start_date : "Please select your date",
+            end_date : "Please select your date",
+            total_date : "Please enter your total date",
         },
         
     });

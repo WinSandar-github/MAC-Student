@@ -83,7 +83,7 @@
                         <!-- Form Wrapper Start -->
                         <div class="form-wrapper">
 
-                            <form method="post" id="article_register_form"  action="javascript:javascript:createArticleRenewRegister();"
+                            <form method="post" id="article_renew_register_form"  action="javascript:javascript:createArticleRenewRegister();"
                                     enctype="multipart/form-data" novalidate>
                                 @csrf
                                 
@@ -92,8 +92,8 @@
 
                                         <div class="row mb-3">
                                             <h5 class="card-title text-center fw-bolder">
-                                                ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော်<br>
-                                                ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး<br>
+                                                ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော်<br><br>
+                                                ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး<br><br>
                                                 စာရင်းကိုင်အလုပ်သင်လျှောက်လွှာပုံစံ
                                             </h5>
                                             <div>
@@ -157,9 +157,9 @@
                                                 <div class="col-md-11">
                                                     <ul>
                                                         <li>
-                                                            <input type="radio" class="form-check-input" value="1" id="male2" name="gender2" >
+                                                            <input type="radio" class="form-check-input" value="1" id="male2" name="gender3" >
                                                             <label class="form-check-label " for="">ကျွန်တော်</label>
-                                                            <input type="radio" class="form-check-input" value="0" id="female2" name="gender2" >
+                                                            <input type="radio" class="form-check-input" value="0" id="female2" name="gender3" >
                                                             <label class="form-check-label " for="">ကျွန်မ</label>
                                                         </li>
                                                         <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( <span class="course_name">-----</span> ) စာမေးပွဲကို <br> <span id="pass_year"> -----</span> ခုနှစ် <span id="pass_month">-----</span> လ တွင်ကျင်းပခဲ့သော CPA II <span id="">-----</span> တွင်အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li>
@@ -173,7 +173,7 @@
                                                 <label class="col-md-1 col-form-label label"><span class="pull-left">{{__('၂။')}}</span></label>
                                                 <div class="col-md-11">
                                                     <ul>
-                                                        <li>ယခင်က လက်တွေ့အလုပ်သင်ကြားမှုကို အလုပ်သင်ကြားပေးသည့် <span id="mentor_name">-----</span> ထံတွင် <span id="start_date">-----</span> နေ့မှ <span id="end_date">-----</span> နေ့အထိ <span id="result_name">----နှစ် ၊ ----လ ၊ ----ရက် </span> အလုပ်သင်ကြားမှုခံယူခဲ့ပါသည်။</li>
+                                                        <li>ယခင်က လက်တွေ့အလုပ်သင်ကြားမှုကို အလုပ်သင်ကြားပေးသည့် <span id="mentor_id">-----</span> ထံတွင် <span id="start_date">-----</span> နေ့မှ <span id="end_date">-----</span> နေ့အထိ <span id="result_name">----နှစ် ၊ ----လ ၊ ----ရက် </span> အလုပ်သင်ကြားမှုခံယူခဲ့ပါသည်။</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -326,10 +326,21 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
-                                            <div class="col-md-9">
-                                                <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း" readonly>
+                                        <div id="firm_education">
+                                            <div class="row mb-3">
+                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="qt_education" style="display:none;">
+                                            <div class="row mb-3">
+                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
+                                                <div class="col-md-9  pt-2">
+                                                    <span id="add_qt_education"></span>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -400,7 +411,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
+                                        <!-- <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_job_label">{{ __('၈။') }}</span>ပုဂ္ဂလိကနှင့် အစိုးရဌာနအဖွဲအစည်းများ၊ အခြားဌာနအဖွဲ့အစည်းများ၊ ကုမ္ပဏီများ၊ Non Audit Service လုပ်ငန်းများတွင် အချိန်ပြည့်/ အချိန်ပိုင်းဝန်ထမ်း အဖြစ်ဆောင်ရွက်နေခြင်း ရှိ/မရှိ<span style="color:red">*</span></label>
                                             <div class="col-md-4">
                                                 <div class="form-check">
@@ -433,31 +444,31 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_address_label">{{ __('၉။') }}</span>ဆက်သွယ်ရန်လိပ်စာ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_address_label">{{ __('၈။') }}</span>ဆက်သွယ်ရန်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="current_address" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="address_label">{{ __('၁၀။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="address_label">{{ __('၉။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="address"  id="address" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="phone_label">{{ __('၁၁။') }}</span>ဖုန်းနံပါတ်<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="phone_label">{{ __('၁၀။') }}</span>ဖုန်းနံပါတ်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="phone_no" id="phone_no" class="form-control" placeholder="ဖုန်းနံပါတ်">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="m_email_label">{{ __('၁၂။') }}</span>အီးမေးလ်လိပ်စာ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="m_email_label">{{ __('၁၁။') }}</span>အီးမေးလ်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="email" placeholder="အီးမေးလ်လိပ်စာ" name="m_email" id="m_email" class="form-control" >
                                             </div>
@@ -465,7 +476,7 @@
 
                                         <div id="previous_papp_name_row" style="display:none;">
                                             <div class="row mb-3">
-                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>ယခင်အလုပ်သင်ကြားခဲ့သည့် PAPP အမည်</label>
+                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၂။') }}</span>ယခင်အလုပ်သင်ကြားခဲ့သည့် PAPP အမည်</label>
                                                 <div class="col-md-9">
                                                     <input type="text" name="previous_papp_name" id="previous_papp_name" class="form-control" placeholder="ယခင်အလုပ်သင်ကြားခဲ့သည့် PAPP အမည်">
                                                 </div>
@@ -475,7 +486,7 @@
 
                                         <div id="previous_papp_date_row" style="display:none;">
                                             <div class="row mb-3">
-                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၄။') }}</span>ယခင်အလုပ်သင်ဆင်းခဲ့သည့် ကာလ</label>
+                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>ယခင်အလုပ်သင်ဆင်းခဲ့သည့် ကာလ</label>
                                                 <div class="col-md-9">
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -489,15 +500,30 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
+                                        <!-- <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၃။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="papp_name" id="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်">
                                             </div>
+                                        </div> -->
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၂။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
+                                            <div class="col-md-9">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <input id="papp_name" type="text" name="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="hidden" id="mentor_id">
+                                                        <input type="text" name="mentor_name" id="mentor_name" class="form-control" placeholder="Mentor Name">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>လက်ခံသင်ကြားပေးကြောင်းအကြောင်းကြားစာ</label>
                                             <div class="col-md-9">
                                                 <input type="file" name="request_papp_attach" class="form-control">
                                             </div>
@@ -512,7 +538,7 @@
                                                     <input class="form-check-input" type="checkbox" name="confirm_142">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
-                                                        * <a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၂၈) </a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
+                                                        * <a href="https://demo.aggademo.me/MAC/public/storage/article/128.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၂၈) </a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
                                                     </p>
                                                 </label><br>
                                                 <label  class="error attend_place_error" style="display:none;" for="confirm_142">Please check one</label>
@@ -524,12 +550,30 @@
                                                 <label class="form-check-label">
                                                     <input class="form-check-input" type="checkbox" name="confirm_status">
                                                     <span class="form-check-sign"></span>
-                                                    <p class="fw-bolder">
-                                                        * ၁။ ကျွန်တော်/ ကျွန်မသည် ယခုလက်ရှိအချိန်တွင် အစိုးရနှင့် ပုဂ္ဂလိက အဖွဲ့အစည်းများတွင် အချိန်ပြည့်ဝန်ထမ်းအဖြစ် တာဝန်ထမ်းဆောင်နေခြင်းမရှိပါ။ Non Audit Service လုပ်ငန်းများလုပ်ကိုင် ဆောက်ရွက်နေခြင်းမရှိပါ။<br>
-                                                        ၂။ စာရင်းကိုင်အလုပ်သင်အဖြစ်ဆောင်ရွက်ရမည့် အချိန်အတွင်း အချိန်ပြည့်ဝန်ထမ်းအဖြစ် ဆောင်ရွက်ခြင်း၊ Non Audit Service လုပ်ငန်းများလုပ်ကိုင်မည်ဆိုပါက အလုပ်သင်အဖြစ်ဆောင်ရွက်ခြင်းမှ ရပ်ဆိုင်းခွင့်ပြုပါရန် မြန်မာနိုင်ငံစာရင်းကောင်စီသို့ မပျက်မကွက်အသိပေးပါမည်။ အလုပ်သင်ကာလအတွင်း အလုပ်သင်ကြားခြင်းနှင့်ဆိုင်သည့် လုပ်ငန်းတာဝန်များကို သာအချိန်ပြည့်တာဝန် ထမ်းဆောင်ရမည်ကို သိရှိပါသည်။<br>
-                                                        ၃။ စာရင်းကိုင်အလုပ်သင်နှင့် ကိုယ်ပိုင်စာရင်းကိုင် သင်တန်းကျောင်းများ ကြီးကြပ်ရေးကော်မတီ၏ ၇-၄-၂၀၂၀ ရက်စွဲပါ ရုံးအမိန့်အမှတ် ၁၂၈ ပါ စာရင်းကိုင်အလုပ်သင်များလိုက်နာရမည့် စည်းကမ်းချက်များနှင့် ရပိုင်ခွင့်များကို သိရှိနားလည် ပြီးဖြစ်ပါသည်။<br>
-                                                        ၄။ ဤဝန်ခံချက် ပျက်ကွက်ပါက အလုပ်သင်စည်းမျဥ်းများနှင့်အညီ အရေးယူခြင်းကို ခံရမည်ဖြစ်ကြောင်း သဘောတူပါသည်။
-                                                    </p>
+                                                    * <div class="row">
+                                                        <div class="col-md-1">၁ ။</div>
+                                                        <div class="col-md-11">
+                                                            <p class="fw-bolder">ကျွန်တော်/ ကျွန်မသည် ယခုလက်ရှိအချိန်တွင် အစိုးရနှင့် ပုဂ္ဂလိက အဖွဲ့အစည်းများတွင် အချိန်ပြည့်ဝန်ထမ်းအဖြစ် တာဝန်ထမ်းဆောင်နေခြင်းမရှိပါ။ Non Audit Service လုပ်ငန်းများလုပ်ကိုင် ဆောက်ရွက်နေခြင်းမရှိပါ။</p>
+                                                        </div>
+                                                    </div><br>
+                                                    <div class="row">
+                                                        <div class="col-md-1">၂ ။</div>
+                                                        <div class="col-md-11">
+                                                            <p class="fw-bolder">စာရင်းကိုင်အလုပ်သင်အဖြစ်ဆောင်ရွက်ရမည့် အချိန်အတွင်း အချိန်ပြည့်ဝန်ထမ်းအဖြစ် ဆောင်ရွက်ခြင်း၊ Non Audit Service လုပ်ငန်းများလုပ်ကိုင်မည်ဆိုပါက အလုပ်သင်အဖြစ်ဆောင်ရွက်ခြင်းမှ ရပ်ဆိုင်းခွင့်ပြုပါရန် မြန်မာနိုင်ငံစာရင်းကောင်စီသို့ မပျက်မကွက်အသိပေးပါမည်။ အလုပ်သင်ကာလအတွင်း အလုပ်သင်ကြားခြင်းနှင့်ဆိုင်သည့် လုပ်ငန်းတာဝန်များကို သာအချိန်ပြည့်တာဝန် ထမ်းဆောင်ရမည်ကို သိရှိပါသည်။</p>
+                                                        </div>
+                                                    </div><br>
+                                                    <div class="row">
+                                                        <div class="col-md-1">၃ ။</div>
+                                                        <div class="col-md-11">
+                                                            <p class="fw-bolder">စာရင်းကိုင်အလုပ်သင်နှင့် ကိုယ်ပိုင်စာရင်းကိုင် သင်တန်းကျောင်းများ ကြီးကြပ်ရေးကော်မတီ၏ ၇-၄-၂၀၂၀ ရက်စွဲပါ ရုံးအမိန့်အမှတ် ၁၂၈ ပါ စာရင်းကိုင်အလုပ်သင်များလိုက်နာရမည့် စည်းကမ်းချက်များနှင့် ရပိုင်ခွင့်များကို သိရှိနားလည် ပြီးဖြစ်ပါသည်။</p>
+                                                        </div>
+                                                    </div><br>
+                                                    <div class="row">
+                                                        <div class="col-md-1">၄ ။</div>
+                                                        <div class="col-md-11">
+                                                            <p class="fw-bolder">ဤဝန်ခံချက် ပျက်ကွက်ပါက အလုပ်သင်စည်းမျဥ်းများနှင့်အညီ အရေးယူခြင်းကို ခံရမည်ဖြစ်ကြောင်း သဘောတူပါသည်။</p>
+                                                        </div>
+                                                    </div>
                                                 </label><br>
                                                 <label  class="error attend_place_error" style="display:none;" for="confirm_status">Please check one</label>
                                             </div>
@@ -589,6 +633,9 @@
 <script src="{{ asset("js/form_validation/article_firm_validation.js") }}"></script>
 <script type="text/javascript">
     $('document').ready(function(){
+
+        loadMentorList();
+
         var result = window.location.href;
         var url = new URL(result);
         var get_data = url.searchParams.get("data");
@@ -597,57 +644,78 @@
 
         get_student_info(student_id).then(data => {
             let student_info = data.data
-            let student_reg = data.data.student_register
-            let lastest_row = student_reg.length - 1;
-            let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
-            let exam_result = student_reg[lastest_row].status;  // pass/fail
-            let module = student_reg[lastest_row].module;  // module 1/2/all
-            let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
-            let batch = student_reg[lastest_row].batch_no;
 
-            $("#student_info_id").val(student_reg[lastest_row].student_info_id);
+            let latest_article = data.data.article.slice(-1);
+            let qualified_test = data.data.qualified_test;
 
-            if(course == "cpa_1"){
-                $(".course_name").text("ပထမပိုင်း");
-            }else{
-                $(".course_name").text("ဒုတိယပိုင်း");
+            if(qualified_test == null){
+                let student_reg = data.data.student_register
+                let lastest_row = student_reg.length - 1;
+                let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
+                let exam_result = student_reg[lastest_row].status;  // pass/fail
+                let module = student_reg[lastest_row].module;  // module 1/2/all
+                let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
+                let batch = student_reg[lastest_row].batch;
+
+                if(course == "cpa_1"){
+                    $(".course_name").text("ပထမပိုင်း");
+                }else{
+                    $(".course_name").text("ဒုတိယပိုင်း");
+                }
+
+                var pass_date=new Date(student_reg[lastest_row].date);
+                var pass_year = pass_date.getFullYear();
+                var pass_month = pass_date.getMonth();
+                $("#pass_year").text(pass_year);
+                $("#pass_month").text(pass_month);
+
+                if(batch == "undefined"){
+                    $("#batch_no").text("-");
+                }else{
+                    $("#batch_no").text(batch.number);
+                } 
+                
+                if(type == 0){
+                    $("#type_name").text("ကိုယ်တိုင်လေ့လာသင်ယူသူအဖြစ်");
+                }else if(type == 1){
+                    $("#type_name").text("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်ကျောင်း");
+                }else{
+                    $("#type_name").text("သင်တန်းကျောင်း");
+                }
+
+                if(exam_result == 0){
+                    $("#result_name").text("တက်ရောက်နေ");
+                }else if(exam_result == 1){
+                    $("#result_name").text("အောင်မြင်");
+                }else{
+                    $("#result_name").text("ကျရုံး");
+                    $("#renew_row").show();
+                    document.getElementById('request_label').innerHTML="၃။";
+                }
+
+                if(get_data == "c2_pass_renew"){
+                    $("#all_first_row").css('display','none');
+                    $("#renew_first_row").css('display','block');
+                    $("#previous_papp_name_row").css('display','block');
+                    $("#previous_papp_date_row").css('display','block');
+                    document.getElementById('papp_name_label').innerHTML="၁၂။";
+                }else if(get_data == "c12_renew"){
+                    $("#all_first_row").css('display','block');
+                }
+
+                if(student_info.gender == "Male"){
+                    $('input:radio[name=gender1][value=1]').attr('checked',true);
+                    $('input:radio[name=gender2][value=1]').attr('checked',true);
+                    $('input:radio[name=gender3][value=1]').attr('checked',true);
+                }else{
+                    $('input:radio[name=gender1][value=0]').attr('checked',true);
+                    $('input:radio[name=gender2][value=0]').attr('checked',true);
+                    $('input:radio[name=gender3][value=0]').attr('checked',true);
+                }
+                
             }
 
-            var pass_date=new Date(student_reg[lastest_row].date);
-            var pass_year = pass_date.getFullYear();
-            var pass_month = pass_date.getMonth();
-            $("#pass_year").text(pass_year);
-            $("#pass_month").text(pass_month);
-
-            $("#batch_no").text(batch);
-            
-            if(type == 0){
-                $("#type_name").text("ကိုယ်တိုင်လေ့လာသင်ယူသူအဖြစ်");
-            }else if(type == 1){
-                $("#type_name").text("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်ကျောင်း");
-            }else{
-                $("#type_name").text("သင်တန်းကျောင်း");
-            }
-
-            if(exam_result == 0){
-                $("#result_name").text("တက်ရောက်နေ");
-            }else if(exam_result == 1){
-                $("#result_name").text("အောင်မြင်");
-            }else{
-                $("#result_name").text("ကျရုံး");
-                $("#renew_row").show();
-                document.getElementById('request_label').innerHTML="၃။";
-            }
-
-            if(get_data == "c2_pass_renew"){
-                $("#all_first_row").css('display','none');
-                $("#renew_first_row").css('display','block');
-                $("#previous_papp_name_row").css('display','block');
-                $("#previous_papp_date_row").css('display','block');
-                document.getElementById('papp_name_label').innerHTML="၁၅။";
-            }else if(get_data == "c12_renew"){
-                $("#all_first_row").css('display','block');
-            }
+            $("#student_info_id").val(latest_article[0].student_info_id);
 
             $('#name_mm').val(student_info.name_mm);
             $("#name_eng").val(student_info.name_eng);
@@ -661,7 +729,26 @@
             $("#race").val(student_info.race);
             $("#religion").val(student_info.religion);
             $("#date_of_birth").val(student_info.date_of_birth);
-            $("#education").val(student_info.student_education_histroy.degree_name);
+            if(qualified_test != null){
+                $("#firm_education").hide();
+                $("#qt_education").show();
+                let lcl = JSON.parse(qualified_test.local_education);
+                lcl.map(lcl_edu => $('#add_qt_education').append(`<p>${lcl_edu}</p>`));
+
+                let certificate = JSON.parse(qualified_test.local_education_certificate);
+                $.each(certificate,function(fileCount,fileName){
+                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
+                   
+                })
+            }else{
+                $("#education").val(student_info.student_education_histroy.degree_name);
+                let certificate = JSON.parse(student_info.student_education_histroy.certificate);
+                $.each(certificate,function(fileCount,fileName){
+                   
+                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
+                   
+                })
+            }
             $("#address").val(student_info.address);
             $("#phone_no").val(student_info.phone);
 
@@ -669,26 +756,19 @@
             document.getElementById('previewNRCFrontImg').src = BASE_URL + student_info.nrc_front;
             document.getElementById('previewNRCBackImg').src = BASE_URL + student_info.nrc_back;
 
-            let certificate = JSON.parse(student_info.student_education_histroy.certificate);
-                $.each(certificate,function(fileCount,fileName){
-                   
-                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
-                   
-                })
-
         });
     })
 
     $(document).ready(function (e) {
-        $("input[name=current_job]").on("click", function(evt) {
-            var checkedValue = $("input[name='current_job']:checked").val();
-            if(checkedValue == '1'){
-                $("#current_job_row").css('display','block');
-            }
-            else if(checkedValue == '0'){
-                $("#current_job_row").css('display','none');
-            }
-        });
+        // $("input[name=current_job]").on("click", function(evt) {
+        //     var checkedValue = $("input[name='current_job']:checked").val();
+        //     if(checkedValue == '1'){
+        //         $("#current_job_row").css('display','block');
+        //     }
+        //     else if(checkedValue == '0'){
+        //         $("#current_job_row").css('display','none');
+        //     }
+        // });
 
         $("input[name=experience]").on("click", function(evt) {
             var checkedValue = $("input[name='experience']:checked").val();

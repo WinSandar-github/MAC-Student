@@ -41,6 +41,7 @@ Route::get('/da_two_exam_register', 'DATwoExamRegisterController@daTwoExamRegist
 
 //PAPP Register Form
 Route::get('student_papp','PAPPController@info');
+Route::get('renew_papp','PAPPController@renew_papp');
 Route::get('update_papp_initial','PAPPController@reject_initial');
 Route::get('update_papp_renewal','PAPPController@reject_renewal');
 
@@ -57,6 +58,8 @@ Route::get('cpaff_other', 'CPAFFController@other');
 Route::get('update_cpaff_initial','CPAFFController@reject_initial');
 Route::get('update_cpaff_renewal','CPAFFController@reject_renewal');
 Route::get('cpaff_reconnect','CPAFFController@cpaffReconnect');
+Route::get('cpaff_renew', 'CPAFFController@cpaffRenew');
+Route::get('cpaff_offline_renew', 'CPAFFController@cpaffOfflineRenew');
 
 // CPA_FF Information Page
 Route::get('cpa_ff_information', 'CPAFFInfoController@info');
@@ -93,7 +96,6 @@ Route::get('cpa_two_mac/{id}', 'CPATwoRegisterController@mac');
 Route::get('cpa_two_private_school/{id}', 'CPATwoRegisterController@private_school');
 Route::get('cpa_two_register/{id}', 'CPATwoRegisterController@register');
 
-
 Route::get('student_course/{course_type_id}', 'StudentController@course');
 Route::get('da_one_register', 'StudentController@daOneRegister');
 //Cpa
@@ -103,6 +105,10 @@ Route::get('cpa_one_dapass_form/{id}', 'CPAOneRegisterController@cpaOneDaPassFor
 Route::get('cpa_one_entry_app_form/{id}', 'CPAOneRegisterController@cpaOneEntryAppForm');
 
 Route::get('cpa_edit', 'CPAOneRegisterController@cpaEdit');
+Route::get('existing_user_cpa_one', 'CPAOneRegisterController@existing_user_cpa_one');
+
+//Entry Exam form edit
+Route::get('entry_edit', 'CPAOneRegisterController@entry_edit');
 //Cpa One Exam Register
 Route::get('cpa_exam_register','CPAOneRegisterController@cpaExamRegister');
 //Cpa two exam register
@@ -163,6 +169,9 @@ Route::get('renew_school_edit', 'SchoolController@renew_edit');
 //Teacher Register Form
 Route::get('teacher_register', 'TeacherController@info');
 
+//Teacher existing Register Form
+Route::get('teacher_existing_user_register', 'TeacherController@existing_user');
+
 // Teacher Information Page
 Route::get('teacher_information', 'TeacherInfoController@info');
 
@@ -199,7 +208,7 @@ Route::get('qualified_test_list','ReportController@qualifiedTestList');
 // Route::get('payment', 'PaymentController@payment');
 // Route::get('cash', 'PaymentController@cash');
 // Route::get('da_verify_email', 'PaymentController@verifyEmail');
-Route::get('payment_method/{id}', 'PaymentController@paymentMethod');
+Route::get('payment_method/{id}/{form_type}', 'PaymentController@paymentMethod');
 Route::get('/setPayment', 'PaymentController@setPayment');
 Route::post('payment_method/{id}', 'PaymentController@postPayment');
 Route::post('post_payment/{type}', 'PaymentController@postPayment');
@@ -213,3 +222,11 @@ Route::get('qt_edit/{id}', 'QtController\QtController@edit');
 //Reconnect
 Route::get('reconnect','ReconnectController\ReconnectController@reconnect');
 Route::get('reconnect_papp','ReconnectController\ReconnectController@reconnect_papp');
+
+//da existing register
+Route::get('da_one_existing_reg_form', 'ReconnectController\ReconnectController@DAOneExistingRegForm');
+Route::get('da_two_existing_reg_form','ReconnectController\ReconnectController@da_two_registerForm');
+
+//cpa_two_register for cpa_one_pass
+// Route::get('cpa_two_reg_cpaone_pass', 'CPATwoRegisterController@CPATwoRegCpaOnePassForm');
+Route::get('cpa_two_reg_cpaone_pass','ReconnectController\ReconnectController@CPATwoRegCpaOnePassForm');

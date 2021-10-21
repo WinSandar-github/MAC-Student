@@ -79,6 +79,50 @@ function AddPolice() {
     police_count++;
 }
 
+function loadMentorList(){
+    var array = [];
+    $.ajax({
+        url: BACKEND_URL+"/mentor",
+        type: 'get',
+        data:"",
+        success: function(data){
+            var result=data.data;
+            result.forEach(function (element) {
+                array.push(element.papp_reg_no);
+            });
+                    
+            $('#papp_name').autocomplete({
+                source : array,              
+                select : getMentorName,
+                focus : getMentorName,
+                change :getMentorName
+            })
+        },
+        error:function (message){
+
+        }
+
+    });
+}
+
+function getMentorName(event, ui){
+    papp_name = ui.item.label;
+    $.ajax({
+        type: 'GET',
+        url: BACKEND_URL + "/getMentor/" + papp_name,
+        success: function (mentor) {
+            var result = mentor.mentor;
+            result.forEach(function (element) {
+                $("#mentor_name").val(element.name_mm);
+                $("#mentor_id").val(element.id);
+            });
+        },
+        error:function (message){
+
+        }
+    });
+}
+
 function createArticleFirmRegister() {
     var send_data = new FormData();
 
@@ -128,6 +172,7 @@ function createArticleFirmRegister() {
     send_data.append('exp_start_date', $("input[name=previous_papp_start_date]").val());
     send_data.append('exp_end_date', $("input[name=previous_papp_end_date]").val());
     send_data.append('request_papp', $("input[name=papp_name]").val());
+    send_data.append('mentor_id', $("#mentor_id").val());
     send_data.append('request_papp_attach', request_papp_attach);
     send_data.append('exam_pass_date', $("input[name=pass_date]").val());
     send_data.append('exam_pass_batch', $("input[name=pass_no]").val());
@@ -325,9 +370,9 @@ function createArticleRenewRegister() {
     // send_data.append('date_of_birth', $("input[name=date_of_birth]").val());
     // send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     // send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
-    send_data.append('gov_staff', $("input[type='radio'][name='current_job']:checked").val());
-    send_data.append('gov_position', $("input[name=position]").val());
-    send_data.append('gov_joining_date', $("input[name=job_started_date]").val());
+    // send_data.append('gov_staff', $("input[type='radio'][name='current_job']:checked").val());
+    // send_data.append('gov_position', $("input[name=position]").val());
+    // send_data.append('gov_joining_date', $("input[name=job_started_date]").val());
     // send_data.append('address', $("input[name=address]").val());
     // send_data.append('phone_no', $("input[name=phone_no]").val());
     send_data.append('current_address', $("input[name=current_address]").val());
@@ -336,6 +381,7 @@ function createArticleRenewRegister() {
     send_data.append('exp_start_date', $("input[name=previous_papp_start_date]").val());
     send_data.append('exp_end_date', $("input[name=previous_papp_end_date]").val());
     send_data.append('request_papp', $("input[name=papp_name]").val());
+    send_data.append('mentor_id', $("#mentor_id").val());
     send_data.append('request_papp_attach', request_papp_attach);
     send_data.append('student_info_id', $("input[name=student_info_id]").val());
     send_data.append('article_form_type', $("input[name=article_form_type]").val());

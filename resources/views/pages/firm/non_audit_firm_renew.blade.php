@@ -58,6 +58,11 @@
                   </div>
                   <input type="hidden" value="2" name="audit_firm_type_id">
 	                <input type="hidden" value="1" name="local_foreign_type">
+
+                  <input type="hidden" value="" name="offline_user">
+                  <input type="hidden" value="" name="req_for_stop">
+                  <input type="hidden" value="" name="last_registered_year">
+                  <input type="hidden" value="" name="suspended_year">
                 <!-- <br> -->
 
                     <div class="card-header"  id="local_info" style="display:none;">
@@ -221,7 +226,7 @@
                   <label class="col-md-4 col-form-label label"><span class="pull-left"></span></label>
                   <div class="col-md-8">
                       <label for="" class="control-label text-muted fw-bolder"><small>Head Office Address(Myanmar)</small></label>
-                      <textarea name="head_office_address_mm" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                      <textarea id="head_office_address_mm" name="head_office_address_mm" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
                   </div>
                 </div>
 
@@ -1238,7 +1243,7 @@
 											<div class="form-group" style="display:flex;">
 													<label class="col-form-label" style="font-weight:bold;padding-right:10px;">{{ __('I') }}</label>
 													<input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(managing director)(English)" >
-													<input type="text" name="declaration_mm" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="" placeholder="(managing director)(Myanmar)" >
+													<input type="text" id="declaration_mm" name="declaration_mm" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="" placeholder="(managing director)(Myanmar)" >
 											</div>
 									</div>
 
@@ -1383,7 +1388,7 @@
     					self.val(val.replace(/[a-zA-Z0-9]+$/, ''));
     			}
     	}
-      
+
         loadNonAuditStaff();
         loadNonAuditOrganization();
         loadNonAuditTypeOfService();

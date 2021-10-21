@@ -27,7 +27,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Audit <span>Firm </span><span>Reconnect Registration</span></h2>
+                    <h2 class="title">Audit <span>Firm </span><span>Existing User Registration</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -83,7 +83,7 @@
                                     <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
                                       <div class="row mb-5">
                                           <h5 class="card-title text-center fw-bolder">
-                                              APPLICATION FOR REGISTRATION OF ACCOUNTANCY FIRM NAME(Reconnect)
+                                              APPLICATION FOR REGISTRATION OF ACCOUNTANCY FIRM NAME
                                           </h5>
                                       </div>
                                       <div class="row mb-3">
@@ -760,7 +760,7 @@
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label"></label>
-                                                <label for="" class="col-md-11 col-form-label text-warning">
+                                                <label for="" class="col-md-11 col-form-label text-primary">
                                                   Only Public Practice Accountants can be sole proprietor,partners or shareholders of an accountancy firm.
                                                   (Please list down sole proprietor,partners or shareholders including all engagement partner(s) who will be signing
                                                   auditor's report of the accountancy firm)
@@ -819,7 +819,7 @@
                                             </div>
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label"></label>
-                                                <label for="" class="col-md-11 col-form-label text-warning">
+                                                <label for="" class="col-md-11 col-form-label text-primary">
                                                   All directors or officers of the audit firm may not need to be a CPA(Full-Fledged)
                                                 </label>
                                             </div>
@@ -861,7 +861,7 @@
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label"></label>
-                                                <label for="" class="col-md-11 col-form-label text-warning">
+                                                <label for="" class="col-md-11 col-form-label text-primary">
                                                   Sole proprietor/managing partner will be fully responsible for the application and updates of the firm particulars
                                                 </label>
                                             </div>
@@ -961,29 +961,17 @@
 
                                             <div class="row mb-5">
                                                 <label for="" class="col-md-1 col-form-label">14.</label>
-                                                <label for="" class="col-md-4 col-form-label">Last Registration Fee Payment Date</label>
-                                                <div class="col-md-2">
-                                                    <label for="" class="col-form-label">Start Date</label>
-                                                </div>
+                                                <label for="" class="col-md-4 col-form-label">Last Registered Year</label>
+
                                                 <div class="col-md-3">
-                                                    <input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_start" class="form-control" autocomplete="off">
+                                                    <input type="text" placeholder="YYYY" name="last_registered_year" class="form-control" autocomplete="off">
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-5">
-                                                <label for="" class="col-md-1 col-form-label"></label>
-                                                <label for="" class="col-md-4 col-form-label"></label>
-                                                <div class="col-md-2">
-                                                    <label for="" class="col-form-label">End Date</label>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_end" class="form-control" autocomplete="off">
-                                                </div>
-                                            </div>
 
                                             <div class="row mb-5">
                                                 <label for="" class="col-md-1 col-form-label">15.</label>
-                                                <label for="" class="col-md-4 col-form-label">Request to Disconnect</label>
+                                                <label for="" class="col-md-4 col-form-label">Suspended Year</label>
                                                 <div class="row col-md-7 py-2">
                                                     <div class="col-md-3 form-check-radio mx-2">
                                                         <label class="form-check-label">
@@ -1004,6 +992,19 @@
 
                                                     <label  class="error attend_place_error" style="display:none;" for="req_for_stop">Please select one</label>
                                                 </div>
+                                            </div>
+
+                                            <div id="req_to_dissconect" style="display:none;">
+                                              <div class="row mb-5">
+                                                  <label for="" class="col-md-1 col-form-label"></label>
+                                                  <label for="" class="col-md-4 col-form-label"></label>
+                                                  <div class="col-md-2">
+                                                      <label for="" class="col-form-label">Year</label>
+                                                  </div>
+                                                  <div class="col-md-3">
+                                                      <input type="text" placeholder="YYYY" name="suspended_year" class="form-control" autocomplete="off">
+                                                  </div>
+                                              </div>
                                             </div>
 
                                             {{--<div class="row">
@@ -1083,7 +1084,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
-                                                    <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
+                                                    <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" >{{ __('Submit') }}</button>
                                                     <!-- <button type="submit" id="" class="btn btn-success btn-hover-dark w-100" >{{ __('Submit') }}</button> -->
                                                 </div>
                                             </div>
@@ -1144,18 +1145,19 @@
 <script>
 
 $(document).ready(function(){
-  $("input[name='last_reg_payment_start']").flatpickr({
+  $("input[name='last_registered_year']").flatpickr({
       enableTime: false,
-      dateFormat: "M-Y",
+      dateFormat: "Y",
       //dateFormat: "Y",
       allowInput: true,
   });
-  $("input[name='last_reg_payment_end']").flatpickr({
+  $("input[name='suspended_year']").flatpickr({
       enableTime: false,
-      dateFormat: "M-Y",
+      dateFormat: "Y",
       //dateFormat: "Y",
       allowInput: true,
   });
+
 
   $("input[id*='head_office_address_mm'], text[id*='head_office_address_mm']").change(function (e) {
 			myanmarLetterOnly($(this));
@@ -1180,6 +1182,15 @@ $(document).ready(function(){
     //     $(row).find("input[type=radio]").siblings("label").css("color","#212529");
     //   });
     // });
+
+    $("input[name=req_for_stop]").change(function(){
+      if($(this).val() == 1){
+        $("#req_to_dissconect").css("display","block");
+      }
+      else{
+        $("#req_to_dissconect").css("display","none");
+      }
+    });
 
     loadAuditOrganization();
     loadAuditTypeOfService();

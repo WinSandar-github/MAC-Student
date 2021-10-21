@@ -51,16 +51,52 @@
                 <!-- All Courses Tabs Menu Start -->
                 <div class="courses-tabs-menu">
                     <div class="swiper-container">
+
+                        <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
+                        
+                            <li>
+                                    <button value="course_list" onclick="location.href =`${FRONTEND_URL}/da_one_existing_reg_form`"> Diploma In Accountancy Part One Registration</button>
+                            </li>                            
+                       
+                            <li>
+                                    <button class="course_list" onclick="location.href =`${FRONTEND_URL}/existing_user_cpa_one`"> Certified Public Accountant Part One Registration</button>
+                            </li>
+                        </ul>
+                        <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
+                        
+                            <li>
+                                    <button value="course_list" onclick="location.href =`${FRONTEND_URL}/da_two_existing_reg_form`"> Diploma In Accountancy Part Two Registration</button>
+                            </li>
+                            <li>
+                                    <button class="course_list" onclick="location.href =`${FRONTEND_URL}/cpa_two_reg_cpaone_pass`"> Certified Public Accountant Part Two Registration</button>
+                            </li>
+                        </ul>
                         <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
                        
                             <li>
-                                  <button value="exam" onclick=" window.open(`${FRONTEND_URL}/entry_exam_list`,'_blank')">Certificate of Certified Public Accountant (Full-Fledged)</button>
+                                  <button value="exam" onclick="location.href =`${FRONTEND_URL}/cpaff_reconnect`">Certificate of Certified Public Accountant (Full-Fledged)</button>
                             </li>
                             <li>
                                  <button class="course_list" onclick="location.href =`${FRONTEND_URL}/reconnect_papp`"> Certificate of Professional Accountant in Public Practice (PAPP) </button>
                             </li>
-                        </ul>
-                        
+                            
+                        </ul>   
+                        <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
+                       
+                            <li>
+                                  <button value="exam" onclick="location.href =`${FRONTEND_URL}/audit_initial_renew_reconnect`">Audit Firm</button>
+                            </li>
+                            <li>
+                                 <button class="course_list" onclick="location.href =`${FRONTEND_URL}/non_audit_initial_renew_reconnect`">Non-Audit Firm</button>
+                            </li>
+                            
+                            <li>
+                                 <button class="course_list" onclick="location.href =`${FRONTEND_URL}/teacher_existing_user_register`"> Teacher </button>
+                            </li>
+                            <li>
+                                 <button class="course_list" onclick="location.href =`${FRONTEND_URL}/school_register_reconnected`"> School </button>
+                            </li>
+                        </ul>       
                     </div>
                 </div>
             </div>
