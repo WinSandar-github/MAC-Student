@@ -657,7 +657,7 @@ function RenewPAPP(){
                 var cpd_record_file=$('#cpd_record_file')[0].files[0];
                 var mpa_mem_card_front=$('#mpa_mem_card_front')[0].files[0];
                 var mpa_mem_card_back=$('#mpa_mem_card_back')[0].files[0];
-                // var tax_free_file=$('#tax_free_file')[0].files[0];
+                var tax_free_file=$('#tax_free_file')[0].files[0];
                 // var letter=$('#letter')[0].files[0];
 
                 var send_data = new FormData();
@@ -765,7 +765,7 @@ function RenewPAPP(){
                 send_data.append('mpa_mem_card_back', mpa_mem_card_back);
                 send_data.append('cpd_hours', $("#total_hours").val());
                 send_data.append('tax_year', $("input[name=tax_year]").val());
-                // send_data.append('tax_free_recommendation', tax_free_file);
+                send_data.append('tax_free_recommendation', tax_free_file);
                 // send_data.append('letter', letter);
                 send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
                 send_data.append('address', $("input[name=address]").val());

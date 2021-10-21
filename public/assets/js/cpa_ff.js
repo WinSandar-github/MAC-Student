@@ -449,7 +449,9 @@ function loadCpaffInitialData() {
             $('#address').val(cpaff_data.address);
             $('#phone').val(cpaff_data.phone);
             $('#contact_mail').val(cpaff_data.contact_mail);
-            $('#total_hours').val(cpaff_data.total_hours);
+            $('#last_paid_year').val(cpaff_data.last_paid_year);
+            $('#resign_date').val(cpaff_data.resign_date);
+            // $('#total_hours').val(cpaff_data.total_hours);
             // $('#reg_no').val(cpaff_data.reg_no);
             // $('#cpaff_reg_no').val(cpaff_data.reg_no);
             // console.log(cpaff_data.ra != null || cpaff_data.ra != "null");
@@ -684,6 +686,7 @@ function createCPAFFRegister() {
     send_data.append('form_type', $("input[name=form_type]").val());
     // send_data.append('cpa_certificate_back', cpa_certificate_back);
     send_data.append('cpa2_pass_date', $("input[name=cpa2_pass_date]").val());
+    send_data.append('cpa2_reg_no', $("input[name=cpa2_reg_no]").val());
     // send_data.append('reg_no', $("input[name=reg_no]").val());
     send_data.append('country', $("input[name=country]").val());
     send_data.append('government', $("input[name=government]").val());
@@ -1154,6 +1157,8 @@ function RenewCPAFF() {
     send_data.append('fine_person', $("input[name=fine_person]").val());
     send_data.append('is_renew', 1);
     send_data.append('self_confession_renew',$("input[name=self_confession_renew]").val());
+    send_data.append('last_paid_year', $("input[name=last_paid_year]").val());
+    send_data.append('resign_date', $("input[name=resign_date]").val());
     send_data.append('type',1);
     var self_confession_accept = document.getElementById("accept_cpaffRenew");
     var self_confession_not_accept = document.getElementById("not-accept_cpaffRenew");
