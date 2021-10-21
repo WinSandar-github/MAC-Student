@@ -461,7 +461,7 @@ function loadRenewSchool(){
                 document.getElementById('school_detail').style.display='none';
                 document.getElementById('school_renew_form').style.display='block';
                 if(school.offline_user=="true"){
-                  $('#s_code').prop('readonly', false);
+                  $('#school_card').prop('required', false);
                   $('#offline_user').val(school.offline_user);
                   $('#last_registration_fee_year').val(school.last_registration_fee_year);
                   $('#request_for_temporary_stop').val(school.request_for_temporary_stop);
@@ -591,23 +591,30 @@ function loadRenewSchool(){
                   var year=accept.getFullYear();
                   var y=year+3;
                   $('#register_date').val("Nov-1-"+now.getFullYear()+" to Dec-31-"+y);
-                  if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
-                    $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
-                    $('.renew_submit').prop('disabled', true);
-                    $('#submit_confirm').prop('disabled', false);
+                  // if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
+                  //   $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                  //   $('.renew_submit').prop('disabled', true);
+                  //   $('#submit_confirm').prop('disabled', false);
 
-                  }else if((now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
-                      $("#message").val("Your renew form  can submit!");
-                      $('.renew_submit').prop('disabled', true);
-                      $('#submit_confirm').prop('disabled', false);
-                  }else if(((now.getMonth()+1)=='11') || ((now.getMonth()+1)=='12')){
-                    $("#message").val("Your renew form can submit!");
+                  // }
+                  // if((now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                  //     $("#message").val("Your renew form  can submit!");
+                  //     $('.renew_submit').prop('disabled', true);
+                  //     $('#submit_confirm').prop('disabled', false);
+                  // }
+                  // else{
+                  //   $('#message').val("You are verified!");
+                  //   $('.renew_submit').prop('disabled', true);
+                  //   $('#submit_confirm').prop('disabled', true);
+                  // }
+                  if(((now.getMonth()+1)=='10') ||((now.getMonth()+1)=='11') || ((now.getMonth()+1)=='12') || ((now.getMonth()+1)=='1')){
+                    $("#message").val("You can renew your form!");//month=10 for test
                     $('.renew_submit').prop('disabled', true);
                     $('#submit_confirm').prop('disabled', false);
-                  }else{
-                      $('#message').val("You are verified!");
-                      $('.renew_submit').prop('disabled', true);
-                      $('#submit_confirm').prop('disabled', true);
+                  }else if(((now.getMonth()+1) >= '2')){
+                    $('#message').val("Renew form month is expired! You can renew in November,December "+now.getFullYear()+" and January "+(+now.getFullYear()+1));
+                    $('.renew_submit').prop('disabled', true);
+                    $('#submit_confirm').prop('disabled', true);
                   }
             }else if(school.approve_reject_status==2){//renew reject
               $('#school_id').val(school.id);

@@ -132,7 +132,7 @@ $().ready(function (){
                         Swal.fire("NRC has been used, please check again!");
                     }
                     else if(result.email==null && result.nrc==null){
-                        $('#DAOneExistingEmailModal').modal('show');
+                        $('#DAExistingEmailModal').modal('show');
                         send_email();
                     }
                 }
