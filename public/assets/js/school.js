@@ -1010,6 +1010,7 @@ function loadDescription(membership_name,divname){
   $('.renew-da-subject-fee').html("");
   $('.renew-yearly-fee').html("");
   $('.reconnected-fee').html("");
+  $('.reconnected-fee-before-2015').html("");
   $('.renew-registration-fee').html("");
   $.ajax({
     type: "get",
@@ -1036,6 +1037,7 @@ function loadDescription(membership_name,divname){
       var renew_da_subject_fee=0;
       var renew_yearly_fee=0;
       var reconnected_fee=0;
+      var reconnected_fee_before_2015=0;
       var reconnect_fee_sole = 0;
       var reconnect_fee_partner = 0;
       var late_feb_fee = 0;
@@ -1065,6 +1067,7 @@ function loadDescription(membership_name,divname){
           renew_cpa_subject_fee +=value.renew_cpa_subject_fee;
           renew_da_subject_fee +=value.renew_da_subject_fee;
           reconnected_fee +=value.reconnected_fee;
+          reconnected_fee_before_2015 +=value.reconnected_fee_before_2015;
           late_feb_fee +=value.late_feb_fee;
       })
       $('.application-fee').append(thousands_separators(application_fee)+" MMK");
@@ -1096,6 +1099,7 @@ function loadDescription(membership_name,divname){
 
       $('.renew-yearly-fee').append(thousands_separators(renew_yearly_fee)+" MMK");
       $('.reconnected-fee').append(thousands_separators(reconnected_fee)+" MMK");
+      $('.reconnected-fee-before-2015').append(thousands_separators(reconnected_fee_before_2015)+" MMK");
       $('.late-feb-fee').append(thousands_separators(late_feb_fee)+" MMK");
 
       $('.renew-registration-fee').append(thousands_separators(renew_registration_fee)+" MMK");
