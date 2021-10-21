@@ -262,7 +262,7 @@ function checkPaymentTeacher(){
                                 
                             }else{
                                 //$('#teacher_modal').prop('disabled', false);
-                                
+                                loadRenewTeacher();
                             }
                         }else{
                             loadRenewTeacher();
@@ -392,13 +392,13 @@ function loadRenewTeacher(){
             url : BACKEND_URL+"/getTeacher/"+student.id,//teacher
             success: function (result) {
                 var teacher=result.data.pop();
-                
+                console.log(teacher);
                 //teacher_data.forEach(function(teacher){
                     
                         if(teacher.approve_reject_status==1){
-                            $('#teacher_initial').css('display','none');
-                            $('#teacher_approve').css('display','none');
-                            $('#teacher_renew').css('display','block');
+                            $('#teacher_initial').hide();
+                            $('#teacher_approve').hide();
+                            $('#teacher_renew').show();
                                   
                                   $('input[name=email]').val(teacher.email);
                                   $('input[name=name_mm]').val(teacher.name_mm);
