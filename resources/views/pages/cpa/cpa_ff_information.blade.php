@@ -111,7 +111,8 @@
                                                                 <ul>
                                                                         <li><i class="icofont-money"></i> <strong>Application Fee</strong><span class='application-fee'> </li>
                                                                         <li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee(per year)</strong><span class='reconnected-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee(per year) From 2015</strong><span class='reconnected-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee(per year) Before 2015</strong><span class='reconnected-fee-before-2015'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Renewal Fee</strong><span class='renew-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Delay Fee(Within January)</strong><span class='delay-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Delay Fee(From February to April)</strong><span class='late-feb-fee'></li><br>

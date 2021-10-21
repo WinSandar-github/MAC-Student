@@ -21,8 +21,8 @@ $().ready(function (){
             tax_free_file : "required",
             mpa_mem_card_front : "required",
             mpa_mem_card_back : "required",
-            letter : "required",
-            reg_no : "required",
+            // letter : "required",
+            cpaff_reg_no : "required",
         },
         messages:{
             profile_photo : "Upload photo",
@@ -45,8 +45,8 @@ $().ready(function (){
             tax_free_file : "Please upload your file",
             mpa_mem_card_front : "Please upload MPA member card (Front)",
             mpa_mem_card_back : "Please upload MPA member card (Back)",
-            letter : "Please upload your file",
-            reg_no : "Please upload your registeration number",
+            // letter : "Please upload your file",
+            cpaff_reg_no : "Please upload your registeration number",
 
         },
         submitHandler: function(form) {
