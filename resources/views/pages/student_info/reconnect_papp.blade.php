@@ -545,15 +545,15 @@
                                 <div class="row mt-3" style="padding-left: 110px;">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(၃)') }}</label>
-                                    <div class="col-md-6 col-form-label">CPA(FF) Registration No.</div>
+                                    <div class="col-md-6 col-form-label">CPA(Full-Fledged) Registration No.</div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="reg_no" id="reg_no" placeholder="Enter CPA(FF) Registration No." required>
+                                        <input type="text" class="form-control" name="cpaff_reg_no" id="cpaff_reg_no" placeholder="Enter CPA(FF) Registration No." required>
                                     </div>
                                 </div>
                                 <div class="row mt-3" style="padding-left: 110px;">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(၄)') }}</label>
-                                    <div class="col-md-6 col-form-label">CPA(FF) Registration လုပ်ခဲ့သော ခုနှစ်</div>
+                                    <div class="col-md-6 col-form-label">CPA(Full-Fledged) Initial Registration လုပ်ခဲ့သော ခုနှစ်</div>
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" name="cpaff_reg_year" id="cpaff_reg_year" placeholder="CPA(FF) Registration လုပ်ခဲ့သော ခုနှစ်" required>
                                     </div>
@@ -563,7 +563,40 @@
                                     <label class="col-md-1 col-form-label">{{ __('(၅)') }}</label>
                                     <div class="col-md-6 col-form-label">CPA(FF) နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်</div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="cpaff_last_renew_year" id="cpaff_last_renew_year" placeholder="CPA(FF) နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်" required>
+                                        <input type="text" class="form-control" name="cpaff_last_renew_year" id="cpaff_last_renew_year" placeholder="CPA(Full-Fledged) နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်" required>
+                                    </div>
+                                </div><br><br><br>
+                                <div class="row mb-2" style="padding-left: 110px;">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(၆)') }}</label>
+                                    <div class="col-md-4 col-form-label">ရပ်နား Form တင်ထားခြင်းရှိ/မရှိ</div>
+                                    <div class="row col-md-6 py-2">
+                                        <div class="col-md-3 form-check-radio mx-2">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" id="yes"
+                                                        name="resign" value="1" onclick="$('#date_range_cpaff').show()" required>
+                                                <span class="form-check-sign"></span>
+                                                ရှိ
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3 form-check-radio mx-2">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" id='no'
+                                                        name="resign" value='0'  onclick="$('#date_range_cpaff').hide()" required>
+                                                <span class="form-check-sign"></span>
+                                                မရှိ
+                                            </label>
+                                        </div>
+                                        
+                                        <label  class="error attend_place_error" style="display:none;" for="resign">Please select one</label>
+                                    </div>
+                                </div>
+                                <div class="row mb-2" style="padding-left: 110px;display:none" id="date_range_cpaff" >
+                                    <div class="col-md-6"></div>
+                                    <div class="col-md-6" style="padding-left:0px;">
+                                        <label>
+                                            <input class="form-control" type="text" style="display:inline; width:100px;" name="resign_date" id="resign_date" placeholder="ခုနှစ်">&nbsp;&nbsp;တွင် ရပ်နား Form တင်ခဲ့ပါသည်။
+                                        </label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -734,8 +767,9 @@
                                     <div class="col-md-6"></div>
                                     <div class="col-md-6" style="padding-left:0px;">
                                         <label>
-                                            <input class="form-control" type="text" style="display:inline; width:100px;" name="from_date" id="from_date" placeholder="ရက်၊လ၊နှစ်">&nbsp;&nbsp;မှ&nbsp;&nbsp;
-                                            <input class="form-control" type="text" style="display:inline; width:100px;" name="to_date" id="to_date" placeholder="ရက်၊လ၊နှစ်">&nbsp;&nbsp;အထိ ရပ်နား Form တင်ခဲ့ပါသည်။
+                                            {{--<input class="form-control" type="text" style="display:inline; width:100px;" name="from_date" id="from_date" placeholder="ရက်၊လ၊နှစ်">&nbsp;&nbsp;မှ&nbsp;&nbsp;
+                                            <input class="form-control" type="text" style="display:inline; width:100px;" name="to_date" id="to_date" placeholder="ရက်၊လ၊နှစ်">&nbsp;&nbsp;အထိ ရပ်နား Form တင်ခဲ့ပါသည်။--}}
+                                            <input class="form-control" type="text" style="display:inline; width:100px;" name="papp_resign_date" id="papp_resign_date" placeholder="ခုနှစ်">&nbsp;&nbsp;တွင် ရပ်နား Form တင်ခဲ့ပါသည်။
                                         </label>
                                     </div>
                                 </div>
@@ -997,21 +1031,33 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     });
+    $("#resign_date").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    });
+    $("#papp_resign_date").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    });
     $(".papp_reg_date").flatpickr({
             enableTime: false,
             dateFormat: "d-M-Y",
             allowInput: true,
     });
-    $("#from_date").flatpickr({
-            enableTime: false,
-            dateFormat: "d-M-Y",
-            allowInput: true,
-    });
-    $("#to_date").flatpickr({
-            enableTime: false,
-            dateFormat: "d-M-Y",
-            allowInput: true,
-    });
+    // $("#from_date").flatpickr({
+    //         enableTime: false,
+    //         dateFormat: "d-M-Y",
+    //         allowInput: true,
+    // });
+    // $("#to_date").flatpickr({
+    //         enableTime: false,
+    //         dateFormat: "d-M-Y",
+    //         allowInput: true,
+    // });
     $("#degree_pass_year").flatpickr({
             enableTime: false,
             dateFormat: "d-M-Y",
