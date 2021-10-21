@@ -13,7 +13,7 @@ function CheckPartTwo() {
     var qt_pass = document.getElementById("qt_pass_check");
     if (cpa_part_2.checked == true) {
         $("input[name=cpa2_pass_date]").prop('disabled', false);
-        $("input[name=cpa_batch_no]").prop('disabled', false);
+        $("input[name=cpa2_reg_no]").prop('disabled', false);
         $("input[name=country]").prop('disabled', true);
         $("input[name=government]").prop('disabled', true);
         $("input[name=roll_no]").prop('disabled', true);
@@ -27,7 +27,7 @@ function CheckPartTwo() {
     }
     else if (qt_pass.checked == true) {
         $("input[name=cpa2_pass_date]").prop('disabled', true);
-        $("input[name=cpa_batch_no]").prop('disabled', true);
+        $("input[name=cpa2_reg_no]").prop('disabled', true);
         $("input[name=country]").prop('disabled', false);
         $("input[name=government]").prop('disabled', false);
         $("input[name=roll_no]").prop('disabled', false);
@@ -35,7 +35,7 @@ function CheckPartTwo() {
         $("input[name=exam_year]").prop('disabled', false);
         $("input[name=exam_month]").prop('disabled', false);
         $("input[name=cpa2_pass_date]").val('');
-        $("input[name=cpa_batch_no]").val('');
+        $("input[name=cpa2_reg_no]").val('');
     }
     else {
         $("input[name=cpa2_pass_date]").prop('disabled', true);
@@ -449,9 +449,10 @@ function loadCpaffInitialData() {
             $('#address').val(cpaff_data.address);
             $('#phone').val(cpaff_data.phone);
             $('#contact_mail').val(cpaff_data.contact_mail);
-            $('#reg_no').val(cpaff_data.reg_no);
-            $('#cpaff_reg_no').val(cpaff_data.reg_no);
-            console.log(cpaff_data.ra != null || cpaff_data.ra != "null");
+            $('#total_hours').val(cpaff_data.total_hours);
+            // $('#reg_no').val(cpaff_data.reg_no);
+            // $('#cpaff_reg_no').val(cpaff_data.reg_no);
+            // console.log(cpaff_data.ra != null || cpaff_data.ra != "null");
             if (cpaff_data.ra != null && cpaff_data.ra != "null") {
                 $('#ra_edu').attr('checked', true);
                 $('#cpa_edu').attr('disabled', true);   
@@ -826,9 +827,9 @@ function form_feedback() {
                         $('.payment-btn').css('display', 'none');
                     }
                     else if (data.status == 1 || data.renew_status == 1) {
-                        document.getElementById('approved').style.display = 'block';
+                        //document.getElementById('approved').style.display = 'block';
                         document.getElementById('pending').style.display = 'none';
-                        $('.payment-btn').css('display', 'block');
+                        //$('.payment-btn').css('display', 'block');
                         $('.register-btn').css({ 'display': 'none' });
                         $('.register-btn').removeClass('mt-4');
                     }
@@ -1140,17 +1141,12 @@ function RenewCPAFF() {
             }
         });
     }
-    // send_data.append('old_card_year', $("input[name=cpa2_pass_date]").val());
     send_data.append('cpaff_pass_date', $("input[name=cpaff_pass_date]").val());
     send_data.append('cpaff_renew_date', $("input[name=cpaff_renew_date]").val());
-    // send_data.append('renew_accepted_date', $("input[name=renew_accepted_date]").val());
-    // send_data.append('reg_no', $("input[name=reg_no]").val());
-    send_data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
+    send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
     send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
     send_data.append('papp_reg_year', $("input[name=papp_reg_year]").val());
-    // send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());
     send_data.append('renew_file', $("input[name=renew_file]")[0].files[0]);
-    // send_data.append('is_convicted', $("input[name=fine_person]").val());
     send_data.append('address', $("input[name=address]").val());
     send_data.append('phone', $("input[name=phone]").val());
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
