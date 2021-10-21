@@ -869,7 +869,22 @@ function getNonAuditData(){
                 tr += "</tr>";
                 $("#tbl_cpa_myanmar_body").append(tr);
               })
+
            }
+
+           if(non_audit_data.offline_user == 1 && non_audit_data.verify_status == 0){
+             // when approved offline user and submit renew form
+             $("input[type=text]").not("input[name=verify_code]").attr('readonly',true);
+             $("textarea").attr('readonly',true);
+             $("input[type=checkbox]").attr('readonly',true);
+             $("input[type=radio]").attr('readonly',true);
+             $("input[type=email]").attr('readonly',true);
+             //$("button").not(":button[type=submit]").attr('disabled',true);
+             $("#tbl_non_audit_number_body").find("input").attr('readonly',true);
+             $("#tbl_type_service").find("input[type=checkbox]").attr('disabled',true);
+             $('.non_partner,.branch_non_audit,.non_director').find('button').attr('disabled',true);
+           }
+
           });
       }
   })
