@@ -464,9 +464,9 @@ function Papp_feedback(){
                     }
                     else if(data.status==1 || data.renew_status==1)
                     {
-                        document.getElementById('approved').style.display='block';
+                        document.getElementById('approved').style.display='none';
                         document.getElementById('pending').style.display='none';
-                        $('.payment-btn').css('display','block');
+                        //$('.payment-btn').css('display','block');
                         $('.register-btn').css({'display':'none'});
                         $('.register-btn').removeClass('mt-4');
                         // var accept=new Date(data.renew_accepted_date);

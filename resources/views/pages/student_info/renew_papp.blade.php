@@ -395,7 +395,7 @@
                                     <!-- </div> -->
                                 </div><br>
 
-                                <div class="row mb-2">
+                                <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1"><input type="radio" name="work_name" id="staff_firm_check" value="" onclick="getPappFirm()"></div>
                                     <div class="col-md-4">
@@ -405,9 +405,13 @@
                                     <!-- <div class="single-form"> -->
                                         <input type="text" class="form-control" name="staff_firm_name" ></div>
                                     <!-- </div> -->
-                                </div><br><br><br>
-
-                                <div class="row">
+                                </div><br>
+                                <div class="row mb-3">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-6">
+                                    <label  class="error attend_place_error" style="display:none;" for="work_name">Please select one</label>
+                                </div><br>
+                                <div class="row mt-3">
                                     <div class="col-md-1">
                                             <label class="">{{ __('၄။') }}</label>
                                     </div>
@@ -622,6 +626,7 @@
     </script>
 @endsection
 @push('scripts')
+<script src="{{ asset('js/form_validation/papp_renew_validation.js') }}"></script>
 <script type="text/javascript">
     $('document').ready(function(){
         var course_type = location.pathname.split('/');
