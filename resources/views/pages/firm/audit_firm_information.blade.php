@@ -369,11 +369,8 @@
         localStorage.setItem('course_type',course_type[2])
         }
 				loadDescription('Audit');
-        //audit_reg_feedback();
-        //checkPaymentAudit();
-        //auditData();
-        //dateQuery();
-        verifyStatus();
+        //verifyStatus();
+				allowToRenew();
     })
     //app_form_feedback();
 

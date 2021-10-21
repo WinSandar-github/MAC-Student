@@ -1893,12 +1893,12 @@ $nrc_characters = config('myanmarnrc.characters');
                             $("#rec_letter_self").css("display", 'block');
                             $("#yes_private").prop("checked", true);
                             $("#rec_letter_private").css("display", 'block');
-
+                        
                             if (data.data.recommend_letter != null) {
                                 $(".recommend_letter").append("<a href='" + BASE_URL + data.data
                                     .recommend_letter + "'  target='_blank'>View File</a><br/>")
                             }
-
+                        }
                             //gender
                             if (data.data.gender == "Male") {
                                 $("#male_self").prop("checked", true);
@@ -1909,7 +1909,6 @@ $nrc_characters = config('myanmarnrc.characters');
                                 $("#female_private").prop("checked", true);
                                 $("#female_mac").prop("checked", true);
                             }
-
                             $('.current_address').val(student_info.current_address);
                             $('.address').val(student_info.address);
                             $('.phone').val(student_info.phone);
@@ -1958,7 +1957,6 @@ $nrc_characters = config('myanmarnrc.characters');
                                 $('.batch_no').val();
                                 $('.batch_id').val();
                             }
-
                             if (data.data.exam_registers.length != 0) {
                                 $("input[name='office_address']").prop('readonly', false);
                                 $("input[name='current_address']").prop('readonly', false);
@@ -1988,9 +1986,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                 $("#mac_school").hide();
                                 $("input[name='mac_type']").prop('disabled', true);
                             }
-
-                        };
-                    }
+                        }
                 });
 
                 // mac
