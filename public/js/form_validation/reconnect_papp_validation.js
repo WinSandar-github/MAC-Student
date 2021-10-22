@@ -126,7 +126,7 @@ $().ready(function (){
                         Swal.fire("NRC has been used, please check again!");
                     }
                     else if(result.email==null && result.nrc==null){
-                        $('#reconnectPappModal').modal('show');
+                        $('#reconnectpappModal').modal('show');
                         send_email();
                     }
                 }
