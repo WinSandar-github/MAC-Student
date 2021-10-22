@@ -196,7 +196,7 @@
                                                                         <li><i class="icofont-money"></i> <strong>Renewal Fee</strong><span class='renew-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Delay Fee(Within January)</strong><span class='delay-fee'></li>
 																		<li><i class="icofont-money"></i> <strong>Delay Fee(From February to April)</strong><span class='late-feb-fee'></li>
-                                                                        <div class="row register-btn">
+                                                                        <div class="row register-btn"  style="display:none">
                                                                             <div class="col-md-6"></div>
                                                                             <div class="col-md-6">
                                                                                 <div class="pull-right mt-4">
@@ -868,7 +868,8 @@
         // console.log('course_type',course_type[2]);
         var student = JSON.parse(localStorage.getItem('studentinfo'));
         if(!student){
-        localStorage.setItem('course_type',course_type[2]);
+            localStorage.setItem('course_type',course_type[2]);
+            $('.register-btn').css('display','none');
         }
         loadDescription('PAPP');
         Papp_feedback();
