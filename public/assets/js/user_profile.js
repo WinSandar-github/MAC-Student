@@ -2375,10 +2375,10 @@ function user_profile() {
                                 //     }else{
                                 //         $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </div></div></td></tr>`);
                                 //     }
-                                // } 
+                                // }
                                 // // else if (latest_article[0].done_status == 0 && latest_article[0].registration_fee != null) {
                                 // //     $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
-                                // // } 
+                                // // }
                                 // else if (latest_article[0].done_status == 1) {
                                     var resign_date=new Date(latest_article[0].resign_date);
                                     var year = resign_date.getFullYear();
@@ -2609,10 +2609,10 @@ function user_profile() {
                                     //     }else{
                                     //         $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </div></div></td></tr>`);
                                     //     }
-                                    // } 
+                                    // }
                                     // else if (latest_article[0].done_status == 0 && latest_article[0].registration_fee != null) {
                                     //     $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
-                                    // } 
+                                    // }
                                     // if (latest_article[0].done_status == 1) {
                                         var resign_date=new Date(latest_article[0].resign_date);
                                         var year = resign_date.getFullYear();
@@ -2874,7 +2874,7 @@ function isEmpty(obj) {
 }
 
 function resignRegister(){
-    
+
 }
 
 function renewRegister(){
@@ -3756,17 +3756,18 @@ function allowToRenew()
         type: "GET",
         url: BACKEND_URL+"/checkVerify/"+student_id,
         success: function (data){
-          console.log("allow to renew",data);
-            if(data.audit_firm_type_id == 1){
+          console.log("allow to renew",data[0]);
+            if(data[0].audit_firm_type_id == 1){
               // audit firm
-              if(data.status == 1 && data.is_renew == 0 && data.offline_user == 1){
+              console.log("shi");
+              if(data[0].status == 1 && data[0].is_renew == 0 && data[0].offline_user == 1){
                 // to renew approved offline users
                 $('#check_renew').css('display','block');
                 $('#check_renew_nonaudit').css('display','none');
                 $("#renew_btn").css('display','block'); // renew btn in information page
                 $(".register-btn").css('display','none'); // register btn in information page
               }
-              else if(data.status == 1 && data.is_renew == 1 && data.offline_user != 1){
+              else if(data[0].status == 1 && data[0].is_renew == 1 && data[0].offline_user != 1){
                 // to renew normal users who are expired
                 $('#check_renew').css('display','block');
                 $('#check_renew_nonaudit').css('display','none');
@@ -3777,7 +3778,7 @@ function allowToRenew()
             else{
               console.log("4");
               // non-audit firm
-              if(data.status == 1 && data.is_renew == 0 && data.offline_user == 1){
+              if(data[0].status == 1 && data[0].is_renew == 0 && data[0].offline_user == 1){
                 // to renew approved offline users
                 $('#check_renew').css('display','none');
                 $('#check_renew_nonaudit').css('display','block');
@@ -3789,7 +3790,7 @@ function allowToRenew()
               //   $('#check_renew').css('display','none');
               //   $('#check_renew_nonaudit').css('display','none');
               // }
-              else if(data.status == 1 && data.is_renew == 1 && data.offline_user != 1){
+              else if(data[0].status == 1 && data[0].is_renew == 1 && data[0].offline_user != 1){
                 // to renew normal users who are expired
                 $('#check_renew').css('display','none');
                 $('#check_renew_nonaudit').css('display','block');

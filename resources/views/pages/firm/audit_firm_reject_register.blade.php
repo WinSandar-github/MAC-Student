@@ -46,6 +46,12 @@
                                     <div class="col-md-2 pull-right">
                                       <h6>For the year - {{ date('Y') }}</h6>
                                     </div>
+                                    <div id="reg_no_box" style="display:none;">
+                                      <div class="col-md-3 pull-left">
+                                        <label for="" class="control-label text-muted fw-bolder"><small>Registration No.</small></label>
+                                        <input type="text" placeholder="Enter Registration No.!" name="accountancy_firm_reg_no" class="form-control" value="" >
+                                      </div>
+                                    </div>
                                 </div>
                               </div>
                                 <div class="card-body">
