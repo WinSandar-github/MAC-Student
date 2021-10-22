@@ -629,7 +629,7 @@
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(ဂ) </div>
                                     <div class="col-md-7">
-                                        <div class="row">
+                                        {{--<div class="row">
                                             <label class="col-md-4" >ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ </label>
                                             <div class="col-md-3">
                                                 <input type="text" name="tax_year" id="tax_year" class="form-control tax_year" placeholder="ပြက္ခဒိန်နှစ်/YYYY">
@@ -638,8 +638,8 @@
                                         </div>
                                         <div class="row">
                                             <label for="" class="col-md-12">အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
-                                        </div>
-
+                                        </div>--}}
+                                        <label>ပြည်တွင်းအခွန်ဦးစီးဌာနသို့<input type="text" style="display:inline;width: 100px;" name="tax_year" id="tax_year" class="form-control tax_year" placeholder="ပြက္ခဒိန်နှစ်/YYYY">ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှုအထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
 
                                     </div>
                                     <div class="col-md-3">

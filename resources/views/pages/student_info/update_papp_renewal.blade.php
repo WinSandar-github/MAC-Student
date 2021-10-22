@@ -487,10 +487,10 @@
                                     <div class="col-md-11">
                                         <div class="row">
                                             <label class="col-md-12"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်
-                                                <input type="text" style="display:inline; width:100px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control" autocomplete="off">ခုနှစ်အတွက်
-                                                <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date" autocomplete="off">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
-                                                <input type="text" class="form-control" name="papp_reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်"  autocomplete="off"> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
-                                                <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year" autocomplete="off">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
+                                                <input type="text" style="display:inline; width:70px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control" autocomplete="off">ခုနှစ်အတွက်
+                                                <input type="text" style="display:inline; width:100px;" name="papp_reg_date" id="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date" autocomplete="off">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
+                                                <input type="text" class="form-control" name="papp_reg_no" style="display: inline;width: 120px;" placeholder="မှတ်ပုံတင်အမှတ်"  autocomplete="off"> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
+                                                <input type="text" style="display:inline; width:70px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year" autocomplete="off">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
                                             </label>
                                         </div>
 
@@ -586,7 +586,7 @@
                                     </div>
                                     <div class="col-md-11">
                                         <div class="row">
-                                            <label class="col-md-11"  style="font-size:15px;"><?php echo date("Y") ?> ပြက္ခဒိန်နှစ်အတွင်း အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကိုဦးစီးပိုင်ရှင်/ ဦးဆောင်အဖွဲ့ဝင်/ သာမန်အစုဝင်/ အဖွဲ့ခေါင်းဆောင်အနေဖြင့် ကျွန်ုပ်လက်ခံဆောင်ရွက်ခဲ့သည့် Statutory Audit Work စုစုပေါင်း (<input type="text" style="display:inline; width:50px;" name="total_audit" class="form-control">) ခုရှိပါသည်။ အဆိုပါ Statutory Audit Work အပြည့်အစုံကို အောက်ပါဇယားအတွင်းထုတ်ဖော်ကြေညာပါသည်-</label>
+                                            <label class="col-md-11"  style="font-size:15px;"><input type="text" style="display:inline; width:70px;" name="audit_year" id="audit_year" class="form-control" required=""> ပြက္ခဒိန်နှစ်အတွင်း အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကိုဦးစီးပိုင်ရှင်/ ဦးဆောင်အဖွဲ့ဝင်/ သာမန်အစုဝင်/ အဖွဲ့ခေါင်းဆောင်အနေဖြင့် ကျွန်ုပ်လက်ခံဆောင်ရွက်ခဲ့သည့် Statutory Audit Work စုစုပေါင်း (<input type="text" style="display:inline; width:50px;" name="total_audit" class="form-control">) ခုရှိပါသည်။ အဆိုပါ Statutory Audit Work အပြည့်အစုံကို အောက်ပါဇယားအတွင်းထုတ်ဖော်ကြေညာပါသည်-</label>
                                         </div><br>
 
 
@@ -730,9 +730,32 @@
                                 
                                 <br/><br>
 
+                                <div class="row mt-3">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-1">(ဂ) </div>
+                                    <div class="col-md-6">
+                                        {{--<div class="row">
+                                            <label class="col-md-4" >ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ </label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="tax_year" id="tax_year" class="form-control tax_year" placeholder="ပြက္ခဒိန်နှစ်/YYYY">
+                                            </div>
+                                            <label class="col-md-5" >ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု </label>
+                                        </div>
+                                        <div class="row">
+                                            <label for="" class="col-md-12">အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
+                                        </div>--}}
+                                        <label>ပြည်တွင်းအခွန်ဦးစီးဌာနသို့<input type="text" style="display:inline;width: 70px;" name="tax_year" id="tax_year" class="form-control tax_year" placeholder="ပြက္ခဒိန်နှစ်/YYYY">ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှုအထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
+
+                                    </div>
+                                    <div class="col-md-1 tax_free_file_old"></div> 
+                                    <div class="col-md-3">
+                                        <input type="file" class="form-control" id="tax_free_file" name="tax_free_file">
+                                    </div>
+                                </div><br/><br>
+
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အရှေ့)</div>
                                     <div class="col-md-1 mpa_mem_card_front_old"></div> 
                                     <div class="col-md-3">
@@ -754,16 +777,16 @@
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
                                     <div class="col-md-7 col-form-label">CPA(FF) Registeration No.</div>
                                     <div class="col-md-3">
-                                        <input type="text" class="form-control" name="reg_no" id="reg_no">
+                                        <input type="text" class="form-control" name="cpaff_reg_no" id="cpaff_reg_no">
                                     </div>
                                 </div><br/><br>
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
                                     <div class="col-md-7 col-form-label">PAPP Registeration No.</div>
                                     <div class="col-md-3">
                                         <input type="text" class="form-control" name="papp_reg_no" placeholder="Enter PAPP Registeration No.">
@@ -844,6 +867,12 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     });
+    $("#audit_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    });
     var id=localStorage.getItem('papp_id');
     $.ajax({
             url: BACKEND_URL + "/papp/" + id,
@@ -853,12 +882,17 @@
                 var papp=result.data[0];
                 document.getElementById('papp_renew_img').src=BASE_URL + papp.profile_photo;
                 var papp_date=new Date(papp.papp_date);
+                // var papp_reg_date=new Date(papp.papp_reg_date);
+                var audit_year=new Date(papp.audit_year);
+                var tax_year=new Date(papp.tax_year);
                 $('#papp_date').val(papp_date.getFullYear());
+                $('#papp_reg_date').val(papp.papp_reg_date);
+                $('#audit_year').val(audit_year.getFullYear());
+                $('#tax_year').val(tax_year.getFullYear());
                 $('#cpa_batch_no').val(papp.cpa_batch_no);
                 $('#address').val(papp.address);
                 $('#phone').val(papp.phone);
                 $('#contact_mail').val(papp.contact_mail);
-                $('#cpaff_reg_no').val(papp.cpa_batch_no);
                 if(papp.use_firm==1){
                     $('#firm_check').attr('checked',true);
                 }
@@ -874,7 +908,7 @@
                     $("input[name='staff_firm_name']").val(papp.staff_firm_name);
                 }
                 $("input[name='total_hours']").val(papp.cpd_hours);
-                $("input[name='reg_no']").val(papp.reg_no);                
+                $("input[name='cpaff_reg_no']").val(papp.cpaff_reg_no);                
                 $("input[name='total_audit']").val(papp.audit_work);
                 $("input[name='papp_renew_year']").val(papp.papp_renew_date);
                 $("input[name='papp_reg_no']").val(papp.papp_reg_no);
@@ -882,6 +916,7 @@
                 $('.mpa_mem_card_front_old').append("<a href='" + BASE_URL + papp.mpa_mem_card_front + "'  target='_blank'>View File</a><br/>");
                 $('.cpd_record_file_old').append("<a href='" + BASE_URL + papp.cpd_record + "'  target='_blank'>View File</a><br/>");
                 $('.papp_file_old').append("<a href='" + BASE_URL + papp.cpa_ff_recommendation + "'  target='_blank'>View File</a><br/>");
+                $('.tax_free_file_old').append("<a href='" + BASE_URL + papp.tax_free_recommendation + "'  target='_blank'>View File</a><br/>");
                 if (papp.ra != null && papp.ra != "null") {
                     $('#ra_edu').attr('checked', true);
                     $('#cpa_edu').attr('disabled', true);   

@@ -253,7 +253,7 @@
 
                         <div class="row">
                             <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                            <label class="col-md-10 col-form-label">ကျွန်ုပ်အား <input type="text" name="cpaff_pass_date" id="cpaff_pass_date" class="form-control" style="display: inline;width: 100px;" > ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။ ထိုမှတ်ပုံတင်ကို <input type="text" name="renew_accepted_date" id="renew_accepted_date" class="form-control" style="display: inline;width: 100px;" > ခုနှစ်အတွက် သက်တမ်းတိုးမြှင့်ပေးပါရန် လျှောက်ထားပါသည်။</label>                                
+                            <label class="col-md-10 col-form-label">ကျွန်ုပ်အား <input type="text" name="cpaff_pass_date" id="cpaff_pass_date" class="form-control" style="display: inline;width: 100px;" > ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။ ထိုမှတ်ပုံတင်ကို <input type="text" name="cpaff_renew_date" id="cpaff_renew_date" class="form-control" style="display: inline;width: 100px;" > ခုနှစ်အတွက် သက်တမ်းတိုးမြှင့်ပေးပါရန် လျှောက်ထားပါသည်။</label>                                
                         </div><br/>
 
                         <div class="row">
@@ -266,7 +266,7 @@
 
                                 <div class="col-md-7 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်</div>
                                 <div class="col-md-3">
-                                    <input type="text" name="reg_no" id="reg_no" class="form-control" style="width:90%;">
+                                    <input type="text" name="papp_reg_no" id="papp_reg_no" class="form-control" style="width:90%;">
                                 </div>
 
                                 <div class="col-md-1"></div>
@@ -274,7 +274,7 @@
 
                                 <div class="col-md-7 col-form-label">လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ်</div>
                                 <div class="col-md-3">
-                                    <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="width:90%;">
+                                    <input type="text" name="papp_reg_year" id="papp_reg_year" class="form-control" style="width:90%;">
                                 </div><br><br>
 
                                 <div class="col-md-1"></div>
@@ -489,13 +489,13 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     }); 
-    $("#renew_accepted_date").datepicker({
+    $("#cpaff_renew_date").datepicker({
         format: "yyyy",
         viewMode: "years", 
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     }); 
-    $("#old_card_no_year").datepicker({
+    $("#papp_reg_year").datepicker({
         format: "yyyy",
         viewMode: "years", 
         minViewMode: "years",
@@ -520,6 +520,8 @@
             var cpaff=result.data[0];
             console.log(cpaff)
             document.getElementById('cpaff_img').src=BASE_URL + cpaff.profile_photo;
+            document.getElementById('nrc_front').src=BASE_URL + cpaff.nrc_front;
+            document.getElementById('nrc_back').src=BASE_URL + cpaff.nrc_back;
 
             $('#cpa_batch_no').val(cpaff.cpa_batch_no);
             $('#address').val(cpaff.address);
@@ -527,14 +529,14 @@
             $('#contact_mail').val(cpaff.contact_mail);
             $('#total_hours').val(cpaff.total_hours);
             $('#fine_person').val(cpaff.fine_person);
-            $('#reg_no').val(cpaff.reg_no);
+            $('#papp_reg_no').val(cpaff.papp_reg_no);
 
             var cpaff_pass_date=new Date(cpaff.cpaff_pass_date);
             $('#cpaff_pass_date').val(cpaff_pass_date.getFullYear());
-            var renew_accepted_date=new Date(cpaff.renew_accepted_date);
-            $('#renew_accepted_date').val(renew_accepted_date.getFullYear());
-            var old_card_no_year=new Date(cpaff.old_card_no_year);
-            $('#old_card_no_year').val(old_card_no_year.getFullYear());
+            var cpaff_renew_date=new Date(cpaff.cpaff_renew_date);
+            $('#cpaff_renew_date').val(cpaff_renew_date.getFullYear());
+            var papp_reg_year=new Date(cpaff.papp_reg_year);
+            $('#papp_reg_year').val(papp_reg_year.getFullYear());
 
             $('.cpa_certificate_old').append("<a href='" + BASE_URL + cpaff.cpa_certificate + "'  target='_blank'>View File</a><br/>");
             $('.mpa_mem_card_old').append("<a href='" + BASE_URL + cpaff.mpa_mem_card + "'  target='_blank'>View File</a><br/>");
