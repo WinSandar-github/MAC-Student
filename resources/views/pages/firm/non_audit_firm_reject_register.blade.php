@@ -54,6 +54,12 @@
                         <div class="col-md-2 pull-right">
                           <h6>For the year - {{ date('Y') }}</h6>
                         </div>
+                        <div id="reg_no_box" style="display:none;" >
+                          <div class="col-md-3 pull-left">
+                            <label for="" class="control-label text-muted fw-bolder"><small>Registration No.</small></label>
+                            <input type="text" placeholder="Enter Registration No.!" name="accountancy_firm_reg_no" class="form-control" value="" >
+                          </div>
+                        </div>
                     </div>
                   </div>
                   <input type="hidden" value="2" name="audit_firm_type_id">
@@ -157,15 +163,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <label class="col-md-1 col-form-label" >{{ __('3.') }}</label>
-                                            <label class="col-md-5 col-form-label label_align_right" >{{ __('Accountancy Firm Registeration No') }}</label>
-                                            <div class="col-md-6">
-                                                <div class="form-group ">
-                                                <input type="text" class="form-control" name="accountancy_firm_reg_no" id="accountancy_firm_reg_no" readonly="">
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         {{--<div class="row mb-5">
                                             <label class="col-md-1 col-form-label" >{{ __('4.') }}</label>
                                             <label class="col-md-5 col-form-label label_align_right" >{{ __('Applied Date') }}</label>
@@ -1118,6 +1116,7 @@
 									<label class="col-md-6 col-form-label" id="type_service_validate" style="display: none;color:#ef815;">Please Fill Types Of Service Provided</label>
 
 								</div>
+
 								<div class="row">
 									<div class="col-md-1"></div>
 									<div class="col-md-11">
@@ -1154,6 +1153,57 @@
 											<label class="text-danger">Service Provided အမျိုးအစားရွေးချယ်ပါ</label>
 									</div>
 								</div>
+
+                <div id="last_registered_year_box" style="display:none;">
+                  <div class="row mb-5">
+                      <label for="" class="col-md-1 col-form-label">12.</label>
+                      <label for="" class="col-md-4 col-form-label">Last Registered Year</label>
+
+                      <div class="col-md-3">
+                          <input type="text" placeholder="YYYY" name="last_registered_year" class="form-control" autocomplete="off">
+                      </div>
+                  </div>
+                </div>
+
+                <div style="display:none" id="req_for_stop_box">
+                  <div class="row mb-5">
+                      <label for="" class="col-md-1 col-form-label">14.</label>
+                      <label for="" class="col-md-4 col-form-label">Suspended Year</label>
+                      <div class="row col-md-7 py-2">
+                          <div class="col-md-3 form-check-radio mx-2">
+                              <label class="form-check-label">
+                                  <input class="form-check-input" type="radio" id="yes"
+                                          name="req_for_stop" value="1" >
+                                  <span class="form-check-sign"></span>
+                                  Yes
+                              </label>
+                          </div>
+                          <div class="col-md-3 form-check-radio mx-2">
+                              <label class="form-check-label">
+                                  <input class="form-check-input" type="radio" id="no"
+                                          name="req_for_stop" value="2" >
+                                  <span class="form-check-sign"></span>
+                                  No
+                              </label>
+                          </div>
+
+                          <label  class="error attend_place_error" style="display:none;" for="req_for_stop">Please select one</label>
+                      </div>
+                  </div>
+                </div>
+
+                <div id="req_to_dissconect" style="display:none;">
+                  <div class="row mb-5">
+                      <label for="" class="col-md-1 col-form-label"></label>
+                      <label for="" class="col-md-4 col-form-label"></label>
+                      <div class="col-md-2">
+                          <label for="" class="col-form-label">Year</label>
+                      </div>
+                      <div class="col-md-3">
+                          <input type="text" placeholder="YYYY" name="suspended_year" class="form-control" autocomplete="off">
+                      </div>
+                  </div>
+                </div>
 
 								{{--<table width="100%">
 									<tr>
@@ -1361,9 +1411,31 @@
 <script src="{{ asset("js/form_validation/non_audit_reject_register_validation.js") }}"></script>
 <script>
     $(document).ready(function(){
+      $("input[name='last_registered_year']").flatpickr({
+          enableTime: false,
+          dateFormat: "Y",
+          //dateFormat: "Y",
+          allowInput: true,
+      });
+      $("input[name='suspended_year']").flatpickr({
+          enableTime: false,
+          dateFormat: "Y",
+          //dateFormat: "Y",
+          allowInput: true,
+      });
+
       $("input[id*='declaration_mm'], text[id*='declaration_mm']").change(function (e) {
     			myanmarLetterOnly($(this));
     	});
+
+      $("input[name=req_for_stop]").change(function(){
+        if($(this).val() == 1){
+          $("#req_to_dissconect").css("display","block");
+        }
+        else{
+          $("#req_to_dissconect").css("display","none");
+        }
+      });
 
     	$(document).on('keydown', '#declaration_mm', function () {
     			myanmarLetterOnly($(this));
