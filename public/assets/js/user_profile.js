@@ -133,7 +133,7 @@ function user_profile() {
 
 
             } else if (data.cpa_ff && data.student_course_regs == '' && data.cpa_ff.length !== 0) {
-                $('.title').text('CPA Full-Fledged and PAPP Information')
+                $('.title').text('CPA(Full-Fledged) and PAPP Information')
                 $('.cpaff_other').show();
                 console.log('cpaff', data);
                 let cpaff_initial = data.cpa_ff[0];
@@ -189,12 +189,15 @@ function user_profile() {
                     var cpaff_renew_url = FRONTEND_URL + "/cpaff_renew";
                     // var cpaff_offline_renew_url = FRONTEND_URL + "/cpaff_offline_renew";
                     $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is Approved.<br><br>');
-                    // if(cpaff_latest_data.offline_user == 0){
-                    //     $('.status_history').append('Action &nbsp;&nbsp;');
-                    //     $('.status_history').append(`<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`);
-                    // }
-                    $('.status_history').append('Action &nbsp;&nbsp;');
-                    $('.status_history').append(`<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`);
+                    if(cpaff_latest_data.offline_user == 0){
+                        $('.status_history').append('Action &nbsp;&nbsp;');
+                        $('.status_history').append(`<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`);
+                        // $('.status_history').append('Action &nbsp;&nbsp;');
+                        // $('.status_history').append(`<a href= ${cpaff_renew_url} class="btn btn-success btn-sm xl-auto" > CPA(Full-Fledged) Renew Form </a><hr>`);
+                    }
+                    // console.log(cpaff_latest_data)
+                    // $('.status_history').append('Action &nbsp;&nbsp;');
+                    // $('.status_history').append(`<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`);
                     $('.status_history').append('Action &nbsp;&nbsp;');
                     $('.status_history').append(`<a href= ${cpaff_renew_url} class="btn btn-success btn-sm xl-auto" > CPA(Full-Fledged) Renew Form </a><hr>`);
                     // $('.status_history').append(`<a href= ${cpaff_offline_renew_url} class="btn btn-success btn-sm xl-auto" > CPA(Full-Fledged) Renew Form </a><hr>`);
@@ -356,7 +359,7 @@ function user_profile() {
                 // }
             } else if (data.student_course_regs == '' && data.cpa_ff.length === 0 && data.papp.length !== 0) {
                 let papp = data.papp[0];
-                $('.title').text('CPA Full-Fledged and PAPP Information')
+                $('.title').text('CPA(Full-Fledged) and PAPP Information')
                 $('.cpaff_other').show();
                 document.getElementById('cpaff_image').src = BASE_URL + data.image;
                 $('#cpaff_name_mm').text(data.name_mm);
