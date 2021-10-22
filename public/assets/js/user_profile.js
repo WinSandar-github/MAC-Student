@@ -318,8 +318,8 @@ function user_profile() {
                             $('.status_history').append(`<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`);
                         }
                         $('.status_papp').css('display','none');
-                        // $('.status_history').append('Action &nbsp;&nbsp;');
-                        // $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
+                        $('.status_history').append('Action &nbsp;&nbsp;');
+                        $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
 
                         var accept = new Date(papp_latest_data.renew_accepted_date);
                         var month = accept.getMonth();
@@ -334,10 +334,9 @@ function user_profile() {
                         if ((now.getFullYear() == y && (now.getMonth() + 1) == month) || now.getFullYear() > year) {
                             // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
                             // $('.status_history').append('PAPP ' + is_renew + ' Registration Form is Approved.<br><br>');
-                            $('.status_history').append('Action &nbsp;&nbsp;');
-                            $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
+                            // $('.status_history').append('Action &nbsp;&nbsp;');
+                            // $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
                         } else if (check_month >= 10 || check_month <=3) {
-                            alert("aa");
                             // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
                             // $('.status_history').append('PAPP ' + is_renew + ' Registration Form is Approved.<br><br>');
                             $('.status_history').append('Action &nbsp;&nbsp;');
