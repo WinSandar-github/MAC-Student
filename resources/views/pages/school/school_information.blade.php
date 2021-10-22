@@ -420,6 +420,7 @@
                                     <input type="hidden" id="request_for_temporary_stop">
                                     <input type="hidden" id="from_request_stop_date">
                                     <input type="hidden" id="to_request_stop_date">
+                                    <input type="hidden" id="from_valid_date">
                                     <div class="col-md-8">
                                         
                                         <div class="row">
