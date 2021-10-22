@@ -24,34 +24,34 @@ function AddDAEdu() {
     count++;
 }
 
-// function loadPassedBatchList(){
-//     var course_id = document.getElementById("passed_course_id").value;
-//     var select = document.getElementById("selected_batch_id");
-//     $.ajax({
-//         url: BACKEND_URL + "/get_passed_batch/" + course_id,
-//         type: 'get',
-//         data: "",
-//         success: function (data) {
-//             var batch_data = data.data;
-//             batch_data.forEach(function (element) {
-//                 console.log('batch_data',element);
-//                 var option = document.createElement('option');
-//                 option.text = element.name + "/" + element.name_mm;
-//                 option.value = element.id;
-//                 select.add(option, 1);
-//                 //$("#selected_school_id").css('display','inline');
-//                 //$("#selected_school_id").siblings(".nice-select").css('display','none');
-//                 //$("#selected_school_id").siblings(".check-service-other").css('display','inline-table');
+function loadPassedBatchList(){
+    var course_id = document.getElementById("passed_course_id").value;
+    var select = document.getElementById("selected_batch_id");
+    $.ajax({
+        url: BACKEND_URL + "/get_passed_batch/" + course_id,
+        type: 'get',
+        data: "",
+        success: function (data) {
+            var batch_data = data.data;
+            batch_data.forEach(function (element) {
+                console.log('batch_data',element);
+                var option = document.createElement('option');
+                option.text = element.name + "/" + element.name_mm;
+                option.value = element.id;
+                select.add(option, 1);
+                //$("#selected_school_id").css('display','inline');
+                //$("#selected_school_id").siblings(".nice-select").css('display','none');
+                //$("#selected_school_id").siblings(".check-service-other").css('display','inline-table');
 
 
-//             });
-//         },
-//         error: function (message) {
+            });
+        },
+        error: function (message) {
 
-//         }
+        }
 
-//     });
-// }
+    });
+}
 
 function loadCurrentBatchList(){
     var course_id = document.getElementById("current_course_id").value;
