@@ -597,9 +597,9 @@ function CreateDAExistingRegister(){
     send_data.append('verify_code', $("input[name=verify_code]").val());
     send_data.append('batch_id', $("#selected_current_batch_id").val());
     send_data.append('pass_batch_id', $("#selected_batch_id").val());
-    send_data.append('degree_rank', $("input[name=da_one_pass_level]").val());
-    send_data.append('da_pass_date', $("input[name=da_one_pass_exam_date]").val());
-    send_data.append('da_pass_roll_number', $("input[name=da_one_pass_personal_no]").val());
+    send_data.append('da_one_pass_level', $("input[name=da_one_pass_level]").val());
+    send_data.append('da_one_pass_exam_date', $("input[name=da_one_pass_exam_date]").val());
+    send_data.append('da_one_pass_personal_no', $("input[name=da_one_pass_personal_no]").val());
 
     send_data.append('type', $("input[name='attend_place']:checked").val());
 

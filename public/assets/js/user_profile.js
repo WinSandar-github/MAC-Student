@@ -1071,7 +1071,7 @@ function user_profile() {
                                     var invoice = data.invoice.filter(val => {
                                         return val.invoiceNo == $invoice_code && val.status == 0;
                                     });
-                                    if(latest_course_reg[0]?.isFinished==0){
+                                    if(latest_course_reg[0]?.is_finished==0){
                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
 
                                             $('.status').append(`
@@ -1142,7 +1142,7 @@ function user_profile() {
                                                     || val.invoiceNo == 'prv_reg_' + latest_course_reg[0].batch.course.code
                                                     || val.invoiceNo == 'self_reg_' + latest_course_reg[0].batch.course.code ) && val.status == 0;
                                         });
-                                        if(latest_course_reg[0]?.isFinished==0){
+                                        if(latest_course_reg[0]?.is_finished==0){
                                             if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
                                                 $('.status').append(`
@@ -1199,7 +1199,7 @@ function user_profile() {
                                                     var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
                                                     });
-                                                    if(latest_course_reg[0]?.isFinished==0){
+                                                    if(latest_course_reg[0]?.is_finished==0){
                                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
                                                             $('.status').append(`
@@ -1480,7 +1480,7 @@ function user_profile() {
                                                     var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
                                                     });
-                                                    if(latest_course_reg[0]?.isFinished==0){
+                                                    if(latest_course_reg[0]?.is_finished==0){
                                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
                                                             $('.status').append(`
