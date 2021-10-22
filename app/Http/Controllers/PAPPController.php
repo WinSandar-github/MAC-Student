@@ -22,4 +22,8 @@ class PAPPController extends Controller
     public function reject_renewal(){
         return view('pages.student_info.update_papp_renewal');
     }
+
+    public function reject_reconnect(){
+        return view('pages.student_info.update_reconnect_papp');
+    }
 }
