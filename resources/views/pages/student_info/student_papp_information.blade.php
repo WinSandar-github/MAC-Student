@@ -848,7 +848,7 @@
             </div>
         </div>
     </div>
-    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#pappRenewModal">Open modal</button>
+    {{-- <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#pappRenewModal">Open modal</button> --}}
     <div id="pappRenewModal" class="multi-step" style="width: 100%;height : 100vh">
     </div>
     <!-- JavaScript Section -->
