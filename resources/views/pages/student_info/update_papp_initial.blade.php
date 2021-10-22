@@ -766,7 +766,7 @@
 <!-- <script src="{{ asset('js/form_validation/papp_validation.js') }}"></script> -->
 <script type="text/javascript">
    loadCpaffData();
-   isLoginPAPP();
+   //isLoginPAPP();
    Papp_feedback();
 //    loadCpaffInitialData();
    //loadPappData();

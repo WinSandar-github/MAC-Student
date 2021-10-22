@@ -486,7 +486,7 @@ function Papp_feedback(){
                     {
                         document.getElementById('approved').style.display='none';
                         document.getElementById('pending').style.display='none';
-                        //$('.payment-btn').css('display','block');
+                        $('.payment-btn').css('display','none');
                         $('.register-btn').css({'display':'none'});
                         $('.register-btn').removeClass('mt-4');
                         // var accept=new Date(data.renew_accepted_date);
@@ -1069,21 +1069,46 @@ function createReconnectPapp(){
     send_data.append('self_confession',JSON.stringify($arr));
     console.log($arr,"arr");
     show_loader();
-    $.ajax({
-        url: BACKEND_URL+"/reconnect_papp",
-        type: 'post',
-        data:send_data,
-        contentType: false,
-        processData: false,
-        success: function(result){
-            EasyLoading.hide();
-            successMessage(result.message);
-            setTimeout(() => {
+    if($('#reconnect_papp_id').val()){
+        send_data.append('papp_id',$('#reconnect_papp_id').val());
+        send_data.append('cpaff_id',$('#reconnect_cpaff_id').val());
+        send_data.append('student_id',$('#reconnect_student_id').val());
+        $.ajax({
+            url: BACKEND_URL+"/update_offline_papp",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                EasyLoading.hide();
+                successMessage(result.message);
+                // location.reload();
                 location.href = FRONTEND_URL+"/";
-            }, 2000);
-        },
-        error:function (message){
-            EasyLoading.hide();
-        }
-    });
+            },
+            error:function (message){
+                EasyLoading.hide();
+            }
+        });
+    }
+    else{
+        $.ajax({
+            url: BACKEND_URL+"/reconnect_papp",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                EasyLoading.hide();
+                successMessage(result.message);
+                setTimeout(() => {
+                    location.href = FRONTEND_URL+"/";
+                }, 2000);
+                // location.reload();
+                // location.href = FRONTEND_URL+"/";
+            },
+            error:function (message){
+                EasyLoading.hide();
+            }
+        });
+    }
 }
