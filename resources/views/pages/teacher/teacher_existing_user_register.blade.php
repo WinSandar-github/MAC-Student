@@ -503,7 +503,7 @@
                                 </div>
                                 <div class="row mb-3">
                                                     <label class="col-md-1 col-form-label">{{ __('၂၀။') }}</label>
-                                                    <label class="col-md-3 col-form-label label">ကနဦးစတင်လျှောက်ထားသည့် ရက်စွဲ</label>
+                                                    <label class="col-md-3 col-form-label label">ကနဦးသင်တန်းဆရာမှတ်ပုံတင်ကတ်ထုတ်ပေးသည့် ရက်စွဲ</label>
                                                         <div class="col-md-8">
                                                             <input type="text" class="form-control" id="from_valid_date" name="from_valid_date" placeholder="dd-mm-yyyy" autocomplete="off">
                                                             
