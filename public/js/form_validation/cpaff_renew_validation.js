@@ -10,6 +10,7 @@ $().ready(function (){
             nrc_front : "required",
             nrc_back : "required",
             cpd_record : "required",
+            total_hours : "required",
         },
         messages:{
             profile_photo : "Please replace your photo with current photo",
@@ -21,7 +22,7 @@ $().ready(function (){
             nrc_front : "Please replace your photo with current photo",
             nrc_back : "Please replace your photo with current photo",
             cpd_record : "Please upload CPA record",
-
+            total_hours : "Please Enter CPD Total hours",
         },
         submitHandler: function(form) {
             $('#renewModal').modal('show');

@@ -22,7 +22,7 @@ $(document).ready(function () {
         } else if (student.teacher_id) {
             // navbar += `<li><a href="${FRONTEND_URL}/teacher_information">Teacher</a></li>`;
         } else if (student.cpaff_id != null) {
-            navbar += `<li><a href="${FRONTEND_URL}/cpa_ff_information">CPA Full-Fledged</a></li>`;
+            navbar += `<li><a href="${FRONTEND_URL}/cpa_ff_information">CPA(Full-Fledged)</a></li>`;
             navbar += `<li><a href="${FRONTEND_URL}/student_papp_information">PAPP</a></li>`;
         } else if (student.mentor_id != null) {
             navbar += `<li><a href="${FRONTEND_URL}/mentor_information">Mentor</a></li>`;
@@ -163,7 +163,7 @@ $(document).ready(function () {
 
                         <a href="#">Membership</a>
                         <ul class="sub-menu" style="display: none;">
-                            <li><a href="${FRONTEND_URL}/cpa_ff_information">CPA Full Fleged</a></li>
+                            <li><a href="${FRONTEND_URL}/cpa_ff_information">CPA(Full-Fleged)</a></li>
                             <li><a href="${FRONTEND_URL}/student_papp_information">PAPP</a></li>
                         </ul>
                     </li>
