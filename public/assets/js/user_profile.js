@@ -787,6 +787,7 @@ function user_profile() {
 
                         </tr>
                         `);
+                        $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/cpaff_renew' class="btn btn-sm btn-success" > CPA(Full-Fledged) Renew Form</a></td></tr>`);
                         // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                         var accept = new Date(cpaff_latest_data.renew_accepted_date);
                         var month = accept.getMonth();
@@ -806,7 +807,7 @@ function user_profile() {
                         //     $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                         // }
                         if ((now.getFullYear() == y && (now.getMonth() + 1) == month) || now.getFullYear() > year) {
-                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/cpaff_renew' class="btn btn-sm btn-success" > CPA(Full-Fledged) Renew Form</a></td></tr>`);
+                            // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/cpaff_renew' class="btn btn-sm btn-success" > CPA(Full-Fledged) Renew Form</a></td></tr>`);
                             $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                         }
                         // if (check_month < 12) {
@@ -922,8 +923,8 @@ function user_profile() {
                             var month = accept.getMonth();
                             var current_month = new Date();
 
-                            // var check_month = current_month.getMonth();
-                            var check_month = 10;
+                            var check_month = current_month.getMonth();
+                            // var check_month = 10;
                             var year = accept.getFullYear();
                             var y = year + 1;
                             var now = new Date();
