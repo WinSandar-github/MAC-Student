@@ -858,7 +858,7 @@
             });
             $('#btn_cash').prop('disabled', true);
         });
-        loadPassedBatchList();
+        // loadPassedBatchList();
         loadCurrentBatchList();
     </script>
 @endpush

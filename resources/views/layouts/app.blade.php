@@ -168,7 +168,7 @@
 
 <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
 
-<script src="{{ asset('assets/js/backendService.js') }}"></script>
+<!-- <script src="{{ asset('assets/js/backendService.js') }}"></script> -->
 <script src="{{ asset('assets/js/navbar.js') }}"></script>
 <script src="{{ asset('assets/js/common.js') }}"></script>
 
@@ -190,6 +190,8 @@
 
 <!-- Main JS -->
 <script src="{{ asset('assets/js/main.js') }}"></script>
+<script src="{{ asset('assets/js/reconnect.js') }}"></script>
+
 <script src="{{ asset('assets/js/student_login.js') }}"></script>
 <script src="{{ asset('assets/js/student_info.js') }}"></script>
 <script src="{{ asset('assets/js/auth.js') }}"></script>

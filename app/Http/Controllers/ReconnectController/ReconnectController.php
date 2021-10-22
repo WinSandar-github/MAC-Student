@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\ReconnectController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\CustomClass\Helper;
+
 
 class ReconnectController extends Controller
 {
@@ -23,9 +25,15 @@ class ReconnectController extends Controller
     {
         return view('pages.da.da_two_existing_reg_form');
     }
-    public function DAOneExistingRegForm()
+    public function DAOneExistingRegForm($id)
     {
-        return view('pages.da.da_one_existing_reg_form');
+        $client = new \GuzzleHttp\Client();
+       
+        $res = json_decode($client->request('GET', Helper::$domain.'/batch/'.$id)->getBody(),true);
+       
+        $batch = $res['data'];
+       
+        return view('pages.da.da_one_existing_reg_form',compact('batch'));
     }
 
     //show cpa_two_register for cpa one pass
