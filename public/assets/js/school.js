@@ -425,6 +425,8 @@ function delRowTeacherBio(tbody){
 }
 function loadSchoolList(){
     var select = document.getElementById("selected_school_id");
+    var renew_select = document.getElementById("renew_selected_school_id");
+    var update_select = document.getElementById("update_selected_school_id");
     $.ajax({
         url: BACKEND_URL+"/school",
         type: 'get',
@@ -437,6 +439,20 @@ function loadSchoolList(){
                 option.text = element.school_name;
                 option.value = element.id;
                 select.add(option,0);
+
+            });
+            school_data.forEach(function (element) {
+              var option = document.createElement('option');
+              option.text = element.school_name;
+              option.value = element.id;
+              renew_select.add(option,0);
+
+            });
+            school_data.forEach(function (element) {
+              var option = document.createElement('option');
+              option.text = element.school_name;
+              option.value = element.id;
+              update_select.add(option,0);
 
             });
         },

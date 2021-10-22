@@ -3383,7 +3383,7 @@ function laodTeacherByDash(teacher_data, _invoice) {
 
                 if(teacher.offline_user!=1){
                         var invoice = _invoice.filter( val => {
-                            if(val.invoiceNo=="init_tec" || val.invoiceNo=="renew_tec"){
+                            if(val.invoiceNo=="init_tec"+teacher.id || val.invoiceNo=="renew_tec"+teacher.id){
                                 return val.invoiceNo ==  val.status == 0 == val.dateTime!=null;
                             }
                         });
