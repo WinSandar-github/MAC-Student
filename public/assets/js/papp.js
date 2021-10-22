@@ -786,6 +786,7 @@ function RenewPAPP(){
                         success: function(result){
                             EasyLoading.hide();
                             successMessage(result.message);
+                            console.log(result);
                             // location.reload();
                             location.href = FRONTEND_URL+'/';
                             document.getElementById('approved').style.display='none';
@@ -809,6 +810,7 @@ function RenewPAPP(){
                         success: function(result){
                             EasyLoading.hide();
                             successMessage(result.message);
+                            console.log(result);
                             // location.reload();
                             location.href = FRONTEND_URL+'/';
                             document.getElementById('approved').style.display='none';
@@ -966,7 +968,7 @@ function createReconnectPapp(){
     send_data.append('is_convicted', $("input[name=fine_person]").val());
     send_data.append('last_paid_year', $("input[name=cpaff_last_renew_year]").val());
     send_data.append('cpaff_reg_year', $("input[name=cpaff_reg_year]").val());
-    send_data.append('resign', $("input[name=resign]").val());
+    send_data.append('resign', $("input[type='radio'][name='resign']:checked").val());
     send_data.append('resign_date', $("input[name=resign_date]").val());
     send_data.append('is_renew',2);
 
