@@ -143,26 +143,45 @@ function check_email_papp()
     if(accept_PAPP.checked == true || not_accept_PAPP.checked == true){
         $('#valid_self_confession_PAPP').css('display','none');
         var arr = [];
-        for(i = 1; i <= 29; i++){
+        for(i = 1; i <= 32; i++){
             arr.push($(`input[name=check${i}]:checked`).val());
         }
-        console.log("arr",arr);
         if(arr.includes(undefined)){
             $(".accept_PAPP:unchecked").css("border","1px solid red");
             $(".not_accept_PAPP:unchecked").css("border","1px solid red");
         }
         else{
-            if(verify_code != code){
-                errorMessage("Your code is not correct.Please check your email inbox again!");
-                return false;
-                // $('#exampleModal').modal('show');
-                // $('#exampleModal1').modal('hide');
-                // $('#exampleModal').modal('show');
-            }else{
-                Papp_Submit();
-                $('#pappModal').modal('hide');
-                return false;
-            }
+            Papp_Submit();
+            $('#pappModal').modal('hide');
+            return false;
+        }
+    }
+    else{
+        $('#valid_self_confession_PAPP').text("Please choose Yes Or No");
+        $('#valid_self_confession_PAPP').css('display','block');
+        errorMessage("Please choose Yes or No in Previous Page");  
+    }
+}
+
+function check_self_confession_papp()
+{
+    
+    var accept_PAPP = document.getElementById("accept");
+    var not_accept_PAPP = document.getElementById("not-accept");
+    if(accept_PAPP.checked == true || not_accept_PAPP.checked == true){
+        $('#valid_self_confession_PAPP').css('display','none');
+        var arr = [];
+        for(i = 1; i <= 32; i++){
+            arr.push($(`input[name=check${i}]:checked`).val());
+        }
+        if(arr.includes(undefined)){
+            $(".accept_PAPP:unchecked").css("border","1px solid red");
+            $(".not_accept_PAPP:unchecked").css("border","1px solid red");
+        }
+        else{
+            RenewPAPP();
+            $('#renewPAPPModal').modal('hide');
+            return false;
         }
     }
     else{
@@ -235,7 +254,7 @@ function pappPaymentSubmit(){
 
 function Papp_Submit(){
     $arr = [];
-    for(i=1; i<=29; i++){
+    for(i=1; i<=32; i++){
         $self_confession = {
             "self_confession" : $(`input[name=check${i}]:checked`).val(),
         };
@@ -354,8 +373,9 @@ function Papp_Submit(){
             success: function(result){
                 EasyLoading.hide();
                 successMessage("You have successfully updated!");
-                    // location.reload();
+                setTimeout(() => {
                     location.href = FRONTEND_URL+'/';
+                }, 2000);
                 },
             error:function (message){
                 EasyLoading.hide();
@@ -625,6 +645,12 @@ function loadPAPP(){
         });
     }
 }
+
+
+function selfConfession(){
+    // console.log("self");
+    $('#pappRenewModal').modal('show');
+}
 function RenewPAPP(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     show_loader()
@@ -644,7 +670,7 @@ function RenewPAPP(){
                 var firm_check = document.getElementById("firm_check");
                 var used_firm_check = document.getElementById("used_firm_check");
                 var staff_firm_check = document.getElementById("staff_firm_check");
-
+                
                 // var cpa_file = $('#cpa_file')[0].files[0];
                 // var ra_file = $('#ra_file')[0].files[0];
                 var cpa = $("input[name=cpa]")[0].files[0];
@@ -709,6 +735,13 @@ function RenewPAPP(){
                 $('input[name="manager[]"]').map(function () {
                     send_data.append('manager[]', $(this).val());
                 });
+                $arr = [];
+                for(i=1; i<=32; i++){
+                    $self_confession = {
+                        "self_confession" : $(`input[name=check${i}]:checked`).val(),
+                    };
+                    $arr.push($self_confession);
+                }
                 // for (var i = 0; i < count; i++) {
                 //     send_data.append('foreign_degree[]',$('#degree_file'+i)[0].files[0]);
                 // }
@@ -774,6 +807,7 @@ function RenewPAPP(){
                 // send_data.append('reg_no', $("input[name=reg_no]").val());
                 send_data.append('type',1);
                 //send_data.append('_method', 'POST');
+                send_data.append('self_confession',JSON.stringify($arr));
                 show_loader();
                 if($('#papp_id').val()){
                     send_data.append('papp_id',$('#papp_id').val());
@@ -785,16 +819,16 @@ function RenewPAPP(){
                         processData: false,
                         success: function(result){
                             EasyLoading.hide();
-                            successMessage(result.message);
-                            console.log(result);
-                            // location.reload();
-                            location.href = FRONTEND_URL+'/';
                             document.getElementById('approved').style.display='none';
                             document.getElementById('rejected').style.display='none';
                             document.getElementById('pending').style.display='none';
                             document.getElementById('papp_form').style.display='none';
                             document.getElementById('papp_renew_form').style.display='none';
                             document.getElementById('expiry_card').style.display='none';
+                            successMessage(result.message);
+                            setTimeout(() => {
+                                location.href = FRONTEND_URL+'/';
+                            }, 2000);
                         },
                         error:function (message){
                         }
@@ -872,18 +906,43 @@ function check_reconnect_papp_email()
     var obj = JSON.parse(text);
     var verify_code = obj.data.verify_code;
     var code = $("input[name=verify_code]").val();
-    if(verify_code != code){
-        successMessage("Your code is not correct.Please check your email inbox again!");
-        // $('#exampleModal').modal('show');
-        // $('#exampleModal1').modal('hide');
-        // $('#exampleModal').modal('show');
-    }else{
-        createReconnectPapp();
-        $('#reconnectPappModal').modal('hide');
+    var accept_PAPP = document.getElementById("accept");
+    var not_accept_PAPP = document.getElementById("not-accept");
+    if(accept_PAPP.checked == true || not_accept_PAPP.checked == true){
+        $('#valid_self_confession_PAPP').css('display','none');
+        var arr = [];
+        for(i = 1; i <= 32; i++){
+            arr.push($(`input[name=check${i}]:checked`).val());
+        }
+        if(arr.includes(undefined)){
+            $(".accept_PAPP:unchecked").css("border","1px solid red");
+            $(".not_accept_PAPP:unchecked").css("border","1px solid red");
+        }
+        else{
+            if(verify_code != code){
+                errorMessage("Your code is not correct.Please check your email inbox again!");
+            }else{
+                createReconnectPapp();
+                $('#reconnectPappModal').modal('hide');
+                return false;
+            }
+        }
+    }
+    else{
+        $('#valid_self_confession_PAPP').text("Please choose Yes Or No");
+        $('#valid_self_confession_PAPP').css('display','block');
+        errorMessage("Please choose Yes or No in Previous Page");  
     }
 }
 
 function createReconnectPapp(){
+    $arr = [];
+    for(i=1; i<=32; i++){
+        $self_confession = {
+            "self_confession" : $(`input[name=check${i}]:checked`).val(),
+        };
+        $arr.push($self_confession);
+    }
     var profile_photo       =   $("input[name=profile_photo]")[0].files[0];
     var firm_check = document.getElementById("firm_check");
     var used_firm_check = document.getElementById("used_firm_check");
@@ -1007,7 +1066,8 @@ function createReconnectPapp(){
         send_data.append('staff_firm_name', "");
     } 
     send_data.append('type',2);
-
+    send_data.append('self_confession',JSON.stringify($arr));
+    console.log($arr,"arr");
     show_loader();
     if($('#reconnect_papp_id').val()){
         send_data.append('papp_id',$('#reconnect_papp_id').val());
@@ -1023,7 +1083,7 @@ function createReconnectPapp(){
                 EasyLoading.hide();
                 successMessage(result.message);
                 // location.reload();
-                //location.href = FRONTEND_URL+"/";
+                location.href = FRONTEND_URL+"/";
             },
             error:function (message){
                 EasyLoading.hide();
@@ -1040,6 +1100,9 @@ function createReconnectPapp(){
             success: function(result){
                 EasyLoading.hide();
                 successMessage(result.message);
+                setTimeout(() => {
+                    location.href = FRONTEND_URL+"/";
+                }, 2000);
                 // location.reload();
                 // location.href = FRONTEND_URL+"/";
             },

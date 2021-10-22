@@ -431,6 +431,8 @@
             </div>
         </div>
     </div>
+
+    {{-- Self_Confession_modal --}}
     <div class="modal fade" id="renewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -461,6 +463,7 @@
           </div>
         </div>
       </div>
+      
     <!-- JavaScript Section -->
     {{-- <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};

@@ -738,11 +738,13 @@
             </div>
         </div>
     </form> --}}
-    <!-- <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#pappModal">Open modal</button> -->
-    <div id="pappModal" class="multi-step" style="width: 100%;height : 100vh">
-    </div>
     </div>
 
+    {{-- PAPP_Self_Confession --}}
+        {{-- <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#pappModal">Open modal</button> --}}
+        <div id="pappModal" class="multi-step" style="width: 100%;height : 100vh">
+        </div>
+    {{-- End PAPP_Self_Confession --}} 
 
     <!-- JavaScript Section -->
     <script>
@@ -802,11 +804,11 @@
         autoclose:true //to close picker once year is selected
     });
     $(document).ready(function() {
-        $('.modal').MultiStep({
+        $('#pappModal').MultiStep({
             title:'ဝန်ခံချက်',
             data:[
                 {
-                    content:`<iframe src="{{ asset('assets/images/TMS requirment(23-9-2021).pdf') }}"  style="overflow:scroll;height:70vh;width:100%" height="100vh" width="70vh"></iframe>
+                    content:`<iframe src="{{ asset('assets/images/pa_promise.pdf') }}"  style="overflow:scroll;height:70vh;width:100%" height="100vh" width="70vh"></iframe>
                                 <div class="pull-right mt-1">
                                 <h6 class="pull-left me-4 fw-bold">အထက်ဖော်ပြပါအချက်များအား</h6>
                                 <div class="form-check form-check-inline">
@@ -1231,27 +1233,57 @@
                 },
             ],
             final:`
-            <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data" novalidate>
-                @csrf
-                <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
-                <div class="mb-3" style="text-align:center;">
-                    <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
-                    <label>We have been sent verification code on your email.Please check your email.</label>
-                </div><br>
-                <div class="mb-3" style="text-align:center;">
-                    <label style="margin-bottom: 2%;">Enter your verification code</label>
-                    <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Enter Verification Code"></center>
-                </div>
-                <center>
-                <button type="submit" id="btn1" onclick="check_email_papp()" class="btn btn-success btn-hover-dark w-30">Verify
-                </button>
-                </center><br>
-                <div class="col-md-12" style="text-align:center;">
-                    <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
-                </div><br><br>
-            </form>
+            <div class="text-center">
+                <h5 class="fw-bold">မြန်မာနိုင်ငံစာရင်းကောင်စီ​၏ ၉-၈-၂၀၁၈ ရက်စွဲပါ </h5>
+                <h5 class="fw-bold">အမိန့်ကြော်ငြာစာအမှတ် ၂၇/၂၀၁၈ ​၏ နောက်ဆက်တွဲတွင် ဖော်ပြထားသည့် စည်းကမ်းချက်များ</h5>
+                <hr>
+            </div>
+            <ul class="list-group list-group-flush fw-bold">
+                <li class="list-group-item">
+                    (၁) အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်ခွင့်မှတ်ပုံတင်ခြင်းကို စတင်လျှောက်ထားမည့် ပြက္ခဒိန်နှစ်မတိုင်မီနှစ်တွင် မြန်မာနိုင်ငံ၌ ၁၈၃ ရက်ထက်မနည်းနေထိုင်သူဖြစ်ကြောင်း ဝန်ခံကတိပြုပါသည်။
+                    <div class="mt-1">
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input accept_PAPP" type="radio" name="check30" value="1">
+                    <label class="fw-bold">လက်ခံသည်</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input not_accept_PAPP" type="radio" name="check30" value="2">
+                    <label class="fw-bold">လက်မခံပါ</label>
+                    </div>
+                    <div class="text-danger" id="" style="display : none"></div>
+                </li>
+                <li class="list-group-item">
+                    (၂) မှတ်ပုံတင်လျှောက်ထားသည့်ပြက္ခဒိန်နှစ်အတွက် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ် ကိုင်ခွင့်မှတ်ပုံတင် စတင်လျှောက်ထားချိန်/သက်တမ်းတိုးချိန်တွင် အခြားလုပ်ငန်းအဖွဲ့အစည်းတစ်ရပ်ရပ်တွင် အချိန်ပြည့်တာဝန် ထမ်းဆောင်နေသူမဟုတ်ကြောင်း ဝန်ခံကတိပြုပါသည်။
+                    <div class="mt-1">
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input accept_PAPP" type="radio" name="check31" value="1">
+                    <label class="fw-bold">လက်ခံသည်</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input not_accept_PAPP" type="radio" name="check31" value="2">
+                    <label class="fw-bold">လက်မခံပါ</label>
+                    </div>
+                    <div class="text-danger" id="" style="display : none"></div>
+                </li>
+                <li class="list-group-item">
+                    (၃) မှတ်ပုံတင်လျှောက်ထားသည့်ပြက္ခဒိန်နှစ်အတွက် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကို မိမိ၏အဓိကအသက်မွေးဝမ်းကြောင်းလုပ်ငန်းအဖြစ် မြန်မာနိုင်ငံအတွင်းတွင်လုပ်ကိုင်မည်ဖြစ်ကြောင်း ဝန်ခံ ကတိပြုပါသည်။
+                    <div class="mt-1">
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input accept_PAPP" type="radio" name="check32" value="1">
+                    <label class="fw-bold">လက်ခံသည်</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input not_accept_PAPP" type="radio" name="check32" value="2">
+                    <label class="fw-bold">လက်မခံပါ</label>
+                    </div>
+                    <div class="text-danger" id="" style="display : none"></div>
+                </li>
+            </ul>
+            <div class="text-center">
+                <button class="btn btn-primary" onclick="check_email_papp()">Submit</button>
+            </div>
             `,
-            finalLabel:'Email Verification',
+            finalLabel:'Step 7',
             modalSize:'lg',
         });
     });

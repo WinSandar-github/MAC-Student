@@ -471,7 +471,8 @@
             <div>
         </div>
     </div>
-    {{-- <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#submitModal">Open modal</button> --}}
+    
+    {{-- Self_Confession_modal --}}
     <div id="submitModal" class="multi-step" style="width: 100%;height : 100vh">
     </div>
 
