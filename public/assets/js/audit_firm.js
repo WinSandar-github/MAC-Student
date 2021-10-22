@@ -169,55 +169,55 @@ function dateQuery(){
     }
 }
 
-function allowToRenew()
-{
-    var student =JSON.parse(localStorage.getItem("studentinfo"));
-    var student_id = student.id;
-    if(student!=null){
-      $.ajax({
-        type: "GET",
-        url: BACKEND_URL+"/checkVerify/"+student_id,
-        success: function (data){
-          console.log("allow to renew",data);
-            if(data.audit_firm_type_id == 1){
-              // audit firm
-              if(data.status == 1 && data.is_renew == 0 && data.offline_user == 1){
-                // to renew approved offline users
-                $('#check_renew').css('display','block');
-                $('#check_renew_nonaudit').css('display','none');
-                $("#renew_btn").css('display','block'); // renew btn in information page
-                $(".register-btn").css('display','none'); // register btn in information page
-              }
-              else if(data.status == 1 && data.is_renew == 1 && data.offline_user != 1){
-                // to renew normal users who are expired
-                $('#check_renew').css('display','block');
-                $('#check_renew_nonaudit').css('display','none');
-                $("#renew_btn").css('display','block'); // renew btn in information page
-                $(".register-btn").css('display','none'); // register btn in information page
-              }
-            }
-            else{
-              console.log("4");
-              // non-audit firm
-              if(data.status == 1 && data.is_renew == 0 && data.offline_user == 1){
-                // to renew approved offline users
-                $('#check_renew').css('display','none');
-                $('#check_renew_nonaudit').css('display','block');
-                $("#renew_btn_nonaudit").css('display','block'); // renew btn in information page
-                $(".register-btn").css('display','none'); // register btn in information page
-              }
-              else if(data.status == 1 && data.is_renew == 1 && data.offline_user != 1){
-                // to renew normal users who are expired
-                $('#check_renew').css('display','none');
-                $('#check_renew_nonaudit').css('display','block');
-                $("#renew_btn_nonaudit").css('display','block'); // renew btn in information page
-                $(".register-btn").css('display','none'); // register btn in information page
-              }
-            }
-          }
-        })
-    }
-}
+// function allowToRenew()
+// {
+//     var student =JSON.parse(localStorage.getItem("studentinfo"));
+//     var student_id = student.id;
+//     if(student!=null){
+//       $.ajax({
+//         type: "GET",
+//         url: BACKEND_URL+"/checkVerify/"+student_id,
+//         success: function (data){
+//           console.log("allow to renew",data);
+//             if(data.audit_firm_type_id == 1){
+//               // audit firm
+//               if(data.status == 1 && data.is_renew == 0 && data.offline_user == 1){
+//                 // to renew approved offline users
+//                 $('#check_renew').css('display','block');
+//                 $('#check_renew_nonaudit').css('display','none');
+//                 $("#renew_btn").css('display','block'); // renew btn in information page
+//                 $(".register-btn").css('display','none'); // register btn in information page
+//               }
+//               else if(data.status == 1 && data.is_renew == 1 && data.offline_user != 1){
+//                 // to renew normal users who are expired
+//                 $('#check_renew').css('display','block');
+//                 $('#check_renew_nonaudit').css('display','none');
+//                 $("#renew_btn").css('display','block'); // renew btn in information page
+//                 $(".register-btn").css('display','none'); // register btn in information page
+//               }
+//             }
+//             else{
+//               console.log("4");
+//               // non-audit firm
+//               if(data.status == 1 && data.is_renew == 0 && data.offline_user == 1){
+//                 // to renew approved offline users
+//                 $('#check_renew').css('display','none');
+//                 $('#check_renew_nonaudit').css('display','block');
+//                 $("#renew_btn_nonaudit").css('display','block'); // renew btn in information page
+//                 $(".register-btn").css('display','none'); // register btn in information page
+//               }
+//               else if(data.status == 1 && data.is_renew == 1 && data.offline_user != 1){
+//                 // to renew normal users who are expired
+//                 $('#check_renew').css('display','none');
+//                 $('#check_renew_nonaudit').css('display','block');
+//                 $("#renew_btn_nonaudit").css('display','block'); // renew btn in information page
+//                 $(".register-btn").css('display','none'); // register btn in information page
+//               }
+//             }
+//           }
+//         })
+//     }
+// }
 
 function verifyStatus()
 {
@@ -711,7 +711,14 @@ function getAuditData(){
 
           $('input[name=email]').val(student_data[0].email);
           $("input[name=offline_user]").val(audit_data.offline_user);
-          $("input[name=req_for_stop]").val(audit_data.req_for_stop);
+          if(audit_data.req_for_stop == 1){
+            $("input[name=req_for_stop][value=1]").attr('checked',true);
+            $("#req_to_dissconect").css('display','block');
+          }
+          else{
+            $("input[name=req_for_stop][value=2]").attr('checked',true);
+          }
+
           $("input[name=last_registered_year]").val(audit_data.last_registered_year);
           $("input[name=suspended_year]").val(audit_data.suspended_year);
 
@@ -865,6 +872,19 @@ function getAuditData(){
             });
           });
 
+          if(audit_data.offline_user == 1 && audit_data.verify_status == 0){
+            // when approved offline user and submit renew form
+            $("input[type=text]").not("input[name=verify_code]").attr('readonly',true);
+            $("textarea").attr('readonly',true);
+            $(".type_service_provided").find("input[type=checkbox]").attr('disabled',true);
+            $("input[type=radio]").attr('readonly',true);
+            $("input[type=email]").attr('readonly',true);
+            //$("button").not(":button[type=submit]").attr('disabled',true);
+            $("#tbl_audit_staff").find("input").attr('readonly',true);
+            $("#tbl_audit_total_staff").find("input[type=number]").attr('disabled',true);
+            $('.partner_list,.branch,.director').find('button').attr('disabled',true);
+            $('.partner_list').find('input[type=radio]').attr('disabled',true);
+          }
       }
   })
 }
@@ -888,6 +908,20 @@ function getAuditDataForRejectUpdate(){
           $("#accountancy_firm_reg_no").val(audit_data.accountancy_firm_reg_no);
           $("#register_date").val(audit_data.register_date);
           $('#previewImg').attr("src",BASE_URL+audit_data.image);
+
+          // if user is existing user and havn't been approved at least one time (first time rejected)
+          if(audit_data.is_renew == 0 && audit_data.status == 2 && audit_data.offline_user == 1){
+            $("input[name=email]").prop('readonly',false);
+            $("input[name=accountancy_firm_name]").prop('readonly',false);
+            $("#last_registered_year_box").css("display","block");
+            $("input[name=last_registered_year]").val(audit_data.last_registered_year);
+            $("#req_for_stop_box").css("display","block");
+            $("input[name=req_for_stop][value='"+audit_data.req_for_stop+"']").prop("checked",true);
+            if(audit_data.req_for_stop == 1){
+              $("#req_to_dissconect").css("display","block");
+              $("input[name=suspended_year]").val(audit_data.suspended_year);
+            }
+          }
 
           $('textarea[name=head_office_address]').val(audit_data.head_office_address);
           $('textarea[name=head_office_address_mm]').val(audit_data.head_office_address_mm);
@@ -1348,7 +1382,7 @@ function auditRenewSubscribe()
 
   send_data.append('last_registered_year',$("input[name=last_registered_year]").val());
   send_data.append('offline_user',$("input[name=offline_user]").val());
-  send_data.append('req_for_stop',$("input[name=req_for_stop]").val());
+  send_data.append('req_for_stop',$('input[name=req_for_stop]:checked').val());
   send_data.append('suspended_year',$("input[name=suspended_year]").val());
 
   send_data.append('accountancy_firm_name',$("input[name=accountancy_firm_name]").val());

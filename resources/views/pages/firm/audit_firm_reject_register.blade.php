@@ -933,6 +933,57 @@
                                         </div>
                                     </div>
 
+                                    <div id="last_registered_year_box" style="display:none;">
+                                      <div class="row mb-5">
+                                          <label for="" class="col-md-1 col-form-label">12.</label>
+                                          <label for="" class="col-md-4 col-form-label">Last Registered Year</label>
+
+                                          <div class="col-md-3">
+                                              <input type="text" placeholder="YYYY" name="last_registered_year" class="form-control" autocomplete="off">
+                                          </div>
+                                      </div>
+                                    </div>
+
+                                    <div style="display:none" id="req_for_stop_box">
+                                      <div class="row mb-5">
+                                          <label for="" class="col-md-1 col-form-label">14.</label>
+                                          <label for="" class="col-md-4 col-form-label">Suspended Year</label>
+                                          <div class="row col-md-7 py-2">
+                                              <div class="col-md-3 form-check-radio mx-2">
+                                                  <label class="form-check-label">
+                                                      <input class="form-check-input" type="radio" id="yes"
+                                                              name="req_for_stop" value="1" >
+                                                      <span class="form-check-sign"></span>
+                                                      Yes
+                                                  </label>
+                                              </div>
+                                              <div class="col-md-3 form-check-radio mx-2">
+                                                  <label class="form-check-label">
+                                                      <input class="form-check-input" type="radio" id="no"
+                                                              name="req_for_stop" value="2" >
+                                                      <span class="form-check-sign"></span>
+                                                      No
+                                                  </label>
+                                              </div>
+
+                                              <label  class="error attend_place_error" style="display:none;" for="req_for_stop">Please select one</label>
+                                          </div>
+                                      </div>
+                                    </div>
+
+                                    <div id="req_to_dissconect" style="display:none;">
+                                      <div class="row mb-5">
+                                          <label for="" class="col-md-1 col-form-label"></label>
+                                          <label for="" class="col-md-4 col-form-label"></label>
+                                          <div class="col-md-2">
+                                              <label for="" class="col-form-label">Year</label>
+                                          </div>
+                                          <div class="col-md-3">
+                                              <input type="text" placeholder="YYYY" name="suspended_year" class="form-control" autocomplete="off">
+                                          </div>
+                                      </div>
+                                    </div>
+
                                     {{--<div class="row">
                                         <table width="100%">
                                             <tr>

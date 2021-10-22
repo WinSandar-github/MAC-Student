@@ -337,7 +337,7 @@ function Papp_Submit(){
     data.append('address', $("input[name=address]").val());
     data.append('phone', $("input[name=phone]").val());
     data.append('contact_mail', $("input[name=contact_mail]").val());
-    data.append('reg_no', $("input[name=reg_no]").val());
+    data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
     data.append('type',0);
     data.append('self_confession',JSON.stringify($arr));
     show_loader(); 
@@ -438,7 +438,7 @@ function loadPappData()
             $('#address').val(papp_data.address);
             $('#phone').val(papp_data.phone);
             $('#contact_mail').val(papp_data.contact_mail);
-            $('#cpaff_reg_no').val(papp_data.cpa_batch_no);
+            $('#cpaff_reg_no').val(papp_data.cpaff_reg_no);
             //$('#remark_description').text(papp_data.reject_description);
         }
     });
@@ -464,9 +464,9 @@ function Papp_feedback(){
                     }
                     else if(data.status==1 || data.renew_status==1)
                     {
-                        document.getElementById('approved').style.display='block';
+                        document.getElementById('approved').style.display='none';
                         document.getElementById('pending').style.display='none';
-                        $('.payment-btn').css('display','block');
+                        //$('.payment-btn').css('display','block');
                         $('.register-btn').css({'display':'none'});
                         $('.register-btn').removeClass('mt-4');
                         // var accept=new Date(data.renew_accepted_date);
@@ -663,7 +663,7 @@ function RenewPAPP(){
                 var cpd_record_file=$('#cpd_record_file')[0].files[0];
                 var mpa_mem_card_front=$('#mpa_mem_card_front')[0].files[0];
                 var mpa_mem_card_back=$('#mpa_mem_card_back')[0].files[0];
-                // var tax_free_file=$('#tax_free_file')[0].files[0];
+                var tax_free_file=$('#tax_free_file')[0].files[0];
                 // var letter=$('#letter')[0].files[0];
 
                 var send_data = new FormData();
@@ -756,8 +756,10 @@ function RenewPAPP(){
                 send_data.append('papp_date', $("input[name=papp_date]").val());
                 send_data.append('papp_renew_date', $("input[name=papp_renew_year]").val());
                 send_data.append('papp_reg_date', $("input[name=papp_reg_date]").val());
+                send_data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
                 send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
-                send_data.append('audit_work', $("input[name=total_audit]").val());
+                send_data.append('audit_work', $("input[name=audit_work]").val());
+                send_data.append('audit_year', $("input[name=audit_year]").val());
 
                 send_data.append('cpa_ff_recommendation', papp_file);
                 // send_data.append('recommendation_183', file_183);
@@ -769,13 +771,13 @@ function RenewPAPP(){
                 send_data.append('mpa_mem_card_back', mpa_mem_card_back);
                 send_data.append('cpd_hours', $("#total_hours").val());
                 send_data.append('tax_year', $("input[name=tax_year]").val());
-                // send_data.append('tax_free_recommendation', tax_free_file);
+                send_data.append('tax_free_recommendation', tax_free_file);
                 // send_data.append('letter', letter);
                 send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
                 send_data.append('address', $("input[name=address]").val());
                 send_data.append('phone', $("input[name=phone]").val());
                 send_data.append('contact_mail', $("input[name=contact_mail]").val());
-                send_data.append('reg_no', $("input[name=reg_no]").val());
+                // send_data.append('reg_no', $("input[name=reg_no]").val());
                 send_data.append('type',1);
                 //send_data.append('_method', 'POST');
                 show_loader();
@@ -790,6 +792,7 @@ function RenewPAPP(){
                         success: function(result){
                             EasyLoading.hide();
                             successMessage(result.message);
+                            console.log(result);
                             // location.reload();
                             location.href = FRONTEND_URL+'/';
                             document.getElementById('approved').style.display='none';
@@ -813,6 +816,7 @@ function RenewPAPP(){
                         success: function(result){
                             EasyLoading.hide();
                             successMessage(result.message);
+                            console.log(result);
                             // location.reload();
                             location.href = FRONTEND_URL+'/';
                             document.getElementById('approved').style.display='none';
@@ -963,13 +967,15 @@ function createReconnectPapp(){
 
     //cpaff_data    
     send_data.append('cpa_certificate', cpa_certificate);
-    send_data.append('reg_no', $("input[name=reg_no]").val());
+    send_data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
     send_data.append('old_card_no', $("input[name=reg_card_no]").val());
     send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());
     send_data.append('old_card_file', $("input[name=renew_file]")[0].files[0]);
     send_data.append('is_convicted', $("input[name=fine_person]").val());
     send_data.append('last_paid_year', $("input[name=cpaff_last_renew_year]").val());
-    send_data.append('reg_date', $("input[name=papp_reg_year]").val());
+    send_data.append('cpaff_reg_year', $("input[name=cpaff_reg_year]").val());
+    send_data.append('resign', $("input[type='radio'][name='resign']:checked").val());
+    send_data.append('resign_date', $("input[name=resign_date]").val());
     send_data.append('is_renew',2);
 
     //papp_data
@@ -977,8 +983,9 @@ function createReconnectPapp(){
     send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
     send_data.append('papp_reg_date', $("input[name=papp_reg_year]").val());
     send_data.append('cpa_ff_recommendation', papp_file);
-    send_data.append('submitted_from_date', $("input[name=from_date]").val());
-    send_data.append('submitted_to_date', $("input[name=to_date]").val());
+    // send_data.append('submitted_from_date', $("input[name=from_date]").val());
+    // send_data.append('submitted_to_date', $("input[name=to_date]").val());
+    send_data.append('papp_resign_date', $("input[name=papp_resign_date]").val());
     send_data.append('latest_reg_year', $("input[name=latest_reg_year]").val());
     send_data.append('submitted_stop_form', $("input[type='radio'][name='submitted_stop_form']:checked").val());
     if(firm_check.checked==true){

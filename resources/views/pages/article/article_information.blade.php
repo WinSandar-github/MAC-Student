@@ -105,9 +105,9 @@
                                                 <ul>
                                                         <li><i class="icofont-money"></i> <strong>Application Fee</strong> <span class='application-fee'></li>
                                                         <li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
-                                                        <li><i class="icofont-money"></i> <strong>Reconnected Fee</strong><span class='yearly-fee'></li>
-                                                        <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
-                                                        <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
+                                                        <li><i class="icofont-money"></i> <strong>Resign Fee</strong><span class='reconnected-fee'></li>
+                                                        <!-- <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
+                                                        <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li> -->
                                                         <div class="pull-right mt-4">
                                                             <p class="info-btn col-md-2 mb-4 text-dark h6">
                                                                 <button class="btn btn-success btn-hover-dark" id="register_btn">Register</button>
@@ -225,6 +225,15 @@
                             $("#c2_pass_1yr_btn").prop('disabled', true);
                         }
                         $('#articleModal').modal('toggle');
+                    }else if(latest_article[0]?.resign_status == 1 && latest_article[0]?.article_form_type == 'resign'){
+                        $("#firm_article_row").hide();
+                        $("#c12_btn").hide();
+                        $("#c2_pass_1yr_btn").hide();
+                        $("#c2_pass_3yr_btn").hide();
+                        $("#qt_pass_3yr_btn").hide();
+                        $("#article_hr").hide();
+                        $("#gov_article_row").hide();
+                        $('#articleModal').modal('toggle');
                     }else if(latest_gov_article[0]?.done_status == 1){
                         $("#c12_btn").hide();
                         $("#c2_pass_3yr_btn").hide();
@@ -237,15 +246,6 @@
                         }else{
                             $("#c2_pass_1yr_btn").prop('disabled', true);
                         }
-                        $('#articleModal').modal('toggle');
-                    }else if(latest_article[0]?.done_status == 1 && latest_article[0]?.article_form_type == 'resign'){
-                        $("#firm_article_row").hide();
-                        $("#c12_btn").hide();
-                        $("#c2_pass_1yr_btn").hide();
-                        $("#c2_pass_3yr_btn").hide();
-                        $("#qt_pass_3yr_btn").hide();
-                        $("#article_hr").hide();
-                        $("#gov_article_row").hide();
                         $('#articleModal').modal('toggle');
                     }else{
                         if((form_type == 3 && course == "cpa_1") || (form_type == 3 && course == "cpa_2")){
