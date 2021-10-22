@@ -21,8 +21,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title initial_text" style="display:block;">PAPP Existing User Register<span>Form</span></h2>
-                    <h2 class="title renew_text" style="display:none;">PAPP Renewal Registration <span>Form</span></h2>
+                    <h2 class="title">PAPP Existing User Registeration<span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
 
