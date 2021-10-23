@@ -1070,6 +1070,19 @@
 <script>
     $(document).ready(function(){
 
+      $("input[name='last_registered_year']").flatpickr({
+          enableTime: false,
+          dateFormat: "Y",
+          //dateFormat: "Y",
+          allowInput: true,
+      });
+      $("input[name='suspended_year']").flatpickr({
+          enableTime: false,
+          dateFormat: "Y",
+          //dateFormat: "Y",
+          allowInput: true,
+      });
+
     	$("input[id*='head_office_address_mm'], text[id*='head_office_address_mm']").change(function (e) {
     			myanmarLetterOnly($(this));
     	});
@@ -1077,6 +1090,15 @@
     	$(document).on('keydown', '#head_office_address_mm', function () {
     			myanmarLetterOnly($(this));
     	});
+
+      $("input[name=req_for_stop]").change(function(){
+        if($(this).val() == 1){
+          $("#req_to_dissconect").css("display","block");
+        }
+        else{
+          $("#req_to_dissconect").css("display","none");
+        }
+      });
 
     	function myanmarLetterOnly(self) {
     			val = self.val();
