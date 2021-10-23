@@ -134,7 +134,7 @@ function createArticleFirmRegister() {
     var nrc_citizen = $("#nrc_citizen").val();
     var request_papp_attach = $("input[name=request_papp_attach]")[0].files[0];
 
-    // send_data.append('image', image);
+    send_data.append('image', image);
     // send_data.append('name_mm', $("input[name=name_mm]").val());
     // send_data.append('name_eng', $("input[name=name_eng]").val());
     // send_data.append('personal_no', $("input[name=personal_no]").val());
@@ -142,8 +142,8 @@ function createArticleFirmRegister() {
     // send_data.append('nrc_township', nrc_township);
     // send_data.append('nrc_citizen', nrc_citizen);
     // send_data.append('nrc_number', $("input[name=nrc_number]").val());
-    // send_data.append('nrc_front', nrc_front);
-    // send_data.append('nrc_back', nrc_back);
+    send_data.append('nrc_front', nrc_front);
+    send_data.append('nrc_back', nrc_back);
     // send_data.append('education', $("input[name=education]").val());
     // $('input[name="certificate[]"]').map(function () {
     //     for (var i = 0; i < $(this).get(0).files.length; ++i) {
@@ -166,7 +166,7 @@ function createArticleFirmRegister() {
     send_data.append('gov_joining_date', $("input[name=job_started_date]").val());
     // send_data.append('address', $("input[name=address]").val());
     send_data.append('current_address', $("input[name=current_address]").val());
-    // send_data.append('phone_no', $("input[name=phone_no]").val());
+    send_data.append('phone_no', $("input[name=phone_no]").val());
     send_data.append('m_email', $("input[name=m_email]").val());
     send_data.append('ex_papp', $("input[name=previous_papp_name]").val());
     send_data.append('exp_start_date', $("input[name=previous_papp_start_date]").val());
@@ -217,7 +217,7 @@ function createArticleGovRegister() {
     // var recommend_attach = $("input[name=recommend_attach]")[0].files[0];
     // var police_attach = $("input[name=police_attach]")[0].files[0];
 
-    // send_data.append('image', image);
+    send_data.append('image', image);
     // send_data.append('name_mm', $("input[name=name_mm]").val());
     // send_data.append('name_eng', $("input[name=name_eng]").val());
     // send_data.append('date_of_birth', $("input[name=date_of_birth]").val());
@@ -235,8 +235,8 @@ function createArticleGovRegister() {
     // send_data.append('nrc_township', nrc_township);
     // send_data.append('nrc_citizen', nrc_citizen);
     // send_data.append('nrc_number', $("input[name=nrc_number]").val());
-    // send_data.append('nrc_front', nrc_front);
-    // send_data.append('nrc_back', nrc_back);
+    send_data.append('nrc_front', nrc_front);
+    send_data.append('nrc_back', nrc_back);
     send_data.append('labor_registration_no', $("input[name=labor_registration_no]").val());
     // send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     // send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
@@ -250,7 +250,7 @@ function createArticleGovRegister() {
     send_data.append('address', $("input[name=address]").val());
     send_data.append('tempory_address', $("input[name=tempory_address]").val());
     send_data.append('permanent_address', $("input[name=permanent_address]").val());
-    // send_data.append('phone_no', $("input[name=phone_no]").val());
+    send_data.append('phone_no', $("input[name=phone_no]").val());
     send_data.append('m_email', $("input[name=m_email]").val());
     //send_data.append('labor_registration_attach', labor_registration_attach);
     
@@ -303,11 +303,17 @@ function createArticleResignRegister() {
     var image = $("input[name=profile_photo]")[0].files[0];
     var nrc_front = $("input[name=nrc_front]")[0].files[0];
     var nrc_back = $("input[name=nrc_back]")[0].files[0];
+
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
     var nrc_citizen = $("#nrc_citizen").val();
-    var resign_approve_attach = $("input[name=resign_approve_attach]")[0].files[0];
 
+    send_data.append('image', image);
+    send_data.append('nrc_front', nrc_front);
+    send_data.append('nrc_back', nrc_back);
+
+    var resign_approve_attach = $("input[name=resign_approve_attach]")[0].files[0];
+    send_data.append('phone_no', $("input[name=phone_no]").val());
     send_data.append('student_info_id', $("input[name=student_info_id]").val());
     send_data.append('m_email', $("input[name=m_email]").val());
     send_data.append('resign_date', $("input[name=resign_date]").val());
@@ -349,7 +355,7 @@ function createArticleRenewRegister() {
     var nrc_citizen = $("#nrc_citizen").val();
     var request_papp_attach = $("input[name=request_papp_attach]")[0].files[0];
 
-    // send_data.append('image', image);
+    send_data.append('image', image);
     // send_data.append('name_mm', $("input[name=name_mm]").val());
     // send_data.append('name_eng', $("input[name=name_eng]").val());
     // send_data.append('personal_no', $("input[name=personal_no]").val());
@@ -357,8 +363,8 @@ function createArticleRenewRegister() {
     // send_data.append('nrc_township', nrc_township);
     // send_data.append('nrc_citizen', nrc_citizen);
     // send_data.append('nrc_number', $("input[name=nrc_number]").val());
-    // send_data.append('nrc_front', nrc_front);
-    // send_data.append('nrc_back', nrc_back);
+    send_data.append('nrc_front', nrc_front);
+    send_data.append('nrc_back', nrc_back);
     // send_data.append('education', $("input[name=education]").val());
     // $('input[name="certificate[]"]').map(function () {
     //     for (var i = 0; i < $(this).get(0).files.length; ++i) {
@@ -374,7 +380,7 @@ function createArticleRenewRegister() {
     // send_data.append('gov_position', $("input[name=position]").val());
     // send_data.append('gov_joining_date', $("input[name=job_started_date]").val());
     // send_data.append('address', $("input[name=address]").val());
-    // send_data.append('phone_no', $("input[name=phone_no]").val());
+    send_data.append('phone_no', $("input[name=phone_no]").val());
     send_data.append('current_address', $("input[name=current_address]").val());
     send_data.append('m_email', $("input[name=m_email]").val());
     send_data.append('ex_papp', $("input[name=previous_papp_name]").val());

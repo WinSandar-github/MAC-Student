@@ -1801,7 +1801,7 @@
 
                             $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $('.course_name').val(current_stu_course[0].batch.course.name);
-                            $(".batch_number").append(current_stu_course[0].batch.number);
+                            // $(".batch_number").append(current_stu_course[0].batch.number);
                             $(".batch_no").val(current_stu_course[0].batch.number);
                             $(".batch_id").val(current_stu_course[0].batch.id);
                             if(last_exam.length!=0){

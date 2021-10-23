@@ -151,7 +151,7 @@
                                                    autocomplete='off' placeholder="အမည်(မြန်မာ)" >
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="name_eng" class="form-control"
+                                            <input type="text" name="name_eng" class="form-control" id="name_eng"
                                                    placeholder="အမည်(အင်္ဂလိပ်)" autocomplete='off' >
                                         </div>
                                     </div>
@@ -234,7 +234,7 @@
                                             <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists"
                                                data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                         </div>
-                                        <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                        <span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -255,7 +255,7 @@
                                             <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists"
                                                data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                         </div>
-                                        <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                        <span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
                                     </div>
                                 </div>
                             </div>
@@ -474,21 +474,45 @@
                                 </div>
 
                             </div>
-                            <input type="hidden" id="offline_user" value="true">;
+                            <input type="hidden" id="offline_user" value="true">
                             <div class="request_stop_yes" style="display:none;">
-                            <div class="row mb-3">
-                                <label class="col-md-4 col-form-label label"></label>
-                                <div class="col-md-4">
-                                    <input type="text" name="from_request_stop_date" class="form-control" placeholder="from(dd-mm-yyyy)"
-                                               autocomplete='off' >
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label">ရပ်နားတင်ခဲ့သည့် ရက်စွဲ</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="from_request_stop_date" class="form-control" placeholder="dd-mm-yyyy"
+                                                autocomplete='off' >
 
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" name="to_request_stop_date" class="form-control" placeholder="to(dd-mm-yyyy)"
-                                               autocomplete='off' >
+                                    </div>
+                                    <!-- <div class="col-md-4">
+                                        <input type="text" name="to_request_stop_date" class="form-control" placeholder="to(dd-mm-yyyy)"
+                                                autocomplete='off' >
 
+                                    </div> -->
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label"><span
+                                                class="pull-left">၁၆။</span>ကနဦးကျောင်းမှတ်ပုံတင်ကတ်ထုတ်ပေးသည့် ရက်စွဲ</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" id="from_valid_date" name="from_valid_date" placeholder="dd-mm-yyyy" autocomplete='off' >
+                                        
+                                    </div>
+                            </div>
+                            <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label"><span
+                                                class="pull-left">၁၇။</span>ကျောင်းမှတ်ပုံတင်အမှတ်</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" id="s_code" name="s_code" autocomplete='off' >
+                                        
+                                    </div>
+                            </div>
+                            <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label"><span
+                                                class="pull-left">၁၈။</span>ကျောင်းမှတ်ပုံတင်ကတ်ပြား</label>
+                                    <div class="col-md-8">
+                                        <input type="file" class="form-control" id="school_card" name="school_card" required>
+                                        
+                                    </div>
                             </div>
                             <div class="row mb-1">
                                 <h5 class="p-4 fw-bolder">{{ __('သင်တန်းကျောင်းအချက်အလက်များ') }}</h5>
@@ -1287,6 +1311,12 @@
                 dateFormat: "d-M-Y",
                 allowInput: true,
             });
+            $("input[name='from_valid_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "d-M-Y",
+                allowInput: true,
+            });
+            
             school_reg_feedback();
 
         });

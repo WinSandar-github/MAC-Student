@@ -336,7 +336,7 @@
                                     <div class="col-md-1 mt-2">
                                         <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()">
                                     </div>
-                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" class="form-control" placeholder="ခုနှစ်" style="display: inline;width: 100px;" autocomplete="off" disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="cpa_batch_no" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
+                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" class="form-control" placeholder="ခုနှစ်" style="display: inline;width: 100px;" autocomplete="off" disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="cpa2_reg_no" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
                                 </div>
 
                                 <div class="row mb-3">
@@ -474,7 +474,8 @@
             <div>
         </div>
     </div>
-    {{-- <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#submitModal">Open modal</button> --}}
+    
+    {{-- Self_Confession_modal --}}
     <div id="submitModal" class="multi-step" style="width: 100%;height : 100vh">
     </div>
 
@@ -548,7 +549,7 @@
             title:'ဝန်ခံချက်',
             data:[{
                 content:`
-                <iframe src="{{ asset('assets/images/TMS requirment(23-9-2021).pdf') }}"  style="overflow:scroll;height:70vh;width:100%" height="100vh" width="70vh"></iframe>
+                <iframe src="{{ asset('assets/images/pa_promise.pdf') }}"  style="overflow:scroll;height:70vh;width:100%" height="100vh" width="70vh"></iframe>
                 <div class="pull-right mt-1">
                     <h6 class="pull-left me-4 fw-bold">အထက်ဖော်ပြပါအချက်များအား</h6>
                     <div class="form-check form-check-inline">

@@ -228,7 +228,7 @@ function check_da_existing_reg_email() {
     } else {
         // $('#exampleModal1').modal('show');
         CreateDAExistingRegister();
-        $('#DATwoRegEmailModal').modal('hide');
+        $('#DAExistingEmailModal').modal('hide');
     }
 }
 
@@ -597,17 +597,17 @@ function CreateDAExistingRegister(){
     send_data.append('verify_code', $("input[name=verify_code]").val());
     send_data.append('batch_id', $("#selected_current_batch_id").val());
     send_data.append('pass_batch_id', $("#selected_batch_id").val());
-    send_data.append('degree_rank', $("input[name=da_one_pass_level]").val());
-    send_data.append('da_pass_date', $("input[name=da_one_pass_exam_date]").val());
-    send_data.append('da_pass_roll_number', $("input[name=da_one_pass_personal_no]").val());
+    send_data.append('da_one_pass_level', $("input[name=da_one_pass_level]").val());
+    send_data.append('da_one_pass_exam_date', $("input[name=da_one_pass_exam_date]").val());
+    send_data.append('da_one_pass_personal_no', $("input[name=da_one_pass_personal_no]").val());
 
     send_data.append('type', $("input[name='attend_place']:checked").val());
 
     if($("#da_type").val()=='da_2'){
         send_data.append('type_da2', $("input[name='da_two_attend_place']:checked").val());
-        send_data.append('da_two_pass_level', $("input[name=da_two__pass_level]").val());
-        send_data.append('da_two_pass_exam_date', $("input[name=da_two__pass_exam_date]").val());
-        send_data.append('da_two_pass_personal_no', $("input[name=da_two__pass_personal_no]").val());
+        send_data.append('da_two_pass_level', $("input[name=da_two_pass_level]").val());
+        send_data.append('da_two_pass_exam_date', $("input[name=da_two_pass_exam_date]").val());
+        send_data.append('da_two_pass_personal_no', $("input[name=da_two_pass_personal_no]").val());
         send_data.append('da_two_mac_type', $("input[name='da_two_attend_place']:checked").val() == 2 ? $("input[name='da_two_mac_type']:checked").val() : 99);
     }
     send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
@@ -976,15 +976,28 @@ function loadPrivateSchoolList() {
     });
 }
 
-function DAOneselectType() {
+function selectCurrentType() {
 
-    var radioValue = $("input[name='da_one_attend_place']:checked").val();
-
-    if (radioValue == 2) {
-        $('#da_one_blk_mac').css('display', 'inline-block');
+    var da_radioValue = $("input[name='da_two_attend_place']:checked").val();
+    
+    if (da_radioValue == 2) {
+        $('#current_blk_mac').css('display', 'inline-block');
     } else {
 
-        $('#da_one_blk_mac').css('display', 'none');
+        $('#current_blk_mac').css('display', 'none');
+
+    }
+}
+
+function selectCPACurrentType() {
+
+    var cpa_radioValue = $("input[name='cpa2_attend_place']:checked").val();
+    
+    if (cpa_radioValue == 2) {
+        $('#current_blk_mac').css('display', 'inline-block');
+    } else {
+
+        $('#current_blk_mac').css('display', 'none');
 
     }
 }

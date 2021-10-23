@@ -143,26 +143,45 @@ function check_email_papp()
     if(accept_PAPP.checked == true || not_accept_PAPP.checked == true){
         $('#valid_self_confession_PAPP').css('display','none');
         var arr = [];
-        for(i = 1; i <= 29; i++){
+        for(i = 1; i <= 32; i++){
             arr.push($(`input[name=check${i}]:checked`).val());
         }
-        console.log("arr",arr);
         if(arr.includes(undefined)){
             $(".accept_PAPP:unchecked").css("border","1px solid red");
             $(".not_accept_PAPP:unchecked").css("border","1px solid red");
         }
         else{
-            if(verify_code != code){
-                errorMessage("Your code is not correct.Please check your email inbox again!");
-                return false;
-                // $('#exampleModal').modal('show');
-                // $('#exampleModal1').modal('hide');
-                // $('#exampleModal').modal('show');
-            }else{
-                Papp_Submit();
-                $('#pappModal').modal('hide');
-                return false;
-            }
+            Papp_Submit();
+            $('#pappModal').modal('hide');
+            return false;
+        }
+    }
+    else{
+        $('#valid_self_confession_PAPP').text("Please choose Yes Or No");
+        $('#valid_self_confession_PAPP').css('display','block');
+        errorMessage("Please choose Yes or No in Previous Page");  
+    }
+}
+
+function check_self_confession_papp()
+{
+    
+    var accept_PAPP = document.getElementById("accept");
+    var not_accept_PAPP = document.getElementById("not-accept");
+    if(accept_PAPP.checked == true || not_accept_PAPP.checked == true){
+        $('#valid_self_confession_PAPP').css('display','none');
+        var arr = [];
+        for(i = 1; i <= 32; i++){
+            arr.push($(`input[name=check${i}]:checked`).val());
+        }
+        if(arr.includes(undefined)){
+            $(".accept_PAPP:unchecked").css("border","1px solid red");
+            $(".not_accept_PAPP:unchecked").css("border","1px solid red");
+        }
+        else{
+            RenewPAPP();
+            $('#renewPAPPModal').modal('hide');
+            return false;
         }
     }
     else{
@@ -235,7 +254,7 @@ function pappPaymentSubmit(){
 
 function Papp_Submit(){
     $arr = [];
-    for(i=1; i<=29; i++){
+    for(i=1; i<=32; i++){
         $self_confession = {
             "self_confession" : $(`input[name=check${i}]:checked`).val(),
         };
@@ -337,7 +356,7 @@ function Papp_Submit(){
     data.append('address', $("input[name=address]").val());
     data.append('phone', $("input[name=phone]").val());
     data.append('contact_mail', $("input[name=contact_mail]").val());
-    data.append('reg_no', $("input[name=reg_no]").val());
+    data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
     data.append('type',0);
     data.append('self_confession',JSON.stringify($arr));
     show_loader(); 
@@ -354,8 +373,9 @@ function Papp_Submit(){
             success: function(result){
                 EasyLoading.hide();
                 successMessage("You have successfully updated!");
-                    // location.reload();
+                setTimeout(() => {
                     location.href = FRONTEND_URL+'/';
+                }, 2000);
                 },
             error:function (message){
                 EasyLoading.hide();
@@ -438,7 +458,7 @@ function loadPappData()
             $('#address').val(papp_data.address);
             $('#phone').val(papp_data.phone);
             $('#contact_mail').val(papp_data.contact_mail);
-            $('#cpaff_reg_no').val(papp_data.cpa_batch_no);
+            $('#cpaff_reg_no').val(papp_data.cpaff_reg_no);
             //$('#remark_description').text(papp_data.reject_description);
         }
     });
@@ -464,9 +484,9 @@ function Papp_feedback(){
                     }
                     else if(data.status==1 || data.renew_status==1)
                     {
-                        document.getElementById('approved').style.display='block';
+                        document.getElementById('approved').style.display='none';
                         document.getElementById('pending').style.display='none';
-                        $('.payment-btn').css('display','block');
+                        $('.payment-btn').css('display','none');
                         $('.register-btn').css({'display':'none'});
                         $('.register-btn').removeClass('mt-4');
                         // var accept=new Date(data.renew_accepted_date);
@@ -625,6 +645,12 @@ function loadPAPP(){
         });
     }
 }
+
+
+function selfConfession(){
+    // console.log("self");
+    $('#pappRenewModal').modal('show');
+}
 function RenewPAPP(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     show_loader()
@@ -644,7 +670,7 @@ function RenewPAPP(){
                 var firm_check = document.getElementById("firm_check");
                 var used_firm_check = document.getElementById("used_firm_check");
                 var staff_firm_check = document.getElementById("staff_firm_check");
-
+                
                 // var cpa_file = $('#cpa_file')[0].files[0];
                 // var ra_file = $('#ra_file')[0].files[0];
                 var cpa = $("input[name=cpa]")[0].files[0];
@@ -657,7 +683,7 @@ function RenewPAPP(){
                 var cpd_record_file=$('#cpd_record_file')[0].files[0];
                 var mpa_mem_card_front=$('#mpa_mem_card_front')[0].files[0];
                 var mpa_mem_card_back=$('#mpa_mem_card_back')[0].files[0];
-                // var tax_free_file=$('#tax_free_file')[0].files[0];
+                var tax_free_file=$('#tax_free_file')[0].files[0];
                 // var letter=$('#letter')[0].files[0];
 
                 var send_data = new FormData();
@@ -709,6 +735,13 @@ function RenewPAPP(){
                 $('input[name="manager[]"]').map(function () {
                     send_data.append('manager[]', $(this).val());
                 });
+                $arr = [];
+                for(i=1; i<=32; i++){
+                    $self_confession = {
+                        "self_confession" : $(`input[name=check${i}]:checked`).val(),
+                    };
+                    $arr.push($self_confession);
+                }
                 // for (var i = 0; i < count; i++) {
                 //     send_data.append('foreign_degree[]',$('#degree_file'+i)[0].files[0]);
                 // }
@@ -750,8 +783,10 @@ function RenewPAPP(){
                 send_data.append('papp_date', $("input[name=papp_date]").val());
                 send_data.append('papp_renew_date', $("input[name=papp_renew_year]").val());
                 send_data.append('papp_reg_date', $("input[name=papp_reg_date]").val());
+                send_data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
                 send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
-                send_data.append('audit_work', $("input[name=total_audit]").val());
+                send_data.append('audit_work', $("input[name=audit_work]").val());
+                send_data.append('audit_year', $("input[name=audit_year]").val());
 
                 send_data.append('cpa_ff_recommendation', papp_file);
                 // send_data.append('recommendation_183', file_183);
@@ -763,15 +798,16 @@ function RenewPAPP(){
                 send_data.append('mpa_mem_card_back', mpa_mem_card_back);
                 send_data.append('cpd_hours', $("#total_hours").val());
                 send_data.append('tax_year', $("input[name=tax_year]").val());
-                // send_data.append('tax_free_recommendation', tax_free_file);
+                send_data.append('tax_free_recommendation', tax_free_file);
                 // send_data.append('letter', letter);
                 send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
                 send_data.append('address', $("input[name=address]").val());
                 send_data.append('phone', $("input[name=phone]").val());
                 send_data.append('contact_mail', $("input[name=contact_mail]").val());
-                send_data.append('reg_no', $("input[name=reg_no]").val());
+                // send_data.append('reg_no', $("input[name=reg_no]").val());
                 send_data.append('type',1);
                 //send_data.append('_method', 'POST');
+                send_data.append('self_confession',JSON.stringify($arr));
                 show_loader();
                 if($('#papp_id').val()){
                     send_data.append('papp_id',$('#papp_id').val());
@@ -783,15 +819,16 @@ function RenewPAPP(){
                         processData: false,
                         success: function(result){
                             EasyLoading.hide();
-                            successMessage(result.message);
-                            // location.reload();
-                            location.href = FRONTEND_URL+'/';
                             document.getElementById('approved').style.display='none';
                             document.getElementById('rejected').style.display='none';
                             document.getElementById('pending').style.display='none';
                             document.getElementById('papp_form').style.display='none';
                             document.getElementById('papp_renew_form').style.display='none';
                             document.getElementById('expiry_card').style.display='none';
+                            successMessage(result.message);
+                            setTimeout(() => {
+                                location.href = FRONTEND_URL+'/';
+                            }, 2000);
                         },
                         error:function (message){
                         }
@@ -807,6 +844,7 @@ function RenewPAPP(){
                         success: function(result){
                             EasyLoading.hide();
                             successMessage(result.message);
+                            console.log(result);
                             // location.reload();
                             location.href = FRONTEND_URL+'/';
                             document.getElementById('approved').style.display='none';
@@ -868,18 +906,43 @@ function check_reconnect_papp_email()
     var obj = JSON.parse(text);
     var verify_code = obj.data.verify_code;
     var code = $("input[name=verify_code]").val();
-    if(verify_code != code){
-        successMessage("Your code is not correct.Please check your email inbox again!");
-        // $('#exampleModal').modal('show');
-        // $('#exampleModal1').modal('hide');
-        // $('#exampleModal').modal('show');
-    }else{
-        createReconnectPapp();
-        $('#reconnectPappModal').modal('hide');
+    var accept_PAPP = document.getElementById("accept");
+    var not_accept_PAPP = document.getElementById("not-accept");
+    if(accept_PAPP.checked == true || not_accept_PAPP.checked == true){
+        $('#valid_self_confession_PAPP').css('display','none');
+        var arr = [];
+        for(i = 1; i <= 32; i++){
+            arr.push($(`input[name=check${i}]:checked`).val());
+        }
+        if(arr.includes(undefined)){
+            $(".accept_PAPP:unchecked").css("border","1px solid red");
+            $(".not_accept_PAPP:unchecked").css("border","1px solid red");
+        }
+        else{
+            if(verify_code != code){
+                errorMessage("Your code is not correct.Please check your email inbox again!");
+            }else{
+                createReconnectPapp();
+                $('#reconnectPappModal').modal('hide');
+                return false;
+            }
+        }
+    }
+    else{
+        $('#valid_self_confession_PAPP').text("Please choose Yes Or No");
+        $('#valid_self_confession_PAPP').css('display','block');
+        errorMessage("Please choose Yes or No in Previous Page");  
     }
 }
 
 function createReconnectPapp(){
+    $arr = [];
+    for(i=1; i<=32; i++){
+        $self_confession = {
+            "self_confession" : $(`input[name=check${i}]:checked`).val(),
+        };
+        $arr.push($self_confession);
+    }
     var profile_photo       =   $("input[name=profile_photo]")[0].files[0];
     var firm_check = document.getElementById("firm_check");
     var used_firm_check = document.getElementById("used_firm_check");
@@ -957,13 +1020,15 @@ function createReconnectPapp(){
 
     //cpaff_data    
     send_data.append('cpa_certificate', cpa_certificate);
-    send_data.append('reg_no', $("input[name=reg_no]").val());
+    send_data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
     send_data.append('old_card_no', $("input[name=reg_card_no]").val());
     send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());
     send_data.append('old_card_file', $("input[name=renew_file]")[0].files[0]);
     send_data.append('is_convicted', $("input[name=fine_person]").val());
     send_data.append('last_paid_year', $("input[name=cpaff_last_renew_year]").val());
-    send_data.append('reg_date', $("input[name=papp_reg_year]").val());
+    send_data.append('cpaff_reg_year', $("input[name=cpaff_reg_year]").val());
+    send_data.append('resign', $("input[type='radio'][name='resign']:checked").val());
+    send_data.append('resign_date', $("input[name=resign_date]").val());
     send_data.append('is_renew',2);
 
     //papp_data
@@ -971,8 +1036,9 @@ function createReconnectPapp(){
     send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
     send_data.append('papp_reg_date', $("input[name=papp_reg_year]").val());
     send_data.append('cpa_ff_recommendation', papp_file);
-    send_data.append('submitted_from_date', $("input[name=from_date]").val());
-    send_data.append('submitted_to_date', $("input[name=to_date]").val());
+    // send_data.append('submitted_from_date', $("input[name=from_date]").val());
+    // send_data.append('submitted_to_date', $("input[name=to_date]").val());
+    send_data.append('papp_resign_date', $("input[name=papp_resign_date]").val());
     send_data.append('latest_reg_year', $("input[name=latest_reg_year]").val());
     send_data.append('submitted_stop_form', $("input[type='radio'][name='submitted_stop_form']:checked").val());
     if(firm_check.checked==true){
@@ -1000,22 +1066,49 @@ function createReconnectPapp(){
         send_data.append('staff_firm_name', "");
     } 
     send_data.append('type',2);
-
+    send_data.append('self_confession',JSON.stringify($arr));
+    console.log($arr,"arr");
     show_loader();
-    $.ajax({
-        url: BACKEND_URL+"/reconnect_papp",
-        type: 'post',
-        data:send_data,
-        contentType: false,
-        processData: false,
-        success: function(result){
-            EasyLoading.hide();
-            successMessage(result.message);
-            // location.reload();
-            location.href = FRONTEND_URL+"/";
-        },
-        error:function (message){
-            EasyLoading.hide();
-        }
-    });
+    if($('#reconnect_papp_id').val()){
+        send_data.append('papp_id',$('#reconnect_papp_id').val());
+        send_data.append('cpaff_id',$('#reconnect_cpaff_id').val());
+        send_data.append('student_id',$('#reconnect_student_id').val());
+        $.ajax({
+            url: BACKEND_URL+"/update_offline_papp",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                EasyLoading.hide();
+                successMessage(result.message);
+                // location.reload();
+                location.href = FRONTEND_URL+"/";
+            },
+            error:function (message){
+                EasyLoading.hide();
+            }
+        });
+    }
+    else{
+        $.ajax({
+            url: BACKEND_URL+"/reconnect_papp",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                EasyLoading.hide();
+                successMessage(result.message);
+                setTimeout(() => {
+                    location.href = FRONTEND_URL+"/";
+                }, 2000);
+                // location.reload();
+                // location.href = FRONTEND_URL+"/";
+            },
+            error:function (message){
+                EasyLoading.hide();
+            }
+        });
+    }
 }

@@ -35,7 +35,7 @@
                         <li><a href="/">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">DA Two Application <span>Form</span></h2>
+                    <h2 class="title">Existing Registration For DA Part Two<span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -447,50 +447,13 @@
                                         </div>                                            
                                     </div>
 
-                                    {{-- <div class="row mb-3" >
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>Module<span style="color:red">*</span></label>
-                                        <div class="row col-md-8 py-2" style="padding-left:24px">
-                                            <div class="col-md-3 form-check-radio">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input module_one" type="radio" id="0"
-                                                            name="is_full_module" value="1" required>
-                                                    <span class="form-check-sign"></span>
-                                                    Module 1
-                                                </label>
-                                            </div>
-                                            <div class="col-md-3 form-check-radio">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input module_two" type="radio"
-                                                            name="is_full_module" value='2' required>
-                                                    <span class="form-check-sign"></span>
-                                                    Module 2
-                                                </label>
-                                            </div>
-                                            <div class="col-md-3 form-check-radio module_full">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio"
-                                                            name="is_full_module" value='3' required>
-                                                    <span class="form-check-sign"></span>
-                                                    All Modules
-                                                </label>
-                                            </div>
-                                            <div class="col-md-3 form-check-radio module_full">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio"
-                                                            name="is_full_module" value='0' required>
-                                                    <span class="form-check-sign"></span>
-                                                    Other
-                                                </label>
-                                            </div>
-                                            <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
-                                        </div>
-                                    </div> --}}
+                         
 
                                     <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>ခုနှစ်/လ<span style="color:red">*</span></label>                                            
                                         <div class="col-md-8">
                                             <div class="">
-                                            <input type="text" class="form-control" name="da_one_pass_exam_date" required>
+                                            <input type="text" class="form-control" name="da_one_pass_exam_date"  placeholder="ခုနှစ်၊လ(MM-YYYY)" required>
                                             </div>
                                         </div>                                            
                                     </div>
@@ -511,77 +474,19 @@
                                         </div>
                                     </div>
 
-                                    {{--<div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၄။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း) သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ<span style="color:red">*</span>-</label>
-                                        <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
-                                            <div class="form-check-radio px-0">
-                                                <label class="form-check-label" for="da_one_main_mac">
-                                                <input class="form-check-input " type="radio" id="da_one_main_mac" name="da_one_attend_place" value='2'  onclick="DAOneselectType()">
-                                                    <span class="form-check-sign"></span>
-                                                    ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး
-                                                </label>
-                                            </div>
-                                            <div class="col-md-12" id="da_one_blk_mac" style="display:none">
-                                            <div class="mx-5 row  ">
-
-                                                <div class="col-md-5 form-check-radio px-0  ">
-                                                    <label class="form-check-label" for="da_one_sub_mac">
-                                                    <input class="form-check-input" type="radio" id="da_one_sub_mac" name="da_one_mac_type" value='1'    >
-                                                        <span class="form-check-sign"></span>
-                                                        ရန်ကုန်သင်တန်းကျောင်း
-                                                    </label>
-
-                                                </div>
-                                                </div>
-                                                <div class="mx-5 row  ">
-                                                <div class="col-md-5  form-check-radio px-0  ">
-                                                    <label class="form-check-label" for="da_one_sub_mac2">
-                                                    <input class="form-check-input" type="radio" id="da_one_sub_mac2" name="da_one_mac_type" value='2'    >
-                                                        <span class="form-check-sign"></span>
-                                                        နေပြည်တော်သင်တန်းကျောင်း
-                                                    </label>
-                                                </div>
-                                                <label  class="error attend_place_error" style="display:none;" for="da_one_mac_type">Please select one</label>
-
-                                            </div>
-
-                                            </div>
-
-                                            <div class="form-check-radio px-0">
-                                                <!-- <input class="form-check-input" type="radio" name="type" value='1'  onclick="selectType()"> -->
-                                                <label class="form-check-label" for="da_one_private">
-
-                                                    <input class="form-check-input" type="radio" id="da_one_private" name="da_one_attend_place" value='1' onclick="DAOneselectType()">
-                                                    <span class="form-check-sign" ></span>
-                                                    ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
-                                                </label>
-                                            </div>
-                                            <div class="form-check-radio px-0">
-                                                <!-- <input class="form-check-input " type="radio" name="type" value='0'  onclick="selectType()"> -->
-                                                <label class="form-check-label" for="da_one_self">
-                                                    <!-- <span class="form-check-sign"></span> -->
-                                                    <input class="form-check-input" id="da_one_self" type="radio" name="da_one_attend_place" value='0' onclick="DAOneselectType()">
-                                                    <span class="form-check-sign" ></span>
-                                                    ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
-                                                </label>
-                                            </div>
-                                            <div class="form-check-radio px-0">
-                                                <label  class="error attend_place_error" style="display:none;" for="da_one_attend_place">Please select one</label>
-                                            </div>
-                                        </div>
-                                    </div>--}}
+                                    
 
                                     <div class="row mb-3">                                        
                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(င)</span>သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ<span style="color:red">*</span></label>
                                         <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
                                             <div class="form-check-radio px-0">
                                                 <label class="form-check-label" for="main_mac">
-                                                <input class="form-check-input " type="radio" id="main_mac" name="attend_place" value='2'  onclick="DAOneselectType()">
+                                                <input class="form-check-input " type="radio" id="main_mac" name="attend_place" value='2'  onclick="selectType()">
                                                     <span class="form-check-sign"></span>
                                                     ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး
                                                 </label>
                                             </div>
-                                            <div class="col-md-12" id="da_one_blk_mac" style="display:none">
+                                            <div class="col-md-12" id="blk_mac" style="display:none">
                                                 <div class="mx-5 row  ">
 
                                                     <div class="col-md-5 form-check-radio px-0  ">
@@ -611,7 +516,7 @@
                                                 <!-- <input class="form-check-input" type="radio" name="type" value='1'  onclick="selectType()"> -->
                                                 <label class="form-check-label" for="private">
 
-                                                    <input class="form-check-input" type="radio" id="private" name="attend_place" value='1' onclick="DAOneselectType()">
+                                                    <input class="form-check-input" type="radio" id="private" name="attend_place" value='1' onclick="selectType()">
                                                     <span class="form-check-sign" ></span>
                                                     ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
                                                 </label>
@@ -620,7 +525,7 @@
                                                 <!-- <input class="form-check-input " type="radio" name="type" value='0'  onclick="selectType()"> -->
                                                 <label class="form-check-label" for="self">
                                                     <!-- <span class="form-check-sign"></span> -->
-                                                    <input class="form-check-input" id="self" type="radio" name="attend_place" value='0' onclick="DAOneselectType()">
+                                                    <input class="form-check-input" id="self" type="radio" name="attend_place" value='0' onclick="selectType()">
                                                     <span class="form-check-sign" ></span>
                                                     ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
                                                 </label>
@@ -651,10 +556,10 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>သင်တန်းအမှတ်စဉ်</label>                                            
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <select class="form-control form-select" name="selected_current_batch_name" id="selected_current_batch_id" required>
+                                                <select class="form-control form-select" name="selected_current_batch_name" id="selected_current_batch_id" >
                                                     <option value="" disabled selected>သင်တန်းအမှတ်စဉ် ရွေးချယ်ပါ</option>
                                                 </select>
                                             </div>
@@ -662,12 +567,12 @@
                                     </div>
 
                                     <div class="row mb-3" >
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>Module<span style="color:red">*</span></label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>Module</label>
                                         <div class="row col-md-8 py-2" style="padding-left:24px">
                                             <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input module_one" type="radio" id="0"
-                                                            name="is_full_module" value="1" required>
+                                                            name="is_full_module" value="1" >
                                                     <span class="form-check-sign"></span>
                                                     Module 1
                                                 </label>
@@ -675,23 +580,23 @@
                                             <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input module_two" type="radio"
-                                                            name="is_full_module" value='2' required>
+                                                            name="is_full_module" value='2' >
                                                     <span class="form-check-sign"></span>
                                                     Module 2
                                                 </label>
                                             </div>
-                                            <div class="col-md-3 form-check-radio module_full">
+                                            {{-- <div class="col-md-3 form-check-radio module_full">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input" type="radio"
                                                             name="is_full_module" value='3' required>
                                                     <span class="form-check-sign"></span>
                                                     All Modules
                                                 </label>
-                                            </div>
+                                            </div> --}}
                                             <div class="col-md-3 form-check-radio module_full">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input" type="radio"
-                                                            name="is_full_module" value='0' required>
+                                                            name="is_full_module" value='0' >
                                                     <span class="form-check-sign"></span>
                                                     Other
                                                 </label>
@@ -701,16 +606,16 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>ခုနှစ်/လ<span style="color:red">*</span></label>                                            
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>ခုနှစ်/လ</label>                                            
                                         <div class="col-md-8">
                                             <div class="">
-                                            <input type="text" class="form-control" name="da_two_pass_exam_date" required>
+                                            <input type="text" class="form-control" name="da_two_pass_exam_date" placeholder="ခုနှစ်၊လ(MM-YYYY)">
                                             </div>
                                         </div>                                            
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဃ)</span>အဆင့်<span style="color:red">*</span></label>                                            
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဃ)</span>အဆင့်</label>                                            
                                         <div class="col-md-8">
                                             <div class="">
                                                 <input type="text" placeholder="အဆင့်" id="da_two_pass_level" name="da_two_pass_level" class="form-control ">
@@ -718,84 +623,26 @@
                                         </div>                                            
                                     </div>
                                     <div class="row mb-4">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(င)</span>ကိုယ်ပိုင်အမှတ်<span style="color:red">*</span></label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(င)</span>ကိုယ်ပိုင်အမှတ်</label>
                                         <div class="col-md-8">
                                             <input type="text" name="da_two_pass_personal_no" class="form-control da_two_pass_personal_no"
                                                 placeholder="ကိုယ်ပိုင်အမှတ်" id="da_two_pass_personal_no">
                                         </div>
                                     </div>
 
-                                    {{--<div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၄။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း) သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ<span style="color:red">*</span>-</label>
-                                        <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
-                                            <div class="form-check-radio px-0">
-                                                <label class="form-check-label" for="da_one_main_mac">
-                                                <input class="form-check-input " type="radio" id="da_one_main_mac" name="da_one_attend_place" value='2'  onclick="DAOneselectType()">
-                                                    <span class="form-check-sign"></span>
-                                                    ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး
-                                                </label>
-                                            </div>
-                                            <div class="col-md-12" id="da_one_blk_mac" style="display:none">
-                                            <div class="mx-5 row  ">
-
-                                                <div class="col-md-5 form-check-radio px-0  ">
-                                                    <label class="form-check-label" for="da_one_sub_mac">
-                                                    <input class="form-check-input" type="radio" id="da_one_sub_mac" name="da_one_mac_type" value='1'    >
-                                                        <span class="form-check-sign"></span>
-                                                        ရန်ကုန်သင်တန်းကျောင်း
-                                                    </label>
-
-                                                </div>
-                                                </div>
-                                                <div class="mx-5 row  ">
-                                                <div class="col-md-5  form-check-radio px-0  ">
-                                                    <label class="form-check-label" for="da_one_sub_mac2">
-                                                    <input class="form-check-input" type="radio" id="da_one_sub_mac2" name="da_one_mac_type" value='2'    >
-                                                        <span class="form-check-sign"></span>
-                                                        နေပြည်တော်သင်တန်းကျောင်း
-                                                    </label>
-                                                </div>
-                                                <label  class="error attend_place_error" style="display:none;" for="da_one_mac_type">Please select one</label>
-
-                                            </div>
-
-                                            </div>
-
-                                            <div class="form-check-radio px-0">
-                                                <!-- <input class="form-check-input" type="radio" name="type" value='1'  onclick="selectType()"> -->
-                                                <label class="form-check-label" for="da_one_private">
-
-                                                    <input class="form-check-input" type="radio" id="da_one_private" name="da_one_attend_place" value='1' onclick="DAOneselectType()">
-                                                    <span class="form-check-sign" ></span>
-                                                    ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
-                                                </label>
-                                            </div>
-                                            <div class="form-check-radio px-0">
-                                                <!-- <input class="form-check-input " type="radio" name="type" value='0'  onclick="selectType()"> -->
-                                                <label class="form-check-label" for="da_one_self">
-                                                    <!-- <span class="form-check-sign"></span> -->
-                                                    <input class="form-check-input" id="da_one_self" type="radio" name="da_one_attend_place" value='0' onclick="DAOneselectType()">
-                                                    <span class="form-check-sign" ></span>
-                                                    ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
-                                                </label>
-                                            </div>
-                                            <div class="form-check-radio px-0">
-                                                <label  class="error attend_place_error" style="display:none;" for="da_one_attend_place">Please select one</label>
-                                            </div>
-                                        </div>
-                                    </div>--}}
+                                    
 
                                     <div class="row mb-3">                                        
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(စ)</span>သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ<span style="color:red">*</span></label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(စ)</span>သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ</label>
                                         <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
                                             <div class="form-check-radio px-0">
                                                 <label class="form-check-label" for="da_two_main_mac">
-                                                <input class="form-check-input " type="radio" id="da_two_main_mac" name="da_two_attend_place" value='2'  onclick="selectType()">
+                                                <input class="form-check-input " type="radio" id="da_two_main_mac" name="da_two_attend_place" value='2'  onclick="selectCurrentType()">
                                                     <span class="form-check-sign"></span>
                                                     ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး
                                                 </label>
                                             </div>
-                                            <div class="col-md-12" id="blk_mac" style="display:none">
+                                            <div class="col-md-12" id="current_blk_mac" style="display:none">
                                                 <div class="mx-5 row  ">
 
                                                     <div class="col-md-5 form-check-radio px-0  ">
@@ -825,7 +672,7 @@
                                                 <!-- <input class="form-check-input" type="radio" name="type" value='1'  onclick="selectType()"> -->
                                                 <label class="form-check-label" for="da_two_private">
 
-                                                    <input class="form-check-input" type="radio" id="da_two_private" name="da_two_attend_place" value='1' onclick="selectType()">
+                                                    <input class="form-check-input" type="radio" id="da_two_private" name="da_two_attend_place" value='1' onclick="selectCurrentType()">
                                                     <span class="form-check-sign" ></span>
                                                     ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
                                                 </label>
@@ -834,7 +681,7 @@
                                                 <!-- <input class="form-check-input " type="radio" name="type" value='0'  onclick="selectType()"> -->
                                                 <label class="form-check-label" for="da_two_self">
                                                     <!-- <span class="form-check-sign"></span> -->
-                                                    <input class="form-check-input" id="da_two_self" type="radio" name="da_two_attend_place" value='0' onclick="selectType()">
+                                                    <input class="form-check-input" id="da_two_self" type="radio" name="da_two_attend_place" value='0' onclick="selectCurrentType()">
                                                     <span class="form-check-sign" ></span>
                                                     ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
                                                 </label>
@@ -879,7 +726,7 @@
     <form method="post" id="form1" class="needs-validation" action="javascript:void(0);" enctype="multipart/form-data"
           novalidate>
         @csrf
-        <div class="modal fade" id="DATwoExistingEmailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="DAExistingEmailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -956,6 +803,12 @@
                 allowInput: true,
             });
             $("input[name='da_one_pass_exam_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "M-Y",
+                allowInput: true,
+            });
+
+            $("input[name='da_two_pass_exam_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "M-Y",
                 allowInput: true,

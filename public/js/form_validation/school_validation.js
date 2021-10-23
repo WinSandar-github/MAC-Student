@@ -877,6 +877,7 @@ $().ready(function (){
     
                             var send_data = new FormData();
                               send_data.append('email',$("input[name='email']").val());
+                              send_data.append('school_id',null);
                               send_data.append('nrc_state_region',$("#nrc_state_region").val());
                               send_data.append('nrc_township',$("#nrc_township").val());
                               send_data.append('nrc_citizen',$("#nrc_citizen").val());

@@ -35,7 +35,7 @@
                         <li><a href="/">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">CPA Two Application <span>Form</span></h2>
+                    <h2 class="title">Existing Registration For CPA Part Two<span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -451,7 +451,7 @@
                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>ခုနှစ်/လ</label>                                            
                                         <div class="col-md-8">
                                             <div class="">
-                                            <input type="text" class="form-control" name="cpa_one_pass_exam_date" required>
+                                            <input type="text" class="form-control" name="cpa_one_pass_exam_date"  placeholder="ခုနှစ်၊လ(MM-YYYY)" required>
                                             </div>
                                         </div>                                            
                                     </div>
@@ -472,65 +472,7 @@
                                         </div>
                                     </div>
 
-                                    {{--<div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၄။</span>လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပထမပိုင်း) သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ<span style="color:red">*</span>-</label>
-                                        <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
-                                            <div class="form-check-radio px-0">
-                                                <label class="form-check-label" for="cpa_one_main_mac">
-                                                <input class="form-check-input " type="radio" id="cpa_one_main_mac" name="cpa_one_attend_place" value='2'  onclick="CPAOneselectType()">
-                                                    <span class="form-check-sign"></span>
-                                                    ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး
-                                                </label>
-                                            </div>
-                                            <div class="col-md-12" id="cpa_one_blk_mac" style="display:none">
-                                                <div class="mx-4 row  ">
-
-                                                    <div class="col-md-5 form-check-radio px-0  ">
-                                                        <label class="form-check-label" for="cpa_one_sub_mac">
-                                                        <input class="form-check-input" type="radio" id="cpa_one_sub_mac" name="cpa_one_mac_type" value='1'    >
-                                                            <span class="form-check-sign"></span>
-                                                            ရန်ကုန်သင်တန်းကျောင်း
-                                                        </label>
-
-                                                    </div>
-                                                </div>
-                                                <div class="mx-5 row  ">
-                                                    <div class="col-md-5  form-check-radio px-0  ">
-                                                        <label class="form-check-label" for="cpa_one_sub_mac2">
-                                                        <input class="form-check-input" type="radio" id="cpa_one_sub_mac2" name="cpa_one_mac_type" value='2'    >
-                                                            <span class="form-check-sign"></span>
-                                                            နေပြည်တော်သင်တန်းကျောင်း
-                                                        </label>
-                                                    </div>
-                                                    <label  class="error attend_place_error" style="display:none;" for="cpa_one_mac_type">Please select one</label>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-check-radio px-0">
-                                                <!-- <input class="form-check-input" type="radio" name="type" value='1'  onclick="selectType()"> -->
-                                                <label class="form-check-label" for="cpa_one_private">
-
-                                                    <input class="form-check-input" type="radio" id="cpa_one_private" name="cpa_one_attend_place" value='1' onclick="CPAOneselectType()">
-                                                    <span class="form-check-sign" ></span>
-                                                    ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
-                                                </label>
-                                            </div>
-                                            <div class="form-check-radio px-0">
-                                                <!-- <input class="form-check-input " type="radio" name="type" value='0'  onclick="selectType()"> -->
-                                                <label class="form-check-label" for="cpa_one_self">
-                                                    <!-- <span class="form-check-sign"></span> -->
-                                                    <input class="form-check-input" id="cpa_one_self" type="radio" name="cpa_one_attend_place" value='0' onclick="CPAOneselectType()">
-                                                    <span class="form-check-sign" ></span>
-                                                    ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
-                                                </label>
-                                            </div>
-                                            <div class="form-check-radio px-0">
-                                                <label  class="error attend_place_error" style="display:none;" for="cpa_one_attend_place">Please select one</label>
-                                            </div>
-                                        </div>
-                                    </div>--}}
+                                    
 
                                     <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(င)</span>သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ<span style="color:red">*</span>-</label>
@@ -639,7 +581,7 @@
                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>ခုနှစ်/လ</label>                                            
                                         <div class="col-md-8">
                                             <div class="">
-                                            <input type="text" class="form-control" name="cpa_two_pass_exam_date" >
+                                            <input type="text" class="form-control" name="cpa_two_pass_exam_date"  placeholder="ခုနှစ်၊လ(MM-YYYY)">
                                             </div>
                                         </div>                                            
                                     </div>
@@ -664,12 +606,12 @@
                                         <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
                                             <div class="form-check-radio px-0">
                                                 <label class="form-check-label" for="cpa2_main_mac">
-                                                <input class="form-check-input " type="radio" id="cpa2_main_mac" name="cpa2_attend_place" value='2'  onclick="selectType()">
+                                                <input class="form-check-input " type="radio" id="cpa2_main_mac" name="cpa2_attend_place" value='2'  onclick="selectCPACurrentType()">
                                                     <span class="form-check-sign"></span>
                                                     ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး
                                                 </label>
                                             </div>
-                                            <div class="col-md-12" id="blk_mac" style="display:none">
+                                            <div class="col-md-12" id="current_blk_mac" style="display:none">
                                                 <div class="mx-5 row  ">
 
                                                     <div class="col-md-5 form-check-radio px-0  ">
@@ -699,7 +641,7 @@
                                                 <!-- <input class="form-check-input" type="radio" name="type" value='1'  onclick="selectType()"> -->
                                                 <label class="form-check-label" for="cpa2_private">
 
-                                                    <input class="form-check-input" type="radio" id="cpa2_private" name="cpa2_attend_place" value='1' onclick="selectType()">
+                                                    <input class="form-check-input" type="radio" id="cpa2_private" name="cpa2_attend_place" value='1' onclick="selectCPACurrentType()">
                                                     <span class="form-check-sign" ></span>
                                                     ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
                                                 </label>
@@ -708,7 +650,7 @@
                                                 <!-- <input class="form-check-input " type="radio" name="type" value='0'  onclick="selectType()"> -->
                                                 <label class="form-check-label" for="cpa2_self">
                                                     <!-- <span class="form-check-sign"></span> -->
-                                                    <input class="form-check-input" id="cpa2_self" type="radio" name="cpa2_attend_place" value='0' onclick="selectType()">
+                                                    <input class="form-check-input" id="cpa2_self" type="radio" name="cpa2_attend_place" value='0' onclick="selectCPACurrentType()">
                                                     <span class="form-check-sign" ></span>
                                                     ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
                                                 </label>
@@ -872,6 +814,12 @@
                 allowInput: true,
             });
             $("input[name='cpa_one_pass_exam_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "M-Y",
+                allowInput: true,
+            });
+
+            $("input[name='cpa_two_pass_exam_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "M-Y",
                 allowInput: true,

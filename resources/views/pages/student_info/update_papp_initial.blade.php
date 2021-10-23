@@ -631,7 +631,7 @@
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(ဂ) </div>
                                     <div class="col-md-6">
-                                        <div class="row">
+                                        {{--<div class="row">
                                             <label class="col-md-4" >ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ </label>
                                             <div class="col-md-3">
                                                 <input type="text" name="tax_year" id="tax_year" class="form-control tax_year" placeholder="ပြက္ခဒိန်နှစ်/YYYY">
@@ -640,8 +640,10 @@
                                         </div>
                                         <div class="row">
                                             <label for="" class="col-md-12">အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
+                                        </div>--}}
+                                        <div class="row">
+                                            <label>ပြည်တွင်းအခွန်ဦးစီးဌာနသို့<input type="text" name="tax_year" id="tax_year" style="display:inline;width:70px;" class="form-control tax_year" placeholder="ပြက္ခဒိန်နှစ်/YYYY">ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှုအထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
                                         </div>
-
 
                                     </div>
                                     <div class="col-md-1 tax_free_file_old"></div>
@@ -685,7 +687,7 @@
 
                                     <div class="col-md-7 col-form-label">CPA(FF) Registeraion No.</div>
                                     <div class="col-md-3">
-                                        <input type="text"  class="form-control" name="reg_no"  id="reg_no">
+                                        <input type="text"  class="form-control" name="cpaff_reg_no"  id="cpaff_reg_no">
                                     </div>
                                 </div><br/><br>
 
@@ -764,7 +766,7 @@
 <!-- <script src="{{ asset('js/form_validation/papp_validation.js') }}"></script> -->
 <script type="text/javascript">
    loadCpaffData();
-   isLoginPAPP();
+   //isLoginPAPP();
    Papp_feedback();
 //    loadCpaffInitialData();
    //loadPappData();
@@ -811,7 +813,7 @@
             $('#address').val(papp.address);
             $('#phone').val(papp.phone);
             $('#contact_mail').val(papp.contact_mail);
-            $('#cpaff_reg_no').val(papp.cpa_batch_no);
+            // $('#cpaff_reg_no').val(papp.cpa_batch_no);
             if(papp.use_firm==1){
                 $('#firm_check').attr('checked',true);
             }
@@ -828,7 +830,7 @@
             }
             $("input[name='total_hours']").val(papp.cpd_hours);
             $('#tax_year').val(tax_date.getFullYear());
-            $("input[name='reg_no']").val(papp.reg_no);
+            $("input[name='cpaff_reg_no']").val(papp.cpaff_reg_no);
             $('.mpa_mem_card_back_old').append("<a href='" + BASE_URL + papp.mpa_mem_card_back + "'  target='_blank'>View File</a><br/>");
             $('.mpa_mem_card_front_old').append("<a href='" + BASE_URL + papp.mpa_mem_card_front + "'  target='_blank'>View File</a><br/>");
             $('.tax_free_file_old').append("<a href='" + BASE_URL + papp.tax_free_recommendation + "'  target='_blank'>View File</a><br/>");
