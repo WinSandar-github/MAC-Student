@@ -2211,6 +2211,99 @@
         </div>
     </div>
 
+    <!-- Download Form Model-->
+    <div class="modal fade" id="downloadFormModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Download Files</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div id="mentor_attach">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Contract for CII Pass and QT Pass </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/contract_CIIPass_QTPass.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Contract CII Not Pass</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/contract_CII_not_Pass.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article Attandence</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_Attandence.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article Discipline Promise</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_Discipline_promise.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article Duty Report</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_Duty_Report.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Diary</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/diary.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="complete_attach" style="display:none;">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article 1year Completed Form</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_1year_Completed_Form.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article 2year Completed Form</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_2year_Completed_Form.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article 3year Completed Form</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_3year_Completed_Form.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @push('scripts')
 <script type="text/javascript">
     $('document').ready(function(){
