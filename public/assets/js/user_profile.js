@@ -159,23 +159,25 @@ function user_profile() {
                         var invoice = data.invoice.filter(val => {
                             return val.invoiceNo == "cpaff-initial" && val.status == 0;
                         });
-                        
+                        if(invoice.length!=0){
+                            var payment_url = FRONTEND_URL + "/payment_method/"+student_id+"/"+invoice[0].invoiceNo;
+                        }
                     }
                     else if (cpaff_latest_data.type == 1) {
                         is_renew = "Renewal";
                         var invoice = data.invoice.filter(val => {
                             return val.invoiceNo == "cpaff-renew" && val.status == 0;
                         });
-                       
+                        if(invoice.length!=0){
+                            var payment_url = FRONTEND_URL + "/payment_method/"+student_id+"/"+invoice[0].invoiceNo;
+                        }
                         
                     }
                     else {
                         is_renew = "";
                     }
                     console.log(invoice);
-                    if(invoice.length!=0){
-                        var payment_url = FRONTEND_URL + "/payment_method/"+student_id+"/"+invoice[0].invoiceNo;
-                    }
+                    
                 }
                 else{
                     if (cpaff_latest_data.type == 0) {
