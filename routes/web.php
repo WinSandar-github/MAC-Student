@@ -230,3 +230,7 @@ Route::get('da_two_existing_reg_form','ReconnectController\ReconnectController@d
 //cpa_two_register for cpa_one_pass
 // Route::get('cpa_two_reg_cpaone_pass', 'CPATwoRegisterController@CPATwoRegCpaOnePassForm');
 Route::get('cpa_two_reg_cpaone_pass','ReconnectController\ReconnectController@CPATwoRegCpaOnePassForm');
+
+
+Route::get('cpa_one_existing_edit_form','ReconnectController\ReconnectController@cpaOneExistingRejectEditForm');
+Route::get('cpa_two_existing_edit_form','ReconnectController\ReconnectController@cpaTwoExistingRejectEditForm');

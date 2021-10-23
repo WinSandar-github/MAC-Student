@@ -33,4 +33,14 @@ class ReconnectController extends Controller
     {
         return view('pages.cpa.cpa_two_reg_cpaone_pass');
     }
+
+    //update form for cpa one reject
+    public function cpaOneExistingRejectEditForm(){
+        return view('pages.cpa.cpa_one_existing_edit_form');
+    }
+
+    //update form for cpa two reject
+    public function cpaTwoExistingRejectEditForm(){
+        return view('pages.cpa.cpa_two_existing_edit_form');
+    }
 }
