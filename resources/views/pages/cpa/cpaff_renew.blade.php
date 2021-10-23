@@ -12,7 +12,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title" style="display:none;">CPA (Full-Fledged) Renewal Registration  <span>Form</span></h2>
+                    <h2 class="title">CPA (Full-Fledged) Renewal Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
 
@@ -253,7 +253,7 @@
 
                         <div class="row">
                             <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                            <label class="col-md-10 col-form-label">ကျွန်ုပ်အား <input type="text" name="cpaff_pass_date" id="cpaff_pass_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။ ထိုမှတ်ပုံတင်ကို <input type="text" name="renew_accepted_date" id="renew_accepted_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် သက်တမ်းတိုးမြှင့်ပေးပါရန် လျှောက်ထားပါသည်။</label>                                
+                            <label class="col-md-10 col-form-label">ကျွန်ုပ်အား <input type="text" name="cpaff_pass_date" id="cpaff_pass_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။ ထိုမှတ်ပုံတင်ကို <input type="text" name="cpaff_renew_date" id="cpaff_renew_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် သက်တမ်းတိုးမြှင့်ပေးပါရန် လျှောက်ထားပါသည်။</label>                                
                         </div><br/>
 
                         <div class="row">
@@ -266,7 +266,7 @@
 
                                     <div class="col-md-7 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ် </div>
                                     <div class="col-md-3">
-                                        <input type="text" name="reg_no" id="reg_no" class="form-control" style="width:90%;">
+                                        <input type="text" name="papp_reg_no" id="papp_reg_no" class="form-control" style="width:90%;">
                                     </div>
 
                                     <div class="col-md-1"></div>
@@ -274,7 +274,7 @@
 
                                     <div class="col-md-7 col-form-label">လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ်</div>
                                     <div class="col-md-3">
-                                        <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="width:90%;">
+                                        <input type="text" name="papp_reg_year" id="papp_reg_year" class="form-control" style="width:90%;">
                                     </div><br><br>
 
                                     <div class="col-md-1"></div>
@@ -388,10 +388,12 @@
                               <!-- <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label> -->
                               <label class="col-md-6 col-form-label">{{ __('စုစုပေါင်း နာရီ') }}</label>
                               <div class="col-md-4">
-                                  <input type="text"  class="form-control" name="total_hours"  placeholder="စုစုပေါင်း နာရီ" required="">
-
+                                  <input type="text"  class="form-control" name="total_hours" id="total_hours" placeholder="Enter CPD Total hours">
                               </div>
                           </div><br/><br>
+
+                          <input type="hidden" name="last_paid_year" id="last_paid_year">
+                          <input type="hidden" name="resign_date" id="resign_date">
 
                           <div class="row mb-3" style="padding-left:50px;">
                               <div class="form-check">
@@ -503,13 +505,13 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     }); 
-    $("#renew_accepted_date").datepicker({
+    $("#cpaff_renew_date").datepicker({
         format: "yyyy",
         viewMode: "years", 
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     }); 
-    $("#old_card_no_year").datepicker({
+    $("#papp_reg_year").datepicker({
         format: "yyyy",
         viewMode: "years", 
         minViewMode: "years",

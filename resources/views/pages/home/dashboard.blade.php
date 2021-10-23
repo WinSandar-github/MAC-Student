@@ -190,19 +190,19 @@
 
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-6">
-                                        <p class="ml-2 text-bold" style="font-weight:bold">CPA(FF)လျှောက်လွှာကြေး</p>
+                                        <p class="ml-2 text-bold" style="font-weight:bold">CPA(Full-Fledged)လျှောက်လွှာကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>1000</span>
+                                        <span>1000 MMK</span>
                                     </div>
                                 </div>
 
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-6">
-                                        <p class="ml-2 text-bold" style="font-weight:bold">CPA(FF)မှတ်ပုံတင်ကြေး</p>
+                                        <p class="ml-2 text-bold" style="font-weight:bold">CPA(Full-Fledged)မှတ်ပုံတင်ကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000</span>
+                                        <span>10000 MMK</span>
                                     </div>
                                 </div>
 
@@ -213,7 +213,7 @@
                                         <p class="ml-2 text-bold" style="font-weight:bold">PAPPလျှောက်လွှာကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>1000</span>
+                                        <span>1000 MMK</span>
                                     </div>
                                 </div>
 
@@ -222,7 +222,7 @@
                                         <p class="ml-2 text-bold" style="font-weight:bold">PAPP မှတ်ပုံတင်ကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000</span>
+                                        <span>10000 MMK</span>
                                     </div>
                                 </div>
                                 <h5 class="text-center border-bottom  py-2 my-2"
@@ -231,29 +231,56 @@
                                 </h5>
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-6">
-                                        <p class="ml-2 text-bold" style="font-weight:bold">CPA(FF) လျှောက်လွှာကြေး</p>
+                                        <p class="ml-2 text-bold" style="font-weight:bold">CPA(Full-Fledged) လျှောက်လွှာကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>1000</span>
+                                        <span>1000 MMK</span>
                                     </div>
                                 </div>
 
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-6">
-                                        <p class="ml-2 text-bold" style="font-weight:bold">CPA(FF)
+                                        <p class="ml-2 text-bold" style="font-weight:bold">CPA(Full-Fledged)
                                             မှတ်ပုံတင်သက်တမ်းတိုးကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000</span>
+                                        <span>10000 MMK</span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-6">
                                         <p class="ml-2 text-bold" style="font-weight:bold">
-                                            CPA(FF)နောက်ကျကြေး</p>
+                                            CPA(Full-Fledged)နောက်ကျကြေး (Within January)</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>50000</span>
+                                        <span>10000 MMK</span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">
+                                            CPA(Full-Fledged)နောက်ကျကြေး (From February to April)</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>100000 MMK</span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">
+                                            CPA(Full-Fledged)သက်တမ်းပြတ်ကြေး (per year) From 2015</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>10000 MMK</span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">
+                                            CPA(Full-Fledged)သက်တမ်းပြတ်ကြေး (per year) Before 2015</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>1000 MMK</span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -261,7 +288,7 @@
                                         <p class="ml-2 text-bold" style="font-weight:bold">PAPP လျှောက်လွှာကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>1000</span>
+                                        <span>1000 MMK</span>
                                     </div>
                                 </div>
 
@@ -271,16 +298,43 @@
                                             မှတ်ပုံတင်သက်တမ်းတိုးကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000</span>
+                                        <span>10000 MMK</span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-6">
                                         <p class="ml-2 text-bold" style="font-weight:bold">
-                                            PAPP နောက်ကျကြေး</p>
+                                            PAPP နောက်ကျကြေး (Within January)</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>50000</span>
+                                        <span>10000 MMK</span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">
+                                            PAPP နောက်ကျကြေး (From February to April)</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>100000 MMK</span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">
+                                            PAPP သက်တမ်းပြတ်ကြေး (per year) From 2015</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>100000 MMK</span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">
+                                            PAPP သက်တမ်းပြတ်ကြေး (per year) Before 2015</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>10000 MMK</span>
                                     </div>
                                 </div>
                             </div>
@@ -525,12 +579,13 @@
                                 </div>
                             </div>
                         </div>--}}
-                        <div class="row" >
+
+                        <div class="row">
                             <div class="col-md-6"></div>
                             <div class="">
-                                <div class="mt-4" align="center" id="firm_payment_btn">
+                              <div class="mt-4" align="center" id="firm_payment_btn">
 
-                                </div>
+                              </div>
                             </div>
                         </div>
                         {{--<div class="row nonaudit-payment-btn" style="display:none;">

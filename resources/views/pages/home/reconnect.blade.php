@@ -55,7 +55,7 @@
                         <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
                         
                             <li>
-                                    <button value="course_list" onclick="location.href =`${FRONTEND_URL}/da_one_existing_reg_form`"> Diploma In Accountancy Part One Registration</button>
+                                    <button value="course_list" onclick="loadExistingForm('da_1')"> Diploma In Accountancy Part One Registration</button>
                             </li>                            
                        
                             <li>

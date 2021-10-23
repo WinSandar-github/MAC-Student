@@ -383,7 +383,7 @@
 
                             <div id="rec_letter_da_to_cpa" style="display:none" >
                                 <div class="row mb-3 "  >
-                                    <label class="col-md-5 col-form-label label">
+                                    <label class="col-md-4 col-form-label label">
                                         <span class="pull-center" style="padding-right:35px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                     </label>
                                     <div class="col-md-2"  id="degree_edu" >
@@ -614,13 +614,8 @@
                       var education_history = data.data.student_education_histroy;
                       if(info){
                     $('#stu_id').val(info.id);
-<<<<<<< HEAD
-                 
-                         $("input[name=email]").val(info.email);
-=======
                     console.log('info',info)
 
->>>>>>> parent of f6d58b68... update degree select in da one process
                         $("input[name=name_mm]").val(info.name_mm);
                         $("input[name=name_eng]").val(info.name_eng);
                         $("#nrc_state_region").val(info.nrc_state_region);
@@ -642,6 +637,7 @@
 
                         document.getElementById('nrc_front_update').src = BASE_URL + info.nrc_front;
                         $("input[name=old_nrc_front]").val(info.nrc_front);
+
 
                         document.getElementById('nrc_back_update').src = BASE_URL + info.nrc_back;
                         $("input[name=old_nrc_back]").val(info.nrc_back); 
@@ -682,7 +678,6 @@
                         $("input[name=roll_number]").val(education_history.roll_number);
                         $("input[name=qualified_date]").val(education_history.qualified_date);
                         $("input[name=old_certificate]").val(JSON.parse(education_history.certificate));
-<<<<<<< HEAD
                         // console.log('certificate',JSON.parse(education_history.certificate));
 
                         let certificate = JSON.parse(education_history.certificate);
@@ -692,9 +687,6 @@
                             $(".certificate").append(`<a href='${BASE_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
 
                         })
-=======
-                        console.log('certificate',JSON.parse(education_history.certificate));
->>>>>>> parent of f6d58b68... update degree select in da one process
                       }
                       // government staff OR not
                       if(info.gov_staff == 1){

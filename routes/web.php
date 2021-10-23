@@ -224,8 +224,11 @@ Route::get('reconnect','ReconnectController\ReconnectController@reconnect');
 Route::get('reconnect_papp','ReconnectController\ReconnectController@reconnect_papp');
 
 //da existing register
-Route::get('da_one_existing_reg_form', 'ReconnectController\ReconnectController@DAOneExistingRegForm');
+Route::get('da_one_existing_reg_form/{batch_id}', 'ReconnectController\ReconnectController@DAOneExistingRegForm');
 Route::get('da_two_existing_reg_form','ReconnectController\ReconnectController@da_two_registerForm');
+
+Route::get('da_one_existing_reg_edit_form', 'ReconnectController\ReconnectController@daOneExistingEditForm');
+Route::get('da_two_existing_reg_edit_form', 'ReconnectController\ReconnectController@daTwoExistingEditForm');
 
 //cpa_two_register for cpa_one_pass
 // Route::get('cpa_two_reg_cpaone_pass', 'CPATwoRegisterController@CPATwoRegCpaOnePassForm');

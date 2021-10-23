@@ -808,6 +808,12 @@
                 allowInput: true,
             });
 
+            $("input[name='da_two_pass_exam_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "M-Y",
+                allowInput: true,
+            });
+
             // $("input[id*='nrc_number'], text[id*='nrc_number']").change(function (e) {
             //     myanmarLetterOnly($(this));
             // });
@@ -858,7 +864,7 @@
             });
             $('#btn_cash').prop('disabled', true);
         });
-        // loadPassedBatchList();
+        loadPassedBatchList();
         loadCurrentBatchList();
     </script>
 @endpush

@@ -21,8 +21,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title initial_text" style="display:block;">PAPP Initial Registration <span>Form</span></h2>
-                    <h2 class="title renew_text" style="display:none;">PAPP Renewal Registration <span>Form</span></h2>
+                    <h2 class="title">PAPP Renewal Registration <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
 
@@ -317,7 +316,7 @@
                                             <label class="col-md-12"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်
                                                 <input type="text" style="display:inline; width:100px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control">ခုနှစ်အတွက်
                                                 <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
-                                                <input type="text" class="form-control" name="reg_no" id="reg_no" style="display: inline;width: 120px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
+                                                <input type="text" class="form-control" name="papp_reg_no" id="papp_reg_no" style="display: inline;width: 120px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
                                                 <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
                                             </label>
                                         </div>
@@ -396,7 +395,7 @@
                                     <!-- </div> -->
                                 </div><br>
 
-                                <div class="row mb-2">
+                                <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1"><input type="radio" name="work_name" id="staff_firm_check" value="" onclick="getPappFirm()"></div>
                                     <div class="col-md-4">
@@ -406,15 +405,19 @@
                                     <!-- <div class="single-form"> -->
                                         <input type="text" class="form-control" name="staff_firm_name" ></div>
                                     <!-- </div> -->
-                                </div><br><br><br>
-
-                                <div class="row">
+                                </div><br>
+                                <div class="row mb-3">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-6">
+                                    <label  class="error attend_place_error" style="display:none;" for="work_name">Please select one</label>
+                                </div><br>
+                                <div class="row mt-3">
                                     <div class="col-md-1">
                                             <label class="">{{ __('၄။') }}</label>
                                     </div>
                                     <div class="col-md-11">
                                         <div class="row">
-                                            <label class="col-md-11"  style="font-size:15px;"><?php echo date("Y") ?> ပြက္ခဒိန်နှစ်အတွင်း အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကိုဦးစီးပိုင်ရှင်/ ဦးဆောင်အဖွဲ့ဝင်/ သာမန်အစုဝင်/ အဖွဲ့ခေါင်းဆောင်အနေဖြင့် ကျွန်ုပ်လက်ခံဆောင်ရွက်ခဲ့သည့် Statutory Audit Work စုစုပေါင်း (<input type="text" style="display:inline; width:50px;" name="total_audit" class="form-control" required="">) ခုရှိပါသည်။ အဆိုပါ Statutory Audit Work အပြည့်အစုံကို အောက်ပါဇယားအတွင်းထုတ်ဖော်ကြေညာပါသည်-</label>
+                                            <label class="col-md-11"  style="font-size:15px;"><input type="text" style="display:inline; width:70px;" name="audit_year" id="audit_year" class="form-control" required=""> ပြက္ခဒိန်နှစ်အတွင်း အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကိုဦးစီးပိုင်ရှင်/ ဦးဆောင်အဖွဲ့ဝင်/ သာမန်အစုဝင်/ အဖွဲ့ခေါင်းဆောင်အနေဖြင့် ကျွန်ုပ်လက်ခံဆောင်ရွက်ခဲ့သည့် Statutory Audit Work စုစုပေါင်း (<input type="text" style="display:inline; width:50px;" name="audit_work" class="form-control" required="">) ခုရှိပါသည်။ အဆိုပါ Statutory Audit Work အပြည့်အစုံကို အောက်ပါဇယားအတွင်းထုတ်ဖော်ကြေညာပါသည်-</label>
                                         </div><br>
 
 
@@ -556,9 +559,31 @@
                                 
                                 <br/><br>
 
+                                <div class="row mt-3">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-1">(ဂ) </div>
+                                    <div class="col-md-7">
+                                        {{--<div class="row">
+                                            <label class="col-md-4" >ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ </label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="tax_year" id="tax_year" class="form-control tax_year" placeholder="ပြက္ခဒိန်နှစ်/YYYY">
+                                            </div>
+                                            <label class="col-md-5" >ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု </label>
+                                        </div>
+                                        <div class="row">
+                                            <label for="" class="col-md-12">အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
+                                        </div>--}}
+                                        <label>ပြည်တွင်းအခွန်ဦးစီးဌာနသို့<input type="text" style="display:inline;width: 100px;" name="tax_year" id="tax_year" class="form-control tax_year" placeholder="ပြက္ခဒိန်နှစ်/YYYY">ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှုအထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
+
+                                    </div>
+                                    <div class="col-md-3">
+                                            <input type="file" class="form-control" id="tax_free_file" name="tax_free_file">
+                                    </div>
+                                </div><br/><br>
+
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အရှေ့)</div>
                                     <div class="col-md-4">
                                                 <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front" required="" accept="image/*">
@@ -578,16 +603,16 @@
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
                                     <div class="col-md-6 col-form-label">CPA(Full-Fledged) Registeration No.</div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="reg_no" id="cpaff_reg_no">
+                                        <input type="text" class="form-control" name="cpaff_reg_no" id="cpaff_reg_no">
                                     </div>
                                 </div><br/><br>
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
                                     <div class="col-md-6 col-form-label">PAPP Registeration No.</div>
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" name="papp_reg_no" placeholder="Enter PAPP Registeration No.">
@@ -623,6 +648,7 @@
     </script>
 @endsection
 @push('scripts')
+<script src="{{ asset('js/form_validation/papp_renew_validation.js') }}"></script>
 <script type="text/javascript">
     $('document').ready(function(){
         var course_type = location.pathname.split('/');
@@ -655,6 +681,12 @@
             allowInput: true,
     });
     $("#tax_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    });
+    $("#audit_year").datepicker({
         format: "yyyy",
         viewMode: "years", 
         minViewMode: "years",

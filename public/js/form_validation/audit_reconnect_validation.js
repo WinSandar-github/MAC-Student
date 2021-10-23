@@ -24,8 +24,8 @@ $().ready(function (){
             head_office_address : "required",
             head_office_address_mm : "required",
             registration_no : "required",
-            last_reg_payment_start : "required",
-            last_reg_payment_end : "required",
+            last_registered_year : "required",
+            suspended_year : "required",
             req_for_stop : "required"
             // foa_name : "required",
             // foa_pub_pri_reg_no : "required",
@@ -54,8 +54,8 @@ $().ready(function (){
             head_office_address : "Please enter head office address",
             head_office_address_mm : "Please enter head office address(Myanmar)",
             registration_no : "Please enter registration number",
-            last_reg_payment_start : "Please select start date",
-            last_reg_payment_end : "Please select end date",
+            last_registered_year : "Please select year",
+            suspended_year : "Please select year",
             req_for_stop : "Please select one"
             //foa_authority_to_sign : "Please select Yes or No"
 

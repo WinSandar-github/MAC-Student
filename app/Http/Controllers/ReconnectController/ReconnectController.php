@@ -32,8 +32,23 @@ class ReconnectController extends Controller
         $res = json_decode($client->request('GET', Helper::$domain.'/batch/'.$id)->getBody(),true);
        
         $batch = $res['data'];
+      
        
         return view('pages.da.da_one_existing_reg_form',compact('batch'));
+    }
+
+    public function daOneExistingEditForm()
+    {
+         
+       
+        return view('pages.da.da_one_existing_reg_edit');
+    }
+
+    public function daTwoExistingEditForm()
+    {
+         
+       
+        return view('pages.da.da_two_existing_reg_edit');
     }
 
     //show cpa_two_register for cpa one pass

@@ -191,7 +191,8 @@
 																<ul>
 																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> <span class='application-fee'></li>
 																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee(per year)</strong><span class='reconnected-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee(per year) From 2015</strong><span class='reconnected-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee(per year) Before 2015</strong><span class='reconnected-fee-before-2015'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Renewal Fee</strong><span class='renew-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Delay Fee(Within January)</strong><span class='delay-fee'></li>
 																		<li><i class="icofont-money"></i> <strong>Delay Fee(From February to April)</strong><span class='late-feb-fee'></li>
@@ -867,14 +868,14 @@
         // console.log('course_type',course_type[2]);
         var student = JSON.parse(localStorage.getItem('studentinfo'));
         if(!student){
-        localStorage.setItem('course_type',course_type[2])
+        localStorage.setItem('course_type',course_type[2]);
         }
         loadDescription('PAPP');
         Papp_feedback();
         checkPaymentPapp();
-        loadCpaffData();
-        loadPappData();
-        loadCpaffInitialData();
+        // loadCpaffData();
+        // loadPappData();
+        // loadCpaffInitialData();
     });
     $("#papp_date").datepicker({
         format: "yyyy",
