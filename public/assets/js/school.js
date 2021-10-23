@@ -425,6 +425,8 @@ function delRowTeacherBio(tbody){
 }
 function loadSchoolList(){
     var select = document.getElementById("selected_school_id");
+    var renew_select = document.getElementById("renew_selected_school_id");
+    var update_select = document.getElementById("update_selected_school_id");
     $.ajax({
         url: BACKEND_URL+"/school",
         type: 'get',
@@ -437,6 +439,20 @@ function loadSchoolList(){
                 option.text = element.school_name;
                 option.value = element.id;
                 select.add(option,0);
+
+            });
+            school_data.forEach(function (element) {
+              var option = document.createElement('option');
+              option.text = element.school_name;
+              option.value = element.id;
+              renew_select.add(option,0);
+
+            });
+            school_data.forEach(function (element) {
+              var option = document.createElement('option');
+              option.text = element.school_name;
+              option.value = element.id;
+              update_select.add(option,0);
 
             });
         },
@@ -996,117 +1012,6 @@ function loadFile(file,divname){
     $("."+divname).append(file);
 
 }
-function loadDescription(membership_name,divname){
-  $('.application-fee').html("");
-  $('.registration-fee').html("");
-  $('.description-info').html("");
-  $('.requirement-info').html("");
-  $('.yearly-fee').html("");
-  $('.renew-fee').html("");
-  $('.delay-fee').html("");
-  $('.cpa-subject-fee').html("");
-  $('.da-subject-fee').html("");
-  $('.renew-cpa-subject-fee').html("");
-  $('.renew-da-subject-fee').html("");
-  $('.renew-yearly-fee').html("");
-  $('.reconnected-fee').html("");
-  $('.reconnected-fee-before-2015').html("");
-  $('.renew-registration-fee').html("");
-  $.ajax({
-    type: "get",
-    url: BACKEND_URL+"/showDescription/"+membership_name,
-    success: function (result) {
-      var data=result.data;
-      var application_fee=0;
-      var registration_fee=0;
-      var renew_registration_fee=0;
-      var reg_fee_sole=0;
-      var reg_fee_partner=0;
-      var yearly_fee=0;
-      var renew_fee=0;
-      var renew_fee_sole=0;
-      var renew_fee_partner=0;
-      var delay_fee=0;
-      var late_fee_within_jan_sole = 0;
-      var late_fee_within_jan_partner = 0;
-      var late_fee_feb_to_apr_sole = 0;
-      var late_fee_feb_to_apr_partner = 0;
-      var cpa_subject_fee=0;
-      var da_subject_fee=0;
-      var renew_cpa_subject_fee=0;
-      var renew_da_subject_fee=0;
-      var renew_yearly_fee=0;
-      var reconnected_fee=0;
-      var reconnected_fee_before_2015=0;
-      var reconnect_fee_sole = 0;
-      var reconnect_fee_partner = 0;
-      var late_feb_fee = 0;
-      $.each(data, function( index, value ){
-          $('.description-info').append(value.description);
-          $('.requirement-info').append(value.requirement);
-          $('.'+divname).append(value.description);
-          application_fee +=value.form_fee;
-          registration_fee +=value.registration_fee;
-          renew_registration_fee +=value.renew_registration_fee;
-          reg_fee_sole += value.reg_fee_sole;
-          reg_fee_partner += value.reg_fee_partner;
-          yearly_fee +=value.yearly_fee;
-          renew_yearly_fee +=value.renew_yearly_fee;
-          renew_fee +=value.renew_fee;
-          renew_fee_sole += value.renew_fee_sole;
-          renew_fee_partner += value.renew_fee_partner;
-          delay_fee +=value.late_fee;
-          late_fee_within_jan_sole += value.late_fee_within_jan_sole;
-          late_fee_within_jan_partner += value.late_fee_within_jan_partner;
-          late_fee_feb_to_apr_sole += value.late_fee_feb_to_apr_sole;
-          late_fee_feb_to_apr_partner += value.late_fee_feb_to_apr_partner;
-          reconnect_fee_sole += value.reconnect_fee_sole;
-          reconnect_fee_partner += value.reconnect_fee_partner;
-          cpa_subject_fee +=value.cpa_subject_fee;
-          da_subject_fee +=value.da_subject_fee;
-          renew_cpa_subject_fee +=value.renew_cpa_subject_fee;
-          renew_da_subject_fee +=value.renew_da_subject_fee;
-          reconnected_fee +=value.reconnected_fee;
-          reconnected_fee_before_2015 +=value.reconnected_fee_before_2015;
-          late_feb_fee +=value.late_feb_fee;
-      })
-      $('.application-fee').append(thousands_separators(application_fee)+" MMK");
-      $('.registration-fee').append(thousands_separators(registration_fee)+" MMK");
-      //
-      $('.reg_fee_sole').append(thousands_separators(reg_fee_sole)+" MMK");
-      $('.reg_fee_partner').append(thousands_separators(reg_fee_partner)+" MMK");
-      //
-      $('.yearly-fee').append(thousands_separators(yearly_fee)+" MMK");
-      $('.renew-fee').append(thousands_separators(renew_fee)+" MMK");
-      //
-      $('.renew_fee_sole').append(thousands_separators(renew_fee_sole)+" MMK");
-      $('.renew_fee_partner').append(thousands_separators(renew_fee_partner)+" MMK");
-      //
-      $('.delay-fee').append(thousands_separators(delay_fee)+" MMK");
-      //
-      $('.late_fee_within_jan_sole').append(thousands_separators(late_fee_within_jan_sole)+" MMK");
-      $('.late_fee_within_jan_partner').append(thousands_separators(late_fee_within_jan_partner)+" MMK");
-      $('.late_fee_feb_to_apr_sole').append(thousands_separators(late_fee_feb_to_apr_sole)+" MMK");
-      $('.late_fee_feb_to_apr_partner').append(thousands_separators(late_fee_feb_to_apr_partner)+" MMK");
-      $('.reconnect_fee_sole').append(thousands_separators(reconnect_fee_sole)+" MMK");
-      $('.reconnect_fee_partner').append(thousands_separators(reconnect_fee_partner)+" MMK");
-      //
-      $('.cpa-subject-fee').append(thousands_separators(cpa_subject_fee)+" MMK");
-      $('.da-subject-fee').append(thousands_separators(da_subject_fee)+" MMK");
-
-      $('.renew-cpa-subject-fee').append(thousands_separators(renew_cpa_subject_fee)+" MMK");
-      $('.renew-da-subject-fee').append(thousands_separators(renew_da_subject_fee)+" MMK");
-
-      $('.renew-yearly-fee').append(thousands_separators(renew_yearly_fee)+" MMK");
-      $('.reconnected-fee').append(thousands_separators(reconnected_fee)+" MMK");
-      $('.reconnected-fee-before-2015').append(thousands_separators(reconnected_fee_before_2015)+" MMK");
-      $('.late-feb-fee').append(thousands_separators(late_feb_fee)+" MMK");
-
-      $('.renew-registration-fee').append(thousands_separators(renew_registration_fee)+" MMK");
-      
-    }
-  })
-}
 function ownTypeForm(){
   $('#ownType_letter').css('display','block');
 }
@@ -1119,8 +1024,8 @@ function addRowBranchSchool(tbody){
   var cols = "";
   var row=$('.'+tbody+' tr').length;
   cols += '<td class="text-center">'+row+'</td>';
-  cols += '<td><input type="text" class="form-control" name="branch_school_address[]" id="branch_school_address'+ row + '" autocomplete="off" required onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" ><span class="form-text text-danger">please enter english letters</span></td>';
-  cols += '<td><input type="file" class="form-control" name="branch_school_attach[]"  accept="image/*" id="branch_school_attach'+ row + '" required></td>';
+  cols += '<td><input type="text" class="form-control" name="branch_school_address[]" id="branch_school_address'+ row + '" autocomplete="off" required ><span class="form-text text-danger">please enter english letters</span></td>';
+  cols += '<td><input type="file" class="form-control" name="branch_school_attach[]"  accept="image/*" id="branch_school_attach'+ row + '" required></td>';//return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)"
   cols += '<td>'+
           '<div class="form-group">'+
                                         '<div class="form-check mt-2 form-check-inline">'+
@@ -1163,6 +1068,34 @@ function addRowBranchSchool(tbody){
   counter++;
 
 }
+function allow_alphabets(element){//oninput="allow_alphabets(this)"
+  let textInput = element.value;
+  textInput = textInput.replace(/^[a-z\d\-_\s]+$/i, '');
+  element.value = textInput;
+}
+function IsAlphaNumeric(e) {
+  var keyCode = e.keyCode == 0 ? e.charCode : e.keyCode;
+  var ret = ((keyCode >= 48 && keyCode <= 57) || (keyCode >= 65 && keyCode <= 90) || (keyCode >= 97 && keyCode <= 122) || (specialKeys.indexOf(e.keyCode) != -1 && e.charCode != e.keyCode));
+  document.getElementById("error").style.display = ret ? "none" : "inline";
+  return ret;
+}
+$(function() {
+  $('input.alpha[$id=branch_school_address1]').keyup(function() {
+      if (this.value.match(/[^a-zA-Z0-9 ]/g)) {
+          this.value = this.value.replace(/[^a-zA-Z0-9 ]/g, '');
+      }
+  });
+});
+$('#branch_school_address1').bind('keyup blur', function () {
+  $(this).val($(this).val().replace(/[^A-Za-z]/g, ''))
+});
+$("#branch_school_address1").keypress(function(event){
+  //var ew = event.which;
+  ew = event.val();
+                if (!(/[a-zA-Z0-9]+$/.test(val))) {
+                  event.val(val.replace(/[a-zA-Z0-9]+$/, ''));
+                }
+});
 function delRowBranchSchool(tbody){
   $("table."+tbody).on("click", ".delete", function (event) {
       var deleted_row = $(this).closest("tr");

@@ -192,7 +192,7 @@
 <script src="{{ asset('assets/js/main.js') }}"></script>
 <script src="{{ asset('assets/js/student_login.js') }}"></script>
 <script src="{{ asset('assets/js/student_info.js') }}"></script>
-<script src="{{ asset('assets/js/open_existing_form.js') }}"></script>
+<!-- <script src="{{ asset('assets/js/open_existing_form.js') }}"></script> -->
 <script src="{{ asset('assets/js/auth.js') }}"></script>
 <script src="{{ asset('assets/js/papp.js') }}"></script>
 <script src="{{ asset('assets/js/cpa_one.js') }}"></script>
@@ -201,7 +201,8 @@
 <script src="{{ asset('vendor/myanmarnrc/myanmarnrc.js') }}"></script>
 <script src="{{ asset('assets/js/audit_firm.js') }}"></script>
 <script src="{{ asset('assets/js/school.js') }}"></script>
-
+<script src="{{ asset('assets/js/home.js') }}"></script>
+ 
 
 <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script> -->
