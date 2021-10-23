@@ -1,3 +1,10 @@
+@php
+    $nrc_language = config('myanmarnrc.language');
+    $nrc_regions = config('myanmarnrc.regions_states');
+    $nrc_townships = config('myanmarnrc.townships');
+    $nrc_citizens = config('myanmarnrc.citizens');
+    $nrc_characters = config('myanmarnrc.characters');
+@endphp
 @extends('layouts.app')
 @section('content')
      <div class="main-wrapper">
@@ -12,7 +19,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title" style="display:none;">CPA (Full-Fledged) Renewal Registration  <span>Form</span></h2>
+                    <h2 class="title">CPA (Full-Fledged) Existing Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
 
@@ -69,7 +76,7 @@
                                         <input type="text"  class="form-control" name="name_eng" id="name_eng">
                                     </div>
                                 </div>
-                                <div class="row mb-3" style="padding-left: 100px;">
+                                {{--<div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ခ)') }}</span>{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
                                     <div class="col-md-8">
                                         <div class="row">
@@ -88,6 +95,49 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>--}}
+                                <div class="row mb-3" style="padding-left: 100px;">
+                                    <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ခ)') }}</span>{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-md-2 col-5 pr-1">
+                                                <select class="form-control" name="nrc_state_region" id="nrc_state_region">
+                                                    <option value="" disabled selected>ရွေးပါ</option>
+                                                    @foreach($nrc_regions as $region)
+                                                        <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
+                                                            {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 col-7 px-1">
+                                                <select class="form-control" name="nrc_township" id="nrc_township">
+                                                    <option value="" disabled selected>ရွေးပါ</option>
+                                                    @foreach($nrc_townships as $township)
+                                                        <option value="{{ $township['township_mm'] }}">
+                                                            {{ $township['township_mm'] }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2 col-5 px-1">
+                                                <select class="form-control" name="nrc_citizen" id="nrc_citizen">
+                                                    <option value="" disabled selected>ရွေးပါ</option>
+                                                    @foreach($nrc_citizens as $citizen)
+                                                        <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
+                                                            {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-5 col-7 pl-1">
+                                                <input type="text" name="nrc_number" placeholder="ဥပမာ - ၁၂၃၄၅၆" id="nrc_number" class="form-control" maxlength="6" minlength="6" oninput="this.value = en2mm(this.value);" pattern=".{6,6}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                                 <div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>{{ __('အဘအမည် (မြန်မာ/အင်္ဂလိပ်)') }}</div>
@@ -398,7 +448,54 @@
                               </div>
                           </div><br/><br>
 
-                        <div class="row mb-3" style="padding-left:50px; margin-top:10px;">
+                          <br/>
+
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
+                                <div class="col-md-6 col-form-label">နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်ခုနှစ်</div>
+                                <div class="col-md-4">
+                                    <input type="text" name="last_paid_year" id="last_paid_year" class="form-control" placeholder="နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်ခုနှစ်">
+                                </div>
+                            </div><br/><br>
+
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
+                                <div class="col-md-4 col-form-label">ရပ်နား Form တင်ထားခြင်းရှိ/မရှိ</div>
+                                <div class="row col-md-6 py-2">
+                                    <div class="col-md-3 form-check-radio mx-2">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" id="yes"
+                                                    name="resign" value="1" onclick="$('#date_range').show()" required>
+                                            <span class="form-check-sign"></span>
+                                            ရှိ
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3 form-check-radio mx-2">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" id='no'
+                                                    name="resign" value='0'  onclick="$('#date_range').hide()" required>
+                                            <span class="form-check-sign"></span>
+                                            မရှိ
+                                        </label>
+                                    </div>
+                                    
+                                    <label  class="error attend_place_error" style="display:none;" for="resign">Please select one</label>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2" style="padding-left: 400px;display:none" id="date_range" >
+                                <div class="col-md-6"></div>
+                                <div class="col-md-6" style="padding-left:0px;">
+                                    <label>
+                                        <input class="form-control" type="text" style="display:inline; width:100px;" name="resign_date" id="resign_date" placeholder="ခုနှစ်">&nbsp;&nbsp;တွင် ရပ်နား Form တင်ခဲ့ပါသည်။
+                                    </label>
+                                </div>
+                            </div>
+                            <br/><br>
+
+                          <div class="row mb-3" style="padding-left:50px; margin-top:10px;">
                             <div class="form-check">
                                 <label class="form-check-label">
                                     <input class="form-check-input" type="checkbox" name="cpaff_submit_confirm" onchange="$('#cpaff_submit').prop('disabled', !this.checked)">
@@ -446,13 +543,13 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="renewRejectCpaff()">Save changes</button>
+              <button type="button" class="btn btn-primary" onclick="updateRejectCpaffExisting()">Save changes</button>
             </div>
           </div>
         </div>
       </div>
     <!-- JavaScript Section -->
-    {{-- <script>
+    <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
         // get NRC Townships data from myanmarnrc.php config file
         var mmnrc_townships = {!! json_encode($nrc_townships) !!};
@@ -460,9 +557,10 @@
         var mmnrc_characters = {!! json_encode($nrc_characters) !!};
         // get language data from myanmarnrc.php config file
         var mmnrc_language = "{{ $nrc_language }}";
-    </script> --}}
+    </script>
 @endsection
 @push('scripts')
+<script src="{{ asset('js/form_validation/cpaff_reconnect_validation.js') }}"></script>
 <script type="text/javascript">
     $('document').ready(function(){
         var course_type = location.pathname.split('/');
@@ -506,6 +604,18 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     });
+    $("#last_paid_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    });
+    $("#resign_date").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    });
     // form_feedback();
     // loadDescription('CPAFF');
     // checkPaymentCpaff();
@@ -521,7 +631,7 @@
         url: BACKEND_URL + "/cpa_ff/" + cpaff_id,
         type: 'get',
         success: function (result) {
-            console.log(result);
+            // console.log(result);
             var cpaff=result.data[0];
             console.log(cpaff)
             document.getElementById('cpaff_img').src=BASE_URL + cpaff.profile_photo;
@@ -533,6 +643,7 @@
             $('#phone').val(cpaff.phone);
             $('#contact_mail').val(cpaff.contact_mail);
             $('#total_hours').val(cpaff.total_hours);
+            $('#last_paid_year').val(cpaff.last_paid_year);
             $('#fine_person').val(cpaff.fine_person);
             $('#papp_reg_no').val(cpaff.papp_reg_no);
 
@@ -542,6 +653,21 @@
             $('#cpaff_renew_date').val(cpaff_renew_date.getFullYear());
             var papp_reg_year=new Date(cpaff.papp_reg_year);
             $('#papp_reg_year').val(papp_reg_year.getFullYear());
+
+            // if(cpaff.resign_date!=null){
+            //     $("input[name='resign_date']").val(cpaff.resign_date);
+            // }
+
+            if(cpaff.resign==0){
+                $('#no').attr('checked',true);
+            }
+            else{
+                $('#yes').attr('checked',true);
+
+                $('#date_range').css('display','block');
+
+                $("input[name='resign_date']").val(cpaff.resign_date);
+            }
 
             $('.cpa_certificate_old').append("<a href='" + BASE_URL + cpaff.cpa_certificate + "'  target='_blank'>View File</a><br/>");
             $('.mpa_mem_card_old').append("<a href='" + BASE_URL + cpaff.mpa_mem_card + "'  target='_blank'>View File</a><br/>");

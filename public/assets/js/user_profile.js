@@ -150,6 +150,7 @@ function user_profile() {
                 // var cpaff_reject_url = FRONTEND_URL + "/cpa_ff_reject";
                 var reject_initial = FRONTEND_URL + "/update_cpaff_initial";
                 var reject_renewal = FRONTEND_URL + "/update_cpaff_renewal";
+                var reject_existing = FRONTEND_URL + "/update_cpaff_existing";
                 var is_renew;
                 
                 if(data.invoice.length!=0){
@@ -253,10 +254,13 @@ function user_profile() {
                     localStorage.setItem('cpaff_id', cpaff_latest_data.id);
                     localStorage.setItem('reject_reason', cpaff_latest_data.reject_description);
                     $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is Rejected.');
-                    if (cpaff_latest_data.type == 0) {
+                    if (cpaff_latest_data.type == 1 && cpaff_latest_data.offline_user == 1) {
+                        $('.status_history').append(`<a href="${reject_existing}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                    }
+                    else if (cpaff_latest_data.type == 0 && cpaff_latest_data.offline_user == 0) {
                         $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                     }
-                    else {
+                    else if (cpaff_latest_data.type == 1 && cpaff_latest_data.offline_user == 0){
                         $('.status_history').append(`<a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                     }
                     // $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');
