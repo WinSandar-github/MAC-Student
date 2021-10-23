@@ -38,5 +38,9 @@ class CPAFFController extends Controller
     public function cpaffOfflineRenew(){
         return view('pages.cpa.cpaff_offline_renew');
     }
+
+    public function reject_existing(){
+        return view('pages.cpa.update_cpaff_existing');
+    }
    
 }

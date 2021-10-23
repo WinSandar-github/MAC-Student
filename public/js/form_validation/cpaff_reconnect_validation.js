@@ -155,6 +155,7 @@ function check_email_cpaff_other()
 }
 
 function createCpaffReconnectRegister(){
+    // var student = JSON.parse(localStorage.getItem('studentinfo'));
     var profile_photo   =   $("input[name=profile_photo]")[0].files[0];
     var cpa             =   $("input[name=cpa]")[0].files[0];
     var ra              =   $("input[name=ra]")[0].files[0];
@@ -173,7 +174,7 @@ function createCpaffReconnectRegister(){
     var education       = document.getElementById("education");
 
     var send_data = new FormData();
-
+    // send_data.append('student_info_id', student.id);
     send_data.append('profile_photo', profile_photo);
     send_data.append('name_mm', $("input[name=name_mm]").val());
     send_data.append('name_eng', $("input[name=name_eng]").val());
@@ -238,26 +239,139 @@ function createCpaffReconnectRegister(){
     // send_data.append('end_date', $("input[name=end_date]").val());//new field
     send_data.append('self_confession',$("input[name=self_confession]").val());
     send_data.append('form_type', 2);
-    send_data.append('is_renew', 0);
-    send_data.append('type', 0);
+    send_data.append('is_renew', 1);
+    send_data.append('type', 1);
     // save to student_info
     send_data.append('email', $("input[name=email]").val());
     send_data.append('password', $("input[name=password]").val());
+    
+        $.ajax({
+            url: BACKEND_URL+"/cpa_ff",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                console.log("success");
+                successMessage("You have successfully registerd!");
+                // location.reload();
+                location.href = FRONTEND_URL+"/";
+            },
+            error:function (message){
+            }
+        });  
+    
+}
+
+function updateRejectCpaffExisting(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    var profile_photo   =   $("input[name=profile_photo]")[0].files[0];
+    var cpa             =   $("input[name=cpa]")[0].files[0];
+    var ra              =   $("input[name=ra]")[0].files[0];
+    var foreign_degree  =   $('input[name="foreign_degree[]"]');
+
+    var cpa_certificate =   $("input[name=cpa_certificate]")[0].files[0];
+    var mpa_mem_card    =   $("input[name=mpa_mem_card]")[0].files[0];
+    var mpa_mem_card_back    =   $("input[name=mpa_mem_card_back]")[0].files[0];
+    var nrc_front       =   $("input[name=nrc_front]")[0].files[0];
+    var nrc_back        =   $("input[name=nrc_back]")[0].files[0];
+    var cpd_record      =   $("input[name=cpd_record]")[0].files[0];
+    var renew_file      =   $("input[name=renew_file]")[0].files[0];
+
+    var cpa_edu         = document.getElementById("cpa_edu");
+    var ra_edu          = document.getElementById("ra_edu");
+    var education       = document.getElementById("education");
+
+    var send_data = new FormData();
+    send_data.append('student_info_id', student.id);
+    send_data.append('profile_photo', profile_photo);
+    send_data.append('name_mm', $("input[name=name_mm]").val());
+    send_data.append('name_eng', $("input[name=name_eng]").val());
+    var nrc_state_region = $("#nrc_state_region").val();
+    var nrc_township = $("#nrc_township").val();
+    var nrc_citizen = $("#nrc_citizen").val();
+    send_data.append('nrc_state_region', nrc_state_region);
+    send_data.append('nrc_township', nrc_township);
+    send_data.append('nrc_citizen', nrc_citizen);
+    send_data.append('nrc_number', $("input[name=nrc_number]").val());
+    send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
+    send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
+    send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
+    
+    if(cpa_edu.checked==true){
+        send_data.append('cpa', cpa);
+    }
+    else if(ra_edu.checked==true){
+        send_data.append('ra', ra);
+    }else{
+        $('input[name="degree_name[]"]').map(function(){
+            send_data.append('degree_name[]',$(this).val());
+        });
+        $('input[name="degree_pass_year[]"]').map(function(){
+            send_data.append('degree_pass_year[]',$(this).val());
+        });
+        $('input[name="degree_file[]"]').map(function(){
+            for (var i = 0; i < $(this).get(0).files.length; ++i) {
+                send_data.append('degree_file[]',$(this).get(0).files[i]);
+            }
+        });
+    }  
+
+    foreign_degree.map(function(){
+        for (var i = 0; i < $(this).get(0).files.length; ++i) {
+          send_data.append('foreign_degree[]',$(this).get(0).files[i]);
+        }
+
+    });
+
+    send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
+    send_data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
+    send_data.append('address', $("input[name=address]").val());
+    send_data.append('phone', $("input[name=phone]").val());
+    send_data.append('contact_mail', $("input[name=contact_mail]").val());
+    send_data.append('cpaff_pass_date', $("input[name=cpaff_pass_date]").val());
+    send_data.append('cpaff_renew_date', $("input[name=cpaff_renew_date]").val());
+    send_data.append('papp_reg_year', $("input[name=papp_reg_year]").val());
+    send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
+    send_data.append('renew_file', renew_file);
+    send_data.append('fine_person', $("input[name=fine_person]").val());
+    send_data.append('cpa_certificate', cpa_certificate);
+    send_data.append('mpa_mem_card', mpa_mem_card);
+    send_data.append('mpa_mem_card_back', mpa_mem_card_back);
+    send_data.append('nrc_front', nrc_front);
+    send_data.append('nrc_back', nrc_back);
+    send_data.append('cpd_record', cpd_record);
+    send_data.append('total_hours', $("input[name=total_hours]").val());
+    send_data.append('last_paid_year', $("input[name=last_paid_year]").val());//new field
+    send_data.append('resign', $("input[type='radio'][name='resign']:checked").val());//new field
+    send_data.append('resign_date', $("input[name=resign_date]").val());//new field
+    // send_data.append('end_date', $("input[name=end_date]").val());//new field
+    send_data.append('self_confession',$("input[name=self_confession]").val());
+    send_data.append('form_type', 2);
+    send_data.append('is_renew', 1);
+    send_data.append('type', 1);
+    // save to student_info
+    send_data.append('email', $("input[name=email]").val());
+    send_data.append('password', $("input[name=password]").val());
+    var id=$('#cpaff_id').val();
+    send_data.append('cpaff_id',id);   
     $.ajax({
-        url: BACKEND_URL+"/cpa_ff",
+        url: BACKEND_URL+"/update_cpaff_existing",
         type: 'post',
         data:send_data,
         contentType: false,
         processData: false,
         success: function(result){
             console.log("success");
-            successMessage("You have successfully registerd!");
-            // location.reload();
-            location.href = FRONTEND_URL+"/";
-        },
+            successMessage("You have successfully updated!");
+                // location.reload();
+                location.href = FRONTEND_URL+'/';
+            },
         error:function (message){
-        }
+            }
     });
+    
+    
 }
 
 function RenewOfflineCPAFF() {
