@@ -52,7 +52,7 @@ function user_profile() {
                   // to do payment for approved offline user
                  console.log('to do payment for approved offline user');
                  var invoice = data.invoice.filter(val => {
-                   return val.invoiceNo == 'off_audit_renew' && val.status == 0;
+                   return val.invoiceNo == 'off_audit_renew'+firm_info[0].id && val.status == 0;
                  });
 
                  if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
@@ -94,9 +94,9 @@ function user_profile() {
 
                 else if(firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user == 1){
                   // to do payment for approved offline user
-                 console.log("non audit 2");
+                 console.log("non audit 3");
                  var invoice = data.invoice.filter(val => {
-                   return val.invoiceNo == 'off_non_audit_renew' && val.status == 0;
+                   return val.invoiceNo == 'off_non_audit_renew'+firm_info[0].id && val.status == 0;
                  });
 
                  if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
@@ -152,22 +152,22 @@ function user_profile() {
                 var reject_renewal = FRONTEND_URL + "/update_cpaff_renewal";
                 var reject_existing = FRONTEND_URL + "/update_cpaff_existing";
                 var is_renew;
-                
+
                 if(data.invoice.length!=0){
                     if (cpaff_latest_data.type == 0) {
                         is_renew = "Initial";
                         var invoice = data.invoice.filter(val => {
                             return val.invoiceNo == "cpaff-initial" && val.status == 0;
                         });
-                        
+
                     }
                     else if (cpaff_latest_data.type == 1) {
                         is_renew = "Renewal";
                         var invoice = data.invoice.filter(val => {
                             return val.invoiceNo == "cpaff-renew" && val.status == 0;
                         });
-                       
-                        
+
+
                     }
                     else {
                         is_renew = "";
@@ -224,7 +224,7 @@ function user_profile() {
                     var now = new Date();
                     // var payment_status = 0;
                     if ((now.getFullYear() == y && (now.getMonth() + 1) == month) || now.getFullYear() > year) {
-                        
+
                         // $('.status_history').append('Action &nbsp;&nbsp;');
                         // $('.status_history').append(`<a href= ${cpaff_renew_url} class="btn btn-success btn-sm xl-auto" > CPA(Full-Fledged) Renew Form </a><hr>`);
                         $('.status_papp').append('Action &nbsp;&nbsp;');
@@ -347,7 +347,7 @@ function user_profile() {
                         $('.status_papp').css('display', 'none');
                         localStorage.setItem('papp_id', papp_latest_data.id);
                         localStorage.setItem('reject_reason', papp_latest_data.reject_description);
-                        
+
                         if (papp_latest_data.type == 0) {
                             $('.status_history').append('PAPP ' + is_renew + ' Registration Form is Rejected.');
                             $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
@@ -1677,7 +1677,7 @@ function user_profile() {
                                                                             if (last_exam[0].course.code == "da_1" || last_exam[0].course.code == "cpa_1") {
                                                                                 let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
                                                                                 let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
-                                                                                
+
                                                                                 $('.status').append(`
                                                                                     <tr> <td colspan=2 ></td ><td>Action</td>
                                                                                         <td>
@@ -2007,7 +2007,7 @@ function user_profile() {
                                     let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
 
                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
-                                    
+
                                     $('.status').append(`
                                         <tr>
                                             <td colspan=2 ></td ><td>Action</td>
@@ -3785,7 +3785,7 @@ function allowToRenew()
           console.log("allow to renew",data[0]);
             if(data[0].audit_firm_type_id == 1){
               // audit firm
-              console.log("shi");
+
               if(data[0].status == 1 && data[0].is_renew == 0 && data[0].offline_user == 1){
                 // to renew approved offline users
                 $('#check_renew').css('display','block');
