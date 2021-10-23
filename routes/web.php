@@ -44,6 +44,7 @@ Route::get('student_papp','PAPPController@info');
 Route::get('renew_papp','PAPPController@renew_papp');
 Route::get('update_papp_initial','PAPPController@reject_initial');
 Route::get('update_papp_renewal','PAPPController@reject_renewal');
+Route::get('update_papp_reconnect','PAPPController@reject_reconnect');
 
 //PAPP Information Page
 Route::get('student_papp_information','PAPPInfoController@info');
