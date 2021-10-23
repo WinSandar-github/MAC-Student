@@ -1236,6 +1236,28 @@ function getNonAuditDataForRejectUpdate(){
             $('#foreign_header').css('display','block');
             $('#local_info').css('display','none');
             $('#foreign_info').css('display','block');
+            $("#permit_section_27").css('display','block');
+            //
+            $("#financial_label_1").css('display','block');
+            $("#financial_label_2").css('display','none');
+            //
+            $("#letterhead_label_1").css('display','block');
+            $("#letterhead_label_2").css('display','none');
+            //
+            $("#commercial_label_1").css('display','block');
+            $("#commercial_label_2").css('display','none');
+            //
+            $("#work_exp_label_1").css('display','block');
+            $("#work_exp_label_2").css('display','none');
+            //
+            $("#shareholder_label_1").css('display','block');
+            $("#shareholder_label_2").css('display','none');
+            //
+            $("#shareholder_label_1").css('display','block');
+            $("#shareholder_label_2").css('display','none');
+            //
+            $("#tax_label_1").css('display','block');
+            $("#tax_label_2").css('display','none');
           }
 
           $('input[name=email]').val(student_data[0].email);
