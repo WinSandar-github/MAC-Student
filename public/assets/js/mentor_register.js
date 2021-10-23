@@ -104,6 +104,7 @@ function createMentorRegister(){
   send_data.append('password', $("input[name=password]").val());
   send_data.append('type', $("input[name=type]").val());
   send_data.append('status', $("input[name=status]").val());
+  send_data.append('student_info_id', $("#student_info_id").val());
 
   show_loader();
 
