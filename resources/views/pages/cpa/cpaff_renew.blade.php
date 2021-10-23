@@ -431,6 +431,8 @@
             </div>
         </div>
     </div>
+
+    {{-- Self_Confession_modal --}}
     <div class="modal fade" id="renewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -439,7 +441,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe src="{{ asset('assets/images/TMS requirment(23-9-2021).pdf') }}"  style="overflow:scroll;height:70vh;width:100%" height="100vh" width="70vh"></iframe>
+                <iframe src="{{ asset('assets/images/pa_promise.pdf') }}"  style="overflow:scroll;height:70vh;width:100%" height="100vh" width="70vh"></iframe>
                 <div class="pull-right mt-1">
                     <h6 class="pull-left me-4 fw-bold">အထက်ဖော်ပြပါအချက်များအား</h6>
                     <div class="form-check form-check-inline">
@@ -461,6 +463,7 @@
           </div>
         </div>
       </div>
+      
     <!-- JavaScript Section -->
     {{-- <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};

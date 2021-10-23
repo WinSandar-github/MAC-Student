@@ -872,7 +872,7 @@ function getAuditData(){
             });
           });
 
-          if(audit_data.offline_user == 1 && audit_data.verify_status == 0){
+          if(audit_data.offline_user == 1 && audit_data.status == 1){
             // when approved offline user and submit renew form
             $("input[type=text]").not("input[name=verify_code]").attr('readonly',true);
             $("textarea").attr('readonly',true);
@@ -902,10 +902,14 @@ function getAuditDataForRejectUpdate(){
           var other_data = data.other_data;
           var student_data = data.student_infos;
 
+          if(audit_data.offline_user == 1){
+            $("#reg_no_box").css('display','block');
+          }
+
           $('input[name=email]').val(student_data[0].email);
 
           $("#accountancy_firm_name").val(audit_data.accountancy_firm_name);
-          $("#accountancy_firm_reg_no").val(audit_data.accountancy_firm_reg_no);
+          $("input[name=accountancy_firm_reg_no]").val(audit_data.accountancy_firm_reg_no);
           $("#register_date").val(audit_data.register_date);
           $('#previewImg').attr("src",BASE_URL+audit_data.image);
 
@@ -1173,6 +1177,7 @@ function auditRejectUpdate(){
   var profile_photo = $("input[name=profile_photo]")[0].files[0];
   send_data.append('profile_photo',profile_photo);
   send_data.append('accountancy_firm_name',$("input[name=accountancy_firm_name]").val());
+  send_data.append('accountancy_firm_reg_no',$("input[name=accountancy_firm_reg_no]").val());
   send_data.append('head_office_address',$("textarea[name=head_office_address]").val());
   send_data.append('head_office_address_mm',$("textarea[name=head_office_address_mm]").val());
   //send_data.append('township',$("input[name=township]").val());

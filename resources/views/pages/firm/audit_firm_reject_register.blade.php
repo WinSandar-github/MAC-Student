@@ -46,6 +46,12 @@
                                     <div class="col-md-2 pull-right">
                                       <h6>For the year - {{ date('Y') }}</h6>
                                     </div>
+                                    <div id="reg_no_box" style="display:none;">
+                                      <div class="col-md-3 pull-left">
+                                        <label for="" class="control-label text-muted fw-bolder"><small>Registration No.</small></label>
+                                        <input type="text" placeholder="Enter Registration No.!" name="accountancy_firm_reg_no" class="form-control" value="" >
+                                      </div>
+                                    </div>
                                 </div>
                               </div>
                                 <div class="card-body">
@@ -1064,6 +1070,19 @@
 <script>
     $(document).ready(function(){
 
+      $("input[name='last_registered_year']").flatpickr({
+          enableTime: false,
+          dateFormat: "Y",
+          //dateFormat: "Y",
+          allowInput: true,
+      });
+      $("input[name='suspended_year']").flatpickr({
+          enableTime: false,
+          dateFormat: "Y",
+          //dateFormat: "Y",
+          allowInput: true,
+      });
+
     	$("input[id*='head_office_address_mm'], text[id*='head_office_address_mm']").change(function (e) {
     			myanmarLetterOnly($(this));
     	});
@@ -1071,6 +1090,15 @@
     	$(document).on('keydown', '#head_office_address_mm', function () {
     			myanmarLetterOnly($(this));
     	});
+
+      $("input[name=req_for_stop]").change(function(){
+        if($(this).val() == 1){
+          $("#req_to_dissconect").css("display","block");
+        }
+        else{
+          $("#req_to_dissconect").css("display","none");
+        }
+      });
 
     	function myanmarLetterOnly(self) {
     			val = self.val();
