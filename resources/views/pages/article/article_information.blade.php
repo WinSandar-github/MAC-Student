@@ -219,7 +219,7 @@
                         $("#firm_article_renew_row").hide();
                         $("#article_hr").hide();
                         $("#gov_article_row").hide();
-                        if(exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)){
+                        if(exam_registers[0].form_type == 4 && (exam_results[0]?.registeration_id == exam_registers[0]?.id)){
                             $("#c2_pass_1yr_btn").prop('disabled', false);
                         }else{
                             $("#c2_pass_1yr_btn").prop('disabled', true);
@@ -241,7 +241,7 @@
                         $("#firm_article_renew_row").hide();
                         $("#article_hr").hide();
                         $("#gov_article_row").hide();
-                        if(exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)){
+                        if(exam_registers[0].form_type == 4 && (exam_results[0]?.registeration_id == exam_registers[0]?.id)){
                             $("#c2_pass_1yr_btn").prop('disabled', false);
                         }else{
                             $("#c2_pass_1yr_btn").prop('disabled', true);
@@ -282,7 +282,9 @@
                             $("#firm_article_renew_row").hide();
                             $("#article_hr").hide();
                             $("#gov_article_row").hide();
-                            if(exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)){
+                            if(exam_registers[0].form_type == 4 && (exam_results[0]?.registeration_id == exam_registers[0]?.id)){
+                                $("#c2_pass_3yr_btn").prop('disabled', false);
+                            }else if(student_info.registration_no == 0){
                                 $("#c2_pass_3yr_btn").prop('disabled', false);
                             }else{
                                 $("#c2_pass_3yr_btn").prop('disabled', true);
