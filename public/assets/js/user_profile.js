@@ -157,7 +157,7 @@ function user_profile() {
                     if (cpaff_latest_data.type == 0) {
                         is_renew = "Initial";
                         var invoice = data.invoice.filter(val => {
-                            return val.invoiceNo == "cpaff-initial" && val.status == 0;
+                            return val.invoiceNo == "cpaff_initial"+cpaff_latest_data.id && val.status == 0;
                         });
                         if(invoice.length!=0){
                             var payment_url = FRONTEND_URL + "/payment_method/"+student_id+"/"+invoice[0].invoiceNo;
@@ -166,7 +166,7 @@ function user_profile() {
                     else if (cpaff_latest_data.type == 1) {
                         is_renew = "Renewal";
                         var invoice = data.invoice.filter(val => {
-                            return val.invoiceNo == "cpaff-renew" && val.status == 0;
+                            return val.invoiceNo == "cpaff_renew"+cpaff_latest_data.id && val.status == 0;
                         });
                         if(invoice.length!=0){
                             var payment_url = FRONTEND_URL + "/payment_method/"+student_id+"/"+invoice[0].invoiceNo;
@@ -278,13 +278,13 @@ function user_profile() {
                         if (papp_latest_data.type == 0) {
                             is_renew = "Initial";
                             var invoice = data.invoice.filter(val => {
-                                return val.invoiceNo == "papp-initial" && val.status == 0;
+                                return val.invoiceNo == "papp_initial"+papp_latest_data.id && val.status == 0;
                             });
                         }
                         else if (papp_latest_data.type == 1) {
                             is_renew = "Renewal";
                             var invoice = data.invoice.filter(val => {
-                                return val.invoiceNo == "papp-renew" && val.status == 0;
+                                return val.invoiceNo == "papp_renew"+papp_latest_data.id && val.status == 0;
                             });
                         }
                         else {
@@ -759,13 +759,13 @@ function user_profile() {
                         if (cpaff_latest_data.is_renew == 0) {
                             is_renew = "Initial";
                             var invoice = data.invoice.filter(val => {
-                                return val.invoiceNo == "cpaff-initial" && val.status == 0;
+                                return val.invoiceNo == "cpaff_initial"+cpaff_latest_data.id && val.status == 0;
                             });
                         }
                         else if (cpaff_latest_data.is_renew == 1) {
                             is_renew = "Renewal";
                             var invoice = data.invoice.filter(val => {
-                                return val.invoiceNo == "cpaff-renew" && val.status == 0;
+                                return val.invoiceNo == "cpaff_renew"+cpaff_latest_data.id && val.status == 0;
                             });
                         }
                         else {
@@ -870,13 +870,13 @@ function user_profile() {
                                 is_renew_papp = "Initial";
 
                                 var invoice = data.invoice.filter(val => {
-                                    return val.invoiceNo == "papp-initial" && val.status == 0;
+                                    return val.invoiceNo == "papp_initial"+papp_latest_data.id && val.status == 0;
                                 });
                             }
                             else if (papp_latest_data.type == 1) {
                                 is_renew_papp = "Renewal";
                                 var invoice = data.invoice.filter(val => {
-                                    return val.invoiceNo == "papp-renew" && val.status == 0;
+                                    return val.invoiceNo == "papp_renew"+papp_latest_data.id && val.status == 0;
                                 });
                             }
                             else {
