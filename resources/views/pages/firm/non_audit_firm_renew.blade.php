@@ -57,7 +57,7 @@
                     </div>
                   </div>
                   <input type="hidden" value="2" name="audit_firm_type_id">
-	                <input type="hidden" value="1" name="local_foreign_type">
+	                <input type="hidden" value="" name="local_foreign_type">
 
                   <input type="hidden" value="" name="offline_user">
                   <input type="hidden" value="" name="req_for_stop">
