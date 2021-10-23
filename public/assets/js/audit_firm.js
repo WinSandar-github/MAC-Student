@@ -1190,7 +1190,9 @@ function auditRejectUpdate(){
   send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
   // send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
-  //send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
+  send_data.append('last_registered_year',$("input[name=last_registered_year]").val());
+  send_data.append('suspended_year',$("input[name=suspended_year]").val());
+  send_data.append('req_for_stop',$('input[name=req_for_stop]:checked').val());
 
   var t_s_p_id_val = new Array();
   $('input[name=t_s_p_id]:checked').each(function(i){
@@ -1199,9 +1201,6 @@ function auditRejectUpdate(){
 
   send_data.append('name_sole_proprietor',$("input[name=name_sole_proprietor]").val());
   send_data.append('declaration',$("input[name=declaration]").val());
-
-  // send_data.append('email',$("input[name=email]").val());
-  // send_data.append('password',$("input[name=password]").val());
 
   $('input[name="bo_branch_name[]"]').map(function(){send_data.append('bo_branch_name[]',$(this).val())});
   $('input[name="bo_address[]"]').map(function(){send_data.append('bo_address[]',$(this).val())});

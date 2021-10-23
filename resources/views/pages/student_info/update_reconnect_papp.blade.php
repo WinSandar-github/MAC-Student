@@ -96,9 +96,9 @@
                     </div>
                     <form method="post" action="javascript:createReconnectPapp();" enctype="multipart/form-data" id="reconnect_papp_form">
                     	<div class="card-body">
-                            <input type="text" name="reconnect_papp_id" id="reconnect_papp_id"/>
-                            <input type="text" name="reconnect_cpaff_id" id="reconnect_cpaff_id"/>
-                            <input type="text" name="reconnect_student_id" id="reconnect_student_id"/>
+                            <input type="hidden" name="reconnect_papp_id" id="reconnect_papp_id"/>
+                            <input type="hidden" name="reconnect_cpaff_id" id="reconnect_cpaff_id"/>
+                            <input type="hidden" name="reconnect_student_id" id="reconnect_student_id"/>
 						    <div class="row">
                                 <div class="col-md-9">
                                 <div class="row mb-3">

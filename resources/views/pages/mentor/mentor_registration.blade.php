@@ -277,14 +277,14 @@
                                   <div class="row mb-3">
                                       <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>မွေးသက္ကရာဇ်<span style="color:red">*</span></label>
                                       <div class="col-md-9">
-                                          <input type="text" name="date_of_birth" class="form-control" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" value="{{ old('date_of_birth') }}">
+                                          <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" value="{{ old('date_of_birth') }}">
                                       </div>
                                   </div>
 
                                   <div class="row mb-3">
                                       <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>ပညာအရည်အချင်း<span style="color:red">*</span></label>
                                       <div class="col-md-9">
-                                          <input type="text" name="education" class="form-control" placeholder="ပညာအရည်အချင်း">
+                                          <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း">
                                       </div>
                                   </div>
 
@@ -340,7 +340,7 @@
                                   <div class="row mb-3">
                                       <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>ဆက်သွယ်ရန်လိပ်စာ<span style="color:red">*</span></label>
                                       <div class="col-md-9">
-                                          <textarea placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="address" class="form-control" rows="3" style="resize:none;" ></textarea>
+                                          <textarea placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="address" id="address" class="form-control" rows="3" style="resize:none;" ></textarea>
                                       </div>
                                   </div>
 
@@ -417,7 +417,7 @@
                                   </div>
 
                                   <div class="row mb-3">
-                                      <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>လွန်ခဲ့သော၃နှစ်ကနှစ်အလိုက်စစ်ဆေးခဲ့သောလုပ်ငန်းများ</label>
+                                      <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>လွန်ခဲ့သော၃နှစ်ကနှစ်အလိုက်စစ်ဆေးခဲ့သောလုပ်ငန်းများ<br>(Pdf file သာတင်ရန်)</label>
                                       <div class="col-md-9">
                                         <input type="file" class="form-control" id="attachment_file" name="attachment_file">
                                       </div>
@@ -559,6 +559,7 @@
 
                                   <input type="hidden" name="type" value="Student" class="form-control" placeholder="" autocomplete="off" >
                                   <input type="hidden" name="status" value="0" class="form-control" placeholder="" autocomplete="off" >
+                                  <input type="hidden" id="student_info_id" name="student_info_id">
 
                                   <div class="row justify-content-center">
                                     <button type="submit" id="submit_btn" class="btn btn-success btn-hover-dark w-25" disabled>
@@ -708,7 +709,53 @@
           myanmarLetterOnly($(this));
       });
 
+      //same email 
+      get_student_info(student_id).then(data => {
+        let student_info = data.data;
+        let result;
+        if(data.data?.teacher){
+          result = data.data.teacher;
+        }else if(data.data?.school){
+          result = data.data.school;
+        }
+        $('#student_info_id').val(student_info.id);
+        $('#email').val(result.email);
+        $('#name_mm').val(result.name_mm);
+        $("#name_eng").val(result.name_eng);
+        $("#nrc_state_region").val(result.nrc_state_region);
+        $("#nrc_township").val(result.nrc_township);
+        $("#nrc_citizen").val(result.nrc_citizen);
+        $("#nrc_number").val(result.nrc_number);
+        $("#father_name_mm").val(result.father_name_mm);
+        $("#father_name_eng").val(result.father_name_eng);
+        $("#race").val(result.race);
+        $("#religion").val(result.religion);
+        $("#date_of_birth").val(result.date_of_birth);
+        $("#education").val(student_info.student_education_histroy.degree_name);
+        $("#address").val(result.address);
+        $("#phone_no").val(result.phone);
 
+        // $('#email').prop('readonly', true);
+        // $('#password').prop('readonly', true);
+        // //$('#confirm_password').prop('readonly', true);
+        // $('#name_mm').prop('readonly', true);
+        // $('#name_eng').prop('readonly', true);
+        // $('#father_name_mm').prop('readonly', true);
+        // $('#father_name_eng').prop('readonly', true);
+        // $('#race').prop('readonly', true);
+        // $('#religion').prop('readonly', true);
+        // $('#nrc_state_region').prop('readonly', true);
+        // $('#nrc_township').prop('readonly', true);
+        // $('#nrc_citizen').prop('readonly', true);
+        // $('#nrc_number').prop('readonly', true);
+        // $('#date_of_birth').prop('readonly', true);
+        // $('#education').prop('readonly', true);
+
+        // document.getElementById('previewImg').src = BASE_URL + result.image;
+        // document.getElementById('previewNRCFrontImg').src = BASE_URL + result.nrc_front;
+        // document.getElementById('previewNRCBackImg').src = BASE_URL + result.nrc_back;
+
+    });
 
     });
 

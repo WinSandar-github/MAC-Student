@@ -1012,6 +1012,7 @@ function loadFile(file,divname){
     $("."+divname).append(file);
 
 }
+
 function loadDescription(membership_name,divname){
   $('.application-fee').html("");
   $('.registration-fee').html("");
