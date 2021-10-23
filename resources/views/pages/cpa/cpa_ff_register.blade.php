@@ -65,11 +65,11 @@
 
             <div class="row mt-5">
                 <div class="col-md-12 text-center" style="display:none;font-weight:bold;font-size:20px;" name="check_age" id="check_age">
-                    <label class="col-md-12 col-form-label">{{ __('အသက် ၂၁ မပြည့်​သေးပါသဖြင့် ဤ Form အား ဖြည့်စွက်၍ မရနိုင်ပါ။') }}</label>
+                    {{--<label class="col-md-12 col-form-label">{{ __('အသက် ၂၁ မပြည့်​သေးပါသဖြင့် ဤ Form အား ဖြည့်စွက်၍ မရနိုင်ပါ။') }}</label>
 
                     <br/>
                     <br/>
-                    <br/>
+                    <br/>--}}
                 </div>
                 <div class="col-md-12 text-center" style="display:none;font-weight:bold;font-size:20px;" name="pass_cpa_two" id="pass_cpa_two">
                     <label class="col-md-12 col-form-label">{{ __('CPA 2 မအောင်မြင်သေးပါသဖြင့် ဤ Form အား ဖြည့်စွက်၍ မရနိုင်ပါ။') }}</label>
@@ -313,7 +313,7 @@
                                     <div class="col-md-1 mt-2">
                                         <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()">
                                     </div>
-                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" placeholder="ခုနှစ်" class="form-control" style="display: inline;width: 100px;" autocomplete="off"  disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="cpa_batch_no" id="cpa_batch_no" class="form-control" style="display: inline;width: 100px;" autocomplete="off"  disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
+                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" placeholder="ခုနှစ်" class="form-control" style="display: inline;width: 100px;" autocomplete="off"  disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="cpa2_reg_no" id="cpa2_reg_no" class="form-control" style="display: inline;width: 100px;" autocomplete="off"  disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
                                 </div>
                                 {{--<div class="pass_batch_two" style="display:none">
                                     <div class="row mb-3">

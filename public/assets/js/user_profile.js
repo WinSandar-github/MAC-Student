@@ -841,7 +841,7 @@ function user_profile() {
                         localStorage.setItem('reject_reason', cpaff_latest_data.reject_description);
                         $('.status').append(`
                         <tr>
-                            <td>PAPP ${is_renew}</td>
+                            <td>CPA(Full-Fledged) ${is_renew}</td>
                             <td>${formatDate(cpaff_latest_data.created_at)}</td>
                             <td>${formatDate(cpaff_latest_data.updated_at)}</td>
                             <td><span class="badge bg-danger">Reject</span></td>
