@@ -14,7 +14,7 @@ function CheckPartTwo() {
     if (cpa_part_2.checked == true) {
         $("input[name=cpa2_pass_date]").prop('disabled', false);
         $("input[name=cpa2_reg_no]").prop('disabled', false);
-        $("input[name=cpa_batch_no]").prop('disabled', false);
+        // $("input[name=cpa_batch_no]").prop('disabled', false);
         $("input[name=country]").prop('disabled', true);
         $("input[name=government]").prop('disabled', true);
         $("input[name=roll_no]").prop('disabled', true);
@@ -29,7 +29,7 @@ function CheckPartTwo() {
     else if (qt_pass.checked == true) {
         $("input[name=cpa2_pass_date]").prop('disabled', true);
         $("input[name=cpa2_reg_no]").prop('disabled', true);
-        $("input[name=cpa_batch_no]").prop('disabled', true);
+        // $("input[name=cpa_batch_no]").prop('disabled', true);
         $("input[name=country]").prop('disabled', false);
         $("input[name=government]").prop('disabled', false);
         $("input[name=roll_no]").prop('disabled', false);

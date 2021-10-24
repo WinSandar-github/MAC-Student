@@ -312,7 +312,7 @@
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 mt-2">
-                                        <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()">
+                                        <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()" style="margin-top: 20px;">
                                     </div>
                                     <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" class="form-control" placeholder="ခုနှစ်" style="display: inline;width: 100px;" autocomplete="off" disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="cpa2_reg_no" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
                                 </div>
@@ -320,7 +320,7 @@
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 mt-2">
-                                        <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckPartTwo()">
+                                        <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckPartTwo()" style="margin-top: 10px;">
                                     </div>
                                     <label class="col-md-10 col-form-label"><input type="text" name="country" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled> နိုင်ငံ <input type="text" name="government" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled>အဖွဲ့အစည်းကပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီက <br><br>
                                     <input type="text" name="exam_year" id="exam_year" placeholder="ခုနှစ်" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled> ခုနှစ် <input type="text" name="exam_month" id="exam_month" placeholder="လ" class="form-control" autocomplete="off" style="display: inline;width: 100px;" disabled> <br><br>လတွင်
