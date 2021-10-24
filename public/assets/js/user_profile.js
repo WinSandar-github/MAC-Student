@@ -134,6 +134,7 @@ function user_profile() {
                         }
                     }
                 }
+              }
 
                 firmDashboardData();
 
