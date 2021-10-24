@@ -90,53 +90,10 @@ function user_profile() {
                     $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
                   }
                 }
-                else {
-                    // Non-Audit Firm
-                    if (firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user != 1) {
-                        // to do payment for approved normal renew user
-                        console.log("non audit 1");
-                        var invoice = data.invoice.filter(val => {
-                            return val.invoiceNo == 'non_audit_renew' && val.status == 0;
-                        });
 
-                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
-                            $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
-                        } else {
-                            $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
-                        }
-                    }
-
-                    else if (firm_info[0].status == 1 && firm_info[0].is_renew == 0 && firm_info[0].offline_user == 0) {
-                        // to do payment for approved initial user
-                        console.log('non audit 2');
-                        var invoice = data.invoice.filter(val => {
-                            return val.invoiceNo == 'non_audit_initial' && val.status == 0;
-                        });
-
-                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
-                            $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
-                        } else {
-                            $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
-                        }
-                    }
-
-                    else if (firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user == 1) {
-                        // to do payment for approved offline user
-                        console.log("non audit 2");
-                        var invoice = data.invoice.filter(val => {
-                            return val.invoiceNo == 'off_non_audit_renew' && val.status == 0;
-                        });
-
-                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
-                            $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
-                        } else {
-                            $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
-                        }
-                    }
-                }
-
-                firmDashboardData();
-
+             }
+             firmDashboardData();
+             
             } else if (data.school && data.teacher == null && data.mentor == null) {
                 $('.dashboard_name').append('School ');
                 loadSchoolByDash(data.school, data.invoice);
@@ -3766,7 +3723,7 @@ function firmDashboardData() {
         type: 'get',
         success: function (result) {
             EasyLoading.hide();
-            //console.log("result >>>", result);
+            console.log("result >>>", result);
             let data = result.data;
             //let accountancy_firm = result.data.accountancy_firm.slice(-1);
             if (data.accountancy_firm_info_id) {
@@ -4073,6 +4030,7 @@ function allowToRenew() {
                 $(".register-btn").css('display','none'); // register btn in information page
               }
             }
+          }
         })
     }
 }
