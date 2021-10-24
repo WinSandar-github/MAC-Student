@@ -13,9 +13,6 @@ function user_profile() {
             if (data.accountancy_firm_info_id) {
               var firm_info = data.accountancy_firm.slice(-1);
               allowToRenew();
-              //dateQuery();
-              //allowToRenew();
-              //checkPaymentAudit();
               //audit_reg_feedback();
 
               if(firm_info[0].audit_firm_type_id == 1){
@@ -24,7 +21,7 @@ function user_profile() {
                   // to do payment for approved normal renew user
                   console.log('to do payment for approved normal user');
                   var invoice = data.invoice.filter(val => {
-                    return val.invoiceNo == 'audit_renew' && val.status == 0;
+                    return val.invoiceNo == 'audit_renew'+firm_info[0].id && val.status == 0;
                   });
 
                   if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
@@ -38,14 +35,15 @@ function user_profile() {
                   // to do payment for approved initial user
                   console.log('to do payment for approved initial user');
                   var invoice = data.invoice.filter(val => {
-                    return val.invoiceNo == 'audit_initial' && val.status == 0;
+                    return val.invoiceNo == 'audit_initial'+firm_info[0].id && val.status == 0;
                   });
 
                   if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
-                    $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
+                    $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment</a><hr>`);
                   }else{
                     $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
                   }
+
                 }
 
                 else if(firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user == 1){
@@ -68,7 +66,7 @@ function user_profile() {
                   // to do payment for approved normal renew user
                   console.log("non audit 1");
                   var invoice = data.invoice.filter(val => {
-                    return val.invoiceNo == 'non_audit_renew' && val.status == 0;
+                    return val.invoiceNo == 'non_audit_renew'+firm_info[0].id && val.status == 0;
                   });
 
                   if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
@@ -80,13 +78,14 @@ function user_profile() {
 
                 else if(firm_info[0].status == 1 && firm_info[0].is_renew == 0 && firm_info[0].offline_user == 0){
                   // to do payment for approved initial user
+                  //checkRenewForInitial();
                   console.log('non audit 2');
                   var invoice = data.invoice.filter(val => {
-                    return val.invoiceNo == 'non_audit_initial' && val.status == 0;
+                    return val.invoiceNo == 'non_audit_initial'+firm_info[0].id && val.status == 0;
                   });
 
                   if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
-                    $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
+                    $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment</a><hr>`);
                   }else{
                     $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
                   }
@@ -3998,7 +3997,7 @@ function allowToRenew()
                 $("#renew_btn").css('display','block'); // renew btn in information page
                 $(".register-btn").css('display','none'); // register btn in information page
               }
-              else if(data[0].status == 1 && data[0].is_renew == 1 && data[0].offline_user != 1){
+              else if(data[0].status == 1 && data[0].verify_status == 3 && data[0].offline_user != 1){
                 // to renew normal users who are expired
                 $('#check_renew').css('display','block');
                 $('#check_renew_nonaudit').css('display','none');
@@ -4021,7 +4020,7 @@ function allowToRenew()
               //   $('#check_renew').css('display','none');
               //   $('#check_renew_nonaudit').css('display','none');
               // }
-              else if(data[0].status == 1 && data[0].is_renew == 1 && data[0].offline_user != 1){
+              else if(data[0].status == 1 && data[0].verify_status == 3 && data[0].offline_user != 1){
                 // to renew normal users who are expired
                 $('#check_renew').css('display','none');
                 $('#check_renew_nonaudit').css('display','block');
@@ -4032,4 +4031,31 @@ function allowToRenew()
           }
         })
     }
+}
+
+function checkRenewForInitial(){
+  var student =JSON.parse(localStorage.getItem("studentinfo"));
+  var student_id = student.id;
+  if(student!=null){
+    $.ajax({
+      type: "GET",
+      url: BACKEND_URL+"/getDateRange/"+student_id,
+      success: function (data){
+        console.log("date_query >>>",data);
+        if(data.status == 1){ // verify status will shown if form is approved
+          if(data.type == 'renew'){
+            $("#message").append("<span class='text-warning'>"+data.message+"</span>");
+          }
+          else if(data.type == 'next'){
+            $("#message").append("<span class='text-success'>"+data.message+"</span>");
+            //$("#check_renew").css('display','block');
+          }
+          else{
+            $("#message").append("<span class='text-success'>"+data.message+"</span>");
+
+          }
+        }
+      }
+    })
+  }
 }
