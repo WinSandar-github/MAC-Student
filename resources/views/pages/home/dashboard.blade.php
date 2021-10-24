@@ -193,7 +193,7 @@
                                         <p class="ml-2 text-bold" style="font-weight:bold">CPA(Full-Fledged)လျှောက်လွှာကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>1000 MMK</span>
+                                        <span id="form_fee"></span>
                                     </div>
                                 </div>
 
@@ -202,7 +202,7 @@
                                         <p class="ml-2 text-bold" style="font-weight:bold">CPA(Full-Fledged)မှတ်ပုံတင်ကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span id="registration_fee"></span>
                                     </div>
                                 </div>
 
@@ -213,7 +213,7 @@
                                         <p class="ml-2 text-bold" style="font-weight:bold">PAPPလျှောက်လွှာကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>1000 MMK</span>
+                                        <span class="form_fee"></span>
                                     </div>
                                 </div>
 
@@ -222,7 +222,7 @@
                                         <p class="ml-2 text-bold" style="font-weight:bold">PAPP မှတ်ပုံတင်ကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span class="registration_fee"></span>
                                     </div>
                                 </div>
                                 <h5 class="text-center border-bottom  py-2 my-2"
@@ -234,7 +234,7 @@
                                         <p class="ml-2 text-bold" style="font-weight:bold">CPA(Full-Fledged) လျှောက်လွှာကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>1000 MMK</span>
+                                        <span id="form_fee1"></span>
                                     </div>
                                 </div>
 
@@ -244,7 +244,7 @@
                                             မှတ်ပုံတင်သက်တမ်းတိုးကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span id="renew_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -253,7 +253,7 @@
                                             CPA(Full-Fledged)နောက်ကျကြေး (Within January)</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span id="late_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -262,7 +262,7 @@
                                             CPA(Full-Fledged)နောက်ကျကြေး (From February to April)</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>100000 MMK</span>
+                                        <span id="late_feb_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -271,7 +271,7 @@
                                             CPA(Full-Fledged)သက်တမ်းပြတ်ကြေး (per year) From 2015</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span id="reconnected_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -280,7 +280,7 @@
                                             CPA(Full-Fledged)သက်တမ်းပြတ်ကြေး (per year) Before 2015</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>1000 MMK</span>
+                                        <span id="reconnected_fee_before_2015"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -288,7 +288,7 @@
                                         <p class="ml-2 text-bold" style="font-weight:bold">PAPP လျှောက်လွှာကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>1000 MMK</span>
+                                        <span class="form_fee1"></span>
                                     </div>
                                 </div>
 
@@ -298,7 +298,7 @@
                                             မှတ်ပုံတင်သက်တမ်းတိုးကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span class="renew_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -307,7 +307,7 @@
                                             PAPP နောက်ကျကြေး (Within January)</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span class="late_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -316,7 +316,7 @@
                                             PAPP နောက်ကျကြေး (From February to April)</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>100000 MMK</span>
+                                        <span class="late_feb_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -325,7 +325,7 @@
                                             PAPP သက်တမ်းပြတ်ကြေး (per year) From 2015</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>100000 MMK</span>
+                                        <span class="reconnected_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -334,7 +334,7 @@
                                             PAPP သက်တမ်းပြတ်ကြေး (per year) Before 2015</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span class="reconnected_fee_before_2015"></span>
                                     </div>
                                 </div>
                             </div>
@@ -2211,6 +2211,99 @@
         </div>
     </div>
 
+    <!-- Download Form Model-->
+    <div class="modal fade" id="downloadFormModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Download Files</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div id="mentor_attach">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Contract for CII Pass and QT Pass </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/contract_CIIPass_QTPass.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Contract CII Not Pass</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/contract_CII_not_Pass.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article Attandence</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_Attandence.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article Discipline Promise</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_Discipline_promise.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article Duty Report</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_Duty_Report.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Diary</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/diary.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="complete_attach" style="display:none;">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article 1year Completed Form</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_1year_Completed_Form.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article 2year Completed Form</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_2year_Completed_Form.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article 3year Completed Form</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_3year_Completed_Form.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @push('scripts')
 <script type="text/javascript">
     $('document').ready(function(){
@@ -2219,6 +2312,8 @@
         //checkPaymentAudit();
         // audit_reg_feedback();
         // firmDashboardData();
+        loadFee('3');
+        loadFees('4');
 
         $("input[name='start_date']").flatpickr({
                 enableTime: false,
