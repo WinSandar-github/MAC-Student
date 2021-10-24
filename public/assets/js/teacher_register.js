@@ -833,10 +833,10 @@ function updateTeacher(){
                                 $('input[name=name_eng]').val(teacher.name_eng);
                                 $('input[name=father_name_mm]').val(teacher.father_name_mm);
                                 $('input[name=father_name_eng]').val(teacher.father_name_eng);
-                                $('input[name=nrc_state_region]').val(teacher.nrc_state_region);
-                                $('input[name=nrc_township]').val(teacher.nrc_township);
-                                $('input[name=nrc_citizen]').val(teacher.nrc_citizen);
-                                $('input[name=nrc_number]').val(teacher.nrc_number);
+                                $('#update_nrc_state_region').val(teacher.nrc_state_region);
+                                $('#update_nrc_township').val(teacher.nrc_township);
+                                $('#update_nrc_citizen').val(teacher.nrc_citizen);
+                                $('input[name=update_nrc_number]').val(teacher.nrc_number);
                                 $('input[name=phone_number]').val(teacher.phone);
                                 $('textarea[name=exp_desc]').val(teacher.exp_desc);
                                 $('#teacher_id').val(teacher.id);
@@ -982,6 +982,9 @@ function updateTeacher(){
                                         $('#hschool_name_renew').val(teacher.school_name);
                                         $('input[name=school_name_renew]').val(teacher.school_name);
                                     }
+                                    $('input[name=renew_t_code]').val(teacher.t_code);
+                                    $('#hrenew_teacher_card').val(teacher.teacher_card);
+                                    $(".renew_teacher_card_letter").append(`<a href='${BASE_URL+teacher.teacher_card}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
                             }
                             
                             
@@ -1190,7 +1193,7 @@ function updateRenewTeacherByReject(){
     send_data.append('reason', $('#renew_reject').val());
     send_data.append('student_info_id', $('#student_info_id').val());
     send_data.append('school_name', $('#hschool_name_renew').val());
-    
+    send_data.append('teacher_card', $('#hrenew_teacher_card').val());
     var id=$('#teacher_id').val();
     //send_data.append('_method', 'PATCH');
    show_loader();

@@ -419,9 +419,18 @@
                             {{--ဆက်သွယ်ရန်လိပ်စာ--}}
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">{{ __('၉။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
+                                            class="pull-left">{{ __('၁၁။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ(မြန်မာ)') }}</label>
                                 <div class="col-md-8">
                                     <textarea type="text" name="address" style="resize:none;" class="form-control"
+                                                  autocomplete='off' ></textarea>
+
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-md-4 col-form-label label"><span
+                                            class="pull-left">{{ __('၁၂။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ(အင်္ဂလိပ်)') }}</label>
+                                <div class="col-md-8">
+                                    <textarea type="text" name="eng_address" style="resize:none;" class="form-control"
                                                   autocomplete='off' ></textarea>
 
                                 </div>
@@ -431,7 +440,7 @@
                             {{--ဖုန်းနံပါတ်--}}
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">{{ __('၁၀။') }}</span>{{ __('ဖုန်းနံပါတ်') }}</label>
+                                            class="pull-left">{{ __('၁၃။') }}</span>{{ __('ဖုန်းနံပါတ်') }}</label>
                                 <div class="col-md-8">
                                     <input type="text" name="phone" class="form-control" placeholder="ဖုန်းနံပါတ်"
                                                autocomplete='off' >
@@ -439,7 +448,81 @@
                                 </div>
                             </div>
                             {{--ဖုန်းနံပါတ်--}}
+                            <div class="school_exist_user" style="display:none">
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label"><span
+                                                class="pull-left">{{ __('၁၄။') }}</span>{{ __('နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးခဲ့သည့် ကာလ') }}</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="last_registration_fee_year" class="form-control" autocomplete='off' >
 
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-4 col-form-label label"><span
+                                                class="pull-left">၁၅။</span>{{ __('ရပ်နားတင်ခဲ့ခြင်းရှိမရှိ') }}</label>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <div class="form-check mt-2 form-check-inline">
+                                                <input class="form-check-input" type="radio" name="request_for_temporary_stop" id="request_for_temporary_stopyes"
+                                                    value="yes" onclick="requestStop(this)"> ရှိ
+
+                                            </div>
+                                            <div class="form-check mt-2 form-check-inline">
+                                                <input class="form-check-input" type="radio" name="request_for_temporary_stop" id="request_for_temporary_stopno"
+                                                    value="no" onclick="requestStop(this)"> မရှိ
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <input type="hidden" id="offline_user" >
+                                <div class="request_stop_yes" style="display:none;">
+                                    <div class="row mb-3">
+                                        <label class="col-md-4 col-form-label label">ရပ်နားတင်ခဲ့သည့် ရက်စွဲ</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="from_request_stop_date" class="form-control" autocomplete='off' >
+
+                                        </div>
+                                        <!-- <div class="col-md-4">
+                                            <input type="text" name="to_request_stop_date" class="form-control" placeholder="to(dd-mm-yyyy)"
+                                                    autocomplete='off' >
+
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                        <label class="col-md-4 col-form-label label"><span
+                                                    class="pull-left">၁၆။</span>ကနဦးကျောင်းမှတ်ပုံတင်ကတ်ထုတ်ပေးသည့် ရက်စွဲ</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" id="from_valid_date" name="from_valid_date" autocomplete='off' >
+                                            
+                                        </div>
+                                </div>
+                                <div class="row mb-3">
+                                        <label class="col-md-4 col-form-label label"><span
+                                                    class="pull-left">၁၇။</span>ကျောင်းမှတ်ပုံတင်အမှတ်</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" id="s_code" name="s_code" autocomplete='off' >
+                                            
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <label class="col-md-4 col-form-label label"><span
+                                                    class="pull-left">၁၈။</span>ကျောင်းမှတ်ပုံတင်ကတ်ပြား</label>
+                                        <div class="col-md-8">
+                                            <input type="file" class="form-control" id="school_card" name="school_card" >
+                                            
+                                        </div>
+                                </div>
+                                <div class="row mb-3">
+                                        <label class="col-md-4"></label>
+                                        <div class="col-md-8 school_card_letter">
+                                            <input type="hidden" class="form-control" id="hschool_card" >
+                                            
+                                        </div>
+                                </div>
+                            </div>
                             <div class="row mb-1">
                                 <h5 class="p-4 fw-bolder">{{ __('သင်တန်းကျောင်းအချက်အလက်များ') }}</h5>
                             </div>
@@ -837,7 +920,7 @@
 
                             </div>
                             <div class="row">
-                                <h5 class="p-4 fw-bolder">{{ __('ကျောင်းအဆောက်အဦး၊စာသင်ခန်း၊သန့်စင်ခန်း၊စီမံရုံးခန်း') }}</h5>
+                                <h5 class="p-4 fw-bolder">{{ __('ကျောင်းအဆောက်အဦ၊စာသင်ခန်း၊သန့်စင်ခန်း၊စီမံရုံးခန်း') }}</h5>
                             </div>
 
 

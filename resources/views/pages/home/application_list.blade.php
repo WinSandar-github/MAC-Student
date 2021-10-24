@@ -89,10 +89,10 @@
                                             <table width="100%" id="tbl_application" class="table table-hover text-nowrap ">
                                                 <thead>
                                                     <tr>
-                                                        <th class="bold-font-weight" >No</th>
+                                                        <th class="bold-font-weight" >စဥ်</th>
                                                         <th class="bold-font-weight" >အမည်</th>
-                                                        <th class="bold-font-weight" >အဖအမည်</th>
-                                                        <th class="bold-font-weight" >မှတ်ပုံတင်နံပါတ်</th>
+                                                        <th class="bold-font-weight" >နိင်ငံသားစိစစ်ရေးကဒ်ပြားအမှတ်</th>
+                                                        <th class="bold-font-weight" >အဘအမည်</th>
                                                        
 
                                                     </tr>
