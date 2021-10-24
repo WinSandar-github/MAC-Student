@@ -207,6 +207,7 @@
                                     <input type="hidden" id="branch_own_type_h">
                                     <input type="hidden" id="hinitial_status">
                                     <input type="hidden" id="type">
+                                    <input type="hidden" id="from_valid_date">
                                     <input type="hidden" id="initial_reject" value="This user is rejecter but this user is updated">
                                     <div class="col-md-8">
                                         
@@ -304,7 +305,22 @@
                                         <input type="text" class="form-control" id="regno" readonly>
                                         
                                     </div>
-                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label"><span
+                                                class="pull-left">၉။</span>ကျောင်းမှတ်ပုံတင်ကတ်ပြား</label>
+                                    <div class="col-md-8">
+                                        <input type="file" class="form-control" id="school_card" name="school_card" >
+                                        
+                                    </div>
+                            </div>
+                            <div class="row mb-3">
+                                        <label class="col-md-4"></label>
+                                        <div class="col-md-8 school_card_letter">
+                                            <input type="hidden" class="form-control" id="hschool_card" >
+                                            
+                                        </div>
+                            </div>
                                 <!-- <div class="row mb-3">
                                     <label class="col-md-4 col-form-label label"><span
                                                 class="pull-left">၉။</span>Applied Date</label>
@@ -323,7 +339,7 @@
                                 </div> -->
                                 <div class="row mb-3">
                                     <label class="col-md-8 col-form-label label"><span
-                                                class="pull-left">၉။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
+                                                class="pull-left">၁၀။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
 
                                     
                                 </div>
@@ -475,12 +491,22 @@
                                             </div>
                                     </div>
                                     <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span
-                                                        class="pull-left">၃။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ') }}</label>
-                                            <div class="col-md-8">
-                                            <textarea type="text" style="resize:none;" name="school_address" class="form-control" autocomplete='off' ></textarea>
-                                            </div>
-                                        
+                                        <label class="col-md-4 col-form-label label"><span
+                                                    class="pull-left">၃။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ(မြန်မာ)') }}</label>
+                                        <div class="col-md-8">
+                                            <textarea type="text" style="resize:none;" name="school_address"
+                                                        class="form-control" autocomplete='off' ></textarea>
+
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label class="col-md-4 col-form-label label"><span
+                                                    class="pull-left">၄။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ(အင်္ဂလိပ်)') }}</label>
+                                        <div class="col-md-8">
+                                            <textarea type="text" style="resize:none;" name="eng_school_address"
+                                                        class="form-control" autocomplete='off' ></textarea>
+
+                                        </div>
                                     </div>
                                     <div class="row mb-3">
 
@@ -501,7 +527,7 @@
                                     </div>
                                     <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span
-                                                    class="pull-left">၄။</span>{{ __('ပိုင်ဆိုင်မှုပုံစံ') }}</label>
+                                                    class="pull-left">၅။</span>{{ __('ပိုင်ဆိုင်မှုပုံစံ') }}</label>
 
                                         <div class="col-md-8">
                                             
@@ -561,7 +587,7 @@
                                         <div class="row mb-3">
 
                                             <label class="col-md-4 col-form-label label"><span
-                                                        class="pull-left">၅။</span>{{ __('ကျောင်းခွဲတည်နေရာလိပ်စာ') }}</label>
+                                                        class="pull-left">၆။</span>{{ __('ကျောင်းခွဲတည်နေရာလိပ်စာ') }}</label>
                                         </div>
                                         <div class="row">
 
