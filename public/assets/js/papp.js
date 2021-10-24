@@ -359,6 +359,7 @@ function Papp_Submit(){
     data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
     data.append('type',0);
     data.append('self_confession',JSON.stringify($arr));
+    data.append('self_confession1', $("input[name=self_confession_PAPP]").val());
     show_loader(); 
     if($('#papp_id').val())
     {
@@ -808,6 +809,7 @@ function RenewPAPP(){
                 send_data.append('type',1);
                 //send_data.append('_method', 'POST');
                 send_data.append('self_confession',JSON.stringify($arr));
+                send_data.append('self_confession1', $("input[name=self_confession_PAPP]").val());
                 show_loader();
                 if($('#papp_id').val()){
                     send_data.append('papp_id',$('#papp_id').val());
@@ -819,16 +821,18 @@ function RenewPAPP(){
                         processData: false,
                         success: function(result){
                             EasyLoading.hide();
+                            successMessage(result.message);
+                            setTimeout(() => {
+                                location.href = FRONTEND_URL+'/';
+                            }, 2000);
                             document.getElementById('approved').style.display='none';
                             document.getElementById('rejected').style.display='none';
                             document.getElementById('pending').style.display='none';
                             document.getElementById('papp_form').style.display='none';
                             document.getElementById('papp_renew_form').style.display='none';
                             document.getElementById('expiry_card').style.display='none';
-                            successMessage(result.message);
-                            setTimeout(() => {
-                                location.href = FRONTEND_URL+'/';
-                            }, 2000);
+                            
+                            
                         },
                         error:function (message){
                         }
@@ -1067,7 +1071,7 @@ function createReconnectPapp(){
     } 
     send_data.append('type',2);
     send_data.append('self_confession',JSON.stringify($arr));
-    console.log($arr,"arr");
+    send_data.append('self_confession1',$("input[name=self_confession_PAPP]").val());
     show_loader();
     if($('#reconnect_papp_id').val()){
         send_data.append('papp_id',$('#reconnect_papp_id').val());
