@@ -79,13 +79,22 @@ $().ready(function (){
 
             if(branch_off_validate_flag == true && partners_validate_flag == true && directors_validate_flag == true && total_staff_validate_flag == true && service_provided_validate_flag == true && dir_staffmember_validate_flag == true){
 
-              if($("input[name=reject_type]") == 0){
-                // initial reject
+              if($("input[name=reject_type]").val() == 0 && $("input[name=offline_user]").val() == 1){
+                // offline initial reject
                 nonAuditRejectUpdate();
+                //nonAuditInitialRejectUpdate();
               }
-              else{
-                // renew reject
+              else if($("input[name=reject_type]").val() == 1 && $("input[name=offline_user]").val() == 1){
+                // offline renew reject
                 nonAuditRenewRejectUpdate();
+              }
+              else if($("input[name=reject_type]").val() == 0 && $("input[name=offline_user]").val() == 0){
+                // normal reject
+                nonAuditInitialRejectUpdate();
+              }
+              else if($("input[name=reject_type]").val() == 1 && $("input[name=offline_user]").val() == 0){
+                // normal renew reject
+                nonAuditInitialRejectUpdate();
               }
             }
             else{
