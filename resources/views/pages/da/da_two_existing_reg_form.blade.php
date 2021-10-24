@@ -82,7 +82,7 @@
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                            {{-- <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6> --}}
+                                            <h6>အမှတ်စဥ် - <span id="batch_number">{{$batch['number']}}</span></h6> 
                                         </div>
                                     </div>
 
@@ -440,7 +440,7 @@
                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <select class="form-control form-select" name="selected_batch_name" id="selected_batch_id" required>
+                                                <select class="form-control form-select" name="selected_passed_batch_name" id="selected_passed_batch_id" required>
                                                     <option value="" disabled selected>သင်တန်းအမှတ်စဉ် ရွေးချယ်ပါ</option>
                                                 </select>
                                             </div>
@@ -598,7 +598,7 @@
                                                     <input class="form-check-input" type="radio"
                                                             name="is_full_module" value='0' >
                                                     <span class="form-check-sign"></span>
-                                                    Other
+                                                    None
                                                 </label>
                                             </div>
                                             <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
@@ -864,7 +864,7 @@
             });
             $('#btn_cash').prop('disabled', true);
         });
-        // loadPassedBatchList();
+        loadPassedBatchList();
         loadCurrentBatchList();
     </script>
 @endpush

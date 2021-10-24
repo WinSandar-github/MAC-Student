@@ -1012,6 +1012,7 @@ function loadFile(file,divname){
     $("."+divname).append(file);
 
 }
+
 function loadDescription(membership_name,divname){
   $('.application-fee').html("");
   $('.registration-fee').html("");
@@ -1033,6 +1034,7 @@ function loadDescription(membership_name,divname){
     url: BACKEND_URL+"/showDescription/"+membership_name,
     success: function (result) {
       var data=result.data;
+      // console.log(data)
       var application_fee=0;
       var registration_fee=0;
       var renew_registration_fee=0;
@@ -1123,6 +1125,63 @@ function loadDescription(membership_name,divname){
     }
   })
 }
+
+function loadFee(id){
+  // $('.application-fee').html("");
+  $.ajax({
+    type: "get",
+    url: BACKEND_URL+"/showFee/"+id,
+    success: function (result) {
+      var data=result.data;
+      // console.log(data[0].form_fee);
+      var form_fee = data[0].form_fee;
+      var registration_fee = data[0].registration_fee;
+      var renew_fee = data[0].renew_fee;
+      var late_fee = data[0].late_fee;
+      var late_feb_fee = data[0].late_feb_fee;
+      var reconnected_fee = data[0].reconnected_fee;
+      var reconnected_fee_before_2015 = data[0].reconnected_fee_before_2015;
+      
+      $('#form_fee').append(thousands_separators(form_fee)+" MMK");
+      $('#form_fee1').append(thousands_separators(form_fee)+" MMK");
+      $('#registration_fee').append(thousands_separators(registration_fee)+" MMK");
+      $('#renew_fee').append(thousands_separators(renew_fee)+" MMK");
+      $('#late_fee').append(thousands_separators(late_fee)+" MMK");
+      $('#late_feb_fee').append(thousands_separators(late_feb_fee)+" MMK");
+      $('#reconnected_fee').append(thousands_separators(reconnected_fee)+" MMK");
+      $('#reconnected_fee_before_2015').append(thousands_separators(reconnected_fee_before_2015)+" MMK");
+    }
+  })
+}
+
+function loadFees(id){
+  // $('.application-fee').html("");
+  $.ajax({
+    type: "get",
+    url: BACKEND_URL+"/showFees/"+id,
+    success: function (result) {
+      var data=result.data;
+      // console.log(data[0].form_fee);
+      var form_fee = data[0].form_fee;
+      var registration_fee = data[0].registration_fee;
+      var renew_fee = data[0].renew_fee;
+      var late_fee = data[0].late_fee;
+      var late_feb_fee = data[0].late_feb_fee;
+      var reconnected_fee = data[0].reconnected_fee;
+      var reconnected_fee_before_2015 = data[0].reconnected_fee_before_2015;
+      
+      $('.form_fee').append(thousands_separators(form_fee)+" MMK");
+      $('.form_fee1').append(thousands_separators(form_fee)+" MMK");
+      $('.registration_fee').append(thousands_separators(registration_fee)+" MMK");
+      $('.renew_fee').append(thousands_separators(renew_fee)+" MMK");
+      $('.late_fee').append(thousands_separators(late_fee)+" MMK");
+      $('.late_feb_fee').append(thousands_separators(late_feb_fee)+" MMK");
+      $('.reconnected_fee').append(thousands_separators(reconnected_fee)+" MMK");
+      $('.reconnected_fee_before_2015').append(thousands_separators(reconnected_fee_before_2015)+" MMK");
+    }
+  })
+}
+
 function ownTypeForm(){
   $('#ownType_letter').css('display','block');
 }

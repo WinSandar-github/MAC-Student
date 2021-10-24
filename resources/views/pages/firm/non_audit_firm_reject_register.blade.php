@@ -64,6 +64,8 @@
                   </div>
                   <input type="hidden" value="2" name="audit_firm_type_id">
 	                <input type="hidden" value="1" name="local_foreign_type">
+                  <input type="hidden" value="" name="firm_id">
+                  <input type="hidden" name="reject_type" id="reject_type" value="0" />
                 <!-- <br> -->
 
                     <div class="card-header"  id="local_info" style="display:none;">
@@ -208,7 +210,7 @@
 								</div>
 
                 <div class="row mb-3">
-                  <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('4.') }}</span>Address of Practice(Head Office)</label>
+                  <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('3.') }}</span>Address of Practice(Head Office)</label>
                   <div class="col-md-8">
                       <label for="" class="control-label text-muted fw-bolder"><small>Head Office Address(English)</small></label>
                       <textarea name="head_office_address" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
@@ -260,7 +262,7 @@
                 </div><br>
 
                 <div class="row">
-									<label class="col-md-1 col-form-label">{{ __('5.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('4.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Branch Office') }}</label>
 									<label for="" class="col-md-4 branch_office_validate col-form-label" style="display:none;color:#ef815;">Please Fill Branch Office</label>
 								</div>
@@ -295,7 +297,7 @@
 								</div>
 
                 <div class="row">
-									<label class="col-md-1 col-form-label">{{ __('6.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('5.') }}</label>
 									<label class="col-md-4 col-form-label">{{ __('Sole Proprietor/Partners/Shareholders') }}</label>
 									<label for="" class="col-md-6 non_partner_validate col-form-label" style="display:none;color:#ef815;">Please Fill Sole Proprietor/Partners/Shareholders</label>
 								</div>
@@ -325,7 +327,7 @@
 								</div>
 
                 <div class="row">
-									<label class="col-md-1 col-form-label">{{ __('7.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('6.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Director(s)/Officer(s)') }}</label>
 									<label for="" class="col-md-4 non_director_validate col-form-label" style="display:none;color:#ef815;">Please Fill Director(s)/Officer(s)</label>
 								</div>
@@ -361,7 +363,7 @@
 								</div>
 
 								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('8.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('7.') }}</label>
 									<label class="col-md-11 col-form-label">{{ __('Organization Structure') }}</label>
 								</div>
 								<div class="row">
@@ -1060,7 +1062,7 @@
 
 
                 <div class="row">
-									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('8.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Name of Managing Director') }}</label>
 									<div class="col-md-4 col-form-label">
 										<div class="form-group">
@@ -1076,7 +1078,7 @@
 								</div>
 
                 <div class="row">
-									<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
 									<label class="col-md-2 col-form-label">{{ __('Total Staff') }}</label>
 									<label for="" class="col-md-6 total_staff_validate col-form-label" style="display:none;color:#ef815;">Please Fill Total Staff</label>
 								</div>
@@ -1111,7 +1113,7 @@
 								</div>
 
                 <div class="row">
-									<label class="col-md-1 col-form-label">{{ __('11.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
 									<label class="col-md-4 col-form-label">{{ __('Types of Service Provided') }}</label>
 									<label class="col-md-6 col-form-label" id="type_service_validate" style="display: none;color:#ef815;">Please Fill Types Of Service Provided</label>
 
@@ -1156,7 +1158,7 @@
 
                 <div id="last_registered_year_box" style="display:none;">
                   <div class="row mb-5">
-                      <label for="" class="col-md-1 col-form-label">12.</label>
+                      <label for="" class="col-md-1 col-form-label">11.</label>
                       <label for="" class="col-md-4 col-form-label">Last Registered Year</label>
 
                       <div class="col-md-3">
@@ -1167,7 +1169,7 @@
 
                 <div style="display:none" id="req_for_stop_box">
                   <div class="row mb-5">
-                      <label for="" class="col-md-1 col-form-label">14.</label>
+                      <label for="" class="col-md-1 col-form-label">12.</label>
                       <label for="" class="col-md-4 col-form-label">Suspended Year</label>
                       <div class="row col-md-7 py-2">
                           <div class="col-md-3 form-check-radio mx-2">
@@ -1238,7 +1240,8 @@
 
 								<div id="director_staffmembers" style="display:none;">
 									<div class="row">
-										<label class="col-md-1 col-form-label" id="label1">12.</label>
+                    <label class="col-md-1 col-form-label" style="display:none;" id="dir_label2">11.</label>
+										<label class="col-md-1 col-form-label" id="label1">13.</label>
 										<label class="col-md-11 col-form-label">{{ __('Particulars Of Directors/ Staff Members Who Is A Myanmar CPA') }}</label>
 
 									</div>
@@ -1256,12 +1259,12 @@
 																<th class="less-font-weight" rowspan="2">CPA(Passed Reg.No)</th>
 																<th class="less-font-weight" rowspan="2">CPA (Full-Fledged) Reg.No</th>
 																<th class="less-font-weight" rowspan="2">Public Practice Reg.No</th>
-																<th class="less-font-weight" style="text-align: right;">
-																	<button class="btn btn-primary btn-sm" type="button" onclick='addRowDirectorCPA("director_cpa_initial")'>
-																		<i class="fa fa-plus"></i>
-																	</button>
 
-																</th>
+                                <th class="less-font-weight text-center">
+                                  <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDirectorCPA("director_cpa_initial")'>
+                                    <li class="fa fa-plus"></li>
+                                  </button>
+                                </th>
 															</tr>
 
 														</thead>

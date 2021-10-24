@@ -107,7 +107,6 @@ Route::get('cpa_one_dapass_form/{id}', 'CPAOneRegisterController@cpaOneDaPassFor
 Route::get('cpa_one_entry_app_form/{id}', 'CPAOneRegisterController@cpaOneEntryAppForm');
 
 Route::get('cpa_edit', 'CPAOneRegisterController@cpaEdit');
-Route::get('existing_user_cpa_one', 'CPAOneRegisterController@existing_user_cpa_one');
 
 //Entry Exam form edit
 Route::get('entry_edit', 'CPAOneRegisterController@entry_edit');
@@ -226,9 +225,17 @@ Route::get('reconnect','ReconnectController\ReconnectController@reconnect');
 Route::get('reconnect_papp','ReconnectController\ReconnectController@reconnect_papp');
 
 //da existing register
-Route::get('da_one_existing_reg_form', 'ReconnectController\ReconnectController@DAOneExistingRegForm');
-Route::get('da_two_existing_reg_form','ReconnectController\ReconnectController@da_two_registerForm');
+Route::get('da_one_existing_reg_form/{batch_id}', 'ReconnectController\ReconnectController@DAOneExistingRegForm');
+Route::get('da_two_existing_reg_form/{batch_id}','ReconnectController\ReconnectController@da_two_registerForm');
+
+Route::get('da_one_existing_reg_edit_form', 'ReconnectController\ReconnectController@daOneExistingEditForm');
+Route::get('da_two_existing_reg_edit_form', 'ReconnectController\ReconnectController@daTwoExistingEditForm');
 
 //cpa_two_register for cpa_one_pass
 // Route::get('cpa_two_reg_cpaone_pass', 'CPATwoRegisterController@CPATwoRegCpaOnePassForm');
-Route::get('cpa_two_reg_cpaone_pass','ReconsnectController\ReconnectController@CPATwoRegCpaOnePassForm');
+Route::get('existing_user_cpa_one/{batch_id}', 'ReconnectController\ReconnectController@existing_user_cpa_one');
+Route::get('cpa_two_reg_cpaone_pass/{batch_id}','ReconnectController\ReconnectController@CPATwoRegCpaOnePassForm');
+
+Route::get('cpa_one_existing_edit_form', 'ReconnectController\ReconnectController@cpaOneExistingEditForm');
+Route::get('cpa_two_existing_edit_form', 'ReconnectController\ReconnectController@cpaTwoExistingEditForm');
+
