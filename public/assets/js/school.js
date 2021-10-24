@@ -482,7 +482,7 @@ function loadRenewSchool(){
             
             if(school.approve_reject_status==1){//initial renew
               
-                $('#school_approve').css('display','none');
+                $('#school_approve').hide();
                 // document.getElementById('school_detail').style.display='none';
                 // document.getElementById('school_renew_form').style.display='block';
                 $('#school_detail').hide();
