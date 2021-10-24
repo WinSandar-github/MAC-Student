@@ -606,7 +606,7 @@
                                                                     <div class="col-md-8">
                                                                         <div class="row" >
                                                                             <div class="col-md-2 col-5 px-1">
-                                                                                <select class="form-control" name="nrc_state_region" id="nrc_state_region" >
+                                                                                <select class="form-control" name="update_nrc_state_region" id="update_nrc_state_region" >
                                                                                     @foreach($nrc_regions as $region)
                                                                                         <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                                             {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
@@ -615,7 +615,7 @@
                                                                                 </select>
                                                                             </div>
                                                                             <div class="col-md-3 col-7 px-1">
-                                                                                <select class="form-control" name="nrc_township" id="nrc_township" >
+                                                                                <select class="form-control" name="update_nrc_township" id="update_nrc_township" >
                                                                                     @foreach($nrc_townships as $township)
                                                                                         <option value="{{ $township['township_mm'] }}">
                                                                                             {{ $township['township_mm'] }}
@@ -625,7 +625,7 @@
                                                                                 
                                                                             </div>
                                                                             <div class="col-md-2 col-5 px-1">
-                                                                                <select class="form-control" name="nrc_citizen" id="nrc_citizen" >
+                                                                                <select class="form-control" name="update_nrc_citizen" id="update_nrc_citizen" >
                                                                                     @foreach($nrc_citizens as $citizen)
                                                                                     <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                                         {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
@@ -635,7 +635,7 @@
                                                                             </div>
 
                                                                             <div class="col-md-5 col-7 pl-1">
-                                                                            <input type="text" name="nrc_number" id="nrc_number"  autocomplete='off'  pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6" placeholder="" style="height: 38px" >
+                                                                            <input type="text" name="update_nrc_number" id="update_nrc_number"  autocomplete='off'  pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6" placeholder="" style="height: 38px" >
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1309,7 +1309,29 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
+                                                        <label class="col-md-3 col-form-label label">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</label>
+                                                            <div class="col-md-8">
+                                                                <input type="text" class="form-control" id="renew_t_code" name="renew_t_code" readonly>
+                                                                
+                                                            </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
+                                                        <label class="col-md-3 col-form-label label">သင်တန်းဆရာမှတ်ပုံတင်ကတ်ပြား</label>
+                                                            <div class="col-md-8">
+                                                                <input type="file" name="renew_teacher_card" class="form-control" accept="image/*" >
+                                                                
+                                                            </div>
+                                                    </div> 
+                                                    <div class="row">
+                                                    <input type="hidden" id="hrenew_teacher_card">
+                                                                                <label for="" class="col-md-4"></label>
+                                                                                <div class="col-md-8 renew_teacher_card_letter">
+                                                                        
+                                                                                </div>
+                                                    </div>
                                                     <div class="row mb-3">
                                                         <div class="col-md-1"></div>
                                                         <label class="col-md-10 col-form-label fw-bolder">
