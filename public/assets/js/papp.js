@@ -819,16 +819,18 @@ function RenewPAPP(){
                         processData: false,
                         success: function(result){
                             EasyLoading.hide();
+                            successMessage(result.message);
+                            setTimeout(() => {
+                                location.href = FRONTEND_URL+'/';
+                            }, 2000);
                             document.getElementById('approved').style.display='none';
                             document.getElementById('rejected').style.display='none';
                             document.getElementById('pending').style.display='none';
                             document.getElementById('papp_form').style.display='none';
                             document.getElementById('papp_renew_form').style.display='none';
                             document.getElementById('expiry_card').style.display='none';
-                            successMessage(result.message);
-                            setTimeout(() => {
-                                location.href = FRONTEND_URL+'/';
-                            }, 2000);
+                            
+                            
                         },
                         error:function (message){
                         }

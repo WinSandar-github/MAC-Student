@@ -358,8 +358,8 @@ function user_profile() {
                         if ((now.getFullYear() == y && (now.getMonth() + 1) == month) || now.getFullYear() > year) {
                             // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
                             // $('.status_history').append('PAPP ' + is_renew + ' Registration Form is Approved.<br><br>');
-                            $('.status_history').append('Action &nbsp;&nbsp;');
-                            $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
+                            // $('.status_history').append('Action &nbsp;&nbsp;');
+                            // $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
                         } else if (check_month >= 10 || check_month <= 3) {
                             // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
                             // $('.status_history').append('PAPP ' + is_renew + ' Registration Form is Approved.<br><br>');
@@ -967,6 +967,7 @@ function user_profile() {
 
                             </tr>
                             `);
+                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/renew_papp' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
                             $('.papp_btn').css('display', 'none');
                             // var accept = new Date(cpaff.renew_accepted_date);
                             // var month = accept.getMonth();

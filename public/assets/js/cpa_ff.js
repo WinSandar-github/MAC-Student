@@ -185,6 +185,52 @@ function AddCPAFFInitialDegree() {
     count++;
 
 }
+
+function AddPAPPReconnectDegree() {
+    $("#edu").append(
+        '<div class="row mb-2" id="degree' + count + '">' +
+        '<div class="col-md-1"></div>' +
+        '<div class="col-md-3 col-auto">' +
+        '<label for="" class="col-form-labe"> ဘွဲ့အမည်</label>' +
+        '</div>' +
+        '<div class="col-md-7 col-auto">' +
+        '<input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">' +
+        '</div>' +
+        '</div>' +
+        '<div class="row mb-2" id="degree_year' + count + '">' +
+        '<div class="col-md-1"></div>' +
+        '<div class="col-md-3 col-auto">' +
+        '<label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>' +
+        '</div>' +
+        '<div class="col-md-7 col-auto">' +
+        '<input type="text"  class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">' +
+        '</div>' +
+        '</div>' +
+
+        '<div class="row mb-4" id="edu' + count + '">' +
+        '<div class="col-md-1"></div>' +
+        '<div class="col-md-3 col-auto">' +
+        '<label for="" class="col-form-labe"> Attached Certificate</label>' +
+        '</div>' + '<div class="col-md-2 foreign_degree_file"></div>' +
+        '<div class="col-md-5">' +
+        '<input type="file"  class="form-control"  id="degree_file' + count + '"  name="degree_file[]">' +
+        '</div>' +
+        '<div class="col-md-1 text-center"  id="edu' + count + '_remove">' +
+        '<button class="btn btn-danger" id="myLink"  style="padding-left:5px;" onclick="remove(degree' + count + ',degree_year' + count + ',edu' + count + ')">' +
+        '<i class="fa fa-trash "></i>' +
+        '</button>' +
+        '</div>' +
+        '</div>'
+    );
+
+    $('.degree_pass_year').flatpickr({
+        enableTime: false,
+        dateFormat: "M-Y",
+        allowInput: true,
+    });
+    count++;
+
+}
 function remove(id1, id2, id3) {
 
     id1.remove();
