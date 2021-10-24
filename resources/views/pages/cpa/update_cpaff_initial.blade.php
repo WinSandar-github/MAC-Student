@@ -161,6 +161,31 @@
                                         <input type="text"  class="form-control" name="father_name_eng" id="father_name_eng">
                                     </div>
                                 </div>
+
+                                <div class="row mb-3" style="padding-left: 95px;">
+                                    <div class="col-md-4 col-form-label label"><span class="pull-left">(ဃ)</span>ကျား / မ (Gender)</div>
+                                    <div class="row col-md-8 py-2">
+                                        <div class="col-md-3 form-check-radio mx-2">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" id="male"
+                                                        name="gender" value="Male" required>
+                                                <span class="form-check-sign"></span>
+                                                ကျား
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3 form-check-radio mx-2">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" id='female'
+                                                        name="gender" value='Female' required>
+                                                <span class="form-check-sign"></span>
+                                                မ
+                                            </label>
+                                        </div>
+                                        
+                                        <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="col-md-3 text-center">
                                 {{--User Photo--}}
@@ -183,7 +208,7 @@
                             </div>
                                  
                                 <div class="row" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဃ)') }}</span>{{ __('ပညာအရည်အချင်း') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('ပညာအရည်အချင်း') }}</div>
                                     <div class="col-md-8">
                                         <div class="row mb-2">
                                             <div class="col-md-7">
@@ -267,13 +292,13 @@
                                 </div>
 
                                 <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(စ)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
                                         <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(စ)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဆ)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
                                     <div class="col-md-8">
                                         <input type="text"  class="form-control" name="address" id="address" placeholder="" >
                                     </div>
@@ -303,7 +328,7 @@
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 mt-2">
-                                        <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()">
+                                        <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()" style="margin-top: 20px;">
                                     </div>
                                     <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;"> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="cpa2_reg_no" id="cpa2_reg_no" class="form-control" style="display: inline;width: 100px;"> ဖြင့် အောင်မြင်ပါသည်။</label>
                                 </div>
@@ -311,7 +336,7 @@
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 mt-2">
-                                        <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckPartTwo()">
+                                        <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckPartTwo()" style="margin-top: 10px;">
                                     </div>
                                     <label class="col-md-10 col-form-label"><input type="text" name="country" id="country" class="form-control" style="display: inline;width: 100px;" > နိုင်ငံ <input type="text" name="government" id="government" class="form-control" style="display: inline;width: 100px;" >အဖွဲ့အစည်းကပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီက 
                                     <input type="text" name="exam_year" id="exam_year" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" > ခုနှစ် <input type="text" name="exam_month" id="exam_month" placeholder="Month" class="form-control" style="display: inline;width: 100px;" > လတွင်
@@ -568,26 +593,39 @@
             $('#government').val(cpaff.government);
             $('#roll_no').val(cpaff.roll_no);
             $('#total_hours').val(cpaff.total_hours);
-            var cpa2_pass_date=new Date(cpaff.cpa2_pass_date);
-            var exam_year=new Date(cpaff.exam_year);
-            var exam_month=new Date(cpaff.exam_month);
+            // var cpa2_pass_date=new Date(cpaff.cpa2_pass_date);
+            // var exam_year=new Date(cpaff.exam_year);
+            // var exam_month=new Date(cpaff.exam_month);
 
-            if(cpaff.cpa2_pass_date!=null || cpaff.cpa_batch_no!=null){
+            if(cpaff.cpa2_pass_date!=null || cpaff.cpa2_reg_no!=null){
                 $('#cpa_part_2_check').attr('checked',true);
                 $('#cpa_part_2_check').attr('disabled',false);
-                $("input[name='cpa2_pass_date']").val(cpa2_pass_date.getFullYear());
+                $('#qt_pass_check').attr('disabled',true);
+                // $("input[name='cpa2_pass_date']").val(cpa2_pass_date.getFullYear());
+                $("input[name='country']").attr('disabled',true);
+                $("input[name='government']").attr('disabled',true);
+                $("input[name='exam_year']").attr('disabled',true);
+                $("input[name='exam_month']").attr('disabled',true);
+                $("input[name='roll_no']").attr('disabled',true);
+                $("input[name='cpa2_pass_date']").val(cpaff.cpa2_pass_date);
                 $("input[name='cpa2_reg_no']").val(cpaff.cpa2_reg_no);
             }
             else if(cpaff.country!=null || cpaff.government!=null || cpaff.exam_year!=null || cpaff.exam_month!=null || cpaff.roll_no!=null)
             {
                 // $('#used_firm_check').attr('checked',true);
+                $('#cpa_part_2_check').attr('disabled',true);
                 $('#qt_pass_check').attr('checked',true);
                 $('#qt_pass_check').attr('disabled',false);
 
+                $("input[name='cpa2_pass_date']").attr('disabled',true);
+                $("input[name='cpa2_reg_no']").attr('disabled',true);
+
                 $("input[name='country']").val(cpaff.country);
                 $("input[name='government']").val(cpaff.government);
-                $("input[name='exam_year']").val(exam_year.getFullMonth());
-                $("input[name='exam_month']").val(exam_month.getFullMonth());
+                // $("input[name='exam_year']").val(exam_year.getFullMonth());
+                $("input[name='exam_year']").val(cpaff.exam_year);
+                // $("input[name='exam_month']").val(exam_month.getFullMonth());
+                $("input[name='exam_month']").val(cpaff.exam_month);
                 $("input[name='roll_no']").val(cpaff.roll_no);
             }
             
