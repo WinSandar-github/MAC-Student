@@ -4,7 +4,7 @@
     <div class="section slider-section">
         <div class="slider-images">
             <div class="images text-center" style="width : 100%">
-                <img src="assets/images/mac_images/macschoolimg.png" style="width: 30000px" alt="Slider">
+                <img src="assets/images/mac_images/MAC_HomePage.jpg" style="width: 30000px" alt="Slider">
             </div>
         </div>
         <!-- Slider Shape Start -->
@@ -90,7 +90,7 @@
 
     </div>
 
-        <div class="section">
+        <div class="section section-padding-02 " style="margin-bottom: 50px;padding-top : 0px" >
             <div class="container">
 
                 <!-- All Courses Tabs Menu Start -->

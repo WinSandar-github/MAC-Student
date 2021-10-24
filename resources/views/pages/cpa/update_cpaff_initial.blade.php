@@ -24,8 +24,6 @@
         <!-- Page Banner Start -->
         <div class="section page-banner">
 
-            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">--}}
-
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png')}}" alt="Shape">
 
             <div class="container">
@@ -39,45 +37,14 @@
                 </div>
                 <!-- Page Banner End -->
             </div>
-
-            <!-- Shape Icon Box Start -->
-            {{--<div class="shape-icon-box">
-
-                <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}" alt="Shape">
-
-                <div class="box-content">
-                    <div class="box-wrapper">
-                        <i class="flaticon-badge"></i>
-                    </div>
-                </div>
-
-                <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
-
-            </div>--}}
             <!-- Shape Icon Box End -->
 
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
-
-            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
 
         </div>
         <div class="container" style="overflow: hidden;">
 
             <div class="row mt-5">
-                <div class="col-md-12 text-center" style="display:none;font-weight:bold;font-size:20px;" name="check_age" id="check_age">
-                    <label class="col-md-12 col-form-label">{{ __('အသက် ၂၁ မပြည့်​သေးပါသဖြင့် ဤ Form အား ဖြည့်စွက်၍ မရနိုင်ပါ။') }}</label>
-
-                    <br/>
-                    <br/>
-                    <br/>
-                </div>
-                <div class="col-md-12 text-center" style="display:none;font-weight:bold;font-size:20px;" name="pass_cpa_two" id="pass_cpa_two">
-                    <label class="col-md-12 col-form-label">{{ __('CPA 2 မအောင်မြင်သေးပါသဖြင့် ဤ Form အား ဖြည့်စွက်၍ မရနိုင်ပါ။') }}</label>
-
-                    <br/>
-                    <br/>
-                    <br/>
-                </div>
                 <div class="col-md-12 text-center mb-5" style="font-weight:bold;font-size:20px;" name="remark" id="remark">
                     <label>Reject လုပ်ရသည့်အကြောင်းအရင်း</label><label class="col-md-12 col-form-label text-danger" id="remark_description"></label>
                 </div>
@@ -122,7 +89,7 @@
                                         <input type="text"  class="form-control" name="name_eng" id="name_eng">
                                     </div>
                                 </div>
-                                <div class="row mb-3" style="padding-left: 100px;">
+                                {{--<div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ခ)') }}</span>{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
                                     <div class="col-md-8">
                                         <div class="row">
@@ -141,6 +108,49 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>--}}
+                                <div class="row mb-3" style="padding-left: 100px;">
+                                    <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ခ)') }}</span>{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-md-2 col-5 pr-1">
+                                                <select class="form-control" name="nrc_state_region" id="nrc_state_region">
+                                                    <option value="" disabled selected>ရွေးပါ</option>
+                                                    @foreach($nrc_regions as $region)
+                                                        <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
+                                                            {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 col-7 px-1">
+                                                <select class="form-control" name="nrc_township" id="nrc_township">
+                                                    <option value="" disabled selected>ရွေးပါ</option>
+                                                    @foreach($nrc_townships as $township)
+                                                        <option value="{{ $township['township_mm'] }}">
+                                                            {{ $township['township_mm'] }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2 col-5 px-1">
+                                                <select class="form-control" name="nrc_citizen" id="nrc_citizen">
+                                                    <option value="" disabled selected>ရွေးပါ</option>
+                                                    @foreach($nrc_citizens as $citizen)
+                                                        <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
+                                                            {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-5 col-7 pl-1">
+                                                <input type="text" name="nrc_number" placeholder="ဥပမာ - ၁၂၃၄၅၆" id="nrc_number" class="form-control" maxlength="6" minlength="6" oninput="this.value = en2mm(this.value);" pattern=".{6,6}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                                 <div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>{{ __('အဘအမည် (မြန်မာ/အင်္ဂလိပ်)') }}</div>
@@ -151,6 +161,31 @@
                                         <input type="text"  class="form-control" name="father_name_eng" id="father_name_eng">
                                     </div>
                                 </div>
+
+                                <div class="row mb-3" style="padding-left: 95px;">
+                                    <div class="col-md-4 col-form-label label"><span class="pull-left">(ဃ)</span>ကျား / မ (Gender)</div>
+                                    <div class="row col-md-8 py-2">
+                                        <div class="col-md-3 form-check-radio mx-2">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" id="male"
+                                                        name="gender" value="Male" required>
+                                                <span class="form-check-sign"></span>
+                                                ကျား
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3 form-check-radio mx-2">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" id='female'
+                                                        name="gender" value='Female' required>
+                                                <span class="form-check-sign"></span>
+                                                မ
+                                            </label>
+                                        </div>
+                                        
+                                        <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="col-md-3 text-center">
                                 {{--User Photo--}}
@@ -173,7 +208,7 @@
                             </div>
                                  
                                 <div class="row" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဃ)') }}</span>{{ __('ပညာအရည်အချင်း') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('ပညာအရည်အချင်း') }}</div>
                                     <div class="col-md-8">
                                         <div class="row mb-2">
                                             <div class="col-md-7">
@@ -257,13 +292,13 @@
                                 </div>
 
                                 <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(စ)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
                                         <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(စ)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဆ)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
                                     <div class="col-md-8">
                                         <input type="text"  class="form-control" name="address" id="address" placeholder="" >
                                     </div>
@@ -293,7 +328,7 @@
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 mt-2">
-                                        <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()">
+                                        <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()" style="margin-top: 20px;">
                                     </div>
                                     <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;"> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="cpa2_reg_no" id="cpa2_reg_no" class="form-control" style="display: inline;width: 100px;"> ဖြင့် အောင်မြင်ပါသည်။</label>
                                 </div>
@@ -301,7 +336,7 @@
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 mt-2">
-                                        <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckPartTwo()">
+                                        <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckPartTwo()" style="margin-top: 10px;">
                                     </div>
                                     <label class="col-md-10 col-form-label"><input type="text" name="country" id="country" class="form-control" style="display: inline;width: 100px;" > နိုင်ငံ <input type="text" name="government" id="government" class="form-control" style="display: inline;width: 100px;" >အဖွဲ့အစည်းကပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီက 
                                     <input type="text" name="exam_year" id="exam_year" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" > ခုနှစ် <input type="text" name="exam_month" id="exam_month" placeholder="Month" class="form-control" style="display: inline;width: 100px;" > လတွင်
@@ -440,7 +475,7 @@
     </div>
 
     <!-- Modal -->
-    <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+    {{--<form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
           novalidate>
         @csrf
         <div class="modal fade" id="cpaffModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -471,7 +506,7 @@
                 </div>
             </div>
         </div>
-    </form>
+    </form>--}}
 
     <!-- JavaScript Section -->
     <script>
@@ -542,6 +577,14 @@
             document.getElementById('nrc_front').src=BASE_URL + cpaff.nrc_front;
             document.getElementById('nrc_back').src=BASE_URL + cpaff.nrc_back;
 
+            $('#name_mm').val(cpaff.name_mm);
+            $('#name_eng').val(cpaff.name_eng);
+            $('#nrc_state_region').val(cpaff.nrc_state_region);
+            $('#nrc_township').val(cpaff.nrc_township);
+            $('#nrc_citizen').val(cpaff.nrc_citizen);
+            $('#nrc_number').val(cpaff.nrc_number);
+            $('#father_name_mm').val(cpaff.father_name_mm);
+            $('#father_name_eng').val(cpaff.father_name_eng);
             $('#cpa_batch_no').val(cpaff.cpa_batch_no);
             $('#address').val(cpaff.address);
             $('#phone').val(cpaff.phone);
@@ -550,26 +593,39 @@
             $('#government').val(cpaff.government);
             $('#roll_no').val(cpaff.roll_no);
             $('#total_hours').val(cpaff.total_hours);
-            var cpa2_pass_date=new Date(cpaff.cpa2_pass_date);
-            var exam_year=new Date(cpaff.exam_year);
-            var exam_month=new Date(cpaff.exam_month);
+            // var cpa2_pass_date=new Date(cpaff.cpa2_pass_date);
+            // var exam_year=new Date(cpaff.exam_year);
+            // var exam_month=new Date(cpaff.exam_month);
 
-            if(cpaff.cpa2_pass_date!=null || cpaff.cpa_batch_no!=null){
+            if(cpaff.cpa2_pass_date!=null || cpaff.cpa2_reg_no!=null){
                 $('#cpa_part_2_check').attr('checked',true);
                 $('#cpa_part_2_check').attr('disabled',false);
-                $("input[name='cpa2_pass_date']").val(cpa2_pass_date.getFullYear());
+                $('#qt_pass_check').attr('disabled',true);
+                // $("input[name='cpa2_pass_date']").val(cpa2_pass_date.getFullYear());
+                $("input[name='country']").attr('disabled',true);
+                $("input[name='government']").attr('disabled',true);
+                $("input[name='exam_year']").attr('disabled',true);
+                $("input[name='exam_month']").attr('disabled',true);
+                $("input[name='roll_no']").attr('disabled',true);
+                $("input[name='cpa2_pass_date']").val(cpaff.cpa2_pass_date);
                 $("input[name='cpa2_reg_no']").val(cpaff.cpa2_reg_no);
             }
             else if(cpaff.country!=null || cpaff.government!=null || cpaff.exam_year!=null || cpaff.exam_month!=null || cpaff.roll_no!=null)
             {
                 // $('#used_firm_check').attr('checked',true);
+                $('#cpa_part_2_check').attr('disabled',true);
                 $('#qt_pass_check').attr('checked',true);
                 $('#qt_pass_check').attr('disabled',false);
 
+                $("input[name='cpa2_pass_date']").attr('disabled',true);
+                $("input[name='cpa2_reg_no']").attr('disabled',true);
+
                 $("input[name='country']").val(cpaff.country);
                 $("input[name='government']").val(cpaff.government);
-                $("input[name='exam_year']").val(exam_year.getFullMonth());
-                $("input[name='exam_month']").val(exam_month.getFullMonth());
+                // $("input[name='exam_year']").val(exam_year.getFullMonth());
+                $("input[name='exam_year']").val(cpaff.exam_year);
+                // $("input[name='exam_month']").val(exam_month.getFullMonth());
+                $("input[name='exam_month']").val(cpaff.exam_month);
                 $("input[name='roll_no']").val(cpaff.roll_no);
             }
             

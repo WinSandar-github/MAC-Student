@@ -19,7 +19,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">CPA (Full-Fledged) Existing Registration  <span>Form</span></h2>
+                    <h2 class="title">CPA (Full-Fledged) Existing User Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
 
@@ -51,7 +51,8 @@
                         <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
                     </div>--}}
                 </div>
-                <form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit" action="javascript:void(0)">
+                {{--<form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit" action="javascript:void(0)">--}}
+                <form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit" action="javascript:updateRejectCpaffExisting();">
                     @csrf
                     <div class="card-body">
                         <input type="hidden" id="cpaff_id" name="cpaff_id"/>
@@ -518,7 +519,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="renewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {{--<div class="modal fade" id="renewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -547,7 +548,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>--}}
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -651,8 +652,9 @@
             $('#cpaff_pass_date').val(cpaff_pass_date.getFullYear());
             var cpaff_renew_date=new Date(cpaff.cpaff_renew_date);
             $('#cpaff_renew_date').val(cpaff_renew_date.getFullYear());
-            var papp_reg_year=new Date(cpaff.papp_reg_year);
-            $('#papp_reg_year').val(papp_reg_year.getFullYear());
+            // var papp_reg_year=new Date(cpaff.papp_reg_year);
+            // $('#papp_reg_year').val(papp_reg_year.getFullYear());
+            $('#papp_reg_year').val(cpaff.papp_reg_year);
 
             // if(cpaff.resign_date!=null){
             //     $("input[name='resign_date']").val(cpaff.resign_date);
@@ -673,7 +675,10 @@
             $('.mpa_mem_card_old').append("<a href='" + BASE_URL + cpaff.mpa_mem_card + "'  target='_blank'>View File</a><br/>");
             $('.mpa_mem_card_back_old').append("<a href='" + BASE_URL + cpaff.mpa_mem_card_back + "'  target='_blank'>View File</a><br/>");
             $('.cpd_record_old').append("<a href='" + BASE_URL + cpaff.cpd_record + "'  target='_blank'>View File</a><br/>");
-            $('.renew_file_old').append("<a href='" + BASE_URL + cpaff.renew_file + "'  target='_blank'>View File</a><br/>");
+            // $('.renew_file_old').append("<a href='" + BASE_URL + cpaff.renew_file + "'  target='_blank'>View File</a><br/>");
+            if(cpaff.renew_file != null && cpaff.renew_file !="null" && cpaff.renew_file !=""){
+                $('.renew_file_old').append("<a href='" + BASE_URL + cpaff.renew_file + "'  target='_blank'>View File</a><br/>");
+            }
 
             if (cpaff.ra != null && cpaff.ra != "null") {
                 $('#ra_edu').attr('checked', true);

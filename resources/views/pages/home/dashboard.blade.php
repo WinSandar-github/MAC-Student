@@ -193,7 +193,7 @@
                                         <p class="ml-2 text-bold" style="font-weight:bold">CPA(Full-Fledged)လျှောက်လွှာကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>1000 MMK</span>
+                                        <span id="form_fee"></span>
                                     </div>
                                 </div>
 
@@ -202,7 +202,7 @@
                                         <p class="ml-2 text-bold" style="font-weight:bold">CPA(Full-Fledged)မှတ်ပုံတင်ကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span id="registration_fee"></span>
                                     </div>
                                 </div>
 
@@ -213,7 +213,7 @@
                                         <p class="ml-2 text-bold" style="font-weight:bold">PAPPလျှောက်လွှာကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>1000 MMK</span>
+                                        <span class="form_fee"></span>
                                     </div>
                                 </div>
 
@@ -222,7 +222,7 @@
                                         <p class="ml-2 text-bold" style="font-weight:bold">PAPP မှတ်ပုံတင်ကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span class="registration_fee"></span>
                                     </div>
                                 </div>
                                 <h5 class="text-center border-bottom  py-2 my-2"
@@ -234,7 +234,7 @@
                                         <p class="ml-2 text-bold" style="font-weight:bold">CPA(Full-Fledged) လျှောက်လွှာကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>1000 MMK</span>
+                                        <span id="form_fee1"></span>
                                     </div>
                                 </div>
 
@@ -244,7 +244,7 @@
                                             မှတ်ပုံတင်သက်တမ်းတိုးကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span id="renew_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -253,7 +253,7 @@
                                             CPA(Full-Fledged)နောက်ကျကြေး (Within January)</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span id="late_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -262,7 +262,7 @@
                                             CPA(Full-Fledged)နောက်ကျကြေး (From February to April)</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>100000 MMK</span>
+                                        <span id="late_feb_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -271,7 +271,7 @@
                                             CPA(Full-Fledged)သက်တမ်းပြတ်ကြေး (per year) From 2015</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span id="reconnected_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -280,7 +280,7 @@
                                             CPA(Full-Fledged)သက်တမ်းပြတ်ကြေး (per year) Before 2015</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>1000 MMK</span>
+                                        <span id="reconnected_fee_before_2015"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -288,7 +288,7 @@
                                         <p class="ml-2 text-bold" style="font-weight:bold">PAPP လျှောက်လွှာကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>1000 MMK</span>
+                                        <span class="form_fee1"></span>
                                     </div>
                                 </div>
 
@@ -298,7 +298,7 @@
                                             မှတ်ပုံတင်သက်တမ်းတိုးကြေး</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span class="renew_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -307,7 +307,7 @@
                                             PAPP နောက်ကျကြေး (Within January)</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span class="late_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -316,7 +316,7 @@
                                             PAPP နောက်ကျကြေး (From February to April)</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>100000 MMK</span>
+                                        <span class="late_feb_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -325,7 +325,7 @@
                                             PAPP သက်တမ်းပြတ်ကြေး (per year) From 2015</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>100000 MMK</span>
+                                        <span class="reconnected_fee"></span>
                                     </div>
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
@@ -334,7 +334,7 @@
                                             PAPP သက်တမ်းပြတ်ကြေး (per year) Before 2015</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span>10000 MMK</span>
+                                        <span class="reconnected_fee_before_2015"></span>
                                     </div>
                                 </div>
                             </div>
@@ -2312,6 +2312,8 @@
         //checkPaymentAudit();
         // audit_reg_feedback();
         // firmDashboardData();
+        loadFee('3');
+        loadFees('4');
 
         $("input[name='start_date']").flatpickr({
                 enableTime: false,

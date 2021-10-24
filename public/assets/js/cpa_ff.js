@@ -14,7 +14,7 @@ function CheckPartTwo() {
     if (cpa_part_2.checked == true) {
         $("input[name=cpa2_pass_date]").prop('disabled', false);
         $("input[name=cpa2_reg_no]").prop('disabled', false);
-        $("input[name=cpa_batch_no]").prop('disabled', false);
+        // $("input[name=cpa_batch_no]").prop('disabled', false);
         $("input[name=country]").prop('disabled', true);
         $("input[name=government]").prop('disabled', true);
         $("input[name=roll_no]").prop('disabled', true);
@@ -29,7 +29,7 @@ function CheckPartTwo() {
     else if (qt_pass.checked == true) {
         $("input[name=cpa2_pass_date]").prop('disabled', true);
         $("input[name=cpa2_reg_no]").prop('disabled', true);
-        $("input[name=cpa_batch_no]").prop('disabled', true);
+        // $("input[name=cpa_batch_no]").prop('disabled', true);
         $("input[name=country]").prop('disabled', false);
         $("input[name=government]").prop('disabled', false);
         $("input[name=roll_no]").prop('disabled', false);
@@ -167,6 +167,52 @@ function AddCPAFFInitialDegree() {
         '<label for="" class="col-form-labe"> Attached Certificate</label>' +
         '</div>' + 
         '<div class="col-md-6">' +
+        '<input type="file"  class="form-control"  id="degree_file' + count + '"  name="degree_file[]">' +
+        '</div>' +
+        '<div class="col-md-1 text-center"  id="edu' + count + '_remove">' +
+        '<button class="btn btn-danger" id="myLink"  style="padding-left:5px;" onclick="remove(degree' + count + ',degree_year' + count + ',edu' + count + ')">' +
+        '<i class="fa fa-trash "></i>' +
+        '</button>' +
+        '</div>' +
+        '</div>'
+    );
+
+    $('.degree_pass_year').flatpickr({
+        enableTime: false,
+        dateFormat: "M-Y",
+        allowInput: true,
+    });
+    count++;
+
+}
+
+function AddPAPPReconnectDegree() {
+    $("#edu").append(
+        '<div class="row mb-2" id="degree' + count + '">' +
+        '<div class="col-md-1"></div>' +
+        '<div class="col-md-3 col-auto">' +
+        '<label for="" class="col-form-labe"> ဘွဲ့အမည်</label>' +
+        '</div>' +
+        '<div class="col-md-7 col-auto">' +
+        '<input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">' +
+        '</div>' +
+        '</div>' +
+        '<div class="row mb-2" id="degree_year' + count + '">' +
+        '<div class="col-md-1"></div>' +
+        '<div class="col-md-3 col-auto">' +
+        '<label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>' +
+        '</div>' +
+        '<div class="col-md-7 col-auto">' +
+        '<input type="text"  class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">' +
+        '</div>' +
+        '</div>' +
+
+        '<div class="row mb-4" id="edu' + count + '">' +
+        '<div class="col-md-1"></div>' +
+        '<div class="col-md-3 col-auto">' +
+        '<label for="" class="col-form-labe"> Attached Certificate</label>' +
+        '</div>' + '<div class="col-md-2 foreign_degree_file"></div>' +
+        '<div class="col-md-5">' +
         '<input type="file"  class="form-control"  id="degree_file' + count + '"  name="degree_file[]">' +
         '</div>' +
         '<div class="col-md-1 text-center"  id="edu' + count + '_remove">' +
@@ -666,6 +712,18 @@ function createCPAFFRegister() {
     //     send_data.append('cpa_part_2',0);
     //     send_data.append('qt_pass',0);
     // }
+
+    send_data.append('name_mm', $("input[name=name_mm]").val());
+    send_data.append('name_eng', $("input[name=name_eng]").val());
+    var nrc_state_region = $("#nrc_state_region").val();
+    var nrc_township = $("#nrc_township").val();
+    var nrc_citizen = $("#nrc_citizen").val();
+    send_data.append('nrc_state_region', nrc_state_region);
+    send_data.append('nrc_township', nrc_township);
+    send_data.append('nrc_citizen', nrc_citizen);
+    send_data.append('nrc_number', $("input[name=nrc_number]").val());
+    send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
+    send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
 
     send_data.append('cpa_certificate', cpa_certificate);
     send_data.append('mpa_mem_card', mpa_mem_card);
@@ -1268,11 +1326,12 @@ function renewRejectCpaff() {
     }
     // send_data.append('old_card_year', $("input[name=cpa2_pass_date]").val());
     send_data.append('cpaff_pass_date', $("input[name=cpaff_pass_date]").val());
-    send_data.append('renew_card_year', $("input[name=renew_accepted_date]").val());
-    send_data.append('old_card_no', $("input[name=reg_no]").val());
-    send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());
-    send_data.append('old_card_file', $("input[name=renew_file]")[0].files[0]);
-    send_data.append('is_convicted', $("input[name=fine_person]").val());
+    send_data.append('cpaff_renew_date', $("input[name=cpaff_renew_date]").val());
+    // send_data.append('renew_card_year', $("input[name=renew_accepted_date]").val());
+    send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
+    send_data.append('papp_reg_year', $("input[name=papp_reg_year]").val());
+    send_data.append('renew_file', $("input[name=renew_file]")[0].files[0]);
+    // send_data.append('is_convicted', $("input[name=fine_person]").val());
     send_data.append('address', $("input[name=address]").val());
     send_data.append('phone', $("input[name=phone]").val());
     send_data.append('contact_mail', $("input[name=contact_mail]").val());

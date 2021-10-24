@@ -90,37 +90,66 @@ function user_profile() {
                     $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
                   }
                 }
+                else {
+                    // Non-Audit Firm
+                    if (firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user != 1) {
+                        // to do payment for approved normal renew user
+                        console.log("non audit 1");
+                        var invoice = data.invoice.filter(val => {
+                            return val.invoiceNo == 'non_audit_renew' && val.status == 0;
+                        });
 
-                else if(firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user == 1){
-                  // to do payment for approved offline user
-                 console.log("non audit 3");
-                 var invoice = data.invoice.filter(val => {
-                   return val.invoiceNo == 'off_non_audit_renew'+firm_info[0].id && val.status == 0;
-                 });
+                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                            $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
+                        } else {
+                            $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                        }
+                    }
 
-                 if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
-                   $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
-                 }else{
-                   $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
-                 }
+                    else if (firm_info[0].status == 1 && firm_info[0].is_renew == 0 && firm_info[0].offline_user == 0) {
+                        // to do payment for approved initial user
+                        console.log('non audit 2');
+                        var invoice = data.invoice.filter(val => {
+                            return val.invoiceNo == 'non_audit_initial' && val.status == 0;
+                        });
+
+                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                            $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
+                        } else {
+                            $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                        }
+                    }
+
+                    else if (firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user == 1) {
+                        // to do payment for approved offline user
+                        console.log("non audit 2");
+                        var invoice = data.invoice.filter(val => {
+                            return val.invoiceNo == 'off_non_audit_renew' && val.status == 0;
+                        });
+
+                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                            $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
+                        } else {
+                            $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                        }
+                    }
                 }
-              }
 
-              firmDashboardData();
+                firmDashboardData();
 
             } else if (data.school && data.teacher == null && data.mentor == null) {
                 $('.dashboard_name').append('School ');
-                loadSchoolByDash(data.school,data.invoice);
+                loadSchoolByDash(data.school, data.invoice);
 
             } else if (data.teacher && data.school == null && data.mentor == null) {
                 $('.dashboard_name').append('Teacher ');
-                laodTeacherByDash(data.teacher,data.invoice);
+                laodTeacherByDash(data.teacher, data.invoice);
 
             } else if (data.school && data.teacher && data.mentor == null) {
                 $('.dashboard_name').append('Teacher And School ');
                 $('.teacher_pw').hide();
-                laodTeacherByDash(data.teacher,data.invoice);
-                loadSchoolByDash(data.school,data.invoice);
+                laodTeacherByDash(data.teacher, data.invoice);
+                loadSchoolByDash(data.school, data.invoice);
                 // var invoice = data.invoice.filter( val => {
                 //     if(val.invoiceNo=="init_tec" || val.invoiceNo=="renew_tec" ){
                 //         laodTeacherByDash(data.teacher,val.invoiceNo);
@@ -192,9 +221,11 @@ function user_profile() {
                         is_renew = "";
                     }
                     console.log(invoice);
-
+                    if (invoice.length != 0) {
+                        var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                    }
                 }
-                else{
+                else {
                     if (cpaff_latest_data.type == 0) {
                         is_renew = "Initial";
                     }
@@ -205,7 +236,7 @@ function user_profile() {
                         is_renew = "";
                     }
                 }
-                if (cpaff_latest_data.status == 0 ) {
+                if (cpaff_latest_data.status == 0) {
                     $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is checking.<br><br>');
                     // $('.status_papp').append('Action &nbsp;&nbsp;');
                     // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
@@ -213,7 +244,7 @@ function user_profile() {
                     var cpaff_renew_url = FRONTEND_URL + "/cpaff_renew";
                     // var cpaff_offline_renew_url = FRONTEND_URL + "/cpaff_offline_renew";
                     $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is Approved.<br><br>');
-                    if(cpaff_latest_data.offline_user == 0){
+                    if (cpaff_latest_data.offline_user == 0) {
                         $('.status_history').append('Action &nbsp;&nbsp;');
                         $('.status_history').append(`<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`);
                         // $('.status_history').append('Action &nbsp;&nbsp;');
@@ -248,7 +279,7 @@ function user_profile() {
                         $('.status_papp').append(`<a href= ${FRONTEND_URL}/student_papp class="btn btn-success btn-sm xl-auto" > PAPP Form </a><hr>`);
                         // $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                     }
-                    else if (check_month >= 10 || check_month <=3) {
+                    else if (check_month >= 10 || check_month <= 3) {
                         // alert("hhhhhh")
                         $('.status_history').append('Action &nbsp;&nbsp;');
                         $('.status_history').append(`<a href= ${cpaff_renew_url} class="btn btn-success btn-sm xl-auto" > CPA(Full-Fledged) Renew Form </a><hr>`);
@@ -270,14 +301,17 @@ function user_profile() {
                 } else {
                     localStorage.setItem('cpaff_id', cpaff_latest_data.id);
                     localStorage.setItem('reject_reason', cpaff_latest_data.reject_description);
-                    $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is Rejected.');
+
                     if (cpaff_latest_data.type == 1 && cpaff_latest_data.offline_user == 1) {
+                        $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is Rejected.');
                         $('.status_history').append(`<a href="${reject_existing}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                     }
                     else if (cpaff_latest_data.type == 0 && cpaff_latest_data.offline_user == 0) {
+                        $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is Rejected.');
                         $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                     }
                     else if (cpaff_latest_data.type == 1 && cpaff_latest_data.offline_user == 0){
+                        $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is Rejected.');
                         $('.status_history').append(`<a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                     }
                     // $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');
@@ -289,7 +323,7 @@ function user_profile() {
                     var reject_reconnect=FRONTEND_URL + "/update_papp_reconnect";
                     var papp_latest_data = data.papp[data.papp.length - 1];
                     var is_renew;
-                    if(data.invoice.length!=0){
+                    if (data.invoice.length != 0) {
                         if (papp_latest_data.type == 0) {
                             is_renew = "Initial";
                             var invoice = data.invoice.filter(val => {
@@ -306,7 +340,7 @@ function user_profile() {
                             is_renew = ""
                         }
                     }
-                    else{
+                    else {
                         if (papp_latest_data.type == 0) {
                             is_renew = "Initial";
                         }
@@ -322,20 +356,20 @@ function user_profile() {
                         $('.status_history').append('PAPP ' + is_renew + ' Registration Form is checking.<br><br>');
                         $('.status_papp').css('display', 'none');
                     } else if (papp_latest_data.status == 1) {
-                        if(data.invoice.length!=0){
+                        if (data.invoice.length != 0) {
                             // var invoice = data.invoice.filter(val => {
                             //     return val.invoiceNo == 'papp' && val.status == 0;
                             // });
-                            var payment_url = FRONTEND_URL + "/payment_method/"+student_id+"/"+invoice[0].invoiceNo;
+                            var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
                         }
                         // $('.status_papp').css('display', 'none');
                         var papp_renew_url = FRONTEND_URL + "/renew_papp";
-                        $('.status_history').append('PAPP '+is_renew+' Registration Form is Approved.<br><br>');
-                        if(papp_latest_data.offline_user==0){
+                        $('.status_history').append('PAPP ' + is_renew + ' Registration Form is Approved.<br><br>');
+                        if (papp_latest_data.offline_user == 0) {
                             $('.status_history').append('Action &nbsp;&nbsp;');
                             $('.status_history').append(`<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`);
                         }
-                        $('.status_papp').css('display','none');
+                        $('.status_papp').css('display', 'none');
                         $('.status_history').append('Action &nbsp;&nbsp;');
                         $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
 
@@ -354,7 +388,7 @@ function user_profile() {
                             // $('.status_history').append('PAPP ' + is_renew + ' Registration Form is Approved.<br><br>');
                             // $('.status_history').append('Action &nbsp;&nbsp;');
                             // $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
-                        } else if (check_month >= 10 || check_month <=3) {
+                        } else if (check_month >= 10 || check_month <= 3) {
                             // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
                             // $('.status_history').append('PAPP ' + is_renew + ' Registration Form is Approved.<br><br>');
                             $('.status_history').append('Action &nbsp;&nbsp;');
@@ -480,32 +514,32 @@ function user_profile() {
                         article.forEach(function (element) {
                             article_form_type = element.article_form_type;
 
-                                switch (article_form_type) {
-                                    case 'c12':
-                                        form_type = 'CPA I,II';
-                                        break;
-                                    case 'c2_pass_3yr':
-                                        form_type = 'CPA II Pass 3 yr';
-                                        break;
-                                    case 'c2_pass_1yr':
-                                        form_type = 'CPA II Pass 1 yr';
-                                        break;
-                                    case 'qt_firm':
-                                        form_type = 'QT Pass 3 yr';
-                                        break;
-                                    case 'c2_pass_renew':
-                                        form_type = 'CPA II Pass Renew';
-                                        break;
-                                    case 'c12_renew':
-                                        form_type = 'CPA I,II Renew';
-                                        break;
-                                    default:
-                                        form_type = 'Resign';
-                                        break;
-                                }
+                            switch (article_form_type) {
+                                case 'c12':
+                                    form_type = 'CPA I,II';
+                                    break;
+                                case 'c2_pass_3yr':
+                                    form_type = 'CPA II Pass 3 yr';
+                                    break;
+                                case 'c2_pass_1yr':
+                                    form_type = 'CPA II Pass 1 yr';
+                                    break;
+                                case 'qt_firm':
+                                    form_type = 'QT Pass 3 yr';
+                                    break;
+                                case 'c2_pass_renew':
+                                    form_type = 'CPA II Pass Renew';
+                                    break;
+                                case 'c12_renew':
+                                    form_type = 'CPA I,II Renew';
+                                    break;
+                                default:
+                                    form_type = 'Resign';
+                                    break;
+                            }
                             let contract_start_date = element.contract_start_date === null ? "-" : element.contract_start_date;
                             let contract_end_date = element.contract_end_date === null ? "-" : element.contract_end_date;
-                            if(element.article_form_type == 'resign'){
+                            if (element.article_form_type == 'resign') {
                                 if (element.resign_status == 0) {
                                     $('.qt_article_status').append(`<tr>
                                     <td>${form_type} Form</td>
@@ -557,7 +591,7 @@ function user_profile() {
                                 </tr>
                                 `);
                                 }
-                            }else{
+                            } else {
                                 if (element.status == 0) {
                                     $('.qt_article_status').append(`<tr>
                                     <td>${form_type} Form</td>
@@ -612,11 +646,11 @@ function user_profile() {
                             }
                         });
 
-                        var invoice = data.invoice.filter( val => {
+                        var invoice = data.invoice.filter(val => {
                             return val.invoiceNo == latest_article[0].article_form_type && val.status == 0;
                         });
 
-                        var payment_url = FRONTEND_URL + "/payment_method/"+latest_article[0].student_info_id+"/"+invoice[0].invoiceNo;
+                        var payment_url = FRONTEND_URL + "/payment_method/" + latest_article[0].student_info_id + "/" + invoice[0].invoiceNo;
 
                         if (latest_article[0] != null && latest_article[0].contract_end_date != null) {
                             var end_date = new Date(latest_article[0].contract_end_date);
@@ -645,12 +679,12 @@ function user_profile() {
                                     $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
                                 }
                             }
-                        }else if(latest_article[0].status == 1){
-                            if(latest_article[0].registration_fee == null){
+                        } else if (latest_article[0].status == 1) {
+                            if (latest_article[0].registration_fee == null) {
                                 // $('.qt_article_status').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
                                 if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                                     $('.qt_article_status').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
-                                }else{
+                                } else {
                                     $('.qt_article_status').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'>Payment Success</div></div></td></tr>`);
                                 }
                             }
@@ -659,10 +693,10 @@ function user_profile() {
                                 $('.qt_article_status').append(`<tr><td colspan=4>Download ရယူပြီး MACရုံးဒုညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတန်းများအားတင်သွင်းရန်</td><td></td></tr>`);
                                 $('.qt_article_status').append(`<tr><td colspan=2>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></td></tr>`);
                             }
-                            if(latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null){
+                            if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
                                 $('.qt_article_status').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                             }
-                        }else if(latest_article[0]?.article_form_type == 'resign' && latest_article[0].resign_status == 1){
+                        } else if (latest_article[0]?.article_form_type == 'resign' && latest_article[0].resign_status == 1) {
                             // if(latest_article[0].done_status == 0){
                             //     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                             //         $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
@@ -674,22 +708,22 @@ function user_profile() {
                             // //     $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
                             // // }
                             // else if(latest_article[0].done_status == 1){
-                                var resign_date=new Date(latest_article[0].resign_date);
-                                var year = resign_date.getFullYear();
-                                var month = resign_date.getMonth();
-                                var day = resign_date.getDate();
+                            var resign_date = new Date(latest_article[0].resign_date);
+                            var year = resign_date.getFullYear();
+                            var month = resign_date.getMonth();
+                            var day = resign_date.getDate();
 
-                                resign_date = new Date(year + 1, month, day-1);
-                                var today = new Date();
-                                var resign_time = resign_date.getTime();
-                                var today_time = today.getTime();
+                            resign_date = new Date(year + 1, month, day - 1);
+                            var today = new Date();
+                            var resign_time = resign_date.getTime();
+                            var today_time = today.getTime();
 
-                                article_url = '/article_information';
-                                if(resign_time <= today_time){
-                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
-                                }else{
-                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
-                                }
+                            article_url = '/article_information';
+                            if (resign_time <= today_time) {
+                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
+                            } else {
+                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
+                            }
                             // }
                         }
 
@@ -802,7 +836,7 @@ function user_profile() {
                     var reject_renewal = FRONTEND_URL + "/update_cpaff_renewal";
                     let cpaff_latest_data = cpaff[cpaff.length - 1];
                     var is_renew;
-                    if(data.invoice.length!=0){
+                    if (data.invoice.length != 0) {
                         if (cpaff_latest_data.is_renew == 0) {
                             is_renew = "Initial";
                             var invoice = data.invoice.filter(val => {
@@ -819,7 +853,7 @@ function user_profile() {
                             is_renew = "";
                         }
                     }
-                    else{
+                    else {
                         if (cpaff_latest_data.is_renew == 0) {
                             is_renew = "Initial";
                         }
@@ -841,7 +875,7 @@ function user_profile() {
                         `);
                         // $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                     } else if (cpaff_latest_data.status == 1) {
-                        console.log("invoice",data.invoice);
+                        console.log("invoice", data.invoice);
                         $('.status').append(`
                         <tr>
                             <td>CPA(Full-Fledged) ${is_renew}</td>
@@ -877,7 +911,7 @@ function user_profile() {
                         // if (check_month < 12) {
                         //     $(".status").append(`<tr><td colspan=4>Your information will be expired at  <b> 31 December ${y}</b></td></tr>`);
                         // }
-                        if (check_month >= 10 || check_month <=3) {
+                        if (check_month >= 10 || check_month <= 3) {
                             $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/cpaff_renew' class="btn btn-sm btn-success" > CPA(Full-Fledged) Renew Form</a></td></tr>`);
                             $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/renew_papp' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                         }
@@ -890,7 +924,7 @@ function user_profile() {
                         localStorage.setItem('reject_reason', cpaff_latest_data.reject_description);
                         $('.status').append(`
                         <tr>
-                            <td>PAPP ${is_renew}</td>
+                            <td>CPA(Full-Fledged) ${is_renew}</td>
                             <td>${formatDate(cpaff_latest_data.created_at)}</td>
                             <td>${formatDate(cpaff_latest_data.updated_at)}</td>
                             <td><span class="badge bg-danger">Reject</span></td>
@@ -912,7 +946,7 @@ function user_profile() {
                         var reject_reconnect = FRONTEND_URL + "/update_papp_reconnect";
                         let papp_latest_data = data.papp[data.papp.length - 1];
                         var is_renew_papp;
-                        if(data.invoice.length!=0){
+                        if (data.invoice.length != 0) {
                             if (papp_latest_data.type == 0) {
                                 is_renew_papp = "Initial";
 
@@ -930,7 +964,7 @@ function user_profile() {
                                 is_renew_papp = ""
                             }
                         }
-                        else{
+                        else {
                             if (papp_latest_data.type == 0) {
                                 is_renew_papp = "Initial";
                             }
@@ -961,6 +995,7 @@ function user_profile() {
 
                             </tr>
                             `);
+                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/renew_papp' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
                             $('.papp_btn').css('display', 'none');
                             // var accept = new Date(cpaff.renew_accepted_date);
                             // var month = accept.getMonth();
@@ -997,8 +1032,7 @@ function user_profile() {
                             if ((now.getFullYear() == y && (now.getMonth() + 1) == month) || now.getFullYear() > year) {
                                 $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/renew_papp' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
                             }
-                            if (check_month >= 10 || check_month <=3) {
-                                alert("aa")
+                            if (check_month >= 10 || check_month <= 3) {
                                 $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/renew_papp' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
                             }
                         } else {
@@ -1196,15 +1230,15 @@ function user_profile() {
 
                                 let std_id = latest_course_reg[0].student_info_id;
 
-                                if(latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1"){
+                                if (latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1") {
 
                                     $invoice_code = latest_course_reg[0].batch.course.code == "da_1" ? 'app_form' : 'cpa_app';
 
                                     var invoice = data.invoice.filter(val => {
                                         return val.invoiceNo == $invoice_code && val.status == 0;
                                     });
-                                    if(latest_course_reg[0]?.is_finished==0){
-                                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
+                                    if (latest_course_reg[0]?.is_finished == 0) {
+                                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
                                             $('.status').append(`
                                             <tr>
@@ -1271,10 +1305,10 @@ function user_profile() {
 
                                         var invoice = data.invoice.filter(val => {
                                             return (val.invoiceNo == 'mac_reg_' + latest_course_reg[0].batch.course.code
-                                                    || val.invoiceNo == 'prv_reg_' + latest_course_reg[0].batch.course.code
-                                                    || val.invoiceNo == 'self_reg_' + latest_course_reg[0].batch.course.code ) && val.status == 0;
+                                                || val.invoiceNo == 'prv_reg_' + latest_course_reg[0].batch.course.code
+                                                || val.invoiceNo == 'self_reg_' + latest_course_reg[0].batch.course.code) && val.status == 0;
                                         });
-                                        if(latest_course_reg[0]?.is_finished==0){
+                                        if (latest_course_reg[0]?.is_finished == 0) {
                                             if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
                                                 $('.status').append(`
@@ -1331,7 +1365,7 @@ function user_profile() {
                                                     var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
                                                     });
-                                                    if(latest_course_reg[0]?.is_finished==0){
+                                                    if (latest_course_reg[0]?.is_finished == 0) {
                                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
                                                             $('.status').append(`
@@ -1343,7 +1377,7 @@ function user_profile() {
                                                             </tr>
                                                             `);
 
-                                                        }else{
+                                                        } else {
                                                             $('.status').append(`
                                                             <tr>
                                                                 <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
@@ -1446,8 +1480,7 @@ function user_profile() {
 
                                                                                 let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
                                                                                 let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
-                                                                                if(last_exam[0]?.batch_id!=batch.id)
-                                                                                {
+                                                                                if (last_exam[0]?.batch_id != batch.id) {
                                                                                     $('.status').append(`
                                                                                         <tr> <td colspan=2 ></td ><td>Action</td>
                                                                                             <td>
@@ -1464,7 +1497,7 @@ function user_profile() {
                                                                                     </tr>
                                                                                 `);
                                                                                 }
-                                                                                else{
+                                                                                else {
                                                                                     $('.status').append(`
                                                                                         <tr> <td colspan=2 ></td ><td>Action</td>
                                                                                             <td>
@@ -1612,7 +1645,7 @@ function user_profile() {
                                                     var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
                                                     });
-                                                    if(latest_course_reg[0]?.is_finished==0){
+                                                    if (latest_course_reg[0]?.is_finished == 0) {
                                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
                                                             $('.status').append(`
@@ -1805,9 +1838,8 @@ function user_profile() {
 
                                                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
                                                                     // <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration for ${next_batch[0].course.name} </a>
-                                                                   if( next_batch[0].id!=last_exam[0]?.batch_id)
-                                                                   {
-                                                                    $('.status').append(`
+                                                                    if (next_batch[0].id != last_exam[0]?.batch_id) {
+                                                                        $('.status').append(`
                                                                         <tr><td colspan=2></td><td>Action</td>
                                                                             <td>
                                                                                 <span class="nav-item dropdown ">
@@ -1822,9 +1854,9 @@ function user_profile() {
                                                                         </td>
                                                                         </tr>
                                                                     `);
-                                                                   }
-                                                                   else{
-                                                                    $('.status').append(`
+                                                                    }
+                                                                    else {
+                                                                        $('.status').append(`
                                                                     <tr><td colspan=2></td><td>Action</td>
                                                                         <td>
                                                                             <span class="nav-item dropdown ">
@@ -1835,7 +1867,7 @@ function user_profile() {
                                                                     </td>
                                                                     </tr>
                                                                 `);
-                                                                   }
+                                                                    }
                                                                 } else {
                                                                     $('.status').append(`
                                                                     <tr><td colspan=2></td><td>Action</td>
@@ -2068,7 +2100,23 @@ function user_profile() {
                                 }
 
                             } else {
-                                let update_app_url = latest_course_reg[0].batch.course.code == "da_1" ? '/da_edit' : '/cpa_edit';
+                                console.log(latest_course_reg[0], "Existing....")
+                                let update_app_url;
+                                if (latest_course_reg[0].offline_user == 1) {
+                                    if(latest_course_reg[0].batch.course.code=='da_1'){
+                                        update_app_url = '/da_one_existing_reg_edit_form';
+                                    }else if(latest_course_reg[0].batch.course.code=='da_2'){
+                                        update_app_url = '/da_two_existing_reg_edit_form';
+                                    }else if(latest_course_reg[0].batch.course.code=='cpa_1'){
+                                        update_app_url = '/cpa_one_existing_edit_form';
+                                    }else if(latest_course_reg[0].batch.course.code=='cpa_2'){
+                                        update_app_url = '/cpa_two_existing_edit_form';
+                                    }
+
+                                } else {
+                                    update_app_url = latest_course_reg[0].batch.course.code == "da_1" ? '/da_edit' : '/cpa_edit';
+
+                                }
 
                                 $('.status').append(`
                                 <tr>
@@ -2078,7 +2126,7 @@ function user_profile() {
                                     <td><span class="badge bg-danger">Reject</span></td>
                                 </tr >
                                 <tr>
-                                <td>မှတ်ချက် - </td>
+                                <td>မှတ်ချက် -  </td>
                                 <td colspan=2>${latest_course_reg[0].remark}</td><td>
                                 <a href="${FRONTEND_URL + update_app_url}" class="btn btn-sm btn-success">Update Application Form</a>
                              </td>
@@ -2424,11 +2472,11 @@ function user_profile() {
                                 }
                             });
 
-                            var invoice = data.invoice.filter( val => {
+                            var invoice = data.invoice.filter(val => {
                                 return val.invoiceNo == latest_article[0].article_form_type && val.status == 0;
                             });
 
-                            var payment_url = FRONTEND_URL + "/payment_method/"+latest_article[0].student_info_id+"/"+invoice[0].invoiceNo;
+                            var payment_url = FRONTEND_URL + "/payment_method/" + latest_article[0].student_info_id + "/" + invoice[0].invoiceNo;
 
                             if (latest_article[0] != null && latest_article[0].contract_end_date != null) {
                                 var end_date = new Date(latest_article[0].contract_end_date);
@@ -2440,7 +2488,7 @@ function user_profile() {
                                 if (end_time <= today_time && latest_article[0].done_status == 0) {
                                     if (latest_article[0].done_form_attach && latest_article[0].done_status == 0) {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
-                                    } else if(latest_article[0].yes_done_attach == 1){
+                                    } else if (latest_article[0].yes_done_attach == 1) {
                                         //
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='CompleteDownloadForms();'>Download</button></div></div></td></tr>`);
                                         $('.article_btn').append(`<tr><td></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='done_form'></div></div></td><td><button class='btn btn-primary btn-xs' id='done_form_btn' onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></td></tr>`);
@@ -2477,7 +2525,7 @@ function user_profile() {
                                     // $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
                                     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
-                                    }else{
+                                    } else {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </div></div></td></tr>`);
                                     }
                                 }
@@ -2501,22 +2549,22 @@ function user_profile() {
                                 // //     $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
                                 // // }
                                 // else if (latest_article[0].done_status == 1) {
-                                    var resign_date=new Date(latest_article[0].resign_date);
-                                    var year = resign_date.getFullYear();
-                                    var month = resign_date.getMonth();
-                                    var day = resign_date.getDate();
+                                var resign_date = new Date(latest_article[0].resign_date);
+                                var year = resign_date.getFullYear();
+                                var month = resign_date.getMonth();
+                                var day = resign_date.getDate();
 
-                                    resign_date = new Date(year + 1, month, day-1);
-                                    var today = new Date();
-                                    var resign_time = resign_date.getTime();
-                                    var today_time = today.getTime();
+                                resign_date = new Date(year + 1, month, day - 1);
+                                var today = new Date();
+                                var resign_time = resign_date.getTime();
+                                var today_time = today.getTime();
 
-                                    article_url = '/article_information';
-                                    if(resign_time <= today_time){
-                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
-                                    }else{
-                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
-                                    }
+                                article_url = '/article_information';
+                                if (resign_time <= today_time) {
+                                    $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
+                                } else {
+                                    $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
+                                }
                                 // }
                             }
 
@@ -2719,11 +2767,11 @@ function user_profile() {
 
                             if (article.length != 0) {
 
-                                var invoice = data.invoice.filter( val => {
+                                var invoice = data.invoice.filter(val => {
                                     return val.invoiceNo == latest_article[0].article_form_type && val.status == 0;
                                 });
 
-                                var payment_url = FRONTEND_URL + "/payment_method/"+latest_article[0].student_info_id+"/"+invoice[0].invoiceNo;
+                                var payment_url = FRONTEND_URL + "/payment_method/" + latest_article[0].student_info_id + "/" + invoice[0].invoiceNo;
 
                                 if (latest_article[0].contract_end_date != null) {
                                     var end_date = new Date(latest_article[0].contract_end_date);
@@ -2735,7 +2783,7 @@ function user_profile() {
                                     if (end_time <= today_time && latest_article[0].done_status == 0) {
                                         if (latest_article[0].done_form_attach && latest_article[0].done_status == 0) {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
-                                        } else if(latest_article[0].yes_done_attach == 1){
+                                        } else if (latest_article[0].yes_done_attach == 1) {
                                             //$('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='CompleteDownloadForms();'>Download</button></div></div></td></tr>`);
                                             $('.article_btn').append(`<tr><td></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='done_form'></div></div></td><td><button class='btn btn-primary btn-xs' id='done_form_btn' onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></td></tr>`);
@@ -2759,7 +2807,7 @@ function user_profile() {
                                         // $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
-                                        }else{
+                                        } else {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'>Payment Success</div></div></td></tr>`);
                                         }
                                     }
@@ -2783,31 +2831,31 @@ function user_profile() {
                                     //     $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
                                     // }
                                     // if (latest_article[0].done_status == 1) {
-                                        var resign_date=new Date(latest_article[0].resign_date);
-                                        var year = resign_date.getFullYear();
-                                        var month = resign_date.getMonth();
-                                        var day = resign_date.getDate();
+                                    var resign_date = new Date(latest_article[0].resign_date);
+                                    var year = resign_date.getFullYear();
+                                    var month = resign_date.getMonth();
+                                    var day = resign_date.getDate();
 
-                                        resign_date = new Date(year + 1, month, day-1);
-                                        var today = new Date();
-                                        var resign_time = resign_date.getTime();
-                                        var today_time = today.getTime();
+                                    resign_date = new Date(year + 1, month, day - 1);
+                                    var today = new Date();
+                                    var resign_time = resign_date.getTime();
+                                    var today_time = today.getTime();
 
-                                        article_url = '/article_information';
-                                        if(resign_time <= today_time){
-                                            $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
-                                        }else{
-                                            $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
-                                        }
+                                    article_url = '/article_information';
+                                    if (resign_time <= today_time) {
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
+                                    } else {
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
+                                    }
                                     // }
                                 }
                             } else {
 
-                                var invoice = data.invoice.filter( val => {
+                                var invoice = data.invoice.filter(val => {
                                     return val.invoiceNo == "gov" && val.status == 0;
                                 });
 
-                                var payment_url = FRONTEND_URL + "/payment_method/"+latest_gov_article[0].student_info_id+"/"+invoice[0].invoiceNo;
+                                var payment_url = FRONTEND_URL + "/payment_method/" + latest_gov_article[0].student_info_id + "/" + invoice[0].invoiceNo;
 
                                 if (latest_gov_article[0].contract_end_date != null) {
 
@@ -2823,7 +2871,7 @@ function user_profile() {
                                         else if(latest_gov_article[0].yes_done_attach == 1){
                                             $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='CompleteDownloadForms();'>Download</button></div></div></td></tr>`);
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='gov_done_form'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='gov_done_form_btn' onclick='saveGovDoneForm(${latest_gov_article[0].id})'>Submit</button></div></div></td></tr>`);
-                                        }else{
+                                        } else {
                                             $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
                                         }
                                     }
@@ -2845,7 +2893,7 @@ function user_profile() {
                                         // $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveGovRegistrationFee(${latest_gov_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
-                                        }else{
+                                        } else {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </a></div></div></td></tr>`);
                                         }
                                     } else {
@@ -3045,7 +3093,7 @@ function isEmpty(obj) {
     }
 }
 
-function resignRegister(){
+function resignRegister() {
 
 }
 
@@ -3103,21 +3151,21 @@ function renewRegister(){
     $("#article_renew_btn").prop('disabled', true);
 }
 
-function leaveRequestRegister(id){
+function leaveRequestRegister(id) {
     $('#leaveRequestModel').modal('toggle');
     $('#article_id').val(id);
     $('#form_name').val('other');
     getLeaveRequest();
 }
 
-function leaveGovRequestRegister(id){
+function leaveGovRequestRegister(id) {
     $('#leaveRequestModel').modal('toggle');
     $('#article_id').val(id);
     $('#form_name').val('gov');
     getLeaveRequest();
 }
 
-function saveLeaveRequest(){
+function saveLeaveRequest() {
     var data = new FormData();
     data.append('id', $('#article_id').val());
     data.append('form_name', $('#form_name').val());
@@ -3148,7 +3196,7 @@ function saveLeaveRequest(){
     });
 }
 
-function getLeaveRequest(){
+function getLeaveRequest() {
     var id = $('#article_id').val();
     var form_name = $('#form_name').val();
 
@@ -3166,28 +3214,28 @@ function getLeaveRequest(){
         success: function (data) {
             $("#leave_request_body").html("");
             var r = 1;
-            data.forEach(function(element){
+            data.forEach(function (element) {
                 var tr = "<tr>";
                 tr += "<td class='alignright'>" + r + "</td>";
                 tr += "<td>" + element.remark + "</td>";
                 tr += "<td>" + element.start_date + "</td>";
                 tr += "<td>" + element.end_date + "</td>";
                 tr += "<td>" + element.total_leave + "</td>";
-                tr += "<td class='alignright'><button class='btn btn-warning btn-sm' onclick='updateLeaveRequest("+ element.id +")'><li class='fa fa-pencil'></li></button></td>";
+                tr += "<td class='alignright'><button class='btn btn-warning btn-sm' onclick='updateLeaveRequest(" + element.id + ")'><li class='fa fa-pencil'></li></button></td>";
                 tr += "</tr>";
                 r = r + 1;
                 $("#leave_request_body").append(tr);
             })
-			$('#leave_request_table').DataTable({
-				'destroy': true,
-				'paging': true,
-				'lengthChange': false,
-				"pageLength": 5,
-				'searching': false,
-				'info': false,
-				'autoWidth': true,
-				"scrollX": false,
-			});
+            $('#leave_request_table').DataTable({
+                'destroy': true,
+                'paging': true,
+                'lengthChange': false,
+                "pageLength": 5,
+                'searching': false,
+                'info': false,
+                'autoWidth': true,
+                "scrollX": false,
+            });
         },
         error: function (message) {
             EasyLoading.hide();
@@ -3196,12 +3244,12 @@ function getLeaveRequest(){
     });
 }
 
-function updateLeaveRequest(id){
+function updateLeaveRequest(id) {
     $('#leave_request_form').removeAttr('action', 'javascript:saveLeaveRequest()');
     $("#leave_request_form").attr('action', 'javascript:saveUpdateLeaveRequest()');
     $.ajax({
         type: "GET",
-        url: BACKEND_URL + "/get_update_leave_request/"+id,
+        url: BACKEND_URL + "/get_update_leave_request/" + id,
         success: function (result) {
             $("#leave_request_id").val(result.id);
             $("#remark").val(result.remark);
@@ -3216,7 +3264,7 @@ function updateLeaveRequest(id){
     });
 }
 
-function saveUpdateLeaveRequest(){
+function saveUpdateLeaveRequest() {
     var data = new FormData();
     data.append('id', $('#leave_request_id').val());
     data.append('remark', $("input[name=remark]").val());
@@ -3447,7 +3495,7 @@ function saveAttachFile(id) {
         alert("Please Fill Attachment File");
     }
 }
-function loadSchoolByDash(school_data,school_invoice) {
+function loadSchoolByDash(school_data, school_invoice) {
 
     $.ajax({
         type: 'GET',
@@ -3479,56 +3527,54 @@ function loadSchoolByDash(school_data,school_invoice) {
 
             } else if (school.approve_reject_status == 1) {
                 $('.sch_status_history').append('School Registration is Approved.');
-                if(school.offline_user!='true'){
+                if (school.offline_user != 'true') {
 
-                        var invoice = school_invoice.filter( val => {
-                            if(val.invoiceNo=='init_sch'+school.id || val.invoiceNo=='renew_sch'+school.id ){
-                                return val.invoiceNo ==  val.status == 0 == val.dateTime!=null;
-                            }
-
-                                //school.payment_method &&
-                        });
-
-                        var sch_invoice=invoice.pop();
-                        if (sch_invoice.status=="AP")
-
-                            {
-                            $('.sch_period').show();
-                            var now = new Date();
-                            if (school.initial_status == 0) {
-                                //var period_date = school.from_valid_date.split(' ');
-                                var new_period_date = sch_invoice.dateTime.split('-');
-                                var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                                $('#sch_period_time').text(period + " to 31-12-" + now.getFullYear());
-                            } else if (school.initial_status == 1) {
-                                var period_date = school.renew_date.split(' ');
-                                var new_period_date = period_date[0].split('-');
-                                var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                                $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear() + 3);
-                            }
-
-                            if (school.initial_status == 2) {
-                                $('.sch_renew-btn').hide();
-                            } else {
-                                $('.sch_renew-btn').show();
-                                $('.sch_renew-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
-                            }
-
-                            $('.sch_payment-status').show();
-                            $('.sch_payment-btn').hide();
-                            $(".sch_payment_status").text("Complete");
-
-                        }else {
-                            $(".sch_payment_status").text("Incomplete");
-                            $('.sch_payment-btn').show();
-                            var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+sch_invoice.invoiceNo;
-                            $('.sch_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment</a>`);
-                            $('.sch_payment-status').show();
+                    var invoice = school_invoice.filter(val => {
+                        if (val.invoiceNo == 'init_sch' + school.id || val.invoiceNo == 'renew_sch' + school.id) {
+                            return val.invoiceNo == val.status == 0 == val.dateTime != null;
                         }
 
+                        //school.payment_method &&
+                    });
+
+                    var sch_invoice = invoice.pop();
+                    if (sch_invoice.status == "AP") {
+                        $('.sch_period').show();
+                        var now = new Date();
+                        if (school.initial_status == 0) {
+                            //var period_date = school.from_valid_date.split(' ');
+                            var new_period_date = sch_invoice.dateTime.split('-');
+                            var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
+                            $('#sch_period_time').text(period + " to 31-12-" + now.getFullYear());
+                        } else if (school.initial_status == 1) {
+                            var period_date = school.renew_date.split(' ');
+                            var new_period_date = period_date[0].split('-');
+                            var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
+                            $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear() + 3);
+                        }
+
+                        if (school.initial_status == 2) {
+                            $('.sch_renew-btn').hide();
+                        } else {
+                            $('.sch_renew-btn').show();
+                            $('.sch_renew-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
+                        }
+
+                        $('.sch_payment-status').show();
+                        $('.sch_payment-btn').hide();
+                        $(".sch_payment_status").text("Complete");
+
+                    } else {
+                        $(".sch_payment_status").text("Incomplete");
+                        $('.sch_payment-btn').show();
+                        var payment_url = FRONTEND_URL + "/payment_method/" + school.student_info_id + "/" + sch_invoice.invoiceNo;
+                        $('.sch_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment</a>`);
+                        $('.sch_payment-status').show();
+                    }
 
 
-                }else{
+
+                } else {
                     $('.sch_renew-btn').show();
                     $('.sch_renew-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
                 }
@@ -3611,42 +3657,42 @@ function laodTeacherByDash(teacher_data, _invoice) {
             } else if (teacher.approve_reject_status == 1) {
                 $('.teacher_status_history').append('Teacher Registration is Approved.');
 
-                if(teacher.offline_user!=1){
-                        var invoice = _invoice.filter( val => {
-                            if(val.invoiceNo=="init_tec"+teacher.id || val.invoiceNo=="renew_tec"+teacher.id){
-                                return val.invoiceNo ==  val.status == 0 == val.dateTime!=null;
-                            }
-                        });
+                if (teacher.offline_user != 1) {
+                    var invoice = _invoice.filter(val => {
+                        if (val.invoiceNo == "init_tec"+teacher.id || val.invoiceNo == "renew_tec"+teacher.id) {
+                            return val.invoiceNo == val.status == 0 == val.dateTime != null;
+                        }
+                    });
 
-                        var invoice=invoice.pop();
-                       if(invoice.status=="AP"){
-                            $('.teacher_period').show();
-                            var now = new Date();
-                            if (teacher.initial_status == 0) {
-                                //var period_date = invoice[0].dateTime.split(' ');
-                                var new_period_date = invoice.dateTime.split('-');
-                                var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                                $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
-                            } else if (teacher.initial_status == 1) {
-                                $('#teacher_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear());
-                            }
-
-                            $('.teacher_renew-btn').show();
-                            $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
-                            $('.teacher_payment-status').show();
-                            $('.teacher_payment-btn').hide();
-                            $(".teacher_payment_status").text("Complete");
-                       }else {
-                            $(".teacher_payment_status").text("Incomplete");
-                            var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+invoice.invoiceNo;
-                            $('.teacher_payment-btn').show();
-                            $('.teacher_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a>`);
-                            $('.teacher_payment-status').show();
+                    var invoice = invoice.pop();
+                    if (invoice.status == "AP") {
+                        $('.teacher_period').show();
+                        var now = new Date();
+                        if (teacher.initial_status == 0) {
+                            //var period_date = invoice[0].dateTime.split(' ');
+                            var new_period_date = invoice.dateTime.split('-');
+                            var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
+                            $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
+                        } else if (teacher.initial_status == 1) {
+                            $('#teacher_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear());
                         }
 
+                        $('.teacher_renew-btn').show();
+                        $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
+                        $('.teacher_payment-status').show();
+                        $('.teacher_payment-btn').hide();
+                        $(".teacher_payment_status").text("Complete");
+                    } else {
+                        $(".teacher_payment_status").text("Incomplete");
+                        var payment_url = FRONTEND_URL + "/payment_method/" + teacher.student_info_id + "/" + invoice.invoiceNo;
+                        $('.teacher_payment-btn').show();
+                        $('.teacher_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a>`);
+                        $('.teacher_payment-status').show();
+                    }
 
 
-                }else{
+
+                } else {
                     $('.teacher_renew-btn').show();
                     $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
                 }
@@ -3977,9 +4023,8 @@ function updateProfileMentor() {
     });
 }
 
-function allowToRenew()
-{
-    var student =JSON.parse(localStorage.getItem("studentinfo"));
+function allowToRenew() {
+    var student = JSON.parse(localStorage.getItem("studentinfo"));
     var student_id = student.id;
     if(student!=null){
       $.ajax({
@@ -4028,7 +4073,6 @@ function allowToRenew()
                 $(".register-btn").css('display','none'); // register btn in information page
               }
             }
-          }
         })
     }
 }
