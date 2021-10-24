@@ -519,7 +519,7 @@ function app_form_feedback() {
                     var entry_start_date = new Date(batch.entrance_pass_start_date);
                     var entry_end_date = new Date(batch.entrance_pass_end_date);
                     let entry_status;
-                    console.log(app_end_date, app_start_date, date)
+                    // console.log(app_end_date, app_start_date, date)
                     //entry status 1 is show and 2 is hide entry button 
                     if (entry_start_date <= date && entry_end_date >= date) {
                         entry_status = 1;
@@ -619,7 +619,7 @@ function loadCourse() {
 
 }
 
-function selectedRegistration(radioValue) {  
+function selectedRegistration(radioValue) {
 
     if (radioValue == 3) {
 
@@ -644,7 +644,7 @@ function selectedRegistration(radioValue) {
         $('#private_card').removeClass("text-success border-success");
         $("#mac_card").removeClass("text-success border-success");
     } else {
-        
+
         $('#mac_container').css('display', 'block');
         $('#self_study_container').css('display', 'none');
         $('#private_school_container').css('display', 'none');

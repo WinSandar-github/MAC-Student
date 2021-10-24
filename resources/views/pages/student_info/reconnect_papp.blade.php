@@ -1132,10 +1132,61 @@
                                 <div class="text-danger" id="valid_self_confession_PAPP" style="display : none">
                                 </div>
                             </div>`,
-                    label   :'ကိုယ်တိုင်ဝန်ခံချက်'
+                    label   :'ကိုယ်တိုင်ဝန်ခံချက်(၁)'
                 },
                 {
-                    content:`<ul class="list-group list-group-flush fw-bold">
+                    content:`
+                    <ul class="list-group list-group-flush fw-bold">
+                        <li class="list-group-item">
+                            (၁) အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်ခွင့်မှတ်ပုံတင်ခြင်းကို စတင်လျှောက်ထားမည့် ပြက္ခဒိန်နှစ်မတိုင်မီနှစ်တွင် မြန်မာနိုင်ငံ၌ ၁၈၃ ရက်ထက်မနည်းနေထိုင်သူဖြစ်ကြောင်း ဝန်ခံကတိပြုပါသည်။
+                            <div class="mt-1">
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input accept_PAPP" type="radio" name="check30" value="1">
+                            <label class="fw-bold">လက်ခံသည်</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input not_accept_PAPP" type="radio" name="check30" value="2">
+                            <label class="fw-bold">လက်မခံပါ</label>
+                            </div>
+                            <div class="text-danger" id="" style="display : none"></div>
+                        </li>
+                        <li class="list-group-item">
+                            (၂) မှတ်ပုံတင်လျှောက်ထားသည့်ပြက္ခဒိန်နှစ်အတွက် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ် ကိုင်ခွင့်မှတ်ပုံတင် စတင်လျှောက်ထားချိန်/သက်တမ်းတိုးချိန်တွင် အခြားလုပ်ငန်းအဖွဲ့အစည်းတစ်ရပ်ရပ်တွင် အချိန်ပြည့်တာဝန် ထမ်းဆောင်နေသူမဟုတ်ကြောင်း ဝန်ခံကတိပြုပါသည်။
+                            <div class="mt-1">
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input accept_PAPP" type="radio" name="check31" value="1">
+                            <label class="fw-bold">လက်ခံသည်</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input not_accept_PAPP" type="radio" name="check31" value="2">
+                            <label class="fw-bold">လက်မခံပါ</label>
+                            </div>
+                            <div class="text-danger" id="" style="display : none"></div>
+                        </li>
+                        <li class="list-group-item">
+                            (၃) မှတ်ပုံတင်လျှောက်ထားသည့်ပြက္ခဒိန်နှစ်အတွက် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကို မိမိ၏အဓိကအသက်မွေးဝမ်းကြောင်းလုပ်ငန်းအဖြစ် မြန်မာနိုင်ငံအတွင်းတွင်လုပ်ကိုင်မည်ဖြစ်ကြောင်း ဝန်ခံ ကတိပြုပါသည်။
+                            <div class="mt-1">
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input accept_PAPP" type="radio" name="check32" value="1">
+                            <label class="fw-bold">လက်ခံသည်</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input not_accept_PAPP" type="radio" name="check32" value="2">
+                            <label class="fw-bold">လက်မခံပါ</label>
+                            </div>
+                            <div class="text-danger" id="" style="display : none"></div>
+                        </li>
+                    </ul>`,
+                    label   :'ကိုယ်တိုင်ဝန်ခံချက်(၂)'
+                },
+                {
+                    content:`
+                    <div class="text-center">
+                        <h5 class="fw-bold">မြန်မာနိုင်ငံစာရင်းကောင်စီ​၏ ၉-၈-၂၀၁၈ ရက်စွဲပါ </h5>
+                        <h5 class="fw-bold">အမိန့်ကြော်ငြာစာအမှတ် ၂၇/၂၀၁၈ ​၏ နောက်ဆက်တွဲတွင် ဖော်ပြထားသည့် စည်းကမ်းချက်များ</h5>
+                        <hr>
+                    </div>
+                    <ul class="list-group list-group-flush fw-bold">
                             <li class="list-group-item">
                                 (၁) မိမိ၏စာရင်းလုပ်ငန်းအတွက် အများသိရှိစေရန်ကြော်ငြာရာတွင် မိမိကိုယ်တိုင်တာဝန်ခံဆောင်ရွက် ပေးနိုင်သည်ထက် သို့မဟုတ် မိမိတွင်ရှိသောအရည်အချင်း သို့မဟုတ် အတွေ့အကြုံထက်ပိုမိုထုတ် ဖော်ခြင်း၊
                                 <div class="mt-1">
@@ -1540,55 +1591,6 @@
                             </li>
                         </ul>`,
                     label   :'Step 6'
-                },
-                {
-                    content:`<div class="text-center">
-                        <h5 class="fw-bold">မြန်မာနိုင်ငံစာရင်းကောင်စီ​၏ ၉-၈-၂၀၁၈ ရက်စွဲပါ </h5>
-                        <h5 class="fw-bold">အမိန့်ကြော်ငြာစာအမှတ် ၂၇/၂၀၁၈ ​၏ နောက်ဆက်တွဲတွင် ဖော်ပြထားသည့် စည်းကမ်းချက်များ</h5>
-                        <hr>
-                    </div>
-                    <ul class="list-group list-group-flush fw-bold">
-                        <li class="list-group-item">
-                            (၁) အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်ခွင့်မှတ်ပုံတင်ခြင်းကို စတင်လျှောက်ထားမည့် ပြက္ခဒိန်နှစ်မတိုင်မီနှစ်တွင် မြန်မာနိုင်ငံ၌ ၁၈၃ ရက်ထက်မနည်းနေထိုင်သူဖြစ်ကြောင်း ဝန်ခံကတိပြုပါသည်။
-                            <div class="mt-1">
-                            <div class="form-check form-check-inline">
-                            <input class="form-check-input accept_PAPP" type="radio" name="check30" value="1">
-                            <label class="fw-bold">လက်ခံသည်</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                            <input class="form-check-input not_accept_PAPP" type="radio" name="check30" value="2">
-                            <label class="fw-bold">လက်မခံပါ</label>
-                            </div>
-                            <div class="text-danger" id="" style="display : none"></div>
-                        </li>
-                        <li class="list-group-item">
-                            (၂) မှတ်ပုံတင်လျှောက်ထားသည့်ပြက္ခဒိန်နှစ်အတွက် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ် ကိုင်ခွင့်မှတ်ပုံတင် စတင်လျှောက်ထားချိန်/သက်တမ်းတိုးချိန်တွင် အခြားလုပ်ငန်းအဖွဲ့အစည်းတစ်ရပ်ရပ်တွင် အချိန်ပြည့်တာဝန် ထမ်းဆောင်နေသူမဟုတ်ကြောင်း ဝန်ခံကတိပြုပါသည်။
-                            <div class="mt-1">
-                            <div class="form-check form-check-inline">
-                            <input class="form-check-input accept_PAPP" type="radio" name="check31" value="1">
-                            <label class="fw-bold">လက်ခံသည်</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                            <input class="form-check-input not_accept_PAPP" type="radio" name="check31" value="2">
-                            <label class="fw-bold">လက်မခံပါ</label>
-                            </div>
-                            <div class="text-danger" id="" style="display : none"></div>
-                        </li>
-                        <li class="list-group-item">
-                            (၃) မှတ်ပုံတင်လျှောက်ထားသည့်ပြက္ခဒိန်နှစ်အတွက် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကို မိမိ၏အဓိကအသက်မွေးဝမ်းကြောင်းလုပ်ငန်းအဖြစ် မြန်မာနိုင်ငံအတွင်းတွင်လုပ်ကိုင်မည်ဖြစ်ကြောင်း ဝန်ခံ ကတိပြုပါသည်။
-                            <div class="mt-1">
-                            <div class="form-check form-check-inline">
-                            <input class="form-check-input accept_PAPP" type="radio" name="check32" value="1">
-                            <label class="fw-bold">လက်ခံသည်</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                            <input class="form-check-input not_accept_PAPP" type="radio" name="check32" value="2">
-                            <label class="fw-bold">လက်မခံပါ</label>
-                            </div>
-                            <div class="text-danger" id="" style="display : none"></div>
-                        </li>
-                    </ul>`,
-                    label   :'Step 7'
                 },
             ],
             final:`
