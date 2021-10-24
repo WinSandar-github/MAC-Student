@@ -24,9 +24,10 @@
                                                 <table width="100%"  id="tbl_entered_exam" class="table table-hover text-nowrap ">
                                                     <thead>
                                                         <tr>
-                                                            <th class="bold-font-weight" >No</th>
+                                                            <th class="bold-font-weight" >စဥ်</th>
+                                                            <th class="bold-font-weight" >ခုံအမှတ်</th>
                                                             <th class="bold-font-weight" >အမည်</th>
-                                                            <th class="bold-font-weight" >မှတ်ပုံတင်နံပါတ်</th>
+                                                            <th class="bold-font-weight" >နိင်ငံသားစိစစ်ရေးကဒ်ပြားအမှတ်</th>
                                                             <th class="bold-font-weight" >အဘအမည်</th>
                                                         
                                                             
@@ -67,7 +68,7 @@
             type: "POST",
             data: function (d) {
               
-                d.grade = 1;
+                // d.grade = 1;
 
             }
         },
@@ -78,6 +79,7 @@
                     return meta.row + meta.settings._iDisplayStart + 1;
                 }
             },
+            { data: 'sr_no',name:'sr_no'},
             { data: 'student_info.name_mm', name: 'student_info.name_mm' },
             { data: 'nrc', name: 'nrc' },
             { data: 'student_info.father_name_mm', name: 'father_name_mm' },
