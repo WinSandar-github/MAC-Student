@@ -91,9 +91,24 @@ function user_profile() {
                   }
                 }
 
+                else if(firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user == 1){
+                  // to do payment for approved initial user
+                  //checkRenewForInitial();
+                  console.log('non audit 3');
+                  var invoice = data.invoice.filter(val => {
+                    return val.invoiceNo == 'off_non_audit_renew'+firm_info[0].id && val.status == 0;
+                  });
+
+                  if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
+                    $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment</a><hr>`);
+                  }else{
+                    $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                  }
+                }
+
              }
              firmDashboardData();
-             
+
             } else if (data.school && data.teacher == null && data.mentor == null) {
                 $('.dashboard_name').append('School ');
                 loadSchoolByDash(data.school, data.invoice);
