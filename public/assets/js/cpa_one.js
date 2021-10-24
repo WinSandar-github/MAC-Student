@@ -88,6 +88,7 @@ function createCPATwoRegDAOnePass(){
     }
     var send_data = new FormData();
 
+
     var image = $("input[name=profile_photo]")[0].files[0];
     var nrc_front = $("input[name=nrc_front]")[0].files[0];
     var nrc_back = $("input[name=nrc_back]")[0].files[0];
@@ -96,6 +97,8 @@ function createCPATwoRegDAOnePass(){
     var nrc_township = $("#nrc_township").val();
     var nrc_citizen = $("#nrc_citizen").val();
 
+    send_data.append('sr_no', $("input[name=sr_no]").val());
+    
     send_data.append('email', $("input[name=email]").val());
     send_data.append('password', $("input[name=password]").val());
     send_data.append('nrc_state_region', nrc_state_region);
@@ -144,14 +147,15 @@ function createCPATwoRegDAOnePass(){
     send_data.append('verify_status', $("input[name=verify_status]").val());
     send_data.append('payment_method', $("input[name=payment_method]").val());
     send_data.append('verify_code', $("input[name=verify_code]").val());
-    send_data.append('batch_id', $("#selected_current_batch_id").val());
-    send_data.append('pass_batch_id', $("#selected_batch_id").val());
+    
+    send_data.append('pass_batch_id', $("#selected_passed_batch_id").val());
     send_data.append('cpa_one_pass_level', $("input[name=cpa_one_pass_level]").val());
     send_data.append('cpa_one_pass_exam_date', $("input[name=cpa_one_pass_exam_date]").val());
     send_data.append('cpa_one_pass_personal_no', $("input[name=cpa_one_pass_personal_no]").val());
 
     send_data.append('type', $("input[name='attend_place']:checked").val());
     if($("#cpa_type").val()=='cpa_2'){
+        send_data.append('batch_id', $("#selected_current_batch_id").val());
         send_data.append('type_cpa2', $("input[name='cpa2_attend_place']:checked").val());
         send_data.append('cpa_two_pass_level', $("input[name=cpa_two_pass_level]").val());
         send_data.append('cpa_two_pass_exam_date', $("input[name=cpa_two_pass_exam_date]").val());
@@ -171,7 +175,137 @@ function createCPATwoRegDAOnePass(){
         contentType: false,
         processData: false,
         success: function (result) {
-            console.log('result',result)
+            EasyLoading.hide();
+            successMessage("You have successfully registered. Use your email and password to login.");
+            setInterval(() => {
+                location.href = FRONTEND_URL + '/';
+            }, 3000);
+        },
+        error: function (message) {
+            EasyLoading.hide();
+            errorMessage(message);
+        }
+    });
+}
+
+function updateCPAExistingRegister() {
+
+    var send_data = new FormData();
+
+    if ($("input[name=profile_photo]")[0].files[0]) {
+
+        var image = $("input[name=profile_photo]")[0].files[0];
+        send_data.append('image', image);
+
+    }
+
+    if ($("input[name=nrc_front]")[0].files[0]) {
+        var nrc_front = $("input[name=nrc_front]")[0].files[0];
+        send_data.append('nrc_front', nrc_front);
+    }
+
+    if ($("input[name=nrc_back]")[0].files[0]) {
+
+        var nrc_back = $("input[name=nrc_back]")[0].files[0];
+        send_data.append('nrc_back', nrc_back);
+
+
+    }
+
+    if ($("input[name=recommend_letter]")[0].files[0]) {
+
+
+        var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
+        send_data.append('recommend_letter', recommend_letter);
+
+    }
+
+
+
+
+    var nrc_state_region = $("#nrc_state_region").val();
+    var nrc_township = $("#nrc_township").val();
+    var nrc_citizen = $("#nrc_citizen").val();
+
+    send_data.append('sr_no', $("input[name=sr_no]").val());
+    send_data.append('nrc_state_region', nrc_state_region);
+    send_data.append('nrc_township', nrc_township);
+    send_data.append('nrc_citizen', nrc_citizen);
+    send_data.append('nrc_number', $("input[name=nrc_number]").val());
+    send_data.append('old_image', $("input[name=old_image]").val());
+    send_data.append('old_rec_letter', $("input[name=old_rec_letter]").val());
+    send_data.append('old_certificate', $("input[name=old_certificate]").val());
+    send_data.append('student_info_id', student_id);
+
+    send_data.append('old_nrc_front', $("input[name=old_nrc_front]").val());
+    send_data.append('old_nrc_back', $("input[name=old_nrc_back]").val());
+
+    send_data.append('name_mm', $("input[name=name_mm]").val());
+    send_data.append('name_eng', $("input[name=name_eng]").val());
+    send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
+    send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
+    send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
+    send_data.append('race', $("input[name=race]").val());
+    send_data.append('religion', $("input[name=religion]").val());
+    send_data.append('date_of_birth', $("input[name=date_of_birth]").val());
+    send_data.append('address', $("input[name=address]").val());
+    send_data.append('current_address', $("input[name=current_address]").val());
+    send_data.append('phone', $("input[name=phone]").val());
+    send_data.append('gov_staff', $("input[type='radio'][name='gov_staff']:checked").val());
+    send_data.append('registration_no', $("input[name=registration_no]").val());
+    // send_data.append('date', $("input[name=date]").val());
+    send_data.append('current_job', $("input[name=current_job]").val());
+    send_data.append('position', $("input[name=position]").val());
+    send_data.append('department', $("input[name=department]").val());
+    send_data.append('organization', $("input[name=organization]").val());
+    send_data.append('company_name', $("input[name=company_name]").val());
+    send_data.append('salary', $("input[name=salary]").val());
+    send_data.append('office_address', $("input[name=office_address]").val());
+
+    send_data.append('university_name', $("input[name=university_name]").val());
+    send_data.append('degree_name', $("input[name=degree_name]").val());
+    // send_data.append('certificate', certificate);
+
+    $('input[name="certificate[]"]').map(function () {
+
+        for (var i = 0; i < $(this).get(0).files.length; ++i) {
+
+            send_data.append('certificate[]', $(this).get(0).files[i]);
+        }
+    });
+    send_data.append('qualified_date', $("input[name=qualified_date]").val());
+    send_data.append('roll_number', $("input[name=roll_number]").val());
+
+    // send_data.append('verify_status', $("input[name=verify_status]").val());
+    // send_data.append('payment_method', $("input[name=payment_method]").val());
+    // send_data.append('verify_code', $("input[name=verify_code]").val());
+    
+    send_data.append('pass_batch_id', $("#selected_passed_batch_id").val());
+    send_data.append('cpa_one_pass_level', $("input[name=cpa_one_pass_level]").val());
+    send_data.append('cpa_one_pass_exam_date', $("input[name=cpa_one_pass_exam_date]").val());
+    send_data.append('cpa_one_pass_personal_no', $("input[name=cpa_one_pass_personal_no]").val());
+
+    send_data.append('type', $("input[name='attend_place']:checked").val());
+
+    if($("#cpa_type").val()=='cpa_2'){
+        send_data.append('batch_id', $("#selected_current_batch_id").val());
+        send_data.append('type_cpa2', $("input[name='cpa2_attend_place']:checked").val());
+        send_data.append('cpa_two_pass_level', $("input[name=cpa_two_pass_level]").val());
+        send_data.append('cpa_two_pass_exam_date', $("input[name=cpa_two_pass_exam_date]").val());
+        send_data.append('cpa_two_pass_personal_no', $("input[name=cpa_two_pass_personal_no]").val());
+        send_data.append('cpa2_mac_type', $("input[name='cpa2_attend_place']:checked").val() == 2 ? $("input[name='cpa2_mac_type']:checked").val() : 99);
+    }
+    send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
+    send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
+    send_data.append('cpa_type', $("#cpa_type").val());
+    show_loader();
+    $.ajax({
+        url: BACKEND_URL + "/update_cpa_existing_register",
+        type: 'post',
+        data: send_data,
+        contentType: false,
+        processData: false,
+        success: function (result) {
             EasyLoading.hide();
             successMessage("You have successfully registered. Use your email and password to login.");
             setInterval(() => {
@@ -226,7 +360,6 @@ function Private_School_Submit() {
         contentType: false,
         processData: false,
         success: function (result) {
-            // console.log('result',result);
             EasyLoading.hide();
             if (result.message == undefined) {
                 successMessage(result);
@@ -348,7 +481,6 @@ function Mac_Submit() {
         processData: false,
         success: function (result) {
             EasyLoading.hide();
-            console.log(result);
             if (result.message == undefined) {
                 successMessage(result);
                 location.href = FRONTEND_URL + '/';
@@ -617,7 +749,6 @@ function direct_or_da() {
     let student = JSON.parse(localStorage.getItem("studentinfo"));
 
     if (student) {
-        // console.log('student',student);
         let batch_id = url.substring(url.lastIndexOf('/') + 1);
         $.ajax({
             type: "get",
@@ -625,7 +756,6 @@ function direct_or_da() {
             contentType: false,
             processData: false,
             success: function (res) {
-                // console.log('res1',res);
                 $('.batch_id').append(res.data.number);
                 $('#batch_id').val(res.data.number);
                 $('#batch_name').text(res.data.name);
@@ -640,9 +770,7 @@ function direct_or_da() {
             contentType: false,
             processData: false,
             success: function (res) {
-                // console.log('res2',res);
                 let entry_exam = res.data.exams.slice(-1);
-                console.log('entry_exam',entry_exam);
                 if(entry_exam.length != 0){
                     $('#exam_date').append(formatDateMYEntry(entry_exam[0].exam_start_date));
                 }else{
@@ -1001,7 +1129,6 @@ function SubmitCPAEntryForm() {
         processData: false,
         data: send_data,
         success: function (data) {
-            // console.log('data',data)
             EasyLoading.hide();
             successMessage("You have successfully registerd!");
 

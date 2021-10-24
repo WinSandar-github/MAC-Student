@@ -82,7 +82,7 @@
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                            {{-- <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6> --}}
+                                            <h6>အမှတ်စဥ် - <span id="batch_number">{{$batch['number']}}</span></h6> 
                                         </div>
                                     </div>
 
@@ -450,7 +450,7 @@
                                     <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <select class="form-control form-select" name="selected_current_batch_name" id="selected_current_batch_id" required>
+                                                <select class="form-control form-select" name="selected_passed_batch_name" id="selected_passed_batch_id" required>
                                                     <option value="" disabled selected>သင်တန်းအမှတ်စဉ် ရွေးချယ်ပါ</option>
                                                 </select>
                                             </div>
@@ -480,7 +480,7 @@
                                                     <input class="form-check-input" type="radio"
                                                             name="is_full_module" value='0' required>
                                                     <span class="form-check-sign"></span>
-                                                    Other
+                                                    None
                                                 </label>
                                             </div>
                                             <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
@@ -569,18 +569,17 @@
                                     </div>
 
                                     <input type="hidden" id="passed_course_id" value="3">
-                                    <input type="hidden" id="current_course_id" value="3">
+                                    {{-- <input type="hidden" id="current_course_id" value="3"> --}}
                                     <input type="hidden" id="cpa_type" value="cpa_1">
-                                    {{--<div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၄။</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
+
+                                    <div class="row mb-3">
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၄။</span> တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်(သို့)ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်</label>
                                         <div class="col-md-8">
-                                            <div class="form-group">
-                                                <select class="form-control form-select" name="selected_current_batch_name" id="selected_current_batch_id" required>
-                                                    <option value="" disabled selected>သင်တန်းအမှတ်စဉ် ရွေးချယ်ပါ</option>
-                                                </select>
-                                            </div>
-                                        </div>                                            
-                                    </div>--}}
+                                            <input type="text" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်(သို့)ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်" name="sr_no" class="form-control" value="{{ old('direct_sr_no') }}" >
+                                        </div>
+                                    </div>
+
+                                    
                                     <div class="row mb-3">
                                         <div class="form-check">
                                             <label class="form-check-label">
