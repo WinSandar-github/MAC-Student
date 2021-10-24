@@ -170,14 +170,11 @@
                                 <h4 class="d-inline-block">Diploma in Accountancy (DA)</h4> 
                                 <a href="{{ url('student_course/1') }}" class="btn btn-success" style="float:right !important">Course Details</a>
                                 <hr>
-                                <ul style="line-height:180%; font-family: Arial, Helvetica, sans-serif; text-align: justify;">
-                                    <li>အသိအမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှ ဘွဲ့ရရှိသူများ လျှောက်ထားနိုင်ပါသည်​။</li>
-
-                                    <li>Module အားလုံးကိုဖြစ်စေ၊ ကြိုက်နှစ်သက်ရာ Module တစ်ခုကိုဖြစ်စေ ၅ နှစ်အတွင်းဖြေဆိုနိုင်သည်။ ​</li>
-                                    <li>DA I သင်တန်းတွင် ဘာသာရပ် ၅ ခု၊ Module I တွင် ဘာသာရပ် ၃ ခု၊ Module II တွင် ဘာသာရပ် ၂ ခု ရှိပါသည်။​</li>
-                                    <li>DA II သင်တန်းတွင် ဘာသာရပ် ၆ ခုရှိပြီး ရှိပြီး Module တစ်ခုစီတွင် ဘာသာရပ် ၃ ခုရှိပါသည်​။</li>
-                                </ul>
-                                
+                                <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <div class="da-description"></div>
+                                        </div>
+                                </div>                               
                             </div>
                             <!-- Single Courses End -->
                         </div>
@@ -192,15 +189,11 @@
                                 <a href="{{ url('student_course/2') }}" class="btn btn-success" style="float:right !important">Course Details</a>
                                 <hr>
 
-                                <ul style="line-height:180%; font-family: Arial, Helvetica, sans-serif; text-align: justify;">
-                                    <li>BCom, BAct, BBA, DA, BBSc, ACCA (Fundamental skill level), CIMA 
-                                        ဘွဲ့များကို အဆိုပါသင်တန်းသို့ တိုက်ရိုက် တက်ရောက်ခွင့်ပေးပြီး အခြားဘွဲ့များ ဝင်ခွင့်စာမေးပွဲ 
-                                        အောင်မြင်ပါက တက်ရောက်ခွင့်ရှိပါသည်​​။</li>
-
-                                    <li>Module အားလုံးကိုဖြစ်စေ၊ ကြိုက်နှစ်သက်ရာ Module တစ်ခုကိုဖြစ်စေ ၅ နှစ်အတွင်းဖြေဆိုနိုင်သည်။ ​ ​</li>
-                                    <li>သင်တန်းတစ်ခုတွင်ဘာသာရပ် ၆ ခုရှိပြီး Module တစ်ခုတွင် ဘာသာရပ် ၃ ခုရှိပါသည်​။ ​</li>
-
-                                </ul>
+                                <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <div class="cpa-description"></div>
+                                        </div>
+                                </div>
                             </div>
                             <!-- Single Courses End -->
                         </div>
@@ -318,7 +311,7 @@
                                 <hr>
                                 <div class="row mb-3">
                                         <div class="col-md-12">
-                                            <div class="mentor-description"></div>
+                                            <div class="mentor-description-test"></div>
                                         </div>
                                 </div>
                                 
@@ -376,6 +369,8 @@
     loadDescription('Teacher','teacher-description');
     loadDescription('PAPP','papp-description');
     loadDescription('CPAFF','cpaff-description');
-    loadDescription('Mentor','mentor-description');
+    loadDescription('Mentor','mentor-description-test');
+    loadDescription('DA','da-description');
+    loadDescription('CPA','cpa-description');
 </script>
 @endpush

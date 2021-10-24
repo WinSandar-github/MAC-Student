@@ -54,10 +54,18 @@
                         <div class="col-md-2 pull-right">
                           <h6>For the year - {{ date('Y') }}</h6>
                         </div>
+                        <div id="reg_no_box" style="display:none;" >
+                          <div class="col-md-3 pull-left">
+                            <label for="" class="control-label text-muted fw-bolder"><small>Registration No.</small></label>
+                            <input type="text" placeholder="Enter Registration No.!" name="accountancy_firm_reg_no" class="form-control" value="" >
+                          </div>
+                        </div>
                     </div>
                   </div>
                   <input type="hidden" value="2" name="audit_firm_type_id">
 	                <input type="hidden" value="1" name="local_foreign_type">
+                  <input type="hidden" value="" name="firm_id">
+                  <input type="hidden" name="reject_type" id="reject_type" value="0" />
                 <!-- <br> -->
 
                     <div class="card-header"  id="local_info" style="display:none;">
@@ -157,15 +165,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <label class="col-md-1 col-form-label" >{{ __('3.') }}</label>
-                                            <label class="col-md-5 col-form-label label_align_right" >{{ __('Accountancy Firm Registeration No') }}</label>
-                                            <div class="col-md-6">
-                                                <div class="form-group ">
-                                                <input type="text" class="form-control" name="accountancy_firm_reg_no" id="accountancy_firm_reg_no" readonly="">
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         {{--<div class="row mb-5">
                                             <label class="col-md-1 col-form-label" >{{ __('4.') }}</label>
                                             <label class="col-md-5 col-form-label label_align_right" >{{ __('Applied Date') }}</label>
@@ -210,7 +210,7 @@
 								</div>
 
                 <div class="row mb-3">
-                  <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('4.') }}</span>Address of Practice(Head Office)</label>
+                  <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('3.') }}</span>Address of Practice(Head Office)</label>
                   <div class="col-md-8">
                       <label for="" class="control-label text-muted fw-bolder"><small>Head Office Address(English)</small></label>
                       <textarea name="head_office_address" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
@@ -262,7 +262,7 @@
                 </div><br>
 
                 <div class="row">
-									<label class="col-md-1 col-form-label">{{ __('5.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('4.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Branch Office') }}</label>
 									<label for="" class="col-md-4 branch_office_validate col-form-label" style="display:none;color:#ef815;">Please Fill Branch Office</label>
 								</div>
@@ -297,7 +297,7 @@
 								</div>
 
                 <div class="row">
-									<label class="col-md-1 col-form-label">{{ __('6.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('5.') }}</label>
 									<label class="col-md-4 col-form-label">{{ __('Sole Proprietor/Partners/Shareholders') }}</label>
 									<label for="" class="col-md-6 non_partner_validate col-form-label" style="display:none;color:#ef815;">Please Fill Sole Proprietor/Partners/Shareholders</label>
 								</div>
@@ -327,7 +327,7 @@
 								</div>
 
                 <div class="row">
-									<label class="col-md-1 col-form-label">{{ __('7.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('6.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Director(s)/Officer(s)') }}</label>
 									<label for="" class="col-md-4 non_director_validate col-form-label" style="display:none;color:#ef815;">Please Fill Director(s)/Officer(s)</label>
 								</div>
@@ -363,7 +363,7 @@
 								</div>
 
 								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('8.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('7.') }}</label>
 									<label class="col-md-11 col-form-label">{{ __('Organization Structure') }}</label>
 								</div>
 								<div class="row">
@@ -1062,7 +1062,7 @@
 
 
                 <div class="row">
-									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('8.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Name of Managing Director') }}</label>
 									<div class="col-md-4 col-form-label">
 										<div class="form-group">
@@ -1078,7 +1078,7 @@
 								</div>
 
                 <div class="row">
-									<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
 									<label class="col-md-2 col-form-label">{{ __('Total Staff') }}</label>
 									<label for="" class="col-md-6 total_staff_validate col-form-label" style="display:none;color:#ef815;">Please Fill Total Staff</label>
 								</div>
@@ -1113,11 +1113,12 @@
 								</div>
 
                 <div class="row">
-									<label class="col-md-1 col-form-label">{{ __('11.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
 									<label class="col-md-4 col-form-label">{{ __('Types of Service Provided') }}</label>
 									<label class="col-md-6 col-form-label" id="type_service_validate" style="display: none;color:#ef815;">Please Fill Types Of Service Provided</label>
 
 								</div>
+
 								<div class="row">
 									<div class="col-md-1"></div>
 									<div class="col-md-11">
@@ -1155,6 +1156,57 @@
 									</div>
 								</div>
 
+                <div id="last_registered_year_box" style="display:none;">
+                  <div class="row mb-5">
+                      <label for="" class="col-md-1 col-form-label">11.</label>
+                      <label for="" class="col-md-4 col-form-label">Last Registered Year</label>
+
+                      <div class="col-md-3">
+                          <input type="text" placeholder="YYYY" name="last_registered_year" class="form-control" autocomplete="off">
+                      </div>
+                  </div>
+                </div>
+
+                <div style="display:none" id="req_for_stop_box">
+                  <div class="row mb-5">
+                      <label for="" class="col-md-1 col-form-label">12.</label>
+                      <label for="" class="col-md-4 col-form-label">Suspended Year</label>
+                      <div class="row col-md-7 py-2">
+                          <div class="col-md-3 form-check-radio mx-2">
+                              <label class="form-check-label">
+                                  <input class="form-check-input" type="radio" id="yes"
+                                          name="req_for_stop" value="1" >
+                                  <span class="form-check-sign"></span>
+                                  Yes
+                              </label>
+                          </div>
+                          <div class="col-md-3 form-check-radio mx-2">
+                              <label class="form-check-label">
+                                  <input class="form-check-input" type="radio" id="no"
+                                          name="req_for_stop" value="2" >
+                                  <span class="form-check-sign"></span>
+                                  No
+                              </label>
+                          </div>
+
+                          <label  class="error attend_place_error" style="display:none;" for="req_for_stop">Please select one</label>
+                      </div>
+                  </div>
+                </div>
+
+                <div id="req_to_dissconect" style="display:none;">
+                  <div class="row mb-5">
+                      <label for="" class="col-md-1 col-form-label"></label>
+                      <label for="" class="col-md-4 col-form-label"></label>
+                      <div class="col-md-2">
+                          <label for="" class="col-form-label">Year</label>
+                      </div>
+                      <div class="col-md-3">
+                          <input type="text" placeholder="YYYY" name="suspended_year" class="form-control" autocomplete="off">
+                      </div>
+                  </div>
+                </div>
+
 								{{--<table width="100%">
 									<tr>
 										<td width="8%">14</td>
@@ -1188,7 +1240,8 @@
 
 								<div id="director_staffmembers" style="display:none;">
 									<div class="row">
-										<label class="col-md-1 col-form-label" id="label1">12.</label>
+                    <label class="col-md-1 col-form-label" style="display:none;" id="dir_label2">11.</label>
+										<label class="col-md-1 col-form-label" id="label1">13.</label>
 										<label class="col-md-11 col-form-label">{{ __('Particulars Of Directors/ Staff Members Who Is A Myanmar CPA') }}</label>
 
 									</div>
@@ -1206,12 +1259,12 @@
 																<th class="less-font-weight" rowspan="2">CPA(Passed Reg.No)</th>
 																<th class="less-font-weight" rowspan="2">CPA (Full-Fledged) Reg.No</th>
 																<th class="less-font-weight" rowspan="2">Public Practice Reg.No</th>
-																<th class="less-font-weight" style="text-align: right;">
-																	<button class="btn btn-primary btn-sm" type="button" onclick='addRowDirectorCPA("director_cpa_initial")'>
-																		<i class="fa fa-plus"></i>
-																	</button>
 
-																</th>
+                                <th class="less-font-weight text-center">
+                                  <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDirectorCPA("director_cpa_initial")'>
+                                    <li class="fa fa-plus"></li>
+                                  </button>
+                                </th>
 															</tr>
 
 														</thead>
@@ -1361,9 +1414,31 @@
 <script src="{{ asset("js/form_validation/non_audit_reject_register_validation.js") }}"></script>
 <script>
     $(document).ready(function(){
+      $("input[name='last_registered_year']").flatpickr({
+          enableTime: false,
+          dateFormat: "Y",
+          //dateFormat: "Y",
+          allowInput: true,
+      });
+      $("input[name='suspended_year']").flatpickr({
+          enableTime: false,
+          dateFormat: "Y",
+          //dateFormat: "Y",
+          allowInput: true,
+      });
+
       $("input[id*='declaration_mm'], text[id*='declaration_mm']").change(function (e) {
     			myanmarLetterOnly($(this));
     	});
+
+      $("input[name=req_for_stop]").change(function(){
+        if($(this).val() == 1){
+          $("#req_to_dissconect").css("display","block");
+        }
+        else{
+          $("#req_to_dissconect").css("display","none");
+        }
+      });
 
     	$(document).on('keydown', '#declaration_mm', function () {
     			myanmarLetterOnly($(this));

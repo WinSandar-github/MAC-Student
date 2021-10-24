@@ -499,7 +499,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                               
 
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
@@ -622,7 +622,7 @@
                                                                                         </option>
                                                                                     @endforeach
                                                                                 </select>
-                                                                                </select>
+                                                                                
                                                                             </div>
                                                                             <div class="col-md-2 col-5 px-1">
                                                                                 <select class="form-control" name="nrc_citizen" id="nrc_citizen" >
@@ -843,10 +843,10 @@
                                                                 <div class="form-group">
 
                                                                     <div class="form-check m-2 form-check-inline">
-                                                                        <input class="form-check-input" type="radio" name="school_type" id="school_staff1" value="1" onclick="selectSchoolType(1)" > Private
+                                                                        <input class="form-check-input" type="radio" name="update_school_type" id="school_staff1" value="1" onclick="selectSchoolType(1)" > Private
                                                                     </div>
                                                                     <div class="form-check form-check-inline">
-                                                                        <input class="form-check-input" type="radio" name="school_type" id="school_staff2" value="0" onclick="selectSchoolType(0)" > Individual
+                                                                        <input class="form-check-input" type="radio" name="update_school_type" id="school_staff2" value="0" onclick="selectSchoolType(0)" > Individual
 
                                                                     </div>
                                                                     <div class="col-md-8">
@@ -861,7 +861,7 @@
                                                             <label class="col-md-3 col-form-label label"></label>
                                                             <div class="col-md-8">
                                                                 <div class="private_type">
-                                                                    <select class="form-control" name="selected_school_id" id="selected_school_id"  >
+                                                                    <select class="form-control" name="update_selected_school_id" id="update_selected_school_id"  >
                                                                             <option value="" disabled selected>ရွေးပါ</option>
                                                                             
                                                                     </select>
@@ -875,7 +875,7 @@
                                                             <label class="col-md-3 col-form-label label"></label>
                                                             <div class="col-md-8">
                                                                 <div class="private_type">
-                                                                    <input type="text" class="form-control" id="school_name" name="school_name">
+                                                                    <input type="text" class="form-control" id="update_school_name" name="update_school_name">
                                                                 </div>
                                                                 
                                                                 
@@ -921,10 +921,41 @@
                                                             
                                                         </div>
                                                     </div>
-                                                
+                                                    <div class="teacher_exist_user" style="display:none;">
+                                                        <input type="hidden" id="offline_user" > 
+                                                        <div class="row mb-3">
+                                                                            <label class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
+                                                                            <label class="col-md-3 col-form-label label">ကနဦးသင်တန်းဆရာမှတ်ပုံတင်ကတ်ထုတ်ပေးသည့် ရက်စွဲ</label>
+                                                                                <div class="col-md-8">
+                                                                                    <input type="text" class="form-control" id="from_valid_date" name="from_valid_date" placeholder="dd-mm-yyyy" autocomplete="off">
+                                                                                    
+                                                                                </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                                            <label class="col-md-1 col-form-label">{{ __('၁၉။') }}</label>
+                                                                            <label class="col-md-3 col-form-label label">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</label>
+                                                                                <div class="col-md-8">
+                                                                                    <input type="text" class="form-control" id="t_code" name="t_code" autocomplete="off">
+                                                                                    
+                                                                                </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                                            <label class="col-md-1 col-form-label">{{ __('၂၀။') }}</label>
+                                                                            <label class="col-md-3 col-form-label label">သင်တန်းဆရာမှတ်ပုံတင်ကတ်ပြား</label>
+                                                                                <div class="col-md-8">
+                                                                                    <input type="file" name="teacher_card" class="form-control" accept="image/*">
+                                                                                    
+                                                                                </div>
+                                                                                <input type="hidden" id="hteacher_card">
+                                                                                <label for="" class="col-md-4"></label>
+                                                                                <div class="col-md-8 teacher_card_letter">
+                                                                        
+                                                                                </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="row mb-3">
-                                                        <div class="col-md-1"></div>
-                                                        <label class="col-md-10 col-form-label fw-bolder">
+                                                       
+                                                        <label class="col-md-12 col-form-label fw-bolder">
                                                             <input type="checkbox" id="submit_update" onclick="ConfirmSubmitTeacher()">
                                                             {{ __('အထက်ဖော်ပြပါ အချက်အလက်များ မှန်ကန်ကြောင်း ကိုယ်တိုင်ကတိပြုဝန်ခံပါသည်။') }}
                                                         </label>
@@ -1227,7 +1258,7 @@
                                                         <label class="col-md-3 col-form-label label"></label>
                                                         <div class="col-md-8">
                                                             <div class="private_type">
-                                                                <select class="form-control" name="selected_school_id" id="selected_school_id"  >
+                                                                <select class="form-control" name="renew_selected_school_id" id="renew_selected_school_id"  >
                                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                                         
                                                                 </select>
@@ -1365,6 +1396,11 @@
     $(document).ready(function (e) {
         
         $("input[name='date_of_birth']").flatpickr({
+                enableTime: false,
+                dateFormat: "d-M-Y",
+                allowInput: true,
+        });
+        $("input[name='from_valid_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
                 allowInput: true,

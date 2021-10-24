@@ -1331,7 +1331,7 @@
             </ul>
             <button class="btn btn-primary pull-right">Submit</button>
             `,
-            finishText:''
+            finishText:'',
             modalSize:'lg',
         });
     });

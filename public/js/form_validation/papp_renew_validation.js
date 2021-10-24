@@ -58,5 +58,9 @@ $().ready(function (){
             papp_reg_no:"Please enter your PAPP registeration number",
             old_papp_reg_no:"Please fill this field"
         },
+        submitHandler: function(form) {
+            $('#renewPAPPModal').modal('show');
+           // $('#reconnectPappModal').modal('show');
+        }
     });
 });

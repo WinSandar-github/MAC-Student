@@ -425,6 +425,8 @@ function delRowTeacherBio(tbody){
 }
 function loadSchoolList(){
     var select = document.getElementById("selected_school_id");
+    var renew_select = document.getElementById("renew_selected_school_id");
+    var update_select = document.getElementById("update_selected_school_id");
     $.ajax({
         url: BACKEND_URL+"/school",
         type: 'get',
@@ -437,6 +439,20 @@ function loadSchoolList(){
                 option.text = element.school_name;
                 option.value = element.id;
                 select.add(option,0);
+
+            });
+            school_data.forEach(function (element) {
+              var option = document.createElement('option');
+              option.text = element.school_name;
+              option.value = element.id;
+              renew_select.add(option,0);
+
+            });
+            school_data.forEach(function (element) {
+              var option = document.createElement('option');
+              option.text = element.school_name;
+              option.value = element.id;
+              update_select.add(option,0);
 
             });
         },
@@ -996,6 +1012,7 @@ function loadFile(file,divname){
     $("."+divname).append(file);
 
 }
+
 function loadDescription(membership_name,divname){
   $('.application-fee').html("");
   $('.registration-fee').html("");
@@ -1017,6 +1034,7 @@ function loadDescription(membership_name,divname){
     url: BACKEND_URL+"/showDescription/"+membership_name,
     success: function (result) {
       var data=result.data;
+      // console.log(data)
       var application_fee=0;
       var registration_fee=0;
       var renew_registration_fee=0;
@@ -1107,6 +1125,63 @@ function loadDescription(membership_name,divname){
     }
   })
 }
+
+function loadFee(id){
+  // $('.application-fee').html("");
+  $.ajax({
+    type: "get",
+    url: BACKEND_URL+"/showFee/"+id,
+    success: function (result) {
+      var data=result.data;
+      // console.log(data[0].form_fee);
+      var form_fee = data[0].form_fee;
+      var registration_fee = data[0].registration_fee;
+      var renew_fee = data[0].renew_fee;
+      var late_fee = data[0].late_fee;
+      var late_feb_fee = data[0].late_feb_fee;
+      var reconnected_fee = data[0].reconnected_fee;
+      var reconnected_fee_before_2015 = data[0].reconnected_fee_before_2015;
+      
+      $('#form_fee').append(thousands_separators(form_fee)+" MMK");
+      $('#form_fee1').append(thousands_separators(form_fee)+" MMK");
+      $('#registration_fee').append(thousands_separators(registration_fee)+" MMK");
+      $('#renew_fee').append(thousands_separators(renew_fee)+" MMK");
+      $('#late_fee').append(thousands_separators(late_fee)+" MMK");
+      $('#late_feb_fee').append(thousands_separators(late_feb_fee)+" MMK");
+      $('#reconnected_fee').append(thousands_separators(reconnected_fee)+" MMK");
+      $('#reconnected_fee_before_2015').append(thousands_separators(reconnected_fee_before_2015)+" MMK");
+    }
+  })
+}
+
+function loadFees(id){
+  // $('.application-fee').html("");
+  $.ajax({
+    type: "get",
+    url: BACKEND_URL+"/showFees/"+id,
+    success: function (result) {
+      var data=result.data;
+      // console.log(data[0].form_fee);
+      var form_fee = data[0].form_fee;
+      var registration_fee = data[0].registration_fee;
+      var renew_fee = data[0].renew_fee;
+      var late_fee = data[0].late_fee;
+      var late_feb_fee = data[0].late_feb_fee;
+      var reconnected_fee = data[0].reconnected_fee;
+      var reconnected_fee_before_2015 = data[0].reconnected_fee_before_2015;
+      
+      $('.form_fee').append(thousands_separators(form_fee)+" MMK");
+      $('.form_fee1').append(thousands_separators(form_fee)+" MMK");
+      $('.registration_fee').append(thousands_separators(registration_fee)+" MMK");
+      $('.renew_fee').append(thousands_separators(renew_fee)+" MMK");
+      $('.late_fee').append(thousands_separators(late_fee)+" MMK");
+      $('.late_feb_fee').append(thousands_separators(late_feb_fee)+" MMK");
+      $('.reconnected_fee').append(thousands_separators(reconnected_fee)+" MMK");
+      $('.reconnected_fee_before_2015').append(thousands_separators(reconnected_fee_before_2015)+" MMK");
+    }
+  })
+}
+
 function ownTypeForm(){
   $('#ownType_letter').css('display','block');
 }
@@ -1119,8 +1194,8 @@ function addRowBranchSchool(tbody){
   var cols = "";
   var row=$('.'+tbody+' tr').length;
   cols += '<td class="text-center">'+row+'</td>';
-  cols += '<td><input type="text" class="form-control" name="branch_school_address[]" id="branch_school_address'+ row + '" autocomplete="off" required onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" ><span class="form-text text-danger">please enter english letters</span></td>';
-  cols += '<td><input type="file" class="form-control" name="branch_school_attach[]"  accept="image/*" id="branch_school_attach'+ row + '" required></td>';
+  cols += '<td><input type="text" class="form-control" name="branch_school_address[]" id="branch_school_address'+ row + '" autocomplete="off" required ><span class="form-text text-danger">please enter english letters</span></td>';
+  cols += '<td><input type="file" class="form-control" name="branch_school_attach[]"  accept="image/*" id="branch_school_attach'+ row + '" required></td>';//return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)"
   cols += '<td>'+
           '<div class="form-group">'+
                                         '<div class="form-check mt-2 form-check-inline">'+
@@ -1163,6 +1238,34 @@ function addRowBranchSchool(tbody){
   counter++;
 
 }
+function allow_alphabets(element){//oninput="allow_alphabets(this)"
+  let textInput = element.value;
+  textInput = textInput.replace(/^[a-z\d\-_\s]+$/i, '');
+  element.value = textInput;
+}
+function IsAlphaNumeric(e) {
+  var keyCode = e.keyCode == 0 ? e.charCode : e.keyCode;
+  var ret = ((keyCode >= 48 && keyCode <= 57) || (keyCode >= 65 && keyCode <= 90) || (keyCode >= 97 && keyCode <= 122) || (specialKeys.indexOf(e.keyCode) != -1 && e.charCode != e.keyCode));
+  document.getElementById("error").style.display = ret ? "none" : "inline";
+  return ret;
+}
+$(function() {
+  $('input.alpha[$id=branch_school_address1]').keyup(function() {
+      if (this.value.match(/[^a-zA-Z0-9 ]/g)) {
+          this.value = this.value.replace(/[^a-zA-Z0-9 ]/g, '');
+      }
+  });
+});
+$('#branch_school_address1').bind('keyup blur', function () {
+  $(this).val($(this).val().replace(/[^A-Za-z]/g, ''))
+});
+$("#branch_school_address1").keypress(function(event){
+  //var ew = event.which;
+  ew = event.val();
+                if (!(/[a-zA-Z0-9]+$/.test(val))) {
+                  event.val(val.replace(/[a-zA-Z0-9]+$/, ''));
+                }
+});
 function delRowBranchSchool(tbody){
   $("table."+tbody).on("click", ".delete", function (event) {
       var deleted_row = $(this).closest("tr");

@@ -54,10 +54,16 @@
                         <div class="col-md-2 pull-right">
                           <h6>For the year - {{ date('Y') }}</h6>
                         </div>
+                        <div id="reg_no_box" style="display:none;">
+                          <div class="col-md-3 pull-left">
+                            <label for="" class="control-label text-muted fw-bolder"><small>Registration No.</small></label>
+                            <input type="text" placeholder="Enter Registration No.!" name="accountancy_firm_reg_no" class="form-control" value="" >
+                          </div>
+                        </div>
                     </div>
                   </div>
                   <input type="hidden" value="2" name="audit_firm_type_id">
-	                <input type="hidden" value="1" name="local_foreign_type">
+	                <input type="hidden" value="" name="local_foreign_type">
 
                   <input type="hidden" value="" name="offline_user">
                   <input type="hidden" value="" name="req_for_stop">
@@ -90,20 +96,7 @@
                                     </td>
                                     <td width="20%"></td>
                                 </tr>
-                                <tr>
-                                    <td width="20%"></td>
-                                    <td width="30%">
-                                        <div class="single-form">
-                                            <label class="col-form-label">Accountancy Firm Registeration No</label>
-                                        </div>
-                                    </td>
-                                    <td width="30%">
-                                        <div class="single-form">
-                                            <input type="text" class="form-control" id="accountancy_firm_reg_no" readonly="">
-                                        </div>
-                                    </td>
-                                    <td width="20%"></td>
-                                </tr>
+
                                 <tr>
                                     <td width="20%"></td>
                                     <td width="30%">
