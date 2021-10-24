@@ -70,7 +70,7 @@
                     <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
                         {{--<form method="post" class="needs-validation" action="javascript:createDARegister();" enctype="multipart/form-data" novalidate>--}}
-                        <form method="post" id="existing_user_cpa_one_form" action="javascript:void(0);" enctype="multipart/form-data">
+                        <form method="post" id="existing_user_cpa_one_edit_form" action="javascript:void(0);" enctype="multipart/form-data">
                             @csrf                                                                            
                            
                             <div class="row">
@@ -154,14 +154,14 @@
                                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                                 <div class="fileinput-new thumbnail img-circle shadow">
                                                     <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
-                                                         alt="Upload Photo">
+                                                         alt="Upload Photo" id="da_to_cpa_preview_img">
                                                 </div>
                                                 <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
                                                 <div class="d-flex justify-content-center">
                                                     <span class="btn btn-round btn-secondary btn-file">
                                                     <span class="fileinput-new">ဓာတ်ပုံ</span>
                                                     <span class="fileinput-exists">Change</span>
-                                                    <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
+                                                    <input type="file" id="profile_photo" name="profile_photo" accept="image/*" ></span>
                                                     <input type="hidden" name="old_image" id="old_image">
                                                     <br>
                                                     <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
@@ -219,15 +219,15 @@
                                         <div class="col-md-6 text-center">
                                             <div class="fileinput fileinput-new text-center mt-4" data-provides="fileinput">
                                                 <div class="fileinput-new thumbnail shadow">
-                                                    <img src="{{ asset('assets/images/image_placeholder.png') }}" alt="Upload Photo">
+                                                    <img src="{{ asset('assets/images/image_placeholder.png') }}" alt="Upload Photo" id="nrc_front_update">
                                                 </div>
                                                 <div class="fileinput-preview fileinput-exists thumbnail" style=""></div>
                                                 <div>
                                                     <span class="btn btn-secondary btn-round btn-file">
                                                         <span class="fileinput-new">နိုင်ငံသားစိစစ်ရေးကတ်ပြား(အရှေ့)</span>
                                                         <span class="fileinput-exists">Change</span>
-                                                        <input type="hidden" name="old_nrc_front" id="old_nrc_front">                                                        
-                                                        <input type="file" id="nrc_front" name="nrc_front" value="{{ old('nrc_front') }}" accept="image/*" required>
+                                                        <input type="hidden" name="old_nrc_front" id="old_nrc_front">                                                     
+                                                        <input type="file" id="nrc_front" name="nrc_front" value="{{ old('nrc_front') }}" accept="image/*" >
                                                     </span>
                                                     <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                 </div>
@@ -239,7 +239,7 @@
                                             <div class="fileinput fileinput-new text-center mt-4" data-provides="fileinput">
                                                 <div class="fileinput-new thumbnail shadow">
                                                     <img src="{{ asset('assets/images/image_placeholder.png') }}"
-                                                         alt="Upload Photo">
+                                                         alt="Upload Photo" id="nrc_back_update">
                                                 </div>
                                                 <div class="fileinput-preview fileinput-exists thumbnail" style=""></div>
                                                 <div>
@@ -247,7 +247,7 @@
                                                          <span class="fileinput-new">နိုင်ငံသားစိစစ်ရေးကတ်ပြား(အနောက်)</span>
                                                          <span class="fileinput-exists">Change</span>
                                                          <input type="hidden" name="old_nrc_back" id="old_nrc_back">
-                                                         <input type="file" id="nrc_back" name="nrc_back" value="{{ old('nrc_back') }}" accept="image/*" required>
+                                                         <input type="file" id="nrc_back" name="nrc_back" value="{{ old('nrc_back') }}" accept="image/*" >
                                                      </span>
                                                     <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                 </div>
@@ -430,6 +430,7 @@
                                             <div class="col-md-2"  id="degree_certificate" >
                                                 <span class="certificate"></span>
                                             </div>
+                                            <input type="hidden" name="old_certificate" id="old_certificate">
                                             <div class="col-md-6" id="edu">
                                                 <div class="row mb-3" id="edu0">
                                                     <div class="col-md-11" id="degree_edu">
@@ -440,7 +441,6 @@
                                                             <i class="fa fa-plus"></i>
                                                         </button>
                                                     </div>
-                                                    <input type="hidden" name="old_certificate" id="old_certificate">
                                                 </div>
                                             </div>
                                         </div>
@@ -450,21 +450,11 @@
                                         <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၂၀။</span>လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပထမပိုင်း) စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
                                     </div>
 
-                                    {{--<div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
-                                        <div class="col-md-8">
-                                            <div class="form-group">
-                                                <select class="form-control form-select" name="selected_batch_name" id="selected_batch_id" required>
-                                                    <option value="" disabled selected>သင်တန်းအမှတ်စဉ် ရွေးချယ်ပါ</option>
-                                                </select>
-                                            </div>
-                                        </div>                                            
-                                    </div>--}}
                                     <div class="row mb-3">
                                     <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <select class="form-control form-select" name="selected_current_batch_name" id="selected_current_batch_id" required>
+                                                <select class="form-control form-select" name="selected_passed_batch_name" id="selected_passed_batch_id" required>
                                                     <option value="" disabled selected>သင်တန်းအမှတ်စဉ် ရွေးချယ်ပါ</option>
                                                 </select>
                                             </div>
@@ -494,7 +484,7 @@
                                                     <input class="form-check-input" type="radio"
                                                             name="is_full_module" value='0' required>
                                                     <span class="form-check-sign"></span>
-                                                    Other
+                                                    None
                                                 </label>
                                             </div>
                                             <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
@@ -585,16 +575,13 @@
                                     <input type="hidden" id="passed_course_id" value="3">
                                     <input type="hidden" id="current_course_id" value="3">
                                     <input type="hidden" id="cpa_type" value="cpa_1">
-                                    {{--<div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၄။</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
+                                    
+                                    <div class="row mb-3">
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၁။</span> တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်(သို့)ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်</label>
                                         <div class="col-md-8">
-                                            <div class="form-group">
-                                                <select class="form-control form-select" name="selected_current_batch_name" id="selected_current_batch_id" required>
-                                                    <option value="" disabled selected>သင်တန်းအမှတ်စဉ် ရွေးချယ်ပါ</option>
-                                                </select>
-                                            </div>
-                                        </div>                                            
-                                    </div>--}}
+                                            <input type="text" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်(သို့)ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်" name="sr_no" class="form-control" id="sr_no" value="{{ old('direct_sr_no') }}" >
+                                        </div>
+                                    </div>
                                     <div class="row mb-3">
                                         <div class="form-check">
                                             <label class="form-check-label">
@@ -682,11 +669,159 @@
 
         // to clear data when user click browser back button
         $(window).bind('pageshow', function (){
-            $("#existing_user_cpa_one_form").get(0).reset();
+            $("#existing_user_cpa_one_edit_form").get(0).reset();
         });
 
         $(document).ready(function (e) {
             localStorage.removeItem('course_type');
+            
+            if (localStorage.getItem("studentinfo") != null)
+            {
+                get_student_info(student_id).then(data => {
+                    if(data){
+                        var info = data.data;
+                        
+                        var student_course = info.student_course_regs.slice(-1);
+                        var job_history = data.data.student_job;
+                        var education_history = data.data.student_education_histroy;
+                        var last_exam = info.exam_registers.slice(-1);
+                      
+                        if(info){
+                            $('#stu_id').val(info.id);
+
+                            $("input[name=name_mm]").val(info.name_mm);
+                            $("input[name=name_eng]").val(info.name_eng);
+                            $("#nrc_state_region").val(info.nrc_state_region);
+                            $("#nrc_township").val(info.nrc_township);
+                            $("#nrc_citizen").val(info.nrc_citizen);
+                            $("#nrc_number").val(info.nrc_number);
+                            $("input[name=father_name_mm]").val(info.father_name_mm);
+                            $("input[name=father_name_eng]").val(info.father_name_eng);
+                            $("input[name=race]").val(info.race);
+                            $("input[name=religion]").val(info.religion);
+                            $("input[name=date_of_birth]").val(info.date_of_birth);
+                            $("input[name=phone]").val(info.phone);
+                            $("input[name=address]").val(info.address);
+                            $("input[name=current_address]").val(info.current_address);
+    
+    
+                            document.getElementById('da_to_cpa_preview_img').src = BASE_URL + info.image;
+                            $("input[name=old_image]").val(info.image);
+
+                            document.getElementById('nrc_front_update').src = BASE_URL + info.nrc_front;
+                            $("input[name=old_nrc_front]").val(info.nrc_front);
+
+                            document.getElementById('nrc_back_update').src = BASE_URL + info.nrc_back;
+                            $("input[name=old_nrc_back]").val(info.nrc_back); 
+
+                            $("input[name=old_rec_letter]").val(info.recommend_letter);
+                        }
+
+                        var batch_id = student_course[0].batch_id;
+                        $('#batch_id').val(batch_id)
+                        $.ajax({
+                                type: "get",
+                                url: BACKEND_URL + "/batch/" + batch_id,
+                                contentType: false,
+                                processData: false,
+                                async:false,
+                                success: function (res) {
+                                    
+                                    $('.batch_number').append(res.data.number);
+                                    $('#batch_number').append(res.data.number);
+                                }
+                        })
+                        if(job_history){
+                            $("input[name=current_job]").val(job_history.name);
+                            $("input[name=position]").val(job_history.position);
+                            $("input[name=department]").val(job_history.department);
+                            $("input[name=organization]").val(job_history.organization);
+                            //$("input[name=address]").val(job_history.address);
+                            //$("input[name=current_address]").val(job_history.current_address);
+                            $("input[name=company_name]").val(job_history.company_name);
+                            $("input[name=salary]").val(job_history.salary);
+                            $("input[name=office_address]").val(job_history.office_address);
+                        }
+
+                        if(education_history){
+                            $("input[name=degree_name]").val(education_history.degree_name);
+                            $("input[name=university_name]").val(education_history.university_name);
+                            $("input[name=roll_number]").val(education_history.roll_number);
+                            $("input[name=qualified_date]").val(education_history.qualified_date);
+                            $("input[name=old_certificate]").val(JSON.parse(education_history.certificate));
+
+                            let certificate = JSON.parse(education_history.certificate);
+                            $.each(certificate, function (fileCount, fileName) {
+
+                                $(".certificate").append(`<a href='${BASE_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
+
+                            })
+                        }
+                        // government staff OR not
+                        if(info.gov_staff == 1){
+                            $("input[name=gov_staff][value=1]").prop("checked",true);
+                            $("#rec_letter").css("display",'block');
+                            if(info.recommend_letter!=null){
+                                $(".recommend_letter").append("<a href='"+BASE_URL+info.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                            }
+                        }
+                        else{
+                            $("input[name=gov_staff][value=0]").prop("checked",true);
+                        }
+
+                        if(info.gender=="Male"){
+                            $("#male").prop("checked",true);
+                        }else{
+                            $("#female").prop("checked",true);
+                        }
+
+                        if(student_course[0].type == 0){
+                            $("input[name=attend_place][value=0]").prop("checked",true);
+
+                            
+                        }else if(student_course[0].type == 1){
+                            $("input[name=attend_place][value=1]").prop("checked",true);
+                        }else{
+                            $("input[name=attend_place][value=2]").prop("checked",true);
+                            selectType();
+                            if(student_course[0].mac_type == 1){
+                                $("input[name=mac_type][value=1]").prop("checked",true);
+                                
+                            }else{
+                                $("input[name=mac_type][value=2]").prop("checked",true);
+
+                            }
+                        }
+
+                        $('#sr_no').val(student_course[0].sr_no);
+                        $('#selected_passed_batch_id').val(student_course[0].batch_id);
+                        if(last_exam[0].is_full_module == "1"){
+                            $(".module_one").prop("checked", true);                            
+                            // $('.module_one').attr('disabled', true);
+                            // $('.module_full').attr('disabled', true);
+
+                        }
+                        else if(last_exam[0].is_full_module=="2"){
+                            $(".module_two").prop("checked", true);
+                            // $('.module_two').attr('disabled', true);
+                            // $('.module_full').attr('disabled', true);
+
+                        }
+                        else if(last_exam[0].is_full_module=="0"){
+                            $(".none").prop("checked", true);
+                            // $('.module_two').attr('disabled', true);
+                            // $('.module_full').attr('disabled', true);                              
+                            
+                        }
+                        $("input[name=cpa_one_pass_exam_date]").val(last_exam[0].passed_date);
+                        $("input[name=cpa_one_pass_level]").val(last_exam[0].passed_level);
+                        $("input[name=cpa_one_pass_personal_no]").val(info.cpersonal_no);
+                    }
+
+                    //$("input").prop('',true);
+                })
+            }
+
 
             $("input[name='date']").flatpickr({
                 enableTime: false,
@@ -733,142 +868,7 @@
                 myanmarLetterOnly($(this));
             });
 
-            console.log('data',localStorage.getItem("studentinfo"))
-
-            if (localStorage.getItem("studentinfo") != null)
-            {
-                get_student_info(student_id).then(data => {
-                    // console.log('data',data.data)
-                    // if(data){
-                    //     var info = data.data;
-                    //     console.log(info)
-                        
-                    //     var student_course = info.student_course_regs.slice(-1);
-                    //     var job_history = data.data.student_job;
-                    //     var education_history = data.data.student_education_histroy;
-                    //     if(info){
-                    //         $('#stu_id').val(info.id);
-                    
-                    //         $("input[name=email]").val(info.email);
-                    //         $("input[name=name_mm]").val(info.name_mm);
-                    //         $("input[name=name_eng]").val(info.name_eng);
-                    //         $("#nrc_state_region").val(info.nrc_state_region);
-                    //         $("#nrc_township").val(info.nrc_township);
-                    //         $("#nrc_citizen").val(info.nrc_citizen);
-                    //         $("#nrc_number").val(info.nrc_number);
-                    //         $("input[name=father_name_mm]").val(info.father_name_mm);
-                    //         $("input[name=father_name_eng]").val(info.father_name_eng);
-                    //         $("input[name=race]").val(info.race);
-                    //         $("input[name=religion]").val(info.religion);
-                    //         $("input[name=date_of_birth]").val(info.date_of_birth);
-                    //         $("input[name=phone]").val(info.phone);
-                    //         $("input[name=address]").val(info.address);
-                    //         $("input[name=current_address]").val(info.current_address);
-    
-    
-                    //         document.getElementById('da_to_cpa_preview_img').src = BASE_URL + info.image;
-                    //         $("input[name=old_image]").val(info.image);
-
-                    //         document.getElementById('nrc_front_update').src = BASE_URL + info.nrc_front;
-                    //         $("input[name=old_nrc_front]").val(info.nrc_front);
-
-                    //         document.getElementById('nrc_back_update').src = BASE_URL + info.nrc_back;
-                    //         $("input[name=old_nrc_back]").val(info.nrc_back); 
-
-                    //         $("input[name=old_rec_letter]").val(info.recommend_letter);
-
-                    //     }
-
-                    //     var batch_id = student_course[0].batch_id; 
-
-                    //     $('#batch_id').val(batch_id)
-                    //     $.ajax(
-                    //         {
-                    //             type: "get",
-                    //             url: BACKEND_URL + "/batch/" + batch_id,
-                    //             contentType: false,
-                    //             processData: false,
-                    //             async:false,
-                    //             success: function (res) {
-                                    
-                    //                 $('.batch_number').append(res.data.number);
-                    //             }
-                    //         })
-                    //     if(job_history){
-                    //         $("input[name=job_name]").val(job_history.name);
-                    //         $("input[name=position]").val(job_history.position);
-                    //         $("input[name=department]").val(job_history.department);
-                    //         $("input[name=organization]").val(job_history.organization);
-                    //         //$("input[name=address]").val(job_history.address);
-                    //         //$("input[name=current_address]").val(job_history.current_address);
-                    //         $("input[name=company_name]").val(job_history.company_name);
-                    //         $("input[name=salary]").val(job_history.salary);
-                    //         $("input[name=office_address]").val(job_history.office_address);
-                    //     }
-
-                    //     if(education_history){
-                    //         $("input[name=degree_name]").val(education_history.degree_name);
-                    //         $("input[name=university_name]").val(education_history.university_name);
-                    //         $("input[name=roll_number]").val(education_history.roll_number);
-                    //         $("input[name=qualified_date]").val(education_history.qualified_date);
-                    //         $("input[name=old_certificate]").val(JSON.parse(education_history.certificate));
-                    //         // console.log('certificate',JSON.parse(education_history.certificate));
-
-                    //         let certificate = JSON.parse(education_history.certificate);
-                    //         console.log('certificate',certificate);
-                    //         $.each(certificate, function (fileCount, fileName) {
-
-                    //             $(".certificate").append(`<a href='${BASE_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
-
-                    //         })
-                    //     }
-                    //     // government staff OR not
-                    //     if(info.gov_staff == 1){
-                    //         $("input[name=gov_staff][value=1]").prop("checked",true);
-                    //         $("#rec_letter_da_to_cpa").css("display",'block');
-                    //         if(info.recommend_letter!=null){
-                    //                 $(".recommend_letter").append("<a href='"+BASE_URL+info.recommend_letter+"'  target='_blank'>View File</a><br/>")
-                    //             }
-                    //     }
-                    //     else{
-                    //         $("input[name=gov_staff][value=0]").prop("checked",true);
-                    //     }
-
-                    //     if(info.gender=="Male"){
-                    //         $("#male").prop("checked",true);
-                    //     }else{
-                    //         $("#female").prop("checked",true);
-                    //     }
-
-                    //     if(student_course[0].type == 0){
-                    //         $("input[name=dtype][value=0]").prop("checked",true);
-
-                            
-                    //     }
-                    //     else if(student_course[0].type == 1){
-                    //         $("input[name=dtype][value=1]").prop("checked",true);
-                    //     }else{
-                    //         $("input[name=dtype][value=2]").prop("checked",true);
-                    //         selectdType();
-                    //         if(student_course[0].mac_type == 1){
-                    //             $("input[name=mac_dtype][value=1]").prop("checked",true);
-
-                                
-                    //         }else{
-                    //             $("input[name=mac_dtype][value=2]").prop("checked",true);
-                                
-
-
-                    //         }
-
-
-
-                    //     }
-                    // }
-
-                        //$("input").prop('',true);
-                })
-            }
+            
             function myanmarLetterOnly(self) {
                 val = self.val();
                 if (/[a-zA-Z0-9]+$/.test(val)) {
@@ -895,7 +895,7 @@
             });
             $('#btn_cash').prop('disabled', true);
         });
-        // loadPassedBatchList();
+        loadPassedBatchList();
         // loadCurrentBatchList();
     </script>
 @endpush

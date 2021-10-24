@@ -62,7 +62,7 @@ class DAController extends Controller
         $student_info->approve_reject_status  =  0;
         $student_info->date             =   $request->date;
         $student_info->email            =   $request->email;
-        $student_info->password         =   Hash::make($request->password);
+        $student_info->password=   Hash::make($request->password);
         $student_info->save(); 
          
         $student_job_histroy = new StudentJobHistroy;

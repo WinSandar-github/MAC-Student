@@ -190,6 +190,8 @@
 
 <!-- Main JS -->
 <script src="{{ asset('assets/js/main.js') }}"></script>
+<script src="{{ asset('assets/js/reconnect.js') }}"></script>
+
 <script src="{{ asset('assets/js/student_login.js') }}"></script>
 <script src="{{ asset('assets/js/student_info.js') }}"></script>
 <script src="{{ asset('assets/js/auth.js') }}"></script>

@@ -383,7 +383,7 @@
 
                             <div id="rec_letter_da_to_cpa" style="display:none" >
                                 <div class="row mb-3 "  >
-                                    <label class="col-md-5 col-form-label label">
+                                    <label class="col-md-4 col-form-label label">
                                         <span class="pull-center" style="padding-right:35px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                     </label>
                                     <div class="col-md-2"  id="degree_edu" >
@@ -637,6 +637,7 @@
 
                         document.getElementById('nrc_front_update').src = BASE_URL + info.nrc_front;
                         $("input[name=old_nrc_front]").val(info.nrc_front);
+
 
                         document.getElementById('nrc_back_update').src = BASE_URL + info.nrc_back;
                         $("input[name=old_nrc_back]").val(info.nrc_back); 
