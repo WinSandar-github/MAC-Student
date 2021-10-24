@@ -809,6 +809,7 @@ function RenewPAPP(){
                 send_data.append('type',1);
                 //send_data.append('_method', 'POST');
                 send_data.append('self_confession',JSON.stringify($arr));
+                send_data.append('self_confession1', $("input[name=self_confession_PAPP]").val());
                 show_loader();
                 if($('#papp_id').val()){
                     send_data.append('papp_id',$('#papp_id').val());
