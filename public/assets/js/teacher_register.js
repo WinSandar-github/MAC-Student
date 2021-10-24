@@ -833,9 +833,9 @@ function updateTeacher(){
                                 $('input[name=name_eng]').val(teacher.name_eng);
                                 $('input[name=father_name_mm]').val(teacher.father_name_mm);
                                 $('input[name=father_name_eng]').val(teacher.father_name_eng);
-                                $('input[name=nrc_state_region]').val(teacher.nrc_state_region);
-                                $('input[name=nrc_township]').val(teacher.nrc_township);
-                                $('input[name=nrc_citizen]').val(teacher.nrc_citizen);
+                                $('#nrc_state_region').val(teacher.nrc_state_region);
+                                $('#nrc_township').val(teacher.nrc_township);
+                                $('#nrc_citizen').val(teacher.nrc_citizen);
                                 $('input[name=nrc_number]').val(teacher.nrc_number);
                                 $('input[name=phone_number]').val(teacher.phone);
                                 $('textarea[name=exp_desc]').val(teacher.exp_desc);
