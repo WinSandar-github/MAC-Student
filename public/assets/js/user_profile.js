@@ -52,7 +52,7 @@ function user_profile() {
                   // to do payment for approved offline user
                  console.log('to do payment for approved offline user');
                  var invoice = data.invoice.filter(val => {
-                   return val.invoiceNo == 'off_audit_renew' && val.status == 0;
+                   return val.invoiceNo == 'off_audit_renew'+firm_info[0].id && val.status == 0;
                  });
 
                  if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
@@ -94,9 +94,9 @@ function user_profile() {
 
                 else if(firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user == 1){
                   // to do payment for approved offline user
-                 console.log("non audit 2");
+                 console.log("non audit 3");
                  var invoice = data.invoice.filter(val => {
-                   return val.invoiceNo == 'off_non_audit_renew' && val.status == 0;
+                   return val.invoiceNo == 'off_non_audit_renew'+firm_info[0].id && val.status == 0;
                  });
 
                  if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
@@ -168,7 +168,7 @@ function user_profile() {
                 var reject_renewal = FRONTEND_URL + "/update_cpaff_renewal";
                 var reject_existing = FRONTEND_URL + "/update_cpaff_existing";
                 var is_renew;
-                
+
                 if(data.invoice.length!=0){
                     if (cpaff_latest_data.type == 0) {
                         is_renew = "Initial";
@@ -187,13 +187,13 @@ function user_profile() {
                         if(invoice.length!=0){
                             var payment_url = FRONTEND_URL + "/payment_method/"+student_id+"/"+invoice[0].invoiceNo;
                         }
-                        
+
                     }
                     else {
                         is_renew = "";
                     }
                     console.log(invoice);
-                    
+
                 }
                 else{
                     if (cpaff_latest_data.type == 0) {
@@ -242,7 +242,7 @@ function user_profile() {
                     var now = new Date();
                     // var payment_status = 0;
                     if ((now.getFullYear() == y && (now.getMonth() + 1) == month) || now.getFullYear() > year) {
-                        
+
                         // $('.status_history').append('Action &nbsp;&nbsp;');
                         // $('.status_history').append(`<a href= ${cpaff_renew_url} class="btn btn-success btn-sm xl-auto" > CPA(Full-Fledged) Renew Form </a><hr>`);
                         $('.status_papp').append('Action &nbsp;&nbsp;');
@@ -365,7 +365,7 @@ function user_profile() {
                         $('.status_papp').css('display', 'none');
                         localStorage.setItem('papp_id', papp_latest_data.id);
                         localStorage.setItem('reject_reason', papp_latest_data.reject_description);
-                        
+
                         if (papp_latest_data.type == 0) {
                             $('.status_history').append('PAPP ' + is_renew + ' Registration Form is Rejected.');
                             $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
@@ -893,7 +893,7 @@ function user_profile() {
                         localStorage.setItem('reject_reason', cpaff_latest_data.reject_description);
                         $('.status').append(`
                         <tr>
-                            <td>PAPP ${is_renew}</td>
+                            <td>CPA(Full-Fledged) ${is_renew}</td>
                             <td>${formatDate(cpaff_latest_data.created_at)}</td>
                             <td>${formatDate(cpaff_latest_data.updated_at)}</td>
                             <td><span class="badge bg-danger">Reject</span></td>
@@ -1729,7 +1729,7 @@ function user_profile() {
                                                                             if (last_exam[0].course.code == "da_1" || last_exam[0].course.code == "cpa_1") {
                                                                                 let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
                                                                                 let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
-                                                                                
+
                                                                                 $('.status').append(`
                                                                                     <tr> <td colspan=2 ></td ><td>Action</td>
                                                                                         <td>
@@ -2059,7 +2059,7 @@ function user_profile() {
                                     let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
 
                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
-                                    
+
                                     $('.status').append(`
                                         <tr>
                                             <td colspan=2 ></td ><td>Action</td>
@@ -2822,20 +2822,20 @@ function user_profile() {
                                     if (end_time <= today_time && latest_gov_article[0].done_status == 0) {
                                         if (latest_gov_article[0].done_form_attach && latest_gov_article[0].done_status == 0) {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
-                                        } 
+                                        }
                                         else if(latest_gov_article[0].yes_done_attach == 1){
                                             $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='CompleteDownloadForms();'>Download</button></div></div></td></tr>`);
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='gov_done_form'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='gov_done_form_btn' onclick='saveGovDoneForm(${latest_gov_article[0].id})'>Submit</button></div></div></td></tr>`);
                                         }else{
                                             $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
                                         }
-                                    } 
+                                    }
                                     else if (latest_gov_article[0].status == 1 && latest_gov_article[0].done_status == 0) {
                                         resign_article_url = '/article_resign_registration';
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Leave Request Register</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs leave_request_btn' onclick='leaveGovRequestRegister(${latest_gov_article[0].id})'>Leave Request</button></div></div></td></tr>`);
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
                                         // $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td><button type='button' class='btn btn-md btn-success' id='resign_btn' onclick='resignRegister();'>Resign Register</button></td></tr>`);
-                                    } 
+                                    }
                                     else if (latest_gov_article[0].done_status == 1) {
                                         if (latest_stu_reg[0].course.code == "cpa_2" && exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)) {
                                             article_url = '/article_information';
@@ -3992,7 +3992,7 @@ function allowToRenew()
           console.log("allow to renew",data[0]);
             if(data[0].audit_firm_type_id == 1){
               // audit firm
-              console.log("shi");
+
               if(data[0].status == 1 && data[0].is_renew == 0 && data[0].offline_user == 1){
                 // to renew approved offline users
                 $('#check_renew').css('display','block');
