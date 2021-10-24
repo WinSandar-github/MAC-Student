@@ -57,7 +57,12 @@
                     </div>
                   </div>
                   <input type="hidden" value="2" name="audit_firm_type_id">
-	                <input type="hidden" value="1" name="local_foreign_type">
+	                <input type="hidden" value="" name="local_foreign_type">
+
+                  <input type="hidden" value="" name="offline_user">
+                  <input type="hidden" value="" name="req_for_stop">
+                  <input type="hidden" value="" name="last_registered_year">
+                  <input type="hidden" value="" name="suspended_year">
                 <!-- <br> -->
 
                     <div class="card-header"  id="local_info" style="display:none;">

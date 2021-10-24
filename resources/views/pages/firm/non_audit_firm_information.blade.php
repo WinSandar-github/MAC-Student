@@ -451,7 +451,8 @@
 		//nonAuditVerifyStatus();
 		//checkPaymentNonAudit();
 		//nonAuditData();
-		verifyStatus();
+		//verifyStatus();
+		allowToRenew();
     })
     //app_form_feedback();
 

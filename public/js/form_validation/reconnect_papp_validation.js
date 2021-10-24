@@ -27,6 +27,7 @@ $().ready(function (){
             phone : "required",
             contact_mail : "required",
             submitted_stop_form:"required",
+            resign:"required",
             from_date : {
                 required : "#yes:checked"
             },
@@ -84,6 +85,7 @@ $().ready(function (){
             phone : "Please enter your phone number",
             contact_mail : "Please enter your contact mail",
             submitted_stop_form:"Please select one",
+            resign:"Please select one",
             from_date:"Please enter this field",
             to_date:"Please enter this field",
             cpaff_pass_date : "Please enter your CPAFF passed date",
@@ -124,7 +126,7 @@ $().ready(function (){
                         Swal.fire("NRC has been used, please check again!");
                     }
                     else if(result.email==null && result.nrc==null){
-                        $('#reconnectPappModal').modal('show');
+                        $('#reconnectpappModal').modal('show');
                         send_email();
                     }
                 }

@@ -21,8 +21,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title initial_text" style="display:block;">PAPP Initial Registration <span>Form</span></h2>
-                    <h2 class="title renew_text" style="display:none;">PAPP Renewal Registration <span>Form</span></h2>
+                    <h2 class="title">PAPP Renewal Registration <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
 
@@ -57,7 +56,7 @@
                             <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
                         </div>--}}
                     </div>
-                    <form method="post" action="javascript:RenewPAPP();" enctype="multipart/form-data" id="papp_renew_form_submit">
+                    <form method="post" enctype="multipart/form-data" id="papp_renew_form_submit">
                     	<div class="card-body">
 						<div class="row">
                                 <div class="col-md-9">
@@ -317,7 +316,7 @@
                                             <label class="col-md-12"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်
                                                 <input type="text" style="display:inline; width:100px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control">ခုနှစ်အတွက်
                                                 <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
-                                                <input type="text" class="form-control" name="reg_no" id="reg_no" style="display: inline;width: 120px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
+                                                <input type="text" class="form-control" name="papp_reg_no" id="papp_reg_no" style="display: inline;width: 120px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
                                                 <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
                                             </label>
                                         </div>
@@ -396,7 +395,7 @@
                                     <!-- </div> -->
                                 </div><br>
 
-                                <div class="row mb-2">
+                                <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1"><input type="radio" name="work_name" id="staff_firm_check" value="" onclick="getPappFirm()"></div>
                                     <div class="col-md-4">
@@ -406,15 +405,19 @@
                                     <!-- <div class="single-form"> -->
                                         <input type="text" class="form-control" name="staff_firm_name" ></div>
                                     <!-- </div> -->
-                                </div><br><br><br>
-
-                                <div class="row">
+                                </div><br>
+                                <div class="row mb-3">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-6">
+                                    <label  class="error attend_place_error" style="display:none;" for="work_name">Please select one</label>
+                                </div><br>
+                                <div class="row mt-3">
                                     <div class="col-md-1">
                                             <label class="">{{ __('၄။') }}</label>
                                     </div>
                                     <div class="col-md-11">
                                         <div class="row">
-                                            <label class="col-md-11"  style="font-size:15px;"><?php echo date("Y") ?> ပြက္ခဒိန်နှစ်အတွင်း အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကိုဦးစီးပိုင်ရှင်/ ဦးဆောင်အဖွဲ့ဝင်/ သာမန်အစုဝင်/ အဖွဲ့ခေါင်းဆောင်အနေဖြင့် ကျွန်ုပ်လက်ခံဆောင်ရွက်ခဲ့သည့် Statutory Audit Work စုစုပေါင်း (<input type="text" style="display:inline; width:50px;" name="total_audit" class="form-control" required="">) ခုရှိပါသည်။ အဆိုပါ Statutory Audit Work အပြည့်အစုံကို အောက်ပါဇယားအတွင်းထုတ်ဖော်ကြေညာပါသည်-</label>
+                                            <label class="col-md-11"  style="font-size:15px;"><input type="text" style="display:inline; width:70px;" name="audit_year" id="audit_year" class="form-control" required=""> ပြက္ခဒိန်နှစ်အတွင်း အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကိုဦးစီးပိုင်ရှင်/ ဦးဆောင်အဖွဲ့ဝင်/ သာမန်အစုဝင်/ အဖွဲ့ခေါင်းဆောင်အနေဖြင့် ကျွန်ုပ်လက်ခံဆောင်ရွက်ခဲ့သည့် Statutory Audit Work စုစုပေါင်း (<input type="text" style="display:inline; width:50px;" name="audit_work" class="form-control" required="">) ခုရှိပါသည်။ အဆိုပါ Statutory Audit Work အပြည့်အစုံကို အောက်ပါဇယားအတွင်းထုတ်ဖော်ကြေညာပါသည်-</label>
                                         </div><br>
 
 
@@ -556,9 +559,31 @@
                                 
                                 <br/><br>
 
+                                <div class="row mt-3">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-1">(ဂ) </div>
+                                    <div class="col-md-6">
+                                        {{--<div class="row">
+                                            <label class="col-md-4" >ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ </label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="tax_year" id="tax_year" class="form-control tax_year" placeholder="ပြက္ခဒိန်နှစ်/YYYY">
+                                            </div>
+                                            <label class="col-md-5" >ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု </label>
+                                        </div>
+                                        <div class="row">
+                                            <label for="" class="col-md-12">အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
+                                        </div>--}}
+                                        <label>ပြည်တွင်းအခွန်ဦးစီးဌာနသို့<input type="text" style="display:inline;width: 100px;" name="tax_year" id="tax_year" class="form-control tax_year" placeholder="ပြက္ခဒိန်နှစ်/YYYY">ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှုအထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
+
+                                    </div>
+                                    <div class="col-md-4">
+                                            <input type="file" class="form-control" id="tax_free_file" name="tax_free_file">
+                                    </div>
+                                </div><br/><br>
+
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အရှေ့)</div>
                                     <div class="col-md-4">
                                                 <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front" required="" accept="image/*">
@@ -578,16 +603,16 @@
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
                                     <div class="col-md-6 col-form-label">CPA(Full-Fledged) Registeration No.</div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="reg_no" id="cpaff_reg_no">
+                                        <input type="text" class="form-control" name="cpaff_reg_no" id="cpaff_reg_no">
                                     </div>
                                 </div><br/><br>
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
                                     <div class="col-md-6 col-form-label">PAPP Registeration No.</div>
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" name="papp_reg_no" placeholder="Enter PAPP Registeration No.">
@@ -610,7 +635,15 @@
               	</div>
             </div>
         </div>
+
+        {{-- Renew PAPP Self Confession --}}
+        {{-- <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#renewPAPPModal">Open modal</button> --}}
+        <div id="renewPAPPModal" class="multi-step" style="width: 100%;height : 100vh">
+        </div>
+        {{--End Renew PAPP Self Confession --}}
+
     </div>
+
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -623,6 +656,7 @@
     </script>
 @endsection
 @push('scripts')
+<script src="{{ asset('js/form_validation/papp_renew_validation.js') }}"></script>
 <script type="text/javascript">
     $('document').ready(function(){
         var course_type = location.pathname.split('/');
@@ -659,6 +693,494 @@
         viewMode: "years", 
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
+    });
+    $("#audit_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    });
+    $(document).ready(function() {
+        $('#renewPAPPModal').MultiStep({
+            title:'ဝန်ခံချက်',
+            data:[
+                {
+                    content:`<iframe src="{{ asset('assets/images/pa_promise.pdf') }}"  style="overflow:scroll;height:70vh;width:100%" height="100vh" width="70vh"></iframe>
+                                <div class="pull-right mt-1">
+                                <h6 class="pull-left me-4 fw-bold">အထက်ဖော်ပြပါအချက်များအား</h6>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="self_confession_PAPP" id="accept" value="1">
+                                <label class="fw-bold">လက်ခံသည်</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="self_confession_PAPP" id="not-accept" value="2">
+                                <label class="fw-bold">လက်မခံပါ</label>
+                                </div>
+                                <div class="text-danger" id="valid_self_confession_PAPP" style="display : none">
+                                </div>
+                            </div>`,
+                    label   :'ကိုယ်တိုင်ဝန်ခံချက်'
+                },
+                {
+                    content:`<ul class="list-group list-group-flush fw-bold">
+                            <li class="list-group-item">
+                                (၁) မိမိ၏စာရင်းလုပ်ငန်းအတွက် အများသိရှိစေရန်ကြော်ငြာရာတွင် မိမိကိုယ်တိုင်တာဝန်ခံဆောင်ရွက် ပေးနိုင်သည်ထက် သို့မဟုတ် မိမိတွင်ရှိသောအရည်အချင်း သို့မဟုတ် အတွေ့အကြုံထက်ပိုမိုထုတ် ဖော်ခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio"   name="check1" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check1" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၂) အခြားစာရင်းလုပ်ငန်းလုပ်ကိုင်သူအား ထိခိုက်နစ်နာစေသည့် အချက်အလက်ဖြင့် မိမိလုပ် ငန်းကို ကြော်ငြာခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check2" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check2" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၃) Global network/Association name အသုံးပြု၍ စာရင်းစစ်လုပ်ငန်းအမည်ဖြင့်ကြော်ငြာခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check3" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check3" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၄) မိမိဝန်ဆောင်မှုမပေးသည့်အခြား Client များ၏ အမည်စာရင်းများအား ထည့်သွင်းကြော်ငြာ ခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check4" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check4" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၅) လုပ်ငန်းအပ်နှံသူ၏ အမြတ်/ ဝင်ငွေပေါ်တွင် အခြေတည်၍ လုပ်ခငွေ/ အခကြေးငွေတောင်းယူခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check5" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check5" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                        </ul>`,
+                    label   :'Step 1'
+                },
+                {
+                    content:`<ul class="list-group list-group-flush fw-bold">
+                            <li class="list-group-item">
+                                (၆) ကောင်စီကလိုအပ်၍ တောင်းဆိုသည့် စာရင်းများနှင့်စပ်လျဥ်းသည့် အချက်အလက်များကို တင်ပြ ပေးရန်ပျက်ကွက်ခြင်း။
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check6" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check6" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၇) မိမိတစ်ဦးတည်းသာ သိရှိစေသော အကြောင်းအချက်များကို အလုပ်ရှင်၏ ခွင့်ပြုချက်မရဘဲ သို့မဟုတ် တည်ဆဲဥပဒေတစ်ရပ်အရ မဟုတ်ဘဲ အခြားသူထံထုတ်ဖော်အသိပေးခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check7" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check7" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၈) မိမိအားပေးအပ်သည့် စာရင်းပညာဆိုင်ရာ အလုပ်ဝတ္တရားများကို ဆောင်ရွက်ရာတွင် ထိုက်သင့် သော သတိပြုခြင်းမရှိဘဲ ဆောင်ရွက်ခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check8" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check8" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၉) မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၂ (ဍ) ပါ သတ်မှတ်ပြဌာန်းထားသည့် စာရင်းလုပ်ငန်း များ၊ Statutory Audit (including component auditor performance),Forensic Audit, Review Engagement , Assurance Engagement  ,Agreed upon Audit Procedures (including Independent Internal Audit) စာရင်းလုပ်ငန်းများနှင့် မြန်မာနိုင်ငံစာရင်းကောင်စီက အခါအားလျော်စွာ သတ်မှတ်သည့်လုပ်ငန်းများကို အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူမဟုတ်သူများနှင့် တွဲဖက်ဖွဲ့စည်းဆောင်ရွက်ခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check9" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check9" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၁၀) စာရင်းဖော်ပြချက်၊ ကြေညာချက်၊ လုပ်ငန်းအလားအလာညွှန်းတမ်း၊ ရှင်းတမ်း၊ အစီရင်ခံစာ ငွေစာရင်းစာအုပ်၊ လက်မှတ် သို့မဟုတ် ပုံစံတွင် ပြင်ပစာရင်းစစ်အဖြစ် ထောက်ခံလက်မှတ် ရေးထိုးခြင်းများ၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check10" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check10" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                        </ul>`,
+                    label   :'Step 2'
+                },
+                {
+                    content:`<ul class="list-group list-group-flush fw-bold">
+                            <li class="list-group-item">
+                                (၁၁) စဉ် (၉) နှင့် (၁၀) ပါ စာရင်းလုပ်ငန်းအမျိုးအစားများအား သက်တမ်းရှိသည့် အများပြည်သူသို့စာရင်း ဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့်လက်မှတ်မရှိဘဲလုပ်ကိုင်ခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check11" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check11" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၁၂) စာရင်းစစ်လုပ်ငန်းအမည်ဖြင့် မှတ်ပုံတင်ထားသည့် စာရင်းစစ်လုပ်ငန်းအဖွဲ့ဝင်ဖြစ်သူသည် အခြား စာရင်းစစ်လုပ်ငန်းတစ်ခု၌ အဖွဲ့ဝင်အဖြစ်သော်လည်းကောင်း၊ မိမိကိုယ်ပိုင်စာရင်းစစ် လုပ်ငန်းအဖြစ် သော်လည်းကောင်း ဆောင်ရွက်ခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check12" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check12" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၁၃) စာရင်းစစ်အစီရင်ခံစာတွင်လက်မှတ်ရေးထိုးရာ၌ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူတစ်ဦးသည် အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်  စာရင်းလုပ်ငန်း အဖွဲ့တစ်ခုထက်ပိုမို၍ လက်မှတ်ထိုးခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check13" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check13" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၁၄) အကျိုးစီးပွားပါဝင်ပတ်သက်မှု၊ အကျိုးစီးပွားချင်း ပဋိပက္ခဖြစ်မှု၊ ဆန့်ကျင်ဖက်ဖြစ်မှု၊ လွတ်လပ်မှုကို ထိခိုက်စေမှု ဖြစ်စေသော လုပ်ငန်းများကို လက်ခံဆောင်ရွက်ခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check14" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check14" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၁၅) ယခင်စာရင်းစစ်အဖြစ်ဆောင်ရွက်ခဲ့သူနှင့် ဆက်သွယ်ဆောင်ရွက်ခြင်းမပြုဘဲ ထိုစာရင်းစစ် ရာထူးကို လက်ခံခြင်း သို့မဟုတ် အခြားသူတစ်ဦးဆောင်ရွက်နေသည့် စာရင်းလုပ်ငန်းကို မိမိအတွက် တောင်းယူခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check15" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check15" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                        </ul>`,
+                    label   :'Step 3'
+                },
+                {
+                    content:`<ul class="list-group list-group-flush fw-bold">
+                            <li class="list-group-item">
+                                (၁၆) စာရင်းစစ်များခန့်ထားခြင်းကိစ္စနှင့်စပ်လျဥ်း၍ မြန်မာနိုင်ငံကုမ္ပဏီများအက်ဥပဒေ သို့မဟုတ် သက်ဆိုင်ရာအခြားဥပ‌ဒေပါပြဌာန်းချက်များနှင့် ကိုက်ညီခြင်းမရှိသည့်ခန့်ထားမှုများကို လက်ခံဆောင်ရွက်ခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check16" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check16" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၁၇) ကုမ္ပဏီညွှန်းတမ်းတွင်သော်လည်းကောင်း၊ အခြားတစ်နည်းနည်းဖြင့်သော်လည်းကောင်း ပုံနှိပ် ထုတ်ဝေရန် အနာဂတ်အမြတ်ငွေကို ခန့်မှန်းတွက်ချက်အတည်ပြုပေးခြင်း သို့မဟုတ် တစ်နှစ်စီ အတွက် အရှုံးအမြတ်များကို သီးခြားဖော်ပြခြင်းမပြုဘဲ တစ်နှစ်ထက်ပိုသောနှစ်များအတွက် ပျမ်းမျှ အမြတ်ငွေရှင်းတမ်းများကို ပုံနှိပ်ထုတ်ဝေရန်အတည်ပြုပေးခြင်း၊ သို့ရာတွင် လုပ်ငန်းလိုအပ်ချက်အရ ရေးဆွဲတင်ပြမည့် ကိစ္စရပ်များနှင့်သက်ဆိုင်ခြင်း မရှိစေရ၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check17" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check17" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၁၈) လုပ်ငန်းရှင်ကယုံမှတ်အပ်နှံထားသည့် ငွေကြေးများကို ကိုင်တွယ်ခန့်ခွဲရပါက ယင်းငွေကြေးများကို စနစ်တကျ သုံးစွဲခန့်ခွဲကြောင်း သိသာပေါ်လွင်စေ‌‌ရေးအတွက် လိုအပ်သော စာရင်းမှတ်တမ်းများ သီးခြား ဘဏ်စာရင်းများ ဖွင့်လှစ်ထိန်းသိမ်းရန်ပျက်ကွက်ခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check18" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check18" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၁၉) လုပ်ငန်း၏ အမြတ် သို့မဟုတ် အရှုံးကို မမှန်မကန်ဖော်ပြထားခြင်းကိုသိလျှက်နှင့် ထုတ်ဖော် တင်ပြရန် ပျက်ကွက်ခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check19" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check19" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၂၀) စာရင်းပညာရှင်ဆိုင်ရာ ကျင့်ဝတ်သိက္ခာနှင့် စာရင်းလုပ်ငန်းဆိုင်ရာကျင့်ဝတ်စည်းကမ်းများ၊ စံများကို လိုက်နာကျင့်သုံးမှုမရှိခြင်း
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check20" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check20" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                        </ul>`,
+                    label   :'Step 4'
+                },
+                {
+                    content:`<ul class="list-group list-group-flush fw-bold">
+                            <li class="list-group-item">
+                                (၂၁) စာရင်းလုပ်ငန်းလုပ်ကိုင်ခွင့်လက်မှတ်ကို ကာလသတ်မှတ်၍ ရုပ်သိမ်းခြင်းခံရသူ သို့မဟုတ် ပယ်ဖျက် ခြင်းခံရသူသည် စည်းကမ်းထိန်းသိမ်းရေးကော်မတီက ဆုံးဖြတ်ချက်ချသည့်နေ့မှ ရက်ပေါင်း ၃၀ အတွင်းစာရင်းလုပ်ငန်းလုပ်ကိုင်ခွင့်လက်မှတ်ကိုကောင်စီထံပြန်လည်အပ်နှံရန်ပျက်ကွက်ခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check21" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check21" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                             </li>
+                            <li class="list-group-item">
+                                (၂၂) မည်သည့်စာရင်းဖော်ပြချက်၊ ကြေညာချက်၊ ရှင်းတမ်း၊ အစီရင်ခံစာ၊ ငွေစာရင်းစာအုပ်၊ လက်မှတ် သို့မဟုတ် ပုံစံတွင်မဆို မဟုတ်မမှန်သည့်အချက်ကို သိလျှက်နှင့်ထည့်သွင်းဖော်ပြခြင်း သို့မဟုတ် ထောက်ခံလက်မှတ်ရေးထိုးခြင်း၊မည်သ
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check22" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check22" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၂၃) မိမိကိုယ်တိုင်သော်လည်းကောင်း၊ မိမိလုပ်ငန်း၏ အစုဝင်ကသော်လည်းကောင်း၊ မိမိ၏ ဝန်ထမ်းက သော်လည်းကောင်း၊ ကြီးကြပ်ကွပ်ကဲ၍ ပြည့်စုံစွာ စစ်ဆေးထားခြင်းမရှိသော လက်ကျန် ရှင်းတမ်း၊ အရှုံး/အမြတ်စာရင်း သို့မဟုတ် မည်သည့်စာရင်းဇယားကိုမဆို အတည်ပြုပေးခြင်း သို့မဟုတ် မိမိကိုယ်စား လက်မှတ်ရေးထိုးစေခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check23" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check23" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၂၄) စာရင်းစစ်လုပ်ငန်းအမည်တွင် နိုင်ငံခြားအဖွဲ့အစည်း၏အမည်ကို တိုက်ရိုက်သော်လည်းကောင်း၊ ဆင်တူရိုးမှားသော်လည်းကောင်း၊  တစ်စိတ်တစ်ဒေသသော်လည်းကောင်းသုံးစွဲခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check24" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check24" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၂၅) မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့်အညီ မြန်မာနိုင်ငံစာရင်းကောင်စီက ထုတ်ပြန်ထားသော အမိန့် ကြော်ငြာစာများအရ နိုင်ငံခြားသားများလုပ်ကိုင်ခွင့်မရှိသော စာရင်းလုပ်ငန်းများကို မိမိအမည်ခံ၍ နိုင်ငံခြားသားများအတွက် ဆောင်ရွက်ပေးခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check25" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check25" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                        </ul>`,
+                    label   :'Step 5'
+                },
+                {
+                    content:`<ul class="list-group list-group-flush fw-bold">
+                            <li class="list-group-item">
+                                (၂၆) လက်မှတ်ရပြည်သူ့စာရင်းကိုင် မဟုတ်သူအတွက် သို့မဟုတ် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် မဟုတ် သူနှင့် ပူးပေါင်းလုပ်ကိုင်၍ စာရင်းစစ်အနေဖြင့် ဘဏ္ဍာရေးရှင်းတမ်းများအား လက်မှတ်ရေး ထိုးပေးခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check26" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check26" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၂၇) ငွေကြေးခဝါချမှု၊ အကြမ်းဖက်မှုအား ငွေကြေးထောက်ပံ့မှု၊ ပြစ်မှုတစ်ရပ်ရပ်နှင့်စပ်ဆိုင်နိုင်သည်ဟု သံသယဖြစ်ရမှု ဥပဒေတစ်ရပ်ရပ်ကို ချိုးဖောက်ရာရောက်သည်ဟု မှတ်ယူရမှု (Suspicious and unusual transaction/ events) စသည်တို့ကို တွေ့ရှိရပါက တရား မဝင်နည်းလမ်းဖြင့် ရရှိသည့်ငွေကြေးနှင့်ပစ္စည်းများ ဗဟိုထိန်းချုပ်ရေးအဖွဲ့ထံသို့ချက်ချင်း လျှို့ဝှက်သတင်းပေးပို့ရန် ပျက်ကွက် ခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check27" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check27" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၂၈) Public Listed Companies နှင့် Public Interest ပါဝင်သော Companies ( ဥပမာ - Banking, Insurance Company, Real Estate Developer) များတွင် စာရင်းစစ်အဖြစ် ဆောင်ရွက်ပေး သူများသည်    ယင်းလုပ်ငန်းများနှင့်သက်ဆိုင်သော အခြားဝန်ဆောင်မှုများ ကိုဆောင်ရွက်ခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check28" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check28" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                            <li class="list-group-item">
+                                (၂၉) မြန်မာနိုင်ငံစာရင်းစစ်စံ/ နိုင်ငံတကာစာရင်းစစ်စံပြဌာန်းချက်များနှင့် မညီညွတ်သောကိစ္စရပ် များ ဆောင်ရွက်ခြင်း၊
+                                <div class="mt-1">
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input accept_PAPP" type="radio" name="check29" value="1">
+                                <label class="fw-bold">ရှိ</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                <input class="form-check-input not_accept_PAPP" type="radio" name="check29" value="2">
+                                <label class="fw-bold">မရှိ</label>
+                                </div>
+                                <div class="text-danger" id="" style="display : none"></div>
+                            </li>
+                        </ul>`,
+                    label   :'Step 6'
+                }
+            ],
+            final:`
+            <div class="text-center">
+                <h5 class="fw-bold">မြန်မာနိုင်ငံစာရင်းကောင်စီ​၏ ၉-၈-၂၀၁၈ ရက်စွဲပါ </h5>
+                <h5 class="fw-bold">အမိန့်ကြော်ငြာစာအမှတ် ၂၇/၂၀၁၈ ​၏ နောက်ဆက်တွဲတွင် ဖော်ပြထားသည့် စည်းကမ်းချက်များ</h5>
+                <hr>
+            </div>
+            <ul class="list-group list-group-flush fw-bold">
+                <li class="list-group-item">
+                    (၁)အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်ခွင့်မှတ်ပုံတင်ခြင်းကို စတင်လျှောက်ထားမည့် ပြက္ခဒိန်နှစ်မတိုင်မီနှစ်တွင် မြန်မာနိုင်ငံ၌ ၁၈၃ ရက်ထက်မနည်းနေထိုင်သူဖြစ်ကြောင်း ဝန်ခံကတိပြုပါသည်။
+                    <div class="mt-1">
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input accept_PAPP" type="radio" name="check30" value="1">
+                    <label class="fw-bold">လက်ခံသည်</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input not_accept_PAPP" type="radio" name="check30" value="2">
+                    <label class="fw-bold">လက်မခံပါ</label>
+                    </div>
+                    <div class="text-danger" id="" style="display : none"></div>
+                </li>
+                <li class="list-group-item">
+                    (၂)မှတ်ပုံတင်လျှောက်ထားသည့်ပြက္ခဒိန်နှစ်အတွက် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ် ကိုင်ခွင့်မှတ်ပုံတင် စတင်လျှောက်ထားချိန်/သက်တမ်းတိုးချိန်တွင် အခြားလုပ်ငန်းအဖွဲ့အစည်းတစ်ရပ်ရပ်တွင် အချိန်ပြည့်တာဝန် ထမ်းဆောင်နေသူမဟုတ်ကြောင်း ဝန်ခံကတိပြုပါသည်။
+                    <div class="mt-1">
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input accept_PAPP" type="radio" name="check31" value="1">
+                    <label class="fw-bold">လက်ခံသည်</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input not_accept_PAPP" type="radio" name="check31" value="2">
+                    <label class="fw-bold">လက်မခံပါ</label>
+                    </div>
+                    <div class="text-danger" id="" style="display : none"></div>
+                </li>
+                <li class="list-group-item">
+                    (၃)မှတ်ပုံတင်လျှောက်ထားသည့်ပြက္ခဒိန်နှစ်အတွက် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကို မိမိ၏အဓိကအသက်မွေးဝမ်းကြောင်းလုပ်ငန်းအဖြစ် မြန်မာနိုင်ငံအတွင်းတွင်လုပ်ကိုင်မည်ဖြစ်ကြောင်း ဝန်ခံ ကတိပြုပါသည်။
+                    <div class="mt-1">
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input accept_PAPP" type="radio" name="check32" value="1">
+                    <label class="fw-bold">လက်ခံသည်</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input not_accept_PAPP" type="radio" name="check32" value="2">
+                    <label class="fw-bold">လက်မခံပါ</label>
+                    </div>
+                    <div class="text-danger" id="" style="display : none"></div>
+                </li>
+            </ul>
+            <button class="btn btn-primary pull-right renewPAPP" onclick="check_self_confession_papp()">Submit</button>
+            `,
+            finalLabel:'Step 7',
+            modalSize:'lg',
+        });
     });
 </script>
 @endpush

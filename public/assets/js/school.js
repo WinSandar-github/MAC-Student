@@ -186,7 +186,9 @@ function createSchoolRegister(){
     if($('#offline_user').val()){
       send_data.append('offline_user',$('#offline_user').val());
     }
-    
+    var from_valid_date = new Date($("input[name=from_valid_date]").val());
+    var date = from_valid_date.getFullYear()+'-'+addZero(from_valid_date.getMonth()+1)+'-'+addZero(from_valid_date.getDate());
+    send_data.append('from_valid_date',date);
     show_loader();
     $.ajax({
         type: "POST",
@@ -423,6 +425,8 @@ function delRowTeacherBio(tbody){
 }
 function loadSchoolList(){
     var select = document.getElementById("selected_school_id");
+    var renew_select = document.getElementById("renew_selected_school_id");
+    var update_select = document.getElementById("update_selected_school_id");
     $.ajax({
         url: BACKEND_URL+"/school",
         type: 'get',
@@ -437,12 +441,32 @@ function loadSchoolList(){
                 select.add(option,0);
 
             });
+            school_data.forEach(function (element) {
+              var option = document.createElement('option');
+              option.text = element.school_name;
+              option.value = element.id;
+              renew_select.add(option,0);
+
+            });
+            school_data.forEach(function (element) {
+              var option = document.createElement('option');
+              option.text = element.school_name;
+              option.value = element.id;
+              update_select.add(option,0);
+
+            });
         },
         error:function (message){
 
         }
 
     });
+}
+function addZero(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
 }
 function loadRenewSchool(){
   var student =JSON.parse(localStorage.getItem("studentinfo"));
@@ -458,17 +482,24 @@ function loadRenewSchool(){
             if(school.approve_reject_status==1){//initial renew
               
                 $('#school_approve').css('display','none');
-                document.getElementById('school_detail').style.display='none';
-                document.getElementById('school_renew_form').style.display='block';
+                // document.getElementById('school_detail').style.display='none';
+                // document.getElementById('school_renew_form').style.display='block';
+                $('#school_detail').hide();
+                $('#school_renew_form').show();
                 if(school.offline_user=="true"){
                   $('#school_card').prop('required', false);
                   $('#offline_user').val(school.offline_user);
                   $('#last_registration_fee_year').val(school.last_registration_fee_year);
                   $('#request_for_temporary_stop').val(school.request_for_temporary_stop);
                   $('#from_request_stop_date').val(school.from_request_stop_date);
-                  $('#to_request_stop_date').val(school.to_request_stop_date);
+                  //$('#to_request_stop_date').val(school.to_request_stop_date);
+                  $('#from_valid_date').val(school.from_valid_date);
                 }
-                  
+                var from_valid_date = new Date(school.from_valid_date);
+                var now=new Date();
+                var date = from_valid_date.getFullYear()+'-'+addZero(from_valid_date.getMonth()+1)+'-'+addZero(from_valid_date.getDate());
+                
+                $('#from_valid_date').val(date);
                   //getSchoolInfo();
                   
                   
@@ -578,7 +609,7 @@ function loadRenewSchool(){
                   $('#s_code').val(school.s_code);
                   $('#regno').val(school.regno);
                   
-                  var now=new Date();
+                 
                   if(school.initial_status==0){
                     
                     var accept=new Date(school.from_valid_date);
@@ -879,9 +910,10 @@ function loadRenewSchool(){
             });
             }
             else{
-                document.getElementById('school_renew_form').style.display='none';
-                document.getElementById('school_detail').style.display='block';
-                
+                // document.getElementById('school_renew_form').style.display='none';
+                // document.getElementById('school_detail').style.display='block';
+                $('#school_detail').show();
+                $('#school_renew_form').hide();
                 
             }
 
@@ -928,12 +960,14 @@ function renewSchool(){
     send_data.append('old_course',  $('#hcourse').val());
     $("input[id=branch_sch_own_type]").map(function(){send_data.append('branch_sch_own_type[]',$(this).val())});
     $("input[id=old_branch_sch_own_type]").map(function(){send_data.append('old_branch_sch_own_type[]',$(this).val())});
+    
     if($('#offline_user').val()=="true"){
       send_data.append('offline_user',  $('#offline_user').val());
       send_data.append('last_registration_fee_year',  $('#last_registration_fee_year').val());
       send_data.append('request_for_temporary_stop',  $('#request_for_temporary_stop').val());
       send_data.append('from_request_stop_date',  $('#from_request_stop_date').val());
-      send_data.append('to_request_stop_date',  $('#to_request_stop_date').val());
+      //send_data.append('to_request_stop_date',  $('#to_request_stop_date').val());
+      send_data.append('from_valid_date', $('#from_valid_date').val());
     }
     //send_data.append('_method', 'PATCH');
    show_loader();
@@ -992,6 +1026,7 @@ function loadDescription(membership_name,divname){
   $('.renew-da-subject-fee').html("");
   $('.renew-yearly-fee').html("");
   $('.reconnected-fee').html("");
+  $('.reconnected-fee-before-2015').html("");
   $('.renew-registration-fee').html("");
   $.ajax({
     type: "get",
@@ -1018,6 +1053,7 @@ function loadDescription(membership_name,divname){
       var renew_da_subject_fee=0;
       var renew_yearly_fee=0;
       var reconnected_fee=0;
+      var reconnected_fee_before_2015=0;
       var reconnect_fee_sole = 0;
       var reconnect_fee_partner = 0;
       var late_feb_fee = 0;
@@ -1047,6 +1083,7 @@ function loadDescription(membership_name,divname){
           renew_cpa_subject_fee +=value.renew_cpa_subject_fee;
           renew_da_subject_fee +=value.renew_da_subject_fee;
           reconnected_fee +=value.reconnected_fee;
+          reconnected_fee_before_2015 +=value.reconnected_fee_before_2015;
           late_feb_fee +=value.late_feb_fee;
       })
       $('.application-fee').append(thousands_separators(application_fee)+" MMK");
@@ -1078,6 +1115,7 @@ function loadDescription(membership_name,divname){
 
       $('.renew-yearly-fee').append(thousands_separators(renew_yearly_fee)+" MMK");
       $('.reconnected-fee').append(thousands_separators(reconnected_fee)+" MMK");
+      $('.reconnected-fee-before-2015').append(thousands_separators(reconnected_fee_before_2015)+" MMK");
       $('.late-feb-fee').append(thousands_separators(late_feb_fee)+" MMK");
 
       $('.renew-registration-fee').append(thousands_separators(renew_registration_fee)+" MMK");
@@ -1097,8 +1135,8 @@ function addRowBranchSchool(tbody){
   var cols = "";
   var row=$('.'+tbody+' tr').length;
   cols += '<td class="text-center">'+row+'</td>';
-  cols += '<td><input type="text" class="form-control" name="branch_school_address[]" id="branch_school_address'+ row + '" autocomplete="off" required></td>';
-  cols += '<td><input type="file" class="form-control" name="branch_school_attach[]"  accept="image/*" id="branch_school_attach'+ row + '" required></td>';
+  cols += '<td><input type="text" class="form-control" name="branch_school_address[]" id="branch_school_address'+ row + '" autocomplete="off" required ><span class="form-text text-danger">please enter english letters</span></td>';
+  cols += '<td><input type="file" class="form-control" name="branch_school_attach[]"  accept="image/*" id="branch_school_attach'+ row + '" required></td>';//return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)"
   cols += '<td>'+
           '<div class="form-group">'+
                                         '<div class="form-check mt-2 form-check-inline">'+
@@ -1141,6 +1179,34 @@ function addRowBranchSchool(tbody){
   counter++;
 
 }
+function allow_alphabets(element){//oninput="allow_alphabets(this)"
+  let textInput = element.value;
+  textInput = textInput.replace(/^[a-z\d\-_\s]+$/i, '');
+  element.value = textInput;
+}
+function IsAlphaNumeric(e) {
+  var keyCode = e.keyCode == 0 ? e.charCode : e.keyCode;
+  var ret = ((keyCode >= 48 && keyCode <= 57) || (keyCode >= 65 && keyCode <= 90) || (keyCode >= 97 && keyCode <= 122) || (specialKeys.indexOf(e.keyCode) != -1 && e.charCode != e.keyCode));
+  document.getElementById("error").style.display = ret ? "none" : "inline";
+  return ret;
+}
+$(function() {
+  $('input.alpha[$id=branch_school_address1]').keyup(function() {
+      if (this.value.match(/[^a-zA-Z0-9 ]/g)) {
+          this.value = this.value.replace(/[^a-zA-Z0-9 ]/g, '');
+      }
+  });
+});
+$('#branch_school_address1').bind('keyup blur', function () {
+  $(this).val($(this).val().replace(/[^A-Za-z]/g, ''))
+});
+$("#branch_school_address1").keypress(function(event){
+  //var ew = event.which;
+  ew = event.val();
+                if (!(/[a-zA-Z0-9]+$/.test(val))) {
+                  event.val(val.replace(/[a-zA-Z0-9]+$/, ''));
+                }
+});
 function delRowBranchSchool(tbody){
   $("table."+tbody).on("click", ".delete", function (event) {
       var deleted_row = $(this).closest("tr");

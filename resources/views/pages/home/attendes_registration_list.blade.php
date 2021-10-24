@@ -72,7 +72,7 @@
                                             <div class="col-md-2 mx-3 pull-right">
                                                 
                                                 <select class="form-control form-select" name="student_type" id="student_type">
-                                                    <option value="select_type" selected >Select Student Type</option>
+                                                    <option value="" selected >Select Student Type</option>
                                                      
                                                     <option value="2">MAC</option>
                                                     <option value="1">Private School</option>
@@ -97,11 +97,10 @@
                                             <table width="100%" class="tbl_reg_list table table-hover text-nowrap ">
                                                 <thead>
                                                     <tr>
-                                                        <th class="bold-font-weight" >No</th>
+                                                        <th class="bold-font-weight" >စဥ်</th>
                                                         <th class="bold-font-weight" >အမည်</th>
-                                                        <th class="bold-font-weight" >အဖအမည်</th>
-                                                        <th class="bold-font-weight" >မှတ်ပုံတင်နံပါတ်</th>
-                                                        
+                                                        <th class="bold-font-weight" >နိင်ငံသားစိစစ်ရေးကဒ်ပြားအမှတ်</th>
+                                                        <th class="bold-font-weight" >အဘအမည်</th>
                                                         <th class="bold-font-weight" >ခုံနံပါတ်</th>
                                                  
 
