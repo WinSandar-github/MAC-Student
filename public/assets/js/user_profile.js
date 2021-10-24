@@ -4073,6 +4073,7 @@ function allowToRenew() {
                 $(".register-btn").css('display','none'); // register btn in information page
               }
             }
+        }
         })
     }
 }
