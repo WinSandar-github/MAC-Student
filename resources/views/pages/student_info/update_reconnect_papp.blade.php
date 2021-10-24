@@ -96,9 +96,9 @@
                     </div>
                     <form method="post" action="javascript:createReconnectPapp();" enctype="multipart/form-data" id="reconnect_papp_form">
                     	<div class="card-body">
-                            <input type="text" name="reconnect_papp_id" id="reconnect_papp_id"/>
-                            <input type="text" name="reconnect_cpaff_id" id="reconnect_cpaff_id"/>
-                            <input type="text" name="reconnect_student_id" id="reconnect_student_id"/>
+                            <input type="hidden" name="reconnect_papp_id" id="reconnect_papp_id"/>
+                            <input type="hidden" name="reconnect_cpaff_id" id="reconnect_cpaff_id"/>
+                            <input type="hidden" name="reconnect_student_id" id="reconnect_student_id"/>
 						    <div class="row">
                                 <div class="col-md-9">
                                 <div class="row mb-3">
@@ -461,7 +461,7 @@
                                                     <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
                                                 </div>
                                                 <div class="col-md-1" id="add_div" >
-                                                    <button type="button" class="btn btn-primary"  style="padding-left:5px;" id="add_btn" onclick="AddCPAFFInitialDegree()" >
+                                                    <button type="button" class="btn btn-primary"  style="padding-left:5px;" id="add_btn" onclick="AddPAPPReconnectDegree()" >
                                                         <i class="fa fa-plus"></i>
                                                     </button>
                                                 </div>
@@ -1067,7 +1067,7 @@
                 let degree_name = JSON.parse(papp.degree_name);
                 let degree_pass_year = JSON.parse(papp.degree_pass_year);
                 for (let j = 0; j < degree_name.length - 1; j++) {
-                    AddCPAFFInitialDegree();
+                    AddPAPPReconnectDegree();
                 }
                 for (let i = 0; i < degree_name.length; i++) {
                     $('input[name="degree_name[]"]').eq(i).val(degree_name[i]);

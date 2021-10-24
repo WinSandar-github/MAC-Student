@@ -12,7 +12,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title" style="display:none;">CPA (Full-Fledged) Renewal Registration  <span>Form</span></h2>
+                    <h2 class="title">CPA (Full-Fledged) Renewal Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
 
@@ -398,18 +398,23 @@
                               </div>
                           </div><br/><br>
 
-                            <div class="row">
-                                <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
-                                <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" ></div>
-                                <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
-                            </div><br/>
-                                            
-                            <br/>
-                      <div class="row ">
-                          <div class="col-md-2 offset-md-5">
-                              <button type="submit"  data-toggle="modal" data-target="#renewModal" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Update') }}</button>
-                          </div>
-                      </div>
+                        <div class="row mb-3" style="padding-left:50px; margin-top:10px;">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="cpaff_submit_confirm" onchange="$('#cpaff_submit').prop('disabled', !this.checked)">
+                                    <span class="form-check-sign"></span>
+                                    <p class="fw-bolder">
+                                        * အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။
+                                    </p>
+                                </label>
+
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-2 offset-md-5">
+                                <button type="submit" id="cpaff_submit" data-toggle="modal" data-target="#renewModal" class="btn btn-success btn-hover-dark w-100 renew_submit" disabled="">{{ __('Update') }}</button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -535,14 +540,16 @@
             $('#cpaff_pass_date').val(cpaff_pass_date.getFullYear());
             var cpaff_renew_date=new Date(cpaff.cpaff_renew_date);
             $('#cpaff_renew_date').val(cpaff_renew_date.getFullYear());
-            var papp_reg_year=new Date(cpaff.papp_reg_year);
-            $('#papp_reg_year').val(papp_reg_year.getFullYear());
+            // var papp_reg_year=new Date(cpaff.papp_reg_year);
+            $('#papp_reg_year').val(cpaff.papp_reg_year);
 
             $('.cpa_certificate_old').append("<a href='" + BASE_URL + cpaff.cpa_certificate + "'  target='_blank'>View File</a><br/>");
             $('.mpa_mem_card_old').append("<a href='" + BASE_URL + cpaff.mpa_mem_card + "'  target='_blank'>View File</a><br/>");
             $('.mpa_mem_card_back_old').append("<a href='" + BASE_URL + cpaff.mpa_mem_card_back + "'  target='_blank'>View File</a><br/>");
             $('.cpd_record_old').append("<a href='" + BASE_URL + cpaff.cpd_record + "'  target='_blank'>View File</a><br/>");
-            $('.renew_file_old').append("<a href='" + BASE_URL + cpaff.renew_file + "'  target='_blank'>View File</a><br/>");
+            if(cpaff.renew_file != null && cpaff.renew_file !="null" && cpaff.renew_file !=""){
+                $('.renew_file_old').append("<a href='" + BASE_URL + cpaff.renew_file + "'  target='_blank'>View File</a><br/>");
+            }
 
             if (cpaff.ra != null && cpaff.ra != "null") {
                 $('#ra_edu').attr('checked', true);

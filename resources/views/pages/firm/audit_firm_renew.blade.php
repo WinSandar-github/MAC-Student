@@ -50,6 +50,12 @@
                                     <div class="col-md-2 pull-right">
                                       <h6>For the year - {{ date('Y') }}</h6>
                                     </div>
+                                    <div id="reg_no_box" style="display:none;">
+                                      <div class="col-md-3 pull-left">
+                                        <label for="" class="control-label text-muted fw-bolder"><small>Registration No.</small></label>
+                                        <input type="text" placeholder="Enter Registration No.!" name="accountancy_firm_reg_no" class="form-control" value="" >
+                                      </div>
+                                    </div>
                                 </div>
                               </div>
                                 <div class="card-body">
@@ -75,17 +81,6 @@
                                               <label class="col-md-5 col-form-label label"><span class="pull-left">{{ __('2.') }}</span>Accountancy Firm Name</label>
                                               <div class="col-md-7">
                                                   <input type="text" class="form-control" name="accountancy_firm_name" id="accountancy_firm_name" readonly="">
-                                              </div>
-                                          </div>
-
-                                          <div class="row mb-5">
-                                              {{--<label class="col-md-1 col-form-label" >{{ __('3.') }}</label>
-                                              <label class="col-md-5 col-form-label label_align_right">{{ __('Accountancy Firm Registration No.') }}</label>--}}
-                                              <label class="col-md-5 col-form-label label"><span class="pull-left">{{ __('3.') }}</span>Accountancy Firm Registration No.</label>
-                                              <div class="col-md-7">
-                                                  <div class="form-group ">
-                                                  <input type="text" class="form-control" name="accountancy_firm_reg_no" id="accountancy_firm_reg_no" readonly="">
-                                                  </div>
                                               </div>
                                           </div>
 
@@ -132,7 +127,7 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                      <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('4.') }}</span>Address Of Practice(Head Office)</label>
+                                      <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('3.') }}</span>Address Of Practice(Head Office)</label>
                                       <div class="col-md-8">
                                           <label for="" class="control-label text-muted fw-bolder"><small>Head Office Address(English)</small></label>
                                           <textarea name="head_office_address" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
@@ -184,7 +179,7 @@
                                     </div><br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">5.</label>
+                                        <label for="" class="col-md-1 col-form-label">4.</label>
                                         <label for="" class="col-md-11 col-form-label">Branch Office</label>
                                     </div>
 
@@ -237,7 +232,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">6.</label>
+                                        <label for="" class="col-md-1 col-form-label">5.</label>
                                         <label for="" class="col-md-11 col-form-label">Organization Structure</label>
                                     </div>
                                     <div class="row">
@@ -736,7 +731,7 @@
                                     <br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">7.</label>
+                                        <label for="" class="col-md-1 col-form-label">6.</label>
                                         <label for="" class="col-md-4 col-form-label">Sole Proprietor/Partners/Shareholders</label>
                                         <label for="" class="col-md-6 partner_list_validate col-form-label" style="display:none;color:#ef815;">Please Fill Sole Proprietor/Partners/Shareholders</label>
                                     </div>
@@ -775,7 +770,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">8.</label>
+                                        <label for="" class="col-md-1 col-form-label">7.</label>
                                         <label for="" class="col-md-4 col-form-label">Director(s)/Officer(s)/Sole Proprietor</label>
                                         <label for="" class="col-md-4 director_validate col-form-label" style="display:none;color:#ef815;">Please Fill Director(s)/Officer(s)</label>
                                     </div>
@@ -822,7 +817,7 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="" class="col-md-1 col-form-label">9.</label>
+                                        <label for="" class="col-md-1 col-form-label">8.</label>
                                         <label for="" class="col-md-4 col-form-label">Name Of Sole Proprietor/ Managing Partner</label>
                                         <div class="col-md-7">
                                             <input type="text" name="name_sole_proprietor" class="form-control" autocomplete="off" value="{{ old('name_sole_proprietor') }}" placeholder="Enter Name Of Sole Proprietor/ Managing Partner!" >
@@ -830,7 +825,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">10.</label>
+                                        <label for="" class="col-md-1 col-form-label">9.</label>
                                         <label for="" class="col-md-2 col-form-label">Total Staff</label>
                                     </div>
 
@@ -869,7 +864,7 @@
                                     </div><br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">11.</label>
+                                        <label for="" class="col-md-1 col-form-label">10.</label>
                                         <label for="" class="col-md-2 col-form-label">Audit Staff</label>
                                     </div>
 
@@ -908,7 +903,7 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="" class="col-md-1 col-form-label">12.</label>
+                                        <label for="" class="col-md-1 col-form-label">11.</label>
                                         <label for="" class="col-md-3 col-form-label">Types Of Service Provided</label>
                                         <div class="col-md-4"><div class="row type_service_provided mt-1"></div></div>
                                         <div class="col-md-4 col-form-label text-danger" id="t_s_p_id_validate" style="display:none;" >
@@ -917,7 +912,7 @@
                                     </div>
 
                                     <div class="row mb-5">
-                                        <label for="" class="col-md-1 col-form-label">13.</label>
+                                        <label for="" class="col-md-1 col-form-label">12.</label>
                                         <label for="" class="col-md-4 col-form-label">Last Registered Year</label>
 
                                         <div class="col-md-3">
@@ -926,7 +921,7 @@
                                     </div>
 
                                     <div class="row mb-5">
-                                        <label for="" class="col-md-1 col-form-label">14.</label>
+                                        <label for="" class="col-md-1 col-form-label">13.</label>
                                         <label for="" class="col-md-4 col-form-label">Suspended Year</label>
                                         <div class="row col-md-7 py-2">
                                             <div class="col-md-3 form-check-radio mx-2">

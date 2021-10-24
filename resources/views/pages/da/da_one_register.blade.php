@@ -1,5 +1,5 @@
 @php
-    $nrc_language = config('myanmarnrc.language');
+    $nrc_language = config('myanmarnrc.language');u
     $nrc_regions = config('myanmarnrc.regions_states');
     $nrc_townships = config('myanmarnrc.townships');
     $nrc_citizens = config('myanmarnrc.citizens');

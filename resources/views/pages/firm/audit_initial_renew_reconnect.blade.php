@@ -165,7 +165,7 @@
                                                 </div>
 
                                                 <div class="row mb-5">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">4.</span>Registration No.</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">5.</span>Registration No.</label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="registration_no"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Registration No.!" autocomplete="off" value="{{ old('accountancy_firm_name') }}" >
                                                     </div>
@@ -200,7 +200,7 @@
                                             </div>
 
                                             <div class="row mb-3">
-                                              <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('5.') }}</span>Address Of Practice(Head Office)</label>
+                                              <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('6.') }}</span>Address Of Practice(Head Office)</label>
                                               <div class="col-md-8">
                                                   <textarea name="head_office_address" class="form-control" placeholder="Head Office Address(English)" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
                                               </div>
@@ -209,7 +209,7 @@
                                             <div class="row mb-3">
                                               <label class="col-md-4 col-form-label label"><span class="pull-left"></span></label>
                                               <div class="col-md-8">
-                                                  <textarea name="head_office_address_mm" class="form-control" placeholder="Head Office Address(Myanmar)" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                                                  <textarea id="head_office_address_mm" name="head_office_address_mm" class="form-control" placeholder="Head Office Address(Myanmar)" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
                                               </div>
                                             </div>
 
@@ -243,7 +243,7 @@
                                             </div>
 
                                             <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">6.</label>
+                                                <label for="" class="col-md-1 col-form-label">7.</label>
                                                 <label for="" class="col-md-2 col-form-label">Branch Office</label>
                                                 <label for="" class="col-md-4 branch_office_validate col-form-label" style="display:none;color:#ef815;">Please Fill Branch Office</label>
                                             </div>
@@ -277,7 +277,7 @@
                                             </div>
 
                                             <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">7.</label>
+                                                <label for="" class="col-md-1 col-form-label">8.</label>
                                                 <label for="" class="col-md-3 col-form-label">Organization Structure</label>
                                                 <label  class="col-md-4 col-form-label error attend_place_error" style="display:none;" for="org_stru_id">Please select one</label>
                                             </div>
@@ -753,7 +753,7 @@
                                             </div><br>
 
                                             <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">8.</label>
+                                                <label for="" class="col-md-1 col-form-label">9.</label>
                                                 <label for="" class="col-md-4 col-form-label">Sole Proprietor/Partners/Shareholders</label>
                                                 <label for="" class="col-md-6 partner_list_validate col-form-label" style="display:none;color:#ef815;">Please Fill Sole Proprietor/Partners/Shareholders</label>
                                             </div>
@@ -813,7 +813,7 @@
                                             </div>
 
                                             <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">9.</label>
+                                                <label for="" class="col-md-1 col-form-label">10.</label>
                                                 <label for="" class="col-md-4 col-form-label">Director(s)/Officer(s)/Sole Proprietor</label>
                                                 <label for="" class="col-md-4 director_validate col-form-label" style="display:none;color:#ef815;">Please Fill Director(s)/Officer(s)</label>
                                             </div>
@@ -866,7 +866,7 @@
                                                 </label>
                                             </div>
                                             <div class="row mb-3">
-                                                <label for="" class="col-md-1 col-form-label">10.</label>
+                                                <label for="" class="col-md-1 col-form-label">11.</label>
                                                 <label for="" class="col-md-4 col-form-label">Name Of Sole Proprietor/ Managing Partner</label>
                                                 <div class="col-md-7">
                                                     <input type="text" name="name_sole_proprietor" class="form-control" autocomplete="off" value="{{ old('name_sole_proprietor') }}" placeholder="Enter Name Of Sole Proprietor/ Managing Partner!" >
@@ -874,7 +874,7 @@
                                             </div>
 
                                             <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">11.</label>
+                                                <label for="" class="col-md-1 col-form-label">12.</label>
                                                 <label for="" class="col-md-2 col-form-label">Total Staff</label>
                                                 <label for="" class="col-md-4 total_staff_validate col-form-label" style="display:none;color:#ef815;">Please Fill Total Staff</label>
                                             </div>
@@ -912,7 +912,7 @@
                                             </div>
 
                                             <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">12.</label>
+                                                <label for="" class="col-md-1 col-form-label">13.</label>
                                                 <label for="" class="col-md-2 col-form-label">Audit Staff</label>
                                                 <label for="" class="col-md-4 audit_staff_validate col-form-label" style="display:none;color:#ef815;">Please Fill Audit Staff</label>
                                             </div>
@@ -950,7 +950,7 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <label for="" class="col-md-1 col-form-label">13.</label>
+                                                <label for="" class="col-md-1 col-form-label">14.</label>
                                                 <label for="" class="col-md-3 col-form-label">Types of Service Provided</label>
                                                 <div class="col-md-4"><div class="row type_service_provided mt-1"></div></div>
                                                 <label  class="col-md-4 col-form-label error attend_place_error" style="display:none;" for="t_s_p_id">Please select one</label>
@@ -960,7 +960,7 @@
                                             </div>
 
                                             <div class="row mb-5">
-                                                <label for="" class="col-md-1 col-form-label">14.</label>
+                                                <label for="" class="col-md-1 col-form-label">15.</label>
                                                 <label for="" class="col-md-4 col-form-label">Last Registered Year</label>
 
                                                 <div class="col-md-3">
@@ -970,7 +970,7 @@
 
 
                                             <div class="row mb-5">
-                                                <label for="" class="col-md-1 col-form-label">15.</label>
+                                                <label for="" class="col-md-1 col-form-label">16.</label>
                                                 <label for="" class="col-md-4 col-form-label">Suspended Year</label>
                                                 <div class="row col-md-7 py-2">
                                                     <div class="col-md-3 form-check-radio mx-2">
