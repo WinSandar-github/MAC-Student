@@ -24,8 +24,6 @@
         <!-- Page Banner Start -->
         <div class="section page-banner">
 
-            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">--}}
-
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png')}}" alt="Shape">
 
             <div class="container">
@@ -39,45 +37,14 @@
                 </div>
                 <!-- Page Banner End -->
             </div>
-
-            <!-- Shape Icon Box Start -->
-            {{--<div class="shape-icon-box">
-
-                <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}" alt="Shape">
-
-                <div class="box-content">
-                    <div class="box-wrapper">
-                        <i class="flaticon-badge"></i>
-                    </div>
-                </div>
-
-                <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
-
-            </div>--}}
             <!-- Shape Icon Box End -->
 
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
-
-            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
 
         </div>
         <div class="container" style="overflow: hidden;">
 
             <div class="row mt-5">
-                <div class="col-md-12 text-center" style="display:none;font-weight:bold;font-size:20px;" name="check_age" id="check_age">
-                    <label class="col-md-12 col-form-label">{{ __('အသက် ၂၁ မပြည့်​သေးပါသဖြင့် ဤ Form အား ဖြည့်စွက်၍ မရနိုင်ပါ။') }}</label>
-
-                    <br/>
-                    <br/>
-                    <br/>
-                </div>
-                <div class="col-md-12 text-center" style="display:none;font-weight:bold;font-size:20px;" name="pass_cpa_two" id="pass_cpa_two">
-                    <label class="col-md-12 col-form-label">{{ __('CPA 2 မအောင်မြင်သေးပါသဖြင့် ဤ Form အား ဖြည့်စွက်၍ မရနိုင်ပါ။') }}</label>
-
-                    <br/>
-                    <br/>
-                    <br/>
-                </div>
                 <div class="col-md-12 text-center mb-5" style="font-weight:bold;font-size:20px;" name="remark" id="remark">
                     <label>Reject လုပ်ရသည့်အကြောင်းအရင်း</label><label class="col-md-12 col-form-label text-danger" id="remark_description"></label>
                 </div>
@@ -122,7 +89,7 @@
                                         <input type="text"  class="form-control" name="name_eng" id="name_eng">
                                     </div>
                                 </div>
-                                <div class="row mb-3" style="padding-left: 100px;">
+                                {{--<div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ခ)') }}</span>{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
                                     <div class="col-md-8">
                                         <div class="row">
@@ -141,6 +108,49 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>--}}
+                                <div class="row mb-3" style="padding-left: 100px;">
+                                    <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ခ)') }}</span>{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-md-2 col-5 pr-1">
+                                                <select class="form-control" name="nrc_state_region" id="nrc_state_region">
+                                                    <option value="" disabled selected>ရွေးပါ</option>
+                                                    @foreach($nrc_regions as $region)
+                                                        <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
+                                                            {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 col-7 px-1">
+                                                <select class="form-control" name="nrc_township" id="nrc_township">
+                                                    <option value="" disabled selected>ရွေးပါ</option>
+                                                    @foreach($nrc_townships as $township)
+                                                        <option value="{{ $township['township_mm'] }}">
+                                                            {{ $township['township_mm'] }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2 col-5 px-1">
+                                                <select class="form-control" name="nrc_citizen" id="nrc_citizen">
+                                                    <option value="" disabled selected>ရွေးပါ</option>
+                                                    @foreach($nrc_citizens as $citizen)
+                                                        <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
+                                                            {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-5 col-7 pl-1">
+                                                <input type="text" name="nrc_number" placeholder="ဥပမာ - ၁၂၃၄၅၆" id="nrc_number" class="form-control" maxlength="6" minlength="6" oninput="this.value = en2mm(this.value);" pattern=".{6,6}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                                 <div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>{{ __('အဘအမည် (မြန်မာ/အင်္ဂလိပ်)') }}</div>
@@ -440,7 +450,7 @@
     </div>
 
     <!-- Modal -->
-    <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+    {{--<form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
           novalidate>
         @csrf
         <div class="modal fade" id="cpaffModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -471,7 +481,7 @@
                 </div>
             </div>
         </div>
-    </form>
+    </form>--}}
 
     <!-- JavaScript Section -->
     <script>
@@ -542,6 +552,14 @@
             document.getElementById('nrc_front').src=BASE_URL + cpaff.nrc_front;
             document.getElementById('nrc_back').src=BASE_URL + cpaff.nrc_back;
 
+            $('#name_mm').val(cpaff.name_mm);
+            $('#name_eng').val(cpaff.name_eng);
+            $('#nrc_state_region').val(cpaff.nrc_state_region);
+            $('#nrc_township').val(cpaff.nrc_township);
+            $('#nrc_citizen').val(cpaff.nrc_citizen);
+            $('#nrc_number').val(cpaff.nrc_number);
+            $('#father_name_mm').val(cpaff.father_name_mm);
+            $('#father_name_eng').val(cpaff.father_name_eng);
             $('#cpa_batch_no').val(cpaff.cpa_batch_no);
             $('#address').val(cpaff.address);
             $('#phone').val(cpaff.phone);

@@ -667,6 +667,18 @@ function createCPAFFRegister() {
     //     send_data.append('qt_pass',0);
     // }
 
+    send_data.append('name_mm', $("input[name=name_mm]").val());
+    send_data.append('name_eng', $("input[name=name_eng]").val());
+    var nrc_state_region = $("#nrc_state_region").val();
+    var nrc_township = $("#nrc_township").val();
+    var nrc_citizen = $("#nrc_citizen").val();
+    send_data.append('nrc_state_region', nrc_state_region);
+    send_data.append('nrc_township', nrc_township);
+    send_data.append('nrc_citizen', nrc_citizen);
+    send_data.append('nrc_number', $("input[name=nrc_number]").val());
+    send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
+    send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
+
     send_data.append('cpa_certificate', cpa_certificate);
     send_data.append('mpa_mem_card', mpa_mem_card);
     send_data.append('nrc_front', nrc_front);
@@ -1268,11 +1280,12 @@ function renewRejectCpaff() {
     }
     // send_data.append('old_card_year', $("input[name=cpa2_pass_date]").val());
     send_data.append('cpaff_pass_date', $("input[name=cpaff_pass_date]").val());
-    send_data.append('renew_card_year', $("input[name=renew_accepted_date]").val());
-    send_data.append('old_card_no', $("input[name=reg_no]").val());
-    send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());
-    send_data.append('old_card_file', $("input[name=renew_file]")[0].files[0]);
-    send_data.append('is_convicted', $("input[name=fine_person]").val());
+    send_data.append('cpaff_renew_date', $("input[name=cpaff_renew_date]").val());
+    // send_data.append('renew_card_year', $("input[name=renew_accepted_date]").val());
+    send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
+    send_data.append('papp_reg_year', $("input[name=papp_reg_year]").val());
+    send_data.append('renew_file', $("input[name=renew_file]")[0].files[0]);
+    // send_data.append('is_convicted', $("input[name=fine_person]").val());
     send_data.append('address', $("input[name=address]").val());
     send_data.append('phone', $("input[name=phone]").val());
     send_data.append('contact_mail', $("input[name=contact_mail]").val());

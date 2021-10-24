@@ -69,7 +69,14 @@ $().ready(function (){
             // console.log(total_staff_validate_flag);
 
             if(branch_off_validate_flag == true && partners_validate_flag == true && directors_validate_flag == true && audit_staff_validate_flag == true && total_staff_validate_flag == true){
-              auditRejectUpdate();
+              if($("input[name=reject_type]") == 0){
+                // initial reject
+                auditRejectUpdate();
+              }
+              else{
+                // renew reject
+                auditRenewRejectUpdate();
+              }
             }
             else{
               alert("Your form is not valid !!!");

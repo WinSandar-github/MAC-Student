@@ -81,9 +81,11 @@
                                             {{ $course[0]['course_type']['course_name'] }}
                                         </h4>
                                         <hr>
+                                        
 
                                         <?php
                                         $description = explode(',', $course[0]['course_type']['course_description']);
+                                         
                                         foreach ($description as $des) {
                                             echo '<p class="mb-4 p_font " style="font-family: Arial, Helvetica, sans-serif; text-align: justify;">' . $des . '</p>';
                                         }

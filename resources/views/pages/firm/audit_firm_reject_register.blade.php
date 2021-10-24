@@ -34,6 +34,11 @@
         <div class="email_verify" style="display:block; margin-top:5%; margin-bottom: 5%;">
             <form id="audit_reject_register_form" method="post" class="" action="javascript:void();" enctype="multipart/form-data" >
                         <input type="hidden" name="audit_firm_type_id" id="audit_firm_type_id" value="1" />
+                        <input type="hidden" name="firm_id" id="firm_id" value="" />
+                        {{-- initial reject type = 0 --}}
+                        {{-- renew reject type = 1 --}}
+                        <input type="hidden" name="reject_type" id="reject_type" value="0" />
+
                         <div class="col-md-12">
                             <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
                               <div class="row mb-5">
@@ -49,7 +54,7 @@
                                     <div id="reg_no_box" style="display:none;">
                                       <div class="col-md-3 pull-left">
                                         <label for="" class="control-label text-muted fw-bolder"><small>Registration No.</small></label>
-                                        <input type="text" placeholder="Enter Registration No.!" name="accountancy_firm_reg_no" class="form-control" value="" >
+                                        <input  type="text" placeholder="Enter Registration No.!" name="accountancy_firm_reg_no" class="form-control" value="" >
                                       </div>
                                     </div>
                                 </div>
@@ -62,7 +67,7 @@
                                               <label for="" class="col-md-5 col-form-label label_align_right">Email</label>--}}
                                               <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('1.') }}</span>Email</label>
                                               <div class="col-md-8">
-                                                  <input readonly type="email" placeholder="Enter Email!" name="email" class="form-control" value="{{ old('email') }}" >
+                                                  <input  type="email" placeholder="Enter Email!" name="email" class="form-control" value="{{ old('email') }}" >
                                                   @if ($errors->has('email'))
                                                       <span class="text-danger">
                                                           <strong>{{ $errors->first('email') }}</strong>
@@ -96,7 +101,7 @@
                                               <label for="" class="col-md-5 col-form-label label_align_right">Accountancy Firm Name</label>--}}
                                               <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('2.') }}</span>Accountancy Firm Name</label>
                                               <div class="col-md-8">
-                                                  <input readonly type="text" class="form-control" id="accountancy_firm_name" name="accountancy_firm_name">
+                                                  <input  type="text" class="form-control" id="accountancy_firm_name" name="accountancy_firm_name">
                                               </div>
                                           </div>
 
@@ -952,7 +957,7 @@
 
                                     <div style="display:none" id="req_for_stop_box">
                                       <div class="row mb-5">
-                                          <label for="" class="col-md-1 col-form-label">14.</label>
+                                          <label for="" class="col-md-1 col-form-label">13.</label>
                                           <label for="" class="col-md-4 col-form-label">Suspended Year</label>
                                           <div class="row col-md-7 py-2">
                                               <div class="col-md-3 form-check-radio mx-2">

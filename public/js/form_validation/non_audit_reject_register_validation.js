@@ -78,7 +78,15 @@ $().ready(function (){
             // console.log(dir_staffmember_validate_flag);
 
             if(branch_off_validate_flag == true && partners_validate_flag == true && directors_validate_flag == true && total_staff_validate_flag == true && service_provided_validate_flag == true && dir_staffmember_validate_flag == true){
-              nonAuditRejectUpdate();
+
+              if($("input[name=reject_type]") == 0){
+                // initial reject
+                nonAuditRejectUpdate();
+              }
+              else{
+                // renew reject
+                nonAuditRenewRejectUpdate();
+              }
             }
             else{
               alert("Your form is not valid !!!");
