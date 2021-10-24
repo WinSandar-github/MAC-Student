@@ -35,9 +35,8 @@
             <form id="audit_reject_register_form" method="post" class="" action="javascript:void();" enctype="multipart/form-data" >
                         <input type="hidden" name="audit_firm_type_id" id="audit_firm_type_id" value="1" />
                         <input type="hidden" name="firm_id" id="firm_id" value="" />
-                        {{-- initial reject type = 0 --}}
-                        {{-- renew reject type = 1 --}}
                         <input type="hidden" name="reject_type" id="reject_type" value="0" />
+                        <input type="hidden" value="" name="offline_user">
 
                         <div class="col-md-12">
                             <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">

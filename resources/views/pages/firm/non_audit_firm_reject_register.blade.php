@@ -65,6 +65,7 @@
                   <input type="hidden" value="2" name="audit_firm_type_id">
 	                <input type="hidden" value="1" name="local_foreign_type">
                   <input type="hidden" value="" name="firm_id">
+                  <input type="hidden" value="" name="offline_user">
                   <input type="hidden" name="reject_type" id="reject_type" value="0" />
                 <!-- <br> -->
 
@@ -161,7 +162,7 @@
                                             <label class="col-md-5 col-form-label label_align_right" >{{ __('Accountancy Firm Name') }}</label>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                <input type="text" class="form-control" name="accountancy_firm_name" id="accountancy_firm_name" readonly="">
+                                                <input type="text" class="form-control" name="accountancy_firm_name" id="accountancy_firm_name" >
                                                 </div>
                                             </div>
                                         </div>

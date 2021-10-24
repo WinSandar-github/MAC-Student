@@ -445,6 +445,7 @@
         if(!student){
         localStorage.setItem('course_type',course_type[2])
         }
+
 		loadDescription('Non-Audit');
 		//nonAuditRegFeedback();
     //nonAuditFirmDateQuery();
@@ -453,6 +454,7 @@
 		//nonAuditData();
 		//verifyStatus();
 		allowToRenew();
+		
     })
     //app_form_feedback();
 
