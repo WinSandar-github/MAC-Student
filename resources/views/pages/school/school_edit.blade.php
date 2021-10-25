@@ -237,6 +237,7 @@
                             <input type="hidden" id="student_info_id">
                             <input type="hidden" id="branch_own_type_h">
                             <input type="hidden" id="hinitial_status">
+                            <input type="hidden" id="initial_reject" value="This user is rejecter but this user is updated">
                             <!-- NRC Image -->
                             <div class="row mb-3">
                                 <div class="col-md-4"> </div>
@@ -554,13 +555,22 @@
 
                             {{--ကျောင်းတည်နေရာလိပ်စာ--}}
                             <div class="row mb-3">
-                                <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">၃။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ') }}</label>
-                                <div class="col-md-8">
-                                    <textarea type="text" style="resize:none;" name="school_address"
-                                                  class="form-control" autocomplete='off' ></textarea>
+                                        <label class="col-md-4 col-form-label label"><span
+                                                    class="pull-left">၃။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ(မြန်မာ)') }}</label>
+                                        <div class="col-md-8">
+                                            <textarea type="text" style="resize:none;" name="school_address"
+                                                        class="form-control" autocomplete='off' ></textarea>
 
-                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label class="col-md-4 col-form-label label"><span
+                                                    class="pull-left">၄။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ(အင်္ဂလိပ်)') }}</label>
+                                        <div class="col-md-8">
+                                            <textarea type="text" style="resize:none;" name="eng_school_address"
+                                                        class="form-control" autocomplete='off' ></textarea>
+
+                                        </div>
                             </div>
                             {{--ကျောင်းတည်နေရာလိပ်စာ--}}
                             <div class="row mb-3">
@@ -583,7 +593,7 @@
                             {{--ပိုင်ဆိုင်မှုပုံစံ--}}
                             <div class="row">
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">၄။</span>{{ __('ပိုင်ဆိုင်မှုပုံစံ') }}</label>
+                                            class="pull-left">၅။</span>{{ __('ပိုင်ဆိုင်မှုပုံစံ') }}</label>
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <div class="form-check mt-2 form-check-inline">
@@ -650,7 +660,7 @@
                             <div class="row mb-3">
 
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">၅။</span>{{ __('ကျောင်းခွဲတည်နေရာလိပ်စာ') }}</label>
+                                            class="pull-left">၆။</span>{{ __('ကျောင်းခွဲတည်နေရာလိပ်စာ') }}</label>
                             </div>
                             <div class="row">
 

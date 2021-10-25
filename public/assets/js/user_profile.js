@@ -90,52 +90,25 @@ function user_profile() {
                     $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
                   }
                 }
-                else {
-                    // Non-Audit Firm
-                    if (firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user != 1) {
-                        // to do payment for approved normal renew user
-                        console.log("non audit 1");
-                        var invoice = data.invoice.filter(val => {
-                            return val.invoiceNo == 'non_audit_renew' && val.status == 0;
-                        });
 
-                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
-                            $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
-                        } else {
-                            $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
-                        }
-                    }
+                else if(firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user == 1){
+                  // to do payment for approved initial user
+                  //checkRenewForInitial();
+                  console.log('non audit 3');
+                  var invoice = data.invoice.filter(val => {
+                    return val.invoiceNo == 'off_non_audit_renew'+firm_info[0].id && val.status == 0;
+                  });
 
-                    else if (firm_info[0].status == 1 && firm_info[0].is_renew == 0 && firm_info[0].offline_user == 0) {
-                        // to do payment for approved initial user
-                        console.log('non audit 2');
-                        var invoice = data.invoice.filter(val => {
-                            return val.invoiceNo == 'non_audit_initial' && val.status == 0;
-                        });
-
-                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
-                            $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
-                        } else {
-                            $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
-                        }
-                    }
-
-                    else if (firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user == 1) {
-                        // to do payment for approved offline user
-                        console.log("non audit 2");
-                        var invoice = data.invoice.filter(val => {
-                            return val.invoiceNo == 'off_non_audit_renew' && val.status == 0;
-                        });
-
-                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
-                            $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
-                        } else {
-                            $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
-                        }
-                    }
+                  if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
+                    $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment</a><hr>`);
+                  }else{
+                    $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                  }
                 }
+              }
 
-                firmDashboardData();
+             
+             firmDashboardData();
 
             } else if (data.school && data.teacher == null && data.mentor == null) {
                 $('.dashboard_name').append('School ');
@@ -3547,12 +3520,12 @@ function loadSchoolByDash(school_data, school_invoice) {
                             //var period_date = school.from_valid_date.split(' ');
                             var new_period_date = sch_invoice.dateTime.split('-');
                             var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                            $('#sch_period_time').text(period + " to 31-12-" + now.getFullYear());
+                            $('#sch_period_time').text(period + " to 31-12-" + (now.getFullYear() + 3));
                         } else if (school.initial_status == 1) {
                             var period_date = school.renew_date.split(' ');
                             var new_period_date = period_date[0].split('-');
                             var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                            $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear() + 3);
+                            $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + (now.getFullYear() + 3));
                         }
 
                         if (school.initial_status == 2) {
@@ -3768,7 +3741,7 @@ function firmDashboardData() {
         type: 'get',
         success: function (result) {
             EasyLoading.hide();
-            //console.log("result >>>", result);
+            console.log("result >>>", result);
             let data = result.data;
             //let accountancy_firm = result.data.accountancy_firm.slice(-1);
             if (data.accountancy_firm_info_id) {
@@ -4075,6 +4048,7 @@ function allowToRenew() {
                 $(".register-btn").css('display','none'); // register btn in information page
               }
             }
+          }
         })
     }
 }

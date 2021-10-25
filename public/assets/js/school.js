@@ -130,37 +130,42 @@ function checkPaymentSchool(){
 
     if(student!=null){
       $.ajax({
-        url: BACKEND_URL+"/getSchoolInfo/"+student.id,//check_payment_school
+        url: BACKEND_URL+"/getSchoolStatus/"+student.id,//check_payment_school//getSchoolInfo
         type: 'GET',
         success: function(result){
-          
-          var school=result.data.pop();
+          var data=result.pop();
+          var invoice=data.invoice.pop();
+          var school=data.school;
+          //var school=result.data.pop();
           
           // var form_data = data;
           // form_data.forEach(function(element){
-           if(school.initial_status==1){
-              $('#school_id').val(school.id);
-              $('#type').val(school.type);
-              if(school.payment_method != null){
-                $('#renew_school_modal').prop('disabled', true);
-                loadRenewSchool();
+           if(school.initial_status==0){
+              // $('#school_id').val(school.id);
+              // $('#type').val(school.type);
+              // if(school.payment_method != null){
+              //   $('#renew_school_modal').prop('disabled', true);
+              //   loadRenewSchool();
 
-              }else{
-                  $('#renew_school_modal').prop('disabled', false);
-              }
+              // }else{
+              //     $('#renew_school_modal').prop('disabled', false);
+              // }
+              loadRenewSchool();
+           }else if(school.initial_status==1){
+              loadRenewSchool();
            }else{
-              $('#type').val(school.type);
-              if(school.offline_user!="true"){
-                if(school.payment_method != null){
-                  $('#school_modal').prop('disabled', true);
-                  loadRenewSchool();
+              // $('#type').val(school.type);
+              // if(school.offline_user!="true"){
+              //   if(school.payment_method != null){
+              //     $('#school_modal').prop('disabled', true);
+              //     loadRenewSchool();
   
-                }else{
-                    $('#school_modal').prop('disabled', false);
-                }
-              }else{
-                loadRenewSchool();
-              }
+              //   }else{
+              //       $('#school_modal').prop('disabled', false);
+              //   }
+              // }else{
+              //   loadRenewSchool();
+              // }
            }
              
           
@@ -524,7 +529,7 @@ function loadRenewSchool(){
                     $('#school_name').val(school.renew_school_name);
                   }
                   if(school.renew_school_address==null){
-                    $('#school_address').val(school.school_address);
+                    $('#school_address').val(school.eng_school_address);
                   }else{
                     $('#school_address').val(school.renew_school_address);
                   }
@@ -1324,7 +1329,7 @@ function getSchoolInfo(){
         }
       $('input[name=school_name]').val(school.school_name);
       $('textarea[name=school_address]').val(school.school_address);
-      
+      $('textarea[name=eng_school_address]').val(school.eng_school_address);
       if(school.attachment!=null){
         removeBracketed(school.attachment,"view_attachment");
         $('#hidden_attachment').val(school.attachment.replace(/[\'"[\]']+/g, ''));
@@ -1836,7 +1841,7 @@ function getSchoolByRenew(id){
               }
             $('input[name=school_name]').val(school.school_name);
             $('textarea[name=school_address]').val(school.school_address);
-            
+            $('textarea[name=eng_school_address]').val(school.eng_school_address);
             if(school.attachment!=null){
               removeBracketed(school.attachment,"view_attachment");
               $('#hidden_attachment').val(school.attachment.replace(/[\'"[\]']+/g, ''));
