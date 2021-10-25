@@ -334,7 +334,7 @@ function createArticleResignRegister() {
             EasyLoading.hide();
             successMessage("You have successfully registered.");
             setInterval(() => {
-                location.href = FRONTEND_URL + '/';
+                location.href = FRONTEND_URL + "/payment_method/" + result.student_info_id + "/" + result.invoiceNo;
             }, 3000);
         },
         error: function (message) {
