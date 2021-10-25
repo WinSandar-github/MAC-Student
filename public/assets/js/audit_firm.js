@@ -1002,11 +1002,11 @@ function getAuditDataForRejectUpdate(){
                 if(item.authority_to_sign==1){
                   tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" checked class='report_yes' id='report_yes'>"+
                         " <label class='form-check-label'>Yes</label></td>";
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
-                        " <label class='form-check-label'>No</label></td>";
+                  // tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
+                  //       " <label class='form-check-label'>No</label></td>";
                 }else{
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
-                        " <label class='form-check-label'>Yes</label></td>";
+                  // tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
+                  //       " <label class='form-check-label'>Yes</label></td>";
                   tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' checked id='report_yes'>"+
                         " <label class='form-check-label'>No</label></td>";
                 }
