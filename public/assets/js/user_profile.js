@@ -105,6 +105,7 @@ function user_profile() {
                     $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
                   }
                 }
+              }
 
              }
              firmDashboardData();
