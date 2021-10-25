@@ -134,6 +134,7 @@ function user_profile() {
                         }
                     }
                 }
+              }
 
                 firmDashboardData();
 
@@ -4073,6 +4074,7 @@ function allowToRenew() {
                 $(".register-btn").css('display','none'); // register btn in information page
               }
             }
+        }
         })
     }
 }
