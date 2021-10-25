@@ -1254,12 +1254,12 @@
 																<th class="less-font-weight" rowspan="2">CPA(Passed Reg.No)</th>
 																<th class="less-font-weight" rowspan="2">CPA (Full-Fledged) Reg.No</th>
 																<th class="less-font-weight" rowspan="2">Public Practice Reg.No</th>
-																<th class="less-font-weight" style="text-align: right;">
-																	<button class="btn btn-primary btn-sm" type="button" onclick='addRowDirectorCPA("director_cpa_initial")'>
-																		<i class="fa fa-plus"></i>
-																	</button>
-
-																</th>
+																
+                                <th class="less-font-weight text-center">
+                                  <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDirectorCPA("director_cpa_initial")'>
+                                    <li class="fa fa-plus"></li>
+                                  </button>
+                                </th>
 															</tr>
 
 														</thead>
