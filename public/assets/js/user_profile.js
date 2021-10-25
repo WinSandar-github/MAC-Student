@@ -107,7 +107,7 @@ function user_profile() {
                 }
               }
 
-             }
+             
              firmDashboardData();
 
             } else if (data.school && data.teacher == null && data.mentor == null) {
@@ -3518,12 +3518,12 @@ function loadSchoolByDash(school_data, school_invoice) {
                             //var period_date = school.from_valid_date.split(' ');
                             var new_period_date = sch_invoice.dateTime.split('-');
                             var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                            $('#sch_period_time').text(period + " to 31-12-" + now.getFullYear());
+                            $('#sch_period_time').text(period + " to 31-12-" + (now.getFullYear() + 3));
                         } else if (school.initial_status == 1) {
                             var period_date = school.renew_date.split(' ');
                             var new_period_date = period_date[0].split('-');
                             var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                            $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear() + 3);
+                            $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + (now.getFullYear() + 3));
                         }
 
                         if (school.initial_status == 2) {
