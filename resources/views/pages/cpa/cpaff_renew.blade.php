@@ -379,7 +379,14 @@
                                   <input type="text"  class="form-control" name="total_hours" id="total_hours" placeholder="Enter CPD Total hours">
                               </div>
                           </div><br/><br>
-
+                          <div class="row">
+                              <div class="col-md-1"></div>
+                              <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
+                              <div class="col-md-6 col-form-label">{{ __('CPA(Full-Fledged) နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်') }}</div>
+                              <div class="col-md-4">
+                                          <input type="text"  class="form-control" name="last_paid_year" id="last_paid_year" disabled>
+                              </div>
+                          </div><br/>
                           <input type="hidden" name="last_paid_year" id="last_paid_year">
                           <input type="hidden" name="resign_date" id="resign_date">
 
@@ -513,5 +520,6 @@
     // checkPaymentCpaff();
     loadCpaffData();
     loadCpaffInitialData();
+    loadCpaffInfo();
 </script>
 @endpush

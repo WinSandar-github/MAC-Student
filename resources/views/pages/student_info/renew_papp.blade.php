@@ -67,10 +67,10 @@
                                 <div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(က)') }}</span>{{ __('အမည် (မြန်မာ/အင်္ဂလိပ်)') }}</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="name_mm" id="name_mm">
+                                        <input type="text"  class="form-control" name="name_mm" id="name_mm" disabled>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="name_eng" id="name_eng">
+                                        <input type="text"  class="form-control" name="name_eng" id="name_eng" disabled>
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 100px;">
@@ -96,10 +96,10 @@
                                 <div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>{{ __('အဘအမည် (မြန်မာ/အင်္ဂလိပ်)') }}</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="father_name_mm" id="father_name_mm">
+                                        <input type="text"  class="form-control" name="father_name_mm" id="father_name_mm" readonly="">
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="father_name_eng" id="father_name_eng">
+                                        <input type="text"  class="form-control" name="father_name_eng" id="father_name_eng" readonly="">
                                     </div>
                                 </div>
                             </div>
@@ -278,7 +278,7 @@
                                 <div class="row mb-3" style="padding-left: 15px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no">
+                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no" readonly="">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 15px;">
@@ -619,6 +619,14 @@
                                     </div>
                                 </div><br/><br>
 
+                                <div class="row mb-2">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(ဆ)') }}</label>
+                                    <div class="col-md-6 col-form-label">PAPP နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်</div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" name="latest_reg_year" id="latest_reg_year" placeholder="PAPP နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်" autocomplete="off" disabled>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
