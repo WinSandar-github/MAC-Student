@@ -460,7 +460,7 @@ function loadPappData()
             $('#phone').val(papp_data.phone);
             $('#contact_mail').val(papp_data.contact_mail);
             $('#cpaff_reg_no').val(papp_data.cpaff_reg_no);
-            //$('#remark_description').text(papp_data.reject_description);
+            $('#latest_reg_year').val(papp_data.latest_reg_year);
         }
     });
 }
