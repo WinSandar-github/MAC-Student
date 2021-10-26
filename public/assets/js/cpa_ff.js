@@ -560,7 +560,7 @@ function loadCpaffInfo() {
             $('#address').val(cpaff_data.address);
             $('#phone').val(cpaff_data.phone);
             $('#contact_mail').val(cpaff_data.contact_mail);
-            $('#last_paid_year').val(cpaff_data.last_paid_year);
+            $('#last_paid_year').val(cpaff_data.last_paid_year==null? '-':cpaff_data.last_paid_year);
             $('#resign_date').val(cpaff_data.resign_date);
             
         }
