@@ -792,14 +792,14 @@ function getAuditData(){
                 tr += "<td ><input  type='text' value='"+item.public_private_reg_no+"' onchange='checkPAPPExist(this.value,this.id,this)' name='foa_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
                 tr += "<td ><input  type='text' value='"+item.name+"' name='foa_name[]' class='form-control' autocomplete='off'></td>";
                 if(item.authority_to_sign==1){
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" checked class='report_yes' id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='1' name=foa_authority_to_sign"+item.id+" checked class='report_yes' id='report_yes'>"+
                         " <label class='form-check-label'>Yes</label></td>";
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='2' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
                         " <label class='form-check-label'>No</label></td>";
                 }else{
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='1' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
                         " <label class='form-check-label'>Yes</label></td>";
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' checked id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='2' name=foa_authority_to_sign"+item.id+" class='report_yes' checked id='report_yes'>"+
                         " <label class='form-check-label'>No</label></td>";
                 }
 
@@ -999,15 +999,16 @@ function getAuditDataForRejectUpdate(){
                 tr += "<td align='center' class='align-middle'>" + count+ "</td>";
                 tr += "<td ><input  type='text' value='"+item.public_private_reg_no+"' onchange='checkPAPPExist(this.value,this.id,this)' name='foa_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
                 tr += "<td ><input  type='text' value='"+item.name+"' name='foa_name[]' class='form-control' autocomplete='off'></td>";
+
                 if(item.authority_to_sign==1){
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" checked class='report_yes' id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='1' name=foa_authority_to_sign"+item.id+" checked class='report_yes' id='report_yes'>"+
                         " <label class='form-check-label'>Yes</label></td>";
-                  // tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
-                  //       " <label class='form-check-label'>No</label></td>";
+                  tr += "<td ><input  type='radio' value='2' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
+                        " <label class='form-check-label'>No</label></td>";
                 }else{
-                  // tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
-                  //       " <label class='form-check-label'>Yes</label></td>";
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' checked id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='1' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
+                        " <label class='form-check-label'>Yes</label></td>";
+                  tr += "<td ><input  type='radio' value='2' name=foa_authority_to_sign"+item.id+" class='report_yes' checked id='report_yes'>"+
                         " <label class='form-check-label'>No</label></td>";
                 }
 
