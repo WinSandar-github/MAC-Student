@@ -493,12 +493,12 @@ function loadCpaffInitialData() {
             console.log(data)
             var cpaff_data = data.data;
             // console.log('cpaff_data11',cpaff_data)
-            $('#cpa_batch_no').val(cpaff_data.cpa_batch_no);
-            $('#address').val(cpaff_data.address);
-            $('#phone').val(cpaff_data.phone);
-            $('#contact_mail').val(cpaff_data.contact_mail);
-            $('#last_paid_year').val(cpaff_data.last_paid_year);
-            $('#resign_date').val(cpaff_data.resign_date);
+            // $('#cpa_batch_no').val(cpaff_data.cpa_batch_no);
+            // $('#address').val(cpaff_data.address);
+            // $('#phone').val(cpaff_data.phone);
+            // $('#contact_mail').val(cpaff_data.contact_mail);
+            // $('#last_paid_year').val(cpaff_data.last_paid_year);
+            // $('#resign_date').val(cpaff_data.resign_date);
             // $('#total_hours').val(cpaff_data.total_hours);
             // $('#reg_no').val(cpaff_data.reg_no);
             // $('#cpaff_reg_no').val(cpaff_data.reg_no);
@@ -543,6 +543,26 @@ function loadCpaffInitialData() {
                     $($(".foreign_degree_file")[i]).append(jQuery("<a href='" + BASE_URL + foreign_degree[i] + "'  target='_blank'>View File</a><br/>"));
                 }
             }
+        }
+    });
+}
+
+function loadCpaffInfo() {
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+        url: BACKEND_URL + "/cpaff_by_stuId/" + student.id,
+        type: 'get',
+        data: "",
+        success: function (data) {
+            console.log(data)
+            var cpaff_data = data.data;
+            $('#cpa_batch_no').val(cpaff_data.cpa_batch_no);
+            $('#address').val(cpaff_data.address);
+            $('#phone').val(cpaff_data.phone);
+            $('#contact_mail').val(cpaff_data.contact_mail);
+            $('#last_paid_year').val(cpaff_data.last_paid_year==null? '-':cpaff_data.last_paid_year);
+            $('#resign_date').val(cpaff_data.resign_date);
+            
         }
     });
 }
