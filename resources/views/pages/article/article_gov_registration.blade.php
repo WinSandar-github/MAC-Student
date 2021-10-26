@@ -448,7 +448,7 @@
                                         </div>
 
                                         <div class="row mb-3" style="margin-left: 100px">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(က။)') }}</span>အကျင့်စာရိတ္တကောင်းမွန်ကြောင်း ရပ်ကွက်အုပ်ချုပ်ရေးမှူးရုံးမှထောက်ခံစာ</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(က)') }}</span>အကျင့်စာရိတ္တကောင်းမွန်ကြောင်း ရပ်ကွက်အုပ်ချုပ်ရေးမှူးရုံးမှထောက်ခံစာ</label>
                                             <!-- <div class="col-md-9">
                                                 <input type="file" name="recommend_attach" class="form-control">
                                             </div> -->
@@ -467,7 +467,7 @@
                                         </div>
 
                                         <div class="row mb-3" style="margin-left: 100px">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ခ။)') }}</span>ပြစ်မှုကင်းရှင်းကြောင်း ရဲစခန်းထောက်ခံစာ</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ခ)') }}</span>ပြစ်မှုကင်းရှင်းကြောင်း ရဲစခန်းထောက်ခံစာ</label>
                                             <!-- <div class="col-md-9">
                                                 <input type="file" name="police_attach" class="form-control">
                                             </div> -->
