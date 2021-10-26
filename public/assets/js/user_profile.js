@@ -150,7 +150,7 @@ function user_profile() {
                 loadMentorByDash(data.mentor,data.email);
 
             } else if (data.cpa_ff && data.student_course_regs == '' && data.cpa_ff.length !== 0) {
-                $('.title').text('CPA(Full-Fledged) and PAPP Information')
+                $('.title').text('CPA(Full-Fledged) and PAPP Information');
                 $('.cpaff_other').show();
                 console.log('cpaff', data);
                 let cpaff_initial = data.cpa_ff[0];
@@ -160,7 +160,7 @@ function user_profile() {
                 $('#cpaff_name_eng').text(data.name_eng);
                 $("#cpaff_nrc").text(data.nrc_state_region + "/" + data.nrc_township + "(" + data.nrc_citizen + ")" + data.nrc_number);
                 $("#cpaff_email").text(data.email);
-                $('#cpaff_phone').text(cpaff_initial.phone);
+                $('#cpaff_phone').text(data.phone);
                 var papp_url = FRONTEND_URL + "/student_papp";
                 var cpaff_url = FRONTEND_URL + "/cpa_ff_register";
 
@@ -2926,6 +2926,8 @@ function Cpaff_profile_update() {
             console.log('res', res);
             $('#update_email_cpaff').val(res.data.email);
             //$('.date_of_birth').val(res.data.date_of_birth);
+            $('#update_name_mm').val(res.data.name_mm);
+            $('#update_name_eng').val(res.data.name_eng);
             $('#update_phone_cpaff').val(res.data.phone);
             $('#update_address_cpaff').val(res.data.address);
             $('#previewImg_cpaff').attr("src", BASE_URL + res.data.image);

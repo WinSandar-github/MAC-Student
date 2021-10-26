@@ -316,7 +316,7 @@
                                             <label class="col-md-12"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်
                                                 <input type="text" style="display:inline; width:100px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control">ခုနှစ်အတွက်
                                                 <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
-                                                <input type="text" class="form-control" name="papp_reg_no" id="papp_reg_no" style="display: inline;width: 120px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
+                                                <input type="text" class="form-control" name="papp_reg_no" id="papp_reg_no" style="display: inline;width: 120px;" placeholder="မှတ်ပုံတင်အမှတ်" required="" readonly> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
                                                 <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
                                             </label>
                                         </div>
@@ -606,7 +606,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
                                     <div class="col-md-6 col-form-label">CPA(Full-Fledged) Registeration No.</div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="cpaff_reg_no" id="cpaff_reg_no">
+                                        <input type="text" class="form-control" name="cpaff_reg_no" id="cpaff_reg_no" readonly>
                                     </div>
                                 </div><br/><br>
 
@@ -615,7 +615,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
                                     <div class="col-md-6 col-form-label">PAPP Registeration No.</div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="papp_reg_no" placeholder="Enter PAPP Registeration No.">
+                                        <input type="text" class="form-control" name="papp_reg_no" id="papp_reg_number" placeholder="Enter PAPP Registeration No." readonly>
                                     </div>
                                 </div><br/><br>
 
@@ -665,6 +665,8 @@
         if(!student){
         localStorage.setItem('course_type',course_type[2])
         }
+        getCPAFFRegNo();
+        getPAPPRegNo();
         loadDescription('PAPP');
         Papp_feedback();
         loadCpaffData();

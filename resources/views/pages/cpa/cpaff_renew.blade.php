@@ -3,7 +3,6 @@
      <div class="main-wrapper">
         <!-- Page Banner Start -->
         <div class="section page-banner">
-            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">--}}
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png')}}" alt="Shape">
             <div class="container">
                 <!-- Page Banner Start -->
@@ -17,19 +16,8 @@
                 <!-- Page Banner End -->
 
             </div>
-            <!-- Shape Icon Box Start -->
-            {{--<div class="shape-icon-box">
-                <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}" alt="Shape">
-                <div class="box-content">
-                    <div class="box-wrapper">
-                        <i class="flaticon-badge"></i>
-                    </div>
-                </div>
-                <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
-            </div>--}}
             <!-- Shape Icon Box End -->
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
-            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
         </div>
         <div class="section"> <!-- section-padding mt-n10 -->
             <div class="container mt-5"> 
@@ -63,10 +51,10 @@
                                 <div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(က)') }}</span>{{ __('အမည် (မြန်မာ/အင်္ဂလိပ်)') }}</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="name_mm" id="name_mm">
+                                        <input type="text"  class="form-control" name="name_mm" id="name_mm" readonly="">
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="name_eng" id="name_eng">
+                                        <input type="text"  class="form-control" name="name_eng" id="name_eng" readonly="">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 100px;">
@@ -92,10 +80,10 @@
                                 <div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>{{ __('အဘအမည် (မြန်မာ/အင်္ဂလိပ်)') }}</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="father_name_mm" id="father_name_mm">
+                                        <input type="text"  class="form-control" name="father_name_mm" id="father_name_mm" readonly="">
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="father_name_eng" id="father_name_eng">
+                                        <input type="text"  class="form-control" name="father_name_eng" id="father_name_eng" readonly="">
                                     </div>
                                 </div>
                             </div>
@@ -228,7 +216,7 @@
                                 <div class="row mb-3" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(စ)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no">
+                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no" readonly="">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
@@ -307,7 +295,7 @@
                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                 <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ)မှတ်ပုံတင်လက်မှတ်</div>
                                 <div class="col-md-4">
-                                            <input type="file"  class="form-control" name="cpa_certificate" required="">
+                                            <input type="file"  class="form-control" name="cpa_certificate" required="" accept="image/*">
                                 </div>
                             </div><br/><br>
 
@@ -478,30 +466,30 @@
 @push('scripts')
 <script src="{{ asset('js/form_validation/cpaff_renew_validation.js') }}"></script>
 <script type="text/javascript">
-    $('document').ready(function(){
-        var course_type = location.pathname.split('/');
-        var student = JSON.parse(localStorage.getItem('studentinfo'));
-        if(!student){
-            localStorage.setItem('course_type',course_type[2]);
-        }
-        $('#profile').on('click', function(e) {
-            $('#file').click();
-        });
-        $('#file').change(function(e) {
-            var input = e.target;
-            if (input.files && input.files[0]) {
-                var file = input.files[0];
+    // $('document').ready(function(){
+    //     var course_type = location.pathname.split('/');
+    //     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    //     if(!student){
+    //         localStorage.setItem('course_type',course_type[2]);
+    //     }
+    //     $('#profile').on('click', function(e) {
+    //         $('#file').click();
+    //     });
+    //     $('#file').change(function(e) {
+    //         var input = e.target;
+    //         if (input.files && input.files[0]) {
+    //             var file = input.files[0];
 
-                var reader = new FileReader();
+    //             var reader = new FileReader();
 
-                reader.readAsDataURL(file);
-                reader.onload = function(e) {
-                    $('.dashes-label').css('color','transparent');
-                    $('#profile').css('background-image', 'url(' + reader.result + ')').addClass('hasImage');
-                }
-            }
-        });    
-    });
+    //             reader.readAsDataURL(file);
+    //             reader.onload = function(e) {
+    //                 $('.dashes-label').css('color','transparent');
+    //                 $('#profile').css('background-image', 'url(' + reader.result + ')').addClass('hasImage');
+    //             }
+    //         }
+    //     });    
+    // });
     $("#cpaff_pass_date").datepicker({
         format: "yyyy",
         viewMode: "years", 

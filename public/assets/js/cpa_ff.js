@@ -304,7 +304,7 @@ $().ready(function () {
             mpa_mem_card_back: "Please upload MPA member card(back)",
             cpd_record: "Please upload CPD record",
             total_hours: "Please enter total ours",
-            three_years_full: "Please upload 3years full form",
+            three_years_full: "Please upload file",
             letter: "Please enter your letter",
 
         },
@@ -403,9 +403,11 @@ function loadCpaffData() {
         data: "",
         success: function (data) {
             var cpaff_data = data.data;
+            console.log(cpaff_data)
             if (cpaff_data == null) {
                 $.ajax({
                     url: BACKEND_URL + "/get_cpaff/" + student.id,
+                    // url: BACKEND_URL + "/cpaff_by_stuId/" + student.id,
                     type: 'get',
                     data: "",
                     success: function (data) {
@@ -446,7 +448,7 @@ function loadCpaffData() {
                             $('#nrc_state_region').val(student.nrc_state_region);
                             $('#father_name_mm').val(student.father_name_mm);
                             $('#father_name_eng').val(student.father_name_eng);
-                            cpaff_data.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
+                            student.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
                             // $('#remark').css('display', 'block');
                             // $('#remark_description').text(cpaff_data.reject_description);
                             // $('#cpaff_submit').html('Update');
@@ -474,11 +476,42 @@ function loadCpaffData() {
                             $('#nrc_state_region').val(cpaff_data.nrc_state_region);
                             $('#father_name_mm').val(cpaff_data.father_name_mm);
                             $('#father_name_eng').val(cpaff_data.father_name_eng);
+                            $('#address').val(cpaff_data.address);
+                            $('#phone').val(cpaff_data.phone);
                             cpaff_data.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
                         }
                     });
                 }
             }
+        }
+    });
+}
+
+function getCPAFFRegNo(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+        url: BACKEND_URL + "/get_cpaff_reg_no/" + student.id,
+        type: 'get',
+        data: "",
+        success: function (data) {
+            var cpaff_data = data.data;
+            console.log(cpaff_data[0])
+            $('#cpaff_reg_no').val(cpaff_data[0].cpaff_reg_no);
+        }
+    });
+}
+
+function getPAPPRegNo(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+        url: BACKEND_URL + "/get_papp_reg_no/" + student.id,
+        type: 'get',
+        data: "",
+        success: function (data) {
+            var papp_data = data.data;
+            console.log(papp_data[0])
+            $('#papp_reg_no').val(papp_data[0].papp_reg_no);
+            $('#papp_reg_number').val(papp_data[0].papp_reg_no);
         }
     });
 }
@@ -494,15 +527,9 @@ function loadCpaffInitialData() {
             var cpaff_data = data.data;
             // console.log('cpaff_data11',cpaff_data)
             $('#cpa_batch_no').val(cpaff_data.cpa_batch_no);
-            $('#address').val(cpaff_data.address);
-            $('#phone').val(cpaff_data.phone);
             $('#contact_mail').val(cpaff_data.contact_mail);
             $('#last_paid_year').val(cpaff_data.last_paid_year);
             $('#resign_date').val(cpaff_data.resign_date);
-            // $('#total_hours').val(cpaff_data.total_hours);
-            // $('#reg_no').val(cpaff_data.reg_no);
-            // $('#cpaff_reg_no').val(cpaff_data.reg_no);
-            // console.log(cpaff_data.ra != null || cpaff_data.ra != "null");
             if (cpaff_data.ra != null && cpaff_data.ra != "null") {
                 $('#ra_edu').attr('checked', true);
                 $('#cpa_edu').attr('disabled', true);   
