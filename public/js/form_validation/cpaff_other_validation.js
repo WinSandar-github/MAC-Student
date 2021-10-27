@@ -89,7 +89,7 @@ $().ready(function (){
             nrc_back : "Please upload nrc photo (back)",
             cpd_record : "Please upload CPD record",
             total_hours : "Please enter total ours",
-            three_years_full : "Please upload 3years full form",
+            three_years_full : "Please upload file",
 
         },
         submitHandler: function(form) {

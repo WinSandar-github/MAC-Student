@@ -1375,39 +1375,30 @@
                                     <label for="" class="col-md-3 col-form-label">Email</label>
                                     <div class="col-md-8">
                                         <input type="email" readonly placeholder="Enter your Email address!" name="email"
-                                            class="form-control" id="update_email_cpaff"="">
-                                        @if ($errors->has('email'))
-                                            <span class="text-danger">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
+                                            class="form-control" id="update_email_cpaff">
                                     </div>
                                 </div>
                                 <br>
-
-                                {{--
-                                    <div class="row">
-                                            <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                            <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ)</label>
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
-                                                        class="form-control" ="" id="name_mm_cpaff">
-                                            </div>
-
-                                        </div>
-                                        <br>
-                                        <div class="row">
-
-                                            <label for="" class="col-md-3 col-form-label">အမည်(အင်္ဂလိပ်)</label>
-
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" id="name_eng_cpaff"
-                                                        class="form-control" ="">
-                                            </div>
-                                        </div>
-                                    <br>
-                                --}}
                                 <div class="row">
+                                        <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ)</label>
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
+                                                    class="form-control"  id="update_name_mm">
+                                        </div>
+
+                                    </div>
+                                    <br>
+                                    <div class="row">
+
+                                        <label for="" class="col-md-3 col-form-label">အမည်(အင်္ဂလိပ်)</label>
+
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" id="update_name_eng"
+                                                    class="form-control">
+                                        </div>
+                                    </div>
+                                <br>
+                                {{--<div class="row">
 
                                     <label for="" class="col-md-3 col-form-label">မွေးသက္ကရာဇ်</label>
                                     <div class="col-md-8">
@@ -1415,13 +1406,13 @@
                                             placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)">
                                     </div>
                                 </div>
-                                <br>
+                                <br>--}}
                                 <div class="row">
 
                                     <label for="" class="col-md-3 col-form-label">ဖုန်းနံပါတ်</label>
                                     <div class="col-md-8">
                                         <input type="text" placeholder="ဖုန်းနံပါတ်" name="phone" id="update_phone_cpaff"
-                                            class="form-control"="">
+                                            class="form-control">
                                     </div>
                                 </div>
                                 <br>
@@ -1431,7 +1422,7 @@
                                     <label for="" class="col-md-3 col-form-label">နေရပ်လိပ်စာ</label>
                                     <div class="col-md-8">
                                         <input type="text" placeholder="နေရပ်လိပ်စာ" name="address" id="update_address_cpaff"
-                                            class="form-control"="">
+                                            class="form-control">
                                     </div>
                                 </div>
                                 <br>
