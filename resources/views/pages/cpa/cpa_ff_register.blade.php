@@ -538,7 +538,7 @@
     </div>
 
     <!-- Modal -->
-    <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+    <!-- <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
           novalidate>
         @csrf
         <div class="modal fade" id="cpaffModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -569,8 +569,37 @@
                 </div>
             </div>
         </div>
-    </form>
-
+    </form> -->
+    <div class="modal fade" id="cpa_ff_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">ကိုယ်တိုင်ဝန်ခံချက်</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe src="{{ asset('assets/images/pa_promise.pdf') }}"  style="overflow:scroll;height:70vh;width:100%" height="100vh" width="70vh"></iframe>
+                <div class="pull-right mt-1">
+                    <h6 class="pull-left me-4 fw-bold">အထက်ဖော်ပြပါအချက်များအား</h6>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="self_confession" id="accept_cpaffRenew" value="1">
+                    <label class="fw-bold">လက်ခံသည်</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="self_confession" id="not-accept_cpaffRenew" value="2">
+                    <label class="fw-bold">လက်မခံပါ</label>
+                    </div>
+                    <div class="text-danger" id="valid_self_confession" style="display : none">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+              <button type="button" style="background-color: #39c0ba" class="btn btn-sm text-white" onclick="createCPAFFRegister()">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -639,5 +668,52 @@
         minViewMode: "months",
         autoclose:true //to close picker once year is selected
     }); 
+    // $(document).ready(function() {
+    //     $('.cpa_ff_modal').MultiStep({
+    //         title:'ဝန်ခံချက်',
+    //         data:[{
+    //             content:`
+    //             <iframe src="{{ asset('assets/images/pa_promise.pdf') }}"  style="overflow:scroll;height:70vh;width:100%" height="100vh" width="70vh"></iframe>
+    //             <div class="pull-right mt-1">
+    //                 <h6 class="pull-left me-4 fw-bold">အထက်ဖော်ပြပါအချက်များအား</h6>
+    //                 <div class="form-check form-check-inline">
+    //                 <input class="form-check-input" type="radio" name="self_confession" id="accept" value="1">
+    //                 <label class="fw-bold">လက်ခံသည်</label>
+    //                 </div>
+    //                 <div class="form-check form-check-inline">
+    //                 <input class="form-check-input" type="radio" name="self_confession" id="not-accept" value="2">
+    //                 <label class="fw-bold">လက်မခံပါ</label>
+    //                 </div>
+    //                 <div class="text-danger" id="valid_self_confession" style="display : none">
+    //                 </div>
+    //             </div>
+    //             `,
+    //             label:'ကိုယ်တိုင်ဝန်ခံချက်'
+    //         },],
+    //         final:`
+    //         <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data" novalidate>
+    //             @csrf
+    //             <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
+    //             <div class="mb-3" style="text-align:center;">
+    //                 <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
+    //                 <label>We have been sent verification code on your email.Please check your email.</label>
+    //             </div><br>
+    //             <div class="mb-3" style="text-align:center;">
+    //                 <label style="margin-bottom: 2%;">Enter your verification code</label>
+    //                 <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Enter Verification Code"></center>
+    //             </div>
+    //             <center>
+    //             <button type="submit" id="btn1" onclick="check_email_cpaff()" class="btn btn-success btn-hover-dark w-30">Verify
+    //             </button>
+    //             </center><br>
+    //             <div class="col-md-12" style="text-align:center;">
+    //                 <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
+    //             </div><br><br>
+    //         </form>
+    //         `,
+    //         finalLabel:'Email Verification',
+    //         modalSize:'lg',
+    //     });
+    // });
 </script>
 @endpush
