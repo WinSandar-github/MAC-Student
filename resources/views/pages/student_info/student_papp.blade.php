@@ -680,7 +680,7 @@
 
                                     <div class="col-md-7 col-form-label">CPA(Full-Fledged) Registeraion No.</div>
                                     <div class="col-md-3">
-                                        <input type="text"  class="form-control" name="cpaff_reg_no"  id="cpaff_reg_no" placeholder="Enter CPA(Full-Fledged) Registeraion No.">
+                                        <input type="text"  class="form-control" name="cpaff_reg_no"  id="cpaff_reg_no" placeholder="Enter CPA(Full-Fledged) Registeraion No." readonly>
                                     </div>
                                 </div><br/><br>
 
@@ -764,7 +764,11 @@
    isLoginPAPP();
    Papp_feedback();
    loadCpaffInitialData();
+<<<<<<< HEAD
    loadCpaffInfo();
+=======
+   getCPAFFRegNo();
+>>>>>>> 28d23d12523af30b3d5eb009fd7986e515834fa6
 
    $('input[name="degree_pass_year[]"]').flatpickr({
             enableTime: false,
