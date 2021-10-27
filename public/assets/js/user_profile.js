@@ -3628,7 +3628,7 @@ function laodTeacherByDash(teacher_data, _invoice) {
             if (teacher.approve_reject_status == 0) {
                 $('.teacher_status_history').append('Teacher Registration is checking.');
             } else if (teacher.approve_reject_status == 1) {
-                $('.teacher_status_history').append('Teacher Registration is Approved.');
+                
 
                 if (teacher.offline_user != 1) {
                     var invoice = _invoice.filter(val => {
@@ -3636,40 +3636,65 @@ function laodTeacherByDash(teacher_data, _invoice) {
                             return val.invoiceNo == val.status == 0 == val.dateTime != null;
                         }
                     });
-
-                    var invoice = invoice.pop();
-                    if (invoice.status == "AP") {
-                        $('.teacher_period').show();
-                        var now = new Date();
-                        if (teacher.initial_status == 0) {
-                            //var period_date = invoice[0].dateTime.split(' ');
-                            var new_period_date = invoice.dateTime.split('-');
-                            var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                            $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
-                        } else if (teacher.initial_status == 1) {
-                            $('#teacher_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear());
+                    if(invoice.length!=0){
+                        var invoice = invoice.pop();
+                        if (invoice.status == "AP") {
+                            
+                            var now = new Date();
+                            if (teacher.initial_status == 0) {
+                                //var period_date = invoice[0].dateTime.split(' ');
+                                var new_period_date = invoice.dateTime.split('-');
+                                var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
+                                $('.teacher_status_history').append('Teacher Registration is Approved.');
+                                $('.teacher_period').show();
+                                $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
+                                $('.teacher_payment-status').show();
+                            } else if (teacher.initial_status == 1) {
+                                $('.teacher_status_history').append('Teacher Registration is Approved.');
+                                $('.teacher_period').show();
+                                $('#teacher_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear());
+                                $('.teacher_payment-status').show();
+                            }else{
+                                $('.teacher_status_history').append('Teacher is request stop.');
+                                $('.teacher_cessation-btn').show();
+                                $(".teacher_cessation-reason").text(teacher.cessation_reason);
+                            }
+    
+                            $('.teacher_renew-btn').show();
+                            $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
+                            
+                            $('.teacher_payment-btn').hide();
+                            $(".teacher_payment_status").text("Complete");
+                        }else {
+                            $(".teacher_payment_status").text("Incomplete");
+                            var payment_url = FRONTEND_URL + "/payment_method/" + teacher.student_info_id + "/" + invoice.invoiceNo;
+                            $('.teacher_payment-btn').show();
+                            $('.teacher_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a>`);
+                            $('.teacher_payment-status').show();
+                            if(teacher.initial_status==2){
+                                $('.teacher_status_history').append('Teacher is request stop.');
+                                $('.teacher_cessation-btn').show();
+                                $(".teacher_cessation-reason").text(teacher.cessation_reason);
+                                
+                            }
                         }
-
-                        $('.teacher_renew-btn').show();
-                        $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
-                        $('.teacher_payment-status').show();
-                        $('.teacher_payment-btn').hide();
-                        $(".teacher_payment_status").text("Complete");
-                    } else {
-                        $(".teacher_payment_status").text("Incomplete");
-                        var payment_url = FRONTEND_URL + "/payment_method/" + teacher.student_info_id + "/" + invoice.invoiceNo;
-                        $('.teacher_payment-btn').show();
-                        $('.teacher_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a>`);
-                        $('.teacher_payment-status').show();
+                    }else{
+                        if(teacher.initial_status==2){
+                            $('.teacher_status_history').append('Teacher is request stop.');
+                            $('.teacher_cessation-btn').show();
+                            $(".teacher_cessation-reason").text(teacher.cessation_reason);
+                            $('.teacher_renew-btn').show();
+                            $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
+                        }
                     }
-
-
-
+                   
+                    
                 } else {
+                    $('.teacher_status_history').append('Teacher Registration is Approved.');
                     $('.teacher_renew-btn').show();
                     $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
                 }
-
+                
 
             } else {
                 $('.teacher_status_history').append('Teacher Registration is Rejected.');
