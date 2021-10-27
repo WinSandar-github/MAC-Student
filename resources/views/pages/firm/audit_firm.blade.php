@@ -783,7 +783,7 @@
                                                       <tbody>
                                                           <tr>
                                                               <td align="center" class="align-middle">1</td>
-                                                              <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="checkPAPPExist(this.value,this.id,this)" class="form-control" autocomplete="off" ></td>
+                                                              <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="checkPAPPExist(this.value,this.id,this,0)" class="form-control" autocomplete="off" ></td>
                                                               {{-- checkPAPPExist(this.value,this.id,this) --}}
                                                               <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off" ></td>
                                                               <td>
