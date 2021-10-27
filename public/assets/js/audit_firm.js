@@ -910,6 +910,10 @@ function getAuditDataForRejectUpdate(){
             $("#reg_no_box").css('display','block');
           }
 
+          if(audit_data.offline_user == 0){
+            $("#partner_add_btn").attr('onclick','addRowPartner("partner_list")');
+          }
+
           if(audit_data.is_renew == 1){ // renew reject type
             $("input[name=reject_type]").val(audit_data.is_renew);
             $("input[name=accountancy_firm_reg_no]").attr('readonly',true);
@@ -997,7 +1001,12 @@ function getAuditDataForRejectUpdate(){
               firm_owner_audit.forEach(function(item){
                 var tr = "<tr>";
                 tr += "<td align='center' class='align-middle'>" + count+ "</td>";
-                tr += "<td ><input  type='text' value='"+item.public_private_reg_no+"' onchange='checkPAPPExist(this.value,this.id,this)' name='foa_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
+                if(audit_data.offline_user == 1){
+                  tr += "<td ><input  type='text' value='"+item.public_private_reg_no+"' onchange='checkPAPPExistOffline(this.value,this.id,this,1)' name='foa_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
+                }
+                else{
+                  tr += "<td ><input  type='text' value='"+item.public_private_reg_no+"' onchange='checkPAPPExist(this.value,this.id,this,0)' name='foa_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
+                }
                 tr += "<td ><input  type='text' value='"+item.name+"' name='foa_name[]' class='form-control' autocomplete='off'></td>";
 
                 if(item.authority_to_sign==1){
@@ -2233,25 +2242,62 @@ function deleteAuditInfo(accName,accId){
     }
 }
 
-function checkPAPPExist(value,id,element){
+function checkPAPPExist(value,id,element,status){
    if($(element).val() != ''){
        $(element).parent().siblings().find("input[name='foa_name[]']").val('');
        $.ajax({
          type: "get",
-         url: BACKEND_URL + '/papp/'+value,
+         url: BACKEND_URL + '/check_initial_papp/' + value + '/' +status,
          success: function (data) {
             // var a=localStorage.getItem('isPAPPExist');
              if(data.data.length==0){
-               alert("PAPP Registration No. does not exist!");
+               //alert("PAPP Registration No. does not exist!");
+               Swal.fire("PAPP Registration No. does not exist!");
                document.getElementById('btn_submit_audit_firm').disabled=true;
-               //document.getElementById(id).style.borderColor="red";
                $(element).parent().siblings().find("input[name='foa_name[]']").val('');
                $(element).css("border","1px solid red");
-               //localStorage.setItem('isPAPPExist',false);
              }
              else{
                  document.getElementById('btn_submit_audit_firm').disabled=false;
-                 //document.getElementById(id).style.borderColor="#ced4da";
+                 $(element).css("border","1px solid #ced4da");
+                 // set name who is exist PAPP
+                 data.data.forEach(function(item){
+                   var student_info = item.student_info;
+                   $(element).parent().siblings().find("input[name='foa_name[]']").val(student_info.name_eng);
+                 });
+
+             }
+
+         },
+         error: function (message) {
+             errorMessage(message);
+         }
+     });
+   }
+   else {
+     document.getElementById('btn_submit_audit_firm').disabled=true;
+     document.getElementById(id).style.borderColor="2px solid red";
+     $(element).parent().siblings().find("input[name='foa_name[]']").val('');
+   }
+}
+
+function checkPAPPExistOffline(value,id,element,status){
+   if($(element).val() != ''){
+       $(element).parent().siblings().find("input[name='foa_name[]']").val('');
+       $.ajax({
+         type: "get",
+         url: BACKEND_URL + '/check_offline_papp/' + value + '/' +status,
+         success: function (data) {
+            // var a=localStorage.getItem('isPAPPExist');
+             if(data.data.length==0){
+               //alert("PAPP Registration No. does not exist!");
+               Swal.fire("PAPP Registration No. does not exist!");
+               document.getElementById('btn_submit_audit_firm').disabled=true;
+               $(element).parent().siblings().find("input[name='foa_name[]']").val('');
+               $(element).css("border","1px solid red");
+             }
+             else{
+                 document.getElementById('btn_submit_audit_firm').disabled=false;
                  $(element).css("border","1px solid #ced4da");
                  // set name who is exist PAPP
                  data.data.forEach(function(item){

@@ -1357,16 +1357,16 @@ function getNonAuditDataForRejectUpdate(){
             var branch=element.branch_offices;
             branch.forEach(function(item){
               var tr = "<tr>";
-              tr += "<td><input  type='text' name='bo_branch_name[]' class='form-control' autocomplete='off' value="+item.branch_name+"></td>";
-              tr += "<td><input  type='text' name='bo_address[]' class='form-control' autocomplete='off' value="+item.branch_address+"></td>";
-              tr += "<td><input  type='text' name='bo_township[]' class='form-control' autocomplete='off' value="+item.township+"></td>";
-              tr += "<td><input  type='text' name='bo_post_code[]' class='form-control' autocomplete='off' value="+item.postcode+"></td>";
-              tr += "<td><input  type='text' name='bo_city[]' class='form-control' autocomplete='off' value="+item.city+"></td>";
-              tr += "<td ><input  type='text' name='bo_state_region[]' class='form-control' autocomplete='off' value="+item.state_region+"></td>";
-              tr += "<td ><input  type='text' name='bo_phone[]' class='form-control' autocomplete='off' value="+item.phones+"></td>";
+              tr += "<td><input  type='text' name='bo_branch_name[]' class='form-control' autocomplete='off' value='"+item.branch_name+"'></td>";
+              tr += "<td><input  type='text' name='bo_address[]' class='form-control' autocomplete='off' value='"+item.branch_address+"'></td>";
+              tr += "<td><input  type='text' name='bo_township[]' class='form-control' autocomplete='off' value='"+item.township+"'></td>";
+              tr += "<td><input  type='text' name='bo_post_code[]' class='form-control' autocomplete='off' value='"+item.postcode+"'></td>";
+              tr += "<td><input  type='text' name='bo_city[]' class='form-control' autocomplete='off' value='"+item.city+"'></td>";
+              tr += "<td ><input  type='text' name='bo_state_region[]' class='form-control' autocomplete='off' value='"+item.state_region+"'></td>";
+              tr += "<td ><input  type='text' name='bo_phone[]' class='form-control' autocomplete='off' value='"+item.phones+"'></td>";
 
-              tr += "<td ><input  type='text' name='bo_email[]' class='form-control' autocomplete='off' value="+item.email+"></td>";
-              tr += "<td ><input  type='text' name='bo_website[]' class='form-control' autocomplete='off' value="+item.website+"></td>";
+              tr += "<td ><input  type='text' name='bo_email[]' class='form-control' autocomplete='off' value='"+item.email+"'></td>";
+              tr += "<td ><input  type='text' name='bo_website[]' class='form-control' autocomplete='off' value='"+item.website+"'></td>";
               tr += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowBranch("branch_non_audit")><li class="fa fa-times"></li></button></td>' ;
               tr += "</tr>";
               $("#tbl_branch_body").append(tr);
@@ -1394,8 +1394,8 @@ function getNonAuditDataForRejectUpdate(){
               firm_owner_non_audit.forEach(function(item){
                 var tr = "<tr>";
                 tr += "<td>" +count + "</td>";
-                tr += "<td ><input  type='text' value="+item.name+" name='fona_name[]' class='form-control' autocomplete='off'></td>";
-                tr += "<td ><input  type='text' value="+item.pass_csc_inco +" name='fona_pass_csc_inco[]' class='form-control' autocomplete='off'></td>";
+                tr += "<td ><input  type='text' value='"+item.name+"' name='fona_name[]' class='form-control' autocomplete='off'></td>";
+                tr += "<td ><input  type='text' value='"+item.pass_csc_inco+"' name='fona_pass_csc_inco[]' class='form-control' autocomplete='off'></td>";
 
                 tr += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartnerByNonAudit("non_partner")><li class="fa fa-times"></li></button></td>' ;
                 tr += "</tr>";
@@ -1411,9 +1411,9 @@ function getNonAuditDataForRejectUpdate(){
               var count = 1;
               var tr = "<tr>";
               tr += "<td>" +count + "</td>";
-              tr += "<td ><input  type='text' value="+item.name+" name='dona_name[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ><input  type='text' value="+item.position+" name='dona_position[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ><input  type='text' value="+item.passport+" name='dona_passport[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input  type='text' value='"+item.name+"' name='dona_name[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input  type='text' value='"+item.position+"' name='dona_position[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input  type='text' value='"+item.passport+"' name='dona_passport[]' class='form-control' autocomplete='off'></td>";
               tr += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirectorByNonAudit("non_director")><li class="fa fa-times"></li></button></td>' ;
               tr += "</tr>";
               $("#tbl_director_body").append(tr);
@@ -1450,11 +1450,11 @@ function getNonAuditDataForRejectUpdate(){
              var count = 1;
              var tr = "<tr>";
              tr += "<td>" +count + "</td>";
-             tr += "<td ><input  type='text' value="+item.name+" name='mf_name[]' class='form-control' autocomplete='off'></td>";
-             tr += "<td ><input  type='text' value="+item.position+" name='mf_position[]' class='form-control' autocomplete='off'></td>";
-             tr += "<td ><input  type='text' value="+item.cpa_passed_reg_no+" name='mf_cpa_passed_reg_no[]' class='form-control' autocomplete='off'></td>";
-             tr += "<td ><input  type='text' value="+item.cpa_full_reg_no+" name='mf_cpa_full_reg_no[]' class='form-control' autocomplete='off'></td>";
-             tr += "<td ><input  type='text' value="+item.public_practice_reg_no+" name='mf_pub_pra_reg_no[]' class='form-control' autocomplete='off'></td>";
+             tr += "<td ><input  type='text' value='"+item.name+"' name='mf_name[]' class='form-control' autocomplete='off'></td>";
+             tr += "<td ><input  type='text' value='"+item.position+"' name='mf_position[]' class='form-control' autocomplete='off'></td>";
+             tr += "<td ><input  type='text' value='"+item.cpa_passed_reg_no+"' name='mf_cpa_passed_reg_no[]' class='form-control' autocomplete='off'></td>";
+             tr += "<td ><input  type='text' value='"+item.cpa_full_reg_no+"' name='mf_cpa_full_reg_no[]' class='form-control' autocomplete='off'></td>";
+             tr += "<td ><input  type='text' value='"+item.public_practice_reg_no+"' name='mf_pub_pra_reg_no[]' class='form-control' autocomplete='off'></td>";
              tr += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=addRowDirectorCPA("director_cpa_initial")><li class="fa fa-times"></li></button></td>' ;
              tr += "</tr>";
              $("#tbl_cpa_myanmar_body").append(tr);
