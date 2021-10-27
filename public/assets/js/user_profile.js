@@ -150,7 +150,7 @@ function user_profile() {
                 loadMentorByDash(data.mentor,data.email);
 
             } else if (data.cpa_ff && data.student_course_regs == '' && data.cpa_ff.length !== 0) {
-                $('.title').text('CPA(Full-Fledged) and PAPP Information')
+                $('.title').text('CPA(Full-Fledged) and PAPP Information');
                 $('.cpaff_other').show();
                 console.log('cpaff', data);
                 let cpaff_initial = data.cpa_ff[0];
@@ -160,7 +160,7 @@ function user_profile() {
                 $('#cpaff_name_eng').text(data.name_eng);
                 $("#cpaff_nrc").text(data.nrc_state_region + "/" + data.nrc_township + "(" + data.nrc_citizen + ")" + data.nrc_number);
                 $("#cpaff_email").text(data.email);
-                $('#cpaff_phone').text(cpaff_initial.phone);
+                $('#cpaff_phone').text(data.phone);
                 var papp_url = FRONTEND_URL + "/student_papp";
                 var cpaff_url = FRONTEND_URL + "/cpa_ff_register";
 
@@ -291,6 +291,7 @@ function user_profile() {
                     // $('.status_history').append(`<a href="${cpaff_reject_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                 }
                 if (data.papp.length != 0 && data.student_course_regs == '') {
+                    
                     var reject_initial = FRONTEND_URL + "/update_papp_initial";
                     var reject_renewal = FRONTEND_URL + "/update_papp_renewal";
                     var reject_reconnect=FRONTEND_URL + "/update_papp_reconnect";
@@ -329,7 +330,7 @@ function user_profile() {
                         $('.status_history').append('PAPP ' + is_renew + ' Registration Form is checking.<br><br>');
                         $('.status_papp').css('display', 'none');
                     } else if (papp_latest_data.status == 1) {
-                        if (data.invoice.length != 0) {
+                        if (invoice.length != 0) {
                             // var invoice = data.invoice.filter(val => {
                             //     return val.invoiceNo == 'papp' && val.status == 0;
                             // });
@@ -514,13 +515,24 @@ function user_profile() {
                             let contract_end_date = element.contract_end_date === null ? "-" : element.contract_end_date;
                             if (element.article_form_type == 'resign') {
                                 if (element.resign_status == 0) {
-                                    $('.qt_article_status').append(`<tr>
-                                    <td>${form_type} Form</td>
-                                    <td>${contract_start_date}</td>
-                                    <td>${contract_end_date}</td>
-                                    <td><span class="badge bg-success">Checking</span></td>
-                                </tr>
-                                `);
+                                    invoice_len = data.invoice.length;
+                                    if(data.invoice[invoice_len-1].status === '0'){
+                                        $('.qt_article_status').append(`<tr>
+                                            <td>${form_type} Form</td>
+                                            <td>${contract_start_date}</td>
+                                            <td>${contract_end_date}</td>
+                                            <td><span class="badge bg-success">Payment !</span></td>
+                                        </tr>
+                                        `);
+                                    }else{
+                                        $('.qt_article_status').append(`<tr>
+                                            <td>${form_type} Form</td>
+                                            <td>${contract_start_date}</td>
+                                            <td>${contract_end_date}</td>
+                                            <td><span class="badge bg-success">Checking</span></td>
+                                        </tr>
+                                        `);
+                                    }
                                 } else if (element.resign_status == 1) {
                                     if (element.done_status == 1) {
                                         $('.qt_article_status').append(`<tr>
@@ -669,7 +681,7 @@ function user_profile() {
                             if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
                                 $('.qt_article_status').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                             }
-                        } else if (latest_article[0]?.article_form_type == 'resign' && latest_article[0].resign_status == 1) {
+                        } else if (latest_article[0]?.article_form_type == 'resign') {
                             // if(latest_article[0].done_status == 0){
                             //     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                             //         $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
@@ -681,21 +693,27 @@ function user_profile() {
                             // //     $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
                             // // }
                             // else if(latest_article[0].done_status == 1){
-                            var resign_date = new Date(latest_article[0].resign_date);
-                            var year = resign_date.getFullYear();
-                            var month = resign_date.getMonth();
-                            var day = resign_date.getDate();
+                            if(latest_article[0].resign_status == 0){
+                                if(invoice[0].status == 0){
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
+                                }
+                            }else if(latest_article[0].resign_status == 1){
+                                var resign_date = new Date(latest_article[0].resign_date);
+                                var year = resign_date.getFullYear();
+                                var month = resign_date.getMonth();
+                                var day = resign_date.getDate();
 
-                            resign_date = new Date(year + 1, month, day - 1);
-                            var today = new Date();
-                            var resign_time = resign_date.getTime();
-                            var today_time = today.getTime();
+                                resign_date = new Date(year + 1, month, day - 1);
+                                var today = new Date();
+                                var resign_time = resign_date.getTime();
+                                var today_time = today.getTime();
 
-                            article_url = '/article_information';
-                            if (resign_time <= today_time) {
-                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
-                            } else {
-                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
+                                article_url = '/article_information';
+                                if (resign_time <= today_time) {
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
+                                } else {
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
+                                }
                             }
                             // }
                         }
@@ -2340,13 +2358,24 @@ function user_profile() {
                                 let contract_end_date = element.contract_end_date === null ? "-" : element.contract_end_date;
                                 if (element.article_form_type == 'resign') {
                                     if (element.resign_status == 0) {
-                                        $('.article_status').append(`<tr>
-                                        <td>${form_type} Form</td>
-                                        <td>${contract_start_date}</td>
-                                        <td>${contract_end_date}</td>
-                                        <td><span class="badge bg-success">Checking</span></td>
-                                    </tr>
-                                    `);
+                                        invoice_len = data.invoice.length;
+                                        if(data.invoice[invoice_len-1].status === '0'){
+                                            $('.article_status').append(`<tr>
+                                                <td>${form_type} Form</td>
+                                                <td>${contract_start_date}</td>
+                                                <td>${contract_end_date}</td>
+                                                <td><span class="badge bg-success">Payment !</span></td>
+                                            </tr>
+                                            `);
+                                        }else{
+                                            $('.article_status').append(`<tr>
+                                                <td>${form_type} Form</td>
+                                                <td>${contract_start_date}</td>
+                                                <td>${contract_end_date}</td>
+                                                <td><span class="badge bg-success">Checking</span></td>
+                                            </tr>
+                                            `);
+                                        }
                                     } else if (element.resign_status == 1) {
                                         if (element.done_status == 1) {
                                             $('.article_status').append(`<tr>
@@ -2510,7 +2539,7 @@ function user_profile() {
                                 if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                                 }
-                            } else if (latest_article[0]?.article_form_type == 'resign' && latest_article[0].resign_status == 1) {
+                            } else if (latest_article[0]?.article_form_type == 'resign') {
                                 // if (latest_article[0].done_status == 0) {
                                 //     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                                 //         $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
@@ -2522,22 +2551,28 @@ function user_profile() {
                                 // //     $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
                                 // // }
                                 // else if (latest_article[0].done_status == 1) {
-                                var resign_date = new Date(latest_article[0].resign_date);
-                                var year = resign_date.getFullYear();
-                                var month = resign_date.getMonth();
-                                var day = resign_date.getDate();
+                                if(latest_article[0].resign_status == 0){
+                                    if(invoice[0].status == 0){
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
+                                    }
+                                }else if(latest_article[0].resign_status == 1){
+                                    var resign_date = new Date(latest_article[0].resign_date);
+                                    var year = resign_date.getFullYear();
+                                    var month = resign_date.getMonth();
+                                    var day = resign_date.getDate();
 
-                                resign_date = new Date(year + 1, month, day - 1);
-                                var today = new Date();
-                                var resign_time = resign_date.getTime();
-                                var today_time = today.getTime();
+                                    resign_date = new Date(year + 1, month, day - 1);
+                                    var today = new Date();
+                                    var resign_time = resign_date.getTime();
+                                    var today_time = today.getTime();
 
-                                article_url = '/article_information';
-                                if (resign_time <= today_time) {
-                                    $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
-                                } else {
-                                    $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
-                                }
+                                    article_url = '/article_information';
+                                    if (resign_time <= today_time) {
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
+                                    } else {
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
+                                    }
+                                }   
                                 // }
                             }
 
@@ -2632,13 +2667,24 @@ function user_profile() {
 
                                     if (element.article_form_type == 'resign') {
                                         if (element.resign_status == 0) {
-                                            $('.article_status').append(`<tr>
-                                            <td>${form_type} Form</td>
-                                            <td>${contract_start_date}</td>
-                                            <td>${contract_end_date}</td>
-                                            <td><span class="badge bg-success">Checking</span></td>
-                                        </tr>
-                                        `);
+                                            invoice_len = data.invoice.length;
+                                            if(data.invoice[invoice_len-1].status === '0'){
+                                                $('.article_status').append(`<tr>
+                                                    <td>${form_type} Form</td>
+                                                    <td>${contract_start_date}</td>
+                                                    <td>${contract_end_date}</td>
+                                                    <td><span class="badge bg-success">Payment !</span></td>
+                                                </tr>
+                                                `);
+                                            }else{
+                                                $('.article_status').append(`<tr>
+                                                    <td>${form_type} Form</td>
+                                                    <td>${contract_start_date}</td>
+                                                    <td>${contract_end_date}</td>
+                                                    <td><span class="badge bg-success">Checking</span></td>
+                                                </tr>
+                                                `);
+                                            }
                                         } else if (element.resign_status == 1) {
                                             if (element.done_status == 1) {
                                                 $('.article_status').append(`<tr>
@@ -2792,7 +2838,7 @@ function user_profile() {
                                     if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                                     }
-                                } else if (latest_article[0]?.article_form_type == 'resign' && latest_article[0].resign_status == 1) {
+                                } else if (latest_article[0]?.article_form_type == 'resign') {
                                     // if (latest_article[0].done_status == 0) {
                                     //     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                                     //         $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
@@ -2804,21 +2850,27 @@ function user_profile() {
                                     //     $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
                                     // }
                                     // if (latest_article[0].done_status == 1) {
-                                    var resign_date = new Date(latest_article[0].resign_date);
-                                    var year = resign_date.getFullYear();
-                                    var month = resign_date.getMonth();
-                                    var day = resign_date.getDate();
+                                    if(latest_article[0].resign_status == 0){
+                                        if(invoice[0].status == 0){
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
+                                        }
+                                    }else if(latest_article[0].resign_status == 1){
+                                        var resign_date = new Date(latest_article[0].resign_date);
+                                        var year = resign_date.getFullYear();
+                                        var month = resign_date.getMonth();
+                                        var day = resign_date.getDate();
 
-                                    resign_date = new Date(year + 1, month, day - 1);
-                                    var today = new Date();
-                                    var resign_time = resign_date.getTime();
-                                    var today_time = today.getTime();
+                                        resign_date = new Date(year + 1, month, day - 1);
+                                        var today = new Date();
+                                        var resign_time = resign_date.getTime();
+                                        var today_time = today.getTime();
 
-                                    article_url = '/article_information';
-                                    if (resign_time <= today_time) {
-                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
-                                    } else {
-                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
+                                        article_url = '/article_information';
+                                        if (resign_time <= today_time) {
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
+                                        } else {
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
+                                        }
                                     }
                                     // }
                                 }
@@ -2926,6 +2978,8 @@ function Cpaff_profile_update() {
             console.log('res', res);
             $('#update_email_cpaff').val(res.data.email);
             //$('.date_of_birth').val(res.data.date_of_birth);
+            $('#update_name_mm').val(res.data.name_mm);
+            $('#update_name_eng').val(res.data.name_eng);
             $('#update_phone_cpaff').val(res.data.phone);
             $('#update_address_cpaff').val(res.data.address);
             $('#previewImg_cpaff').attr("src", BASE_URL + res.data.image);

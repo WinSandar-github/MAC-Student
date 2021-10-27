@@ -806,7 +806,7 @@
             document.getElementById('papp_img').src=BASE_URL + papp.profile_photo;
             var cpaff_date=new Date(papp.cpaff_pass_date);
             var papp_date=new Date(papp.papp_date);
-            var tax_date=new Date(papp.tax_year);
+            
             $('#cpaff_pass_date').val(cpaff_date.getFullYear());
             $('#papp_date').val(papp_date.getFullYear());
             $('#cpa_batch_no').val(papp.cpa_batch_no);
@@ -829,11 +829,16 @@
                 $("input[name='staff_firm_name']").val(papp.staff_firm_name);
             }
             $("input[name='total_hours']").val(papp.cpd_hours);
-            $('#tax_year').val(tax_date.getFullYear());
+            if(papp.tax_year!=null && papp.tax_year!=''){
+                var tax_date=new Date(papp.tax_year);
+                $('#tax_year').val(tax_date.getFullYear());
+            }
             $("input[name='cpaff_reg_no']").val(papp.cpaff_reg_no);
             $('.mpa_mem_card_back_old').append("<a href='" + BASE_URL + papp.mpa_mem_card_back + "'  target='_blank'>View File</a><br/>");
             $('.mpa_mem_card_front_old').append("<a href='" + BASE_URL + papp.mpa_mem_card_front + "'  target='_blank'>View File</a><br/>");
-            $('.tax_free_file_old').append("<a href='" + BASE_URL + papp.tax_free_recommendation + "'  target='_blank'>View File</a><br/>");
+            if(papp.tax_free_recommendation){
+                $('.tax_free_file_old').append("<a href='" + BASE_URL + papp.tax_free_recommendation + "'  target='_blank'>View File</a><br/>");
+            }
             $('.cpd_record_file_old').append("<a href='" + BASE_URL + papp.cpd_record + "'  target='_blank'>View File</a><br/>");
             $('.cpa_ff_file_old').append("<a href='" + BASE_URL + papp.cpa_ff_recommendation + "'  target='_blank'>View File</a><br/>");
             if (papp.ra != null && papp.ra != "null") {

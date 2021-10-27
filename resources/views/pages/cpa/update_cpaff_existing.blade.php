@@ -194,7 +194,7 @@
 
                                 <div class="row" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('ပညာအရည်အချင်း') }}</div>
-                                    <div class="col-md-9">
+                                    <div class="col-md-8">
                                         <div class="row mb-2">
                                             <div class="col-md-7">
                                                 <input type="radio" name="education" id="cpa_edu" value="1" onclick="getCPAEducation()">
@@ -206,7 +206,7 @@
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-2 cpa_file"></div>
                                                 <div class="col-md-8">
-                                                    <input type="file"  class="form-control" name="cpa" style="display: none;">
+                                                    <input type="file"  class="form-control" name="cpa">
                                                 </div>
                                             </div><br/>
                                         </div>
@@ -223,7 +223,7 @@
                                                 <div class="col-md-2 ra_file" id="ra_file"></div>
                                                 <div class="col-md-8">
                                                     <!-- <div class="single-form"> -->
-                                                        <input type="file"  class="form-control" name="ra" style="display: none;">
+                                                        <input type="file"  class="form-control" name="ra">
                                                     <!-- </div> -->
                                                 </div>
                                             </div><br/>
@@ -283,7 +283,19 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဆ)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဆ)') }}</span>{{ __('CPA(Full-Fledged) Registration No.') }}</div>
+                                    <div class="col-md-8">
+                                        <input type="text"  class="form-control" name="cpaff_reg_no" id="cpaff_reg_no"  placeholder="Enter CPA(Full-Fledged) Registeration No." >
+                                    </div>
+                                </div>
+                                <div class="row mb-3" style="padding-left: 110px;">
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဇ)') }}</span>{{ __('CPA(Full-Fledged) Initial Registration Date') }}</div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="cpaff_reg_year" id="cpaff_reg_year" placeholder="CPA(Full-Fledged) Initial Registration Date">
+                                    </div>
+                                </div>
+                                <div class="row mb-3" style="padding-left: 110px;">
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဈ)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
                                     <div class="col-md-8">
                                         <input type="text"  class="form-control" name="address" id="address">
                                     </div>
@@ -490,7 +502,7 @@
                                 <div class="col-md-6"></div>
                                 <div class="col-md-6" style="padding-left:0px;">
                                     <label>
-                                        <input class="form-control" type="text" style="display:inline; width:100px;" name="resign_date" id="resign_date" placeholder="ခုနှစ်">&nbsp;&nbsp;တွင် ရပ်နား Form တင်ခဲ့ပါသည်။
+                                        <input class="form-control" type="text" style="display:inline; width:100px;" name="resign_date" id="resign_date" placeholder="ခုနှစ်">&nbsp;&nbsp;ခုနှစ်တွင် ရပ်နား Form တင်ခဲ့ပါသည်။
                                     </label>
                                 </div>
                             </div>
@@ -563,30 +575,30 @@
 @push('scripts')
 <script src="{{ asset('js/form_validation/cpaff_reconnect_validation.js') }}"></script>
 <script type="text/javascript">
-    $('document').ready(function(){
-        var course_type = location.pathname.split('/');
-        var student = JSON.parse(localStorage.getItem('studentinfo'));
-        if(!student){
-            localStorage.setItem('course_type',course_type[2]);
-        }
-        $('#profile').on('click', function(e) {
-            $('#file').click();
-        });
-        $('#file').change(function(e) {
-            var input = e.target;
-            if (input.files && input.files[0]) {
-                var file = input.files[0];
+    // $('document').ready(function(){
+    //     var course_type = location.pathname.split('/');
+    //     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    //     if(!student){
+    //         localStorage.setItem('course_type',course_type[2]);
+    //     }
+    //     $('#profile').on('click', function(e) {
+    //         $('#file').click();
+    //     });
+    //     $('#file').change(function(e) {
+    //         var input = e.target;
+    //         if (input.files && input.files[0]) {
+    //             var file = input.files[0];
 
-                var reader = new FileReader();
+    //             var reader = new FileReader();
 
-                reader.readAsDataURL(file);
-                reader.onload = function(e) {
-                    $('.dashes-label').css('color','transparent');
-                    $('#profile').css('background-image', 'url(' + reader.result + ')').addClass('hasImage');
-                }
-            }
-        });    
-    });
+    //             reader.readAsDataURL(file);
+    //             reader.onload = function(e) {
+    //                 $('.dashes-label').css('color','transparent');
+    //                 $('#profile').css('background-image', 'url(' + reader.result + ')').addClass('hasImage');
+    //             }
+    //         }
+    //     });    
+    // });
     $("#cpaff_pass_date").datepicker({
         format: "yyyy",
         viewMode: "years", 
@@ -617,6 +629,11 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     });
+    $("#cpaff_reg_year").flatpickr({
+            enableTime: false,
+            dateFormat: "d-M-Y",
+            allowInput: true,
+    });
     // form_feedback();
     // loadDescription('CPAFF');
     // checkPaymentCpaff();
@@ -635,13 +652,15 @@
             // console.log(result);
             var cpaff=result.data[0];
             console.log(cpaff)
-            document.getElementById('cpaff_img').src=BASE_URL + cpaff.profile_photo;
-            document.getElementById('nrc_front').src=BASE_URL + cpaff.nrc_front;
-            document.getElementById('nrc_back').src=BASE_URL + cpaff.nrc_back;
+            document.getElementById('cpaff_img').src=BASE_URL + cpaff.student_info.image;
+            document.getElementById('nrc_front').src=BASE_URL + cpaff.student_info.nrc_front;
+            document.getElementById('nrc_back').src=BASE_URL + cpaff.student_info.nrc_back;
 
             $('#cpa_batch_no').val(cpaff.cpa_batch_no);
-            $('#address').val(cpaff.address);
-            $('#phone').val(cpaff.phone);
+            $('#cpaff_reg_no').val(cpaff.cpaff_reg_no);
+            $('#cpaff_reg_year').val(cpaff.cpaff_reg_year);
+            $('#address').val(cpaff.student_info.address);
+            $('#phone').val(cpaff.student_info.phone);
             $('#contact_mail').val(cpaff.contact_mail);
             $('#total_hours').val(cpaff.total_hours);
             $('#last_paid_year').val(cpaff.last_paid_year);

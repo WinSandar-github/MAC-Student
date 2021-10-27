@@ -43,6 +43,7 @@ $().ready(function (){
             cpaff_pass_date : "required",
             cpaff_renew_date : "required",
             cpaff_reg_no : "required",
+            cpaff_reg_year : "required",
             cpa_certificate : "required",
             mpa_mem_card : "required",
             mpa_mem_card_back : "required",
@@ -89,6 +90,7 @@ $().ready(function (){
             cpaff_pass_date : "Please enter your CPAFF passed date",
             cpaff_renew_date : "Please enter your renewal date",
             cpaff_reg_no : "Please Enter CPA(Full-Fledged) Registeration No.",
+            cpaff_reg_year : "Please Enter CPA(Full-Fledged) Registeration No.",
             cpa_certificate : "Please upload CPA(Full-Fledged) certificate",
             mpa_mem_card : "Please upload MPA member card(front)",
             mpa_mem_card_back : "Please upload MPA member card(back)",
@@ -217,6 +219,7 @@ function createCpaffReconnectRegister(){
 
     send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
     send_data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
+    send_data.append('cpaff_reg_year', $("input[name=cpaff_reg_year]").val());
     send_data.append('address', $("input[name=address]").val());
     send_data.append('phone', $("input[name=phone]").val());
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
@@ -326,6 +329,7 @@ function updateRejectCpaffExisting(){
 
     send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
     send_data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
+    send_data.append('cpaff_reg_year', $("input[name=cpaff_reg_year]").val());
     send_data.append('address', $("input[name=address]").val());
     send_data.append('phone', $("input[name=phone]").val());
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
