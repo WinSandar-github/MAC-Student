@@ -436,8 +436,8 @@
                                 <div class="row mb-3">
                                     <div class="col-md-2"></div>
                                     <!-- <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label> -->
-                                    <label class="col-md-6 col-form-label">{{ __('စုစုပေါင်း နာရီ') }}</label>
-                                    <div class="col-md-4">
+                                    <label class="col-md-7 col-form-label">{{ __('စုစုပေါင်း နာရီ') }}</label>
+                                    <div class="col-md-3">
                                         <input type="text"  class="form-control" name="total_hours" id="total_hours"  placeholder="စုစုပေါင်း နာရီ" >
                                     </div>
                                 </div>
@@ -601,7 +601,7 @@
             if(cpaff.cpa2_pass_date!=null || cpaff.cpa2_reg_no!=null){
                 $('#cpa_part_2_check').attr('checked',true);
                 $('#cpa_part_2_check').attr('disabled',false);
-                $('#qt_pass_check').attr('disabled',true);
+                // $('#qt_pass_check').attr('disabled',true);
                 // $("input[name='cpa2_pass_date']").val(cpa2_pass_date.getFullYear());
                 $("input[name='country']").attr('disabled',true);
                 $("input[name='government']").attr('disabled',true);
@@ -614,7 +614,7 @@
             else if(cpaff.country!=null || cpaff.government!=null || cpaff.exam_year!=null || cpaff.exam_month!=null || cpaff.roll_no!=null)
             {
                 // $('#used_firm_check').attr('checked',true);
-                $('#cpa_part_2_check').attr('disabled',true);
+                // $('#cpa_part_2_check').attr('disabled',true);
                 $('#qt_pass_check').attr('checked',true);
                 $('#qt_pass_check').attr('disabled',false);
 
