@@ -499,7 +499,7 @@ function loadRenewSchool(){
                   $('#request_for_temporary_stop').val(school.request_for_temporary_stop);
                   $('#from_request_stop_date').val(school.from_request_stop_date);
                   //$('#to_request_stop_date').val(school.to_request_stop_date);
-                  $('#from_valid_date').val(school.from_valid_date);
+                  //$('#from_valid_date').val(school.from_valid_date);
                 }
                 var from_valid_date = new Date(school.from_valid_date);
                 var now=new Date();

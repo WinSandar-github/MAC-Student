@@ -781,7 +781,7 @@
 
                                                               </th>
                                                               <th  class="less-font-weight text-center">
-                                                                <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPartner("partner_list")'>
+                                                                <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPartnerOffline("partner_list")'>
                                                                   <li class="fa fa-plus"></li>
                                                                 </button>
                                                               </th>
@@ -790,7 +790,7 @@
                                                       <tbody>
                                                           <tr>
                                                               <td align="center" class="align-middle">1</td>
-                                                              <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="checkPAPPExist(this.value,this.id,this)" class="form-control" autocomplete="off" ></td>
+                                                              <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="checkPAPPExistOffline(this.value,this.id,this,1)" class="form-control" autocomplete="off" ></td>
                                                               {{-- checkPAPPExist(this.value,this.id,this) --}}
                                                               <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off" ></td>
                                                               <td>

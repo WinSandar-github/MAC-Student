@@ -680,7 +680,7 @@
 
                                     <div class="col-md-7 col-form-label">CPA(Full-Fledged) Registeraion No.</div>
                                     <div class="col-md-3">
-                                        <input type="text"  class="form-control" name="cpaff_reg_no"  id="cpaff_reg_no" placeholder="Enter CPA(Full-Fledged) Registeraion No.">
+                                        <input type="text"  class="form-control" name="cpaff_reg_no"  id="cpaff_reg_no" placeholder="Enter CPA(Full-Fledged) Registeraion No." readonly>
                                     </div>
                                 </div><br/><br>
 
@@ -764,6 +764,8 @@
    isLoginPAPP();
    Papp_feedback();
    loadCpaffInitialData();
+   loadCpaffInfo();
+   getCPAFFRegNo();
 
    $('input[name="degree_pass_year[]"]').flatpickr({
             enableTime: false,
@@ -1230,7 +1232,7 @@
             final:`
             <ul class="list-group list-group-flush fw-bold">
                 <li class="list-group-item">
-                    (၂၆) လက်မှတ်ရပြည်သူ့စာရင်းကိုင် မဟုတ်သူအတွက် သို့မဟုတ် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် မဟုတ် သူနှင့် ပူးပေါင်းလုပ်ကိုင်၍ စာရင်းစစ်အနေဖြင့် ဘဏ္ဍာရေးရှင်းတမ်းများအား လက်မှတ်ရေး ထိုးပေးခြင်း၊
+                    (၂၆) လက်မှတ်ရပြည်သူ့စာရင်းကိုင် မဟုတ်သူအတွက် သို့မဟုတ် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် မဟုတ်သူနှင့် ပူးပေါင်းလုပ်ကိုင်၍ စာရင်းစစ်အနေဖြင့် ဘဏ္ဍာရေးရှင်းတမ်းများအား လက်မှတ်ရေး ထိုးပေးခြင်း၊
                     <div class="mt-1">
                     <div class="form-check form-check-inline">
                     <input class="form-check-input accept_PAPP" type="radio" name="check26" value="1">

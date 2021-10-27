@@ -792,7 +792,7 @@
                                                       <th class="less-font-weight" rowspan="2">Name</th>
                                                       <th class="less-font-weight" colspan="2">Have authority to sign Auditors' report?</th>
                                                       <th  class="less-font-weight text-center">
-                                                        <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPartner("partner_list")'>
+                                                        <button id="partner_add_btn" type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPartnerOffline("partner_list")'>
                                                           <li class="fa fa-plus"></li>
                                                         </button>
                                                       </th>

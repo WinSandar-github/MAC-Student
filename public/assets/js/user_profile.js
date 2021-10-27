@@ -150,7 +150,7 @@ function user_profile() {
                 loadMentorByDash(data.mentor,data.email);
 
             } else if (data.cpa_ff && data.student_course_regs == '' && data.cpa_ff.length !== 0) {
-                $('.title').text('CPA(Full-Fledged) and PAPP Information')
+                $('.title').text('CPA(Full-Fledged) and PAPP Information');
                 $('.cpaff_other').show();
                 console.log('cpaff', data);
                 let cpaff_initial = data.cpa_ff[0];
@@ -160,7 +160,7 @@ function user_profile() {
                 $('#cpaff_name_eng').text(data.name_eng);
                 $("#cpaff_nrc").text(data.nrc_state_region + "/" + data.nrc_township + "(" + data.nrc_citizen + ")" + data.nrc_number);
                 $("#cpaff_email").text(data.email);
-                $('#cpaff_phone').text(cpaff_initial.phone);
+                $('#cpaff_phone').text(data.phone);
                 var papp_url = FRONTEND_URL + "/student_papp";
                 var cpaff_url = FRONTEND_URL + "/cpa_ff_register";
 
@@ -291,6 +291,7 @@ function user_profile() {
                     // $('.status_history').append(`<a href="${cpaff_reject_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                 }
                 if (data.papp.length != 0 && data.student_course_regs == '') {
+                    
                     var reject_initial = FRONTEND_URL + "/update_papp_initial";
                     var reject_renewal = FRONTEND_URL + "/update_papp_renewal";
                     var reject_reconnect=FRONTEND_URL + "/update_papp_reconnect";
@@ -329,7 +330,7 @@ function user_profile() {
                         $('.status_history').append('PAPP ' + is_renew + ' Registration Form is checking.<br><br>');
                         $('.status_papp').css('display', 'none');
                     } else if (papp_latest_data.status == 1) {
-                        if (data.invoice.length != 0) {
+                        if (invoice.length != 0) {
                             // var invoice = data.invoice.filter(val => {
                             //     return val.invoiceNo == 'papp' && val.status == 0;
                             // });
@@ -2983,6 +2984,8 @@ function Cpaff_profile_update() {
             console.log('res', res);
             $('#update_email_cpaff').val(res.data.email);
             //$('.date_of_birth').val(res.data.date_of_birth);
+            $('#update_name_mm').val(res.data.name_mm);
+            $('#update_name_eng').val(res.data.name_eng);
             $('#update_phone_cpaff').val(res.data.phone);
             $('#update_address_cpaff').val(res.data.address);
             $('#previewImg_cpaff').attr("src", BASE_URL + res.data.image);
@@ -3685,7 +3688,7 @@ function laodTeacherByDash(teacher_data, _invoice) {
             if (teacher.approve_reject_status == 0) {
                 $('.teacher_status_history').append('Teacher Registration is checking.');
             } else if (teacher.approve_reject_status == 1) {
-                $('.teacher_status_history').append('Teacher Registration is Approved.');
+                
 
                 if (teacher.offline_user != 1) {
                     var invoice = _invoice.filter(val => {
@@ -3693,40 +3696,65 @@ function laodTeacherByDash(teacher_data, _invoice) {
                             return val.invoiceNo == val.status == 0 == val.dateTime != null;
                         }
                     });
-
-                    var invoice = invoice.pop();
-                    if (invoice.status == "AP") {
-                        $('.teacher_period').show();
-                        var now = new Date();
-                        if (teacher.initial_status == 0) {
-                            //var period_date = invoice[0].dateTime.split(' ');
-                            var new_period_date = invoice.dateTime.split('-');
-                            var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                            $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
-                        } else if (teacher.initial_status == 1) {
-                            $('#teacher_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear());
+                    if(invoice.length!=0){
+                        var invoice = invoice.pop();
+                        if (invoice.status == "AP") {
+                            
+                            var now = new Date();
+                            if (teacher.initial_status == 0) {
+                                //var period_date = invoice[0].dateTime.split(' ');
+                                var new_period_date = invoice.dateTime.split('-');
+                                var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
+                                $('.teacher_status_history').append('Teacher Registration is Approved.');
+                                $('.teacher_period').show();
+                                $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
+                                $('.teacher_payment-status').show();
+                            } else if (teacher.initial_status == 1) {
+                                $('.teacher_status_history').append('Teacher Registration is Approved.');
+                                $('.teacher_period').show();
+                                $('#teacher_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear());
+                                $('.teacher_payment-status').show();
+                            }else{
+                                $('.teacher_status_history').append('Teacher is request stop.');
+                                $('.teacher_cessation-btn').show();
+                                $(".teacher_cessation-reason").text(teacher.cessation_reason);
+                            }
+    
+                            $('.teacher_renew-btn').show();
+                            $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
+                            
+                            $('.teacher_payment-btn').hide();
+                            $(".teacher_payment_status").text("Complete");
+                        }else {
+                            $(".teacher_payment_status").text("Incomplete");
+                            var payment_url = FRONTEND_URL + "/payment_method/" + teacher.student_info_id + "/" + invoice.invoiceNo;
+                            $('.teacher_payment-btn').show();
+                            $('.teacher_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a>`);
+                            $('.teacher_payment-status').show();
+                            if(teacher.initial_status==2){
+                                $('.teacher_status_history').append('Teacher is request stop.');
+                                $('.teacher_cessation-btn').show();
+                                $(".teacher_cessation-reason").text(teacher.cessation_reason);
+                                
+                            }
                         }
-
-                        $('.teacher_renew-btn').show();
-                        $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
-                        $('.teacher_payment-status').show();
-                        $('.teacher_payment-btn').hide();
-                        $(".teacher_payment_status").text("Complete");
-                    } else {
-                        $(".teacher_payment_status").text("Incomplete");
-                        var payment_url = FRONTEND_URL + "/payment_method/" + teacher.student_info_id + "/" + invoice.invoiceNo;
-                        $('.teacher_payment-btn').show();
-                        $('.teacher_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a>`);
-                        $('.teacher_payment-status').show();
+                    }else{
+                        if(teacher.initial_status==2){
+                            $('.teacher_status_history').append('Teacher is request stop.');
+                            $('.teacher_cessation-btn').show();
+                            $(".teacher_cessation-reason").text(teacher.cessation_reason);
+                            $('.teacher_renew-btn').show();
+                            $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
+                        }
                     }
-
-
-
+                   
+                    
                 } else {
+                    $('.teacher_status_history').append('Teacher Registration is Approved.');
                     $('.teacher_renew-btn').show();
                     $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
                 }
-
+                
 
             } else {
                 $('.teacher_status_history').append('Teacher Registration is Rejected.');
