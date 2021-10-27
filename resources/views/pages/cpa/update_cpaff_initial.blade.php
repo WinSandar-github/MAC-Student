@@ -346,7 +346,7 @@
 
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                    <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ နှင့် ၆၈ ပါပြဌာန်းချက်များကို လိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံပါသည်။') }}</label>
+                                    <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ နှင့် ၆၈ ပါပြဋ္ဌာန်းချက်များကို လိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံပါသည်။') }}</label>
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
