@@ -436,8 +436,8 @@
                                 <div class="row mb-3">
                                     <div class="col-md-2"></div>
                                     <!-- <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label> -->
-                                    <label class="col-md-6 col-form-label">{{ __('စုစုပေါင်း နာရီ') }}</label>
-                                    <div class="col-md-4">
+                                    <label class="col-md-7 col-form-label">{{ __('စုစုပေါင်း နာရီ') }}</label>
+                                    <div class="col-md-3">
                                         <input type="text"  class="form-control" name="total_hours" id="total_hours"  placeholder="စုစုပေါင်း နာရီ" >
                                     </div>
                                 </div>
@@ -573,26 +573,27 @@
             // console.log(result);
             var cpaff=result.data[0];
             console.log(cpaff)
-            document.getElementById('cpaff_img').src=BASE_URL + cpaff.profile_photo;
-            document.getElementById('nrc_front').src=BASE_URL + cpaff.nrc_front;
-            document.getElementById('nrc_back').src=BASE_URL + cpaff.nrc_back;
+            document.getElementById('cpaff_img').src=BASE_URL + cpaff.student_info.image;
+            document.getElementById('nrc_front').src=BASE_URL + cpaff.student_info.nrc_front;
+            document.getElementById('nrc_back').src=BASE_URL + cpaff.student_info.nrc_back;
 
-            $('#name_mm').val(cpaff.name_mm);
-            $('#name_eng').val(cpaff.name_eng);
-            $('#nrc_state_region').val(cpaff.nrc_state_region);
-            $('#nrc_township').val(cpaff.nrc_township);
-            $('#nrc_citizen').val(cpaff.nrc_citizen);
-            $('#nrc_number').val(cpaff.nrc_number);
-            $('#father_name_mm').val(cpaff.father_name_mm);
-            $('#father_name_eng').val(cpaff.father_name_eng);
+            $('#name_mm').val(cpaff.student_info.name_mm);
+            $('#name_eng').val(cpaff.student_info.name_eng);
+            $('#nrc_state_region').val(cpaff.student_info.nrc_state_region);
+            $('#nrc_township').val(cpaff.student_info.nrc_township);
+            $('#nrc_citizen').val(cpaff.student_info.nrc_citizen);
+            $('#nrc_number').val(cpaff.student_info.nrc_number);
+            $('#father_name_mm').val(cpaff.student_info.father_name_mm);
+            $('#father_name_eng').val(cpaff.student_info.father_name_eng);
             $('#cpa_batch_no').val(cpaff.cpa_batch_no);
-            $('#address').val(cpaff.address);
-            $('#phone').val(cpaff.phone);
+            $('#address').val(cpaff.student_info.address);
+            $('#phone').val(cpaff.student_info.phone);
             $('#contact_mail').val(cpaff.contact_mail);
             $('#country').val(cpaff.country);
             $('#government').val(cpaff.government);
             $('#roll_no').val(cpaff.roll_no);
             $('#total_hours').val(cpaff.total_hours);
+            cpaff.student_info.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
             // var cpa2_pass_date=new Date(cpaff.cpa2_pass_date);
             // var exam_year=new Date(cpaff.exam_year);
             // var exam_month=new Date(cpaff.exam_month);
@@ -600,7 +601,7 @@
             if(cpaff.cpa2_pass_date!=null || cpaff.cpa2_reg_no!=null){
                 $('#cpa_part_2_check').attr('checked',true);
                 $('#cpa_part_2_check').attr('disabled',false);
-                $('#qt_pass_check').attr('disabled',true);
+                // $('#qt_pass_check').attr('disabled',true);
                 // $("input[name='cpa2_pass_date']").val(cpa2_pass_date.getFullYear());
                 $("input[name='country']").attr('disabled',true);
                 $("input[name='government']").attr('disabled',true);
@@ -613,7 +614,7 @@
             else if(cpaff.country!=null || cpaff.government!=null || cpaff.exam_year!=null || cpaff.exam_month!=null || cpaff.roll_no!=null)
             {
                 // $('#used_firm_check').attr('checked',true);
-                $('#cpa_part_2_check').attr('disabled',true);
+                // $('#cpa_part_2_check').attr('disabled',true);
                 $('#qt_pass_check').attr('checked',true);
                 $('#qt_pass_check').attr('disabled',false);
 

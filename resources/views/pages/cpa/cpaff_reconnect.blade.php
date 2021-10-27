@@ -272,13 +272,19 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ည)') }}</span>{{ __('CPA(Full-Fledged) Registeration No.') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ည)') }}</span>{{ __('CPA(Full-Fledged) Registration No.') }}</div>
                                     <div class="col-md-8">
                                         <input type="text"  class="form-control" name="cpaff_reg_no" id="cpaff_reg_no"  placeholder="Enter CPA(Full-Fledged) Registeration No." >
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဋ)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဋ)') }}</span>{{ __('CPA(Full-Fledged) Initial Registration Date') }}</div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="cpaff_reg_year" id="cpaff_reg_year" placeholder="CPA(Full-Fledged) Initial Registration Date">
+                                    </div>
+                                </div>
+                                <div class="row mb-3" style="padding-left: 110px;">
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဌ)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
                                     <div class="col-md-8">
                                         <input type="text"  class="form-control" name="address"  placeholder="ဆက်သွယ်ရန်လိပ်စာ" >
                                     </div>
@@ -508,7 +514,7 @@
                                     <div class="col-md-6"></div>
                                     <div class="col-md-6" style="padding-left:0px;">
                                         <label>
-                                            <input class="form-control" type="text" style="display:inline; width:100px;" name="resign_date" id="resign_date" placeholder="ခုနှစ်">&nbsp;&nbsp;တွင် ရပ်နား Form တင်ခဲ့ပါသည်။
+                                            <input class="form-control" type="text" style="display:inline; width:100px;" name="resign_date" id="resign_date" placeholder="ခုနှစ်">&nbsp;&nbsp;ခုနှစ်တွင် ရပ်နား Form တင်ခဲ့ပါသည်။
                                         </label>
                                     </div>
                                 </div>
@@ -591,6 +597,11 @@
         viewMode: "years", 
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
+    });
+    $("#cpaff_reg_year").flatpickr({
+            enableTime: false,
+            dateFormat: "d-M-Y",
+            allowInput: true,
     });
     // $("input[name='start_date']").flatpickr({
     //     enableTime: false,
