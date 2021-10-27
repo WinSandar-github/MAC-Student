@@ -634,8 +634,10 @@ function user_profile() {
                             return val.invoiceNo == latest_article[0].article_form_type && val.status == 0;
                         });
 
-                        var payment_url = FRONTEND_URL + "/payment_method/" + latest_article[0].student_info_id + "/" + invoice[0].invoiceNo;
-
+                        if(invoice[0] != undefined){
+                            var payment_url = FRONTEND_URL + "/payment_method/" + latest_article[0].student_info_id + "/" + invoice[0].invoiceNo;
+                        }
+                        
                         if (latest_article[0] != null && latest_article[0].contract_end_date != null) {
                             var end_date = new Date(latest_article[0].contract_end_date);
                             var today = new Date();
@@ -2477,7 +2479,9 @@ function user_profile() {
                                 return val.invoiceNo == latest_article[0].article_form_type && val.status == 0;
                             });
 
-                            var payment_url = FRONTEND_URL + "/payment_method/" + latest_article[0].student_info_id + "/" + invoice[0].invoiceNo;
+                            if(invoice[0] != undefined){
+                                var payment_url = FRONTEND_URL + "/payment_method/" + latest_article[0].student_info_id + "/" + invoice[0].invoiceNo;
+                            }
 
                             if (latest_article[0] != null && latest_article[0].contract_end_date != null) {
                                 var end_date = new Date(latest_article[0].contract_end_date);
@@ -2789,7 +2793,9 @@ function user_profile() {
                                     return val.invoiceNo == latest_article[0].article_form_type && val.status == 0;
                                 });
 
-                                var payment_url = FRONTEND_URL + "/payment_method/" + latest_article[0].student_info_id + "/" + invoice[0].invoiceNo;
+                                if(invoice[0] != undefined){
+                                    var payment_url = FRONTEND_URL + "/payment_method/" + latest_article[0].student_info_id + "/" + invoice[0].invoiceNo;
+                                }
 
                                 if (latest_article[0].contract_end_date != null) {
                                     var end_date = new Date(latest_article[0].contract_end_date);
