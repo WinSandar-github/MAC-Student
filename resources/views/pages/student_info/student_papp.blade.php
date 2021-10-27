@@ -764,7 +764,11 @@
    isLoginPAPP();
    Papp_feedback();
    loadCpaffInitialData();
+<<<<<<< HEAD
+   loadCpaffInfo();
+=======
    getCPAFFRegNo();
+>>>>>>> 28d23d12523af30b3d5eb009fd7986e515834fa6
 
    $('input[name="degree_pass_year[]"]').flatpickr({
             enableTime: false,
