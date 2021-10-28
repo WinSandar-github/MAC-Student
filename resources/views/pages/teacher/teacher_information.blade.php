@@ -679,6 +679,14 @@
                                                             
                                                     </div>
                                                 </div>
+                                                <!-- <div class="row mb-3">
+                                                    <label class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
+                                                    <label class="col-md-3 col-form-label label">နောက်ဆုံးသက်တမ်းကုန်</label>
+                                                    <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="message" readonly>
+                                                            
+                                                    </div>
+                                                </div> -->
                                                 <div class="row mb-3">
                                                     <label class="col-md-10 col-form-label fw-bolder">
                                                         <input type="checkbox" id="submit_confirm" onclick="ConfirmSubmitTeacher()" disabled>

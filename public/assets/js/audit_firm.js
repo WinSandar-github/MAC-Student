@@ -792,14 +792,14 @@ function getAuditData(){
                 tr += "<td ><input  type='text' value='"+item.public_private_reg_no+"' onchange='checkPAPPExist(this.value,this.id,this)' name='foa_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
                 tr += "<td ><input  type='text' value='"+item.name+"' name='foa_name[]' class='form-control' autocomplete='off'></td>";
                 if(item.authority_to_sign==1){
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" checked class='report_yes' id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='1' name=foa_authority_to_sign"+item.id+" checked class='report_yes' id='report_yes'>"+
                         " <label class='form-check-label'>Yes</label></td>";
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='2' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
                         " <label class='form-check-label'>No</label></td>";
                 }else{
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='1' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
                         " <label class='form-check-label'>Yes</label></td>";
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' checked id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='2' name=foa_authority_to_sign"+item.id+" class='report_yes' checked id='report_yes'>"+
                         " <label class='form-check-label'>No</label></td>";
                 }
 
@@ -909,7 +909,11 @@ function getAuditDataForRejectUpdate(){
           if(audit_data.offline_user == 1){
             $("#reg_no_box").css('display','block');
           }
-          
+
+          if(audit_data.offline_user == 0){
+            $("#partner_add_btn").attr('onclick','addRowPartner("partner_list")');
+          }
+
           if(audit_data.is_renew == 1){ // renew reject type
             $("input[name=reject_type]").val(audit_data.is_renew);
             $("input[name=accountancy_firm_reg_no]").attr('readonly',true);
@@ -918,6 +922,7 @@ function getAuditDataForRejectUpdate(){
           }
 
           $("input[name=firm_id]").val(audit_data.id);
+          $("input[name=offline_user]").val(audit_data.offline_user);
           $('input[name=email]').val(student_data[0].email);
           $("#accountancy_firm_name").val(audit_data.accountancy_firm_name);
           $("input[name=accountancy_firm_reg_no]").val(audit_data.accountancy_firm_reg_no);
@@ -996,17 +1001,23 @@ function getAuditDataForRejectUpdate(){
               firm_owner_audit.forEach(function(item){
                 var tr = "<tr>";
                 tr += "<td align='center' class='align-middle'>" + count+ "</td>";
-                tr += "<td ><input  type='text' value='"+item.public_private_reg_no+"' onchange='checkPAPPExist(this.value,this.id,this)' name='foa_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
+                if(audit_data.offline_user == 1){
+                  tr += "<td ><input  type='text' value='"+item.public_private_reg_no+"' onchange='checkPAPPExistOffline(this.value,this.id,this,1)' name='foa_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
+                }
+                else{
+                  tr += "<td ><input  type='text' value='"+item.public_private_reg_no+"' onchange='checkPAPPExist(this.value,this.id,this,0)' name='foa_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
+                }
                 tr += "<td ><input  type='text' value='"+item.name+"' name='foa_name[]' class='form-control' autocomplete='off'></td>";
+
                 if(item.authority_to_sign==1){
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" checked class='report_yes' id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='1' name=foa_authority_to_sign"+item.id+" checked class='report_yes' id='report_yes'>"+
                         " <label class='form-check-label'>Yes</label></td>";
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='2' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
                         " <label class='form-check-label'>No</label></td>";
                 }else{
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='1' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
                         " <label class='form-check-label'>Yes</label></td>";
-                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' checked id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='2' name=foa_authority_to_sign"+item.id+" class='report_yes' checked id='report_yes'>"+
                         " <label class='form-check-label'>No</label></td>";
                 }
 
@@ -1205,6 +1216,177 @@ function auditRejectUpdate(){
   send_data.append('last_registered_year',$("input[name=last_registered_year]").val());
   send_data.append('suspended_year',$("input[name=suspended_year]").val());
   send_data.append('req_for_stop',$('input[name=req_for_stop]:checked').val());
+
+  var t_s_p_id_val = new Array();
+  $('input[name=t_s_p_id]:checked').each(function(i){
+    send_data.append('t_s_p_id[]',this.value);
+  });
+
+  send_data.append('name_sole_proprietor',$("input[name=name_sole_proprietor]").val());
+  send_data.append('declaration',$("input[name=declaration]").val());
+
+  $('input[name="bo_branch_name[]"]').map(function(){send_data.append('bo_branch_name[]',$(this).val())});
+  $('input[name="bo_address[]"]').map(function(){send_data.append('bo_address[]',$(this).val())});
+  $('input[name="bo_township[]"]').map(function(){send_data.append("bo_township[]",$(this).val());});
+  $('input[name="bo_post_code[]"]').map(function(){send_data.append("bo_post_code[]",$(this).val());});
+  $('input[name="bo_city[]"]').map(function(){send_data.append("bo_city[]",$(this).val());});
+  $('input[name="bo_state_region[]"]').map(function(){send_data.append("bo_state_region[]",$(this).val());});
+  $('input[name="bo_phone[]"]').map(function(){send_data.append("bo_phone[]",$(this).val());});
+  $('input[name="bo_email[]"]').map(function(){send_data.append("bo_email[]",$(this).val());});
+  $('input[name="bo_website[]"]').map(function(){send_data.append("bo_website[]",$(this).val());});
+  $('input[name="foa_name[]"]').map(function(){send_data.append("foa_name[]",$(this).val());});
+  $('input[name="foa_pub_pri_reg_no[]"]').map(function(){send_data.append("foa_pub_pri_reg_no[]",$(this).val());});
+  $('input[name="fona_name[]"]').map(function(){send_data.append("fona_name[]",$(this).val());});
+  $('input[name="fona_pass_csc_inco[]"]').map(function(){send_data.append("fona_pass_csc_inco[]",$(this).val());});
+  $("input[class=report_yes]:checked").map(function(){send_data.append('foa_authority_to_sign[]',$(this).val());});
+  //$('input[name="foa_authority_to_sign[]"]:checked').map(function(){send_data.append("foa_authority_to_sign[]",$(this).val());});
+  //send_data.append('foa_authority_to_sign',$('input[name="foa_authority_to_sign[]"]:checked').val());
+
+  $('input[name="do_name[]"]').map(function(){send_data.append("do_name[]",$(this).val());});
+  $('input[name="do_position[]"]').map(function(){send_data.append("do_position[]",$(this).val());});
+  $('input[name="do_cpa_reg_no[]"]').map(function(){send_data.append("do_cpa_reg_no[]",$(this).val());});
+  $('input[name="do_pub_pri_reg_no[]"]').map(function(){send_data.append("do_pub_pri_reg_no[]",$(this).val());});
+  $('input[name="dona_name[]"]').map(function(){send_data.append("dona_name[]",$(this).val());});
+  $('input[name="dona_position[]"]').map(function(){send_data.append("dona_position[]",$(this).val());});
+  $('input[name="dona_passport[]"]').map(function(){send_data.append("dona_passport[]",$(this).val());});
+  $('input[name="dona_csc_no[]"]').map(function(){send_data.append("dona_csc_no[]",$(this).val());});
+  $('input[name="ats_total[]"]').map(function(){send_data.append("ats_total[]",$(this).val());});
+  $('input[name="ats_audit_staff[]"]').map(function(){send_data.append("ats_audit_staff[]",$(this).val());});
+  $('input[name="ats_non_audit_staff[]"]').map(function(){send_data.append("ats_non_audit_staff[]",$(this).val());});
+  //$('input[name="ats_audit_total_staff_type_id[]"]').map(function(){send_data.append("ats_audit_total_staff_type_id[]",$(this).val());});
+  $('input[name="ats_audit_total_staff_type_id[]"]').map(function(){send_data.append("ats_audit_total_staff_type_id[]",$(this).val());});
+  $('input[name="as_total[]"]').map(function(){send_data.append("as_total[]",$(this).val());});
+  $('input[name="as_full_time[]"]').map(function(){send_data.append("as_full_time[]",$(this).val());});
+  $('input[name="as_part_time[]"]').map(function(){send_data.append("as_part_time[]",$(this).val());});
+  $('input[name="as_audit_staff_type_id[]"]').map(function(){send_data.append('as_audit_staff_type_id[]',$(this).val());});
+  $('input[name="nats_total[]"]').map(function(){send_data.append("nats_total[]",$(this).val());});
+  $('input[name="nats_type_id[]"]').map(function(){send_data.append("nats_type_id[]",$(this).val());});
+  $('input[name="mf_name[]"]').map(function(){send_data.append("mf_name[]",$(this).val());});
+  $('input[name="mf_position[]"]').map(function(){send_data.append("mf_position[]",$(this).val());});
+  $('input[name="mf_cpa_passed_reg_no[]"]').map(function(){send_data.append("mf_cpa_passed_reg_no[]",$(this).val());});
+  $('input[name="mf_cpa_full_reg_no[]"]').map(function(){send_data.append("mf_cpa_full_reg_no[]",$(this).val());});
+  $('input[name="mf_pub_pra_reg_no[]"]').map(function(){send_data.append("mf_pub_pra_reg_no[]",$(this).val());});
+
+  $('input[name="ppa_certis[]"]').map(function(){
+    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+      send_data.append('ppa_certis[]',$(this).get(0).files[i]);
+    }
+
+  });
+  $('input[name="letterheads[]"]').map(function(){
+    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+      send_data.append('letterheads[]',$(this).get(0).files[i]);
+    }
+
+  });
+  // $('input[name="representatives[]"]').map(function(){
+  //   for (var i = 0; i < $(this).get(0).files.length; ++i) {
+  //     send_data.append('representatives[]',$(this).get(0).files[i]);
+  //   }
+  // });
+  $('input[name="pass_photos[]"]').map(function(){
+    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+      send_data.append('pass_photos[]',$(this).get(0).files[i]);
+    }
+  });
+  $('input[name="owner_profiles[]"]').map(function(){
+    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+      send_data.append('owner_profiles[]',$(this).get(0).files[i]);
+    }
+  });
+  $('input[name="edu_certs[]"]').map(function(){
+    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+      send_data.append('edu_certs[]',$(this).get(0).files[i]);
+    }
+  });
+  $('input[name="work_exps[]"]').map(function(){
+    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+      send_data.append('work_exps[]',$(this).get(0).files[i]);
+    }
+  });
+  $('input[name="nrc_passports[]"]').map(function(){
+    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+      send_data.append('nrc_passports[]',$(this).get(0).files[i]);
+    }
+  });
+  $('input[name="tax_clearances[]"]').map(function(){
+    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+      send_data.append('tax_clearances[]',$(this).get(0).files[i]);
+    }
+  });
+  $('input[name="certi_or_regs[]"]').map(function(){
+    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+      send_data.append('certi_or_regs[]',$(this).get(0).files[i]);
+    }
+  });
+  $('input[name="deeds_memos[]"]').map(function(){
+    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+      send_data.append('deeds_memos[]',$(this).get(0).files[i]);
+    }
+  });
+  $('input[name="certificate_incors[]"]').map(function(){
+    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+      send_data.append('certificate_incors[]',$(this).get(0).files[i]);
+    }
+  });
+  $('input[name="permit_foreigns[]"]').map(function(){
+    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+      send_data.append('permit_foreigns[]',$(this).get(0).files[i]);
+    }
+  });
+  $('input[name="financial_statements[]"]').map(function(){
+    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+      send_data.append('financial_statements[]',$(this).get(0).files[i]);
+    }
+  });
+  $('input[name="tax_reg_certificate[]"]').map(function(){
+    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+      send_data.append('tax_reg_certificate[]',$(this).get(0).files[i]);
+    }
+  });
+  show_loader();
+
+    $.ajax({
+        url: BACKEND_URL+'/update_rejected_acc_firm_info/'+firm_id,
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+          EasyLoading.hide();
+          successMessage("Your update registration is success!");
+          location.href = FRONTEND_URL+'/';
+        },
+        error: function (result) {
+        },
+    });
+}
+
+function auditInitialRejectUpdate(){
+  var student =JSON.parse(localStorage.getItem("studentinfo"));
+  var firm_id = student.accountancy_firm_info_id;
+
+  var send_data=new FormData();
+  // send_data.append('accountancy_firm_reg_no',$("input[name=accountancy_firm_reg_no]").val());
+  var profile_photo = $("input[name=profile_photo]")[0].files[0];
+  send_data.append('profile_photo',profile_photo);
+  send_data.append('accountancy_firm_name',$("input[name=accountancy_firm_name]").val());
+  send_data.append('accountancy_firm_reg_no',$("input[name=accountancy_firm_reg_no]").val());
+  send_data.append('head_office_address',$("textarea[name=head_office_address]").val());
+  send_data.append('head_office_address_mm',$("textarea[name=head_office_address_mm]").val());
+  //send_data.append('township',$("input[name=township]").val());
+  send_data.append('post_code',$("input[name=post_code]").val());
+  //send_data.append('city',$("input[name=city]").val());
+  //send_data.append('state',$("input[name=state]").val());
+  send_data.append('phone_no',$("input[name=phone_no]").val());
+  send_data.append('h_email',$("input[name=h_email]").val());
+  send_data.append('website',$("input[name=website]").val());
+  send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
+  // send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
+  send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
+  // send_data.append('last_registered_year',$("input[name=last_registered_year]").val());
+  // send_data.append('suspended_year',$("input[name=suspended_year]").val());
+  // send_data.append('req_for_stop',$('input[name=req_for_stop]:checked').val());
 
   var t_s_p_id_val = new Array();
   $('input[name=t_s_p_id]:checked').each(function(i){
@@ -2060,25 +2242,62 @@ function deleteAuditInfo(accName,accId){
     }
 }
 
-function checkPAPPExist(value,id,element){
+function checkPAPPExist(value,id,element,status){
    if($(element).val() != ''){
        $(element).parent().siblings().find("input[name='foa_name[]']").val('');
        $.ajax({
          type: "get",
-         url: BACKEND_URL + '/papp/'+value,
+         url: BACKEND_URL + '/check_initial_papp/' + value + '/' +status,
          success: function (data) {
             // var a=localStorage.getItem('isPAPPExist');
              if(data.data.length==0){
-               alert("PAPP Registration No. does not exist!");
+               //alert("PAPP Registration No. does not exist!");
+               Swal.fire("PAPP Registration No. does not exist!");
                document.getElementById('btn_submit_audit_firm').disabled=true;
-               //document.getElementById(id).style.borderColor="red";
                $(element).parent().siblings().find("input[name='foa_name[]']").val('');
                $(element).css("border","1px solid red");
-               //localStorage.setItem('isPAPPExist',false);
              }
              else{
                  document.getElementById('btn_submit_audit_firm').disabled=false;
-                 //document.getElementById(id).style.borderColor="#ced4da";
+                 $(element).css("border","1px solid #ced4da");
+                 // set name who is exist PAPP
+                 data.data.forEach(function(item){
+                   var student_info = item.student_info;
+                   $(element).parent().siblings().find("input[name='foa_name[]']").val(student_info.name_eng);
+                 });
+
+             }
+
+         },
+         error: function (message) {
+             errorMessage(message);
+         }
+     });
+   }
+   else {
+     document.getElementById('btn_submit_audit_firm').disabled=true;
+     document.getElementById(id).style.borderColor="2px solid red";
+     $(element).parent().siblings().find("input[name='foa_name[]']").val('');
+   }
+}
+
+function checkPAPPExistOffline(value,id,element,status){
+   if($(element).val() != ''){
+       $(element).parent().siblings().find("input[name='foa_name[]']").val('');
+       $.ajax({
+         type: "get",
+         url: BACKEND_URL + '/check_offline_papp/' + value + '/' +status,
+         success: function (data) {
+            // var a=localStorage.getItem('isPAPPExist');
+             if(data.data.length==0){
+               //alert("PAPP Registration No. does not exist!");
+               Swal.fire("PAPP Registration No. does not exist!");
+               document.getElementById('btn_submit_audit_firm').disabled=true;
+               $(element).parent().siblings().find("input[name='foa_name[]']").val('');
+               $(element).css("border","1px solid red");
+             }
+             else{
+                 document.getElementById('btn_submit_audit_firm').disabled=false;
                  $(element).css("border","1px solid #ced4da");
                  // set name who is exist PAPP
                  data.data.forEach(function(item){

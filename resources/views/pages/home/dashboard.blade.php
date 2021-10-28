@@ -544,30 +544,37 @@
                         </div>
 
                         <div class="row my-2">
-                            <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
-                            <div class="text-center fw-bolder status_history">
-                            </div>
-                            <div class="text-center fw-bolder" id="message">
+                            <div class="col-md-5 offset-md-3">
+                              <h5 class="text-center border-bottom pb-2 pt-2" style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
+                              <div class="text-center fw-bolder status_history">
+                              </div>
+                              <div class="text-center fw-bolder" id="message">
 
+                              </div>
+                              {{--<input type="text" class="form-control" id="message" readonly="">--}}
                             </div>
-                            {{--<input type="text" class="form-control" id="message" readonly="">--}}
                         </div>
                         {{--renew buttons--}}
                         <div class="row" id="check_renew" style="display:none;text-align: center; margin-top: 2%;">
-                            <div class="form-group">
-                                <center>
-                                    <a href="{{ url('/audit_firm_information') }}" class="btn btn-success btn-hover-dark">Audit Firm Renew Form</a>
-                                </center>
+                            <div class="col-md-5 offset-md-3">
+                              <div class="form-group">
+                                  <center>
+                                      <a href="{{ url('/audit_firm_information') }}" class="btn btn-success btn-hover-dark">Audit Firm Renew Form</a>
+                                  </center>
+                              </div>
                             </div>
                         </div>
 
                         <div class="row" id="check_renew_nonaudit" style="display:none;text-align: center; margin-top: 2%;">
-                            <div class="form-group">
-                                <center>
-                                    <a href="{{ url('/non_audit_firm_information') }}" class="btn btn-success btn-hover-dark">Non-Audit Firm Renew Form</a>
-                                </center>
+                            <div class="col-md-5 offset-md-3">
+                              <div class="form-group">
+                                  <center>
+                                      <a href="{{ url('/non_audit_firm_information') }}" class="btn btn-success btn-hover-dark">Non-Audit Firm Renew Form</a>
+                                  </center>
+                              </div>
                             </div>
                         </div>
+
                         {{--payment buttons--}}
                         {{--<div class="row payment-btn" style="display:none;">
                             <div class="col-md-6"></div>
@@ -581,8 +588,7 @@
                         </div>--}}
 
                         <div class="row">
-                            <div class="col-md-6"></div>
-                            <div class="">
+                            <div class="col-md-5 offset-md-3">
                               <div class="mt-4" align="center" id="firm_payment_btn">
 
                               </div>
@@ -1375,39 +1381,30 @@
                                     <label for="" class="col-md-3 col-form-label">Email</label>
                                     <div class="col-md-8">
                                         <input type="email" readonly placeholder="Enter your Email address!" name="email"
-                                            class="form-control" id="update_email_cpaff"="">
-                                        @if ($errors->has('email'))
-                                            <span class="text-danger">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
+                                            class="form-control" id="update_email_cpaff">
                                     </div>
                                 </div>
                                 <br>
-
-                                {{--
-                                    <div class="row">
-                                            <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                            <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ)</label>
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
-                                                        class="form-control" ="" id="name_mm_cpaff">
-                                            </div>
-
-                                        </div>
-                                        <br>
-                                        <div class="row">
-
-                                            <label for="" class="col-md-3 col-form-label">အမည်(အင်္ဂလိပ်)</label>
-
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" id="name_eng_cpaff"
-                                                        class="form-control" ="">
-                                            </div>
-                                        </div>
-                                    <br>
-                                --}}
                                 <div class="row">
+                                        <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ)</label>
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
+                                                    class="form-control"  id="update_name_mm">
+                                        </div>
+
+                                    </div>
+                                    <br>
+                                    <div class="row">
+
+                                        <label for="" class="col-md-3 col-form-label">အမည်(အင်္ဂလိပ်)</label>
+
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" id="update_name_eng"
+                                                    class="form-control">
+                                        </div>
+                                    </div>
+                                <br>
+                                {{--<div class="row">
 
                                     <label for="" class="col-md-3 col-form-label">မွေးသက္ကရာဇ်</label>
                                     <div class="col-md-8">
@@ -1415,13 +1412,13 @@
                                             placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)">
                                     </div>
                                 </div>
-                                <br>
+                                <br>--}}
                                 <div class="row">
 
                                     <label for="" class="col-md-3 col-form-label">ဖုန်းနံပါတ်</label>
                                     <div class="col-md-8">
                                         <input type="text" placeholder="ဖုန်းနံပါတ်" name="phone" id="update_phone_cpaff"
-                                            class="form-control"="">
+                                            class="form-control">
                                     </div>
                                 </div>
                                 <br>
@@ -1431,7 +1428,7 @@
                                     <label for="" class="col-md-3 col-form-label">နေရပ်လိပ်စာ</label>
                                     <div class="col-md-8">
                                         <input type="text" placeholder="နေရပ်လိပ်စာ" name="address" id="update_address_cpaff"
-                                            class="form-control"="">
+                                            class="form-control">
                                     </div>
                                 </div>
                                 <br>

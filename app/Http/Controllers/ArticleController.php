@@ -25,4 +25,13 @@ class ArticleController extends Controller
     public function articleResign(){
         return view('pages.article.article_resign_registration');
     }
+    public function articleCPATwoOne(){
+        return view('pages.article.article_cpa_two_one_pass_year');
+    }
+    public function articleCPATwoThree(){
+        return view('pages.article.article_cpa_two_three_pass_year');
+    }
+    public function articleCPATwoRenew(){
+        return view('pages.article.article_cpa_two_renew');
+    }
 }

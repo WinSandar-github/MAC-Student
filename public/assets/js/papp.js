@@ -359,7 +359,7 @@ function Papp_Submit(){
     data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
     data.append('type',0);
     data.append('self_confession',JSON.stringify($arr));
-    data.append('self_confession1', $("input[name=self_confession_PAPP]").val());
+    data.append('self_confession1', $("input[type='radio'][name='self_confession_PAPP']:checked").val());
     show_loader(); 
     if($('#papp_id').val())
     {
@@ -460,7 +460,7 @@ function loadPappData()
             $('#phone').val(papp_data.phone);
             $('#contact_mail').val(papp_data.contact_mail);
             $('#cpaff_reg_no').val(papp_data.cpaff_reg_no);
-            //$('#remark_description').text(papp_data.reject_description);
+            $('#latest_reg_year').val(papp_data.latest_reg_year==null?'-':papp_data.latest_reg_year);
         }
     });
 }
@@ -809,7 +809,7 @@ function RenewPAPP(){
                 send_data.append('type',1);
                 //send_data.append('_method', 'POST');
                 send_data.append('self_confession',JSON.stringify($arr));
-                send_data.append('self_confession1', $("input[name=self_confession_PAPP]").val());
+                send_data.append('self_confession1', $("input[type='radio'][name='self_confession_PAPP']:checked").val());
                 show_loader();
                 if($('#papp_id').val()){
                     send_data.append('papp_id',$('#papp_id').val());
@@ -1071,7 +1071,7 @@ function createReconnectPapp(){
     } 
     send_data.append('type',2);
     send_data.append('self_confession',JSON.stringify($arr));
-    send_data.append('self_confession1',$("input[name=self_confession_PAPP]").val());
+    send_data.append('self_confession1', $("input[type='radio'][name='self_confession_PAPP']:checked").val());
     show_loader();
     if($('#reconnect_papp_id').val()){
         send_data.append('papp_id',$('#reconnect_papp_id').val());

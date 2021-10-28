@@ -418,9 +418,13 @@ function loadRenewTeacher(){
                                   if(teacher.offline_user==1){
                                     //$('input[name=teacher_card]').prop('disabled', true);
                                     $('input[name=teacher_card]').prop('required', false);
-                                    $('#from_valid_date').val(teacher.from_valid_date);
+                                    //$('#from_valid_date').val(teacher.from_valid_date);
                                   }
-                                  
+                                  var from_valid_date = new Date(teacher.from_valid_date);
+                                    var now=new Date();
+                                    var date = from_valid_date.getFullYear()+'-'+addZero(from_valid_date.getMonth()+1)+'-'+addZero(from_valid_date.getDate());
+                                    $('#from_valid_date').val(date);
+                                    
                                   $('#hschool_name').val(teacher.school_name);
                                   if(teacher.nrc_front==null){
                                     $("#nrc_front_img").attr("src",BASE_URL+result.data[0].nrc_front);
@@ -476,10 +480,13 @@ function loadRenewTeacher(){
                                     var accept=new Date(teacher.renew_date);
                                     
                                     
+                                  }else{
+                                    var accept=new Date(teacher.renew_date);
+                                    var month=accept.getMonth()+1;
+                                    var year=accept.getFullYear();
+                                    var y=year+1;
                                   }
-                                  var month=accept.getMonth()+1;
-                                  var year=accept.getFullYear();
-                                  var y=year+1;
+                                  
                                   var now=new Date();
                                   
                                    var current_date=(now.getMonth()+1)+'/'+now.getDate()+'/'+now.getFullYear();
@@ -488,14 +495,15 @@ function loadRenewTeacher(){
                                     $("#message").val("You can renew your form!");
                                     $('.renew_submit').prop('disabled', true);
                                     $('#submit_confirm').prop('disabled', false);
-                                }else if(((now.getMonth()+1)=='10') || ((now.getMonth()+1)=='11') || ((now.getMonth()+1)=='12')){
+                                }else if(((now.getMonth()+1)=='11') || ((now.getMonth()+1)=='12')){
                                     $("#message").val("You can renew your form!");//month=10 for test
                                     $('.renew_submit').prop('disabled', true);
                                     $('#submit_confirm').prop('disabled', false);
-                                }else if(((now.getMonth()+1) >= '1')){
-                                    $('#message').val("Renew form month is expired! You can renew in November,December "+now.getFullYear());
+                                }else if(((now.getMonth()+1) >= '1') && ((now.getMonth()+1) <= '10')){
+                                    //$('#message').val("Renew form month is expired! You can renew in November,December "+now.getFullYear());
+                                    $("#message").val("You can renew your form!");
                                     $('.renew_submit').prop('disabled', true);
-                                    $('#submit_confirm').prop('disabled', true);
+                                    $('#submit_confirm').prop('disabled', false);
                                 }
                                 else{
                                     $('#message').val("You are verified!");
@@ -833,10 +841,10 @@ function updateTeacher(){
                                 $('input[name=name_eng]').val(teacher.name_eng);
                                 $('input[name=father_name_mm]').val(teacher.father_name_mm);
                                 $('input[name=father_name_eng]').val(teacher.father_name_eng);
-                                $('input[name=nrc_state_region]').val(teacher.nrc_state_region);
-                                $('input[name=nrc_township]').val(teacher.nrc_township);
-                                $('input[name=nrc_citizen]').val(teacher.nrc_citizen);
-                                $('input[name=nrc_number]').val(teacher.nrc_number);
+                                $('#update_nrc_state_region').val(teacher.nrc_state_region);
+                                $('#update_nrc_township').val(teacher.nrc_township);
+                                $('#update_nrc_citizen').val(teacher.nrc_citizen);
+                                $('input[name=update_nrc_number]').val(teacher.nrc_number);
                                 $('input[name=phone_number]').val(teacher.phone);
                                 $('textarea[name=exp_desc]').val(teacher.exp_desc);
                                 $('#teacher_id').val(teacher.id);
@@ -974,7 +982,7 @@ function updateTeacher(){
                                         $('.private_type').css('display','block');
                                         $('.individual_type').css('display','none');
                                         $("#renew_selected_school_id").val(teacher.school_id);
-                                        
+                                        //$('#renew_selected_school_id option:contains(' + teacher.school_id + ')').attr('selected', true);
                                     }else{
                                         $('input:radio[id=school_staff_renew2]').attr('checked',true);
                                         $('.individual_type').css('display','block');
@@ -982,6 +990,9 @@ function updateTeacher(){
                                         $('#hschool_name_renew').val(teacher.school_name);
                                         $('input[name=school_name_renew]').val(teacher.school_name);
                                     }
+                                    $('input[name=renew_t_code]').val(teacher.t_code);
+                                    $('#hrenew_teacher_card').val(teacher.teacher_card);
+                                    $(".renew_teacher_card_letter").append(`<a href='${BASE_URL+teacher.teacher_card}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
                             }
                             
                             
@@ -1190,7 +1201,7 @@ function updateRenewTeacherByReject(){
     send_data.append('reason', $('#renew_reject').val());
     send_data.append('student_info_id', $('#student_info_id').val());
     send_data.append('school_name', $('#hschool_name_renew').val());
-    
+    send_data.append('teacher_card', $('#hrenew_teacher_card').val());
     var id=$('#teacher_id').val();
     //send_data.append('_method', 'PATCH');
    show_loader();

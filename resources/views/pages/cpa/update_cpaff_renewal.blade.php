@@ -63,10 +63,10 @@
                                 <div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(က)') }}</span>{{ __('အမည် (မြန်မာ/အင်္ဂလိပ်)') }}</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="name_mm" id="name_mm">
+                                        <input type="text"  class="form-control" name="name_mm" id="name_mm" readonly>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="name_eng" id="name_eng">
+                                        <input type="text"  class="form-control" name="name_eng" id="name_eng" readonly>
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 100px;">
@@ -92,10 +92,10 @@
                                 <div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>{{ __('အဘအမည် (မြန်မာ/အင်္ဂလိပ်)') }}</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="father_name_mm" id="father_name_mm">
+                                        <input type="text"  class="form-control" name="father_name_mm" id="father_name_mm" readonly>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="father_name_eng" id="father_name_eng">
+                                        <input type="text"  class="form-control" name="father_name_eng" id="father_name_eng" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -228,7 +228,7 @@
                                 <div class="row mb-3" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(စ)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no">
+                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no" readonly>
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
@@ -295,7 +295,7 @@
 
                             <div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-                                <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ နှင့် ၆၈ ပါပြဌာန်းချက်များကို လိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံပါသည်။') }}</label>                                
+                                <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ နှင့် ၆၈ ပါပြဋ္ဌာန်းချက်များကို လိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံပါသည်။') }}</label>                                
                             </div><br/><br>
 
                             <div class="row">
@@ -429,7 +429,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe src="{{ asset('assets/images/TMS requirment(23-9-2021).pdf') }}"  style="overflow:scroll;height:70vh;width:100%" height="100vh" width="70vh"></iframe>
+                <iframe src="{{ asset('assets/images/pa_promise.pdf') }}"  style="overflow:scroll;height:70vh;width:100%" height="100vh" width="70vh"></iframe>
                 <div class="pull-right mt-1">
                     <h6 class="pull-left me-4 fw-bold">အထက်ဖော်ပြပါအချက်များအား</h6>
                     <div class="form-check form-check-inline">
@@ -464,30 +464,30 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
-    $('document').ready(function(){
-        var course_type = location.pathname.split('/');
-        var student = JSON.parse(localStorage.getItem('studentinfo'));
-        if(!student){
-            localStorage.setItem('course_type',course_type[2]);
-        }
-        $('#profile').on('click', function(e) {
-            $('#file').click();
-        });
-        $('#file').change(function(e) {
-            var input = e.target;
-            if (input.files && input.files[0]) {
-                var file = input.files[0];
+    // $('document').ready(function(){
+    //     var course_type = location.pathname.split('/');
+    //     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    //     if(!student){
+    //         localStorage.setItem('course_type',course_type[2]);
+    //     }
+    //     $('#profile').on('click', function(e) {
+    //         $('#file').click();
+    //     });
+    //     $('#file').change(function(e) {
+    //         var input = e.target;
+    //         if (input.files && input.files[0]) {
+    //             var file = input.files[0];
 
-                var reader = new FileReader();
+    //             var reader = new FileReader();
 
-                reader.readAsDataURL(file);
-                reader.onload = function(e) {
-                    $('.dashes-label').css('color','transparent');
-                    $('#profile').css('background-image', 'url(' + reader.result + ')').addClass('hasImage');
-                }
-            }
-        });    
-    });
+    //             reader.readAsDataURL(file);
+    //             reader.onload = function(e) {
+    //                 $('.dashes-label').css('color','transparent');
+    //                 $('#profile').css('background-image', 'url(' + reader.result + ')').addClass('hasImage');
+    //             }
+    //         }
+    //     });    
+    // });
     $("#cpaff_pass_date").datepicker({
         format: "yyyy",
         viewMode: "years", 
@@ -511,7 +511,6 @@
     // checkPaymentCpaff();
     loadCpaffData();
     // loadCpaffInitialData();
-
     var cpaff_id=localStorage.getItem('cpaff_id');
     var reject_description=localStorage.getItem('reject_reason');
     $('#cpaff_id').val(cpaff_id);
@@ -524,13 +523,12 @@
             console.log(result);
             var cpaff=result.data[0];
             console.log(cpaff)
-            document.getElementById('cpaff_img').src=BASE_URL + cpaff.profile_photo;
-            document.getElementById('nrc_front').src=BASE_URL + cpaff.nrc_front;
-            document.getElementById('nrc_back').src=BASE_URL + cpaff.nrc_back;
-
+            document.getElementById('cpaff_img').src=BASE_URL + cpaff.student_info.image;
+            document.getElementById('nrc_front').src=BASE_URL + cpaff.student_info.nrc_front;
+            document.getElementById('nrc_back').src=BASE_URL + cpaff.student_info.nrc_back;
             $('#cpa_batch_no').val(cpaff.cpa_batch_no);
-            $('#address').val(cpaff.address);
-            $('#phone').val(cpaff.phone);
+            $('#address').val(cpaff.student_info.address);
+            $('#phone').val(cpaff.student_info.phone);
             $('#contact_mail').val(cpaff.contact_mail);
             $('#total_hours').val(cpaff.total_hours);
             $('#fine_person').val(cpaff.fine_person);
