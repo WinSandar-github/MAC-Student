@@ -150,12 +150,12 @@
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                             <div class="col-md-4">
                                                 <div>
-                                                    <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm" class="form-control" id="name_mm" >
+                                                    <input type="text" placeholder="အမည်(မြန်မာ)-အမည်သာရေးရန်။" name="name_mm" class="form-control" id="name_mm" >
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div>
-                                                    <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" class="form-control" value="{{ old('name_eng') }}" id="name_eng" >
+                                                    <input type="text" placeholder="အမည်(အင်္ဂလိပ်)-အမည်သာရေးရန်။" name="name_eng" class="form-control" value="{{ old('name_eng') }}" id="name_eng" >
                                                 </div>
                                             </div>
                                         </div>

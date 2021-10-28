@@ -1116,37 +1116,79 @@ function user_profile() {
 
                             } else if (last_exam[0].status == 1) {
                                 if (last_exam[0].grade == 1) {
-
+                                    
                                     let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
 
 
                                     localStorage.setItem('course_id', last_exam[0].batch.id);
 
+                                    if(latest_course_reg[0].offline_user==1){
+                                        let form_url='/cpa_one_register';
+                                        $('.status').append(`
+                                            <tr>
+                                                <td>CPA One Existing User Registration Form</td>
+                                                <td>${formatDate(last_exam[0].created_at)}</td>
+                                                <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                <td><span class="badge bg-success">Approved</span></td>
+                                            </tr>
 
-                                    $('.status').append(`
-                                    <tr>
-                                        <td>Cpa One Entry Exam Registration Form</td>
-                                        <td>${formatDate(last_exam[0].created_at)}</td>
-                                        <td>${formatDate(last_exam[0].updated_at)}</td>
-                                        <td><span class="badge bg-success">Passed</span></td>
-                                    </tr>
+                                            <tr> 
+                                                <td colspan=2 ></td >
+                                                <td>Action</td>
+                                                <td>
+                                                    <span class="nav-item dropdown ">
+                                                        <a href="#" class="nav-link dropdown-toggle bg-success text-white" data-toggle="dropdown">Registration for<br> ${latest_course_reg[0].batch.course.name}</a>
+                                                        <div class="dropdown-menu">
+                                                            <a href="${FRONTEND_URL + form_url}?study_type=3" class="dropdown-item">Mac</a>
+                                                            <a href="${FRONTEND_URL + form_url}?study_type=1" class="dropdown-item">Selfstudy</a>
+                                                            <a href="${FRONTEND_URL + form_url}?study_type=2" class="dropdown-item">Private School</a>
+                                                        </div>
+                                                    </span>
+                                                </td>
+                                            
+                                            </tr>
+                                        `);
+                                    }else{
 
-                                    <tr><td colspan=2></td><td>Action</td><td>
-                                    <a href="${FRONTEND_URL}/cpa_one_register?study_type=${study_type}" class="btn btn-sm btn-success">CPA One ${study_name} Registration Form</a>
+                                        $('.status').append(`
+                                            <tr>
+                                                <td>Cpa One Entry Exam Registration Form</td>
+                                                <td>${formatDate(last_exam[0].created_at)}</td>
+                                                <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                <td><span class="badge bg-success">Passed</span></td>
+                                            </tr>
 
+                                            <tr><td colspan=2></td><td>Action</td><td>
+                                                <a href="${FRONTEND_URL}/cpa_one_register?study_type=${study_type}" class="btn btn-sm btn-success">CPA One ${study_name} Registration Form</a>
+                                                </td>
+                                            </tr>
+                                        `);
+                                    }
 
-                                     </td></tr>
-                                    `);
+                                    
                                 } else {
-                                    $('.status').append(`
-                                    <tr>
-                                        <td>Cpa One Entry Exam Registration Form</td>
-                                        <td>${formatDate(last_exam[0].created_at)}</td>
-                                        <td>${formatDate(last_exam[0].updated_at)}</td>
-                                        <td><span class="badge bg-success">Approved</span></td>
-                                    </tr>
-                                    `);
+                                    console.log('latest_course_reg_entry',latest_course_reg[0]);
+                                    if(latest_course_reg[0].offline_user==1){
+                                        $('.status').append(`
+                                            <tr>
+                                                <td>CPA One Existing User Registration Form</td>
+                                                <td>${formatDate(last_exam[0].created_at)}</td>
+                                                <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                <td><span class="badge bg-info text-dark">Checking</span></td>
+                                            </tr>
+                                        `);
+                                    }else{
+                                        $('.status').append(`
+                                            <tr>
+                                                <td>Cpa One Entry Exam Registration Form</td>
+                                                <td>${formatDate(last_exam[0].created_at)}</td>
+                                                <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                <td><span class="badge bg-success">Approved</span></td>
+                                            </tr>
+                                        `);
+                                    }
+                                    
 
                                 }
 
@@ -1455,20 +1497,22 @@ function user_profile() {
                                                                                 let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
                                                                                 if (last_exam[0]?.batch_id != batch.id) {
                                                                                     $('.status').append(`
-                                                                                        <tr> <td colspan=2 ></td ><td>Action</td>
+                                                                                        <tr> 
+                                                                                            <td colspan=2 ></td >
+                                                                                            <td>Action</td>
                                                                                             <td>
-                                                                                            <span class="nav-item dropdown ">
-                                                                                                <a href="#" class="nav-link dropdown-toggle bg-success text-white" data-toggle="dropdown">Registration for<br> ${batch.course.name}</a>
-                                                                                                <div class="dropdown-menu">
-                                                                                                    <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=3" class="dropdown-item">Mac</a>
-                                                                                                    <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=1" class="dropdown-item">Selfstudy</a>
-                                                                                                    <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=2" class="dropdown-item">Private School</a>
-                                                                                                </div>
-                                                                                            </span>
+                                                                                                <span class="nav-item dropdown ">
+                                                                                                    <a href="#" class="nav-link dropdown-toggle bg-success text-white" data-toggle="dropdown">Registration for<br> ${batch.course.name}</a>
+                                                                                                    <div class="dropdown-menu">
+                                                                                                        <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=3" class="dropdown-item">Mac</a>
+                                                                                                        <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=1" class="dropdown-item">Selfstudy</a>
+                                                                                                        <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=2" class="dropdown-item">Private School</a>
+                                                                                                    </div>
+                                                                                                </span>
                                                                                             </td>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                `);
+                                                                                        
+                                                                                        </tr>
+                                                                                    `);
                                                                                 }
                                                                                 else {
                                                                                     $('.status').append(`
@@ -1575,6 +1619,7 @@ function user_profile() {
                                                             <td>${formatDate(last_exam[0].updated_at)}</td>
                                                             <td><span class="badge bg-warning">Failed</span></td>
                                                         </tr >
+
                                                     `);
 
                                                     } else {
@@ -1856,14 +1901,51 @@ function user_profile() {
 
                                                         }
                                                     } else if (last_exam[0].grade == 2) {
+                                                        switch (latest_course_reg[0].batch.course.code) {
+                                                            case 'da_1':
+                                                                register_url = '/da_one_register';
+                                                                break;
+                                                            case 'da_2':
+                                                                register_url = `/da_two_register/${latest_course_reg[0].batch.id}`;
+                                                                break;
+                                                            case 'cpa_1':
+                                                                register_url = '/cpa_one_register';
+                                                                break;
+                                                            case 'cpa_2':
+                                                                register_url = `/cpa_two_register/${latest_course_reg[0].batch.id}`;
+                                                                break;
+                                                            default:
+                                                                register_url = '/da_one_register';
+                                                                break;
+
+
+                                                        }
+                                                        console.log('latest_course_reg',latest_course_reg[0]);
                                                         $('.status').append(`
-                                                                        <tr>
-                                                            <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
-                                                            <td>${formatDate(last_exam[0].created_at)}</td>
-                                                            <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                            <td><span class="badge bg-warning">Approved</span></td>
-                                                        </tr >
-                                                    `);
+                                                            <tr>
+                                                                <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
+                                                                <td>${formatDate(last_exam[0].created_at)}</td>
+                                                                <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                                <td><span class="badge bg-warning">Failed</span></td>
+                                                            </tr >
+
+                                                            <tr> 
+                                                                <td colspan=2 ></td >
+                                                                <td>Action</td>
+                                                                <td>
+                                                                    <span class="nav-item dropdown ">
+                                                                        <a href="#" class="nav-link dropdown-toggle bg-success text-white" data-toggle="dropdown">Registration for<br> ${latest_course_reg[0].batch.course.name}</a>
+                                                                        <div class="dropdown-menu">
+                                                                            <a href="${FRONTEND_URL + register_url}?study_type=3" class="dropdown-item">Mac</a>
+                                                                            <a href="${FRONTEND_URL + register_url}?study_type=1" class="dropdown-item">Selfstudy</a>
+                                                                            <a href="${FRONTEND_URL + register_url}?study_type=2" class="dropdown-item">Private School</a>
+                                                                        </div>
+                                                                    </span>
+                                                                </td>
+                                                            
+                                                            </tr>
+
+                                                        `);
 
                                                     } else {
                                                         $('.status').append(`
@@ -2449,7 +2531,7 @@ function user_profile() {
                                 return val.invoiceNo == latest_article[0].article_form_type && val.status == 0;
                             });
 
-                            var payment_url = FRONTEND_URL + "/payment_method/" + latest_article[0].student_info_id + "/" + invoice[0].invoiceNo;
+                            var payment_url = FRONTEND_URL + "/payment_method/" + latest_article[0]?.student_info_id + "/" + invoice[0]?.invoiceNo;
 
                             if (latest_article[0] != null && latest_article[0].contract_end_date != null) {
                                 var end_date = new Date(latest_article[0].contract_end_date);

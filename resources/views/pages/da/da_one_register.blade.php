@@ -1751,7 +1751,7 @@
                     if(current_stu_course[0].mac_type == 1){
                         $("#sub_mac").prop("checked",true);
                     }else{
-                        console.log("Hello")
+                        // console.log("Hello")
                         $("#sub_mac2").prop("checked",true);
                     }
                     // console.log(data.data.citizen)
