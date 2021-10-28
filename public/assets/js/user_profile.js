@@ -107,7 +107,6 @@ function user_profile() {
                 }
               }
 
-             
              firmDashboardData();
 
             } else if (data.school && data.teacher == null && data.mentor == null) {
@@ -291,7 +290,7 @@ function user_profile() {
                     // $('.status_history').append(`<a href="${cpaff_reject_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                 }
                 if (data.papp.length != 0 && data.student_course_regs == '') {
-                    
+
                     var reject_initial = FRONTEND_URL + "/update_papp_initial";
                     var reject_renewal = FRONTEND_URL + "/update_papp_renewal";
                     var reject_reconnect=FRONTEND_URL + "/update_papp_reconnect";
@@ -2572,7 +2571,7 @@ function user_profile() {
                                     } else {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
                                     }
-                                }   
+                                }
                                 // }
                             }
 
@@ -3802,7 +3801,6 @@ function firmDashboardData() {
                 $('.cpaff_other').hide();
                 let acc_firm = data.accountancy_firm.slice(-1);
                 console.log("acc_firm >>>", acc_firm);
-                //console.log("acc firm >>",acc_firm);
                 let firm_ownerships_audits = result.firm_ownerships_audits;
                 //console.log("firm_ownerships_audits >>",firm_ownerships_audits);
                 acc_firm.forEach(function (acc_firm) {
@@ -4053,55 +4051,65 @@ function updateProfileMentor() {
 function allowToRenew() {
     var student = JSON.parse(localStorage.getItem("studentinfo"));
     var student_id = student.id;
+    var firm_id = student.accountancy_firm_info_id;
     if(student!=null){
       $.ajax({
         type: "GET",
-        url: BACKEND_URL+"/checkVerify/"+student_id,
+        url: BACKEND_URL+"/checkVerify/"+student_id+"/"+firm_id,
         success: function (data){
           console.log("allow to renew",data[0]);
-            if(data[0].audit_firm_type_id == 1){
-              // audit firm
 
-              if(data[0].status == 1 && data[0].is_renew == 0 && data[0].offline_user == 1){
-                // to renew approved offline users
-                $('#check_renew').css('display','block');
-                $('#check_renew_nonaudit').css('display','none');
-                $("#renew_btn").css('display','block'); // renew btn in information page
-                $(".register-btn").css('display','none'); // register btn in information page
+          var acc_firm_data = data[0].acc_firm;
+          var today = new Date();
+          var current_month = today.getMonth()+1;
+
+          if(current_month >= 10 || current_month <= 4){
+            acc_firm_data.forEach(function(acc_firm){
+              if(acc_firm.audit_firm_type_id == 1){
+                // audit firm
+                var audit_invoice_status = data[0].audit_invoice_status[0].status;
+                if(acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1){
+                  // to renew approved offline users
+                  console.log("1");
+                  $('#check_renew').css('display','block');
+                  $('#check_renew_nonaudit').css('display','none');
+                  $("#renew_btn").css('display','block'); // renew btn in information page
+                  $(".register-btn").css('display','none'); // register btn in information page
+                }
+                else if(acc_firm.status == 1  && acc_firm.offline_user != 1 && audit_invoice_status == "AP" ){
+                  // to renew normal users who are expired
+                  console.log("2");
+                  $('#check_renew').css('display','block');
+                  $('#check_renew_nonaudit').css('display','none');
+                  $("#renew_btn").css('display','block'); // renew btn in information page
+                  $(".register-btn").css('display','none'); // register btn in information page
+                }
               }
-              else if(data[0].status == 1 && data[0].verify_status == 3 && data[0].offline_user != 1){
-                // to renew normal users who are expired
-                $('#check_renew').css('display','block');
-                $('#check_renew_nonaudit').css('display','none');
-                $("#renew_btn").css('display','block'); // renew btn in information page
-                $(".register-btn").css('display','none'); // register btn in information page
+              else{
+                console.log("3");
+                // non-audit firm
+                var nonaudit_invoice_status = data[0].nonaudit_invoice_status[0].status;
+                if(acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1){
+                  // to renew approved offline users
+                  $('#check_renew').css('display','none');
+                  $('#check_renew_nonaudit').css('display','block');
+                  $("#renew_btn_nonaudit").css('display','block'); // renew btn in information page
+                  $(".register-btn").css('display','none'); // register btn in information page
+                }
+
+                else if(acc_firm.status == 1  && acc_firm.offline_user != 1 && nonaudit_invoice_status == "AP"){
+                  // to renew normal users who are expired
+                  console.log("4");
+                  $('#check_renew').css('display','none');
+                  $('#check_renew_nonaudit').css('display','block');
+                  $("#renew_btn_nonaudit").css('display','block'); // renew btn in information page
+                  $(".register-btn").css('display','none'); // register btn in information page
+                }
               }
-            }
-            else{
-              console.log("4");
-              // non-audit firm
-              if(data[0].status == 1 && data[0].is_renew == 0 && data[0].offline_user == 1){
-                // to renew approved offline users
-                $('#check_renew').css('display','none');
-                $('#check_renew_nonaudit').css('display','block');
-                $("#renew_btn_nonaudit").css('display','block'); // renew btn in information page
-                $(".register-btn").css('display','none'); // register btn in information page
-              }
-              // else if(data.status == 0 && data.is_renew == 1 && data.offline_user == 1){
-              //   console.log("hi");
-              //   $('#check_renew').css('display','none');
-              //   $('#check_renew_nonaudit').css('display','none');
-              // }
-              else if(data[0].status == 1 && data[0].verify_status == 3 && data[0].offline_user != 1){
-                // to renew normal users who are expired
-                $('#check_renew').css('display','none');
-                $('#check_renew_nonaudit').css('display','block');
-                $("#renew_btn_nonaudit").css('display','block'); // renew btn in information page
-                $(".register-btn").css('display','none'); // register btn in information page
-              }
-            }
+            });
           }
-        })
+        }
+      })
     }
 }
 
