@@ -341,7 +341,7 @@ function user_profile() {
                         $('.status_history').append('PAPP ' + is_renew + ' Registration Form is checking.<br><br>');
                         $('.status_papp').css('display', 'none');
                     } else if (papp_latest_data.status == 1) {
-                        
+
                         // $('.status_papp').css('display', 'none');
                         var papp_renew_url = FRONTEND_URL + "/renew_papp";
                         $('.status_history').append('PAPP ' + is_renew + ' Registration Form is Approved.<br><br>');
@@ -528,6 +528,7 @@ function user_profile() {
                                             <td>${contract_start_date}</td>
                                             <td>${contract_end_date}</td>
                                             <td><span class="badge bg-success">Payment !</span></td>
+                                            <td></td>
                                         </tr>
                                         `);
                                     }else{
@@ -536,6 +537,7 @@ function user_profile() {
                                             <td>${contract_start_date}</td>
                                             <td>${contract_end_date}</td>
                                             <td><span class="badge bg-success">Checking</span></td>
+                                            <td></td>
                                         </tr>
                                         `);
                                     }
@@ -546,6 +548,7 @@ function user_profile() {
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Done</span></td>
+                                        <td></td>
                                     </tr>
                                     `);
                                     } else if (element.done_status == 2) {
@@ -554,6 +557,7 @@ function user_profile() {
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Rejected</span></td>
+                                        <td></td>
                                     </tr>
                                     `);
                                     }else if (element.done_status == 3) {
@@ -562,14 +566,16 @@ function user_profile() {
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Done</span></td>
+                                        <td></td>
                                     </tr>
                                     `);
                                     }else {
-                                        $('.article_status').append(`<tr>
+                                        $('.qt_article_status').append(`<tr>
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Approved</span></td>
+                                        <td></td>
                                     </tr>
                                     `);
                                     }
@@ -579,6 +585,7 @@ function user_profile() {
                                     <td>${contract_start_date}</td>
                                     <td>${contract_end_date}</td>
                                     <td><span class="badge bg-success">Reject</span></td>
+                                    <td></td>
                                 </tr>
                                 `);
                                 }
@@ -589,6 +596,7 @@ function user_profile() {
                                     <td>${contract_start_date}</td>
                                     <td>${contract_end_date}</td>
                                     <td><span class="badge bg-success">Checking</span></td>
+                                    <td></td>
                                 </tr>
                                 `);
                                 } else if (element.status == 1) {
@@ -598,6 +606,7 @@ function user_profile() {
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Done</span></td>
+                                        <td></td>
                                     </tr>
                                     `);
                                     } else if (element.done_status == 2){
@@ -606,6 +615,7 @@ function user_profile() {
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Rejected</span></td>
+                                        <td></td>
                                     </tr>
                                     `);
                                     }else if (element.done_status == 3){
@@ -614,14 +624,16 @@ function user_profile() {
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Done</span></td>
+                                        <td></td>
                                     </tr>
                                     `);
                                     }else {
-                                        $('.article_status').append(`<tr>
+                                        $('.qt_article_status').append(`<tr>
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Approved</span></td>
+                                        <td></td>
                                     </tr>
                                     `);
                                     }
@@ -631,6 +643,7 @@ function user_profile() {
                                     <td>${contract_start_date}</td>
                                     <td>${contract_end_date}</td>
                                     <td><span class="badge bg-success">Reject</span></td>
+                                    <td></td>
                                 </tr>
                                 `);
                                 }
@@ -644,7 +657,7 @@ function user_profile() {
                         if(invoice[0] != undefined){
                             var payment_url = FRONTEND_URL + "/payment_method/" + latest_article[0].student_info_id + "/" + invoice[0].invoiceNo;
                         }
-                        
+
                         if (latest_article[0] != null && latest_article[0].contract_end_date != null) {
                             var end_date = new Date(latest_article[0].contract_end_date);
                             var today = new Date();
@@ -2373,6 +2386,7 @@ function user_profile() {
                                                 <td>${contract_start_date}</td>
                                                 <td>${contract_end_date}</td>
                                                 <td><span class="badge bg-success">Payment !</span></td>
+                                                <td></td>
                                             </tr>
                                             `);
                                         }else{
@@ -2381,6 +2395,7 @@ function user_profile() {
                                                 <td>${contract_start_date}</td>
                                                 <td>${contract_end_date}</td>
                                                 <td><span class="badge bg-success">Checking</span></td>
+                                                <td></td>
                                             </tr>
                                             `);
                                         }
@@ -2391,6 +2406,7 @@ function user_profile() {
                                             <td>${contract_start_date}</td>
                                             <td>${contract_end_date}</td>
                                             <td><span class="badge bg-success">Done</span></td>
+                                            <td></td>
                                         </tr>
                                         `);
                                         } else if (element.done_status == 2){
@@ -2399,6 +2415,7 @@ function user_profile() {
                                             <td>${contract_start_date}</td>
                                             <td>${contract_end_date}</td>
                                             <td><span class="badge bg-success">Rejected</span></td>
+                                            <td></td>
                                         </tr>
                                         `);
                                         } else if (element.done_status == 3){
@@ -2407,6 +2424,7 @@ function user_profile() {
                                             <td>${contract_start_date}</td>
                                             <td>${contract_end_date}</td>
                                             <td><span class="badge bg-success">Done</span></td>
+                                            <td></td>
                                         </tr>
                                         `);
                                         }else {
@@ -2415,6 +2433,7 @@ function user_profile() {
                                             <td>${contract_start_date}</td>
                                             <td>${contract_end_date}</td>
                                             <td><span class="badge bg-success">Approved</span></td>
+                                            <td></td>
                                         </tr>
                                         `);
                                         }
@@ -2424,6 +2443,7 @@ function user_profile() {
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Reject</span></td>
+                                        <td>${element.remark}</td>
                                     </tr>
                                     `);
                                     }
@@ -2434,6 +2454,7 @@ function user_profile() {
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Checking</span></td>
+                                        <td></td>
                                     </tr>
                                     `);
                                     } else if (element.status == 1) {
@@ -2443,6 +2464,7 @@ function user_profile() {
                                             <td>${contract_start_date}</td>
                                             <td>${contract_end_date}</td>
                                             <td><span class="badge bg-success">Done</span></td>
+                                            <td></td>
                                         </tr>
                                         `);
                                         } else if (element.done_status == 2){
@@ -2451,6 +2473,7 @@ function user_profile() {
                                             <td>${contract_start_date}</td>
                                             <td>${contract_end_date}</td>
                                             <td><span class="badge bg-success">Rejected</span></td>
+                                            <td></td>
                                         </tr>
                                         `);
                                         }else if (element.done_status == 3){
@@ -2459,6 +2482,7 @@ function user_profile() {
                                             <td>${contract_start_date}</td>
                                             <td>${contract_end_date}</td>
                                             <td><span class="badge bg-success">Done</span></td>
+                                            <td></td>
                                         </tr>
                                         `);
                                         }else {
@@ -2467,6 +2491,7 @@ function user_profile() {
                                             <td>${contract_start_date}</td>
                                             <td>${contract_end_date}</td>
                                             <td><span class="badge bg-success">Approved</span></td>
+                                            <td></td>
                                         </tr>
                                         `);
                                         }
@@ -2476,6 +2501,7 @@ function user_profile() {
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Reject</span></td>
+                                        <td></td>
                                     </tr>
                                     `);
                                     }
@@ -2599,6 +2625,7 @@ function user_profile() {
                                     <td>${contract_start_date}</td>
                                     <td>${contract_end_date}</td>
                                     <td><span class="badge bg-success">Checking</span></td>
+                                    <td></td>
                                 </tr>
                                 `);
                                 } else if (element.status == 1) {
@@ -2608,6 +2635,7 @@ function user_profile() {
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Done</span></td>
+                                        <td></td>
                                     </tr>
                                     `);
                                     } else if (element.done_status == 2){
@@ -2616,6 +2644,7 @@ function user_profile() {
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Rejected</span></td>
+                                        <td></td>
                                     </tr>
                                     `);
                                     } else if (element.done_status == 3){
@@ -2624,6 +2653,7 @@ function user_profile() {
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Done</span></td>
+                                        <td></td>
                                     </tr>
                                     `);
                                     }else {
@@ -2632,6 +2662,7 @@ function user_profile() {
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Approved</span></td>
+                                        <td></td>
                                     </tr>
                                     `);
                                     }
@@ -2641,6 +2672,7 @@ function user_profile() {
                                     <td>${contract_start_date}</td>
                                     <td>${contract_end_date}</td>
                                     <td><span class="badge bg-success">Reject</span></td>
+                                    <td>${element.remark}</td>
                                 </tr>
                                 `);
                                 }
@@ -2684,6 +2716,7 @@ function user_profile() {
                                                     <td>${contract_start_date}</td>
                                                     <td>${contract_end_date}</td>
                                                     <td><span class="badge bg-success">Payment !</span></td>
+                                                    <td></td>
                                                 </tr>
                                                 `);
                                             }else{
@@ -2692,6 +2725,7 @@ function user_profile() {
                                                     <td>${contract_start_date}</td>
                                                     <td>${contract_end_date}</td>
                                                     <td><span class="badge bg-success">Checking</span></td>
+                                                    <td></td>
                                                 </tr>
                                                 `);
                                             }
@@ -2702,6 +2736,7 @@ function user_profile() {
                                                 <td>${contract_start_date}</td>
                                                 <td>${contract_end_date}</td>
                                                 <td><span class="badge bg-success">Done</span></td>
+                                                <td></td>
                                             </tr>
                                             `);
                                             } else if (element.done_status == 2){
@@ -2710,6 +2745,7 @@ function user_profile() {
                                                 <td>${contract_start_date}</td>
                                                 <td>${contract_end_date}</td>
                                                 <td><span class="badge bg-success">Rejected</span></td>
+                                                <td></td>
                                             </tr>
                                             `);
                                             } else if (element.done_status == 3){
@@ -2718,6 +2754,7 @@ function user_profile() {
                                                 <td>${contract_start_date}</td>
                                                 <td>${contract_end_date}</td>
                                                 <td><span class="badge bg-success">Done</span></td>
+                                                <td></td>
                                             </tr>
                                             `);
                                             } else {
@@ -2726,6 +2763,7 @@ function user_profile() {
                                                 <td>${contract_start_date}</td>
                                                 <td>${contract_end_date}</td>
                                                 <td><span class="badge bg-success">Approved</span></td>
+                                                <td></td>
                                             </tr>
                                             `);
                                             }
@@ -2735,6 +2773,7 @@ function user_profile() {
                                             <td>${contract_start_date}</td>
                                             <td>${contract_end_date}</td>
                                             <td><span class="badge bg-success">Reject</span></td>
+                                            <td>${element.remark}</td>
                                         </tr>
                                         `);
                                         }
@@ -2745,6 +2784,7 @@ function user_profile() {
                                                 <td>${contract_start_date}</td>
                                                 <td>${contract_end_date}</td>
                                                 <td><span class="badge bg-success">Checking</span></td>
+                                                <td></td>
                                             </tr>
                                             `);
                                         } else if (element.status == 1) {
@@ -2754,6 +2794,7 @@ function user_profile() {
                                                     <td>${contract_start_date}</td>
                                                     <td>${contract_end_date}</td>
                                                     <td><span class="badge bg-success">Done</span></td>
+                                                    <td></td>
                                                 </tr>
                                                 `);
                                             } else if(element.done_status == 2){
@@ -2762,6 +2803,7 @@ function user_profile() {
                                                     <td>${contract_start_date}</td>
                                                     <td>${contract_end_date}</td>
                                                     <td><span class="badge bg-success">Rejected</span></td>
+                                                    <td></td>
                                                 </tr>
                                                 `);
                                             }else if(element.done_status == 3){
@@ -2770,6 +2812,7 @@ function user_profile() {
                                                     <td>${contract_start_date}</td>
                                                     <td>${contract_end_date}</td>
                                                     <td><span class="badge bg-success">Done</span></td>
+                                                    <td></td>
                                                 </tr>
                                                 `);
                                             }else {
@@ -2778,6 +2821,7 @@ function user_profile() {
                                                 <td>${contract_start_date}</td>
                                                 <td>${contract_end_date}</td>
                                                 <td><span class="badge bg-success">Approved</span></td>
+                                                <td></td>
                                             </tr>
                                             `);
                                             }
@@ -2787,6 +2831,7 @@ function user_profile() {
                                                 <td>${contract_start_date}</td>
                                                 <td>${contract_end_date}</td>
                                                 <td><span class="badge bg-success">Reject</span></td>
+                                                <td></td>
                                             </tr>
                                             `);
                                         }
@@ -2892,7 +2937,11 @@ function user_profile() {
                                     return val.invoiceNo == "gov" && val.status == 0;
                                 });
 
-                                var payment_url = FRONTEND_URL + "/payment_method/" + latest_gov_article[0].student_info_id + "/" + invoice[0].invoiceNo;
+                                if(invoice[0] != undefined){                                   
+                                  var payment_url = FRONTEND_URL + "/payment_method/" + latest_gov_article[0].student_info_id + "/" + invoice[0].invoiceNo;                               
+                                }
+
+                                //var payment_url = FRONTEND_URL + "/payment_method/" + latest_gov_article[0].student_info_id + "/" + invoice[0].invoiceNo;
 
                                 if (latest_gov_article[0].contract_end_date != null) {
 
@@ -3565,7 +3614,7 @@ function loadSchoolByDash(school_data, school_invoice) {
                 $('.sch_status_history').append('School Registration is checking.');
 
             } else if (school.approve_reject_status == 1) {
-                
+
                 if (school.offline_user != 'true') {
 
                     var invoice = school_invoice.filter(val => {
@@ -3578,7 +3627,7 @@ function loadSchoolByDash(school_data, school_invoice) {
                     if(invoice.length!=0){
                         var sch_invoice = invoice.pop();
                         if (sch_invoice.status == "AP") {
-                            
+
                             var now = new Date();
                             if (school.initial_status == 0) {
                                 //var period_date = school.from_valid_date.split(' ');
@@ -3600,15 +3649,15 @@ function loadSchoolByDash(school_data, school_invoice) {
                                 $('.sch_status_history').append('School is request stop.');
                                 $('.sch_cessation-btn').show();
                                 $(".sch_cessation-reason").text(school.cessation_reason);
-                                
+
                             }
                             $('.sch_renew-btn').show();
                             $('.sch_renew-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
                             $('.sch_payment-btn').hide();
                             $(".sch_payment_status").text("Complete");
-    
+
                         } else {
-                            
+
                             if(school.initial_status==2){
                                 $('.sch_status_history').append('School is request stop.');
                                 $('.sch_cessation-btn').show();
@@ -3632,9 +3681,9 @@ function loadSchoolByDash(school_data, school_invoice) {
                             $('.sch_renew-btn').show();
                             $('.sch_renew-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
                         }
-                        
+
                     }
-                    
+
 
                 } else {
                     $('.sch_renew-btn').show();
@@ -3690,7 +3739,7 @@ function loadSchoolByDash(school_data, school_invoice) {
 
 }
 function laodTeacherByDash(teacher_data, _invoice) {
-   
+
     $.ajax({
         type: 'GET',
         url: BACKEND_URL + "/getTeacher/" + teacher_data.student_info_id,
@@ -3717,20 +3766,20 @@ function laodTeacherByDash(teacher_data, _invoice) {
             if (teacher.approve_reject_status == 0) {
                 $('.teacher_status_history').append('Teacher Registration is checking.');
             } else if (teacher.approve_reject_status == 1) {
-                
+
 
                 if (teacher.offline_user != 1) {
                     var invoice = _invoice.filter(val => {
                         if (val.invoiceNo == "init_tec"+teacher.id || val.invoiceNo == "renew_tec"+teacher.id) {
                             return val.invoiceNo == val.status == 0 == val.dateTime != null;
-                            
+
                         }
                     });
-                    
+
                     if(invoice.length!=0){
                         var invoice = invoice.pop();
                         if (invoice.status == "AP") {
-                            
+
                             var now = new Date();
                             if (teacher.initial_status == 0) {
                                 //var period_date = invoice[0].dateTime.split(' ');
@@ -3750,10 +3799,10 @@ function laodTeacherByDash(teacher_data, _invoice) {
                                 $('.teacher_cessation-btn').show();
                                 $(".teacher_cessation-reason").text(teacher.cessation_reason);
                             }
-    
+
                             $('.teacher_renew-btn').show();
                             $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
-                            
+
                             $('.teacher_payment-btn').hide();
                             $(".teacher_payment_status").text("Complete");
                         }else {
@@ -3781,14 +3830,14 @@ function laodTeacherByDash(teacher_data, _invoice) {
                             $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
                         }
                     }
-                   
-                    
+
+
                 } else {
                     $('.teacher_status_history').append('Teacher Registration is Approved.');
                     $('.teacher_renew-btn').show();
                     $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
                 }
-                
+
 
             } else {
                 $('.teacher_status_history').append('Teacher Registration is Rejected.');
