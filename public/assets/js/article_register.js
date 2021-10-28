@@ -431,15 +431,17 @@ function check_email_cpaTwoPassOneYear()
     }
 }
 function createCPATwoPassOneYearArticle(){
-    var send_data = new FormData($( "#cpaTwoPassOneYearForm" )[0]);
+    var send_data = new FormData($( "#article_cpaTwoPassOneYear_form" )[0]);
     if($('#offline_user').val()){
         send_data.append('offline_user',$('#offline_user').val());
       }
+      send_data.append('mentor_id', $("#mentor_id").val());
+      send_data.append('article_form_type', $("#article_form_type").val());
     show_loader();
     $.ajax({
         type: "POST",
         data: send_data,
-       // url: BACKEND_URL + "/article_firm_register",
+        url: BACKEND_URL + "/article_firm_register",
         // async: false,
         //cache: false,
         contentType: false,
