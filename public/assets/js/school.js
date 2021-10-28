@@ -624,7 +624,7 @@ function loadRenewSchool(){
                     accept=new Date(school.renew_date);
                    
                   }
-                  console.log(accept);
+                  
                   //var month=accept.getMonth()+1;
                   var year=accept.getFullYear();
                   var y=year+3;
