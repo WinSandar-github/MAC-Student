@@ -544,30 +544,37 @@
                         </div>
 
                         <div class="row my-2">
-                            <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
-                            <div class="text-center fw-bolder status_history">
-                            </div>
-                            <div class="text-center fw-bolder" id="message">
+                            <div class="col-md-5 offset-md-3">
+                              <h5 class="text-center border-bottom pb-2 pt-2" style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
+                              <div class="text-center fw-bolder status_history">
+                              </div>
+                              <div class="text-center fw-bolder" id="message">
 
+                              </div>
+                              {{--<input type="text" class="form-control" id="message" readonly="">--}}
                             </div>
-                            {{--<input type="text" class="form-control" id="message" readonly="">--}}
                         </div>
                         {{--renew buttons--}}
                         <div class="row" id="check_renew" style="display:none;text-align: center; margin-top: 2%;">
-                            <div class="form-group">
-                                <center>
-                                    <a href="{{ url('/audit_firm_information') }}" class="btn btn-success btn-hover-dark">Audit Firm Renew Form</a>
-                                </center>
+                            <div class="col-md-5 offset-md-3">
+                              <div class="form-group">
+                                  <center>
+                                      <a href="{{ url('/audit_firm_information') }}" class="btn btn-success btn-hover-dark">Audit Firm Renew Form</a>
+                                  </center>
+                              </div>
                             </div>
                         </div>
 
                         <div class="row" id="check_renew_nonaudit" style="display:none;text-align: center; margin-top: 2%;">
-                            <div class="form-group">
-                                <center>
-                                    <a href="{{ url('/non_audit_firm_information') }}" class="btn btn-success btn-hover-dark">Non-Audit Firm Renew Form</a>
-                                </center>
+                            <div class="col-md-5 offset-md-3">
+                              <div class="form-group">
+                                  <center>
+                                      <a href="{{ url('/non_audit_firm_information') }}" class="btn btn-success btn-hover-dark">Non-Audit Firm Renew Form</a>
+                                  </center>
+                              </div>
                             </div>
                         </div>
+
                         {{--payment buttons--}}
                         {{--<div class="row payment-btn" style="display:none;">
                             <div class="col-md-6"></div>
@@ -581,8 +588,7 @@
                         </div>--}}
 
                         <div class="row">
-                            <div class="col-md-6"></div>
-                            <div class="">
+                            <div class="col-md-5 offset-md-3">
                               <div class="mt-4" align="center" id="firm_payment_btn">
 
                               </div>
@@ -818,8 +824,12 @@
 
                             <div class="row my-2">
                                 <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
-                                        Application Status</h5>
+                                       CPA(Full-Fledged) Application Status</h5>
                                 <div class="text-center status_history"></div>
+                            </div>
+                            <div class="row my-2">
+                                <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
+                                       PAPP Application Status</h5>
                                 <div class="text-center status_papp"> </div>
                             </div>
 
