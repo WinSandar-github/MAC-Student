@@ -567,7 +567,7 @@
                                         </div> -->
                                         
                                         
-                                        <input type="hidden" id="article_form_type" name="article_form_type" value="c2_renew">
+                                        <input type="hidden" id="article_form_type" name="article_form_type" value="c2_pass_renew">
                                         <input type="hidden" id="offline_user" value="true">
 
                                         <div class="row mb-3">
