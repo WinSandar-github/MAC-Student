@@ -194,9 +194,9 @@ function user_profile() {
                         is_renew = "";
                     }
                     console.log(invoice);
-                    if (invoice.length != 0) {
-                        var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
-                    }
+                    // if (invoice.length != 0) {
+                    //     var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                    // }
                 }
                 else {
                     if (cpaff_latest_data.type == 0) {
@@ -303,12 +303,24 @@ function user_profile() {
                             var invoice = data.invoice.filter(val => {
                                 return val.invoiceNo == "papp_initial"+papp_latest_data.id && val.status == 0;
                             });
+                            if (invoice.length != 0) {
+                                // var invoice = data.invoice.filter(val => {
+                                //     return val.invoiceNo == 'papp' && val.status == 0;
+                                // });
+                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                            }
                         }
                         else if (papp_latest_data.type == 1) {
                             is_renew = "Renewal";
                             var invoice = data.invoice.filter(val => {
                                 return val.invoiceNo == "papp_renew"+papp_latest_data.id && val.status == 0;
                             });
+                            if (invoice.length != 0) {
+                                // var invoice = data.invoice.filter(val => {
+                                //     return val.invoiceNo == 'papp' && val.status == 0;
+                                // });
+                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                            }
                         }
                         else {
                             is_renew = ""
@@ -330,12 +342,7 @@ function user_profile() {
                         $('.status_history').append('PAPP ' + is_renew + ' Registration Form is checking.<br><br>');
                         $('.status_papp').css('display', 'none');
                     } else if (papp_latest_data.status == 1) {
-                        if (invoice.length != 0) {
-                            // var invoice = data.invoice.filter(val => {
-                            //     return val.invoiceNo == 'papp' && val.status == 0;
-                            // });
-                            var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
-                        }
+                        
                         // $('.status_papp').css('display', 'none');
                         var papp_renew_url = FRONTEND_URL + "/renew_papp";
                         $('.status_history').append('PAPP ' + is_renew + ' Registration Form is Approved.<br><br>');

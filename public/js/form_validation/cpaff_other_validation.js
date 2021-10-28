@@ -257,7 +257,7 @@ function createCpaffOtherRegister(){
     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
     send_data.append('is_renew', 0);
-    send_data.append('self_confession',$("input[name=self_confession]").val());
+    send_data.append('self_confession',$("input[type='radio'][name='self_confession']:checked").val());
     // save to student_info
     send_data.append('email', $("input[name=email]").val());
     send_data.append('password', $("input[name=password]").val());

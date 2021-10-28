@@ -68,7 +68,7 @@
                     <div class="card-body">
 
                     {{--<form method="post" action="javascript:createCPAFFRegister();" class="needs-validation" enctype="multipart/form-data" novalidate>--}}
-                    <form method="post" id="update_cpaff_form" action="javascript:createCPAFFRegister();" enctype="multipart/form-data">
+                    <form method="post" id="update_cpaff_form" action="javascript:void();" enctype="multipart/form-data">
                         @csrf
                     <!-- <fieldset id="fieldset" > -->
                         <input type="hidden" name="status">
@@ -464,7 +464,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-2 offset-md-5">
-                                        <button type="submit" id="cpaff_submit" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Update') }}</button>
+                                        <button type="submit" id="cpaff_submit" class="btn btn-success btn-hover-dark w-100" data-toggle="modal" data-target="#cpa_ff_modal"  disabled>{{ __('Update') }}</button>
                                     </div>
                                 </div>
                         </form>
@@ -507,7 +507,36 @@
             </div>
         </div>
     </form>--}}
-
+    <div class="modal fade" id="cpa_ff_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">ကိုယ်တိုင်ဝန်ခံချက်</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe src="{{ asset('assets/images/pa_promise.pdf') }}"  style="overflow:scroll;height:70vh;width:100%" height="100vh" width="70vh"></iframe>
+                <div class="pull-right mt-1">
+                    <h6 class="pull-left me-4 fw-bold">အထက်ဖော်ပြပါအချက်များအား</h6>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="self_confession" id="accept_cpaffRenew" value="1">
+                    <label class="fw-bold">လက်ခံသည်</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="self_confession" id="not-accept_cpaffRenew" value="2">
+                    <label class="fw-bold">လက်မခံပါ</label>
+                    </div>
+                    <div class="text-danger" id="valid_self_confession" style="display : none">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+              <button type="button" style="background-color: #39c0ba" class="btn btn-sm text-white" onclick="createCPAFFRegister()">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
