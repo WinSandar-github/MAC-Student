@@ -359,7 +359,7 @@ function Papp_Submit(){
     data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
     data.append('type',0);
     data.append('self_confession',JSON.stringify($arr));
-    data.append('self_confession1', $("input[name=self_confession_PAPP]").val());
+    data.append('self_confession1', $("input[type='radio'][name='self_confession_PAPP']:checked").val());
     show_loader(); 
     if($('#papp_id').val())
     {
@@ -809,8 +809,7 @@ function RenewPAPP(){
                 send_data.append('type',1);
                 //send_data.append('_method', 'POST');
                 send_data.append('self_confession',JSON.stringify($arr));
-                send_data.append('self_confession1', $("input[name=self_confession_PAPP]").val());
-                console.log($("input[name=self_confession_PAPP]").val(),"self_confession");
+                send_data.append('self_confession1', $("input[type='radio'][name='self_confession_PAPP']:checked").val());
                 show_loader();
                 if($('#papp_id').val()){
                     send_data.append('papp_id',$('#papp_id').val());
@@ -1072,7 +1071,7 @@ function createReconnectPapp(){
     } 
     send_data.append('type',2);
     send_data.append('self_confession',JSON.stringify($arr));
-    send_data.append('self_confession1',$("input[name=self_confession_PAPP]").val());
+    send_data.append('self_confession1', $("input[type='radio'][name='self_confession_PAPP']:checked").val());
     show_loader();
     if($('#reconnect_papp_id').val()){
         send_data.append('papp_id',$('#reconnect_papp_id').val());
