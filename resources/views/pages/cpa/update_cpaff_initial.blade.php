@@ -68,7 +68,7 @@
                     <div class="card-body">
 
                     {{--<form method="post" action="javascript:createCPAFFRegister();" class="needs-validation" enctype="multipart/form-data" novalidate>--}}
-                    <form method="post" id="update_cpaff_form" action="javascript:createCPAFFRegister();" enctype="multipart/form-data">
+                    <form method="post" id="update_cpaff_form" action="javascript:void();" enctype="multipart/form-data">
                         @csrf
                     <!-- <fieldset id="fieldset" > -->
                         <input type="hidden" name="status">
@@ -346,7 +346,7 @@
 
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                    <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ နှင့် ၆၈ ပါပြဌာန်းချက်များကို လိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံပါသည်။') }}</label>
+                                    <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ နှင့် ၆၈ ပါပြဋ္ဌာန်းချက်များကို လိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံပါသည်။') }}</label>
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
@@ -436,8 +436,8 @@
                                 <div class="row mb-3">
                                     <div class="col-md-2"></div>
                                     <!-- <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label> -->
-                                    <label class="col-md-6 col-form-label">{{ __('စုစုပေါင်း နာရီ') }}</label>
-                                    <div class="col-md-4">
+                                    <label class="col-md-7 col-form-label">{{ __('စုစုပေါင်း နာရီ') }}</label>
+                                    <div class="col-md-3">
                                         <input type="text"  class="form-control" name="total_hours" id="total_hours"  placeholder="စုစုပေါင်း နာရီ" >
                                     </div>
                                 </div>
@@ -464,7 +464,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-2 offset-md-5">
-                                        <button type="submit" id="cpaff_submit" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Update') }}</button>
+                                        <button type="submit" id="cpaff_submit" class="btn btn-success btn-hover-dark w-100" data-toggle="modal" data-target="#cpa_ff_modal"  disabled>{{ __('Update') }}</button>
                                     </div>
                                 </div>
                         </form>
@@ -507,7 +507,36 @@
             </div>
         </div>
     </form>--}}
-
+    <div class="modal fade" id="cpa_ff_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">ကိုယ်တိုင်ဝန်ခံချက်</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe src="{{ asset('assets/images/pa_promise.pdf') }}"  style="overflow:scroll;height:70vh;width:100%" height="100vh" width="70vh"></iframe>
+                <div class="pull-right mt-1">
+                    <h6 class="pull-left me-4 fw-bold">အထက်ဖော်ပြပါအချက်များအား</h6>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="self_confession" id="accept_cpaffRenew" value="1">
+                    <label class="fw-bold">လက်ခံသည်</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="self_confession" id="not-accept_cpaffRenew" value="2">
+                    <label class="fw-bold">လက်မခံပါ</label>
+                    </div>
+                    <div class="text-danger" id="valid_self_confession" style="display : none">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+              <button type="button" style="background-color: #39c0ba" class="btn btn-sm text-white" onclick="createCPAFFRegister()">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -573,26 +602,27 @@
             // console.log(result);
             var cpaff=result.data[0];
             console.log(cpaff)
-            document.getElementById('cpaff_img').src=BASE_URL + cpaff.profile_photo;
-            document.getElementById('nrc_front').src=BASE_URL + cpaff.nrc_front;
-            document.getElementById('nrc_back').src=BASE_URL + cpaff.nrc_back;
+            document.getElementById('cpaff_img').src=BASE_URL + cpaff.student_info.image;
+            document.getElementById('nrc_front').src=BASE_URL + cpaff.student_info.nrc_front;
+            document.getElementById('nrc_back').src=BASE_URL + cpaff.student_info.nrc_back;
 
-            $('#name_mm').val(cpaff.name_mm);
-            $('#name_eng').val(cpaff.name_eng);
-            $('#nrc_state_region').val(cpaff.nrc_state_region);
-            $('#nrc_township').val(cpaff.nrc_township);
-            $('#nrc_citizen').val(cpaff.nrc_citizen);
-            $('#nrc_number').val(cpaff.nrc_number);
-            $('#father_name_mm').val(cpaff.father_name_mm);
-            $('#father_name_eng').val(cpaff.father_name_eng);
+            $('#name_mm').val(cpaff.student_info.name_mm);
+            $('#name_eng').val(cpaff.student_info.name_eng);
+            $('#nrc_state_region').val(cpaff.student_info.nrc_state_region);
+            $('#nrc_township').val(cpaff.student_info.nrc_township);
+            $('#nrc_citizen').val(cpaff.student_info.nrc_citizen);
+            $('#nrc_number').val(cpaff.student_info.nrc_number);
+            $('#father_name_mm').val(cpaff.student_info.father_name_mm);
+            $('#father_name_eng').val(cpaff.student_info.father_name_eng);
             $('#cpa_batch_no').val(cpaff.cpa_batch_no);
-            $('#address').val(cpaff.address);
-            $('#phone').val(cpaff.phone);
+            $('#address').val(cpaff.student_info.address);
+            $('#phone').val(cpaff.student_info.phone);
             $('#contact_mail').val(cpaff.contact_mail);
             $('#country').val(cpaff.country);
             $('#government').val(cpaff.government);
             $('#roll_no').val(cpaff.roll_no);
             $('#total_hours').val(cpaff.total_hours);
+            cpaff.student_info.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
             // var cpa2_pass_date=new Date(cpaff.cpa2_pass_date);
             // var exam_year=new Date(cpaff.exam_year);
             // var exam_month=new Date(cpaff.exam_month);
@@ -600,7 +630,7 @@
             if(cpaff.cpa2_pass_date!=null || cpaff.cpa2_reg_no!=null){
                 $('#cpa_part_2_check').attr('checked',true);
                 $('#cpa_part_2_check').attr('disabled',false);
-                $('#qt_pass_check').attr('disabled',true);
+                // $('#qt_pass_check').attr('disabled',true);
                 // $("input[name='cpa2_pass_date']").val(cpa2_pass_date.getFullYear());
                 $("input[name='country']").attr('disabled',true);
                 $("input[name='government']").attr('disabled',true);
@@ -613,7 +643,7 @@
             else if(cpaff.country!=null || cpaff.government!=null || cpaff.exam_year!=null || cpaff.exam_month!=null || cpaff.roll_no!=null)
             {
                 // $('#used_firm_check').attr('checked',true);
-                $('#cpa_part_2_check').attr('disabled',true);
+                // $('#cpa_part_2_check').attr('disabled',true);
                 $('#qt_pass_check').attr('checked',true);
                 $('#qt_pass_check').attr('disabled',false);
 

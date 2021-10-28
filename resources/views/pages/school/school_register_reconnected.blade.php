@@ -502,7 +502,7 @@
                                     <label class="col-md-4 col-form-label label"><span
                                                 class="pull-left">၁၇။</span>ကျောင်းမှတ်ပုံတင်အမှတ်</label>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" id="s_code" name="s_code" autocomplete='off' >
+                                        <input type="text" class="form-control" id="s_code" name="s_code" autocomplete='off' placeholder="eg:PCS-001 or PCC-001 or PCP-001 ">
                                         
                                     </div>
                             </div>
