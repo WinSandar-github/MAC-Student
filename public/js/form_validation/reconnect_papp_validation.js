@@ -134,4 +134,13 @@ $().ready(function (){
            // $('#reconnectPappModal').modal('show');
         }
     });
+    // $("#update_reconnect_papp_form").validate({
+    //     rules:{},
+    //     messages:{},
+    //     submitHandler: function(form) {
+    //         alert('aaa');
+    //         $('#updatereconnectpappModal').modal('show');
+    //         send_email();
+    //     }
+    // });
 });

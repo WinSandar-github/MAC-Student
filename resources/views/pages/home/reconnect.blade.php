@@ -96,7 +96,11 @@
                             <li>
                                  <button class="course_list" onclick="location.href =`${FRONTEND_URL}/school_register_reconnected`"> School </button>
                             </li>
-                        </ul>       
+                            <li>
+                                 <button class="course_list" data-bs-toggle="modal" data-bs-target="#articleModal"> Article </button>
+                            </li>
+                        </ul>
+                               
                     </div>
                 </div>
             </div>
@@ -121,6 +125,32 @@
     </div>
 
 
+</div>
+<div class="modal fade" id="articleModal" tabindex="-1" aria-labelledby="exampleModalLabe" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    
+                    <a onclick="location.href =`${FRONTEND_URL}/article_cpa_two_one_pass_year`"  class="btn btn-md btn-success">CPA II Pass 1 Year</a>
+                    <hr>
+                    
+                    <a onclick="location.href =`${FRONTEND_URL}/article_cpa_two_three_pass_year`" class="btn btn-md btn-success">CPA II Pass 3 Year</a>
+                    <hr>
+                    <a onclick="location.href =`${FRONTEND_URL}/article_cpa_two_renew`" class="btn btn-md btn-success">CPA II Renew</a>
+                   
+                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Close
+                    </button>
+
+                </div>
+            </div>
+        </div>
 </div>
     <!-- JavaScript Section -->
     <script>

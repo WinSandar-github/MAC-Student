@@ -861,7 +861,7 @@
                                                             <label class="col-md-3 col-form-label label"></label>
                                                             <div class="col-md-8">
                                                                 <div class="private_type">
-                                                                    <select class="form-control" name="update_selected_school_id" id="update_selected_school_id"  >
+                                                                    <select class="form-control form-select" name="update_selected_school_id" id="update_selected_school_id"  >
                                                                             <option value="" disabled selected>ရွေးပါ</option>
                                                                             
                                                                     </select>
@@ -1258,7 +1258,7 @@
                                                         <label class="col-md-3 col-form-label label"></label>
                                                         <div class="col-md-8">
                                                             <div class="private_type">
-                                                                <select class="form-control" name="renew_selected_school_id" id="renew_selected_school_id"  >
+                                                                <select class="form-control form-select" name="renew_selected_school_id" id="renew_selected_school_id"  >
                                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                                         
                                                                 </select>
