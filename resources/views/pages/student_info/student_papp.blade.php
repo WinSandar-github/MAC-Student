@@ -107,10 +107,10 @@
                                 <div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(က)') }}</span>{{ __('အမည် (မြန်မာ/အင်္ဂလိပ်)') }}</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="name_mm" id="name_mm">
+                                        <input type="text"  class="form-control" name="name_mm" id="name_mm" readonly>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="name_eng" id="name_eng">
+                                        <input type="text"  class="form-control" name="name_eng" id="name_eng" readonly>
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 100px;">
@@ -136,10 +136,10 @@
                                 <div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>{{ __('အဘအမည် (မြန်မာ/အင်္ဂလိပ်)') }}</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="father_name_mm" id="father_name_mm">
+                                        <input type="text"  class="form-control" name="father_name_mm" id="father_name_mm" readonly>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="father_name_eng" id="father_name_eng">
+                                        <input type="text"  class="form-control" name="father_name_eng" id="father_name_eng" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -317,7 +317,7 @@
                                 <div class="row mb-3" style="padding-left: 15px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no">
+                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no" readonly>
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 15px;">
@@ -452,9 +452,6 @@
 
                                             <label class="col-md-11"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ် <input type="text" name="papp_date" id="papp_date" style="display: inline; width: 100px;" class="form-control papp_date" placeholder="ခုနှစ်/YYYY"> ခုနှစ်အတွက်မှတ်ပုံတင်ပေးပါရန်လျှောက်ထားပါသည်။</label>
                                         </div>
-
-
-
                                     </div>
                                 </div>
                                 <div class="row mb-2">
@@ -994,7 +991,7 @@
                                 <div class="text-danger" id="" style="display : none"></div>
                             </li>
                             <li class="list-group-item">
-                                (၉) မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၂ (ဍ) ပါ သတ်မှတ်ပြဌာန်းထားသည့် စာရင်းလုပ်ငန်း များ၊ Statutory Audit (including component auditor performance),Forensic Audit, Review Engagement , Assurance Engagement  ,Agreed upon Audit Procedures (including Independent Internal Audit) စာရင်းလုပ်ငန်းများနှင့် မြန်မာနိုင်ငံစာရင်းကောင်စီက အခါအားလျော်စွာ သတ်မှတ်သည့်လုပ်ငန်းများကို အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူမဟုတ်သူများနှင့် တွဲဖက်ဖွဲ့စည်းဆောင်ရွက်ခြင်း၊
+                                (၉) မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၂ (ဍ) ပါ သတ်မှတ်ပြဋ္ဌာန်းထားသည့် စာရင်းလုပ်ငန်း များ၊ Statutory Audit (including component auditor performance),Forensic Audit, Review Engagement , Assurance Engagement  ,Agreed upon Audit Procedures (including Independent Internal Audit) စာရင်းလုပ်ငန်းများနှင့် မြန်မာနိုင်ငံစာရင်းကောင်စီက အခါအားလျော်စွာ သတ်မှတ်သည့်လုပ်ငန်းများကို အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူမဟုတ်သူများနှင့် တွဲဖက်ဖွဲ့စည်းဆောင်ရွက်ခြင်း၊
                                 <div class="mt-1">
                                 <div class="form-check form-check-inline">
                                 <input class="form-check-input accept_PAPP" type="radio" name="check9" value="1">
@@ -1095,7 +1092,7 @@
                 {
                     content:`<ul class="list-group list-group-flush fw-bold">
                             <li class="list-group-item">
-                                (၁၆) စာရင်းစစ်များခန့်ထားခြင်းကိစ္စနှင့်စပ်လျဥ်း၍ မြန်မာနိုင်ငံကုမ္ပဏီများအက်ဥပဒေ သို့မဟုတ် သက်ဆိုင်ရာအခြားဥပ‌ဒေပါပြဌာန်းချက်များနှင့် ကိုက်ညီခြင်းမရှိသည့်ခန့်ထားမှုများကို လက်ခံဆောင်ရွက်ခြင်း၊
+                                (၁၆) စာရင်းစစ်များခန့်ထားခြင်းကိစ္စနှင့်စပ်လျဥ်း၍ မြန်မာနိုင်ငံကုမ္ပဏီများအက်ဥပဒေ သို့မဟုတ် သက်ဆိုင်ရာအခြားဥပ‌ဒေပါပြဋ္ဌာန်းချက်များနှင့် ကိုက်ညီခြင်းမရှိသည့်ခန့်ထားမှုများကို လက်ခံဆောင်ရွက်ခြင်း၊
                                 <div class="mt-1">
                                 <div class="form-check form-check-inline">
                                 <input class="form-check-input accept_PAPP" type="radio" name="check16" value="1">
@@ -1275,7 +1272,7 @@
                     <div class="text-danger" id="" style="display : none"></div>
                 </li>
                 <li class="list-group-item">
-                    (၂၉) မြန်မာနိုင်ငံစာရင်းစစ်စံ/ နိုင်ငံတကာစာရင်းစစ်စံပြဌာန်းချက်များနှင့် မညီညွတ်သောကိစ္စရပ် များ ဆောင်ရွက်ခြင်း၊
+                    (၂၉) မြန်မာနိုင်ငံစာရင်းစစ်စံ/ နိုင်ငံတကာစာရင်းစစ်စံပြဋ္ဌာန်းချက်များနှင့် မညီညွတ်သောကိစ္စရပ် များ ဆောင်ရွက်ခြင်း၊
                     <div class="mt-1">
                     <div class="form-check form-check-inline">
                     <input class="form-check-input accept_PAPP" type="radio" name="check29" value="1">
