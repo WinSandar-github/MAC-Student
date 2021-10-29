@@ -4295,9 +4295,12 @@ function allowToRenew() {
 
           if(current_month >= 10 || current_month <= 4){
             acc_firm_data.forEach(function(acc_firm){
+              // console.log("####",acc_firm.accountancy_firm_name);
+              // console.log("####",acc_firm.id);
+              
               if(acc_firm.audit_firm_type_id == 1){
                 // audit firm
-                var audit_invoice_status = data[0].audit_invoice_status[0].status;
+                var audit_invoice_status = data[0].audit_invoice_status;
                 if(acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1){
                   // to renew approved offline users
                   console.log("1");
@@ -4318,7 +4321,7 @@ function allowToRenew() {
               else{
                 console.log("3");
                 // non-audit firm
-                var nonaudit_invoice_status = data[0].nonaudit_invoice_status[0].status;
+                var nonaudit_invoice_status = data[0].nonaudit_invoice_status;
                 if(acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1){
                   // to renew approved offline users
                   $('#check_renew').css('display','none');
