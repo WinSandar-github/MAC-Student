@@ -534,7 +534,7 @@
                                             <div class="col-md-9">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <input id="papp_name" type="text" name="papp_name" class="form-control" placeholder="ယခုအလုပ်သင်ကြားလိုသည့် PAPP အမှတ်(eg.PA-123)">
+                                                        <input id="papp_name" type="text" name="papp_name" class="form-control" placeholder="ယခုအလုပ်သင်ကြားလိုသည့်PAPPအမှတ်(eg.PA-123)">
                                                     </div>
                                                     <div class="col-md-6">
                                                         <input type="hidden" id="mentor_id">
