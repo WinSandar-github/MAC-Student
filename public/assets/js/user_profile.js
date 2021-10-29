@@ -455,6 +455,7 @@ function user_profile() {
                     `);
 
                 } else if (qt.approve_reject_status == 1) {
+                    // alert('hello')
                     article_url = '/article_information';
 
                     if (qt.grade == 0) {
