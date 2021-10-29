@@ -164,7 +164,7 @@
                                                 <label class="col-md-1 col-form-label label"><span class="pull-left">{{__('၂။')}}</span></label>
                                                 <div class="col-md-11">
                                                     <ul>
-                                                        <li>ယခင်က လက်တွေ့အလုပ်သင်ကြားမှုကို အလုပ်သင်ကြားပေးသည့်(PAPP အမည်) <input class="p-input" type="text" id="previous_papp_name"> ထံတွင် <input class="p-input" type="text"  name="previous_papp_start_date" id="previous_papp_start_date" placeholder="dd-mm-yyyy"> နေ့မှ <input class="p-input" type="text" name="previous_papp_end_date" id="previous_papp_end_date" placeholder="dd-mm-yyyy">နေ့အထိ <span id="result_name"><input class="p-input" type="text"> နှစ် ၊ <input class="p-input" type="text"> လ ၊ <input class="p-input" type="text"> ရက် </span> အလုပ်သင်ကြားမှုခံယူခဲ့ပါသည်။</li>
+                                                        <li>ယခင်က လက်တွေ့အလုပ်သင်ကြားမှုကို အလုပ်သင်ကြားပေးသည့်(PAPP အမည်) <input class="p-input" type="text" name="previous_papp_name"> ထံတွင် <input class="p-input" type="text"  name="previous_papp_start_date" id="previous_papp_start_date" placeholder="dd-mm-yyyy"> နေ့မှ <input class="p-input" type="text" name="previous_papp_end_date" id="previous_papp_end_date" placeholder="dd-mm-yyyy">နေ့အထိ <span id="result_name"><input class="p-input" type="text"> နှစ် ၊ <input class="p-input" type="text"> လ ၊ <input class="p-input" type="text"> ရက် </span> အလုပ်သင်ကြားမှုခံယူခဲ့ပါသည်။</li>
                                                     </ul>
                                                 </div>
                                             </div>

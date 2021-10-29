@@ -765,7 +765,167 @@ function user_profile() {
                 //     }
                 // }
 
-            } else {
+            }else if(data.article){
+                
+                $('.title').text('Student Information')
+                $('.qualified_test').show();
+                $('.cpaff_other').hide();
+                $('.app_status').hide();
+                $('#qt_name_mm').text(data.name_mm);
+                $('#qt_name_eng').text(data.name_eng);
+                $("#qt_nrc").text(data.nrc_state_region + "/" + data.nrc_township + "(" + data.nrc_citizen + ")" + data.nrc_number);
+                $("#qt_email").text(data.email);
+                $('#qt_phone').text(data.phone);
+           
+                document.getElementById('qt_image').src = BASE_URL + data.image;
+                
+                let article = data.article;
+                        article.forEach(function (element) {
+                            article_form_type = element.article_form_type;
+
+                            switch (article_form_type) {
+                                case 'c12':
+                                    form_type = 'CPA I,II';
+                                    break;
+                                case 'c2_pass_3yr':
+                                    form_type = 'CPA II Pass 3 yr';
+                                    break;
+                                case 'c2_pass_1yr':
+                                    form_type = 'CPA II Pass 1 yr';
+                                    break;
+                                case 'qt_firm':
+                                    form_type = 'QT Pass 3 yr';
+                                    break;
+                                case 'c2_pass_renew':
+                                    form_type = 'CPA II Pass Renew';
+                                    break;
+                                case 'c12_renew':
+                                    form_type = 'CPA I,II Renew';
+                                    break;
+                                default:
+                                    form_type = 'Resign';
+                                    break;
+                            }
+                            let contract_start_date = element.contract_start_date === null ? "-" : element.contract_start_date;
+                            let contract_end_date = element.contract_end_date === null ? "-" : element.contract_end_date;
+                            if (element.article_form_type == 'resign') {
+                                if (element.resign_status == 0) {
+                                    invoice_len = data.invoice.length;
+                                    if(data.invoice[invoice_len-1].status === '0'){
+                                        $('.qt_article_status').append(`<tr>
+                                            <td>${form_type} Form</td>
+                                            <td>${contract_start_date}</td>
+                                            <td>${contract_end_date}</td>
+                                            <td><span class="badge bg-success">Payment !</span></td>
+                                        </tr>
+                                        `);
+                                    }else{
+                                        $('.qt_article_status').append(`<tr>
+                                            <td>${form_type} Form</td>
+                                            <td>${contract_start_date}</td>
+                                            <td>${contract_end_date}</td>
+                                            <td><span class="badge bg-success">Checking</span></td>
+                                        </tr>
+                                        `);
+                                    }
+                                } else if (element.resign_status == 1) {
+                                    if (element.done_status == 1) {
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Done</span></td>
+                                    </tr>
+                                    `);
+                                    } else if (element.done_status == 2) {
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Rejected</span></td>
+                                    </tr>
+                                    `);
+                                    }else if (element.done_status == 3) {
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Done</span></td>
+                                    </tr>
+                                    `);
+                                    }else {
+                                        $('.article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Approved</span></td>
+                                    </tr>
+                                    `);
+                                    }
+                                } else if (element.resign_status == 2) {
+                                    $('.qt_article_status').append(`<tr>
+                                    <td>${form_type} Form</td>
+                                    <td>${contract_start_date}</td>
+                                    <td>${contract_end_date}</td>
+                                    <td><span class="badge bg-success">Reject</span></td>
+                                </tr>
+                                `);
+                                }
+                            } else {
+                                if (element.status == 0) {
+                                    $('.qt_article_status').append(`<tr>
+                                    <td>${form_type} Form</td>
+                                    <td>${contract_start_date}</td>
+                                    <td>${contract_end_date}</td>
+                                    <td><span class="badge bg-success">Checking</span></td>
+                                </tr>
+                                `);
+                                } else if (element.status == 1) {
+                                    if (element.done_status == 1) {
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Done</span></td>
+                                    </tr>
+                                    `);
+                                    } else if (element.done_status == 2){
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Rejected</span></td>
+                                    </tr>
+                                    `);
+                                    }else if (element.done_status == 3){
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Done</span></td>
+                                    </tr>
+                                    `);
+                                    }else {
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Approved</span></td>
+                                    </tr>
+                                    `);
+                                    }
+                                } else if (element.status == 2) {
+                                    $('.qt_article_status').append(`<tr>
+                                    <td>${form_type} Form</td>
+                                    <td>${contract_start_date}</td>
+                                    <td>${contract_end_date}</td>
+                                    <td><span class="badge bg-success">Reject</span></td>
+                                </tr>
+                                `);
+                                }
+                            }
+                        });
+            }else {
                 $('.cpaff_other').hide();
                 $('.da_cpa').show();
                 $('.title').text("Student Information")
