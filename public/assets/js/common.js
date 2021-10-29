@@ -87,8 +87,9 @@ function formatDateMY(date) {
     return date;
 }
 
-function mm2en(num) {
+function engToMyanNum(num) {
     var nums = { 0: '၀', 1: '၁', 2: '၂', 3: '၃', 4: '၄', 5: '၅', 6: '၆', 7: '၇', 8: '၈', 9: '၉' };
+    console.log('nums', nums)
     return num.replace(/([0-9])/g, function (s, key) {
         console.log(nums[key] || s);
         return nums[key] || s;
