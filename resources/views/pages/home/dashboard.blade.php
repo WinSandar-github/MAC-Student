@@ -754,6 +754,31 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="article_row_exist" style="display:none;">
+                                <div class="col-md-12 ">
+                                    <h5 class="text-center border-bottom py-2 my-2"
+                                        style="font-weight:bold;background-color:#E7F8EE;">Article Status</h5>
+                                    <div class="row m-2 mt-3 ">
+                                        <table class="table ">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Start Date</th>
+                                                    <th>End Date</th>
+                                                    <th>Status</th>
+                                                    <th>Remark</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="article_status">
+
+                                            </tbody>
+                                            <tfoot class="article_btn">
+
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                     <div class="card-body cpaff_other">
                             <div class="row">
