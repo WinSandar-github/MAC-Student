@@ -2439,7 +2439,7 @@ function user_profile() {
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Reject</span></td>
-                                        <td></td>
+                                        <td>${element.remark}</td>
                                     </tr>
                                     `);
                                     }
