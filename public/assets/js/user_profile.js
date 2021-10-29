@@ -649,7 +649,7 @@ function user_profile() {
                                     $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
                                 }
                             }
-                        } else if (latest_article[0].status == 1) {
+                        } else if (latest_article[0].status == 1) {      
                             if (latest_article[0].registration_fee == null) {
                                 // $('.qt_article_status').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
                                 if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
@@ -660,7 +660,7 @@ function user_profile() {
                             }
                             if(!latest_article[0].mentor_attach_file){
                                 $('.qt_article_status').append(`<tr><td colspan=3>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='DownloadForms();'>Download</button></div></div></td></tr>`);
-                                $('.qt_article_status').append(`<tr><td colspan=4>Download ရယူပြီး MACရုံးဒုညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတန်းများအားတင်သွင်းရန်</td><td></td></tr>`);
+                                $('.qt_article_status').append(`<tr><td colspan=4>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတန်းများအားတင်သွင်းရန်</td><td></td></tr>`);
                                 $('.qt_article_status').append(`<tr><td colspan=2>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></td></tr>`);
                             }
                             if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
@@ -766,7 +766,167 @@ function user_profile() {
                 //     }
                 // }
 
-            } else {
+            }else if(data.article.length!=0 && data.student_course_regs.length==0){
+                
+                $('.title').text('Student Information')
+                $('.qualified_test').show();
+                $('.cpaff_other').hide();
+                $('.app_status').hide();
+                $('#qt_name_mm').text(data.name_mm);
+                $('#qt_name_eng').text(data.name_eng);
+                $("#qt_nrc").text(data.nrc_state_region + "/" + data.nrc_township + "(" + data.nrc_citizen + ")" + data.nrc_number);
+                $("#qt_email").text(data.email);
+                $('#qt_phone').text(data.phone);
+           
+                document.getElementById('qt_image').src = BASE_URL + data.image;
+                
+                let article = data.article;
+                        article.forEach(function (element) {
+                            article_form_type = element.article_form_type;
+
+                            switch (article_form_type) {
+                                case 'c12':
+                                    form_type = 'CPA I,II';
+                                    break;
+                                case 'c2_pass_3yr':
+                                    form_type = 'CPA II Pass 3 yr';
+                                    break;
+                                case 'c2_pass_1yr':
+                                    form_type = 'CPA II Pass 1 yr';
+                                    break;
+                                case 'qt_firm':
+                                    form_type = 'QT Pass 3 yr';
+                                    break;
+                                case 'c2_pass_renew':
+                                    form_type = 'CPA II Pass Renew';
+                                    break;
+                                case 'c12_renew':
+                                    form_type = 'CPA I,II Renew';
+                                    break;
+                                default:
+                                    form_type = 'Resign';
+                                    break;
+                            }
+                            let contract_start_date = element.contract_start_date === null ? "-" : element.contract_start_date;
+                            let contract_end_date = element.contract_end_date === null ? "-" : element.contract_end_date;
+                            if (element.article_form_type == 'resign') {
+                                if (element.resign_status == 0) {
+                                    invoice_len = data.invoice.length;
+                                    if(data.invoice[invoice_len-1].status === '0'){
+                                        $('.qt_article_status').append(`<tr>
+                                            <td>${form_type} Form</td>
+                                            <td>${contract_start_date}</td>
+                                            <td>${contract_end_date}</td>
+                                            <td><span class="badge bg-success">Payment !</span></td>
+                                        </tr>
+                                        `);
+                                    }else{
+                                        $('.qt_article_status').append(`<tr>
+                                            <td>${form_type} Form</td>
+                                            <td>${contract_start_date}</td>
+                                            <td>${contract_end_date}</td>
+                                            <td><span class="badge bg-success">Checking</span></td>
+                                        </tr>
+                                        `);
+                                    }
+                                } else if (element.resign_status == 1) {
+                                    if (element.done_status == 1) {
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Done</span></td>
+                                    </tr>
+                                    `);
+                                    } else if (element.done_status == 2) {
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Rejected</span></td>
+                                    </tr>
+                                    `);
+                                    }else if (element.done_status == 3) {
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Done</span></td>
+                                    </tr>
+                                    `);
+                                    }else {
+                                        $('.article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Approved</span></td>
+                                    </tr>
+                                    `);
+                                    }
+                                } else if (element.resign_status == 2) {
+                                    $('.qt_article_status').append(`<tr>
+                                    <td>${form_type} Form</td>
+                                    <td>${contract_start_date}</td>
+                                    <td>${contract_end_date}</td>
+                                    <td><span class="badge bg-success">Reject</span></td>
+                                </tr>
+                                `);
+                                }
+                            } else {
+                                if (element.status == 0) {
+                                    $('.qt_article_status').append(`<tr>
+                                    <td>${form_type} Form</td>
+                                    <td>${contract_start_date}</td>
+                                    <td>${contract_end_date}</td>
+                                    <td><span class="badge bg-success">Checking</span></td>
+                                </tr>
+                                `);
+                                } else if (element.status == 1) {
+                                    if (element.done_status == 1) {
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Done</span></td>
+                                    </tr>
+                                    `);
+                                    } else if (element.done_status == 2){
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Rejected</span></td>
+                                    </tr>
+                                    `);
+                                    }else if (element.done_status == 3){
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Done</span></td>
+                                    </tr>
+                                    `);
+                                    }else {
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Approved</span></td>
+                                    </tr>
+                                    `);
+                                    }
+                                } else if (element.status == 2) {
+                                    $('.qt_article_status').append(`<tr>
+                                    <td>${form_type} Form</td>
+                                    <td>${contract_start_date}</td>
+                                    <td>${contract_end_date}</td>
+                                    <td><span class="badge bg-success">Reject</span></td>
+                                </tr>
+                                `);
+                                }
+                            }
+                        });
+            }else {
                 $('.cpaff_other').hide();
                 $('.da_cpa').show();
                 $('.title').text("Student Information")
@@ -2274,6 +2434,13 @@ function user_profile() {
 
                 // Show Article Status
                 if (latest_stu_reg[0]) {
+                   if(latest_course_reg[0].status==0){
+                       $('#article_row').css('display','none');
+                   }
+                   else{
+                    $('#article_row').css('display','block');
+                   }
+                    console.log(latest_course_reg[0],'aa');
                     if (latest_stu_reg[0].form_type == 3 && latest_stu_reg[0].status == 1 && latest_stu_reg[0].course.code == "cpa_1" || latest_stu_reg[0].course.code == "cpa_2") {
                         let latest_article = data.article.slice(-1);
                         let latest_gov_article = data.gov_article.slice(-1);
@@ -2440,7 +2607,7 @@ function user_profile() {
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
                                         <td><span class="badge bg-success">Reject</span></td>
-                                        <td></td>
+                                        <td>${element.remark}</td>
                                     </tr>
                                     `);
                                     }
@@ -2463,6 +2630,7 @@ function user_profile() {
                                 var today_time = today.getTime();
 
                                 if (end_time <= today_time && latest_article[0].done_status == 0) {
+                                    
                                     if (latest_article[0].done_form_attach && latest_article[0].done_status == 0) {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
                                     } else if (latest_article[0].yes_done_attach == 1) {
@@ -2500,6 +2668,7 @@ function user_profile() {
                             } else if (latest_article[0]?.status == 1) {
                                 if (latest_article[0].registration_fee == null) {
                                     // $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
+                                    
                                     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
                                     } else {
@@ -2508,7 +2677,7 @@ function user_profile() {
                                 }
                                 if (!latest_article[0].mentor_attach_file) {
                                     $('.article_btn').append(`<tr><td colspan=3>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='DownloadForms();'>Download</button></div></div></td></tr>`);
-                                    $('.article_btn').append(`<tr><td colspan=4>Download ရယူပြီး MACရုံးဒုညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတန်းများအားတင်သွင်းရန်</td><td></td></tr>`);
+                                    $('.article_btn').append(`<tr><td colspan=4>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတန်းများအားတင်သွင်းရန်</td><td></td></tr>`);
                                     $('.article_btn').append(`<tr><td colspan=2>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></td></tr>`);
                                 }
                                 if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
@@ -2794,7 +2963,6 @@ function user_profile() {
 
                                     var end_time = end_date.getTime();
                                     var today_time = today.getTime();
-
                                     if (end_time <= today_time && latest_article[0].done_status == 0) {
                                         if (latest_article[0].done_form_attach && latest_article[0].done_status == 0) {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
@@ -2828,7 +2996,7 @@ function user_profile() {
                                     }
                                     if (!latest_article[0].mentor_attach_file) {
                                         $('.article_btn').append(`<tr><td colspan=3>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='DownloadForms();'>Download</button></div></div></td></tr>`);
-                                        $('.article_btn').append(`<tr><td colspan=4>Download ရယူပြီး MACရုံးဒုညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတန်းများအားတင်သွင်းရန်</td><td></td></tr>`);
+                                        $('.article_btn').append(`<tr><td colspan=4>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတန်းများအားတင်သွင်းရန်</td><td></td></tr>`);
                                         $('.article_btn').append(`<tr><td colspan=2>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></td></tr>`);
                                     }
                                     if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
@@ -2873,9 +3041,8 @@ function user_profile() {
                             } else {
 
                                 var invoice = data.invoice.filter(val => {
-                                    return val.invoiceNo == "gov" && val.status == 0;
+                                    return val.invoiceNo == "gov"+latest_gov_article[0].id && val.status == 0;
                                 });
-
                                 if(invoice[0] != undefined){                                   
                                   var payment_url = FRONTEND_URL + "/payment_method/" + latest_gov_article[0].student_info_id + "/" + invoice[0].invoiceNo;                               
                                 }
@@ -2890,11 +3057,12 @@ function user_profile() {
                                     var end_time = end_date.getTime();
                                     var today_time = today.getTime();
                                     if (end_time <= today_time && latest_gov_article[0].done_status == 0) {
+                                        console.log(data,'article');
                                         if (latest_gov_article[0].done_form_attach && latest_gov_article[0].done_status == 0) {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
                                         }
                                         else if(latest_gov_article[0].yes_done_attach == 1){
-                                            $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='CompleteDownloadForms();'>Download</button></div></div></td></tr>`);
+                                            $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='GovDownloadForms();'>Download</button></div></div></td></tr>`);
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='gov_done_form'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='gov_done_form_btn' onclick='saveGovDoneForm(${latest_gov_article[0].id})'>Submit</button></div></div></td></tr>`);
                                         } else {
                                             $('.article_btn').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
@@ -2916,6 +3084,9 @@ function user_profile() {
                                 else if (latest_gov_article[0].status == 1) {
                                     if (latest_gov_article[0].registration_fee == null) {
                                         // $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveGovRegistrationFee(${latest_gov_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
+                                        console.log('!jQuery.isEmptyObject(invoice)',jQuery.isEmptyObject(invoice));
+                                        console.log('invoice.length',invoice.length);
+                                        console.log('invoice',invoice);
                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
                                         } else {
@@ -3171,6 +3342,12 @@ function CompleteDownloadForms(){
     $('#downloadFormModel').modal('toggle');
     $('#mentor_attach').css('display', 'none');
     $('#complete_attach').css('display', 'block');
+}
+function GovDownloadForms(){
+    $('#downloadFormModel').modal('toggle');
+    $('#mentor_attach').css('display', 'none');
+    $('#complete_attach').css('display', 'none');
+    $('#gov_attach').css('display', 'block');
 }
 
 function renewRegister(){
@@ -4119,9 +4296,12 @@ function allowToRenew() {
 
           if(current_month >= 10 || current_month <= 4){
             acc_firm_data.forEach(function(acc_firm){
+              // console.log("####",acc_firm.accountancy_firm_name);
+              // console.log("####",acc_firm.id);
+              
               if(acc_firm.audit_firm_type_id == 1){
                 // audit firm
-                var audit_invoice_status = data[0].audit_invoice_status[0].status;
+                var audit_invoice_status = data[0].audit_invoice_status;
                 if(acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1){
                   // to renew approved offline users
                   console.log("1");
@@ -4142,7 +4322,7 @@ function allowToRenew() {
               else{
                 console.log("3");
                 // non-audit firm
-                var nonaudit_invoice_status = data[0].nonaudit_invoice_status[0].status;
+                var nonaudit_invoice_status = data[0].nonaudit_invoice_status;
                 if(acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1){
                   // to renew approved offline users
                   $('#check_renew').css('display','none');

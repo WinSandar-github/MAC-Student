@@ -86,7 +86,7 @@
                             <form method="post" id="article_register_form"  action="javascript:javascript:createArticleFirmRegister();"
                                     enctype="multipart/form-data" novalidate>
                                 @csrf
-                                
+
                                 <div class="row">
                                     <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
 
@@ -133,7 +133,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        
+
 
                                         <div id="qt_row">
                                             <div class="row mb-3">
@@ -316,7 +316,7 @@
                                                             <p class="ml-2" style="font-weight:bold" align="left">ပညာအရည်အချင်းမိတ္တူ</p>
                                                         </div>
                                                         <div class="col-md-3 stu_certificate">
-                                                        
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -373,7 +373,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div id="experience_row">
                                             <div class="row mb-3">
                                                 <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>လက်တွေ့အလုပ်သင်ကြားဖူးခြင်း ရှိ/မရှိ<span style="color:red">*</span></label>
@@ -394,7 +394,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div id="experience_attach_row" style="display:none">
                                             <div class="row mb-3">
                                                 <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>ရှိပါက အထောက်အထားများဖြင့် တင်ပြပေးပါရန်</label>
@@ -412,7 +412,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
 
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_job_label">{{ __('၉။') }}</span>ပုဂ္ဂလိကနှင့် အစိုးရဌာနအဖွဲအစည်းများ၊ အခြားဌာနအဖွဲ့အစည်းများ၊ ကုမ္ပဏီများ၊ Non Audit Service လုပ်ငန်းများတွင် အချိန်ပြည့်/ အချိန်ပိုင်းဝန်ထမ်း အဖြစ်ဆောင်ရွက်နေခြင်း ရှိ/မရှိ<span style="color:red">*</span></label>
@@ -432,7 +432,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div id="current_job_row" style="display:none;">
                                             <div class="row mb-3">
                                                 <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>ရှိပါက ရာထူး/ စတင်ထမ်းဆောင်သည့်နေ့</label>
@@ -521,14 +521,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
                                         <input type="hidden" id="article_form_type" name="article_form_type" >
 
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" name="confirm_142">
+                                                    <input class="form-check-input" type="checkbox" name="confirm_142" onchange="validateSubmitClick()">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
                                                         * <a href="https://demo.aggademo.me/MAC/public/storage/article/128.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၂၈)</a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
@@ -541,7 +541,7 @@
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" name="confirm_status">
+                                                    <input class="form-check-input" type="checkbox" name="confirm_status" onchange="validateSubmitClick()">
                                                     <span class="form-check-sign"></span>
                                                     * <div class="row">
                                                         <div class="col-md-1">၁ ။</div>
@@ -575,7 +575,7 @@
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" name="mentor_declare" onchange="$('#submit_btn').prop('disabled', !this.checked)">
+                                                    <input class="form-check-input" type="checkbox" name="mentor_declare" onchange="validateSubmitClick()">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
                                                         * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်စွာရေးသွင်းထားပါသည်။၊<br>
@@ -676,9 +676,9 @@
 
             let certificate = JSON.parse(qualified_test.local_education_certificate);
                 $.each(certificate,function(fileCount,fileName){
-                   
-                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
-                   
+
+                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);
+
                 })
 
         });
@@ -704,7 +704,7 @@
                 $("#experience_attach_row").css('display','none');
             }
         });
-        
+
         $("input[name='job_started_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
@@ -786,6 +786,19 @@
         if ( /[a-zA-Z0-9]+$/.test( val ) ) {
           self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
         }
+    }
+
+    function validateSubmitClick(){
+      var check_confirm_142 = $("input[name=confirm_142]").prop('checked');
+      var check_confirm_status = $("input[name=confirm_status]").prop('checked');
+      var check_mentor_declare = $("input[name=mentor_declare]").prop('checked');
+
+      if(check_confirm_142 == true && check_confirm_status == true && check_mentor_declare == true){
+        $("#submit_btn").prop('disabled',false);
+      }
+      else if(check_confirm_142 == false || check_confirm_status == false || check_mentor_declare == false){
+        $("#submit_btn").prop('disabled',true);
+      }
     }
 </script>
 @endpush

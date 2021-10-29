@@ -609,32 +609,31 @@
                         {{--reject register buttons--}}
                         <div id="reject_register_btn_audit" style="display:none;">
                           <div class="row" >
-                              <div class="col-md-12">
-                                  <div align="center">
-                                      <p class="info-btn col-md-2 mb-4 text-dark h6">
-                                          <a href="{{url('audit_firm_reject_register')}}" class="btn btn-success btn-hover-dark" >Update Register</a>
-                                      </p>
-                                  </div>
+                              <div class="col-md-5 offset-md-3">
+                                <p class="info-btn mb-4 text-dark" align="center">
+                                    <a href="{{url('audit_firm_reject_register')}}" class="btn btn-success btn-hover-dark" >Update Register</a>
+                                </p>
                               </div>
                           </div>
                         </div>
                         <div id="reject_register_btn_non_audit" style="display:none;">
                           <div class="row" >
-                              <div class="col-md-12">
-                                  <div align="center">
-                                      <p class="info-btn col-md-2 mb-4 text-dark h6">
-                                          <a href="{{url('non_audit_firm_reject_register')}}" class="btn btn-success btn-hover-dark" >Update Register</a>
-                                      </p>
-                                  </div>
+                              <div class="col-md-5 offset-md-3">
+                                <p class="info-btn mb-4 text-dark" align="center">
+                                    <a href="{{url('non_audit_firm_reject_register')}}" class="btn btn-success btn-hover-dark" >Update Register</a>
+                                </p>
                               </div>
                           </div>
                         </div>
+
                         <div id="reject_remark_box" style="display:none;">
                           <div class="row my-2">
-                            <h5 class="text-center border-bottom pb-2"
-                                style="font-weight:bold ;background-color:#E7F8EE;">Reject Remark</h5>
-                            <div class="text-center text-danger reject_remark">
+                            <div class="col-md-5 offset-md-3">
+                              <h5 class="text-center border-bottom pb-2"
+                                  style="font-weight:bold ;background-color:#E7F8EE;">Reject Remark</h5>
+                              <div class="text-center text-danger reject_remark">
 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -711,7 +710,7 @@
 
                         </div>
 
-                        <div class="row my-2">
+                        <div class="row my-2 app_status">
 
                             <div class="offset-md-3 col-md-9">
 
@@ -2225,7 +2224,7 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div id="mentor_attach">
-                            <div class="form-group row">
+                            <div class="form-group row" id="c2_pass_attach">
                                 <div class="col-md-6">
                                     <label>Contract for CII Pass and QT Pass </label>
                                 </div>
@@ -2233,7 +2232,7 @@
                                     <a href="https://demo.aggademo.me/MAC/public/storage/article/contract_CIIPass_QTPass.pdf" target="_blank">Download File</a>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row" id="c2_not_pass_attach">
                                 <div class="col-md-6">
                                     <label>Contract CII Not Pass</label>
                                 </div>
@@ -2297,6 +2296,56 @@
                                 </div>
                                 <div class="col-md-6">
                                     <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_3year_Completed_Form.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="gov_attach" style="display:none;">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Duty Report for Other</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Duty_Report_for_other.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Government Article Contract</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Gov_Art_Contract.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Daily Record</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Daily_Record.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Duty Report for Yangon</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Duty_Report_for_Ygn.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Daily Attendence</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Daily_attendend.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article Report</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_report.pdf" target="_blank">Download File</a>
                                 </div>
                             </div>
                         </div>
