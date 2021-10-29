@@ -497,7 +497,7 @@
                                             <div class="row mb-3">
                                                 <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၅။') }}</span>ယခင်အလုပ်သင်ကြားခဲ့သည့် PAPP အမှတ်</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" name="previous_papp_name" id="previous_papp_name" class="form-control" placeholder="ယခင်အလုပ်သင်ကြားခဲ့သည့် PAPP အမှတ်(eg.PA-123)">
+                                                    <input type="text" name="previous_papp_name" id="previous_papp_name" class="form-control" placeholder="ယခင်အလုပ်သင်ကြားခဲ့သည့်PAPPအမှတ်(eg.PA-123)">
                                                 </div>
                                             </div>
                                         </div>
@@ -531,7 +531,7 @@
                                             <div class="col-md-9">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <input id="papp_name" type="text" name="papp_name" class="form-control" placeholder="ယခုအလုပ်သင်ကြားလိုသည့် PAPP အမှတ် (eg.PA-123)">
+                                                        <input id="papp_name" type="text" name="papp_name" class="form-control" placeholder="ယခုအလုပ်သင်ကြားလိုသည့်PAPPအမှတ်(eg.PA-123)">
                                                     </div>
                                                     <div class="col-md-6">
                                                         <input type="hidden" id="mentor_id">
