@@ -729,7 +729,7 @@
             }else if(exam_result == 1){
                 $("#result_name").text("အောင်မြင်");
             }else{
-                $("#result_name").text("ကျရုံး");
+                $("#result_name").text("ကျရှုံး");
                 $("#renew_row").show();
                 document.getElementById('request_label').innerHTML="၃။";
             }

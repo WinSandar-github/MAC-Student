@@ -2260,6 +2260,13 @@ function user_profile() {
 
                 // Show Article Status
                 if (latest_stu_reg[0]) {
+                   if(latest_course_reg[0].status==0){
+                       $('#article_row').css('display','none');
+                   }
+                   else{
+                    $('#article_row').css('display','block');
+                   }
+                    console.log(latest_course_reg[0],'aa');
                     if (latest_stu_reg[0].form_type == 3 && latest_stu_reg[0].status == 1 && latest_stu_reg[0].course.code == "cpa_1" || latest_stu_reg[0].course.code == "cpa_2") {
                         let latest_article = data.article.slice(-1);
                         let latest_gov_article = data.gov_article.slice(-1);
@@ -2413,7 +2420,7 @@ function user_profile() {
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
                                         <td>${contract_end_date}</td>
-                                        <td><span class="badge bg-success">Reject</span></td>
+                                        <td><span class="badge bg-success">Rejected</span></td>
                                     </tr>
                                     `);
                                     }

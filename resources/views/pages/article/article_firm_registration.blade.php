@@ -718,11 +718,17 @@
             let student_reg = data.data.student_register
             let lastest_row = student_reg.length - 1;
             let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
-            let exam_result = student_reg[lastest_row].status;  // pass/fail
+            let exam_result ;  // pass/fail
             let module = student_reg[lastest_row].module;  // module 1/2/all
             let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
             let batch = student_reg[lastest_row].batch;  // module 1/2/all
-
+            let last_exam_register = data.data.exam_registers[student_reg.length - 1];
+            if(last_exam_register.course.code=='cpa_2'){
+                exam_result = 1;
+            }
+            else{
+                exam_result = 0;
+            }
             $("#student_info_id").val(student_reg[lastest_row].student_info_id);
 
             if(course == "cpa_1"){
