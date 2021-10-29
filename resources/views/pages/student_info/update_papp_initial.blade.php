@@ -94,7 +94,7 @@
                         </h5><br>
 
                         {{--<form  method="post" action="javascript:Papp_Submit();" enctype="multipart/form-data" >--}}
-                        <form  method="post" id="papp_form" action="javascript:Papp_Submit();" enctype="multipart/form-data">
+                        <form  method="post" id="papp_form" action="javascript:void();" enctype="multipart/form-data">
                             <fieldset id="fieldset" disabled="disabled">
                             <!-- <fieldset id="fieldset" > -->
                             <input type="hidden" id="papp_id" name="papp_id"/>

@@ -524,17 +524,17 @@
                                         
                                     </div>
                             </div>
-                                <!-- <div class="row mb-3">
-                                    <label class="col-md-4 col-form-label label"><span
-                                                class="pull-left">၉။</span>Applied Date</label>
-                                    <div class="col-md-8">
-                                        <input type="text" class="form-control" id="register_date" readonly>
-                                        
-                                    </div>
-                                </div> -->
                                 <div class="row mb-3">
                                     <label class="col-md-4 col-form-label label"><span
-                                                class="pull-left">၁၁။</span>Status</label>
+                                                class="pull-left">၁၁။</span>နောက်ဆုံးသက်တမ်းတိုးခဲ့သည့် ခုနှစ်</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="renew_date" readonly>
+                                        
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label"><span
+                                                class="pull-left">၁၂။</span>Status</label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" id="message" readonly>
                                        
@@ -542,7 +542,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-md-8 col-form-label label"><span
-                                                class="pull-left">၁၂။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
+                                                class="pull-left">၁၃။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
 
                                     
                                 </div>
