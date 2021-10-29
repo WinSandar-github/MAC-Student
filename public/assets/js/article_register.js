@@ -94,8 +94,8 @@ function loadMentorList(){
             $('#papp_name').autocomplete({
                 source : array,              
                 select : getMentorName,
-                focus : getMentorName,
-                change :getMentorName
+                //focus : getMentorName,
+                //change :getMentorName
             })
         },
         error:function (message){
@@ -412,5 +412,50 @@ function createArticleRenewRegister() {
             EasyLoading.hide();
             errorMessage(message);
         }
+    });
+}
+function check_email_cpaTwoPassOneYear()
+{
+    var text = localStorage.getItem('verify_code');
+    var obj = JSON.parse(text);
+    var verify_code = obj.data.verify_code;
+    var code = $("input[name=verify_code]").val();
+    if(verify_code != code){
+        successMessage("Your code is not correct.Please check your email inbox again!");
+        // $('#exampleModal').modal('show');
+        // $('#exampleModal1').modal('hide');
+        // $('#exampleModal').modal('show');
+    }else{
+        createCPATwoPassOneYearArticle();
+        $('#cpaTwoPassOneYearArticleModal').modal('hide');
+    }
+}
+function createCPATwoPassOneYearArticle(){
+    var send_data = new FormData($( "#article_cpaTwoPassOneYear_form" )[0]);
+    if($('#offline_user').val()){
+        send_data.append('offline_user',$('#offline_user').val());
+      }
+      send_data.append('mentor_id', $("#mentor_id").val());
+      send_data.append('article_form_type', $("#article_form_type").val());
+    show_loader();
+    $.ajax({
+        type: "POST",
+        data: send_data,
+        url: BACKEND_URL + "/article_firm_register",
+        // async: false,
+        //cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+
+            EasyLoading.hide();
+            successMessage(data.message);
+            location.href=FRONTEND_URL+'/';
+         
+        },
+        error: function (result) {
+          
+          
+        },
     });
 }

@@ -140,7 +140,7 @@
                     
                     <a onclick="location.href =`${FRONTEND_URL}/article_cpa_two_three_pass_year`" class="btn btn-md btn-success">CPA II Pass 3 Year</a>
                     <hr>
-                    <a onclick="location.href =`${FRONTEND_URL}/article_cpa_two_renew`" class="btn btn-md btn-success">CPA II Renew</a>
+                    <a onclick="location.href =`${FRONTEND_URL}/article_cpa_two_renew`" class="btn btn-md btn-success">CPA II Pass Renew</a>
                    
                  </div>
                 <div class="modal-footer">
