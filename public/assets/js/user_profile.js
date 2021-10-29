@@ -765,7 +765,7 @@ function user_profile() {
                 //     }
                 // }
 
-            }else if(data.article){
+            }else if(data.article.length!=0 && data.student_course_regs.length==0){
                 
                 $('.title').text('Student Information')
                 $('.qualified_test').show();
