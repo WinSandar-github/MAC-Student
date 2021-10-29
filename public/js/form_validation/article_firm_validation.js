@@ -138,7 +138,7 @@ $().ready(function (){
                 required : true,
                 equalTo : "#password"
             },
-            profile_photo : "required",
+            image : "required",
             name_mm : "required",
             name_eng : "required",
             father_name_mm : "required",
@@ -159,17 +159,17 @@ $().ready(function (){
             education : "required",
             address : "required",
             current_address : "required",
-            phone_no : "required",
+            phone : "required",
             m_email : "required",
             papp_name : "required",
             //mentor_name : "required",
             pass_date : "required",
             pass_no : "required",
             current_job : "required",
-            position : {
+            gov_position : {
                 required : "#current_job_yes:checked"
             },
-            job_started_date : {
+            gov_joining_date : {
                 required : "#current_job_yes:checked"
             },
             experience : "required",
@@ -205,15 +205,15 @@ $().ready(function (){
             education : "Please enter your education",
             address : "Please enter your address",
             current_address : "Please enter your current address",
-            phone_no : "Please enter your phone number",
+            phone : "Please enter your phone number",
             m_email : "Please enter your email",
             papp_name : "Please enter your papp name",
             mentor_name : "Please select mentor name",
             current_job : "Please select one",
-            position : "Please enter your position",
-            job_started_date : "Please select your date",
-            pass_date : "Please select your pass exam date",
-            pass_no : "Please enter your pass exam number",
+            gov_position : "Please enter your position",
+            gov_joining_date : "Please select your date",
+            pass_date : "Please select",
+            pass_no : "Please enter",
             experience : "Please select one",
             experience_file : "Please enter your attachment",
             confirm_142 : "Please check one",
