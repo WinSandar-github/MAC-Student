@@ -451,7 +451,7 @@
                                             class="pull-left">{{ __('၁၄။') }}</span>{{ __('နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးခဲ့သည့် ကာလ') }}</label>
                                 <div class="col-md-8">
                                     <input type="text" name="last_registration_fee_year" class="form-control" placeholder="mm-yyyy"
-                                               autocomplete='off' >
+                                               autocomplete='off' required>
 
                                 </div>
                             </div>
@@ -494,7 +494,7 @@
                                     <label class="col-md-4 col-form-label label"><span
                                                 class="pull-left">၁၆။</span>ကနဦးကျောင်းမှတ်ပုံတင်ကတ်ထုတ်ပေးသည့် ရက်စွဲ</label>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" id="from_valid_date" name="from_valid_date" placeholder="dd-mm-yyyy" autocomplete='off' >
+                                        <input type="text" class="form-control" id="from_valid_date" name="from_valid_date" placeholder="dd-mm-yyyy" autocomplete='off' required>
                                         
                                     </div>
                             </div>
@@ -502,7 +502,7 @@
                                     <label class="col-md-4 col-form-label label"><span
                                                 class="pull-left">၁၇။</span>ကျောင်းမှတ်ပုံတင်အမှတ်</label>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" id="s_code" name="s_code" autocomplete='off' placeholder="eg:PCS-001 or PCC-001 or PCP-001 ">
+                                        <input type="text" class="form-control" id="s_code" name="s_code" autocomplete='off' placeholder="eg:PCS-001 or PCC-001 or PCP-001 " required>
                                         
                                     </div>
                             </div>
