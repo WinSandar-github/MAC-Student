@@ -710,7 +710,7 @@
 
                         </div>
 
-                        <div class="row my-2">
+                        <div class="row my-2 app_status">
 
                             <div class="offset-md-3 col-md-9">
 
