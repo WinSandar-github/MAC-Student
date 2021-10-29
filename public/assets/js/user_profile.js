@@ -2669,6 +2669,7 @@ function user_profile() {
                             } else if (latest_article[0]?.status == 1) {
                                 if (latest_article[0].registration_fee == null) {
                                     // $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
+                                    
                                     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
                                     } else {
@@ -3041,9 +3042,8 @@ function user_profile() {
                             } else {
 
                                 var invoice = data.invoice.filter(val => {
-                                    return val.invoiceNo == "gov" && val.status == 0;
+                                    return val.invoiceNo == "gov"+latest_gov_article[0].id && val.status == 0;
                                 });
-
                                 if(invoice[0] != undefined){                                   
                                   var payment_url = FRONTEND_URL + "/payment_method/" + latest_gov_article[0].student_info_id + "/" + invoice[0].invoiceNo;                               
                                 }
@@ -3085,6 +3085,9 @@ function user_profile() {
                                 else if (latest_gov_article[0].status == 1) {
                                     if (latest_gov_article[0].registration_fee == null) {
                                         // $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveGovRegistrationFee(${latest_gov_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
+                                        console.log('!jQuery.isEmptyObject(invoice)',jQuery.isEmptyObject(invoice));
+                                        console.log('invoice.length',invoice.length);
+                                        console.log('invoice',invoice);
                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
                                         } else {
@@ -4294,9 +4297,12 @@ function allowToRenew() {
 
           if(current_month >= 10 || current_month <= 4){
             acc_firm_data.forEach(function(acc_firm){
+              // console.log("####",acc_firm.accountancy_firm_name);
+              // console.log("####",acc_firm.id);
+              
               if(acc_firm.audit_firm_type_id == 1){
                 // audit firm
-                var audit_invoice_status = data[0].audit_invoice_status[0].status;
+                var audit_invoice_status = data[0].audit_invoice_status;
                 if(acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1){
                   // to renew approved offline users
                   console.log("1");
@@ -4317,7 +4323,7 @@ function allowToRenew() {
               else{
                 console.log("3");
                 // non-audit firm
-                var nonaudit_invoice_status = data[0].nonaudit_invoice_status[0].status;
+                var nonaudit_invoice_status = data[0].nonaudit_invoice_status;
                 if(acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1){
                   // to renew approved offline users
                   $('#check_renew').css('display','none');
