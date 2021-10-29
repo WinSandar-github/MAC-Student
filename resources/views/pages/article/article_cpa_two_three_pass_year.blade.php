@@ -83,8 +83,8 @@
                         <!-- Form Wrapper Start -->
                         <div class="form-wrapper">
 
-                            <form method="post" id="article_register_form"  action="javascript:javascript:createArticleFirmRegister();"
-                                    enctype="multipart/form-data" novalidate>
+                            <form method="post" id="article_cpaTwoPassOneYear_form"  action="javascript:void();"
+                                    enctype="multipart/form-data" class="needs-validation" autocomplete="off" novalidate>
                                 @csrf
                                 
                                 <div class="row">
@@ -125,9 +125,9 @@
                                                 <ul>
                                                     <li>လူကြီးမင်း </li>
                                                     <li>
-                                                        <input type="radio" class="form-check-input" value="1" id="male1" name="gender1" >
+                                                        <input type="radio" class="form-check-input" value="1" id="male1" name="gender" >
                                                         <label class="form-check-label " for="">ခင်ဗျာ</label>
-                                                        <input type="radio" class="form-check-input" value="0" id="female2" name="gender1" >
+                                                        <input type="radio" class="form-check-input" value="0" id="female2" name="gender" >
                                                         <label class="form-check-label " for="">ရှင့်</label>
                                                     </li>
                                                 </ul>
@@ -217,7 +217,7 @@
                                                         <span class="btn btn-round btn-secondary btn-file">
                                                         <span class="fileinput-new">ဓာတ်ပုံ</span>
                                                         <span class="fileinput-exists">Change</span>
-                                                        <input type="file" id="profile_photo" name="profile_photo" accept="image/*"></span>
+                                                        <input type="file" id="profile_photo" name="image" accept="image/*"></span>
                                                         <br>
                                                         <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                     </div>
@@ -339,8 +339,27 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၇။') }}</span>ပညာအရည်အချင်း</label>
+                                            
                                             <div class="col-md-9">
-                                                <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း" >
+                                                <table class="table tbl_degree table-bordered input-table">
+                                                    <thead>
+                                                        <tr >
+                                                            <th class="less-font-weight text-center" width="10%">စဉ်</th>
+                                                            <th class="less-font-weight text-center"  width="40%">တက္ကသိုလ်/ဘွဲ့/ဒီပလိုမာ</th>
+                                                            <th class="less-font-weight text-center"  width="40%">Attached Certificate</th>
+                                                            <th class="text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowEducation("tbl_degree")'><li class="fa fa-plus"></li></button></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="tbl_degree_body">
+                                                        <tr>
+                                                            <td class="text-center"><input type="number" class="form-control" value="1" style="border:none"/></td>
+                                                            <td><input type="text" name="degrees[]" class="form-control"  autocomplete="off" required></td>
+                                                            <td><input type="file" name="degrees_certificates[]" class="form-control"  required></td>
+                                                            <td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick='delRowEducation("tbl_degree_body")'><li class="fa fa-times"></li></button></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                
                                             </div>
                                         </div>
 
@@ -393,7 +412,7 @@
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>မွေးသက္ကရာဇ်</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" value="{{ old('date_of_birth') }}" >
+                                                <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="dd-mm-yyyy" value="{{ old('date_of_birth') }}" >
                                             </div>
                                         </div>
 
@@ -476,10 +495,10 @@
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <input type="text" placeholder="ရာထူး" name="position" id="position" class="form-control">
+                                                            <input type="text" placeholder="ရာထူး" name="gov_position" id="position" class="form-control">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" name="job_started_date" id="job_started_date" class="form-control" >
+                                                            <input type="text" placeholder="dd-mm-yyyy" name="gov_joining_date" id="job_started_date" class="form-control" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -494,16 +513,16 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="address_label">{{ __('၁၁။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="address_label">{{ __('၁၄။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="address" id="address" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="phone_label">{{ __('၁၂။') }}</span>ဖုန်းနံပါတ်<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="phone_label">{{ __('၁၅။') }}</span>ဖုန်းနံပါတ်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
-                                                <input type="text" name="phone_no" id="phone_no" class="form-control" placeholder="ဖုန်းနံပါတ်">
+                                                <input type="text" name="phone" id="phone_no" class="form-control" placeholder="ဖုန်းနံပါတ်">
                                             </div>
                                         </div>
 
@@ -524,16 +543,16 @@
                                         </div> -->
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၃။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၆။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <div class="row">
-                                                    <div class="col-md-12">
+                                                    <div class="col-md-6">
                                                         <input id="papp_name" type="text" name="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်">
                                                     </div>
-                                                    <!-- <div class="col-md-6">
+                                                    <div class="col-md-6">
                                                         <input type="hidden" id="mentor_id">
-                                                        <input type="text" name="mentor_name" id="mentor_name" class="form-control" placeholder="Mentor Name">
-                                                    </div> -->
+                                                        <input type="text" name="mentor_name" id="mentor_name" class="form-control" placeholder="Mentor Name" readonly>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -541,11 +560,11 @@
                                         
                                         <div id="previous_exam_pass_row" >
                                             <div class="row mb-3">
-                                                <label class="col-md-3 col-form-label label"><span class="pull-left" id="exam_pass_date_label">{{ __('၁၄။') }}</span>စာမေးပွဲကျင်းပသည့် ခုနှစ်၊လ ၊ အောင်မြင်သည့်အမှတ်စဥ် </label>
+                                                <label class="col-md-3 col-form-label label"><span class="pull-left" id="exam_pass_date_label">{{ __('၁၇။') }}</span>စာမေးပွဲကျင်းပသည့် ခုနှစ်၊လ ၊ အောင်မြင်သည့်အမှတ်စဥ် </label>
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <input type="text" placeholder="လ၊နှစ်(MMM-YYYY)" name="pass_date" id="pass_date" class="form-control" >
+                                                            <input type="text" placeholder="dd-mm-yyyy" name="pass_date" id="pass_date" class="form-control" >
                                                         </div>
                                                         <div class="col-md-6">
                                                             <input type="text" placeholder="အောင်မြင်သည့်အမှတ်စဥ်" name="pass_no" id="pass_no" class="form-control">
@@ -556,8 +575,8 @@
                                         </div>
                                         
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
-                                        <input type="hidden" id="article_form_type" name="article_form_type" >
-
+                                        <input type="hidden" id="article_form_type" name="article_form_type" value="c2_pass_3yr">
+                                        <input type="hidden" id="offline_user" value="true">
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
@@ -638,7 +657,39 @@
             </div>
 
         </div>
-
+<!-- Modal -->
+<form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+                novalidate>
+                @csrf
+                <div class="modal fade" id="cpaTwoPassOneYearArticleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
+                                <div class="mb-3" style="text-align:center;">
+                                    <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
+                                    <label>We have been sent verification code on your email.Please check your email.</label>
+                                </div><br>
+                                <div class="mb-3" style="text-align:center;">
+                                    <label style="margin-bottom: 2%;">Enter your verification code</label>
+                                    <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Enter Verification Code"></center>
+                                </div>
+                            </div>
+                            <center>
+                                <button type="submit" id="btn1" onclick="check_email_cpaTwoPassOneYear()" class="btn btn-success btn-hover-dark w-30">Verify
+                                </button>
+                            </center><br>
+                            <div class="col-md-12" style="text-align:center;">
+                                <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
+                            </div><br><br>
+                        </div>
+                    </div>
+                </div>
+</form>
 
     </div>
 
@@ -656,161 +707,13 @@
 @push('scripts')
 <script src="{{ asset('assets/js/myanmarnrc.js') }}"></script>
 <script src="{{asset('assets/js/article_register.js')}}"></script>
-<script src="{{ asset("js/form_validation/article_firm_validation.js") }}"></script>
+<script src="{{ asset('js/form_validation/article_firm_validation.js') }}"></script>
 <script type="text/javascript">
     $('document').ready(function(){
 
         loadMentorList();
 
-        var result = window.location.href;
-        var url = new URL(result);
-        var get_data = url.searchParams.get("data");
-
-        $("#article_form_type").val(get_data);
-
-        get_student_info(student_id).then(data => {
-            let student_info = data.data
-            let student_reg = data.data.student_register
-            let lastest_row = student_reg.length - 1;
-            let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
-            let exam_result = student_reg[lastest_row].status;  // pass/fail
-            let module = student_reg[lastest_row].module;  // module 1/2/all
-            let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
-            let batch = student_reg[lastest_row].batch;  // module 1/2/all
-
-            $("#student_info_id").val(student_reg[lastest_row].student_info_id);
-
-            if(course == "cpa_1"){
-                $("#course_name").text("ပထမပိုင်း");
-            }else{
-                $("#course_name").text("ဒုတိယပိုင်း");
-            }
-
-            var pass_date=new Date(student_reg[lastest_row].date);
-            var pass_year = pass_date.getFullYear();
-            var pass_month = pass_date.getMonth();
-            $("#pass_year").text(pass_year);
-            $("#pass_month").text(pass_month);
-
-            // if(module == 1){
-            //     $("#module_name").text("1");
-            // }else if(module == 2){
-            //     $("#module_name").text("2");
-            // }else{
-            //     $("#module_name").text("အားလုံး");
-            // }
-            // $("#batch_no").text(batch);
-
-            if(batch == "undefined"){
-                $("#batch_no").text("-");
-            }else{
-                $("#batch_no").text(batch.number);
-            } 
-
-            if(batch == "undefined"){
-                $("#batch_name").text("-");
-            }else{
-                $("#batch_name").text(batch.name_mm);
-            } 
-            
-            if(type == 0){
-                $("#type_name").text("ကိုယ်တိုင်လေ့လာသင်ယူသူအဖြစ်");
-                $("#type_name1").text("ကိုယ်တိုင်လေ့လာသင်ယူသူအဖြစ်");
-            }else if(type == 1){
-                $("#type_name").text("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်ကျောင်း");
-                $("#type_name1").text("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်ကျောင်း");
-            }else{
-                $("#type_name").text("သင်တန်းကျောင်း");
-                $("#type_name1").text("သင်တန်းကျောင်း");
-            }
-
-            if(exam_result == 0){
-                $("#result_name").text("တက်ရောက်နေ");
-            }else if(exam_result == 1){
-                $("#result_name").text("အောင်မြင်");
-            }else{
-                $("#result_name").text("ကျရုံး");
-                $("#renew_row").show();
-                document.getElementById('request_label').innerHTML="၃။";
-            }
-
-            if(student_info.gender == "Male"){
-                $('input:radio[name=gender1][value=1]').attr('checked',true);
-                $('input:radio[name=gender2][value=1]').attr('checked',true);
-                $('input:radio[name=gender3][value=1]').attr('checked',true);
-            }else{
-                $('input:radio[name=gender1][value=0]').attr('checked',true);
-                $('input:radio[name=gender2][value=0]').attr('checked',true);
-                $('input:radio[name=gender3][value=0]').attr('checked',true);
-            }
-
-            if(get_data == "c2_pass_3yr"){
-                $("#previous_exam_pass_row").css('display','block');
-                document.getElementById('exam_pass_date_label').innerHTML="၁၅။";
-            }else if(get_data == "c12"){
-                
-            }else if(get_data == "c2_pass_1yr"){
-                $("#all_first_row").css('display','none');
-                $("#renew_first_row").css('display','block');
-                $("#request_row").css('display','none');
-                $("#experience_row").css('display','none');
-                document.getElementById('current_job_label').innerHTML="၈။";
-                document.getElementById('address_label').innerHTML="၉။";
-                document.getElementById('current_address_label').innerHTML="၁၀။";
-                document.getElementById('phone_label').innerHTML="၁၁။";
-                document.getElementById('m_email_label').innerHTML="၁၂။";
-                $("#cpa2_pass_1year_row").css('display','block');
-                $("#previous_papp_name_row").css('display','block');
-                $("#previous_papp_date_row").css('display','block');
-                document.getElementById('papp_name_label').innerHTML="၁၅။";
-                $("#previous_exam_pass_row").css('display','block');
-
-                let latest_article = data.data.article.slice(-1);
-                let latest_gov_article = data.data.gov_article.slice(-1);
-
-                if(latest_gov_article[0]){
-                    $("#m_email").val(latest_gov_article[0].m_email);
-                    $("#current_address").val(latest_gov_article[0].current_address);
-                    //$("#previous_papp_name").val(latest_gov_article[0].current_address);
-                    $("#previous_papp_start_date").val(latest_gov_article[0].contract_start_date);
-                    $("#previous_papp_end_date").val(latest_gov_article[0].contract_end_date);
-                }else{
-                    $("#m_email").val(latest_article[0].m_email);
-                    $("#current_address").val(latest_article[0].current_address);
-                    $("#previous_papp_name").val(latest_article[0].request_papp);
-                    $("#previous_papp_start_date").val(latest_article[0].contract_start_date);
-                    $("#previous_papp_end_date").val(latest_article[0].contract_end_date);
-                }
-            }
-            console.log(student_info.cpersonal_no);
-            $('#name_mm').val(student_info.name_mm);
-            $("#name_eng").val(student_info.name_eng);
-            $("#personal_no").val(student_info.cpersonal_no);
-            $("#nrc_state_region").val(student_info.nrc_state_region);
-            $("#nrc_township").val(student_info.nrc_township);
-            $("#nrc_citizen").val(student_info.nrc_citizen);
-            $("#nrc_number").val(student_info.nrc_number);
-            $("#father_name_mm").val(student_info.father_name_mm);
-            $("#father_name_eng").val(student_info.father_name_eng);
-            $("#race").val(student_info.race);
-            $("#religion").val(student_info.religion);
-            $("#date_of_birth").val(student_info.date_of_birth);
-            $("#education").val(student_info.student_education_histroy.degree_name);
-            $("#address").val(student_info.address);
-            $("#phone_no").val(student_info.phone);
-
-            document.getElementById('previewImg').src = BASE_URL + student_info.image;
-            document.getElementById('previewNRCFrontImg').src = BASE_URL + student_info.nrc_front;
-            document.getElementById('previewNRCBackImg').src = BASE_URL + student_info.nrc_back;
-
-            let certificate = JSON.parse(student_info.student_education_histroy.certificate);
-                $.each(certificate,function(fileCount,fileName){
-                   
-                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
-                   
-                })
-
-        });
+       
     })
 
     $(document).ready(function (e) {
@@ -834,7 +737,7 @@
             }
         });
         
-        $("input[name='job_started_date']").flatpickr({
+        $("input[id='job_started_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
                 allowInput: true

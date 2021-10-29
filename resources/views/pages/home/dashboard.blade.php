@@ -376,6 +376,7 @@
                                                     <th>Start Date</th>
                                                     <th>End Date</th>
                                                     <th>Status</th>
+                                                    <th>Remark</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="article_status">

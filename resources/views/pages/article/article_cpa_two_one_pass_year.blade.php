@@ -132,9 +132,9 @@
                                                 <ul>
                                                     <li>လူကြီးမင်း </li>
                                                     <li>
-                                                        <input type="radio" class="form-check-input" value="1" id="male1" name="gender1" >
+                                                        <input type="radio" class="form-check-input" value="1" id="male1" name="gender" >
                                                         <label class="form-check-label " for="">ခင်ဗျာ</label>
-                                                        <input type="radio" class="form-check-input" value="0" id="female2" name="gender1" >
+                                                        <input type="radio" class="form-check-input" value="0" id="female2" name="gender" >
                                                         <label class="form-check-label " for="">ရှင့်</label>
                                                     </li>
                                                 </ul>
@@ -154,7 +154,7 @@
                                                             <input type="radio" class="form-check-input" value="0" id="female2" name="gender3" >
                                                             <label class="form-check-label " for="">ကျွန်မ</label>
                                                         </li>
-                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ဒုတိယပိုင်း စာမေးပွဲကို <br> <input class="p-input" type="text" name="pass_year" placeholder="yyyy"> ခုနှစ် <input class="p-input" type="text" name="pass_month" placeholder="mm"> လ တွင်ကျင်းပခဲ့သော CPA II <input class="p-input" type="text" name="batch_name"> တွင်အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li>
+                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ဒုတိယပိုင်း စာမေးပွဲကို <br> <input class="p-input" type="text" name="pass_date" placeholder="mm-yyyy">  တွင်ကျင်းပခဲ့သော CPA II အမှတ်စဥ်<input class="p-input" type="text" name="pass_no"> တွင်အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li><!--ခုနှစ် <input class="p-input" type="text" name="pass_month" placeholder="mm"> လ!-->
                                                     </ul>
                                                 </div>
                                             </div>
@@ -217,7 +217,7 @@
                                                         <span class="btn btn-round btn-secondary btn-file">
                                                         <span class="fileinput-new">ဓာတ်ပုံ</span>
                                                         <span class="fileinput-exists">Change</span>
-                                                        <input type="file" id="profile_photo" name="profile_photo" accept="image/*"></span>
+                                                        <input type="file" id="profile_photo" name="image" accept="image/*"></span>
                                                         <br>
                                                         <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                     </div>
@@ -412,7 +412,7 @@
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>မွေးသက္ကရာဇ်</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" value="{{ old('date_of_birth') }}" >
+                                                <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="dd-mm-yyyy" value="{{ old('date_of_birth') }}" >
                                             </div>
                                         </div>
 
@@ -455,10 +455,10 @@
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <input type="text" placeholder="ရာထူး" name="position" id="position" class="form-control">
+                                                            <input type="text" placeholder="ရာထူး" name="gov_position" id="position" class="form-control">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" name="job_started_date" id="job_started_date" class="form-control" >
+                                                            <input type="text" placeholder="dd-mm-yyyy" name="gov_joining_date" id="job_started_date" class="form-control" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -482,7 +482,7 @@
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="phone_label">{{ __('၁၄။') }}</span>ဖုန်းနံပါတ်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
-                                                <input type="text" name="phone_no" id="phone_no" class="form-control" placeholder="ဖုန်းနံပါတ်">
+                                                <input type="text" name="phone" id="phone_no" class="form-control" placeholder="ဖုန်းနံပါတ်">
                                             </div>
                                         </div>
 
@@ -509,10 +509,10 @@
                                                 <div class="col-md-9">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <input type="text" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" name="previous_papp_start_date" id="previous_papp_start_date" class="form-control" >
+                                                        <input type="text" placeholder="dd-mm-yyyy" name="previous_papp_start_date" id="previous_papp_start_date" class="form-control" >
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="text" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" name="previous_papp_end_date" id="previous_papp_end_date" class="form-control" >
+                                                        <input type="text" placeholder="dd-mm-yyyy" name="previous_papp_end_date" id="previous_papp_end_date" class="form-control" >
                                                     </div>
                                                     </div>
                                                 </div>
@@ -543,7 +543,7 @@
 
                                         
 
-                                        <div id="previous_exam_pass_row">
+                                        <!-- <div id="previous_exam_pass_row">
                                             <div class="row mb-3">
                                                 <label class="col-md-3 col-form-label label"><span class="pull-left" id="exam_pass_date_label">{{ __('၁၈။') }}</span>စာမေးပွဲကျင်းပသည့် ခုနှစ်၊လ ၊ အောင်မြင်သည့်အမှတ်စဥ် </label>
                                                 <div class="col-md-9">
@@ -557,10 +557,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
-                                        <input type="hidden" id="article_form_type" name="article_form_type" >
+                                        <input type="hidden" id="article_form_type" name="article_form_type" value="c2_pass_1yr">
 
                                         <div class="row mb-3">
                                             <div class="form-check">
@@ -675,7 +675,7 @@
                         </div>
                     </div>
                 </div>
-            </form>
+</form>
     </div>
 
     <!-- JavaScript Section -->
@@ -693,7 +693,7 @@
 <script src="{{ asset('assets/js/myanmarnrc.js') }}"></script>
 <script src="{{asset('assets/js/article_register.js')}}"></script>
 <script src="{{ asset('js/form_validation/article_firm_validation.js') }}"></script>
-<script src="{{ asset('js/form_validation/article_firm_validation.js') }}"></script>
+
 <script type="text/javascript">
     $('document').ready(function(){
 
@@ -723,7 +723,7 @@
             }
         });
         
-        $("input[name='job_started_date']").flatpickr({
+        $("input[id='job_started_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
                 allowInput: true
