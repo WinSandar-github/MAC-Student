@@ -2225,7 +2225,7 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div id="mentor_attach">
-                            <div class="form-group row">
+                            <div class="form-group row" id="c2_pass_attach">
                                 <div class="col-md-6">
                                     <label>Contract for CII Pass and QT Pass </label>
                                 </div>
@@ -2233,7 +2233,7 @@
                                     <a href="https://demo.aggademo.me/MAC/public/storage/article/contract_CIIPass_QTPass.pdf" target="_blank">Download File</a>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row" id="c2_not_pass_attach">
                                 <div class="col-md-6">
                                     <label>Contract CII Not Pass</label>
                                 </div>
