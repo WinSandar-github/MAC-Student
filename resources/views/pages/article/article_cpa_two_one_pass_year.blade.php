@@ -93,7 +93,7 @@
                             <form method="post" id="article_cpaTwoPassOneYear_form"  action="javascript:void();"
                                     enctype="multipart/form-data" class="needs-validation" autocomplete="off" novalidate>
                                 @csrf
-                                
+
                                 <div class="row">
                                     <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
 
@@ -141,8 +141,8 @@
                                             </div>
                                         </div>
 
-                                        
-                                        
+
+
                                         <div id="renew_first_row" >
                                             <div class="row mb-3">
                                                 <label class="col-md-1 col-form-label label"><span class="pull-left">{{__('၁။')}}</span></label>
@@ -160,7 +160,7 @@
                                             </div>
                                         </div>
                                         <input type="hidden" id="offline_user" value="true">
-                                        
+
 
                                         <div id="cpa2_pass_1year_row">
                                             <div class="row mb-3">
@@ -202,7 +202,7 @@
                                                     </div>
                                                 </div>
 
-                                                
+
                                             </div>
 
                                             <div class="col-md-4 text-center">
@@ -339,7 +339,7 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၇။') }}</span>ပညာအရည်အချင်း</label>
-                                            
+
                                             <div class="col-md-9">
                                                 <table class="table tbl_degree table-bordered input-table">
                                                     <thead>
@@ -359,7 +359,7 @@
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                
+
                                             </div>
                                         </div>
 
@@ -372,7 +372,7 @@
                                                             <p class="ml-2" style="font-weight:bold" align="left">ပညာအရည်အချင်းမိတ္တူ</p>
                                                         </div>
                                                         <div class="col-md-3 stu_certificate">
-                                                        
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -429,7 +429,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_job_label">{{ __('၁၁။') }}</span>ပုဂ္ဂလိကနှင့် အစိုးရဌာနအဖွဲအစည်းများ၊ အခြားဌာနအဖွဲ့အစည်းများ၊ ကုမ္ပဏီများ၊ Non Audit Service လုပ်ငန်းများတွင် အချိန်ပြည့်/ အချိန်ပိုင်းဝန်ထမ်း အဖြစ်ဆောင်ရွက်နေခြင်း ရှိ/မရှိ<span style="color:red">*</span></label>
                                             <div class="col-md-4">
@@ -448,7 +448,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div id="current_job_row" style="display:none;">
                                             <div class="row mb-3">
                                                 <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>ရှိပါက ရာထူး/ စတင်ထမ်းဆောင်သည့်နေ့</label>
@@ -501,7 +501,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
 
                                         <div id="previous_papp_date_row" >
                                             <div class="row mb-3">
@@ -541,7 +541,7 @@
                                             </div>
                                         </div>
 
-                                        
+
 
                                         <!-- <div id="previous_exam_pass_row">
                                             <div class="row mb-3">
@@ -558,14 +558,14 @@
                                                 </div>
                                             </div>
                                         </div> -->
-                                        
+
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
                                         <input type="hidden" id="article_form_type" name="article_form_type" value="c2_pass_1yr">
 
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" name="confirm_142">
+                                                    <input class="form-check-input" type="checkbox" name="confirm_142" onchange="validateSubmitClick()">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
                                                         * <a href="https://demo.aggademo.me/MAC/public/storage/article/128.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၂၈) </a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
@@ -578,7 +578,7 @@
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" name="confirm_status">
+                                                    <input class="form-check-input" type="checkbox" name="confirm_status" onchange="validateSubmitClick()">
                                                     <span class="form-check-sign"></span>
                                                     * <div class="row">
                                                         <div class="col-md-1">၁ ။</div>
@@ -612,7 +612,7 @@
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" name="mentor_declare" onchange="$('#submit_btn').prop('disabled', !this.checked)">
+                                                    <input class="form-check-input" type="checkbox" name="mentor_declare" onchange="validateSubmitClick()">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
                                                         * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်စွာရေးသွင်းထားပါသည်။၊<br>
@@ -638,7 +638,7 @@
                         </div>
                         <!-- Form Wrapper End -->
                     </div>
-                   
+
             </div>
 
         </div>
@@ -699,7 +699,7 @@
 
         loadMentorList();
 
-        
+
     })
 
     $(document).ready(function (e) {
@@ -722,7 +722,7 @@
                 $("#experience_attach_row").css('display','none');
             }
         });
-        
+
         $("input[id='job_started_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
@@ -739,7 +739,7 @@
                 dateFormat: "Y",
                 allowInput: true
         });
-        
+
         $("input[name='pass_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "M-Y",
@@ -810,5 +810,19 @@
           self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
         }
     }
+
+    function validateSubmitClick(){
+      var check_confirm_142 = $("input[name=confirm_142]").prop('checked');
+      var check_confirm_status = $("input[name=confirm_status]").prop('checked');
+      var check_mentor_declare = $("input[name=mentor_declare]").prop('checked');
+
+      if(check_confirm_142 == true && check_confirm_status == true && check_mentor_declare == true){
+        $("#submit_btn").prop('disabled',false);
+      }
+      else if(check_confirm_142 == false || check_confirm_status == false || check_mentor_declare == false){
+        $("#submit_btn").prop('disabled',true);
+      }
+    }
+
 </script>
 @endpush
