@@ -559,7 +559,7 @@
                                                 </h5>
                                                 <div class="d-flex justify-content-between">
                                                     <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                    <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
+                                                    <h6><span class="batch_number"></span></h6>
                                                 </div>
                                                 
                                             </div>
@@ -1137,7 +1137,7 @@
                                                 </h5>
                                                 <div class="d-flex justify-content-between">
                                                     <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                    <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
+                                                    <h6><span class="batch_number"></span></h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -1822,7 +1822,7 @@
                                             console.log('res',res)
                                             $('.batch_no').val(res.data.number);                                            
                                             $('.batch_id').val(res.data.id);
-                                            $('.batch_number').append(res.data.number)
+                                            $('.batch_number').append(res.data.name_mm)
                                             // $('.personal_no').val(data.data.cpersonal_no);
                                             $('#remain_module').val(last_exam[0].is_full_module)
 
@@ -1865,7 +1865,7 @@
                             }
                             else{
                                 $('.batch_no').val(current_stu_course[0]?.batch?.number);
-                                $(".batch_number").append(current_stu_course[0].batch.number);
+                                $(".batch_number").append(current_stu_course[0].batch.name_mm);
                                 $('.batch_id').val(current_stu_course[0].batch.id);
                             }                    // $('.batch_no').val(current_stu_course[0].batch.number);
                             

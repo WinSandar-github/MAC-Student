@@ -158,7 +158,7 @@ function createCPATwoRegDAOnePass(){
         send_data.append('sr_no',$("input[name=entry_success_no]").val());
     }
     send_data.append('type', $("input[name='attend_place']:checked").val());
-    
+
     if($("#cpa_type").val()=='cpa_2'){
         send_data.append('batch_id', $("#selected_current_batch_id").val());
         send_data.append('type_cpa2', $("input[name='cpa2_attend_place']:checked").val());
@@ -762,8 +762,8 @@ function direct_or_da() {
             contentType: false,
             processData: false,
             success: function (res) {
-                $('.batch_id').append(res.data.number);
-                $('#batch_id').val(res.data.number);
+                $('.batch_id').append(res.data.name_mm);
+                $('#batch_id').val(res.data.name_mm);
                 $('#batch_name').text(res.data.name);
             }
         })
@@ -783,8 +783,8 @@ function direct_or_da() {
                     $('#exam_date').append("-------");
                 }
                 
-                $('.batch_id').append(res.data.number);
-                $('#batch_number').append(res.data.number);
+                $('.batch_id').append(res.data.name_mm);
+                $('#batch_number').append(res.data.name_mm);
             }
         })
         $('.dir_cpa_app_form').show();

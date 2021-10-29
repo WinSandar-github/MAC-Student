@@ -84,7 +84,7 @@
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                            <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6>
+                                            <h6><span id="batch_number"></span></h6>
                                             <input type="hidden" name="batch_id" id="batch_id" />
                                             
                                         </div>
@@ -726,7 +726,7 @@
                                 success: function (res) {
                                     
                                     $('.batch_number').append(res.data.number);
-                                    $('#batch_number').append(res.data.number);
+                                    $('#batch_number').append(res.data.name_mm);
                                 }
                         })
                         if(job_history){

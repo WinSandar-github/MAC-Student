@@ -75,7 +75,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="row mt-0">
                                                     <div class="d-flex justify-content-between mb-3">
                                                         <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                        <h6>အမှတ်စဥ် - {{ $batch['id'] }}</h6>
+                                                        <h6>{{ $batch['name_mm'] }}</h6>
                                                     </div>
                                                     {{--<label class="col-md-3 col-form-label">အမှတ်စဥ် - ({{ $batch['id'] }})</label>
                                                     
@@ -600,7 +600,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="row mt-2">
                                                     <div class="d-flex justify-content-between mb-3">
                                                         <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                        <h6>အမှတ်စဥ် - {{ $batch['id'] }}</h6>
+                                                        <h6>{{ $batch['name_mm'] }}</h6>
                                                     </div>
                                                     {{--<label class="col-md-3 col-form-label"></label>
                                                     
@@ -1013,7 +1013,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="row mt-3">
                                                     <div class="d-flex justify-content-between mb-3">
                                                         <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                        <h6>အမှတ်စဥ် - {{ $batch['id'] }}</h6>
+                                                        <h6>{{ $batch['name_mm'] }}</h6>
                                                     </div>
                                                     {{--<label class="col-md-3 col-form-label">အမှတ်စဥ် - ({{ $batch['id'] }})</label>
                                                     

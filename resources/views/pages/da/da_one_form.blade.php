@@ -86,7 +86,7 @@
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                            <h6>အမှတ်စဥ် - <span id="batch_number">{{$batch['number']}}</span></h6>
+                                            <h6><span id="batch_number">{{$batch['name_mm']}}</span></h6>
                                         </div>
                                     </div>
 

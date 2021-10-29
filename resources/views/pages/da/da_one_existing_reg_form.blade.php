@@ -82,7 +82,7 @@
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                             <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6> 
+                                             <h6><span id="batch_number">{{$batch['name_mm']}}</span></h6> 
                                         </div>
                                     </div>
 
@@ -743,6 +743,6 @@
         });
         loadPassedBatchList();
         // loadCurrentBatchList();
-        loadActiveBatchNumber('da_1');
+        // loadActiveBatchNumber('da_1');
     </script>
 @endpush

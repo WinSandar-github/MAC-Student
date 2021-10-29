@@ -79,7 +79,7 @@
                                     </h5>
                                     <div class="d-flex justify-content-between">
                                         <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                        <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6>
+                                        <h6><span id="batch_number"></span></h6>
                                     </div>
                                 </div>
 
@@ -776,7 +776,7 @@
                             async:false,
                             success: function (res) {
                                 $('#batch_id').val(res.data.id);
-                                $('#batch_number').append(res.data.number);
+                                $('#batch_number').append(res.data.name_mm);
                             }
                         })
                       if(job_history){
