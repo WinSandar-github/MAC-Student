@@ -2300,6 +2300,56 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="gov_attach" style="display:none;">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Duty Report for Other</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Duty_Report_for_other.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Government Article Contract</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Gov_Art_Contract.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Daily Record</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Daily_Record.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Duty Report for Yangon</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Duty_Report_for_Ygn.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Daily Attendence</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Daily_attendend.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article Report</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_report.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
