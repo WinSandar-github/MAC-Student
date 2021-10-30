@@ -1734,7 +1734,7 @@
             get_student_info(student_id).then(data => {
                 // console.log(data,'data');
                 if (data) {
-                    console.log('student_info',data.data);
+                    // console.log('student_info',data.data);
                      let current_stu_course = data.data.student_course_regs.slice(-1);
                     let last_exam = data.data.exam_registers.slice(-1);
                      
@@ -1766,7 +1766,7 @@
                                 processData: false,
                                 async:false,
                                 success: function (res) {
-                                    console.log('res',res.data.number)
+                                    // console.log('res',res.data.number)
                                     $('#batch_name').text(res.data.name);
                                     $('.batch_number').text(number2mm(res.data.number));
                                     $('.batch_id').val(res.data.id);

@@ -454,10 +454,10 @@
         get_student_info(student_id).then(data => {
             if(data){
                 let student_info = data.data;
-                console.log('student_info',student_info)
+                // console.log('student_info',student_info)
                 let current_course_reg=student_info.student_course_regs.slice(-1);
                 let current_stu_reg=student_info.student_register.slice(-1);
-                console.log('current_stu_reg',current_stu_reg);
+                // console.log('current_stu_reg',current_stu_reg);
                 $('.batch_number').append(number2mm(current_course_reg[0].batch.number));
                 $('#exam_date').append(formatDateMY(current_course_reg[0].batch.exam_start_date))
                     if(current_stu_reg[0].module=="1"){
@@ -472,7 +472,7 @@
 
                 let exam_registers = student_info.exam_registers.slice(-1);
                 let student_course_regs = student_info.student_course_regs.slice(-1);
-                console.log('student_course_regs',student_course_regs);
+                // console.log('student_course_regs',student_course_regs);
                 
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
                 $("input[name='name_mm']").val(data.data.name_mm);

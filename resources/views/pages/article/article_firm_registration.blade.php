@@ -531,9 +531,9 @@
 
                                         <div id="previous_papp_name_row" style="display:none;">
                                             <div class="row mb-3">
-                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>ယခင်အလုပ်သင်ကြားခဲ့သည့် PAPP အမည်</label>
+                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>ယခင်အလုပ်သင်ကြားခဲ့သည့် PAPP အမှတ်</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" name="previous_papp_name" id="previous_papp_name" class="form-control" placeholder="ယခင်အလုပ်သင်ကြားခဲ့သည့် PAPP အမည်">
+                                                    <input type="text" name="previous_papp_name" id="previous_papp_name" class="form-control" placeholder="ယခင်အလုပ်သင်ကြားခဲ့သည့်PAPPအမှတ်(eg.PA-123)">
                                                 </div>
                                             </div>
                                         </div>
@@ -718,11 +718,17 @@
             let student_reg = data.data.student_register
             let lastest_row = student_reg.length - 1;
             let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
-            let exam_result = student_reg[lastest_row].status;  // pass/fail
+            let exam_result ;  // pass/fail
             let module = student_reg[lastest_row].module;  // module 1/2/all
             let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
             let batch = student_reg[lastest_row].batch;  // module 1/2/all
-
+            let last_exam_register = data.data.exam_registers[student_reg.length - 1];
+            if(last_exam_register.course.code=='cpa_2'){
+                exam_result = 1;
+            }
+            else{
+                exam_result = 0;
+            }
             $("#student_info_id").val(student_reg[lastest_row].student_info_id);
 
             if(course == "cpa_1"){

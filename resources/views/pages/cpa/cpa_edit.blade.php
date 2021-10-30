@@ -683,12 +683,12 @@
                         $('#da_pass_date').val(info.da_pass_date);
                         $('#da_pass_roll_number').val(info.da_pass_roll_number);
                         if(exam_register[0]){
-                            console.log("is not certi");
+                            // console.log("is not certi");
                             $('#da_certi').hide();
                             $("input[name=old_da_pass_certificate]").val();
                             
                         }else{
-                            console.log("is certi");
+                            // console.log("is certi");
                             $('#da_certi').show();
                             $("input[name=old_da_pass_certificate]").val(info.da_pass_certificate);
 
@@ -800,7 +800,7 @@
                         // console.log('certificate',JSON.parse(education_history.certificate));
 
                         let certificate = JSON.parse(education_history.certificate);
-                        console.log('certificate',certificate);
+                        // console.log('certificate',certificate);
                         $.each(certificate, function (fileCount, fileName) {
 
                             $(".certificate").append(`<a href='${BASE_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
@@ -811,7 +811,7 @@
                       if(info.gov_staff == 1){
                           $("input[name=gov_staff][value=1]").prop("checked",true);
                           $("#rec_letter").css("display",'block');
-                          console.log("recommend_letter",info.recommend_letter)
+                        //   console.log("recommend_letter",info.recommend_letter)
                           if(info.recommend_letter!= null){
                            
 

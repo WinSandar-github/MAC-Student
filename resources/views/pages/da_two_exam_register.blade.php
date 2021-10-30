@@ -572,14 +572,14 @@ $nrc_characters = config('myanmarnrc.characters');
             get_student_info(student_id).then(data => {
             
                 let student_info = data.data
-                console.log('student_info',student_info);
+                // console.log('student_info',student_info);
                 let student_reg = data.data.student_register
                 let current_stu_course = data.data.student_course_regs.slice(-1);
                 let last_exam = data.data.exam_registers.slice(-1);
 
                 let current_stu_reg=data.data.student_register.slice(-1);
                 // let last_exam = data.data.exam_registers.slice(-1);
-                console.log('current_stu_course',current_stu_course);
+                // console.log('current_stu_course',current_stu_course);
                 $("#batch_number").append(number2mm(current_stu_course[0].batch.number));
                 $('#exam_date').append(formatDateMY(current_stu_course[0].batch.exam_start_date));
                 //console.log("student_reg >>>>",student_reg.personal_no);

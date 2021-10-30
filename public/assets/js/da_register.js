@@ -139,7 +139,7 @@ function createDARegister() {
     $('input[name="certificate[]"]').map(function () {
 
         for (var i = 0; i < $(this).get(0).files.length; ++i) {
-            console.log($(this))
+            // console.log($(this))
             send_data.append('certificate[]', $(this).get(0).files[i]);
         }
     });
@@ -626,7 +626,7 @@ function CreateDAExistingRegister() {
         contentType: false,
         processData: false,
         success: function (result) {
-            console.log('result',result)
+            // console.log('result',result)
             EasyLoading.hide();
             successMessage("You have successfully registered. Use your email and password to login.");
             setInterval(() => {

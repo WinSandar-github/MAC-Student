@@ -93,7 +93,7 @@
                             <form method="post" id="article_cpaTwoPassOneYear_form"  action="javascript:void();"
                                     enctype="multipart/form-data" class="needs-validation" autocomplete="off" novalidate>
                                 @csrf
-                                
+
                                 <div class="row">
                                     <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
 
@@ -164,7 +164,7 @@
                                                 <label class="col-md-1 col-form-label label"><span class="pull-left">{{__('၂။')}}</span></label>
                                                 <div class="col-md-11">
                                                     <ul>
-                                                        <li>ယခင်က လက်တွေ့အလုပ်သင်ကြားမှုကို အလုပ်သင်ကြားပေးသည့်(PAPP အမည်) <input class="p-input" type="text" id="previous_papp_name"> ထံတွင် <input class="p-input" type="text"  name="previous_papp_start_date" id="previous_papp_start_date" placeholder="dd-mm-yyyy"> နေ့မှ <input class="p-input" type="text" name="previous_papp_end_date" id="previous_papp_end_date" placeholder="dd-mm-yyyy">နေ့အထိ <span id="result_name"><input class="p-input" type="text"> နှစ် ၊ <input class="p-input" type="text"> လ ၊ <input class="p-input" type="text"> ရက် </span> အလုပ်သင်ကြားမှုခံယူခဲ့ပါသည်။</li>
+                                                        <li>ယခင်က လက်တွေ့အလုပ်သင်ကြားမှုကို အလုပ်သင်ကြားပေးသည့်(PAPP အမည်) <input class="p-input" type="text" name="previous_papp_name"> ထံတွင် <input class="p-input" type="text"  name="previous_papp_start_date" id="previous_papp_start_date" placeholder="dd-mm-yyyy"> နေ့မှ <input class="p-input" type="text" name="previous_papp_end_date" id="previous_papp_end_date" placeholder="dd-mm-yyyy">နေ့အထိ <span id="result_name"><input class="p-input" type="text"> နှစ် ၊ <input class="p-input" type="text"> လ ၊ <input class="p-input" type="text"> ရက် </span> အလုပ်သင်ကြားမှုခံယူခဲ့ပါသည်။</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -202,7 +202,7 @@
                                                     </div>
                                                 </div>
 
-                                                
+
                                             </div>
 
                                             <div class="col-md-4 text-center">
@@ -340,7 +340,7 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၇။') }}</span>ပညာအရည်အချင်း</label>
-                                            
+
                                             <div class="col-md-9">
                                                 <table class="table tbl_degree table-bordered input-table">
                                                     <thead>
@@ -360,7 +360,7 @@
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                
+
                                             </div>
                                         </div>
 
@@ -382,7 +382,7 @@
                                                             <p class="ml-2" style="font-weight:bold" align="left">ပညာအရည်အချင်းမိတ္တူ</p>
                                                         </div>
                                                         <div class="col-md-3 stu_certificate">
-                                                        
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -458,7 +458,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div id="current_job_row" style="display:none;">
                                             <div class="row mb-3">
                                                 <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>ရှိပါက ရာထူး/ စတင်ထမ်းဆောင်သည့်နေ့</label>
@@ -511,7 +511,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
 
                                         <div id="previous_papp_date_row" >
                                             <div class="row mb-3">
@@ -530,11 +530,11 @@
                                         </div> -->
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၅။') }}</span>ယခုအလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၅။') }}</span>ယခုအလုပ်သင်ကြားလိုသည့် PAPP အမှတ်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <input id="papp_name" type="text" name="papp_name" class="form-control" placeholder="ယခုအလုပ်သင်ကြားလိုသည့် PAPP အမည်">
+                                                        <input id="papp_name" type="text" name="papp_name" class="form-control" placeholder="ယခုအလုပ်သင်ကြားလိုသည့်PAPPအမှတ်(eg.PA-123)">
                                                     </div>
                                                     <div class="col-md-6">
                                                         <input type="hidden" id="mentor_id">
@@ -565,15 +565,15 @@
                                                 <input type="file" name="request_papp_attach" class="form-control">
                                             </div>
                                         </div> -->
-                                        
-                                        
+
+
                                         <input type="hidden" id="article_form_type" name="article_form_type" value="c2_pass_renew">
                                         <input type="hidden" id="offline_user" value="true">
 
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" name="confirm_142">
+                                                    <input class="form-check-input" type="checkbox" name="confirm_142" onchange="validateSubmitClick()">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
                                                         * <a href="https://demo.aggademo.me/MAC/public/storage/article/128.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၂၈) </a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
@@ -586,7 +586,7 @@
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" name="confirm_status">
+                                                    <input class="form-check-input" type="checkbox" name="confirm_status" onchange="validateSubmitClick()">
                                                     <span class="form-check-sign"></span>
                                                     * <div class="row">
                                                         <div class="col-md-1">၁ ။</div>
@@ -620,7 +620,7 @@
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" name="mentor_declare" onchange="$('#submit_btn').prop('disabled', !this.checked)">
+                                                    <input class="form-check-input" type="checkbox" name="mentor_declare" onchange="validateSubmitClick()">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
                                                         * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်စွာရေးသွင်းထားပါသည်။၊<br>
@@ -728,7 +728,7 @@
                 $("#experience_attach_row").css('display','none');
             }
         });
-        
+
         $("input[id='job_started_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
@@ -811,5 +811,19 @@
           self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
         }
     }
+
+    function validateSubmitClick(){
+      var check_confirm_142 = $("input[name=confirm_142]").prop('checked');
+      var check_confirm_status = $("input[name=confirm_status]").prop('checked');
+      var check_mentor_declare = $("input[name=mentor_declare]").prop('checked');
+
+      if(check_confirm_142 == true && check_confirm_status == true && check_mentor_declare == true){
+        $("#submit_btn").prop('disabled',false);
+      }
+      else if(check_confirm_142 == false || check_confirm_status == false || check_mentor_declare == false){
+        $("#submit_btn").prop('disabled',true);
+      }
+    }
+
 </script>
 @endpush

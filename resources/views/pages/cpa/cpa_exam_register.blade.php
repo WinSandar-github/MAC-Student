@@ -657,7 +657,7 @@
 // console.log("study_type",selectedRegistration(urlParams.get("study_type")));
         get_student_info(student_id).then(data => {
            var student_info = data.data ;
-           console.log('student_info',student_info);
+        //    console.log('student_info',student_info);
             let current_stu_course = data.data.student_course_regs.slice(-1);
             $(".batch_number").append(number2mm(current_stu_course[0].batch.number));
             $("#exam_date").append(formatDateMY(current_stu_course[0].batch.exam_start_date));
@@ -754,7 +754,7 @@
                 $("input[name='private_school_name']").val(current_stu_reg[0].private_school_name);
 
               
-                console.log(exam_registers)
+                // console.log(exam_registers)
 
                 if(exam_registers && exam_registers[0].exam_type_id !== 3)
                 {

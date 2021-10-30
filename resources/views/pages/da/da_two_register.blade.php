@@ -1601,7 +1601,7 @@ $nrc_characters = config('myanmarnrc.characters');
             get_student_info(student_id).then(data => {
 
                 let student_info = data.data;
-                console.log("student_info",student_info)
+                // console.log("student_info",student_info)
                 
                 if(data)
                 {
@@ -1658,7 +1658,7 @@ $nrc_characters = config('myanmarnrc.characters');
                         processData: false,
                         async:false,
                         success: function (res) {
-                            console.log('res',res)
+                            // console.log('res',res)
                             $('#batch_name').text(res.data.name);
                             
                             $('.batch_no').val(res.data.number);
