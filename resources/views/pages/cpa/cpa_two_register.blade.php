@@ -156,7 +156,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <div class="col-md-2"></div>
                                             <div class="d-flex justify-content-between mt-2 mb-2">
                                                 <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                <h6><span class="batch_number"></span></h6>
+                                                <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -634,7 +634,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 (ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ)</h5>
                                             <div class="d-flex justify-content-between mt-2 mb-2">
                                                 <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                <h6><span class="batch_number"></span></h6>
+                                                <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -1140,7 +1140,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <div class="col-md-2"></div>
                                             <div class="d-flex justify-content-between mt-2 mb-2">
                                                 <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                <h6><span class="batch_number"></span></h6>
+                                                <h6>အမှတ်စဉ် - <span class="batch_number"></span></h6>
                                             </div>
                                         </div>
                                     </div>

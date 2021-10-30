@@ -657,7 +657,7 @@
                             async:false,
                             success: function (res) {
                                  
-                                $('.batch_number').append(res.data.number);
+                                $('.batch_number').append(number2mm(res.data.number));
                             }
                         })
                       if(job_history){

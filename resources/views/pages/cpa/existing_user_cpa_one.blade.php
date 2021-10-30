@@ -567,7 +567,7 @@
                                     </div>
 
                                     <input type="hidden" id="passed_course_id" value="3">
-                                    {{-- <input type="hidden" id="current_course_id" value="3"> --}}
+                                    <input type="hidden" id="current_course_id" value="3">
                                     <input type="hidden" id="cpa_type" value="cpa_1">
 
                                     <div class="row mb-3">
@@ -778,6 +778,6 @@
             $('#btn_cash').prop('disabled', true);
         });
         loadPassedBatchList();
-        loadCurrentBatchList();
+        // loadCurrentBatchList();
     </script>
 @endpush

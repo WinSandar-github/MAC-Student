@@ -72,7 +72,7 @@
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
                                             <h6 style="padding-right:80px">စာမေးပွဲဖြေဆိုမည့် လ/ခုနှစ် - <span name="exam_date" id="exam_date"></span></h6>
-                                            <h6><span class="batch_number"></span></h6>
+                                            <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                         </div>
                                     </div>
                                     {{--<form method="post" id="cpa_exam_register" enctype="multipart/form-data">--}}
@@ -659,7 +659,7 @@
            var student_info = data.data ;
            console.log('student_info',student_info);
             let current_stu_course = data.data.student_course_regs.slice(-1);
-            $(".batch_number").append((current_stu_course[0].batch.name_mm));
+            $(".batch_number").append(number2mm(current_stu_course[0].batch.number));
             $("#exam_date").append(formatDateMY(current_stu_course[0].batch.exam_start_date));
            if(student_info.acca_cima){
                $('#last_exam_data').hide();

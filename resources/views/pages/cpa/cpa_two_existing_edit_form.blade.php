@@ -82,7 +82,7 @@
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                            <h6><span id="batch_number"></span></h6>
+                                            <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6>
                                         </div>
                                     </div>
 
@@ -367,7 +367,7 @@
                                         
                                     </div>
 
-                                    <div id="rec_letter" style="display:none">
+                                    {{-- <div id="rec_letter" style="display:none">
                                         <div class="row mb-3" style="margin-left: 80px">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">(က)</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ</label>
                                             <div class="col-md-2"  id="degree_edu" >
@@ -378,7 +378,7 @@
                                                 <input type="hidden" name="old_rec_letter">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span class="pull-left">၂၁။</span>တက္ကသိုလ်တစ်ခုခုမှအောင်မြင်ပြီးခဲ့သော</label>
@@ -891,8 +891,8 @@
                             async:false,
                             success: function (res) {
                                 
-                                $('.batch_number').append(res.data.number);
-                                $('#batch_number').append(res.data.name_mm);
+                                // $('.batch_number').append(res.data.number);
+                                $('#batch_number').append(number2mm(res.data.number));
                             }
                         })
 

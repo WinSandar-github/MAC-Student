@@ -86,7 +86,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="d-flex justify-content-between mb-3">
                                                     <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
                                                     <h6>စာမေးပွဲဖြေဆိုမည့် လ/ခုနှစ် - <span name="exam_date" id="exam_date"></span></h6>
-                                                    <h6><span id="batch_number"></span></h6>
+                                                    <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-8 mt-3">
@@ -580,7 +580,7 @@ $nrc_characters = config('myanmarnrc.characters');
                 let current_stu_reg=data.data.student_register.slice(-1);
                 // let last_exam = data.data.exam_registers.slice(-1);
                 console.log('current_stu_course',current_stu_course);
-                $("#batch_number").append(current_stu_course[0].batch.name_mm);
+                $("#batch_number").append(number2mm(current_stu_course[0].batch.number));
                 $('#exam_date').append(formatDateMY(current_stu_course[0].batch.exam_start_date));
                 //console.log("student_reg >>>>",student_reg.personal_no);
                 if(data){

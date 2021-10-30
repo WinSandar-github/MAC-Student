@@ -111,13 +111,13 @@
                                 <div class="card border-success mb-3 p-5">
                                     <div class="row">
                                         <h5 class="card-title text-center fw-bolder">
-                                            မြန်မာနိုင်ငံစာရင်းကောင်စီ<span id="mac_type_name"></span>
+                                            မြန်မာနိုင်ငံစာရင်းကောင်စီ
                                             <br/>
                                             ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်မှတ်ပုံတင်ခွင့်လျှောက်လွှာ
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                            <h6><span class="batch_number font_wight_bold"></span></h6>
+                                            <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -598,7 +598,7 @@
 
                                     <div class="d-flex justify-content-between mb-3">
                                         <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                        <h6><span class="batch_number"></span></h6>
+                                        <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                     </div>
 
                                     <div class="card-body">
@@ -1028,7 +1028,7 @@
 
                                     <div class="d-flex justify-content-between mb-3">
                                         <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                        <h6><span class="batch_number"></span></h6>
+                                        <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                     </div>
 
                                     <div class="card-body">
@@ -1742,7 +1742,7 @@
                     
                     var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
                     $('#mac_type_name').text(mac_name)
-                    $(".batch_number").append(current_stu_course[0].batch.name_mm);
+                    $(".batch_number").append(number2mm(current_stu_course[0].batch.number));
                     
                     $('.batch_id').val(current_stu_course[0].batch.id);
                     
@@ -1768,7 +1768,7 @@
                                 success: function (res) {
                                     console.log('res',res.data.number)
                                     $('#batch_name').text(res.data.name);
-                                    $('.batch_number').text(res.data.name_mm);
+                                    $('.batch_number').text(number2mm(res.data.number));
                                     $('.batch_id').val(res.data.id);
 
                                     

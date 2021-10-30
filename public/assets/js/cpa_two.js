@@ -44,7 +44,7 @@ function get_cpa_course() {
                 // $('.batch_id').append(res.data.id);
                 $('.batch_no').val(res.data.number);
                 $('.course_name').val(res.data.course.name);
-                $('.batch_number').append(res.data.number);
+                $('.batch_number').append(number2mm(res.data.number));
             }
         })
 

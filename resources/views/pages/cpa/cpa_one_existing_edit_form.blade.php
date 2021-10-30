@@ -466,7 +466,7 @@
                                             <div class="col-md-4 form-check-radio">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input module_one" type="radio" id="0"
-                                                            name="is_full_module" value="1" required>
+                                                            name="is_full_module" value="1" >
                                                     <span class="form-check-sign"></span>
                                                     Module 1
                                                 </label>
@@ -474,7 +474,7 @@
                                             <div class="col-md-4 form-check-radio">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input module_two" type="radio"
-                                                            name="is_full_module" value='2' required>
+                                                            name="is_full_module" value='2' >
                                                     <span class="form-check-sign"></span>
                                                     Module 2
                                                 </label>
@@ -575,9 +575,44 @@
                                     <input type="hidden" id="cpa_type" value="cpa_1">
                                     
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၁။</span> တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်(သို့)ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်</label>
-                                        <div class="col-md-8">
-                                            <input type="text" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်(သို့)ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်" name="sr_no" class="form-control" id="sr_no" value="{{ old('direct_sr_no') }}" >
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၄။</span> တိုက်ရိုက် (သို့) ဝင်ခွင့်<span style="color:red">*</span></label>                                       
+                                        <div class="row col-md-8 py-2" style="padding-left:24px">
+                                            <div class="col-md-6 form-check-radio ">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input direct_access_no" type="radio" id="direct_access_no"
+                                                            name="qt_entry" value="0"  onclick="$('#direct_access_no_row').show();$('#entry_success_no_row').hide();">
+                                                    <span class="form-check-sign"></span>
+                                                    တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဉ်
+                                                </label>
+                                            </div>
+
+                                            <div class="col-md-6 form-check-radio ">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input entry_success_no" type="radio" id="entry_success_no"
+                                                            name="qt_entry" value="1"  onclick="$('#entry_success_no_row').show();$('#direct_access_no_row').hide()">
+                                                    <span class="form-check-sign"></span>
+                                                    ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဉ်
+                                                </label>
+                                            </div>
+                                            <label  class="error attend_place_error" style="display:none;" for="qt_entry">Please select one</label>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div id="direct_access_no_row" style="display:none">
+                                        <div class="row mb-3" >
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဉ်<span style="color:red">*</span></label>
+                                            <div class="col-md-8" >
+                                                <input type="text" class="form-control" name="direct_access_no"  placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဉ်" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="entry_success_no_row" style="display:none">
+                                        <div class="row mb-3" >
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဉ်<span style="color:red">*</span></label>
+                                            <div class="col-md-8" >
+                                                <input type="text" class="form-control" name="entry_success_no"  placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဉ်" >
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -812,9 +847,30 @@
                             // $('.module_full').attr('disabled', true);                              
                             
                         }
+                        
                         $("input[name=cpa_one_pass_exam_date]").val(last_exam[0].passed_date);
                         $("input[name=cpa_one_pass_level]").val(last_exam[0].passed_level);
                         $("input[name=cpa_one_pass_personal_no]").val(info.cpersonal_no);
+
+                        // direct or entrance ...start
+                        if(info.student_course_regs.length == 2 && info.student_course_regs[0].qt_entry == 1){
+                                                  
+                            $("#entry_success_no").prop("checked",true);
+                            $("#direct_access_no").prop("checked",false);
+                            $("#entry_success_no_row").show();                                
+                            $("#direct_access_no_row").hide();
+
+                            $("input[name=entry_success_no]").val(student_course[0].sr_no);
+                            
+                        }else{
+                            $("#entry_success_no").prop("checked",false);
+                            $("#direct_access_no").prop("checked",true);
+                            $("#entry_success_no_row").hide();                                
+                            $("#direct_access_no_row").show();
+
+                            $("input[name=direct_access_no]").val(student_course[0].sr_no);
+                        }
+                        // direct or entrance ...end
                     }
 
                     //$("input").prop('',true);
