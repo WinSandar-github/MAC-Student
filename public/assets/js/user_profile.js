@@ -659,7 +659,7 @@ function user_profile() {
                             }
                             if(!latest_article[0].mentor_attach_file){
                                 $('.qt_article_status').append(`<tr><td colspan=3>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='DownloadForms();'>Download</button></div></div></td></tr>`);
-                                $('.qt_article_status').append(`<tr><td colspan=4>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတန်းများအားတင်သွင်းရန်</td><td></td></tr>`);
+                                $('.qt_article_status').append(`<tr><td colspan=4>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတမ်းများအားတင်သွင်းရန်</td><td></td></tr>`);
                                 $('.qt_article_status').append(`<tr><td colspan=2>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></td></tr>`);
                             }
                             if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
@@ -2433,6 +2433,7 @@ function user_profile() {
 
                 // Show Article Status
                 if (latest_stu_reg[0]) {
+                    console.log(data.student_course_regs,'a');
                    if(latest_course_reg[0].status==0){
                        $('#article_row').css('display','none');
                    }
@@ -2675,8 +2676,21 @@ function user_profile() {
                                     }
                                 }
                                 if (!latest_article[0].mentor_attach_file) {
-                                    $('.article_btn').append(`<tr><td colspan=3>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='DownloadForms();'>Download</button></div></div></td></tr>`);
-                                    $('.article_btn').append(`<tr><td colspan=4>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတန်းများအားတင်သွင်းရန်</td><td></td></tr>`);
+                                    let exam_reg=data.exam_registers;
+                                    let count=0;
+                                    exam_reg.forEach(element => {
+                                        if(element.form_type=="4" && element.is_full_module==3 && element.grade=="1"){
+                                            count=2;
+                                        }
+                                        else if(element.form_type=="4" && element.is_full_module==1 && element.grade=="1"){
+                                            count++;
+                                        }
+                                        else if(element.form_type=="4" && element.is_full_module==2 && element.grade=="1"){
+                                            count++;
+                                        }
+                                    });
+                                    $('.article_btn').append(`<tr><td colspan=3>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='DownloadCPA12Forms(${count});'>Download</button></div></div></td></tr>`);
+                                    $('.article_btn').append(`<tr><td colspan=4>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတမ်းများအားတင်သွင်းရန်</td><td></td></tr>`);
                                     $('.article_btn').append(`<tr><td colspan=2>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></td></tr>`);
                                 }
                                 if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
@@ -2995,7 +3009,7 @@ function user_profile() {
                                     }
                                     if (!latest_article[0].mentor_attach_file) {
                                         $('.article_btn').append(`<tr><td colspan=3>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='DownloadForms();'>Download</button></div></div></td></tr>`);
-                                        $('.article_btn').append(`<tr><td colspan=4>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတန်းများအားတင်သွင်းရန်</td><td></td></tr>`);
+                                        $('.article_btn').append(`<tr><td colspan=4>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတမ်းများအားတင်သွင်းရန်</td><td></td></tr>`);
                                         $('.article_btn').append(`<tr><td colspan=2>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></td></tr>`);
                                     }
                                     if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
@@ -3336,6 +3350,21 @@ function continueArticle(id){
 
 function DownloadForms(){
     $('#downloadFormModel').modal('toggle');
+}
+function DownloadCPA12Forms(count){
+    $('#downloadFormModel').modal('toggle');
+    if(count==2){
+        // $('#c2_pass_attach').css('display','block');
+        // $('#c2_not_pass_attach').css('display','none');
+        document.getElementById('c2_pass_attach').style.display="block";
+        document.getElementById('c2_not_pass_attach').style.display="none";
+    }
+    else{
+        // $('#c2_pass_attach').css('display','none');
+        // $('#c2_not_pass_attach').css('display','block');
+        document.getElementById('c2_pass_attach').style.display="none";
+        document.getElementById('c2_not_pass_attach').style.display="block";
+    }
 }
 function CompleteDownloadForms(){
     $('#downloadFormModel').modal('toggle');
