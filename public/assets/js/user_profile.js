@@ -1115,7 +1115,7 @@ function user_profile() {
                     var dateDiff = Date.now() - accepted_date;
                     var yearDiff = new Date(dateDiff);
                     var year_count=Math.abs(yearDiff.getUTCFullYear() - 1970);
-                    if (year_count>=1 && data.papp.length == 0) {
+                    if (year_count>=1 && data.papp.length == 0 && cpaff_initial.status == 1) {
                         $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                     }
                     if (cpaff_latest_data.status == 0) {

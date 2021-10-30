@@ -1607,7 +1607,7 @@
             else{
                 $('#yes_cpaff').attr('checked',true);
                 $('#date_range_cpaff').css('display','block');
-                $('#resign_date').val();
+                $('#resign_date').val(cpaff.resign_date);
             }
 
             $('.cpa_certificate_old').append("<a href='" + BASE_URL + cpaff.cpa_certificate + "'  target='_blank'>View File</a><br/>");
