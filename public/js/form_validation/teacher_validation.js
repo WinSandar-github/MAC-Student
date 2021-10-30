@@ -46,6 +46,8 @@ if($("#teacher_register_form").validate({
         school_name : {
             required : "#school_staff2:checked"
         },
+        eng_address : "required",
+        eng_current_address  : "required",
     },
     messages:{
         email : "Please enter your email",
@@ -87,6 +89,8 @@ if($("#teacher_register_form").validate({
         school_name : {
             required :"Please enter school name"
         },
+        eng_address:"Please enter your address",
+        eng_current_address : "Please enter your current address",
     },
     submitHandler: function(form) {
         $( "#teacher_submit" ).click(function() {
