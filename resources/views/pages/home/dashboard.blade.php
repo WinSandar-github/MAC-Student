@@ -753,6 +753,31 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="article_row_exist" style="display:none;">
+                                <div class="col-md-12 ">
+                                    <h5 class="text-center border-bottom py-2 my-2"
+                                        style="font-weight:bold;background-color:#E7F8EE;">Article Status</h5>
+                                    <div class="row m-2 mt-3 ">
+                                        <table class="table ">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Start Date</th>
+                                                    <th>End Date</th>
+                                                    <th>Status</th>
+                                                    <th>Remark</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="article_status">
+
+                                            </tbody>
+                                            <tfoot class="article_btn">
+
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                     <div class="card-body cpaff_other">
                             <div class="row">
@@ -2224,20 +2249,26 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div id="mentor_attach">
-                            <div class="form-group row" id="c2_pass_attach">
-                                <div class="col-md-6">
-                                    <label>Contract for CII Pass and QT Pass </label>
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/contract_CIIPass_QTPass.pdf" target="_blank">Download File</a>
+                            
+                            <div  id="c2_pass_attach">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label>Contract for CII Pass and QT Pass </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a href="https://demo.aggademo.me/MAC/public/storage/article/contract_CIIPass_QTPass.pdf" target="_blank">Download File</a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group row" id="c2_not_pass_attach">
-                                <div class="col-md-6">
-                                    <label>Contract CII Not Pass</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/contract_CII_not_Pass.pdf" target="_blank">Download File</a>
+                            
+                            <div id="c2_not_pass_attach"> 
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label>Contract CII Not Pass</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a href="https://demo.aggademo.me/MAC/public/storage/article/contract_CII_not_Pass.pdf" target="_blank">Download File</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">

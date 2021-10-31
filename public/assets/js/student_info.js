@@ -209,7 +209,7 @@ function app_form_feedback() {
                                         success: function (result) {
                                             var register_url;
                                             let batch = result.data;
-                                            console.log(result.data, "Batch");
+                                            // console.log(result.data, "Batch");
 
 
                                             if (batch) {
@@ -1011,6 +1011,6 @@ function updateCode() {
 async function get_student_info(id) {
     let response = await fetch(BACKEND_URL + "/user_profile/" + id)
     let data = await response.json();
-    console.log("return data", data)
+    // console.log("return data", data)
     return data;
 }

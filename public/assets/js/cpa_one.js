@@ -92,13 +92,12 @@ function createCPATwoRegDAOnePass(){
     var image = $("input[name=profile_photo]")[0].files[0];
     var nrc_front = $("input[name=nrc_front]")[0].files[0];
     var nrc_back = $("input[name=nrc_back]")[0].files[0];
-    var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
+    // var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
     var nrc_citizen = $("#nrc_citizen").val();
 
-    send_data.append('sr_no', $("input[name=sr_no]").val());
-    
+    send_data.append('sr_no', $("input[name=sr_no]").val());    
     send_data.append('email', $("input[name=email]").val());
     send_data.append('password', $("input[name=password]").val());
     send_data.append('nrc_state_region', nrc_state_region);
@@ -122,7 +121,7 @@ function createCPATwoRegDAOnePass(){
     send_data.append('image', image);
     send_data.append('registration_no', $("input[name=registration_no]").val());
     // send_data.append('date', $("input[name=date]").val());
-    send_data.append('recommend_letter', recommend_letter);
+    // send_data.append('recommend_letter', recommend_letter);
     send_data.append('current_job', $("input[name=current_job]").val());
     send_data.append('position', $("input[name=position]").val());
     send_data.append('department', $("input[name=department]").val());
@@ -152,8 +151,14 @@ function createCPATwoRegDAOnePass(){
     send_data.append('cpa_one_pass_level', $("input[name=cpa_one_pass_level]").val());
     send_data.append('cpa_one_pass_exam_date', $("input[name=cpa_one_pass_exam_date]").val());
     send_data.append('cpa_one_pass_personal_no', $("input[name=cpa_one_pass_personal_no]").val());
-
+    send_data.append('qt_entry',$("input[type='radio'][name='qt_entry']:checked").val());
+    if($("input[type='radio'][name='qt_entry']:checked").val()==0){
+        send_data.append('sr_no',$("input[name=direct_access_no]").val());
+    }else{
+        send_data.append('sr_no',$("input[name=entry_success_no]").val());
+    }
     send_data.append('type', $("input[name='attend_place']:checked").val());
+
     if($("#cpa_type").val()=='cpa_2'){
         send_data.append('batch_id', $("#selected_current_batch_id").val());
         send_data.append('type_cpa2', $("input[name='cpa2_attend_place']:checked").val());
@@ -165,7 +170,11 @@ function createCPATwoRegDAOnePass(){
     // send_data.append('pass_type', $("input[name='da_one_attend_place']:checked").val());
     send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
     // send_data.append('pass_mac_type', $("input[name='da_one_attend_place']:checked").val() == 2 ? $("input[name='da_one_mac_type']:checked").val() : 88);
-    send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
+    if($("input[type='radio'][name='is_full_module']:checked").val()!=null){        
+        send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
+    }else if($("input[type='radio'][name='is_full_module']:checked").val()==null){        
+        send_data.append('module', 0);
+    }
     send_data.append('cpa_type', $("#cpa_type").val());
     show_loader();
     $.ajax({
@@ -212,13 +221,13 @@ function updateCPAExistingRegister() {
 
     }
 
-    if ($("input[name=recommend_letter]")[0].files[0]) {
+    // if ($("input[name=recommend_letter]")[0].files[0]) {
 
 
-        var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
-        send_data.append('recommend_letter', recommend_letter);
+    //     var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
+    //     send_data.append('recommend_letter', recommend_letter);
 
-    }
+    // }
 
 
 
@@ -285,6 +294,13 @@ function updateCPAExistingRegister() {
     send_data.append('cpa_one_pass_exam_date', $("input[name=cpa_one_pass_exam_date]").val());
     send_data.append('cpa_one_pass_personal_no', $("input[name=cpa_one_pass_personal_no]").val());
 
+    send_data.append('qt_entry',$("input[type='radio'][name='qt_entry']:checked").val());
+    if($("input[type='radio'][name='qt_entry']:checked").val()==0){
+        send_data.append('sr_no',$("input[name=direct_access_no]").val());
+    }else{
+        send_data.append('sr_no',$("input[name=entry_success_no]").val());
+    }
+
     send_data.append('type', $("input[name='attend_place']:checked").val());
 
     if($("#cpa_type").val()=='cpa_2'){
@@ -296,7 +312,12 @@ function updateCPAExistingRegister() {
         send_data.append('cpa2_mac_type', $("input[name='cpa2_attend_place']:checked").val() == 2 ? $("input[name='cpa2_mac_type']:checked").val() : 99);
     }
     send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
-    send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
+
+    if($("input[type='radio'][name='is_full_module']:checked").val()!=null){        
+        send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
+    }else if($("input[type='radio'][name='is_full_module']:checked").val()==null){        
+        send_data.append('module', 0);
+    }
     send_data.append('cpa_type', $("#cpa_type").val());
     show_loader();
     $.ajax({
@@ -338,7 +359,7 @@ function Private_School_Submit() {
     data.append('part_no_private', $("input[id='part_no_private']").val());
     data.append('personal_no_private', $("input[id='personal_no_private']").val());
     data.append('module', $("input[type='radio'][name='module']:checked").val());
-    data.append('form_type', localStorage.getItem('course_id'));
+    data.append('form_type', localStorage.getItem('courseId'));
     data.append('type', 1);
     data.append('remain_module', $("input[name='remain_module']").val());
     data.append('batch_id', $("input[name='batch_id']").val());
@@ -400,7 +421,7 @@ function Self_Study_Submit() {
     data.append('part_no_self', $("input[id='part_no_self']").val());
     data.append('personal_no_self', $("input[id='personal_no_self']").val());
     data.append('type', 0);
-    data.append('form_type', localStorage.getItem('course_id'));
+    data.append('form_type', localStorage.getItem('courseId'));
     data.append('remain_module', $("input[name='remain_module']").val())
     data.append('batch_id', $("input[name='batch_id']").val());
     data.append('recommendation_letter', recommend_letter_self);
@@ -457,7 +478,7 @@ function Mac_Submit() {
     data.append('module', $("input[type='radio'][name='module']:checked").val());
     
     data.append('type', 2);
-    data.append('form_type', localStorage.getItem('course_id'));
+    data.append('form_type', localStorage.getItem('courseId'));
     data.append('batch_no_mac', $("input[id='batch_no_mac']").val());
     data.append('part_no_mac', $("input[id='part_no_mac']").val());
     data.append('personal_no_mac', $("input[id='personal_no_mac']").val());
@@ -503,8 +524,7 @@ function SubmitCPAforDaTwoPass() {
     if ($("input[name=password]").val() != $("input[name=confirm_password]").val()) {
         alert("Your password and confirm password do not match!");
         return;
-    }
-    
+    }    
 
     var certificate = $('input[name="certificate[]"]');
 
@@ -529,7 +549,6 @@ function SubmitCPAforDaTwoPass() {
         send_data.append('acca_cima', $("input[name=acca_cima]").val())
 
     }
-
 
     // var certificate = $('#certificate0')[0].files[0];
     var nrc_state_region = $("#nrc_state_region").val();
@@ -580,7 +599,6 @@ function SubmitCPAforDaTwoPass() {
     });
     send_data.append('qualified_date', $("input[name=qualified_date]").val());
     send_data.append('roll_number', $("input[name=roll_number]").val());
-
 
     send_data.append('verify_status', $("input[name=verify_status]").val());
     send_data.append('payment_method', $("input[name=payment_method]").val());
@@ -756,8 +774,8 @@ function direct_or_da() {
             contentType: false,
             processData: false,
             success: function (res) {
-                $('.batch_id').append(res.data.number);
-                $('#batch_id').val(res.data.number);
+                $('.batch_id').append(number2mm(res.data.number));
+                $('#batch_id').val(res.data.id);
                 $('#batch_name').text(res.data.name);
             }
         })
@@ -777,8 +795,8 @@ function direct_or_da() {
                     $('#exam_date').append("-------");
                 }
                 
-                $('.batch_id').append(res.data.number);
-                $('#batch_number').append(res.data.number);
+                $('.batch_id').append(number2mm(res.data.number));
+                $('#batch_number').append(number2mm(res.data.number));
             }
         })
         $('.dir_cpa_app_form').show();

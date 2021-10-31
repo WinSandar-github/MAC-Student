@@ -507,10 +507,15 @@ function loadRenewSchool(){
                 
                 $('#from_valid_date').val(date);
                   //getSchoolInfo();
-                  if(school.renew_date!=null){
-                    var renew_date=new Date(school.renew_date);
-                    $('input[name=renew_date]').val(school.renew_date);
+                  if(school.offline_user=="true"){
+                    $('input[name=renew_date]').val(school.last_registration_fee_year);
+                  }else{
+                    if(school.renew_date!=null){
+                      var renew_date=new Date(school.renew_date);
+                      $('input[name=renew_date]').val(school.renew_date);
+                    }
                   }
+                  
                   
                   $('input[name=email]').val(school.email);
                   $('input[name=name_mm]').val(school.name_mm);
@@ -635,9 +640,10 @@ function loadRenewSchool(){
                   }
                   var year=accept.getFullYear();
                   var y=year+3;
+                  
                     var now=new Date();
                     $('#register_date').val("Nov-1-"+now.getFullYear()+" to Dec-31-"+y);
-                    if((now.getFullYear()==y && (((now.getMonth()+1)=='10') ||((now.getMonth()+1)=='11') || ((now.getMonth()+1)=='12') || ((now.getMonth()+1)=='1')))){
+                    if((now.getFullYear()>=y && (((now.getMonth()+1)=='10') ||((now.getMonth()+1)=='11') || ((now.getMonth()+1)=='12') || ((now.getMonth()+1)=='1')))){
                       $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
                       $('.renew_submit').prop('disabled', true);
                       $('#submit_confirm').prop('disabled', false);
