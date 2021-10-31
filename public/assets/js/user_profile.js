@@ -786,7 +786,7 @@ function user_profile() {
                 let article = data.article;
                 let latest_article = data.article.slice(-1);
                         $("#qt_article_row").show();
-                        article.forEach(function (element) {
+                    //article.forEach(function (element) {
                         article.forEach(function (element) {
                             article_form_type = element.article_form_type;
 
@@ -1029,7 +1029,7 @@ function user_profile() {
                             }
                             // }
                         }
-                        });
+                    //});
             }else {
                 $('.cpaff_other').hide();
                 $('.da_cpa').show();
