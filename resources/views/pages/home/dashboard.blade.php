@@ -2380,6 +2380,16 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="gov_done_attach" style="display:none;">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article Report</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_report.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
