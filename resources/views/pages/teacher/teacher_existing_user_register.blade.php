@@ -505,7 +505,7 @@
                                                     <label class="col-md-1 col-form-label">{{ __('၂၀။') }}</label>
                                                     <label class="col-md-3 col-form-label label">ကနဦးသင်တန်းဆရာမှတ်ပုံတင်ကတ်ထုတ်ပေးသည့် ရက်စွဲ</label>
                                                         <div class="col-md-8">
-                                                            <input type="text" class="form-control" id="from_valid_date" name="from_valid_date" placeholder="dd-mm-yyyy" autocomplete="off">
+                                                            <input type="text" class="form-control" id="from_valid_date" name="from_valid_date" placeholder="dd-mm-yyyy" autocomplete="off" required>
                                                             
                                                         </div>
                                 </div>
@@ -513,7 +513,7 @@
                                                     <label class="col-md-1 col-form-label">{{ __('၂၁။') }}</label>
                                                     <label class="col-md-3 col-form-label label">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</label>
                                                         <div class="col-md-8">
-                                                            <input type="text" class="form-control" id="t_code" name="t_code" autocomplete="off">
+                                                            <input type="text" class="form-control" id="t_code" name="t_code" autocomplete="off" required>
                                                             
                                                         </div>
                                 </div>

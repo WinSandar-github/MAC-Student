@@ -99,7 +99,8 @@ $().ready(function (){
             "manage_room_numbers[]":"required",
             "manage_room_measurement[]":"required",
             "manage_room_attach[]":"required",
-            
+            eng_address : "required",
+            eng_current_address  : "required",
         },
         messages:{
             email : "Please enter your email",
@@ -183,6 +184,8 @@ $().ready(function (){
             "manage_room_numbers[]":"Please enter",
             "manage_room_measurement[]":"Please enter",
             "manage_room_attach[]":"Please choose file",
+            eng_address:"Please enter your address",
+            eng_current_address : "Please enter your current address",
         },
         
         submitHandler: function(form) {
