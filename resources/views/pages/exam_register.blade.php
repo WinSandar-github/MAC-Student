@@ -526,7 +526,7 @@
 
         get_student_info(student_id).then(data => {
             if(data){
-                console.log('info',data.data);
+                // console.log('info',data.data);
                 let current_stu_course = data.data.student_course_regs.slice(-1);
                 let last_exam = data.data.exam_registers.slice(-1);               
 
@@ -574,7 +574,7 @@
                     
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
                 $("#exam_date").append(formatDateMY(current_stu_course[0].batch.exam_start_date));
-                $("#da_batch_no").append(current_stu_course[0].batch.number);
+                $("#da_batch_no").append(number2mm(current_stu_course[0].batch.number));
                 $("input[name='name_mm']").val(data.data.name_mm);
                 $("input[name='name_eng']").val(data.data.name_eng);
                 $("input[name='nrc_state_region']").val(data.data.nrc_state_region);

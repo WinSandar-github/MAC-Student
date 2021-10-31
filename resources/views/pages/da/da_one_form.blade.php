@@ -78,6 +78,7 @@
                                     {{--<h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
                                     <h5 class="card-title text-center">
                                         ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ</h5>--}}
+                                    <input type="hidden" class="batch_number" value="{{$batch['number']}}">
 
                                     <div class="row mb-5">
                                         <h5 class="card-title text-center fw-bolder">
@@ -86,7 +87,7 @@
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                            <h6>အမှတ်စဥ် - <span id="batch_number">{{$batch['number']}}</span></h6>
+                                            <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6>
                                         </div>
                                     </div>
 
@@ -152,10 +153,10 @@
                                     <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span class="pull-left">၄။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)<span style="color:red">*</span></label>
                                         <div class="col-md-4">
-                                            <input type="text" placeholder="အမည်(မြန်မာ)-နာမ်မည်သာရေးပါ။" name="name_mm" class="form-control" id="name_mm">
+                                            <input type="text" placeholder="အမည်(မြန်မာ)-အမည်သာရေးရန်။" name="name_mm" class="form-control" id="name_mm">
                                         </div>
                                         <div class="col-md-4">
-                                            <input type="text" placeholder="အမည်(အင်္ဂလိပ်)-နာမ်မည်သာရေးပါ။" name="name_eng" class="form-control" id="name_eng">
+                                            <input type="text" placeholder="အမည်(အင်္ဂလိပ်)-အမည်သာရေးရန်။" name="name_eng" class="form-control" id="name_eng">
                                         </div>
                                     </div>
 
@@ -803,6 +804,9 @@
 
         $(document).ready(function (e) {
             localStorage.removeItem('course_type');
+
+            
+            $("#batch_number").append(number2mm($(".batch_number").val()));
 
             $("input[name='date']").flatpickr({
                 enableTime: false,

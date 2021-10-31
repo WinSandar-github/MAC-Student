@@ -1,4 +1,4 @@
-// const FRONTEND_URL = "http://localhost:8001";
+// const FRONTEND_URL = "http://localhost:8081";
 // const BASE_URL = "http://localhost:8000";
 // const BACKEND_URL = "http://localhost:8000/api";
 
@@ -87,12 +87,16 @@ function formatDateMY(date) {
     return date;
 }
 
-function mm2en(num) {
-    var nums = { 0: '၀', 1: '၁', 2: '၂', 3: '၃', 4: '၄', 5: '၅', 6: '၆', 7: '၇', 8: '၈', 9: '၉' };
-    return num.replace(/([0-9])/g, function (s, key) {
-        console.log(nums[key] || s);
-        return nums[key] || s;
-    });
+
+function number2mm(num) {
+    if (num) {
+        var nums = { 1: '၁', 2: '၂', 3: '၃', 4: '၄', 5: '၅', 6: '၆', 7: '၇', 8: '၈', 9: '၉', 0: '၀' };
+
+        return num.toString().replace(/([0-9])/g, function (s, key) {
+
+            return nums[key] || s;
+        });
+    }
 }
 
 function ConfirmSubmit() {
