@@ -139,7 +139,7 @@ function createDARegister() {
     $('input[name="certificate[]"]').map(function () {
 
         for (var i = 0; i < $(this).get(0).files.length; ++i) {
-            console.log($(this))
+            // console.log($(this))
             send_data.append('certificate[]', $(this).get(0).files[i]);
         }
     });
@@ -541,7 +541,7 @@ function CreateDAExistingRegister() {
     var image = $("input[name=profile_photo]")[0].files[0];
     var nrc_front = $("input[name=nrc_front]")[0].files[0];
     var nrc_back = $("input[name=nrc_back]")[0].files[0];
-    var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
+    // var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
     var nrc_citizen = $("#nrc_citizen").val();
@@ -569,7 +569,7 @@ function CreateDAExistingRegister() {
     send_data.append('image', image);
     send_data.append('registration_no', $("input[name=registration_no]").val());
     // send_data.append('date', $("input[name=date]").val());
-    send_data.append('recommend_letter', recommend_letter);
+    // send_data.append('recommend_letter', recommend_letter);
     send_data.append('current_job', $("input[name=current_job]").val());
     send_data.append('position', $("input[name=position]").val());
     send_data.append('department', $("input[name=department]").val());
@@ -611,7 +611,12 @@ function CreateDAExistingRegister() {
         send_data.append('da_two_mac_type', $("input[name='da_two_attend_place']:checked").val() == 2 ? $("input[name='da_two_mac_type']:checked").val() : 99);
     }
     send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
-    send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
+    if($("input[type='radio'][name='is_full_module']:checked").val()!=null){        
+        send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
+    }else if($("input[type='radio'][name='is_full_module']:checked").val()==null){        
+        send_data.append('module', 0);
+    }
+    
     send_data.append('da_type', $("#da_type").val());
     show_loader();
     $.ajax({
@@ -621,6 +626,7 @@ function CreateDAExistingRegister() {
         contentType: false,
         processData: false,
         success: function (result) {
+            // console.log('result',result)
             EasyLoading.hide();
             successMessage("You have successfully registered. Use your email and password to login.");
             setInterval(() => {
@@ -658,13 +664,13 @@ function updateDAExistingRegister() {
 
     }
 
-    if ($("input[name=recommend_letter]")[0].files[0]) {
+    // if ($("input[name=recommend_letter]")[0].files[0]) {
 
 
-        var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
-        send_data.append('recommend_letter', recommend_letter);
+    //     var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
+    //     send_data.append('recommend_letter', recommend_letter);
 
-    }
+    // }
 
 
 

@@ -150,12 +150,12 @@
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                             <div class="col-md-4">
                                                 <div>
-                                                    <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm" class="form-control" id="name_mm" >
+                                                    <input type="text" placeholder="အမည်(မြန်မာ)-အမည်သာရေးရန်။" name="name_mm" class="form-control" id="name_mm" >
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div>
-                                                    <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" class="form-control" value="{{ old('name_eng') }}" id="name_eng" >
+                                                    <input type="text" placeholder="အမည်(အင်္ဂလိပ်)-အမည်သာရေးရန်။" name="name_eng" class="form-control" value="{{ old('name_eng') }}" id="name_eng" >
                                                 </div>
                                             </div>
                                         </div>
@@ -973,31 +973,7 @@
 
 </script>
 <script>
-    //  $( "#cpa_one_submit" ).click(function() {
-    //     if(allFilled('#cpa_one_form')){
-    //         $('#cpaEmailModal').modal('show');
-    //         send_email();
-    //     }
-    //     else{
-    //     }
-    // });
-    // function allFilled(form_id) {
-    //     var filled = true;
-
-    //     $(form_id+' input').each(function() {
-    //         if($(this).attr('id')=="batch_id")
-    //         {   }
-    //         else if( $(this).attr('id')=="registration_no")
-    //         {   }
-    //         else if( $(this).attr('id')=="approve_reject_status")
-    //         {   }
-    //         else{
-    //             if($(this).val() == ''  ) filled = false;
-    //         }
-    //         //if($(this).is(':checkbox') && $('input[type=checkbox][name=reg_reason]:checked').length == 0) filled = false;
-    //     });
-    //     return filled;
-    // }
+    
         $('#btn_cash').click(function () {
             setTimeout(function () {
                 $('#cpaEntryPaymentModal').modal('hide');
