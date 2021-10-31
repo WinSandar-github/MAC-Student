@@ -1140,7 +1140,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <div class="col-md-2"></div>
                                             <div class="d-flex justify-content-between mt-2 mb-2">
                                                 <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
+                                                <h6>အမှတ်စဉ် - <span class="batch_number"></span></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -1848,7 +1848,7 @@ $nrc_characters = config('myanmarnrc.characters');
                         let current_stu_course = student_info.student_course_regs.slice(-1);
                         let exam_registers = student_info.exam_registers.slice(-1);
 
-                        console.log('student_info', current_stu_course);
+                        // console.log('student_info', current_stu_course);
                         $('.name_mm').val(student_info.name_mm);
                         $('.name_eng').val(student_info.name_eng);
                         $('.nrc_state_region').val(student_info.nrc_state_region);
@@ -1878,7 +1878,7 @@ $nrc_characters = config('myanmarnrc.characters');
                         if (current_stu_course[0].mac_type == 1) {
                             $("#sub_mac").prop("checked", true);
                         } else {
-                            console.log("Hello")
+                            // console.log("Hello")
                             $("#sub_mac2").prop("checked", true);
                         }
 
@@ -1953,7 +1953,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                 });
 
                             } else {
-                                console.log('aa', $('.batch_no').val())
+                                // console.log('aa', $('.batch_no').val())
                                 $('.batch_no').val();
                                 $('.batch_id').val();
                             }

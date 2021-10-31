@@ -84,7 +84,7 @@
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                            <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6>
+                                            <h6><span id="batch_number"></span></h6>
                                             <input type="hidden" name="batch_id" id="batch_id" />
                                             
                                         </div>
@@ -115,10 +115,10 @@
                                             <div class="row mb-3 mt-3">
                                                 <label class="col-md-6 col-form-label label"><span class="pull-left">၁။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)<span style="color:red">*</span></label>
                                                 <div class="col-md-3">
-                                                    <input type="text" placeholder="အမည်(မြန်မာ)-အမည်သာရေးပါ။" name="name_mm" class="form-control" id="name_mm">
+                                                    <input type="text" placeholder="အမည်(မြန်မာ)-အမည်သာရေးရန်။" name="name_mm" class="form-control" id="name_mm">
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="text" placeholder="အမည်(အင်္ဂလိပ်)-အမည်သာရေးပါ။" name="name_eng" class="form-control" id="name_eng">
+                                                    <input type="text" placeholder="အမည်(အင်္ဂလိပ်)-အမည်သာရေးရန်။" name="name_eng" class="form-control" id="name_eng">
                                                 </div>
                                             </div>
 
@@ -466,7 +466,7 @@
                                             <div class="col-md-4 form-check-radio">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input module_one" type="radio" id="0"
-                                                            name="is_full_module" value="1" required>
+                                                            name="is_full_module" value="1" >
                                                     <span class="form-check-sign"></span>
                                                     Module 1
                                                 </label>
@@ -474,17 +474,15 @@
                                             <div class="col-md-4 form-check-radio">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input module_two" type="radio"
-                                                            name="is_full_module" value='2' required>
+                                                            name="is_full_module" value='2' >
                                                     <span class="form-check-sign"></span>
                                                     Module 2
                                                 </label>
                                             </div>
-                                            <div class="col-md-4 form-check-radio module_full">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio"
-                                                            name="is_full_module" value='0' required>
-                                                    <span class="form-check-sign"></span>
-                                                    None
+                                            <div class="col-md-7 ">
+                                                <label class="form-check-label text-danger">
+                                                    <span style="color:red">(Module 1 နှင့် Module 2 မအောင်မြင်သူများ ရွေးရန်မလိုပါ။)</span>
+                                                                                                        
                                                 </label>
                                             </div>
                                             <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
@@ -577,9 +575,44 @@
                                     <input type="hidden" id="cpa_type" value="cpa_1">
                                     
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၁။</span> တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်(သို့)ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်</label>
-                                        <div class="col-md-8">
-                                            <input type="text" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်(သို့)ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်" name="sr_no" class="form-control" id="sr_no" value="{{ old('direct_sr_no') }}" >
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၄။</span> တိုက်ရိုက် (သို့) ဝင်ခွင့်<span style="color:red">*</span></label>                                       
+                                        <div class="row col-md-8 py-2" style="padding-left:24px">
+                                            <div class="col-md-6 form-check-radio ">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input direct_access_no" type="radio" id="direct_access_no"
+                                                            name="qt_entry" value="0"  onclick="$('#direct_access_no_row').show();$('#entry_success_no_row').hide();">
+                                                    <span class="form-check-sign"></span>
+                                                    တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဉ်
+                                                </label>
+                                            </div>
+
+                                            <div class="col-md-6 form-check-radio ">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input entry_success_no" type="radio" id="entry_success_no"
+                                                            name="qt_entry" value="1"  onclick="$('#entry_success_no_row').show();$('#direct_access_no_row').hide()">
+                                                    <span class="form-check-sign"></span>
+                                                    ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဉ်
+                                                </label>
+                                            </div>
+                                            <label  class="error attend_place_error" style="display:none;" for="qt_entry">Please select one</label>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div id="direct_access_no_row" style="display:none">
+                                        <div class="row mb-3" >
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဉ်<span style="color:red">*</span></label>
+                                            <div class="col-md-8" >
+                                                <input type="text" class="form-control" name="direct_access_no"  placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဉ်" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="entry_success_no_row" style="display:none">
+                                        <div class="row mb-3" >
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဉ်<span style="color:red">*</span></label>
+                                            <div class="col-md-8" >
+                                                <input type="text" class="form-control" name="entry_success_no"  placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဉ်" >
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -714,7 +747,7 @@
                             document.getElementById('nrc_back_update').src = BASE_URL + info.nrc_back;
                             $("input[name=old_nrc_back]").val(info.nrc_back); 
 
-                            $("input[name=old_rec_letter]").val(info.recommend_letter);
+                            // $("input[name=old_rec_letter]").val(info.recommend_letter);
                         }
 
                         var batch_id = student_course[0].batch_id;
@@ -728,7 +761,7 @@
                                 success: function (res) {
                                     
                                     $('.batch_number').append(res.data.number);
-                                    $('#batch_number').append(res.data.number);
+                                    $('#batch_number').append(res.data.name_mm);
                                 }
                         })
                         if(job_history){
@@ -760,10 +793,10 @@
                         // government staff OR not
                         if(info.gov_staff == 1){
                             $("input[name=gov_staff][value=1]").prop("checked",true);
-                            $("#rec_letter").css("display",'block');
-                            if(info.recommend_letter!=null){
-                                $(".recommend_letter").append("<a href='"+BASE_URL+info.recommend_letter+"'  target='_blank'>View File</a><br/>")
-                            }
+                            // $("#rec_letter").css("display",'block');
+                            // if(info.recommend_letter!=null){
+                            //     $(".recommend_letter").append("<a href='"+BASE_URL+info.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                            // }
                         }
                         else{
                             $("input[name=gov_staff][value=0]").prop("checked",true);
@@ -808,14 +841,36 @@
 
                         }
                         else if(last_exam[0].is_full_module=="0"){
-                            $(".none").prop("checked", true);
+                            $(".module_one").prop("checked", false); 
+                            $(".module_two").prop("checked", false);
                             // $('.module_two').attr('disabled', true);
                             // $('.module_full').attr('disabled', true);                              
                             
                         }
+                        
                         $("input[name=cpa_one_pass_exam_date]").val(last_exam[0].passed_date);
                         $("input[name=cpa_one_pass_level]").val(last_exam[0].passed_level);
                         $("input[name=cpa_one_pass_personal_no]").val(info.cpersonal_no);
+
+                        // direct or entrance ...start
+                        if(info.student_course_regs.length == 2 && info.student_course_regs[0].qt_entry == 1){
+                                                  
+                            $("#entry_success_no").prop("checked",true);
+                            $("#direct_access_no").prop("checked",false);
+                            $("#entry_success_no_row").show();                                
+                            $("#direct_access_no_row").hide();
+
+                            $("input[name=entry_success_no]").val(student_course[0].sr_no);
+                            
+                        }else{
+                            $("#entry_success_no").prop("checked",false);
+                            $("#direct_access_no").prop("checked",true);
+                            $("#entry_success_no_row").hide();                                
+                            $("#direct_access_no_row").show();
+
+                            $("input[name=direct_access_no]").val(student_course[0].sr_no);
+                        }
+                        // direct or entrance ...end
                     }
 
                     //$("input").prop('',true);

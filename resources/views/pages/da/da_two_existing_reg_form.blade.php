@@ -82,8 +82,10 @@
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                            <h6>အမှတ်စဥ် - <span id="batch_number">{{$batch['number']}}</span></h6> 
+                                            <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6> 
                                         </div>
+                                        <input type="hidden" class="batch_number" value="{{$batch['number']}}">
+
                                     </div>
 
                                     <div class="row">
@@ -135,10 +137,10 @@
                                     <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span class="pull-left">၄။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)<span style="color:red">*</span></label>
                                         <div class="col-md-4">
-                                            <input type="text" placeholder="အမည်(မြန်မာ)-နာမ်မည်သာရေးပါ။" name="name_mm" class="form-control" id="name_mm">
+                                            <input type="text" placeholder="အမည်(မြန်မာ)-အမည်သာရေးရန်။" name="name_mm" class="form-control" id="name_mm">
                                         </div>
                                         <div class="col-md-4">
-                                            <input type="text" placeholder="အမည်(အင်္ဂလိပ်)-နာမ်မည်သာရေးပါ။" name="name_eng" class="form-control" id="name_eng">
+                                            <input type="text" placeholder="အမည်(အင်္ဂလိပ်)-အမည်သာရေးရန်။" name="name_eng" class="form-control" id="name_eng">
                                         </div>
                                     </div>
 
@@ -374,7 +376,7 @@
                                         
                                     </div>
 
-                                    <div id="rec_letter" style="display:none">
+                                    {{-- <div id="rec_letter" style="display:none">
                                         <div class="row mb-3" style="margin-left: 80px">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">(က)</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ</label>
                                             <div class="col-md-8" id="degree_edu">
@@ -382,7 +384,7 @@
                                                 <!-- <input type="file"  class="form-control" id="certificate0"  name="certificates[]" required=""> -->
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span class="pull-left">၂၂။</span>တက္ကသိုလ်တစ်ခုခုမှအောင်မြင်ပြီးခဲ့သော</label>
@@ -577,7 +579,7 @@
                                                     Module 1
                                                 </label>
                                             </div>
-                                            <div class="col-md-3 form-check-radio">
+                                            <div class="col-md-2 form-check-radio">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input module_two" type="radio"
                                                             name="is_full_module" value='2' >
@@ -585,20 +587,11 @@
                                                     Module 2
                                                 </label>
                                             </div>
-                                            {{-- <div class="col-md-3 form-check-radio module_full">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio"
-                                                            name="is_full_module" value='3' required>
-                                                    <span class="form-check-sign"></span>
-                                                    All Modules
-                                                </label>
-                                            </div> --}}
-                                            <div class="col-md-3 form-check-radio module_full">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio"
-                                                            name="is_full_module" value='0' >
-                                                    <span class="form-check-sign"></span>
-                                                    None
+                                            
+                                            <div class="col-md-7 ">
+                                                <label class="form-check-label text-danger">
+                                                    <span style="color:red">(Module 1 နှင့် Module 2 မအောင်မြင်သူများ ရွေးရန်မလိုပါ။)</span>
+                                                                                                        
                                                 </label>
                                             </div>
                                             <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
@@ -787,6 +780,8 @@
         $(document).ready(function (e) {
             localStorage.removeItem('course_type');
 
+            $("#batch_number").append(number2mm($(".batch_number").val()));
+            
             $("input[name='date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",

@@ -15,6 +15,7 @@ function loadExistingForm(course_code) {
                     if(batch.course.code=='da_1'){
                         location.href = `${FRONTEND_URL}/da_one_existing_reg_form/` + batch.id
                     }else if(batch.course.code=='da_2'){
+                        // localStorage.setItem('batch_id', batch.id);
                         location.href = `${FRONTEND_URL}/da_two_existing_reg_form/` + batch.id
                     }else if(batch.course.code=='cpa_1'){
                         location.href = `${FRONTEND_URL}/existing_user_cpa_one/` + batch.id
