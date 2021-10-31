@@ -231,7 +231,7 @@
                                                 </div>
                                             </div> --}}
 
-                                            <h4 class="mb-3">Choose Pyament Method</h4>
+                                            <h4 class="mb-3">Choose Payment Method</h4>
 
                                             <div class="d-block my-3">
                                                 <div class="cc-selector">

@@ -143,7 +143,7 @@
                                     </div>
 
                                     <form id="cpa_pp_form" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
-                                    <input type="hidden" name="batch_id" class="batch_id">
+                                    <input type="text" name="batch_id" class="batch_id">
                                     <input type="hidden" name="sr_no" class="sr_no">
                                     <div class="row">
                                         <div class="col-md-8">
@@ -559,7 +559,7 @@
                                                 </h5>
                                                 <div class="d-flex justify-content-between">
                                                     <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                    <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
+                                                    <h6><span class="batch_number"></span></h6>
                                                 </div>
                                                 
                                             </div>
@@ -567,7 +567,7 @@
                                     </div>
 
                                     <form id="cpa_ss_form" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
-                                    <input type="hidden" name="batch_id" class="batch_id">
+                                    <input type="text" name="batch_id" class="batch_id">
                                     <input type="hidden" name="sr_no" class="sr_no">
                                         <div class="row mb-3">
                                             <div class="col-md-8">
@@ -1137,7 +1137,7 @@
                                                 </h5>
                                                 <div class="d-flex justify-content-between">
                                                     <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                    <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
+                                                    <h6><span class="batch_number"></span></h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -1145,7 +1145,7 @@
                                     <div>
                                     <form  method="post" id="cpa_mac_form" action="javascript:void();" enctype="multipart/form-data" novalidate>
 
-                                    <input type="hidden" name="batch_id" class="batch_id">
+                                    <input type="text" name="batch_id" class="batch_id">
                                     <input type="hidden" name="sr_no" class="sr_no">
                                             <div class="row">
                                                 <div class="col-md-8">
@@ -1822,7 +1822,7 @@
                                             console.log('res',res)
                                             $('.batch_no').val(res.data.number);                                            
                                             $('.batch_id').val(res.data.id);
-                                            $('.batch_number').append(res.data.number)
+                                            $('.batch_number').append(res.data.name_mm)
                                             // $('.personal_no').val(data.data.cpersonal_no);
                                             $('#remain_module').val(last_exam[0].is_full_module)
 
@@ -1860,12 +1860,14 @@
                                     })   
                                 }
                                 else{
-                                    $('.batch_id').val(current_stu_course[0].batch.id);
+                                    let batch_id = localStorage.getItem('batch_id');
+                                    $('.batch_id').val(batch_id);
+                                    // $('.batch_id').val(current_stu_course[0].batch.id);
                                 } 
                             }
                             else{
                                 $('.batch_no').val(current_stu_course[0]?.batch?.number);
-                                $(".batch_number").append(current_stu_course[0].batch.number);
+                                $(".batch_number").append(current_stu_course[0].batch.name_mm);
                                 $('.batch_id').val(current_stu_course[0].batch.id);
                             }                    // $('.batch_no').val(current_stu_course[0].batch.number);
                             

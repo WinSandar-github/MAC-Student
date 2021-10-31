@@ -365,7 +365,7 @@
                                         
                                     </div>
 
-                                    <div id="rec_letter" style="display:none">
+                                    {{-- <div id="rec_letter" style="display:none">
                                         <div class="row mb-3" style="margin-left: 80px">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">(က)</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ</label>
                                             <div class="col-md-2"  id="degree_edu" >
@@ -378,7 +378,7 @@
                                                 <!-- <input type="file"  class="form-control" id="certificate0"  name="certificates[]" required=""> -->
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span class="pull-left">၁၉။</span>တက္ကသိုလ်တစ်ခုခုမှအောင်မြင်ပြီးခဲ့သော</label>
@@ -467,20 +467,10 @@
                                                     Module 2
                                                 </label>
                                             </div>
-                                            {{-- <div class="col-md-3 form-check-radio module_full">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio"
-                                                            name="is_full_module" value='3' required>
-                                                    <span class="form-check-sign"></span>
-                                                    All Modules
-                                                </label>
-                                            </div> --}}
-                                            <div class="col-md-3 form-check-radio module_full">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input none" type="radio"
-                                                            name="is_full_module" value='0' required>
-                                                    <span class="form-check-sign"></span>
-                                                    None
+                                            <div class="col-md-7 ">
+                                                <label class="form-check-label text-danger">
+                                                    <span style="color:red">(Module 1 နှင့် Module 2 မအောင်မြင်သူများ ရွေးရန်မလိုပါ။)</span>
+                                                                                                        
                                                 </label>
                                             </div>
                                             <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
@@ -682,7 +672,7 @@
                             document.getElementById('nrc_back_update').src = BASE_URL + info.nrc_back;
                             $("input[name=old_nrc_back]").val(info.nrc_back); 
 
-                            $("input[name=old_rec_letter]").val(info.recommend_letter);
+                            // $("input[name=old_rec_letter]").val(info.recommend_letter);
                         }
 
                         var batch_id = student_course[0].batch_id; 
@@ -697,7 +687,7 @@
                                 success: function (res) {
                                     
                                     $('.batch_number').append(res.data.number);
-                                    $('#batch_number').append(res.data.number);
+                                    $('#batch_number').append(number2mm(res.data.number));
                                 }
                         })
                         if(job_history){
@@ -729,10 +719,10 @@
                         // government staff OR not
                         if(info.gov_staff == 1){
                             $("input[name=gov_staff][value=1]").prop("checked",true);
-                            $("#rec_letter").css("display",'block');
-                            if(info.recommend_letter!=null){
-                                $(".recommend_letter").append("<a href='"+BASE_URL+info.recommend_letter+"'  target='_blank'>View File</a><br/>")
-                            }
+                            // $("#rec_letter").css("display",'block');
+                            // if(info.recommend_letter!=null){
+                            //     $(".recommend_letter").append("<a href='"+BASE_URL+info.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                            // }
                         }
                         else{
                             $("input[name=gov_staff][value=0]").prop("checked",true);
@@ -776,7 +766,8 @@
 
                         }
                         else if(last_exam[0].is_full_module=="0"){
-                            $(".none").prop("checked", true);
+                            $(".module_one").prop("checked", false);
+                            $(".module_two").prop("checked", false);
                             // $('.module_two').attr('disabled', true);
                             // $('.module_full').attr('disabled', true);                              
                             

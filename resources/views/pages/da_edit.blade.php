@@ -607,7 +607,7 @@
               get_student_info(student_id).then(data => {
                   if(data){
                       var info = data.data;
-                      console.log(info)
+                    //   console.log(info)
                       
                       var student_course = info.student_course_regs.slice(-1);
                       var job_history = data.data.student_job;
@@ -657,7 +657,7 @@
                             async:false,
                             success: function (res) {
                                  
-                                $('.batch_number').append(res.data.number);
+                                $('.batch_number').append(number2mm(res.data.number));
                             }
                         })
                       if(job_history){
@@ -681,7 +681,7 @@
                         // console.log('certificate',JSON.parse(education_history.certificate));
 
                         let certificate = JSON.parse(education_history.certificate);
-                        console.log('certificate',certificate);
+                        // console.log('certificate',certificate);
                         $.each(certificate, function (fileCount, fileName) {
 
                             $(".certificate").append(`<a href='${BASE_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);

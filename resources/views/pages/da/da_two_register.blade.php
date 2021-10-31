@@ -75,8 +75,10 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="row mt-0">
                                                     <div class="d-flex justify-content-between mb-3">
                                                         <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                        <h6>အမှတ်စဥ် - {{ $batch['id'] }}</h6>
+                                                        <h6>အမှတ်စဥ် - <span class="batch_name"></span></h6>
+                                                        
                                                     </div>
+                                                    <input type="hidden" class="batch_number" value="{{$batch['number']}}">
                                                     {{--<label class="col-md-3 col-form-label">အမှတ်စဥ် - ({{ $batch['id'] }})</label>
                                                     
                                                     <label class="col-md-7 col-form-label label">ပညာသင်နှစ်</label>
@@ -600,8 +602,9 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="row mt-2">
                                                     <div class="d-flex justify-content-between mb-3">
                                                         <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                        <h6>အမှတ်စဥ် - {{ $batch['id'] }}</h6>
+                                                        <h6>အမှတ်စဥ် - <span class="batch_name"></span></h6>
                                                     </div>
+                                                    <input type="hidden" class="batch_number" value="{{$batch['number']}}">
                                                     {{--<label class="col-md-3 col-form-label"></label>
                                                     
                                                     <label class="col-md-7 col-form-label label">ပညာသင်နှစ်</label>
@@ -1013,8 +1016,9 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="row mt-3">
                                                     <div class="d-flex justify-content-between mb-3">
                                                         <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                        <h6>အမှတ်စဥ် - {{ $batch['id'] }}</h6>
+                                                        <h6>အမှတ်စဥ် - <span class="batch_name"></span></h6>
                                                     </div>
+                                                    <input type="hidden" class="batch_number" value="{{$batch['number']}}">
                                                     {{--<label class="col-md-3 col-form-label">အမှတ်စဥ် - ({{ $batch['id'] }})</label>
                                                     
                                                     <label class="col-md-7 col-form-label label">ပညာသင်နှစ်</label>
@@ -1592,10 +1596,12 @@ $nrc_characters = config('myanmarnrc.characters');
             $('#form_type').val(localStorage.getItem("course_id"));
             selectedRegistration(urlParams.get("study_type"));
 
+            $(".batch_name").append(number2mm($(".batch_number").val()));
+
             get_student_info(student_id).then(data => {
 
                 let student_info = data.data;
-                console.log("student_info",student_info)
+                // console.log("student_info",student_info)
                 
                 if(data)
                 {
@@ -1652,7 +1658,7 @@ $nrc_characters = config('myanmarnrc.characters');
                         processData: false,
                         async:false,
                         success: function (res) {
-                            console.log('res',res)
+                            // console.log('res',res)
                             $('#batch_name').text(res.data.name);
                             
                             $('.batch_no').val(res.data.number);
