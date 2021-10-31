@@ -945,7 +945,13 @@ function user_profile() {
                                 }
                             }
                         });
+                        var invoice = data.invoice.filter(val => {
+                            return val.invoiceNo == latest_article[0].article_form_type+latest_article[0].id && val.status == 0;
+                        });
 
+                        if(invoice[0] != undefined){
+                            var payment_url = FRONTEND_URL + "/payment_method/" + latest_article[0].student_info_id + "/" + invoice[0].invoiceNo;
+                        }
                         
                         if (latest_article[0] != null && latest_article[0].contract_end_date != null) {
                             var end_date = new Date(latest_article[0].contract_end_date);
@@ -981,13 +987,13 @@ function user_profile() {
                         } else if (latest_article[0].status == 1) {   
                             if (latest_article[0].registration_fee == null) {
                                 // $('.qt_article_status').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
-                                if(latest_article[0].offline_user!='1'){
+                                //if(latest_article[0].offline_user!='1'){
                                     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                                         $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
                                     } else {
                                         $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'>Payment Success</div></div></td></tr>`);
                                     }
-                                }
+                                //}
                             }
                             if(!latest_article[0].mentor_attach_file){
                                 $('.qt_article_status').append(`<tr><td colspan=4>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='DownloadForms();'>Download</button></div></div></td></tr>`);
