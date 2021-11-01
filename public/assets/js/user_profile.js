@@ -2063,7 +2063,9 @@ function user_profile() {
 
                                                             get_course_by_code(latest_course_reg[0].batch.course.code).then(data => {
 
-                                                                var next_batch = data.data[0].active_batch.length === 0 ? null : data.data[0].active_batch;                                                                
+                                                                var next_batch = data.data[0].active_batch.length === 0 ? null : data.data[0].active_batch;
+
+                                                                console.log(next_batch,"batch 1");
 
                                                                 if (next_batch !== null) {
                                                                     $('.regi_fee_txt').text('Mac Registration Date')
@@ -2324,11 +2326,57 @@ function user_profile() {
                                                             })
                                                         } else {
 
-                                                            get_course_by_code(latest_course_reg[0].batch.course.code).then(data => {
+                                                            
+
+                                                            switch (last_exam[0].course.code) {
+
+                                                                case 'da_1':
+
+                                                                    course_code = "da_2"
+
+
+
+                                                                    break;
+
+                                                                case 'da_2':
+
+                                                                    course_code = "cpa_1"
+
+
+                                                                    break;
+
+                                                                case 'cpa_1':
+
+                                                                    course_code = "cpa_2"
+
+                                                                      
+
+                                                                    break;
+
+                                                                case 'cpa_2':
+
+                                                                    course_code = "Membership"
+
+                                                                 
+
+                                                                    break;
+
+                                                                default:
+
+                                                                    course_code = "da_1"
+
+                                                                      
+
+                                                                    break;
+
+
+
+                                                            }
+                                                            get_course_by_code(course_code).then(data => {
 
                                                                 var next_batch = data.data[0].active_batch.length === 0 ? null : data.data[0].active_batch;
 
-                                                                if (next_batch !== null) {
+                                                                if (next_batch !==  null) {
 
                                                                     $('#course_name').text(next_batch[0].course.name)
 
@@ -2381,6 +2429,9 @@ function user_profile() {
 
                                                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
                                                                     // <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration for ${next_batch[0].course.name} </a>
+
+                                                                    console.log('next batch ', next_batch[0], ' last exam ', last_exam[0])
+
                                                                     if (next_batch[0].id != last_exam[0]?.batch_id) {
                                                                         $('.status').append(`
                                                                         <tr><td colspan=2></td><td>Action</td>
@@ -2404,7 +2455,6 @@ function user_profile() {
                                                                         <td>
                                                                             <span class="nav-item dropdown ">
                                                                                 <a href="javascript:void(0)" class="btn-sm btn btn-success">Coming Soon</a>
-
                                                                             </span>
                                                                         <td>
                                                                     </td>
@@ -2418,11 +2468,9 @@ function user_profile() {
                                                                             <a href="javascript:void(0)" class="btn-sm btn btn-success">Coming Soon</a>
                                                                         <td>
                                                                     </td>
-                                                                    </tr>`)
-
+                                                                    </tr>`);
                                                                 }
-
-                                                            })
+                                                            });
 
                                                         }
                                                     } else if (last_exam[0].grade == 2) {
@@ -2432,8 +2480,10 @@ function user_profile() {
 
                                                                 var next_batch = data.data[0].active_batch.length === 0 ? null : data.data[0].active_batch;
                                                                 // console.log('next_batch',next_batch)
-                                                                localStorage.setItem('batch_id',next_batch[0].id)
+                                                                localStorage.setItem('batch_id',next_batch[0].id);
+
                                                                 $('#batch_name').text(next_batch[0].name);
+                                                                
                                                                 if (next_batch[0].id != last_exam[0]?.batch_id) {
                                                                     switch (latest_course_reg[0].batch.course.code) {
                                                                         case 'da_1':
