@@ -51,8 +51,8 @@
                         <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
                     </div>--}}
                 </div>
-                {{--<form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit" action="javascript:void(0)">--}}
-                <form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit" action="javascript:updateRejectCpaffExisting();">
+                <form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit" action="javascript:void(0)">
+                {{--<form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit" action="javascript:updateRejectCpaffExisting();">--}}
                     @csrf
                     <div class="card-body">
                         <input type="hidden" id="cpaff_id" name="cpaff_id"/>
@@ -531,7 +531,7 @@
             </div>
         </div>
     </div>
-    {{--<div class="modal fade" id="renewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="renewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -560,7 +560,7 @@
             </div>
           </div>
         </div>
-      </div>--}}
+      </div>
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
