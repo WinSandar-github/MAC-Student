@@ -144,13 +144,20 @@
                                                     @endif
                                                 @endforeach
 
+                                                <li id="dyn-block"
+                                                    class="list-group-item d-flex justify-content-between lh-condensed">
+                                                    <h6 class="my-0">Trans Fee</h6>
+                                                    <span class="text-muted" id="dyn-fee"></span>
+                                                </li>
+
                                                 <li class="list-group-item d-flex justify-content-between">
                                                     <span>Total (MMK)</span>
-                                                    <span id="total">
-                                                        - <strong>{{ array_sum($amount) }}</strong> MMK
+                                                    <span>
+                                                        - <strong id="grand-total">{{ array_sum($amount) }}</strong> MMK
                                                     </span>
                                                 </li>
                                             </ul>
+                                            <span id="total" hidden>{{ array_sum($amount) }}</span>
                                         </div>
                                         <div class="col-md-8 order-md-1">
                                             <h4 class="mb-3">User Information</h4>
@@ -245,8 +252,8 @@
                                                     <label class="drinkcard-cc mastercard" for="mastercard"></label>
                                                 </div>
                                             </div>
-                                                
-                                            <button class="btn btn-success btn-block" type="submit">Continue to checkout</button>
+
+                                            <button class="btn btn-success btn-block" type="submit" disabled>Continue to checkout</button>
 
                                         </div>
                                     </div>

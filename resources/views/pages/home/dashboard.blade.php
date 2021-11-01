@@ -736,7 +736,7 @@
                             <div class="row my-2">
                                 <div class="offset-md-3 col-md-9">
                                     <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
-                                    Application Status</h5>
+                                    Article Status</h5>
 
                                     <table class="table ">
                                         <thead>

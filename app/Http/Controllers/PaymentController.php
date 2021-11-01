@@ -56,9 +56,11 @@ class PaymentController extends Controller
             // return $type;
             switch ($type) {
                 case 'mpu':
+                    $data['amount'] = $data['amount'] . ',1000';
                     return view('pages.payment.mpu',compact('data'));
                     break;
                 case 'cbpay':
+                    $data['amount'] = $data['amount'] . ',500';
                     return view('pages.payment.cbpay',compact('data'));
                     break;
                 default:
