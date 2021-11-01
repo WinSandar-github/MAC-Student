@@ -728,6 +728,8 @@
                                     </thead>
                                     <tbody class="status">
                                     </tbody>
+                                    <tfoot class="papp_btn">
+                                     </tfoot>
                                 </table>
                             </div>
 
