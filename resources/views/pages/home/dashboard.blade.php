@@ -728,6 +728,8 @@
                                     </thead>
                                     <tbody class="status">
                                     </tbody>
+                                    <tfoot class="papp_btn">
+                                     </tfoot>
                                 </table>
                             </div>
 
@@ -736,7 +738,7 @@
                             <div class="row my-2">
                                 <div class="offset-md-3 col-md-9">
                                     <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
-                                    Application Status</h5>
+                                    Article Status</h5>
 
                                     <table class="table ">
                                         <thead>
@@ -745,6 +747,7 @@
                                                 <th>Start Date</th>
                                                 <th>End Date</th>
                                                 <th>Status</th>
+                                                <th>Remark</th>
                                             </tr>
                                         </thead>
                                         <tbody class="qt_article_status">
@@ -2371,6 +2374,16 @@
                                     <a href="https://demo.aggademo.me/MAC/public/storage/article/Daily_attendend.pdf" target="_blank">Download File</a>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Article Report</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://demo.aggademo.me/MAC/public/storage/article/Article_report.pdf" target="_blank">Download File</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="gov_done_attach" style="display:none;">
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <label>Article Report</label>
