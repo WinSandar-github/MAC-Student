@@ -659,11 +659,11 @@
             if(qualified_test == null){
                 let student_reg = data.data.student_register
                 let lastest_row = student_reg.length - 1;
-                let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
-                let exam_result = student_reg[lastest_row].status;  // pass/fail
-                let module = student_reg[lastest_row].module;  // module 1/2/all
-                let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
-                let batch = student_reg[lastest_row].batch;
+                let course = student_reg[lastest_row]?.course.code;  // cpa1/cpa2
+                let exam_result = student_reg[lastest_row]?.status;  // pass/fail
+                let module = student_reg[lastest_row]?.module;  // module 1/2/all
+                let type = student_reg[lastest_row]?.type;  //  0-self_study / 1-private / 2-mac
+                let batch = student_reg[lastest_row]?.batch;
                 let article_length = data.data.article.length - 2;
 
                 if(article_length == -1){
@@ -683,7 +683,7 @@
                     $(".course_name").text("ဒုတိယပိုင်း");
                 }
 
-                var pass_date=new Date(student_reg[lastest_row].date);
+                var pass_date=new Date(student_reg[lastest_row]?.date);
                 var pass_year = pass_date.getFullYear();
                 var pass_month = pass_date.getMonth();
                 $("#pass_year").text(pass_year);
@@ -692,13 +692,13 @@
                 if(batch == "undefined"){
                     $("#batch_no").text("-");
                 }else{
-                    $("#batch_no").text(batch.number);
+                    $("#batch_no").text(batch?.number);
                 }
 
                 if(batch == "undefined"){
                     $("#batch_name").text("-");
                 }else{
-                    $("#batch_name").text(batch.name_mm);
+                    $("#batch_name").text(batch?.name_mm);
                 }
 
                 if(type == 0){

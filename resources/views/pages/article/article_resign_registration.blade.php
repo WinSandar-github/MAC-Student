@@ -501,12 +501,16 @@
                 })
             }else{
                 $("#education").val(student_info.student_education_histroy.degree_name);
-                let certificate = JSON.parse(student_info.student_education_histroy.certificate);
-                $.each(certificate,function(fileCount,fileName){
+                if(latest_article[0]?.offline_user == 1){
+                    $(".stu_certificate").append(`<a href='${BASE_URL+student_info.student_education_histroy.certificate}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'  align="center">View Attach File</a>`);
+                }else{
+                    let certificate = JSON.parse(student_info.student_education_histroy.certificate);
+                    $.each(certificate,function(fileCount,fileName){
 
-                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);
+                        $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);
 
-                })
+                    })
+                }
             }
 
             $("#address").val(student_info.address);
