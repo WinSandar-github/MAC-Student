@@ -57,7 +57,6 @@ function showAppList(course_code) {
             type: "POST",
             data: function (d) {
                 d.course_code = course_code
-
             }
         },
         columns: [
@@ -84,6 +83,12 @@ function showExamList(course_code) {
         searching: false,
         paging: false,
         ajax: {
+<<<<<<< HEAD
+            url  : BACKEND_URL + "/approve_exam_list",
+            type : "POST" ,
+            data :  function (d) {
+                d.course_code        =  course_code;
+=======
             url: BACKEND_URL + "/approve_exam_list",
             type: "POST",
             data: function (d) {
@@ -94,6 +99,7 @@ function showExamList(course_code) {
 
 
 
+>>>>>>> 3e12f9880a04849bbebc7afea670d42d71f85703
             }
         },
         columns: [
