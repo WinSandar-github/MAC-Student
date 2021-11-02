@@ -269,10 +269,25 @@
                                 $("#article_hr").hide();
                                 $("#gov_article_row").hide();
                             }else{
-                                $("#c2_pass_3yr_btn").hide();
-                                $("#c2_pass_1yr_btn").hide();
-                                $("#qt_pass_3yr_btn").hide();
-                                $("#firm_article_renew_row").hide();
+                                if(student_info.offline_user == 1){
+                                    if(type == 2){
+                                        $("#firm_article_row").hide();
+                                        $("#firm_article_renew_row").hide();
+                                        $("#article_hr").hide();
+                                    }else{
+                                        $("#c2_pass_3yr_btn").hide();
+                                        $("#c2_pass_1yr_btn").hide();
+                                        $("#qt_pass_3yr_btn").hide();
+                                        $("#firm_article_renew_row").hide();
+                                        $("#article_hr").hide();
+                                        $("#gov_article_row").hide();
+                                    }
+                                }else{
+                                    $("#c2_pass_3yr_btn").hide();
+                                    $("#c2_pass_1yr_btn").hide();
+                                    $("#qt_pass_3yr_btn").hide();
+                                    $("#firm_article_renew_row").hide();
+                                }
                             }
                             $('#articleModal').modal('toggle');
                         }else if(form_type == 4 && course == "cpa_2"){

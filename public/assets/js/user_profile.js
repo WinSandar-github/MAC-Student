@@ -684,7 +684,7 @@ function user_profile() {
                             // else if(latest_article[0].done_status == 1){
                             if (latest_article[0].resign_status == 0) {
                                 if (invoice[0].status == 0) {
-                                    $('.qt_article_status').append(`<tr><td colspan=3></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
                                 }
                             } else if (latest_article[0].resign_status == 1) {
                                 var resign_date = new Date(latest_article[0].resign_date);
@@ -1259,7 +1259,7 @@ function user_profile() {
 
                             if(latest_article[0].resign_status == 0){
                                 if(invoice[0].status == 0){
-                                    $('.qt_article_status').append(`<tr><td colspan=3></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
                                 }
                             }else if(latest_article[0].resign_status == 1){
                                 var resign_date = new Date(latest_article[0].resign_date);
@@ -3358,7 +3358,7 @@ function user_profile() {
                                 // else if (latest_article[0].done_status == 1) {
                                 if (latest_article[0].resign_status == 0) {
                                     if (invoice[0].status == 0) {
-                                        $('.article_btn').append(`<tr><td colspan=3></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
                                     }
                                 } else if (latest_article[0].resign_status == 1) {
                                     var resign_date = new Date(latest_article[0].resign_date);
@@ -3682,7 +3682,7 @@ function user_profile() {
                                     // if (latest_article[0].done_status == 1) {
                                     if (latest_article[0].resign_status == 0) {
                                         if (invoice[0].status == 0) {
-                                            $('.article_btn').append(`<tr><td colspan=3></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
                                         }
                                     } else if (latest_article[0].resign_status == 1) {
                                         var resign_date = new Date(latest_article[0].resign_date);
