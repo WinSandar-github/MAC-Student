@@ -1,5 +1,6 @@
 @extends('pages.home.announcement')
 
+
 @prepend('styles')
     <style>
        .card-header-blue{

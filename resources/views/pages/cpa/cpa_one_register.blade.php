@@ -143,7 +143,7 @@
                                     </div>
 
                                     <form id="cpa_pp_form" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
-                                    <input type="text" name="batch_id" class="batch_id">
+                                    <input type="hidden" name="batch_id" class="batch_id">
                                     <input type="hidden" name="sr_no" class="sr_no">
                                     <div class="row">
                                         <div class="col-md-8">
@@ -567,7 +567,7 @@
                                     </div>
 
                                     <form id="cpa_ss_form" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
-                                    <input type="text" name="batch_id" class="batch_id">
+                                    <input type="hidden" name="batch_id" class="batch_id">
                                     <input type="hidden" name="sr_no" class="sr_no">
                                         <div class="row mb-3">
                                             <div class="col-md-8">
@@ -1145,7 +1145,7 @@
                                     <div>
                                     <form  method="post" id="cpa_mac_form" action="javascript:void();" enctype="multipart/form-data" novalidate>
 
-                                    <input type="text" name="batch_id" class="batch_id">
+                                    <input type="hidden" name="batch_id" class="batch_id">
                                     <input type="hidden" name="sr_no" class="sr_no">
                                             <div class="row">
                                                 <div class="col-md-8">

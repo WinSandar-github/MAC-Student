@@ -3,4 +3,4 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/nrc','API\ApiController@get_nrc');
+Route::get('/nrc','Api\ApiController@get_nrc');

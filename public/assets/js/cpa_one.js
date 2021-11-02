@@ -160,6 +160,7 @@ function createCPATwoRegDAOnePass(){
     send_data.append('type', $("input[name='attend_place']:checked").val());
 
     if($("#cpa_type").val()=='cpa_2'){
+        
         send_data.append('batch_id', $("#selected_current_batch_id").val());
         send_data.append('type_cpa2', $("input[name='cpa2_attend_place']:checked").val());
         send_data.append('cpa_two_pass_level', $("input[name=cpa_two_pass_level]").val());
