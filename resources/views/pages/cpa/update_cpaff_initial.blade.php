@@ -257,7 +257,7 @@
                                                     <label for="" class="col-form-label"> ဘွဲ့အမည်</label>
                                                 </div>
                                                 <div class="col-md-7 col-auto">
-                                                    <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်" readonly>
+                                                    <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်" >
                                                 </div>
                                             </div>
                                             <div class="row mb-2" id="degree_year0">
@@ -266,7 +266,7 @@
                                                     <label for="" class="col-form-label"> အောင်မြင်သည့်နှစ်/လ</label>
                                                 </div>
                                                 <div class="col-md-7 col-auto">
-                                                    <input type="text" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)" disabled>
+                                                    <input type="text" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)" >
                                                 </div>
                                             </div>
 
@@ -277,11 +277,11 @@
                                                 </div>
                                                 <div class="col-md-2 foreign_degree_file">
                                                 </div>
-                                                {{--<div class="col-md-5"  id="degree_edu" >
+                                                <div class="col-md-5"  id="degree_edu" >
                                                     <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
-                                                </div>--}}
+                                                </div>
                                                 <div class="col-md-1" id="add_div" >
-                                                    <button type="button" class="btn btn-primary"  style="padding-left:5px; display: none;" id="add_btn" onclick="AddCPAFFDegree()" >
+                                                    <button type="button" class="btn btn-primary"  style="padding-left:5px;" id="add_btn" onclick="AddPAPPReconnectDegree()" >
                                                         <i class="fa fa-plus"></i>
                                                     </button>
                                                 </div>
@@ -688,6 +688,23 @@
                 getCPAEducation();
                 $(".cpa_file").append("");
             }
+            // if (cpaff.foreign_degree != null && cpaff.foreign_degree != "null") {
+            //     $('#education').attr('checked', true);
+            //     // $('#cpa_edu').attr('disabled', true); 
+            //     // $('#ra_edu').attr('disabled', true);
+            //     getCPAEducation();
+            //     let foreign_degree = JSON.parse(cpaff.foreign_degree);
+            //     let degree_name = JSON.parse(cpaff.degree_name);
+            //     let degree_pass_year = JSON.parse(cpaff.degree_pass_year);
+            //     for (let j = 0; j < degree_name.length - 1; j++) {
+            //         AddCPAFFDegree();
+            //     }
+            //     for (let i = 0; i < degree_name.length; i++) {
+            //         $('input[name="degree_name[]"]').eq(i).val(degree_name[i]);
+            //         $('input[name="degree_pass_year[]"]').eq(i).val(degree_pass_year[i]);
+            //         $($(".foreign_degree_file")[i]).append(jQuery("<a href='" + BASE_URL + foreign_degree[i] + "'  target='_blank'>View File</a><br/>"));
+            //     }
+            // }
             if (cpaff.foreign_degree != null && cpaff.foreign_degree != "null") {
                 $('#education').attr('checked', true);
                 // $('#cpa_edu').attr('disabled', true); 
@@ -697,7 +714,7 @@
                 let degree_name = JSON.parse(cpaff.degree_name);
                 let degree_pass_year = JSON.parse(cpaff.degree_pass_year);
                 for (let j = 0; j < degree_name.length - 1; j++) {
-                    AddCPAFFDegree();
+                    AddPAPPReconnectDegree();
                 }
                 for (let i = 0; i < degree_name.length; i++) {
                     $('input[name="degree_name[]"]').eq(i).val(degree_name[i]);

@@ -384,9 +384,17 @@
                               <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
                               <div class="col-md-6 col-form-label">{{ __('CPA(Full-Fledged) နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်') }}</div>
                               <div class="col-md-4">
-                                          <input type="text"  class="form-control" name="last_paid_year" id="last_paid_year" disabled>
+                                    <input type="text"  class="form-control" name="last_paid_year" id="last_paid_year" disabled>
                               </div>
-                          </div><br/>
+                          </div><br/><br>
+                          <div class="row">
+                              <div class="col-md-1"></div>
+                              <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
+                              <div class="col-md-6 col-form-label">{{ __('CPA(Full-Fledged) Registration No.') }}</div>
+                              <div class="col-md-4">
+                                    <input type="text"  class="form-control" name="cpaff_reg_no" id="cpaff_reg_no" disabled>
+                              </div>
+                          </div><br/><br>
                           <input type="hidden" name="last_paid_year" id="last_paid_year">
                           <input type="hidden" name="resign_date" id="resign_date">
 
