@@ -599,7 +599,7 @@ function loadCpaffInfo() {
             $('#contact_mail').val(cpaff_data.contact_mail);
             $('#last_paid_year').val(cpaff_data.last_paid_year==null? '-':cpaff_data.last_paid_year);
             $('#resign_date').val(cpaff_data.resign_date);
-            
+            $('#cpaff_reg_no').val(cpaff_data.cpaff_reg_no);   
         }
     });
 }
