@@ -8,8 +8,6 @@
     <!-- Slider Start -->
     @include('pages/home/index')
     @include('pages/home/dashboard')
-
-
     <!-- Call to Action End -->
 @endsection
 
