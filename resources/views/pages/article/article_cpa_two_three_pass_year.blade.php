@@ -551,7 +551,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <input type="hidden" id="mentor_id">
-                                                        <input type="text" name="mentor_name" id="mentor_name" class="form-control" placeholder="Mentor Name" readonly>
+                                                        <input type="text" name="mentor_name" id="mentor_name" class="form-control" placeholder="Mentor Name">
                                                     </div>
                                                 </div>
                                             </div>
