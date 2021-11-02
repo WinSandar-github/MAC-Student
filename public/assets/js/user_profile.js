@@ -183,6 +183,23 @@ function user_profile() {
                 } else if (qt.approve_reject_status == 1) {
                     // alert('hello')
                     article_url = '/article_information';
+                    if (data.invoice.length != 0) {
+                        var invoice = data.invoice.filter(val => {
+                            return val.invoiceNo == "qtexam" + qt.id;
+                        });
+                        if (invoice[0]?.status== 0) {
+                            var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                            var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
+                        }
+                        else if (invoice[0]?.status== 'AP') {
+                            var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
+                        }
+                        else{
+                            var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                            var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
+                        }
+                        
+                    }
 
                     if (qt.grade == 0) {
                         $('.status').append(`
@@ -190,7 +207,7 @@ function user_profile() {
                             <td>Qualified Test</td>
                             <td>${formatDate(qt.created_at)}</td>
                             <td>${formatDate(qt.updated_at)}</td>
-                            <td><span class="badge bg-success text-dark">Approve</span></td>
+                            <td><span class="badge bg-success text-dark">Approve</span> &nbsp;&nbsp;${btn_payment}</td>
                         </tr>
 
                         `);
