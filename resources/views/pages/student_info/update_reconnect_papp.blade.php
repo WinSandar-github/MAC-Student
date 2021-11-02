@@ -1545,12 +1545,15 @@
                 $('#staff_firm_check').attr('checked',true);
                 $("input[name='staff_firm_name']").val(papp.staff_firm_name);
             }
-            $("input[name='cpaff_reg_no']").val(papp.cpaff_reg_no);            
-            $('.old_papp_file').append("<a href='" + BASE_URL + papp.cpa_ff_recommendation + "'  target='_blank'>View File</a><br/>");
+            $("input[name='cpaff_reg_no']").val(papp.cpaff_reg_no);          
+            if(papp.cpa_ff_recommendation!=null){
+                $('.old_papp_file').append("<a href='" + BASE_URL + papp.cpa_ff_recommendation + "'  target='_blank'>View File</a><br/>");
+
+            }  
             if (papp.ra != null && papp.ra != "null") {
                 $('#ra_edu').attr('checked', true);
-                $('#cpa_edu').attr('disabled', true);   
-                $('#education').attr('disabled', true); 
+                // $('#cpa_edu').attr('disabled', true);   
+                // $('#education').attr('disabled', true); 
                 getCPAEducation();        
                 $(".ra_file").append("<a href='"+BASE_URL+papp.ra+"'  target='_blank'>View File</a><br/>");
             }
@@ -1560,8 +1563,8 @@
             }
             if(papp.cpa!=null && papp.cpa!="null"){
                 $('#cpa_edu').attr('checked', true);   
-                $('#education').attr('disabled', true); 
-                $('#ra_edu').attr('disabled', true);            
+                // $('#education').attr('disabled', true); 
+                // $('#ra_edu').attr('disabled', true);            
                 getCPAEducation();
                 $(".cpa_file").show();
                 $(".cpa_file").append("<a href='" + BASE_URL + papp.cpa + "'  target='_blank'>View File</a><br/>");
@@ -1572,8 +1575,8 @@
             }
             if (papp.foreign_degree != null && papp.foreign_degree != "null") {
                 $('#education').attr('checked', true);
-                $('#cpa_edu').attr('disabled', true); 
-                $('#ra_edu').attr('disabled', true);
+                // $('#cpa_edu').attr('disabled', true); 
+                // $('#ra_edu').attr('disabled', true);
                 getCPAEducation();
                 let foreign_degree = JSON.parse(papp.foreign_degree);
                 let degree_name = JSON.parse(papp.degree_name);
@@ -1613,7 +1616,9 @@
             $('.cpa_certificate_old').append("<a href='" + BASE_URL + cpaff.cpa_certificate + "'  target='_blank'>View File</a><br/>");
             $('.mpa_mem_card_front_old').append("<a href='" + BASE_URL + cpaff.mpa_mem_card + "'  target='_blank'>View File</a><br/>");
             $('.mpa_mem_card_back_old').append("<a href='" + BASE_URL + cpaff.mpa_mem_card_back + "'  target='_blank'>View File</a><br/>");
-            $('.renew_file_old').append("<a href='" + BASE_URL + cpaff.old_card_file + "'  target='_blank'>View File</a><br/>");
+            if(cpaff.old_card_file!=null){
+                $('.renew_file_old').append("<a href='" + BASE_URL + cpaff.old_card_file + "'  target='_blank'>View File</a><br/>");
+            }
         }
     });
     
