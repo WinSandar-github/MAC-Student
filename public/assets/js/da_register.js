@@ -604,6 +604,7 @@ function CreateDAExistingRegister() {
 
     if ($("#da_type").val() == 'da_2') {
         send_data.append('batch_id', $("#selected_current_batch_id").val());
+        send_data.append('active_batch_id', $("#active_batch_id").val());
         send_data.append('type_da2', $("input[name='da_two_attend_place']:checked").val());
         send_data.append('da_two_pass_level', $("input[name=da_two_pass_level]").val());
         send_data.append('da_two_pass_exam_date', $("input[name=da_two_pass_exam_date]").val());

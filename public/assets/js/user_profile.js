@@ -1705,6 +1705,7 @@ function user_profile() {
 
 
                                 } else {
+                                    
                                     // console.log('latest_course_reg_entry', latest_course_reg[0]);
                                     if (latest_course_reg[0].offline_user == 1) {
                                         $('.status').append(`
@@ -1751,7 +1752,7 @@ function user_profile() {
                             }
 
                         } else {
-                            // alert("hello")
+                            // alert("hello") 
                             let status_course;
                             // let std_id = latest_course_reg[0].student_info_id;
                             // let course_id = latest_course_reg[0].batch.course_id;
@@ -1761,6 +1762,7 @@ function user_profile() {
                             // console.log('latest_course_reg',latest_course_reg[0])
                             if (latest_course_reg[0].approve_reject_status == 0) {
                                 if(latest_course_reg[0].offline_user==1){
+                                
                                     switch (latest_course_reg[0].batch.course.code) {
                                         case 'da_1':
                                             course_code = "Diploma In Accountancy Part One"
@@ -1811,7 +1813,6 @@ function user_profile() {
                                 // `);
 
                             } else if (latest_course_reg[0].approve_reject_status == 1) {
-
                                 let std_id = latest_course_reg[0].student_info_id;
 
                                 if (latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1") {
@@ -1844,9 +1845,37 @@ function user_profile() {
                                                     </tr>
                                                 `);
                                             }
-
-
                                         }
+                                    }
+                                }else if((latest_course_reg[0].batch.course.code == "da_2" || latest_course_reg[0].batch.course.code == "cpa_2") && latest_course_reg[0].offline_user==1){
+                                    if(latest_course_reg[0].offline_user==1){
+                                
+                                        switch (latest_course_reg[0].batch.course.code) {
+                                            case 'da_1':
+                                                course_code = "Diploma In Accountancy Part One"
+                                                break;
+                                            case 'da_2':
+                                                course_code = "Diploma In Accountancy Part Two"
+                                                break;
+                                            case 'cpa_1':
+                                                course_code = "Certified Public Accountant Part One"
+                                                break;
+                                            case 'cpa_2':
+                                                course_code = "Certified Public Accountant Part Two"
+                                                break;
+                                            default:
+                                                course_code = "Diploma In Accountancy Part One"
+                                                break;
+                                        }
+                                        $('.status').append(`
+                                            <tr>
+                                                <td>Existing Registration For ${course_code}</td>
+                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                <td>-</td>
+                                                <td><span class="badge bg-info text-dark">Approved</span></td>
+                                            </tr>
+                                        `);
+    
                                     }
                                 }
 
