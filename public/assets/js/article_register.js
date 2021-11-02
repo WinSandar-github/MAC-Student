@@ -172,7 +172,12 @@ function createArticleFirmRegister() {
     send_data.append('exp_start_date', $("input[name=previous_papp_start_date]").val());
     send_data.append('exp_end_date', $("input[name=previous_papp_end_date]").val());
     send_data.append('request_papp', $("input[name=papp_name]").val());
-    send_data.append('mentor_id', $("#mentor_id").val());
+    if($("#mentor_id").val()){
+        send_data.append('mentor_id', $("#mentor_id").val());
+    }
+    else{
+        send_data.append('mentor_id', $("#mentor_name").val());
+    }
     send_data.append('request_papp_attach', request_papp_attach);
     send_data.append('exam_pass_date', $("input[name=pass_date]").val());
     send_data.append('exam_pass_batch', $("input[name=pass_no]").val());
@@ -435,7 +440,12 @@ function createCPATwoPassOneYearArticle(){
     if($('#offline_user').val()){
         send_data.append('offline_user',$('#offline_user').val());
       }
-      send_data.append('mentor_id', $("#mentor_id").val());
+      if($("#mentor_id").val()){
+        send_data.append('mentor_id', $("#mentor_id").val());
+      }
+      else{
+        send_data.append('mentor_id', $("#mentor_name").val());
+      }
       send_data.append('article_form_type', $("#article_form_type").val());
     show_loader();
     $.ajax({
