@@ -398,6 +398,23 @@
                               </div>
                           </div><br/><br>
 
+                          <div class="row">
+                              <div class="col-md-1"></div>
+                              <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
+                              <div class="col-md-6 col-form-label">{{ __('CPA(Full-Fledged) နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်') }}</div>
+                              <div class="col-md-4">
+                                    <input type="text"  class="form-control" name="last_paid_year" id="last_paid_year" disabled>
+                              </div>
+                          </div><br/><br>
+                          <div class="row">
+                              <div class="col-md-1"></div>
+                              <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
+                              <div class="col-md-6 col-form-label">{{ __('CPA(Full-Fledged) Registration No.') }}</div>
+                              <div class="col-md-4">
+                                    <input type="text"  class="form-control" name="cpaff_reg_no" id="cpaff_reg_no" disabled>
+                              </div>
+                          </div><br/><br>
+
                         <div class="row mb-3" style="padding-left:50px; margin-top:10px;">
                             <div class="form-check">
                                 <label class="form-check-label">
@@ -533,6 +550,8 @@
             $('#total_hours').val(cpaff.total_hours);
             $('#fine_person').val(cpaff.fine_person);
             $('#papp_reg_no').val(cpaff.papp_reg_no);
+            $('#last_paid_year').val(cpaff.last_paid_year);
+            $('#cpaff_reg_no').val(cpaff.cpaff_reg_no);
 
             var cpaff_pass_date=new Date(cpaff.cpaff_pass_date);
             $('#cpaff_pass_date').val(cpaff_pass_date.getFullYear());

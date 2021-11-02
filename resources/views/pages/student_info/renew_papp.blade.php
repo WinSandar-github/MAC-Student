@@ -555,13 +555,13 @@
                                     <div class="col-md-4">
                                             <input type="text" class="form-control" id="total_hours" name="total_hours" placeholder="စုစုပေါင်း နာရီ" required="" >
                                     </div>
-                                </div><br/>
+                                </div>
                                 
                                 <br/><br>
 
                                 <div class="row mt-3">
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-1">(ဂ) </div>
+                                    <div class="col-md-1" style="padding-top: 10px;">(ဂ) </div>
                                     <div class="col-md-6">
                                         {{--<div class="row">
                                             <label class="col-md-4" >ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ </label>
@@ -604,18 +604,18 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
-                                    <div class="col-md-6 col-form-label">CPA(Full-Fledged) Registeration No.</div>
+                                    <div class="col-md-6 col-form-label">CPA(Full-Fledged) Registration No.</div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="cpaff_reg_no" id="cpaff_reg_no">
+                                        <input type="text" class="form-control" name="cpaff_reg_no" id="cpaff_reg_no" readonly>
                                     </div>
                                 </div><br/><br>
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
-                                    <div class="col-md-6 col-form-label">PAPP Registeration No.</div>
+                                    <div class="col-md-6 col-form-label">PAPP Registration No.</div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="papp_reg_no" id="papp_reg_number" placeholder="Enter PAPP Registeration No." readonly>
+                                        <input type="text" class="form-control" name="papp_reg_no" id="papp_reg_number" placeholder="Enter PAPP Registration No." readonly>
                                     </div>
                                 </div><br/><br>
 
@@ -627,17 +627,22 @@
                                         <input type="text" class="form-control" name="latest_reg_year" id="latest_reg_year" placeholder="PAPP နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်" autocomplete="off" disabled>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('') }}</label>
-                                    <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
-                                    <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
-                                </div><br/>
-								</div><br>
-                              <div class="row ">
-                                  <div class="col-md-2 offset-md-5">
-                                      <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Submit') }}</button>
-                                  </div>
-                              </div><br/>
+                                <div class="row mb-3" style="padding-left:100px;margin-top: 15px;margin-bottom: 10px;">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox" name="papp_submit" onchange="$('#papp_submit').prop('disabled', !this.checked)">
+                                            <span class="form-check-sign"></span>
+                                            <p class="fw-bolder">
+                                              * အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။
+                                            </p>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-2 offset-md-5">
+                                        <button type="submit" id="papp_submit" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
+                                    </div>
+                                </div>
                         </div>
                     </form>
               	</div>
