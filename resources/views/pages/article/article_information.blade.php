@@ -226,6 +226,13 @@
                         }
                         $('#articleModal').modal('toggle');
                     }else if(latest_article[0]?.resign_status == 1 && latest_article[0]?.article_form_type == 'resign'){
+                        if(student_info.offline_user == 1){
+                            if(exam_registers[0].form_type == 4){
+                                $("#c12_renew_btn").hide();
+                            }else{
+                                $("#c2_pass_renew_btn").hide();
+                            }
+                        }
                         $("#firm_article_row").hide();
                         $("#c12_btn").hide();
                         $("#c2_pass_1yr_btn").hide();
@@ -270,11 +277,7 @@
                                 $("#gov_article_row").hide();
                             }else{
                                 if(student_info.offline_user == 1){
-                                    if(type == 2){
-                                        $("#firm_article_row").hide();
-                                        $("#firm_article_renew_row").hide();
-                                        $("#article_hr").hide();
-                                    }else{
+                                    if(type != 2){ // != MAC
                                         $("#c2_pass_3yr_btn").hide();
                                         $("#c2_pass_1yr_btn").hide();
                                         $("#qt_pass_3yr_btn").hide();

@@ -3164,6 +3164,7 @@ function user_profile() {
                         }
 
                         if (data.gov_article.length == 0) {
+                            console.log(data);
                             let article = data.article;
                             article.forEach(function (element) {
                                 article_form_type = element.article_form_type;
