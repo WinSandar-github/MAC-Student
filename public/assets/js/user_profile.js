@@ -183,6 +183,23 @@ function user_profile() {
                 } else if (qt.approve_reject_status == 1) {
                     // alert('hello')
                     article_url = '/article_information';
+                    if (data.invoice.length != 0) {
+                        var invoice = data.invoice.filter(val => {
+                            return val.invoiceNo == "qtexam" + qt.id;
+                        });
+                        if (invoice[0]?.status== 0) {
+                            var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                            var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
+                        }
+                        else if (invoice[0]?.status== 'AP') {
+                            var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
+                        }
+                        else{
+                            var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                            var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
+                        }
+                        
+                    }
 
                     if (qt.grade == 0) {
                         $('.status').append(`
@@ -190,7 +207,7 @@ function user_profile() {
                             <td>Qualified Test</td>
                             <td>${formatDate(qt.created_at)}</td>
                             <td>${formatDate(qt.updated_at)}</td>
-                            <td><span class="badge bg-success text-dark">Approve</span></td>
+                            <td><span class="badge bg-success text-dark">Approve</span> &nbsp;&nbsp;${btn_payment}</td>
                         </tr>
 
                         `);
@@ -1707,6 +1724,7 @@ function user_profile() {
 
 
                                 } else {
+                                    
                                     // console.log('latest_course_reg_entry', latest_course_reg[0]);
                                     if (latest_course_reg[0].offline_user == 1) {
                                         $('.status').append(`
@@ -1753,7 +1771,7 @@ function user_profile() {
                             }
 
                         } else {
-                            // alert("hello")
+                            // alert("hello") 
                             let status_course;
                             // let std_id = latest_course_reg[0].student_info_id;
                             // let course_id = latest_course_reg[0].batch.course_id;
@@ -1763,6 +1781,7 @@ function user_profile() {
                             // console.log('latest_course_reg',latest_course_reg[0])
                             if (latest_course_reg[0].approve_reject_status == 0) {
                                 if(latest_course_reg[0].offline_user==1){
+                                
                                     switch (latest_course_reg[0].batch.course.code) {
                                         case 'da_1':
                                             course_code = "Diploma In Accountancy Part One"
@@ -1813,7 +1832,6 @@ function user_profile() {
                                 // `);
 
                             } else if (latest_course_reg[0].approve_reject_status == 1) {
-
                                 let std_id = latest_course_reg[0].student_info_id;
 
                                 if (latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1") {
@@ -1846,9 +1864,37 @@ function user_profile() {
                                                     </tr>
                                                 `);
                                             }
-
-
                                         }
+                                    }
+                                }else if((latest_course_reg[0].batch.course.code == "da_2" || latest_course_reg[0].batch.course.code == "cpa_2") && latest_course_reg[0].offline_user==1){
+                                    if(latest_course_reg[0].offline_user==1){
+                                
+                                        switch (latest_course_reg[0].batch.course.code) {
+                                            case 'da_1':
+                                                course_code = "Diploma In Accountancy Part One"
+                                                break;
+                                            case 'da_2':
+                                                course_code = "Diploma In Accountancy Part Two"
+                                                break;
+                                            case 'cpa_1':
+                                                course_code = "Certified Public Accountant Part One"
+                                                break;
+                                            case 'cpa_2':
+                                                course_code = "Certified Public Accountant Part Two"
+                                                break;
+                                            default:
+                                                course_code = "Diploma In Accountancy Part One"
+                                                break;
+                                        }
+                                        $('.status').append(`
+                                            <tr>
+                                                <td>Existing Registration For ${course_code}</td>
+                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                <td>-</td>
+                                                <td><span class="badge bg-info text-dark">Approved</span></td>
+                                            </tr>
+                                        `);
+    
                                     }
                                 }
 

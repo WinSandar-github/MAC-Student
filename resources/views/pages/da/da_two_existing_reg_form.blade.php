@@ -85,7 +85,7 @@
                                             <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6> 
                                         </div>
                                         <input type="hidden" class="batch_number" value="{{$batch['number']}}">
-
+                                        <input type="hidden" class="batch_number" id="active_batch_id" value="{{$batch['id']}}">
                                     </div>
 
                                     <div class="row">
