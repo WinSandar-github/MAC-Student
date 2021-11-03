@@ -303,6 +303,8 @@ function createArticleGovRegister() {
 }
 
 function createArticleResignRegister() {
+    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
     var send_data = new FormData();
 
     var image = $("input[name=profile_photo]")[0].files[0];
@@ -316,6 +318,10 @@ function createArticleResignRegister() {
     send_data.append('image', image);
     send_data.append('nrc_front', nrc_front);
     send_data.append('nrc_back', nrc_back);
+
+    var resign_date = new Date($("input[name=resign_date]").val());
+    var change_contract_end_date = new Date(resign_date.getFullYear(), resign_date.getMonth(), (resign_date.getDate()) - 1);
+    change_contract_end_date = String(change_contract_end_date.getDate()).padStart(2, '0') + "-" + months[change_contract_end_date.getMonth()] + "-" + change_contract_end_date.getFullYear(); 
 
     var resign_approve_attach = $("input[name=resign_approve_attach]")[0].files[0];
     send_data.append('phone_no', $("input[name=phone_no]").val());
@@ -333,6 +339,7 @@ function createArticleResignRegister() {
         send_data.append('offline_user', 0);
     }
     
+    send_data.append('change_contract_end_date', change_contract_end_date);
 
     show_loader();
     $.ajax({
