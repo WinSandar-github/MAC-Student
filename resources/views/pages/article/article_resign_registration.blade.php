@@ -390,6 +390,7 @@
 
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
                                         <input type="hidden" id="article_form_type" name="article_form_type" >
+                                        <input type="hidden" id="offline_user" name="offline_user" >
 
                                         <div class="row mb-3">
                                             <div class="form-check">
@@ -489,9 +490,11 @@
             if(latest_article[0]){
                 $("#student_info_id").val(latest_article[0].student_info_id);
                 $("#recent_org").val("Firm");
+                $("#offline_user").val(latest_article[0].offline_user);
             }else{
                 $("#student_info_id").val(latest_gov_article[0].student_info_id);
                 $("#recent_org").val("Government");
+                $("#offline_user").val(0);
             }
 
             $('#name_mm').val(student_info.name_mm);

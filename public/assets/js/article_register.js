@@ -303,7 +303,7 @@ function createArticleGovRegister() {
 }
 
 function createArticleResignRegister() {
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    //let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
     var send_data = new FormData();
 
@@ -319,9 +319,9 @@ function createArticleResignRegister() {
     send_data.append('nrc_front', nrc_front);
     send_data.append('nrc_back', nrc_back);
 
-    var resign_date = new Date($("input[name=resign_date]").val());
-    var change_contract_end_date = new Date(resign_date.getFullYear(), resign_date.getMonth(), (resign_date.getDate()) - 1);
-    change_contract_end_date = String(change_contract_end_date.getDate()).padStart(2, '0') + "-" + months[change_contract_end_date.getMonth()] + "-" + change_contract_end_date.getFullYear(); 
+    // var resign_date = new Date($("input[name=resign_date]").val());
+    // var change_contract_end_date = new Date(resign_date.getFullYear(), resign_date.getMonth(), (resign_date.getDate()) - 1);
+    // change_contract_end_date = String(change_contract_end_date.getDate()).padStart(2, '0') + "-" + months[change_contract_end_date.getMonth()] + "-" + change_contract_end_date.getFullYear(); 
 
     var resign_approve_attach = $("input[name=resign_approve_attach]")[0].files[0];
     send_data.append('phone_no', $("input[name=phone_no]").val());
@@ -332,8 +332,9 @@ function createArticleResignRegister() {
     send_data.append('recent_org', $("input[name=recent_org]").val());
     send_data.append('resign_approve_attach', resign_approve_attach);
     send_data.append('article_form_type', $("input[name=article_form_type]").val());
+    send_data.append('offline_user', $("input[name=offline_user]").val());
     send_data.append('know_policy', 1);
-    send_data.append('change_contract_end_date', change_contract_end_date);
+    //send_data.append('change_contract_end_date', change_contract_end_date);
 
     show_loader();
     $.ajax({

@@ -277,7 +277,12 @@
                                 $("#gov_article_row").hide();
                             }else{
                                 if(student_info.offline_user == 1){
-                                    if(type != 2){ // != MAC
+                                    if(type == 2){ //  MAC
+                                        $("#c2_pass_3yr_btn").hide();
+                                        $("#c2_pass_1yr_btn").hide();
+                                        $("#qt_pass_3yr_btn").hide();
+                                        $("#firm_article_renew_row").hide();
+                                    }else{
                                         $("#c2_pass_3yr_btn").hide();
                                         $("#c2_pass_1yr_btn").hide();
                                         $("#qt_pass_3yr_btn").hide();
