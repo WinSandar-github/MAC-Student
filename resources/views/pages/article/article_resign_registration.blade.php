@@ -265,7 +265,7 @@
                                             </div>
                                         </div>
 
-                                        <div id="firm_education">
+                                        <div id="firm_education" style="display:none;">
                                             <div class="row mb-3">
                                                 <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
                                                 <div class="col-md-9">
@@ -298,7 +298,26 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row mb-3 degree" style="display:none">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
 
+                                            <div class="col-md-9">
+                                                <table class="table tbl_degree table-bordered input-table">
+                                                    <thead>
+                                                        <tr >
+                                                            <th class="less-font-weight text-center" width="10%">စဉ်</th>
+                                                            <th class="less-font-weight text-center"  width="40%">တက္ကသိုလ်/ဘွဲ့/ဒီပလိုမာ</th>
+                                                            <th class="less-font-weight text-center"  width="40%">Attached Certificate</th>
+                                                            <th class="text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowEducation("tbl_degree")'><li class="fa fa-plus"></li></button></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="tbl_degree_body">
+                                                        
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၅။') }}</span>လူမျိုး/ကိုးကွယ်သည့်ဘာသာ</label>
                                             <div class="col-md-9">
@@ -501,9 +520,12 @@
                 })
             }else{
                 $("#education").val(student_info.student_education_histroy.degree_name);
-                if(latest_article[0]?.offline_user == 1){
-                    $(".stu_certificate").append(`<a href='${BASE_URL+student_info.student_education_histroy.certificate}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'  align="center">View Attach File</a>`);
+                //var education=student_info.student_education_histroy;
+                if(student_info.student_education_histroy){
+                    $('.degree').show();
+                    loadEductaionHistory(student_info.id,'tbl_degree');
                 }else{
+                    $('#firm_education').hide();
                     let certificate = JSON.parse(student_info.student_education_histroy.certificate);
                     $.each(certificate,function(fileCount,fileName){
 
@@ -511,6 +533,17 @@
 
                     })
                 }
+                
+                // if(latest_article[0]?.offline_user == 1){
+                //     $(".stu_certificate").append(`<a href='${BASE_URL+student_info.student_education_histroy.certificate}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'  align="center">View Attach File</a>`);
+                // }else{
+                //     let certificate = JSON.parse(student_info.student_education_histroy.certificate);
+                //     $.each(certificate,function(fileCount,fileName){
+
+                //         $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);
+
+                //     })
+                // }
             }
 
             $("#address").val(student_info.address);
@@ -601,6 +634,26 @@
         $("#submit_btn").prop('disabled',true);
       }
     }
-
+    function loadEductaionHistory(id,table){
+    
+        $.ajax({
+            type : 'POST',
+            url : BACKEND_URL+"/getEducationHistory",
+            data: 'student_info_id='+id,
+            success: function(result){
+                $.each(result.data, function( index, value ){
+                    var tr="<tr>";
+                    tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_degrees_id[]" class="form-control" value=`+value.id+`>${ index += 1 }</td>`;
+                    tr += '<td><input type="text" name="old_degrees[]" class="form-control" value="'+value.degree_name+'" readonly/></td>';
+                    tr += '<td><input type="hidden" name="old_degrees_certificates_h[]" class="form-control" value='+value.certificate+'><a href='+BASE_URL+value.certificate+' style="margin-top:0.5px;" target="_blank" class="btn btn-success btn-md">View File</a></td>';//<input type="file" name="old_degrees_certificates[]" class="form-control">
+                    tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("`+table+`")><li class="fa fa-times"></li></button></td>`;
+                    tr += "</tr>";
+                    $("table."+table).append(tr);
+                });
+            }
+        });
+    
+    
+    }
 </script>
 @endpush

@@ -576,7 +576,8 @@
                                             <div class="col-md-6 form-check-radio ">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input direct_access_no" type="radio" id="direct_access_no"
-                                                            name="qt_entry" value="0"  onclick="$('#direct_access_no_row').show();$('#entry_success_no_row').hide();">
+                                                            name="qt_entry" value="0"  onclick="$('#direct_access_no_row').show();$('#entry_success_no_row').hide();"
+                                                            >
                                                     <span class="form-check-sign"></span>
                                                     တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဉ်
                                                 </label>
@@ -599,7 +600,7 @@
                                         <div class="row mb-3" >
                                             <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဉ်<span style="color:red">*</span></label>
                                             <div class="col-md-8" >
-                                                <input type="text" class="form-control" name="direct_access_no"  placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဉ်" >
+                                                <input type="text" class="form-control direct_access_no" name="direct_access_no"  placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဉ်" >
                                             </div>
                                         </div>
                                     </div>
@@ -607,7 +608,13 @@
                                         <div class="row mb-3" >
                                             <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဉ်<span style="color:red">*</span></label>
                                             <div class="col-md-8" >
-                                                <input type="text" class="form-control" name="entry_success_no"  placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဉ်" >
+                                                <input type="text" class="form-control entry_success_no" name="entry_success_no"  placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဉ်" >
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3" >
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>ခုံအမှတ်<span style="color:red">*</span></label>
+                                            <div class="col-md-8" >
+                                                <input type="text" class="form-control" name="entry_success_roll_no"  placeholder="ခုံအမှတ်" >
                                             </div>
                                         </div>
                                     </div>
@@ -776,6 +783,14 @@
                 $('#btn_cash').prop('disabled', true);
             });
             $('#btn_cash').prop('disabled', true);
+
+            $("input.direct_access_no").keypress(function(event) {
+                return /\d/.test(String.fromCharCode(event.keyCode));
+            });
+
+            $("input.entry_success_no").keypress(function(event) {
+                return /\d/.test(String.fromCharCode(event.keyCode));
+            });
         });
         loadPassedBatchList();
         // loadCurrentBatchList();

@@ -478,38 +478,64 @@ function loadRenewTeacher(){
                                     
                                   }else if(teacher.initial_status==1){
                                     var accept=new Date(teacher.renew_date);
-                                    
+                                    var month=accept.getMonth()+1;
+                                    var year=accept.getFullYear();
                                     
                                   }else{
                                     var accept=new Date(teacher.renew_date);
                                     var month=accept.getMonth()+1;
                                     var year=accept.getFullYear();
-                                    var y=year+1;
+                                   // var y=year+1;
                                   }
                                   
                                   var now=new Date();
-                                  
+                                 
                                    var current_date=(now.getMonth()+1)+'/'+now.getDate()+'/'+now.getFullYear();
                                    $('#register_date').val("Nov-1-"+now.getFullYear()+" to Dec-31-"+now.getFullYear());
-                                if((now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
-                                    $("#message").val("You can renew your form!");
-                                    $('.renew_submit').prop('disabled', true);
-                                    $('#submit_confirm').prop('disabled', false);
-                                }else if(((now.getMonth()+1)=='11') || ((now.getMonth()+1)=='12')){
-                                    $("#message").val("You can renew your form!");//month=10 for test
-                                    $('.renew_submit').prop('disabled', true);
-                                    $('#submit_confirm').prop('disabled', false);
-                                }else if(((now.getMonth()+1) >= '1') && ((now.getMonth()+1) <= '10')){
-                                    //$('#message').val("Renew form month is expired! You can renew in November,December "+now.getFullYear());
-                                    $("#message").val("You can renew your form!");
-                                    $('.renew_submit').prop('disabled', true);
-                                    $('#submit_confirm').prop('disabled', false);
-                                }
-                                else{
-                                    $('#message').val("You are verified!");
-                                    $('.renew_submit').prop('disabled', true);
-                                    $('#submit_confirm').prop('disabled', true);
-                                }
+                                   if(month=="11" || month=="12"){
+                                        var y=year+1;
+                                        if((now.getFullYear()>=y)){
+                                            $("#message").val("You can renew your form!");
+                                            $('.renew_submit').prop('disabled', true);
+                                            $('#submit_confirm').prop('disabled', false);
+                                        }else{
+                                            $('#message').val("You are verified!");
+                                            $('.renew_submit').prop('disabled', true);
+                                            $('#submit_confirm').prop('disabled', true);
+                                        }
+                                   }else if((month >= '01') && (month <= '10')){
+                                        if(((now.getMonth()+1) >= '01') && ((now.getMonth()+1) <= '12')){
+                                            $("#message").val("You can renew your form!");
+                                            $('.renew_submit').prop('disabled', true);
+                                            $('#submit_confirm').prop('disabled', false);
+                                        }
+                                   }else{
+                                    if(((now.getMonth()+1) >= '01') && ((now.getMonth()+1) <= '12')){
+                                        $("#message").val("You can renew your form!");
+                                        $('.renew_submit').prop('disabled', true);
+                                        $('#submit_confirm').prop('disabled', false);
+                                    }
+                                   }
+                                // if((now.getFullYear()>=accept.getFullYear() && month=='11') || (now.getFullYear()>=accept.getFullYear() && month=='12')){
+                                //     $("#message").val("You can renew your form!");
+                                //     $('.renew_submit').prop('disabled', true);
+                                //     $('#submit_confirm').prop('disabled', false);
+                                // }
+                                // else if(((now.getMonth()+1)=='11') || ((now.getMonth()+1)=='12')){
+                                //     $("#message").val("You can renew your form!");//month=10 for test
+                                //     $('.renew_submit').prop('disabled', true);
+                                //     $('#submit_confirm').prop('disabled', false);
+                                // }else if(((now.getMonth()+1) >= '1') && ((now.getMonth()+1) <= '10')){
+                                //     //$('#message').val("Renew form month is expired! You can renew in November,December "+now.getFullYear());
+                                //     $("#message").val("You can renew your form!");
+                                //     $('.renew_submit').prop('disabled', true);
+                                //     $('#submit_confirm').prop('disabled', false);
+                                // }
+                                // else{
+                                //     $('#message').val("You are verified!");
+                                //     $('.renew_submit').prop('disabled', true);
+                                //     $('#submit_confirm').prop('disabled', true);
+                                // }
                                    
                                     // var period_date=teacher.payment_date.split('-');
                                     // var period=period_date[2]+'-'+period_date[1]+'-'+period_date[0];
