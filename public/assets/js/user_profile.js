@@ -701,7 +701,7 @@ function user_profile() {
                             // else if(latest_article[0].done_status == 1){
                             if (latest_article[0].resign_status == 0) {
                                 if (invoice[0].status == 0) {
-                                    $('.qt_article_status').append(`<tr><td colspan=3></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
                                 }
                             } else if (latest_article[0].resign_status == 1) {
                                 var resign_date = new Date(latest_article[0].resign_date);
@@ -1246,7 +1246,7 @@ function user_profile() {
                             } else if (latest_article[0].done_status == 1) {
                                 if (latest_stu_reg[0].course.code == "cpa_2" && exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)) {
                                     article_url = '/article_information';
-                                    $('.qt_article_status').append(`<tr><td colspan=4></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
+                                    $('.qt_article_status').append(`<tr><td colspan=3></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
                                 }
                             }else if (latest_article[0].done_status == 2) {
                                 $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='CompleteDownloadForms();'>Download</button></div></div></td></tr>`);
@@ -1276,7 +1276,7 @@ function user_profile() {
 
                             if(latest_article[0].resign_status == 0){
                                 if(invoice[0].status == 0){
-                                    $('.qt_article_status').append(`<tr><td colspan=3></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
                                 }
                             }else if(latest_article[0].resign_status == 1){
                                 var resign_date = new Date(latest_article[0].resign_date);
@@ -3193,6 +3193,7 @@ function user_profile() {
                         }
 
                         if (data.gov_article.length == 0) {
+                            console.log(data);
                             let article = data.article;
                             article.forEach(function (element) {
                                 article_form_type = element.article_form_type;
@@ -3402,7 +3403,7 @@ function user_profile() {
                                 } else if (latest_article[0].done_status == 1) {
                                     if (latest_stu_reg[0].course.code == "cpa_2" && exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)) {
                                         article_url = '/article_information';
-                                        $('.article_btn').append(`<tr><td colspan=4></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
+                                        $('.article_btn').append(`<tr><td colspan=3></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
                                     }
                                 }else if (latest_article[0].done_status == 2) {
                                     $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='CompleteDownloadForms();'>Download</button></div></div></td></tr>`);
@@ -3454,7 +3455,7 @@ function user_profile() {
                                 // else if (latest_article[0].done_status == 1) {
                                 if (latest_article[0].resign_status == 0) {
                                     if (invoice[0].status == 0) {
-                                        $('.article_btn').append(`<tr><td colspan=3></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
                                     }
                                 } else if (latest_article[0].resign_status == 1) {
                                     var resign_date = new Date(latest_article[0].resign_date);
@@ -3778,7 +3779,7 @@ function user_profile() {
                                     // if (latest_article[0].done_status == 1) {
                                     if (latest_article[0].resign_status == 0) {
                                         if (invoice[0].status == 0) {
-                                            $('.article_btn').append(`<tr><td colspan=3></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
                                         }
                                     } else if (latest_article[0].resign_status == 1) {
                                         var resign_date = new Date(latest_article[0].resign_date);
