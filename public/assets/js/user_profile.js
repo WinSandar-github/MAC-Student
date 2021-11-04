@@ -198,7 +198,7 @@ function user_profile() {
                             var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
                             var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                         }
-                        
+
                     }
 
                     if (qt.grade == 0) {
@@ -1724,7 +1724,7 @@ function user_profile() {
 
 
                                 } else {
-                                    
+
                                     // console.log('latest_course_reg_entry', latest_course_reg[0]);
                                     if (latest_course_reg[0].offline_user == 1) {
                                         $('.status').append(`
@@ -1771,7 +1771,7 @@ function user_profile() {
                             }
 
                         } else {
-                            // alert("hello") 
+                            // alert("hello")
                             let status_course;
                             // let std_id = latest_course_reg[0].student_info_id;
                             // let course_id = latest_course_reg[0].batch.course_id;
@@ -1781,7 +1781,7 @@ function user_profile() {
                             // console.log('latest_course_reg',latest_course_reg[0])
                             if (latest_course_reg[0].approve_reject_status == 0) {
                                 if(latest_course_reg[0].offline_user==1){
-                                
+
                                     switch (latest_course_reg[0].batch.course.code) {
                                         case 'da_1':
                                             course_code = "Diploma In Accountancy Part One"
@@ -1868,7 +1868,7 @@ function user_profile() {
                                     }
                                 }else if((latest_course_reg[0].batch.course.code == "da_2" || latest_course_reg[0].batch.course.code == "cpa_2") && latest_course_reg[0].offline_user==1){
                                     if(latest_course_reg[0].offline_user==1){
-                                
+
                                         switch (latest_course_reg[0].batch.course.code) {
                                             case 'da_1':
                                                 course_code = "Diploma In Accountancy Part One"
@@ -1894,7 +1894,7 @@ function user_profile() {
                                                 <td><span class="badge bg-info text-dark">Approved</span></td>
                                             </tr>
                                         `);
-    
+
                                     }
                                 }
 
@@ -2419,7 +2419,7 @@ function user_profile() {
                                                             })
                                                         } else {
 
-                                                            
+
 
                                                             switch (last_exam[0].course.code) {
 
@@ -2442,7 +2442,7 @@ function user_profile() {
 
                                                                     course_code = "cpa_2"
 
-                                                                      
+
 
                                                                     break;
 
@@ -2450,7 +2450,7 @@ function user_profile() {
 
                                                                     course_code = "Membership"
 
-                                                                 
+
 
                                                                     break;
 
@@ -2458,7 +2458,7 @@ function user_profile() {
 
                                                                     course_code = "da_1"
 
-                                                                      
+
 
                                                                     break;
 
@@ -2576,7 +2576,7 @@ function user_profile() {
                                                                 localStorage.setItem('batch_id',next_batch[0].id);
 
                                                                 $('#batch_name').text(next_batch[0].name);
-                                                                
+
                                                                 if (next_batch[0].id != last_exam[0]?.batch_id) {
                                                                     switch (latest_course_reg[0].batch.course.code) {
                                                                         case 'da_1':
@@ -4118,7 +4118,7 @@ function DownloadForms(offline_user) {
     }else{
         $('#downloadFormModel').modal('toggle');
     }
-    
+
 }
 function DownloadCPA12Forms(count){
     $('#downloadFormModel').modal('toggle');
@@ -5142,14 +5142,15 @@ function allowToRenew() {
           var today = new Date();
           var current_month = today.getMonth()+1;
           var current_year = today.getFullYear();
-          var last_submit_date = new Date(acc_firm.register_date);
-          var last_submit_year = last_submit_date.getFullYear();
+          //var last_submit_date = new Date(acc_firm.register_date);
+          var last_submit_year = acc_firm.last_registered_year;
+          //var last_submit_year = last_submit_date.getFullYear();
 
           if(current_year > last_submit_year ){
             if(current_month >= 11 || current_month <= 4){
               if(acc_firm.audit_firm_type_id == 1){
                 // audit firm
-                var audit_invoice_status = data[0].audit_invoice_status[0].status;
+                var audit_invoice_status = data[0].audit_invoice_status[0] ? data[0].audit_invoice_status[0].status : '';
                 if(acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1){
                   // to renew approved offline users
                   console.log("1");
@@ -5170,8 +5171,7 @@ function allowToRenew() {
               else{
                 console.log("3");
                 // non-audit firm
-                var nonaudit_invoice_status = data[0].nonaudit_invoice_status[0].status;
-                console.log("888",nonaudit_invoice_status);
+                var nonaudit_invoice_status = data[0].nonaudit_invoice_status[0] ? data[0].nonaudit_invoice_status[0].status : '' ;
                 if(acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1){
                   // to renew approved offline users
                   $('#check_renew').css('display','none');
