@@ -1601,7 +1601,7 @@ $nrc_characters = config('myanmarnrc.characters');
             get_student_info(student_id).then(data => {
 
                 let student_info = data.data;
-                // console.log("student_info",student_info)
+                console.log("student_info",student_info)
                 
                 if(data)
                 {
@@ -1647,9 +1647,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
 
                     let batch_id = localStorage.getItem('batch_id');
-                    
-                
-                    if( last_exam[0] && ( last_exam[0].batch_id == current_stu_course[0].batch_id ) && last_exam[0].is_full_module !== 3){
+                    if( last_exam[0] && (( last_exam[0].batch_id == current_stu_course[0].batch_id )||(last_exam[0].batch_id != current_stu_course[0].batch_id && current_stu_course[0].offline_user==1)) && last_exam[0].is_full_module !== 3 && last_exam[0].course.code=="da_2"){
                        
                         $.ajax({
                         type: "get",
@@ -1676,8 +1674,8 @@ $nrc_characters = config('myanmarnrc.characters');
                             }
                             else if(last_exam[0].is_full_module=="2"){
                                 $(".module_one").prop("checked", true);
-                                $('.module_two').attr('disabled', false);
-                                $('.module_full').attr('disabled', false);
+                                $('.module_two').attr('disabled', true);
+                                $('.module_full').attr('disabled', true);
 
 
  

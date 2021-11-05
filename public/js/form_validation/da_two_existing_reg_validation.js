@@ -59,6 +59,10 @@ $().ready(function (){
             //     equalTo : "#da_two_pass_personal_no"
             // },
             // is_full_module : "required",
+            da_two_active_attend_place : "required",
+            da_two_active_mac_type : {
+                required : "#da_two_active_main_mac:checked"
+            },
         },
         messages:{
             email : "Please enter your email",
@@ -105,7 +109,8 @@ $().ready(function (){
             // certificate : "Please upload your certificate",
             attend_place : "Please select one",
             mac_type : "Please select one",
-
+            da_two_active_attend_place : "Please select one",
+            da_two_active_mac_type : "Please select one",
             da_one_attend_place : "Please select one",
             da_one_mac_type : "Please select one",
 
