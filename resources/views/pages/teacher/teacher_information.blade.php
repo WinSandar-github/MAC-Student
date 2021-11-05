@@ -567,6 +567,7 @@
                                                             <input type="hidden" id="payment_date">
                                                             <input type="hidden" id="regno">
                                                             <input type="hidden" id="from_valid_date">
+                                                            <input type="hidden" id="gender">
                                                     </div>
                                                     
                                                     <div class="row mb-3">

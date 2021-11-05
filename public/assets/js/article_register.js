@@ -335,6 +335,11 @@ function createArticleResignRegister() {
     send_data.append('offline_user', $("input[name=offline_user]").val());
     send_data.append('know_policy', 1);
     //send_data.append('change_contract_end_date', change_contract_end_date);
+    if($("#offline_user").val()==1){
+        send_data.append('offline_user', $("#offline_user").val());
+    }else{
+        send_data.append('offline_user', 0);
+    }
 
     show_loader();
     $.ajax({

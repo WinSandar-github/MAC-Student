@@ -1736,6 +1736,7 @@
                 if (data) {
                     // console.log('student_info',data.data);
                      let current_stu_course = data.data.student_course_regs.slice(-1);
+                     console.log('test',current_stu_course);
                     let last_exam = data.data.exam_registers.slice(-1);
                      
 
@@ -1758,7 +1759,6 @@
                     if(last_exam[0]){
                         if(last_exam[0].grade == 1){
                             let batch_id = localStorage.getItem('batch_id');
-                            
                             $.ajax({
                                 type: "get",
                                 url: BACKEND_URL+"/batch/"+batch_id,
@@ -1766,7 +1766,6 @@
                                 processData: false,
                                 async:false,
                                 success: function (res) {
-                                    // console.log('res',res.data.number)
                                     $('#batch_name').text(res.data.name);
                                     $('.batch_number').text(number2mm(res.data.number));
                                     $('.batch_id').val(res.data.id);
@@ -1775,7 +1774,6 @@
                                     $('.batch_no').val(res.data.number);
                                     $('.personal_no').val(data.data.personal_no);
                                     $('#remain_module').val(last_exam[0].is_full_module)
-
                                     if(last_exam[0].is_full_module == "1"){
                                         $(".module_two").prop("checked", true);
                                     

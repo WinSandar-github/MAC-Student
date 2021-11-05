@@ -48,6 +48,7 @@ if($("#teacher_register_form").validate({
         },
         eng_address : "required",
         eng_current_address  : "required",
+        gender:"required"
     },
     messages:{
         email : "Please enter your email",
@@ -91,6 +92,7 @@ if($("#teacher_register_form").validate({
         },
         eng_address:"Please enter your address",
         eng_current_address : "Please enter your current address",
+        gender:"Please select one"
     },
     submitHandler: function(form) {
         $( "#teacher_submit" ).click(function() {
