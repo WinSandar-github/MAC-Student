@@ -559,7 +559,7 @@
                                                 </h5>
                                                 <div class="d-flex justify-content-between">
                                                     <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                    <h6><span class="batch_number"></span></h6>
+                                                    <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                                 </div>
                                                 
                                             </div>
@@ -1137,7 +1137,7 @@
                                                 </h5>
                                                 <div class="d-flex justify-content-between">
                                                     <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                    <h6><span class="batch_number"></span></h6>
+                                                    <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -1801,7 +1801,7 @@
 
                             $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $('.course_name').val(current_stu_course[0].batch.course.name);
-                            // $(".batch_number").append(current_stu_course[0].batch.number);
+                            $(".batch_number").append(number2mm(current_stu_course[0].batch.number));
                             $(".batch_no").val(current_stu_course[0].batch.number);
                             $(".batch_id").val(current_stu_course[0].batch.id);
                             if(last_exam.length!=0){
@@ -1822,7 +1822,7 @@
                                             console.log('res',res)
                                             $('.batch_no').val(res.data.number);                                            
                                             $('.batch_id').val(res.data.id);
-                                            $('.batch_number').append(res.data.name_mm)
+                                            $('.batch_number').append(number2mm(res.data.number))
                                             // $('.personal_no').val(data.data.cpersonal_no);
                                             $('#remain_module').val(last_exam[0].is_full_module)
 
@@ -1867,7 +1867,7 @@
                             }
                             else{
                                 $('.batch_no').val(current_stu_course[0]?.batch?.number);
-                                $(".batch_number").append(current_stu_course[0].batch.name_mm);
+                                $(".batch_number").append(number2mm(current_stu_course[0].batch.number));
                                 $('.batch_id').val(current_stu_course[0].batch.id);
                             }                    // $('.batch_no').val(current_stu_course[0].batch.number);
                             
@@ -1909,9 +1909,9 @@
                             $("#direct_access_no_mac_div").hide();
                             $("#entry_success_no_mac_div").show();
 
-                            $("#entry_success_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                            $("#entry_success_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                            $("#entry_success_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $("#entry_success_no_self").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
+                            $("#entry_success_no_private").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
+                            $("#entry_success_no_mac").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
                         }else{
                             console.log("for entry2");
                             $("#direct_access_no_self_div").hide();
@@ -1921,9 +1921,9 @@
                             $("#direct_access_no_mac_div").hide();
                             $("#entry_success_no_mac_div").show();
 
-                            $("#entry_success_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                            $("#entry_success_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                            $("#entry_success_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $("#entry_success_no_self").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
+                            $("#entry_success_no_private").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
+                            $("#entry_success_no_mac").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
                         }
                         
 

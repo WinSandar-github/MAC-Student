@@ -152,11 +152,13 @@ function createCPATwoRegDAOnePass(){
     send_data.append('cpa_one_pass_exam_date', $("input[name=cpa_one_pass_exam_date]").val());
     send_data.append('cpa_one_pass_personal_no', $("input[name=cpa_one_pass_personal_no]").val());
     send_data.append('qt_entry',$("input[type='radio'][name='qt_entry']:checked").val());
+
     if($("input[type='radio'][name='qt_entry']:checked").val()==0){
         send_data.append('sr_no',$("input[name=direct_access_no]").val());
     }else{
+        send_data.append('exam_sr_no',$("input[name=entry_success_no]").val());
         send_data.append('sr_no',$("input[name=entry_success_roll_no]").val());
-        send_data.append('exam_sr_no',$("input[name=entry_success__no]").val());
+        
     }    
     if($("#cpa_type").val()=='cpa_2'){
         

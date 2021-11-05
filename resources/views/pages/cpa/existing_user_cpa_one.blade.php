@@ -462,28 +462,38 @@
                                     <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label_align_right"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>Module </label>
                                         <div class="row col-md-8 py-2" style="padding-left:24px">
-                                            <div class="col-md-3 form-check-radio">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input module_one" type="radio" id="0"
-                                                            name="is_full_module" value="1" >
-                                                    <span class="form-check-sign"></span>
-                                                    Module 1
-                                                </label>
+                                            <div class="row">
+                                                <div class="col-md-3 form-check-radio">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input module_one" type="radio" id="module_1"
+                                                                name="is_full_module" value="1" >
+                                                        <span class="form-check-sign"></span>
+                                                        Module 1
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-3 form-check-radio">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input module_two" type="radio" id="module_2"
+                                                                name="is_full_module" value='2' >
+                                                        <span class="form-check-sign"></span>
+                                                        Module 2
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-3 form-check-radio">
+                                                    <label class="form-check-label">
+                                                        <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckRadioButton()"/>
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="col-md-2 form-check-radio">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input module_two" type="radio"
-                                                            name="is_full_module" value='2' >
-                                                    <span class="form-check-sign"></span>
-                                                    Module 2
-                                                </label>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <label class="form-check-label text-danger">
-                                                    <span style="color:red">(Module 1 နှင့် Module 2 မအောင်မြင်သူများ ရွေးရန်မလိုပါ။)</span>
-                                                                                                        
-                                                </label>
-                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-7">
+                                                    <label class="form-check-label text-danger">
+                                                        <span style="color:red">(Module 1 နှင့် Module 2 မအောင်မြင်သူများ ရွေးရန်မလိုပါ။)</span>
+                                                                                                            
+                                                    </label>
+                                                </div>
+                                            </div>                                            
+                                            
                                             <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
                                         </div>
                                     </div>
@@ -617,7 +627,7 @@
                                         <div class="row mb-3" >
                                             <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>ခုံအမှတ်<span style="color:red">*</span></label>
                                             <div class="col-md-8" >
-                                                <input type="text" class="form-control" name="entry_success_roll_no"  placeholder="ခုံအမှတ်" >
+                                                <input type="text" class="form-control entry_success_roll_no" name="entry_success_roll_no"  placeholder="ခုံအမှတ်" >
                                             </div>
                                         </div>
                                     </div>
@@ -776,7 +786,7 @@
         $(document).ready(function (e) {
             localStorage.removeItem('course_type');
 
-            $$("#batch_number").append(($(".batch_number").val()))
+            $("#batch_number").append(number2mm($(".batch_number").val()));
             $("input[name='date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
@@ -853,6 +863,10 @@
             });
 
             $("input.entry_success_no").keypress(function(event) {
+                return /\d/.test(String.fromCharCode(event.keyCode));
+            });
+
+            $("input.entry_success_roll_no").keypress(function(event) {
                 return /\d/.test(String.fromCharCode(event.keyCode));
             });
         });
