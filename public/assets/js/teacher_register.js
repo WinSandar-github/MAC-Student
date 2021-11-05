@@ -391,6 +391,7 @@ function loadRenewTeacher(){
             type : 'GET',
             url : BACKEND_URL+"/getTeacher/"+student.id,//teacher
             success: function (result) {
+               
                 var teacher=result.data.pop();
                 
                 //teacher_data.forEach(function(teacher){
@@ -419,6 +420,7 @@ function loadRenewTeacher(){
                                     //$('input[name=teacher_card]').prop('disabled', true);
                                     $('input[name=teacher_card]').prop('required', false);
                                     //$('#from_valid_date').val(teacher.from_valid_date);
+                                    
                                   }
                                   var from_valid_date = new Date(teacher.from_valid_date);
                                     var now=new Date();
@@ -440,6 +442,7 @@ function loadRenewTeacher(){
                                     $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
                                     $('#hidden_nrc_back').val(teacher.nrc_back);
                                   }
+                                  $('#gender').val(teacher.gender);
                                   $('#t_code').val(teacher.t_code);
                                   $('#regno').val(teacher.regno);
                                   if(teacher.initial_status==0){
@@ -684,6 +687,7 @@ function renewTeacher(){
     send_data.append('initial_status',  $('#hinitial_status').val());
     send_data.append('regno',  $('#regno').val());
     send_data.append('from_valid_date',  $('#from_valid_date').val());
+    send_data.append('gender',  $('#gender').val());
   show_loader();
     $.ajax({
         url: BACKEND_URL+'/renewTeacher',
@@ -913,7 +917,7 @@ function updateTeacher(){
                                 $("input[name=position]").val(teacher.position);
                                 $("input[name=department]").val(teacher.department);
                                 $("input[name=organization]").val(teacher.organization);
-                                  if(teacher.gov_employee == 1){
+                                if(teacher.gov_employee == 1){
                                     $('input:radio[id=gov_employee1]').attr('checked',true);
                                     $('#update_rec_letter').css('display','block');
                                     if(teacher.recommend_letter!=""){
@@ -936,6 +940,14 @@ function updateTeacher(){
                                     $('.individual_type').css('display','block');
                                     $('.private_type').css('display','none');
                                     $('input[name=update_school_name]').val(teacher.school_name);
+                                }
+                                if(teacher.gender == "male"){
+                                    $('input:radio[id=male]').attr('checked',true);
+                                    
+                                    
+                                }else{
+                                    $('input:radio[id=female]').attr('checked',true);
+                                    
                                 }
                                   
                             }else if(teacher.initial_status==1){

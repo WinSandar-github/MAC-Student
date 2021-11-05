@@ -1647,7 +1647,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
 
                     let batch_id = localStorage.getItem('batch_id');
-                    if( last_exam[0] && ( last_exam[0].batch_id == current_stu_course[0].batch_id ) && last_exam[0].is_full_module !== 3 && last_exam[0].course.code=="da_2"){
+                    if( last_exam[0] && (( last_exam[0].batch_id == current_stu_course[0].batch_id )||(last_exam[0].batch_id != current_stu_course[0].batch_id && current_stu_course[0].offline_user==1)) && last_exam[0].is_full_module !== 3 && last_exam[0].course.code=="da_2"){
                        
                         $.ajax({
                         type: "get",
