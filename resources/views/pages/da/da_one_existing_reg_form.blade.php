@@ -468,6 +468,11 @@
                                                     Module 2
                                                 </label>
                                             </div>
+                                            <div class="col-md-3 form-check-radio">
+                                                <label class="form-check-label">
+                                                    <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckRadioButton()"/>
+                                                </label>
+                                            </div>
                                             <div class="col-md-7 ">
                                                 <label class="form-check-label text-danger">
                                                     <span style="color:red">(Module 1 နှင့် Module 2 မအောင်မြင်သူများ ရွေးရန်မလိုပါ။)</span>
@@ -804,20 +809,7 @@
             $('#btn_cash').prop('disabled', true);
         });
         loadPassedBatchList();
-        function uncheckRadioButton(id){
-            console.log(id);
-            var a=document.getElementById(id);
-            console.log(a);
-            console.log(a.checked);
-            if($("#module_2").is(":checked")){
-                alert('a');
-                $("#module_2").prop('checked',false);
-            }
-            else{
-                alert('b');
-                $("#module_2").prop('checked',true);
-            }
-        }
+        
         // loadCurrentBatchList();
         // loadActiveBatchNumber('da_1');
     </script>
