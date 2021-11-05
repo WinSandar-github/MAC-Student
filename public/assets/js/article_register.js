@@ -333,6 +333,12 @@ function createArticleResignRegister() {
     send_data.append('resign_approve_attach', resign_approve_attach);
     send_data.append('article_form_type', $("input[name=article_form_type]").val());
     send_data.append('know_policy', 1);
+    if($("#offline_user").val()==1){
+        send_data.append('offline_user', $("#offline_user").val());
+    }else{
+        send_data.append('offline_user', 0);
+    }
+    
     send_data.append('change_contract_end_date', change_contract_end_date);
 
     show_loader();
