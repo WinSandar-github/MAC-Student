@@ -1265,7 +1265,7 @@ function user_profile() {
                                 //}
                             }
                             if(!latest_article[0].mentor_attach_file){
-                                $('.qt_article_status').append(`<tr><td colspan=4>ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='DownloadForms(`+latest_article[0].offline_user+`);'>Download</button></div></div></td></tr>`);
+                                $('.qt_article_status').append(`<tr><td colspan=4>Mentor နှင့်ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='DownloadForms("`+latest_article[0].article_form_type+`");'>Download</button></div></div></td></tr>`);
                                 $('.qt_article_status').append(`<tr><td colspan=5>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတမ်းများအားတင်သွင်းရန်</td><td></td></tr>`);
                                 $('.qt_article_status').append(`<tr><td colspan=3>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></td></tr>`);
                             }
@@ -4172,8 +4172,8 @@ function continueArticle(id) {
     });
 }
 
-function DownloadForms(offline_user) {
-    if(offline_user==1){
+function DownloadForms(form_type) {
+    if(form_type!="c12_renew"){
         $('#downloadFormModel').modal('toggle');
         $('#c2_not_pass_attach').hide();
     }else{
