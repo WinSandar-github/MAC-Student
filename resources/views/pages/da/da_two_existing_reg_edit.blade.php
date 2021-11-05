@@ -1033,7 +1033,7 @@
                                     $("input[name=da_two_active_attend_place][value=1]").prop("checked",true);
                                 }else{
                                     $("input[name=da_two_active_attend_place][value=2]").prop("checked",true);
-                                    $('#current_active_blk_mac').css('display','inline-block')
+                                    $('#current_active_blk_mac').css('display','inline-block');
                                     if(element.mac_type == 1){
                                         $("input[name=da_two_active_mac_type][value=1]").prop("checked",true);
 

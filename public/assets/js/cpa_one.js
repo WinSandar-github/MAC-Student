@@ -319,13 +319,13 @@ function updateCPAExistingRegister() {
         send_data.append('cpa_two_pass_personal_no', $("input[name=cpa_two_pass_personal_no]").val());
         send_data.append('cpa2_mac_type', $("input[name='cpa2_attend_place']:checked").val() == 2 ? $("input[name='cpa2_mac_type']:checked").val() : 99);
     }
+    send_data.append('type', $("input[name='attend_place']:checked").val());
     send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
 
-    if($("input[type='radio'][name='is_full_module']:checked").val()!=null){        
-        send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
-    }else if($("input[type='radio'][name='is_full_module']:checked").val()==null){        
-        send_data.append('module', 0);
-    }
+    send_data.append('active_batch_id', $("#active_batch_id").val());
+    send_data.append('active_type', $("input[name='cpa_one_active_attend_place']:checked").val());
+    send_data.append('active_mac_type', $("input[name='cpa_one_active_attend_place']:checked").val() == 2 ? $("input[name='cpa_one_active_mac_type']:checked").val() : 99);
+    send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('cpa_type', $("#cpa_type").val());
     show_loader();
     $.ajax({
