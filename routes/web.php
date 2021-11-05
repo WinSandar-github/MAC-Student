@@ -191,6 +191,7 @@ Route::get('article_resign_registration', 'ArticleController@articleResign');
 Route::get('article_cpa_two_one_pass_year', 'ArticleController@articleCPATwoOne');
 Route::get('article_cpa_two_three_pass_year', 'ArticleController@articleCPATwoThree');
 Route::get('article_cpa_two_renew', 'ArticleController@articleCPATwoRenew');
+Route::get('article_cpa_one_two_renew', 'ArticleController@articleCPAOneTwoRenew');
 // Article Information Page
 Route::get('article_information', 'ArticleInfoController@info');
 
