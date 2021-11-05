@@ -233,6 +233,13 @@
                                 $("#c2_pass_renew_btn").hide();
                             }
                         }
+                        // else{
+                        //     if(exam_registers[0].form_type == 4 && (exam_results[0]?.registeration_id == exam_registers[0]?.id)){
+                        //         $("#c12_renew_btn").hide();
+                        //     }else{
+                        //         $("#c2_pass_renew_btn").hide();
+                        //     }
+                        // }
                         $("#firm_article_row").hide();
                         $("#c12_btn").hide();
                         $("#c2_pass_1yr_btn").hide();
@@ -277,7 +284,12 @@
                                 $("#gov_article_row").hide();
                             }else{
                                 if(student_info.offline_user == 1){
-                                    if(type != 2){ // != MAC
+                                    if(type == 2){ //  MAC
+                                        $("#c2_pass_3yr_btn").hide();
+                                        $("#c2_pass_1yr_btn").hide();
+                                        $("#qt_pass_3yr_btn").hide();
+                                        $("#firm_article_renew_row").hide();
+                                    }else{
                                         $("#c2_pass_3yr_btn").hide();
                                         $("#c2_pass_1yr_btn").hide();
                                         $("#qt_pass_3yr_btn").hide();

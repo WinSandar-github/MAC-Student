@@ -135,13 +135,14 @@
                 </div>
                 <div class="modal-body text-center">
                     
-                    <a onclick="location.href =`${FRONTEND_URL}/article_cpa_two_one_pass_year`"  class="btn btn-md btn-success">CPA II Pass 1 Year</a>
+                    <a onclick="location.href =`${FRONTEND_URL}/article_cpa_two_one_pass_year`"  class="btn btn-md btn-success">CII Pass 1 Year</a>
                     <hr>
                     
-                    <a onclick="location.href =`${FRONTEND_URL}/article_cpa_two_three_pass_year`" class="btn btn-md btn-success">CPA II Pass 3 Year</a>
+                    <a onclick="location.href =`${FRONTEND_URL}/article_cpa_two_three_pass_year`" class="btn btn-md btn-success">CII Pass 3 Year</a>
                     <hr>
-                    <a onclick="location.href =`${FRONTEND_URL}/article_cpa_two_renew`" class="btn btn-md btn-success">CPA II Pass Renew</a>
-                   
+                    <a onclick="location.href =`${FRONTEND_URL}/article_cpa_one_two_renew`" class="btn btn-md btn-success">CI CII Renew</a>
+                    <hr>
+                    <a onclick="location.href =`${FRONTEND_URL}/article_cpa_two_renew`" class="btn btn-md btn-success">CII Pass Renew</a>
                  </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"
