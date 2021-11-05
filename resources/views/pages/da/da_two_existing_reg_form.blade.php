@@ -573,21 +573,25 @@
                                         <div class="row col-md-8 py-2" style="padding-left:24px">
                                             <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input module_one" type="radio" id="0"
+                                                    <input class="form-check-input module_one" type="radio" id="module_1"
                                                             name="is_full_module" value="1" >
                                                     <span class="form-check-sign"></span>
                                                     Module 1
                                                 </label>
                                             </div>
-                                            <div class="col-md-2 form-check-radio">
+                                            <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input module_two" type="radio"
+                                                    <input class="form-check-input module_two" type="radio"  id="module_2"
                                                             name="is_full_module" value='2' >
                                                     <span class="form-check-sign"></span>
                                                     Module 2
                                                 </label>
                                             </div>
-                                            
+                                            <div class="col-md-3 form-check-radio">
+                                                <label class="form-check-label">
+                                                    <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckRadioButton()"/>
+                                                </label>
+                                            </div>
                                             <div class="col-md-7 ">
                                                 <label class="form-check-label text-danger">
                                                     <span style="color:red">(Module 1 နှင့် Module 2 မအောင်မြင်သူများ ရွေးရန်မလိုပါ။)</span>
