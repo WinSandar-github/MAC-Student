@@ -198,7 +198,7 @@ function user_profile() {
                             var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
                             var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                         }
-                        
+
                     }
 
                     if (qt.grade == 0) {
@@ -609,10 +609,27 @@ function user_profile() {
                                         $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA(Full-Fledged) Form</a></td></tr > `);
                                     }
                                     }else {
+                                    //     $('.qt_article_status').append(`<tr>
+                                    //     <td>${form_type} Form</td>
+                                    //     <td>${contract_start_date}</td>
+                                    //     <td>${contract_end_date}</td>
+                                    //     <td><span class="badge bg-success">Approved</span></td>
+                                    //     <td></td>
+                                    // </tr>
+                                    // `);
+                                    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                        var resign_end_date;
+                                        if(element.resign_date != null){
+                                            var end_date = new Date(element.resign_date);
+                                            var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
+                                            resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+                                        }else{
+                                            resign_end_date = contract_end_date;
+                                        }
                                         $('.qt_article_status').append(`<tr>
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
-                                        <td>${contract_end_date}</td>
+                                        <td>${resign_end_date}</td>
                                         <td><span class="badge bg-success">Approved</span></td>
                                         <td></td>
                                     </tr>
@@ -1193,10 +1210,19 @@ function user_profile() {
                                     </tr>
                                     `);
                                     }else {
+                                        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                        var resign_end_date;
+                                        if(element.resign_date != null){
+                                            var end_date = new Date(element.resign_date);
+                                            var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
+                                            resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+                                        }else{
+                                            resign_end_date = contract_end_date;
+                                        }
                                         $('.qt_article_status').append(`<tr>
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
-                                        <td>${contract_end_date}</td>
+                                        <td>${resign_end_date}</td>
                                         <td><span class="badge bg-success">Approved</span></td>
                                         <td></td>
                                     </tr>
@@ -1723,7 +1749,7 @@ function user_profile() {
 
 
                                 } else {
-                                    
+
                                     // console.log('latest_course_reg_entry', latest_course_reg[0]);
                                     if (latest_course_reg[0].offline_user == 1) {
                                         $('.status').append(`
@@ -1770,7 +1796,7 @@ function user_profile() {
                             }
 
                         } else {
-                            // alert("hello") 
+                            // alert("hello")
                             let status_course;
                             // let std_id = latest_course_reg[0].student_info_id;
                             // let course_id = latest_course_reg[0].batch.course_id;
@@ -1780,7 +1806,7 @@ function user_profile() {
                             // console.log('latest_course_reg',latest_course_reg[0])
                             if (latest_course_reg[0].approve_reject_status == 0) {
                                 if(latest_course_reg[0].offline_user==1){
-                                
+
                                     switch (latest_course_reg[0].batch.course.code) {
                                         case 'da_1':
                                             course_code = "Diploma In Accountancy Part One"
@@ -1867,7 +1893,7 @@ function user_profile() {
                                     }
                                 }else if((latest_course_reg[0].batch.course.code == "da_2" || latest_course_reg[0].batch.course.code == "cpa_2") && latest_course_reg[0].offline_user==1){
                                     if(latest_course_reg[0].offline_user==1){
-                                
+
                                         switch (latest_course_reg[0].batch.course.code) {
                                             case 'da_1':
                                                 course_code = "Diploma In Accountancy Part One"
@@ -1893,7 +1919,7 @@ function user_profile() {
                                         //         <td><span class="badge bg-info text-dark">Approved</span></td>
                                         //     </tr>
                                         // `);
-    
+
                                     }
                                 }
 
@@ -1911,7 +1937,7 @@ function user_profile() {
 
 
                                 if (latest_stu_reg[0] && latest_course_reg[0].batch.id == latest_stu_reg[0].batch.id) {
-                                    
+
                                     $('.regi_fee_txt').text('Exam Registration Date')
                                     $('.self_study').hide();
                                     $('.private_school').hide();
@@ -2328,7 +2354,7 @@ function user_profile() {
                                                         //Check moudule for next course
                                                         console.log(containsAll([1, 2], module));
                                                         console.log(module);
-                                                        if (last_exam[0].is_full_module == 3 || containsAll([1, 2], module) == true) {                                                            
+                                                        if (last_exam[0].is_full_module == 3 || containsAll([1, 2], module) == true) {
 
                                                             switch (last_exam[0].course.code) {
                                                                 case 'da_1':
@@ -2438,7 +2464,7 @@ function user_profile() {
 
                                                                     course_code = "cpa_1"
 
-                                                                      
+
 
                                                                     break;
 
@@ -2446,7 +2472,7 @@ function user_profile() {
 
                                                                     course_code = "cpa_2"
 
-                                                                 
+
 
                                                                     break;
 
@@ -2454,7 +2480,7 @@ function user_profile() {
 
                                                                     course_code = "da_1"
 
-                                                                      
+
 
                                                                     break;
 
@@ -2488,7 +2514,7 @@ function user_profile() {
 
                                                                     $('#exam_date').text('-');
 
-                                                                        
+
                                                                     switch (next_batch[0].course.code) {
                                                                         case 'da_1':
                                                                             register_url = '/da_one_register';
@@ -2520,7 +2546,7 @@ function user_profile() {
                                                                     // <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration for ${next_batch[0].course.name} </a>
 
                                                                     console.log('next batch ', next_batch[0], ' last exam ', last_exam[0])
-                                                                    
+
                                                                     if (next_batch[0].id != last_exam[0]?.batch_id) {
                                                                         $('.status').append(`
                                                                         <tr><td colspan=2></td><td>Action</td>
@@ -2622,7 +2648,7 @@ function user_profile() {
 
                                                                     `);
                                                                 }else{
-                                                                    
+
                                                                     $('.status').append(`
                                                                         <tr>
                                                                             <td>Existing Registration For ${latest_course_reg[0].batch.course.name} </td>
@@ -2705,7 +2731,7 @@ function user_profile() {
 
 
                                                 if (previous_month <= current_month && end_date >= current_month) {
-                                                   
+
                                                     let exam_url;
                                                     let exam_text = " Exam Registration Form";
                                                     switch (latest_course_reg[0].batch.course.code) {
@@ -2752,7 +2778,7 @@ function user_profile() {
 
 
                                             }
-                                        } 
+                                        }
                                         else {
                                             // $('.status').append(`
                                             // <tr>
@@ -2830,9 +2856,9 @@ function user_profile() {
                                         </tr >
                                         `);
                                     }
-                                } 
+                                }
                                 else if(latest_course_reg[0]?.batch?.id != latest_stu_reg[0]?.batch?.id && latest_course_reg[0]?.offline_user==1){
-                                
+
                                     switch (latest_course_reg[0].batch.course.code) {
                                         case 'da_1':
                                             register_url = '/da_one_register';
@@ -2857,7 +2883,7 @@ function user_profile() {
                                     let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
 
                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
-                                    
+
                                     if (latest_course_reg[0].offline_user==1){
                                         $('.status').append(`
                                             <tr>
@@ -2867,8 +2893,8 @@ function user_profile() {
                                                 <td><span class="badge bg-info text-dark">Approved</span></td>
                                             </tr>
                                         `);
-        
-        
+
+
                                     }
                                     $('.status').append(`
                                         <tr>
@@ -2878,7 +2904,7 @@ function user_profile() {
                                             </td>
                                         </tr>
                                     `);
-                                
+
                                 }
                                 else {
                                     switch (latest_course_reg[0].batch.course.code) {
@@ -2905,7 +2931,7 @@ function user_profile() {
                                     let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
 
                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
-                                    
+
                                     if (latest_course_reg[0].offline_user==1){
                                         $('.status').append(`
                                             <tr>
@@ -2915,8 +2941,8 @@ function user_profile() {
                                                 <td><span class="badge bg-info text-dark">Approved</span></td>
                                             </tr>
                                         `);
-        
-        
+
+
                                     }
                                     $('.status').append(`
                                         <tr>
@@ -3394,10 +3420,27 @@ function user_profile() {
                                         `);
 
                                         } else {
+                                        //     $('.article_status').append(`<tr>
+                                        //     <td>${form_type} Form</td>
+                                        //     <td>${contract_start_date}</td>
+                                        //     <td>${contract_end_date}</td>
+                                        //     <td><span class="badge bg-success">Approved</span></td>
+                                        //     <td></td>
+                                        // </tr>
+                                        // `);
+                                            let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                            var resign_end_date;
+                                            if(element.resign_date != null){
+                                                var end_date = new Date(element.resign_date);
+                                                var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
+                                                resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+                                            }else{
+                                                resign_end_date = contract_end_date;
+                                            }
                                             $('.article_status').append(`<tr>
                                             <td>${form_type} Form</td>
                                             <td>${contract_start_date}</td>
-                                            <td>${contract_end_date}</td>
+                                            <td>${resign_end_date}</td>
                                             <td><span class="badge bg-success">Approved</span></td>
                                             <td></td>
                                         </tr>
@@ -3584,14 +3627,31 @@ function user_profile() {
                                     </tr>
                                     `);
                                     } else {
-                                        $('.article_status').append(`<tr>
-                                        <td>${form_type} Form</td>
-                                        <td>${contract_start_date}</td>
-                                        <td>${contract_end_date}</td>
-                                        <td><span class="badge bg-success">Approved</span></td>
-                                        <td></td>
-                                    </tr>
-                                    `);
+                                    //     $('.article_status').append(`<tr>
+                                    //     <td>${form_type} Form</td>
+                                    //     <td>${contract_start_date}</td>
+                                    //     <td>${contract_end_date}</td>
+                                    //     <td><span class="badge bg-success">Approved</span></td>
+                                    //     <td></td>
+                                    // </tr>
+                                    // `);
+                                        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                            var resign_end_date;
+                                            if(element.resign_date != null){
+                                                var end_date = new Date(element.resign_date);
+                                                var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
+                                                resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+                                            }else{
+                                                resign_end_date = contract_end_date;
+                                            }
+                                            $('.article_status').append(`<tr>
+                                            <td>${form_type} Form</td>
+                                            <td>${contract_start_date}</td>
+                                            <td>${resign_end_date}</td>
+                                            <td><span class="badge bg-success">Approved</span></td>
+                                            <td></td>
+                                        </tr>
+                                        `);
                                     }
                                 } else if (element.status == 2) {
                                     $('.article_status').append(`<tr>
@@ -3744,10 +3804,27 @@ function user_profile() {
                                                 </tr>
                                                 `);
                                             } else {
+                                            //     $('.article_status').append(`<tr>
+                                            //     <td>${form_type} Form</td>
+                                            //     <td>${contract_start_date}</td>
+                                            //     <td>${contract_end_date}</td>
+                                            //     <td><span class="badge bg-success">Approved</span></td>
+                                            //     <td></td>
+                                            // </tr>
+                                            // `);
+                                                let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                                var resign_end_date;
+                                                if(element.resign_date != null){
+                                                    var end_date = new Date(element.resign_date);
+                                                    var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
+                                                    resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+                                                }else{
+                                                    resign_end_date = contract_end_date;
+                                                }
                                                 $('.article_status').append(`<tr>
                                                 <td>${form_type} Form</td>
                                                 <td>${contract_start_date}</td>
-                                                <td>${contract_end_date}</td>
+                                                <td>${resign_end_date}</td>
                                                 <td><span class="badge bg-success">Approved</span></td>
                                                 <td></td>
                                             </tr>
@@ -3922,7 +3999,7 @@ function user_profile() {
                                         }
                                     }
                                     if (!latest_gov_article[0].mentor_attach_file) {
-                                        $('.article_btn').append(`<tr><td colspan=4>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='GovDownloadForms();'>Download</button></div></div></td></tr>`);
+                                        $('.article_btn').append(`<tr><td colspan=4>ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='GovDownloadForms();'>Download</button></div></div></td></tr>`);
                                         $('.article_btn').append(`<tr><td colspan=5>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတမ်းများအားတင်သွင်းရန်</td></tr>`);
                                         $('.article_btn').append(`<tr><td colspan=3>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='gov_attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='gov_attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='gov_attach_file_btn' onclick='saveGovAttachFile(${latest_gov_article[0].id})'>Submit</button></td></tr>`);
                                     }
@@ -4179,7 +4256,7 @@ function DownloadForms(form_type) {
     }else{
         $('#downloadFormModel').modal('toggle');
     }
-    
+
 }
 function DownloadCPA12Forms(count){
     $('#downloadFormModel').modal('toggle');
@@ -5203,14 +5280,15 @@ function allowToRenew() {
           var today = new Date();
           var current_month = today.getMonth()+1;
           var current_year = today.getFullYear();
-          var last_submit_date = new Date(acc_firm.register_date);
-          var last_submit_year = last_submit_date.getFullYear();
+          //var last_submit_date = new Date(acc_firm.register_date);
+          var last_submit_year = acc_firm.last_registered_year;
+          //var last_submit_year = last_submit_date.getFullYear();
 
           if(current_year > last_submit_year ){
             if(current_month >= 11 || current_month <= 4){
               if(acc_firm.audit_firm_type_id == 1){
                 // audit firm
-                var audit_invoice_status = data[0].audit_invoice_status[0].status;
+                var audit_invoice_status = data[0].audit_invoice_status[0] ? data[0].audit_invoice_status[0].status : '';
                 if(acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1){
                   // to renew approved offline users
                   console.log("1");
@@ -5231,8 +5309,7 @@ function allowToRenew() {
               else{
                 console.log("3");
                 // non-audit firm
-                var nonaudit_invoice_status = data[0].nonaudit_invoice_status[0].status;
-                console.log("888",nonaudit_invoice_status);
+                var nonaudit_invoice_status = data[0].nonaudit_invoice_status[0] ? data[0].nonaudit_invoice_status[0].status : '' ;
                 if(acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1){
                   // to renew approved offline users
                   $('#check_renew').css('display','none');

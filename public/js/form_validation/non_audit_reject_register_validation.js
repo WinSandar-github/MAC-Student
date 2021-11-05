@@ -94,7 +94,8 @@ $().ready(function (){
               }
               else if($("input[name=reject_type]").val() == 1 && $("input[name=offline_user]").val() == 0){
                 // normal renew reject
-                nonAuditInitialRejectUpdate();
+                //nonAuditInitialRejectUpdate();
+                nonAuditRenewRejectUpdate();
               }
             }
             else{

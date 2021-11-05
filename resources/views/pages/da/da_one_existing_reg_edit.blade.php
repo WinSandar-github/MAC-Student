@@ -85,7 +85,7 @@
                                             <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6>
                                         </div>
                                     </div>
-
+                                    <input type="hidden" id="active_batch_id">
                                     <div class="row">
                                         <div class="col-md-9">
                                             <div class="row mb-3">
@@ -453,18 +453,23 @@
                                         <div class="row col-md-8 py-2" style="padding-left:24px">
                                             <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input module_one" type="radio" id="0"
-                                                            name="is_full_module" value="1" required>
+                                                    <input class="form-check-input module_one" type="radio" id="module_1"
+                                                            name="is_full_module" value="1" >
                                                     <span class="form-check-sign"></span>
                                                     Module 1
                                                 </label>
                                             </div>
                                             <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input module_two" type="radio"
-                                                            name="is_full_module" value='2' required>
+                                                    <input class="form-check-input module_two" type="radio" id="module_2"
+                                                            name="is_full_module" value='2' >
                                                     <span class="form-check-sign"></span>
                                                     Module 2
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3 form-check-radio">
+                                                <label class="form-check-label">
+                                                    <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckRadioButton()"/>
                                                 </label>
                                             </div>
                                             <div class="col-md-7 ">
@@ -561,7 +566,65 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row mb-3">                                        
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၁။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span></label>
+                                        <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
+                                            <div class="form-check-radio px-0">
+                                                <label class="form-check-label" for="da_two_active_main_mac">
+                                                <input class="form-check-input " type="radio" id="da_two_active_main_mac" name="da_two_active_attend_place" value='2'  onclick="$('#current_active_blk_mac').css('display','inline-block')">
+                                                    <span class="form-check-sign"></span>
+                                                    ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး
+                                                </label>
+                                            </div>
+                                            <div class="col-md-12" id="current_active_blk_mac" style="display:none">
+                                                <div class="mx-5 row  ">
 
+                                                    <div class="col-md-5 form-check-radio px-0  ">
+                                                        <label class="form-check-label" for="da_two_active_sub_mac">
+                                                        <input class="form-check-input" type="radio" id="da_two_active_sub_mac" name="da_two_active_mac_type" value='1'    >
+                                                            <span class="form-check-sign"></span>
+                                                            ရန်ကုန်သင်တန်းကျောင်း
+                                                        </label>
+
+                                                    </div>
+                                                </div>
+                                                <div class="mx-5 row  ">
+                                                <div class="col-md-5  form-check-radio px-0  ">
+                                                    <label class="form-check-label" for="da_two_active_sub_mac2">
+                                                    <input class="form-check-input" type="radio" id="da_two_active_sub_mac2" name="da_two_active_mac_type" value='2'    >
+                                                        <span class="form-check-sign"></span>
+                                                        နေပြည်တော်သင်တန်းကျောင်း
+                                                    </label>
+                                                </div>
+                                                <label  class="error attend_place_error" style="display:none;" for="da_two_active_mac_type">Please select one</label>
+
+                                            </div>
+
+                                            </div>
+
+                                            <div class="form-check-radio px-0">
+                                                <!-- <input class="form-check-input" type="radio" name="type" value='1'  onclick="selectType()"> -->
+                                                <label class="form-check-label" for="da_two_active_private">
+
+                                                    <input class="form-check-input" type="radio" id="da_two_active_private" name="da_two_active_attend_place" value='1' onclick="$('#current_active_blk_mac').css('display','none')">
+                                                    <span class="form-check-sign" ></span>
+                                                    ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
+                                                </label>
+                                            </div>
+                                            <div class="form-check-radio px-0">
+                                                <!-- <input class="form-check-input " type="radio" name="type" value='0'  onclick="selectType()"> -->
+                                                <label class="form-check-label" for="da_two_active_self">
+                                                    <!-- <span class="form-check-sign"></span> -->
+                                                    <input class="form-check-input" id="da_two_active_self" type="radio" name="da_two_active_attend_place" value='0' onclick="$('#current_active_blk_mac').css('display','none')">
+                                                    <span class="form-check-sign" ></span>
+                                                    ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
+                                                </label>
+                                            </div>
+                                            <div class="form-check-radio px-0">
+                                                <label  class="error attend_place_error" style="display:none;" for="da_two_active_attend_place">Please select one</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <input type="hidden" id="passed_course_id" value="1">
                                     <input type="hidden" id="current_course_id" value="1">
                                     <input type="hidden" id="da_type" value="da_1">
@@ -676,7 +739,6 @@
                         }
 
                         var batch_id = student_course[0].batch_id; 
-
                         $('#batch_id').val(batch_id)
                         $.ajax({
                                 type: "get",
@@ -688,6 +750,7 @@
                                     
                                     $('.batch_number').append(res.data.number);
                                     $('#batch_number').append(number2mm(res.data.number));
+                                    $('#active_batch_id').val(res.data.id);
                                 }
                         })
                         if(job_history){
@@ -733,26 +796,48 @@
                         }else{
                             $("#female").prop("checked",true);
                         }
+                        
+                        info.student_course_regs.forEach(function(element){
+                            if(element.batch.id!=batch_id){
+                                if(element.type == 0){
+                                    $("input[name=attend_place][value=0]").prop("checked",true);
 
-                        if(student_course[0].type == 0){
-                            $("input[name=attend_place][value=0]").prop("checked",true);
+                                    
+                                }else if(element.type == 1){
+                                    $("input[name=attend_place][value=1]").prop("checked",true);
+                                }else{
+                                    $("input[name=attend_place][value=2]").prop("checked",true);
+                                    selectType();
+                                    if(element.mac_type == 1){
+                                        $("input[name=mac_type][value=1]").prop("checked",true);
+                                        
+                                    }else{
+                                        $("input[name=mac_type][value=2]").prop("checked",true);
 
-                            
-                        }else if(student_course[0].type == 1){
-                            $("input[name=attend_place][value=1]").prop("checked",true);
-                        }else{
-                            $("input[name=attend_place][value=2]").prop("checked",true);
-                            selectType();
-                            if(student_course[0].mac_type == 1){
-                                $("input[name=mac_type][value=1]").prop("checked",true);
-                                
-                            }else{
-                                $("input[name=mac_type][value=2]").prop("checked",true);
-
+                                    }
+                                }
                             }
-                        }
+                            else if(element.batch.id==batch_id){
+                                if(element.type == 0){
+                                    $("input[name=da_two_active_attend_place][value=0]").prop("checked",true);                                    
+                                }
+                                else if(element.type == 1){
+                                    $("input[name=da_two_active_attend_place][value=1]").prop("checked",true);
+                                }else{
+                                    $("input[name=da_two_active_attend_place][value=2]").prop("checked",true);
+                                    $('#current_active_blk_mac').css('display','inline-block')
+                                    if(element.mac_type == 1){
+                                        $("input[name=da_two_active_mac_type][value=1]").prop("checked",true);
 
-                        $('#selected_passed_batch_id').val(student_course[0].batch_id);
+                                        
+                                    }else{
+                                        $("input[name=da_two_active_mac_type][value=2]").prop("checked",true);
+                                        
+                                    }
+                                }
+                            }
+                        });
+                        $('#selected_passed_batch_id').val(last_exam[0].batch_id);
                         if(last_exam[0].is_full_module == "1"){
                             $(".module_one").prop("checked", true);                            
                             // $('.module_one').attr('disabled', true);
@@ -771,6 +856,10 @@
                             // $('.module_two').attr('disabled', true);
                             // $('.module_full').attr('disabled', true);                              
                             
+                        }
+                        else{
+                            $(".module_one").prop("checked", false);
+                            $(".module_two").prop("checked", false);
                         }
                         $("input[name=da_one_pass_exam_date]").val(last_exam[0].passed_date);
                         $("input[name=da_one_pass_level]").val(last_exam[0].passed_level);
