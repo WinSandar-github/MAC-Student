@@ -609,10 +609,27 @@ function user_profile() {
                                         $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA(Full-Fledged) Form</a></td></tr > `);
                                     }
                                     }else {
+                                    //     $('.qt_article_status').append(`<tr>
+                                    //     <td>${form_type} Form</td>
+                                    //     <td>${contract_start_date}</td>
+                                    //     <td>${contract_end_date}</td>
+                                    //     <td><span class="badge bg-success">Approved</span></td>
+                                    //     <td></td>
+                                    // </tr>
+                                    // `);
+                                    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                        var resign_end_date;
+                                        if(element.resign_date != null){
+                                            var end_date = new Date(element.resign_date);
+                                            var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
+                                            resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+                                        }else{
+                                            resign_end_date = contract_end_date;
+                                        }
                                         $('.qt_article_status').append(`<tr>
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
-                                        <td>${contract_end_date}</td>
+                                        <td>${resign_end_date}</td>
                                         <td><span class="badge bg-success">Approved</span></td>
                                         <td></td>
                                     </tr>
@@ -1195,12 +1212,12 @@ function user_profile() {
                                     }else {
                                         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                                         var resign_end_date;
-                                        if(element.resign_date){
+                                        if(element.resign_date != null){
                                             var end_date = new Date(element.resign_date);
                                             var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
                                             resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
                                         }else{
-                                            resign_end_date = element.contract_end_date;
+                                            resign_end_date = contract_end_date;
                                         }
                                         $('.qt_article_status').append(`<tr>
                                         <td>${form_type} Form</td>
@@ -3403,10 +3420,27 @@ function user_profile() {
                                         `);
 
                                         } else {
+                                        //     $('.article_status').append(`<tr>
+                                        //     <td>${form_type} Form</td>
+                                        //     <td>${contract_start_date}</td>
+                                        //     <td>${contract_end_date}</td>
+                                        //     <td><span class="badge bg-success">Approved</span></td>
+                                        //     <td></td>
+                                        // </tr>
+                                        // `);
+                                            let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                            var resign_end_date;
+                                            if(element.resign_date != null){
+                                                var end_date = new Date(element.resign_date);
+                                                var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
+                                                resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+                                            }else{
+                                                resign_end_date = contract_end_date;
+                                            }
                                             $('.article_status').append(`<tr>
                                             <td>${form_type} Form</td>
                                             <td>${contract_start_date}</td>
-                                            <td>${contract_end_date}</td>
+                                            <td>${resign_end_date}</td>
                                             <td><span class="badge bg-success">Approved</span></td>
                                             <td></td>
                                         </tr>
@@ -3593,14 +3627,31 @@ function user_profile() {
                                     </tr>
                                     `);
                                     } else {
-                                        $('.article_status').append(`<tr>
-                                        <td>${form_type} Form</td>
-                                        <td>${contract_start_date}</td>
-                                        <td>${contract_end_date}</td>
-                                        <td><span class="badge bg-success">Approved</span></td>
-                                        <td></td>
-                                    </tr>
-                                    `);
+                                    //     $('.article_status').append(`<tr>
+                                    //     <td>${form_type} Form</td>
+                                    //     <td>${contract_start_date}</td>
+                                    //     <td>${contract_end_date}</td>
+                                    //     <td><span class="badge bg-success">Approved</span></td>
+                                    //     <td></td>
+                                    // </tr>
+                                    // `);
+                                        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                            var resign_end_date;
+                                            if(element.resign_date != null){
+                                                var end_date = new Date(element.resign_date);
+                                                var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
+                                                resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+                                            }else{
+                                                resign_end_date = contract_end_date;
+                                            }
+                                            $('.article_status').append(`<tr>
+                                            <td>${form_type} Form</td>
+                                            <td>${contract_start_date}</td>
+                                            <td>${resign_end_date}</td>
+                                            <td><span class="badge bg-success">Approved</span></td>
+                                            <td></td>
+                                        </tr>
+                                        `);
                                     }
                                 } else if (element.status == 2) {
                                     $('.article_status').append(`<tr>
@@ -3753,10 +3804,27 @@ function user_profile() {
                                                 </tr>
                                                 `);
                                             } else {
+                                            //     $('.article_status').append(`<tr>
+                                            //     <td>${form_type} Form</td>
+                                            //     <td>${contract_start_date}</td>
+                                            //     <td>${contract_end_date}</td>
+                                            //     <td><span class="badge bg-success">Approved</span></td>
+                                            //     <td></td>
+                                            // </tr>
+                                            // `);
+                                                let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                                var resign_end_date;
+                                                if(element.resign_date != null){
+                                                    var end_date = new Date(element.resign_date);
+                                                    var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
+                                                    resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+                                                }else{
+                                                    resign_end_date = contract_end_date;
+                                                }
                                                 $('.article_status').append(`<tr>
                                                 <td>${form_type} Form</td>
                                                 <td>${contract_start_date}</td>
-                                                <td>${contract_end_date}</td>
+                                                <td>${resign_end_date}</td>
                                                 <td><span class="badge bg-success">Approved</span></td>
                                                 <td></td>
                                             </tr>
