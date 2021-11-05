@@ -22,7 +22,9 @@ $().ready(function (){
             t_s_p_id : "required",
             declaration : "required",
             head_office_address : "required",
-            head_office_address_mm : "required"
+            head_office_address_mm : "required",
+            last_registered_year : "required",
+            req_for_stop : "required",
             // foa_name : "required",
             // foa_pub_pri_reg_no : "required",
             // foa_authority_to_sign : "required"
@@ -48,7 +50,9 @@ $().ready(function (){
             t_s_p_id : "Please select Type of Service Provided",
             declaration : "Please enter declaration",
             head_office_address : "Please enter head office address",
-            head_office_address_mm : "Please enter head office address(Myanmar)"
+            head_office_address_mm : "Please enter head office address(Myanmar)",
+            last_registered_year : "Please enter last registered year",
+            req_for_stop : "Please select one"
             //foa_authority_to_sign : "Please select Yes or No"
 
         },

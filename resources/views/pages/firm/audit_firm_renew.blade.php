@@ -50,10 +50,10 @@
                                     <div class="col-md-2 pull-right">
                                       <h6>For the year - {{ date('Y') }}</h6>
                                     </div>
-                                    <div id="reg_no_box" style="display:none;">
+                                    <div id="reg_no_box" >
                                       <div class="col-md-3 pull-left">
                                         <label for="" class="control-label text-muted fw-bolder"><small>Registration No.</small></label>
-                                        <input type="text" placeholder="Enter Registration No.!" name="accountancy_firm_reg_no" class="form-control" value="" >
+                                        <input type="text" readonly placeholder="Enter Registration No.!" name="accountancy_firm_reg_no" class="form-control" value="" >
                                       </div>
                                     </div>
                                 </div>
@@ -1094,6 +1094,28 @@
     	$(document).on('keydown', '#head_office_address_mm', function () {
     			myanmarLetterOnly($(this));
     	});
+
+      $("input[name='last_registered_year'][type=text]").flatpickr({
+          enableTime: false,
+          dateFormat: "Y",
+          //dateFormat: "Y",
+          allowInput: true,
+      });
+      $("input[name='suspended_year'][type=text]").flatpickr({
+          enableTime: false,
+          dateFormat: "Y",
+          //dateFormat: "Y",
+          allowInput: true,
+      });
+
+      $("input[name=req_for_stop][type=radio]").change(function(){
+        if($(this).val() == 1){
+          $("#req_to_dissconect").css("display","block");
+        }
+        else{
+          $("#req_to_dissconect").css("display","none");
+        }
+      });
 
     	function myanmarLetterOnly(self) {
     			val = self.val();

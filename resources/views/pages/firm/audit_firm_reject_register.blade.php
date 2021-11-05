@@ -66,7 +66,7 @@
                                               <label for="" class="col-md-5 col-form-label label_align_right">Email</label>--}}
                                               <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('1.') }}</span>Email</label>
                                               <div class="col-md-8">
-                                                  <input  type="email" placeholder="Enter Email!" name="email" class="form-control" value="{{ old('email') }}" >
+                                                  <input  type="email" placeholder="Enter Email!" name="email" class="form-control" value="{{ old('email') }}" readonly>
                                                   @if ($errors->has('email'))
                                                       <span class="text-danger">
                                                           <strong>{{ $errors->first('email') }}</strong>
@@ -421,7 +421,7 @@
                                                                 <div class="entry10">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input type="file" class="form-control" name="certi_or_regs[]" >
+                                                                            <input type="file" class="form-control" name="certi_or_regs[]" required>
 
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
@@ -443,7 +443,7 @@
                                                                 <div class="entry11">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input type="file" class="form-control" name="deeds_memos[]">
+                                                                            <input type="file" class="form-control" name="deeds_memos[]" required>
 
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
@@ -465,7 +465,7 @@
                                                                 <div class="entry12">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input type="file" class="form-control" name="letterheads[]">
+                                                                            <input type="file" class="form-control" name="letterheads[]" required>
 
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
@@ -487,7 +487,7 @@
                                                                 <div class="entry13">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input type="file" class="form-control" name="tax_clearances[]">
+                                                                            <input type="file" class="form-control" name="tax_clearances[]" required>
 
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
@@ -509,7 +509,7 @@
                                                                 <div class="entry14">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input type="file" class="form-control" name="representatives[]">
+                                                                            <input type="file" class="form-control" name="representatives[]" required>
 
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
