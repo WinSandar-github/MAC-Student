@@ -48,9 +48,9 @@ $().ready(function (){
             mac_type : {
                 required : "#main_mac:checked"
             },
-            cpa_one_attend_place : "required",
-            cpa_one_mac_type : {
-                required : "#da_one_main_mac:checked"
+            cpa_one_active_attend_place : "required",
+            cpa_one_active_mac_type : {
+                required : "#cpa_one_active_main_mac:checked"
             },
             // cpa_one_pass_exam_date : "required",
             // cpa_one_pass_level : "required",
