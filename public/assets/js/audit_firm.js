@@ -710,22 +710,30 @@ function getAuditData(){
           var student_data = data.student_infos;
 
           if(audit_data.offline_user == 1){
+            // offline users
             $("#reg_no_box").css('display','block');
+            if(audit_data.req_for_stop){
+              if(audit_data.req_for_stop == 1){
+                $("input[name=req_for_stop][type=radio][value=1]").attr('checked',true);
+                $("#req_to_dissconect").css('display','block');
+              }
+              else{
+                $("input[name=req_for_stop][type=radio][value=2]").attr('checked',true);
+              }
+            }
+
+            $("input[name=last_registered_year][type=text]").val(audit_data.last_registered_year);
+            $("input[name=suspended_year][type=text]").val(audit_data.suspended_year);
+          }
+          else{
+            // normal users
+            var last_year = new Date(audit_data.register_date);
+            $("input[name=last_registered_year][type=text]").val(last_year.getFullYear());
+            $("input[name=last_registered_year][type=text]").prop('readonly',true);
           }
 
           $('input[name=email]').val(student_data[0].email);
           $("input[name=offline_user]").val(audit_data.offline_user);
-          if(audit_data.req_for_stop == 1){
-            $("input[name=req_for_stop][value=1]").attr('checked',true);
-            $("#req_to_dissconect").css('display','block');
-          }
-          else{
-            $("input[name=req_for_stop][value=2]").attr('checked',true);
-          }
-
-          $("input[name=last_registered_year]").val(audit_data.last_registered_year);
-          $("input[name=suspended_year]").val(audit_data.suspended_year);
-
           $("#accountancy_firm_name").val(audit_data.accountancy_firm_name);
           $("input[name=accountancy_firm_reg_no]").val(audit_data.accountancy_firm_reg_no);
           $("#register_date").val(audit_data.register_date);
@@ -906,19 +914,28 @@ function getAuditDataForRejectUpdate(){
           var other_data = data.other_data;
           var student_data = data.student_infos;
 
-          if(audit_data.offline_user == 1){
-            $("#reg_no_box").css('display','block');
-          }
+          // if(audit_data.offline_user == 1 || audit_data.is_renew == 1){
+          //   $("#reg_no_box").css('display','block');
+          // }
 
           if(audit_data.offline_user == 0){
             $("#partner_add_btn").attr('onclick','addRowPartner("partner_list")');
           }
 
-          if(audit_data.is_renew == 1){ // renew reject type
+          if(audit_data.is_renew == 1){ // renewal reject
             $("input[name=reject_type]").val(audit_data.is_renew);
+            $("#reg_no_box").css('display','block');
             $("input[name=accountancy_firm_reg_no]").attr('readonly',true);
             $("input[name=email]").prop('readonly',true);
             $("input[name=accountancy_firm_name]").prop('readonly',true);
+            $("#last_registered_year_box").css("display","block");
+            $("input[name=last_registered_year]").val(audit_data.last_registered_year);
+            $("#req_for_stop_box").css("display","block");
+            $("input[name=req_for_stop][value='"+audit_data.req_for_stop+"']").prop("checked",true);
+            if(audit_data.req_for_stop == 1){
+              $("#req_to_dissconect").css("display","block");
+              $("input[name=suspended_year]").val(audit_data.suspended_year);
+            }
           }
 
           $("input[name=firm_id]").val(audit_data.id);
@@ -1555,9 +1572,10 @@ function auditRenewRejectUpdate(){
   send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
   // send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
-  send_data.append('last_registered_year',$("input[name=last_registered_year]").val());
-  send_data.append('suspended_year',$("input[name=suspended_year]").val());
-  send_data.append('req_for_stop',$('input[name=req_for_stop]:checked').val());
+  send_data.append('last_registered_year',$("input[name=last_registered_year][type=text]").val());
+  send_data.append('suspended_year',$("input[name=suspended_year][type=text]").val());
+  send_data.append('req_for_stop',$('input[name=req_for_stop][type=radio]:checked').val());
+  send_data.append('offline_user',$("input[name=offline_user][type=hidden]").val());
 
   var t_s_p_id_val = new Array();
   $('input[name=t_s_p_id]:checked').each(function(i){
@@ -1749,10 +1767,10 @@ function auditRenewSubscribe()
   send_data.append('id',student.accountancy_firm_info_id);
   send_data.append('student_id',student_id);
 
-  send_data.append('last_registered_year',$("input[name=last_registered_year]").val());
+  send_data.append('last_registered_year',$("input[name=last_registered_year][type=text]").val());
   send_data.append('offline_user',$("input[name=offline_user]").val());
-  send_data.append('req_for_stop',$('input[name=req_for_stop]:checked').val());
-  send_data.append('suspended_year',$("input[name=suspended_year]").val());
+  send_data.append('req_for_stop',$('input[name=req_for_stop][type=radio]:checked').val());
+  send_data.append('suspended_year',$("input[name=suspended_year][type=text]").val());
 
   send_data.append('accountancy_firm_name',$("input[name=accountancy_firm_name]").val());
   send_data.append('accountancy_firm_reg_no',$("input[name=accountancy_firm_reg_no]").val());

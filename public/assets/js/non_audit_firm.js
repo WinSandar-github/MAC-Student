@@ -723,21 +723,25 @@ function getNonAuditData(){
           var student_data = data.student_infos;
 
           if(non_audit_data.offline_user == 1){
-            $("#reg_no_box").css('display','block');
-            $("#disconnect_box").css('display','block');
-          }
+            //$("#reg_no_box").css('display','block');
+            //$("#disconnect_box").css('display','block');
+            if(non_audit_data.req_for_stop == 1){
+              $("input[name=req_for_stop][value=1][type=radio]").attr('checked',true);
+              $("#req_to_dissconect").css('display','block');
+            }
+            else{
+              $("input[name=req_for_stop][value=2][type=radio]").attr('checked',true);
+            }
 
-          if(non_audit_data.req_for_stop == 1){
-            $("input[name=req_for_stop][value=1]").attr('checked',true);
-            $("#req_to_dissconect").css('display','block');
+            $("input[name=last_registered_year][type=text]").val(non_audit_data.last_registered_year);
+            $("input[name=suspended_year][type=text]").val(non_audit_data.suspended_year);
           }
           else{
-            $("input[name=req_for_stop][value=2]").attr('checked',true);
+            // normal users
+            var last_year = new Date(non_audit_data.register_date);
+            $("input[name=last_registered_year][type=text]").val(last_year.getFullYear());
+            $("input[name=last_registered_year][type=text]").prop('readonly',true);
           }
-
-          $("input[name=last_registered_year]").val(non_audit_data.last_registered_year);
-          $("input[name=suspended_year]").val(non_audit_data.suspended_year);
-
 
           if(non_audit_data.local_foreign_type == 1){
             $('#local_header').css('display','block');
@@ -752,13 +756,37 @@ function getNonAuditData(){
             $('#foreign_info').css('display','block');
             $("#director_staffmembers").css('display','block');
             $("#permit_section_27").css('display','block');
+            //
+            $("#financial_label_1").css('display','block');
+            $("#financial_label_2").css('display','none');
+            //
+            $("#letterhead_label_1").css('display','block');
+            $("#letterhead_label_2").css('display','none');
+            //
+            $("#education_label_1").css('display','block');
+            $("#education_label_2").css('display','none');
+            //
+            $("#commercial_label_1").css('display','block');
+            $("#commercial_label_2").css('display','none');
+            //
+            $("#work_exp_label_1").css('display','block');
+            $("#work_exp_label_2").css('display','none');
+            //
+            $("#shareholder_label_1").css('display','block');
+            $("#shareholder_label_2").css('display','none');
+            //
+            $("#shareholder_label_1").css('display','block');
+            $("#shareholder_label_2").css('display','none');
+            //
+            $("#tax_label_1").css('display','block');
+            $("#tax_label_2").css('display','none');
           }
 
           $("input[name=offline_user]").val(non_audit_data.offline_user);
           $("input[name=local_foreign_type]").val(non_audit_data.local_foreign_type);
-          $("input[name=req_for_stop]").val(non_audit_data.req_for_stop);
-          $("input[name=last_registered_year]").val(non_audit_data.last_registered_year);
-          $("input[name=suspended_year]").val(non_audit_data.suspended_year);
+          // $("input[name=req_for_stop]").val(non_audit_data.req_for_stop);
+          // $("input[name=last_registered_year]").val(non_audit_data.last_registered_year);
+          // $("input[name=suspended_year]").val(non_audit_data.suspended_year);
 
           $('input[name=email]').val(student_data[0].email);
           $("#accountancy_firm_name").val(non_audit_data.accountancy_firm_name);
@@ -898,11 +926,11 @@ function getNonAuditData(){
             var count = 1;
             var tr = "<tr>";
             tr += "<td>" +count + "</td>";
-            tr += "<td ><input  type='text' value="+item.name+" name='mf_name[]' class='form-control' autocomplete='off'></td>";
-            tr += "<td ><input  type='text' value="+item.position+" name='mf_position[]' class='form-control' autocomplete='off'></td>";
-            tr += "<td ><input  type='text' value="+item.cpa_passed_reg_no+" name='mf_cpa_passed_reg_no[]' class='form-control' autocomplete='off'></td>";
-            tr += "<td ><input  type='text' value="+item.cpa_full_reg_no+" name='mf_cpa_full_reg_no[]' class='form-control' autocomplete='off'></td>";
-            tr += "<td ><input  type='text' value="+item.public_practice_reg_no+" name='mf_pub_pra_reg_no[]' class='form-control' autocomplete='off'></td>";
+            tr += "<td ><input  type='text' value='"+item.name+"' name='mf_name[]' class='form-control' autocomplete='off'></td>";
+            tr += "<td ><input  type='text' value='"+item.position+"' name='mf_position[]' class='form-control' autocomplete='off'></td>";
+            tr += "<td ><input  type='text' value='"+item.cpa_passed_reg_no+"' name='mf_cpa_passed_reg_no[]' class='form-control' autocomplete='off'></td>";
+            tr += "<td ><input  type='text' value='"+item.cpa_full_reg_no+"' name='mf_cpa_full_reg_no[]' class='form-control' autocomplete='off'></td>";
+            tr += "<td ><input  type='text' value='"+item.public_practice_reg_no+"' name='mf_pub_pra_reg_no[]' class='form-control' autocomplete='off'></td>";
             tr += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=addRowDirectorCPA("director_cpa_initial")><li class="fa fa-times"></li></button></td>' ;
             tr += "</tr>";
             $("#tbl_cpa_myanmar_body").append(tr);
@@ -973,10 +1001,10 @@ function nonAuditRenewSubscribe()
   send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
   send_data.append('local_foreign_type',$("input[name=local_foreign_type]").val());
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
-  send_data.append('last_registered_year',$("input[name=last_registered_year]").val());
+  send_data.append('last_registered_year',$("input[name=last_registered_year][type=text]").val());
   send_data.append('offline_user',$("input[name=offline_user]").val());
-  send_data.append('req_for_stop',$("input[name=req_for_stop]").val());
-  send_data.append('suspended_year',$("input[name=suspended_year]").val());
+  send_data.append('req_for_stop',$('input[name=req_for_stop][type=radio]:checked').val());
+  send_data.append('suspended_year',$("input[name=suspended_year][type=text]").val());
   //send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
   // var t_s_p_id_val = new Array();
   //       $('input[name=t_s_p_id]:checked').each(function(i){
@@ -1316,18 +1344,16 @@ function getNonAuditDataForRejectUpdate(){
           }
 
           if(non_audit_data.is_renew == 1){ // renew reject type
+            $("#reg_no_box").css('display','block');
             $("input[name=reject_type]").val(non_audit_data.is_renew);
             $("input[name=accountancy_firm_reg_no]").attr('readonly',true);
             $("input[name=email]").prop('readonly',true);
             $("input[name=accountancy_firm_name]").prop('readonly',true);
           }
 
-          // if user is existing user and havn't been approved at least one time (first time rejected)
-          if(non_audit_data.status == 2 && non_audit_data.offline_user == 1){
 
-            // $("input[name=email]").prop('readonly',false);
-            // $("input[name=accountancy_firm_name]").prop('readonly',false);
-            // $("input[name=accountancy_firm_reg_no]").prop('readonly',false);
+          if(non_audit_data.is_renew == 1){
+
             $("#last_registered_year_box").css("display","block");
             $("input[name=last_registered_year]").val(non_audit_data.last_registered_year);
             $("#req_for_stop_box").css("display","block");
@@ -1336,6 +1362,7 @@ function getNonAuditDataForRejectUpdate(){
               $("#req_to_dissconect").css("display","block");
               $("input[name=suspended_year]").val(non_audit_data.suspended_year);
             }
+
           }
 
           $('textarea[name=head_office_address]').val(non_audit_data.head_office_address);
@@ -1687,11 +1714,10 @@ function nonAuditRenewRejectUpdate(){
   send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
   // send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
-  if($("input[name=offline_user]").val() == 1 ){
-    send_data.append('last_registered_year',$("input[name=last_registered_year]").val());
-    send_data.append('suspended_year',$("input[name=suspended_year]").val());
-    send_data.append('req_for_stop',$('input[name=req_for_stop]:checked').val());
-  }
+  send_data.append('last_registered_year',$("input[name=last_registered_year][type=text]").val());
+  send_data.append('suspended_year',$("input[name=suspended_year][type=text]").val());
+  send_data.append('req_for_stop',$('input[name=req_for_stop]:checked').val());
+  send_data.append('offline_user',$('input[name=offline_user][type=hidden]').val());//resume
 
   var t_s_p_id_val = new Array();
   $('input[name=t_s_p_id]:checked').each(function(i){
@@ -1829,6 +1855,7 @@ function nonAuditRenewRejectUpdate(){
       send_data.append('tax_reg_certificate[]',$(this).get(0).files[i]);
     }
   });
+  
   show_loader();
 
     $.ajax({
