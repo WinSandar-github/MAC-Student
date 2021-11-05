@@ -1183,6 +1183,11 @@ function selectdType() {
     }
 }
 
+function uncheckRadioButton(){
+    $("#module_1").prop('checked',false);
+    $("#module_2").prop('checked',false);
+}
+
 // $( "#submit_btn_mac" ).click(function() {
 //     if(allFilled('#da_two_mac_form')){
 //         $('#exampleModal1').modal('show');
