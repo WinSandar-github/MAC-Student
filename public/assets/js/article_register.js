@@ -172,7 +172,12 @@ function createArticleFirmRegister() {
     send_data.append('exp_start_date', $("input[name=previous_papp_start_date]").val());
     send_data.append('exp_end_date', $("input[name=previous_papp_end_date]").val());
     send_data.append('request_papp', $("input[name=papp_name]").val());
-    send_data.append('mentor_id', $("#mentor_id").val());
+    if($("#mentor_id").val()){
+        send_data.append('mentor_id', $("#mentor_id").val());
+    }
+    else{
+        send_data.append('mentor_id', $("#mentor_name").val());
+    }
     send_data.append('request_papp_attach', request_papp_attach);
     send_data.append('exam_pass_date', $("input[name=pass_date]").val());
     send_data.append('exam_pass_batch', $("input[name=pass_no]").val());
@@ -298,6 +303,8 @@ function createArticleGovRegister() {
 }
 
 function createArticleResignRegister() {
+    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
     var send_data = new FormData();
 
     var image = $("input[name=profile_photo]")[0].files[0];
@@ -312,6 +319,10 @@ function createArticleResignRegister() {
     send_data.append('nrc_front', nrc_front);
     send_data.append('nrc_back', nrc_back);
 
+    var resign_date = new Date($("input[name=resign_date]").val());
+    var change_contract_end_date = new Date(resign_date.getFullYear(), resign_date.getMonth(), (resign_date.getDate()) - 1);
+    change_contract_end_date = String(change_contract_end_date.getDate()).padStart(2, '0') + "-" + months[change_contract_end_date.getMonth()] + "-" + change_contract_end_date.getFullYear(); 
+
     var resign_approve_attach = $("input[name=resign_approve_attach]")[0].files[0];
     send_data.append('phone_no', $("input[name=phone_no]").val());
     send_data.append('student_info_id', $("input[name=student_info_id]").val());
@@ -322,6 +333,7 @@ function createArticleResignRegister() {
     send_data.append('resign_approve_attach', resign_approve_attach);
     send_data.append('article_form_type', $("input[name=article_form_type]").val());
     send_data.append('know_policy', 1);
+    send_data.append('change_contract_end_date', change_contract_end_date);
 
     show_loader();
     $.ajax({
@@ -435,7 +447,12 @@ function createCPATwoPassOneYearArticle(){
     if($('#offline_user').val()){
         send_data.append('offline_user',$('#offline_user').val());
       }
-      send_data.append('mentor_id', $("#mentor_id").val());
+      if($("#mentor_id").val()){
+        send_data.append('mentor_id', $("#mentor_id").val());
+      }
+      else{
+        send_data.append('mentor_id', $("#mentor_name").val());
+      }
       send_data.append('article_form_type', $("#article_form_type").val());
     show_loader();
     $.ajax({

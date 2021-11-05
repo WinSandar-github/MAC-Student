@@ -145,7 +145,7 @@
                                                             <input type="radio" class="form-check-input" value="0" id="female2" name="gender2" >
                                                             <label class="form-check-label " for="">ကျွန်မ</label>
                                                         </li>
-                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( <span id="course_name">-----</span> ) သင်တန်းအမှတ်စဥ် ( <span id="batch_no">-----</span> ) ကို မြန်မာနိုင်ငံစာရင်းကောင်စီ <span id="type_name">-----</span> တွင် <span id="result_name">-----</span> သူတစ်ဦးဖြစ်ပါသည်။</li>
+                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( <span id="course_name">-----</span> ) သင်တန်းအမှတ်စဥ် ( <span id="batch_no">-----</span> ) ကို <span id="type_name">-----</span> <span id="result_name">-----</span> သူတစ်ဦးဖြစ်ပါသည်။</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -567,7 +567,7 @@
                                             <div class="col-md-9">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <input id="papp_name" type="text" name="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်">
+                                                        <input id="papp_name" type="text" name="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမှတ်">
                                                     </div>
                                                     <div class="col-md-6">
                                                         <input type="hidden" id="mentor_id">
@@ -771,11 +771,11 @@
                 $("#type_name").text("ကိုယ်တိုင်လေ့လာသင်ယူသူအဖြစ်");
                 $("#type_name1").text("ကိုယ်တိုင်လေ့လာသင်ယူသူအဖြစ်");
             }else if(type == 1){
-                $("#type_name").text("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်ကျောင်း");
-                $("#type_name1").text("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်ကျောင်း");
+                $("#type_name").text("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်းတွင်");
+                $("#type_name1").text("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်းတွင်");
             }else{
-                $("#type_name").text("သင်တန်းကျောင်း");
-                $("#type_name1").text("သင်တန်းကျောင်း");
+                $("#type_name").text("မြန်မာနိုင်ငံစာရင်းကောင်စီ သင်တန်းကျောင်းတွင်");
+                $("#type_name1").text("မြန်မာနိုင်ငံစာရင်းကောင်စီ သင်တန်းကျောင်းတွင်");
             }
 
             if(exam_result == 0){

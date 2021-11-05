@@ -82,8 +82,11 @@
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                            <h6><span id="batch_number">{{$batch['name_mm']}}</span></h6> 
+                                            <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6> 
                                         </div>
+
+                                        <input type="hidden" class="batch_number" value="{{$batch['number']}}">
+                                        <input type="hidden" id="active_batch_id" value="{{$batch['id']}}">
                                     </div>
 
                                     <div class="row">
@@ -433,7 +436,7 @@
                                     </div>     
                                     
                                     <div class="row mb-3">
-                                        <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၂၃။</span>လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပထမပိုင်း) စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
+                                        <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၂၃။</span>လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း)သင်တန်း တက်ရောက်ဖူးသူ/လျှောက်ထားဖူးသူ</label>
                                     </div>
 
                                     {{--<div class="row mb-3">
@@ -488,7 +491,7 @@
                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>ခုနှစ်/လ</label>                                            
                                         <div class="col-md-8">
                                             <div class="">
-                                            <input type="text" class="form-control" name="cpa_one_pass_exam_date"  placeholder="ခုနှစ်၊လ(MM-YYYY)" required>
+                                            <input type="text" class="form-control" name="cpa_one_pass_exam_date"  placeholder="ခုနှစ်၊လ(MM-YYYY)">
                                             </div>
                                         </div>                                            
                                     </div>
@@ -619,6 +622,66 @@
                                         </div>
                                     </div>
 
+                                    <div class="row mb-3">                                        
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၅။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span></label>
+                                        <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
+                                            <div class="form-check-radio px-0">
+                                                <label class="form-check-label" for="cpa_one_active_main_mac">
+                                                <input class="form-check-input " type="radio" id="cpa_one_active_main_mac" name="cpa_one_active_attend_place" value='2'  onclick="$('#current_active_blk_mac').css('display','inline-block')">
+                                                    <span class="form-check-sign"></span>
+                                                    ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး
+                                                </label>
+                                            </div>
+                                            <div class="col-md-12" id="current_active_blk_mac" style="display:none">
+                                                <div class="mx-5 row  ">
+
+                                                    <div class="col-md-5 form-check-radio px-0  ">
+                                                        <label class="form-check-label" for="cpa_one_active_sub_mac">
+                                                        <input class="form-check-input" type="radio" id="cpa_one_active_sub_mac" name="cpa_one_active_mac_type" value='1'>
+                                                            <span class="form-check-sign"></span>
+                                                            ရန်ကုန်သင်တန်းကျောင်း
+                                                        </label>
+
+                                                    </div>
+                                                </div>
+                                                <div class="mx-5 row  ">
+                                                <div class="col-md-5  form-check-radio px-0  ">
+                                                    <label class="form-check-label" for="cpa_one_active_sub_mac2">
+                                                    <input class="form-check-input" type="radio" id="cpa_one_active_sub_mac2" name="cpa_one_active_mac_type" value='2'>
+                                                        <span class="form-check-sign"></span>
+                                                        နေပြည်တော်သင်တန်းကျောင်း
+                                                    </label>
+                                                </div>
+                                                <label  class="error attend_place_error" style="display:none;" for="cpa_one_active_mac_type">Please select one</label>
+
+                                            </div>
+
+                                            </div>
+
+                                            <div class="form-check-radio px-0">
+                                                <!-- <input class="form-check-input" type="radio" name="type" value='1'  onclick="selectType()"> -->
+                                                <label class="form-check-label" for="cpa_one_active_private">
+
+                                                    <input class="form-check-input" type="radio" id="cpa_one_active_private" name="cpa_one_active_attend_place" value='1' onclick="$('#current_active_blk_mac').css('display','none')">
+                                                    <span class="form-check-sign" ></span>
+                                                    ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
+                                                </label>
+                                            </div>
+                                            <div class="form-check-radio px-0">
+                                                <!-- <input class="form-check-input " type="radio" name="type" value='0'  onclick="selectType()"> -->
+                                                <label class="form-check-label" for="cpa_one_active_self">
+                                                    <!-- <span class="form-check-sign"></span> -->
+                                                    <input class="form-check-input" id="cpa_one_active_self" type="radio" name="cpa_one_active_attend_place" value='0' onclick="$('#current_active_blk_mac').css('display','none')">
+                                                    <span class="form-check-sign" ></span>
+                                                    ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
+                                                </label>
+                                            </div>
+                                            <div class="form-check-radio px-0">
+                                                <label  class="error attend_place_error" style="display:none;" for="cpa_one_active_attend_place">Please select one</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     
                                     <div class="row mb-3">
                                         <div class="form-check">
@@ -713,6 +776,7 @@
         $(document).ready(function (e) {
             localStorage.removeItem('course_type');
 
+            $$("#batch_number").append(($(".batch_number").val()))
             $("input[name='date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
