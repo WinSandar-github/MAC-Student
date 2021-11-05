@@ -609,10 +609,27 @@ function user_profile() {
                                         $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA(Full-Fledged) Form</a></td></tr > `);
                                     }
                                     }else {
+                                    //     $('.qt_article_status').append(`<tr>
+                                    //     <td>${form_type} Form</td>
+                                    //     <td>${contract_start_date}</td>
+                                    //     <td>${contract_end_date}</td>
+                                    //     <td><span class="badge bg-success">Approved</span></td>
+                                    //     <td></td>
+                                    // </tr>
+                                    // `);
+                                    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                        var resign_end_date;
+                                        if(element.resign_date != null){
+                                            var end_date = new Date(element.resign_date);
+                                            var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
+                                            resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+                                        }else{
+                                            resign_end_date = contract_end_date;
+                                        }
                                         $('.qt_article_status').append(`<tr>
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
-                                        <td>${contract_end_date}</td>
+                                        <td>${resign_end_date}</td>
                                         <td><span class="badge bg-success">Approved</span></td>
                                         <td></td>
                                     </tr>
@@ -1193,10 +1210,19 @@ function user_profile() {
                                     </tr>
                                     `);
                                     }else {
+                                        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                        var resign_end_date;
+                                        if(element.resign_date != null){
+                                            var end_date = new Date(element.resign_date);
+                                            var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
+                                            resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+                                        }else{
+                                            resign_end_date = contract_end_date;
+                                        }
                                         $('.qt_article_status').append(`<tr>
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
-                                        <td>${contract_end_date}</td>
+                                        <td>${resign_end_date}</td>
                                         <td><span class="badge bg-success">Approved</span></td>
                                         <td></td>
                                     </tr>
@@ -1265,8 +1291,8 @@ function user_profile() {
                                 //}
                             }
                             if(!latest_article[0].mentor_attach_file){
-                                $('.qt_article_status').append(`<tr><td colspan=4>ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='DownloadForms(`+latest_article[0].offline_user+`);'>Download</button></div></div></td></tr>`);
-                                $('.qt_article_status').append(`<tr><td colspan=5>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတမ်းများအားတင်သွင်းရန်</td><td></td></tr>`);
+                                $('.qt_article_status').append(`<tr><td colspan=4>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='DownloadForms(`+latest_article[0].offline_user+`);'>Download</button></div></div></td></tr>`);
+                                $('.qt_article_status').append(`<tr><td colspan=5>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတန်းများအားတင်သွင်းရန်</td><td></td></tr>`);
                                 $('.qt_article_status').append(`<tr><td colspan=3>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></td></tr>`);
                             }
                             if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
@@ -3394,10 +3420,27 @@ function user_profile() {
                                         `);
 
                                         } else {
+                                        //     $('.article_status').append(`<tr>
+                                        //     <td>${form_type} Form</td>
+                                        //     <td>${contract_start_date}</td>
+                                        //     <td>${contract_end_date}</td>
+                                        //     <td><span class="badge bg-success">Approved</span></td>
+                                        //     <td></td>
+                                        // </tr>
+                                        // `);
+                                            let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                            var resign_end_date;
+                                            if(element.resign_date != null){
+                                                var end_date = new Date(element.resign_date);
+                                                var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
+                                                resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+                                            }else{
+                                                resign_end_date = contract_end_date;
+                                            }
                                             $('.article_status').append(`<tr>
                                             <td>${form_type} Form</td>
                                             <td>${contract_start_date}</td>
-                                            <td>${contract_end_date}</td>
+                                            <td>${resign_end_date}</td>
                                             <td><span class="badge bg-success">Approved</span></td>
                                             <td></td>
                                         </tr>
@@ -3584,14 +3627,31 @@ function user_profile() {
                                     </tr>
                                     `);
                                     } else {
-                                        $('.article_status').append(`<tr>
-                                        <td>${form_type} Form</td>
-                                        <td>${contract_start_date}</td>
-                                        <td>${contract_end_date}</td>
-                                        <td><span class="badge bg-success">Approved</span></td>
-                                        <td></td>
-                                    </tr>
-                                    `);
+                                    //     $('.article_status').append(`<tr>
+                                    //     <td>${form_type} Form</td>
+                                    //     <td>${contract_start_date}</td>
+                                    //     <td>${contract_end_date}</td>
+                                    //     <td><span class="badge bg-success">Approved</span></td>
+                                    //     <td></td>
+                                    // </tr>
+                                    // `);
+                                        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                            var resign_end_date;
+                                            if(element.resign_date != null){
+                                                var end_date = new Date(element.resign_date);
+                                                var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
+                                                resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+                                            }else{
+                                                resign_end_date = contract_end_date;
+                                            }
+                                            $('.article_status').append(`<tr>
+                                            <td>${form_type} Form</td>
+                                            <td>${contract_start_date}</td>
+                                            <td>${resign_end_date}</td>
+                                            <td><span class="badge bg-success">Approved</span></td>
+                                            <td></td>
+                                        </tr>
+                                        `);
                                     }
                                 } else if (element.status == 2) {
                                     $('.article_status').append(`<tr>
@@ -3744,10 +3804,27 @@ function user_profile() {
                                                 </tr>
                                                 `);
                                             } else {
+                                            //     $('.article_status').append(`<tr>
+                                            //     <td>${form_type} Form</td>
+                                            //     <td>${contract_start_date}</td>
+                                            //     <td>${contract_end_date}</td>
+                                            //     <td><span class="badge bg-success">Approved</span></td>
+                                            //     <td></td>
+                                            // </tr>
+                                            // `);
+                                                let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                                var resign_end_date;
+                                                if(element.resign_date != null){
+                                                    var end_date = new Date(element.resign_date);
+                                                    var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
+                                                    resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+                                                }else{
+                                                    resign_end_date = contract_end_date;
+                                                }
                                                 $('.article_status').append(`<tr>
                                                 <td>${form_type} Form</td>
                                                 <td>${contract_start_date}</td>
-                                                <td>${contract_end_date}</td>
+                                                <td>${resign_end_date}</td>
                                                 <td><span class="badge bg-success">Approved</span></td>
                                                 <td></td>
                                             </tr>
@@ -3922,7 +3999,7 @@ function user_profile() {
                                         }
                                     }
                                     if (!latest_gov_article[0].mentor_attach_file) {
-                                        $('.article_btn').append(`<tr><td colspan=4>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='GovDownloadForms();'>Download</button></div></div></td></tr>`);
+                                        $('.article_btn').append(`<tr><td colspan=4>ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='GovDownloadForms();'>Download</button></div></div></td></tr>`);
                                         $('.article_btn').append(`<tr><td colspan=5>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတမ်းများအားတင်သွင်းရန်</td></tr>`);
                                         $('.article_btn').append(`<tr><td colspan=3>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='gov_attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='gov_attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='gov_attach_file_btn' onclick='saveGovAttachFile(${latest_gov_article[0].id})'>Submit</button></td></tr>`);
                                     }

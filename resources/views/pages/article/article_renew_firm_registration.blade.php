@@ -367,6 +367,27 @@
                                             </div>
                                         </div>
 
+                                        <div class="row mb-3 degree" style="display:none">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
+
+                                            <div class="col-md-9">
+                                                <table class="table tbl_degree table-bordered input-table">
+                                                    <thead>
+                                                        <tr >
+                                                            <th class="less-font-weight text-center" width="10%">စဉ်</th>
+                                                            <th class="less-font-weight text-center"  width="40%">တက္ကသိုလ်/ဘွဲ့/ဒီပလိုမာ</th>
+                                                            <th class="less-font-weight text-center"  width="40%">Attached Certificate</th>
+                                                            <th class="text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowEducation("tbl_degree")'><li class="fa fa-plus"></li></button></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="tbl_degree_body">
+                                                        
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+
                                         <!-- <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span></label>
                                             <div class="col-md-9" id="edu">
@@ -538,6 +559,7 @@
 
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
                                         <input type="hidden" id="article_form_type" name="article_form_type" >
+                                        <input type="hidden" id="offline_user" name="offline_user" >
 
                                         <div class="row mb-3">
                                             <div class="form-check">
@@ -672,7 +694,7 @@
                     $("#start_date").text(data.data.gov_article[0].contract_start_date);
                     $("#end_date").text(latest_article[0].resign_date);
                 }else{
-                    $("#mentor_name_mm").text(data.data.article[article_length].mentor.name_mm);
+                    $("#mentor_name_mm").text(data.data.article[article_length]?.mentor?.name_mm);
                     $("#start_date").text(data.data.article[article_length].contract_start_date);
                     $("#end_date").text(latest_article[0].resign_date);
                 }
@@ -767,6 +789,7 @@
             }
 
             $("#student_info_id").val(latest_article[0].student_info_id);
+            $('#offline_user').val(latest_article[0].offline_user);
 
             $('#name_mm').val(student_info.name_mm);
             $("#name_eng").val(student_info.name_eng);
@@ -793,12 +816,18 @@
                 })
             }else{
                 $("#education").val(student_info.student_education_histroy.degree_name);
-                let certificate = JSON.parse(student_info.student_education_histroy.certificate);
-                $.each(certificate,function(fileCount,fileName){
+                if(student_info.student_education_histroy){
+                    $('.degree').show();
+                    loadEductaionHistory(student_info.id,'tbl_degree');
+                }else{
+                    $('#firm_education').hide();
+                    let certificate = JSON.parse(student_info.student_education_histroy.certificate);
+                    $.each(certificate,function(fileCount,fileName){
 
-                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);
+                        $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);
 
-                })
+                    })
+                }
             }
             $("#address").val(student_info.address);
             $("#phone_no").val(student_info.phone);
@@ -941,6 +970,28 @@
       else if(check_confirm_142 == false || check_mentor_declare == false || check_confirm_status == false){
         $("#submit_btn").prop('disabled',true);
       }
+    }
+
+    function loadEductaionHistory(id,table){
+    
+        $.ajax({
+            type : 'POST',
+            url : BACKEND_URL+"/getEducationHistory",
+            data: 'student_info_id='+id,
+            success: function(result){
+                $.each(result.data, function( index, value ){
+                    var tr="<tr>";
+                    tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_degrees_id[]" class="form-control" value=`+value.id+`>${ index += 1 }</td>`;
+                    tr += '<td><input type="text" name="old_degrees[]" class="form-control" value="'+value.degree_name+'" readonly/></td>';
+                    tr += '<td><input type="hidden" name="old_degrees_certificates_h[]" class="form-control" value='+value.certificate+'><a href='+BASE_URL+value.certificate+' style="margin-top:0.5px;" target="_blank" class="btn btn-success btn-md">View File</a></td>';//<input type="file" name="old_degrees_certificates[]" class="form-control">
+                    tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("`+table+`")><li class="fa fa-times"></li></button></td>`;
+                    tr += "</tr>";
+                    $("table."+table).append(tr);
+                });
+            }
+        });
+    
+    
     }
 
 </script>
