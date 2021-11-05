@@ -57,7 +57,7 @@
                         <div id="reg_no_box">
                           <div class="col-md-3 pull-left">
                             <label for="" class="control-label text-muted fw-bolder"><small>Registration No.</small></label>
-                            <input type="text" placeholder="Enter Registration No.!" name="accountancy_firm_reg_no" class="form-control" value="" >
+                            <input type="text" readonly placeholder="Enter Registration No.!" name="accountancy_firm_reg_no" class="form-control" value="" >
                           </div>
                         </div>
                     </div>
@@ -1154,7 +1154,7 @@
 									</div>
 								</div>
 
-                <div id="disconnect_box" style="display:none;">
+                <div id="disconnect_box">
                   <div class="row mb-5">
                       <label for="" class="col-md-1 col-form-label">11.</label>
                       <label for="" class="col-md-4 col-form-label">Last Registered Year</label>
@@ -1203,40 +1203,9 @@
                   </div>
                 </div>
 
-								{{--<table width="100%">
-									<tr>
-										<td width="8%">14</td>
-										<td width="17%"><label class="col-form-label">လျှောက်လွှာကြေး(၁၀၀၀ ကျပ်)</label>
-										</td>
-										<td width="73%">
-												<div class="form-group">
-														<!-- <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a> -->
-														<p class="col-md-9 text-primary">Payment System Coming Soon</p>
-														<input type="hidden" value="1000" name="form_fee">
-												</div>
-										</td>
-									</tr>
-								</table><br>--}}
-								{{--<table width="100%">
-									<tr>
-										<td width="8%">15</td>
-										<td width="17%"><label class="col-form-label">မှတ်ပုံတင်ကြေး Audit Report တွင်လက်မှတ်ရေးထိုးမည့်သူတစ်ဦးလျှင်(၁၀၀,၀၀၀ ကျပ်)</label>
-										</td>
-										<td width="73%">
-											<div class="form-group">
-												<div class="form-group">
-													<!-- <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a> -->
-													<p class="col-md-9 text-primary">Payment System Coming Soon</p>
-													<input type="hidden" value="100000" name="nrc_fee">
-												</div>
-											</div>
-										</td>
-									</tr>
-								</table><br>--}}
-
 								<div id="director_staffmembers" style="display:none;">
 									<div class="row">
-										<label class="col-md-1 col-form-label" id="label1">12.</label>
+										<label class="col-md-1 col-form-label" id="label1">13.</label>
 										<label class="col-md-11 col-form-label">{{ __('Particulars Of Directors/ Staff Members Who Is A Myanmar CPA') }}</label>
 
 									</div>
@@ -1254,7 +1223,7 @@
 																<th class="less-font-weight" rowspan="2">CPA(Passed Reg.No)</th>
 																<th class="less-font-weight" rowspan="2">CPA (Full-Fledged) Reg.No</th>
 																<th class="less-font-weight" rowspan="2">Public Practice Reg.No</th>
-																
+
                                 <th class="less-font-weight text-center">
                                   <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDirectorCPA("director_cpa_initial")'>
                                     <li class="fa fa-plus"></li>
@@ -1409,6 +1378,29 @@
 <script src="{{ asset("js/form_validation/non_audit_firm_renew_validation.js") }}"></script>
 <script>
     $(document).ready(function(){
+
+      $("input[name=req_for_stop][type=radio]").change(function(){
+        if($(this).val() == 1){
+          $("#req_to_dissconect").css("display","block");
+        }
+        else{
+          $("#req_to_dissconect").css("display","none");
+        }
+      });
+
+      $("input[name='last_registered_year'][type=text]").flatpickr({
+          enableTime: false,
+          dateFormat: "Y",
+          //dateFormat: "Y",
+          allowInput: true,
+      });
+      $("input[name='suspended_year'][type=text]").flatpickr({
+          enableTime: false,
+          dateFormat: "Y",
+          //dateFormat: "Y",
+          allowInput: true,
+      });
+
       $("input[id*='declaration_mm'], text[id*='declaration_mm']").change(function (e) {
     			myanmarLetterOnly($(this));
     	});
