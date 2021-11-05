@@ -54,7 +54,7 @@ $().ready(function () {
             da_one_pass_exam_date: "required",
             da_one_pass_level: "required",
             da_one_pass_personal_no: "required",
-            is_full_module: "required",
+            // is_full_module: "required",
         },
         messages: {
             email: "Please enter your email",
@@ -108,7 +108,7 @@ $().ready(function () {
             da_one_pass_exam_date: "Please Enter Your DA One Pass Date",
             da_one_pass_level: "Please enter your DA One Pass Level",
             da_one_pass_personal_no: "Please enter your DA One Pass Personal Number",
-            is_full_module: "Please Select One",
+            // is_full_module: "Please Select One",
 
         },
         submitHandler: function (form) {
