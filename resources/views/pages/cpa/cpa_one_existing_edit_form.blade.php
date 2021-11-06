@@ -84,8 +84,9 @@
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                            <h6><span id="batch_number"></span></h6>
+                                            <h6>အမှတ်စဉ် - <span id="batch_number"></span></h6>
                                             <input type="hidden" name="batch_id" id="batch_id" />
+                                            <input type="hidden" id="active_batch_id">
                                             
                                         </div>
                                     </div>
@@ -381,7 +382,7 @@
                                         
                                     </div>
 
-                                    <div id="rec_letter" style="display:none">
+                                    {{-- <div id="rec_letter" style="display:none">
                                         <div class="row mb-3" style="margin-left: 80px">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">(က)</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ</label>
                                             <div class="col-md-2"  id="degree_edu" >
@@ -392,7 +393,7 @@
                                                 <input type="hidden" name="old_rec_letter">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span class="pull-left">၁၉။</span>တက္ကသိုလ်တစ်ခုခုမှအောင်မြင်ပြီးခဲ့သော</label>
@@ -461,22 +462,27 @@
                                         </div>                                            
                                     </div>
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label_align_right"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>Module <span style="color:red">*</span>-</label>
+                                        <label class="col-md-4 col-form-label label_align_right"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>Module </label>
                                         <div class="row col-md-8 py-2" style="padding-left:24px">
-                                            <div class="col-md-4 form-check-radio">
+                                            <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input module_one" type="radio" id="0"
+                                                    <input class="form-check-input module_one" type="radio" id="module_1"
                                                             name="is_full_module" value="1" >
                                                     <span class="form-check-sign"></span>
                                                     Module 1
                                                 </label>
                                             </div>
-                                            <div class="col-md-4 form-check-radio">
+                                            <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input module_two" type="radio"
-                                                            name="is_full_module" value='2' >
+                                                            name="is_full_module" value='2' id="module_2">
                                                     <span class="form-check-sign"></span>
                                                     Module 2
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3 form-check-radio">
+                                                <label class="form-check-label">
+                                                    <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckRadioButton()"/>
                                                 </label>
                                             </div>
                                             <div class="col-md-7 ">
@@ -606,6 +612,8 @@
                                                 <input type="text" class="form-control" name="direct_access_no"  placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဉ်" >
                                             </div>
                                         </div>
+
+                                        
                                     </div>
                                     <div id="entry_success_no_row" style="display:none">
                                         <div class="row mb-3" >
@@ -614,7 +622,75 @@
                                                 <input type="text" class="form-control" name="entry_success_no"  placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဉ်" >
                                             </div>
                                         </div>
+
+                                        <div class="row mb-3" >
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>ခုံအမှတ်<span style="color:red">*</span></label>
+                                            <div class="col-md-8" >
+                                                <input type="text" class="form-control entry_success_roll_no" name="entry_success_roll_no"  placeholder="ခုံအမှတ်" >
+                                            </div>
+                                        </div>
                                     </div>
+
+                                    <div class="row mb-3">                                        
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၅။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span></label>
+                                        <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
+                                            <div class="form-check-radio px-0">
+                                                <label class="form-check-label" for="cpa_one_active_main_mac">
+                                                <input class="form-check-input " type="radio" id="cpa_one_active_main_mac" name="cpa_one_active_attend_place" value='2'  onclick="$('#current_active_blk_mac').css('display','inline-block')">
+                                                    <span class="form-check-sign"></span>
+                                                    ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး
+                                                </label>
+                                            </div>
+                                            <div class="col-md-12" id="current_active_blk_mac" style="display:none">
+                                                <div class="mx-5 row  ">
+
+                                                    <div class="col-md-5 form-check-radio px-0  ">
+                                                        <label class="form-check-label" for="cpa_one_active_sub_mac">
+                                                        <input class="form-check-input" type="radio" id="cpa_one_active_sub_mac" name="cpa_one_active_mac_type" value='1'>
+                                                            <span class="form-check-sign"></span>
+                                                            ရန်ကုန်သင်တန်းကျောင်း
+                                                        </label>
+
+                                                    </div>
+                                                </div>
+                                                <div class="mx-5 row  ">
+                                                <div class="col-md-5  form-check-radio px-0  ">
+                                                    <label class="form-check-label" for="cpa_one_active_sub_mac2">
+                                                    <input class="form-check-input" type="radio" id="cpa_one_active_sub_mac2" name="cpa_one_active_mac_type" value='2'>
+                                                        <span class="form-check-sign"></span>
+                                                        နေပြည်တော်သင်တန်းကျောင်း
+                                                    </label>
+                                                </div>
+                                                <label  class="error attend_place_error" style="display:none;" for="cpa_one_active_mac_type">Please select one</label>
+
+                                            </div>
+
+                                            </div>
+
+                                            <div class="form-check-radio px-0">
+                                                <!-- <input class="form-check-input" type="radio" name="type" value='1'  onclick="selectType()"> -->
+                                                <label class="form-check-label" for="cpa_one_active_private">
+
+                                                    <input class="form-check-input" type="radio" id="cpa_one_active_private" name="cpa_one_active_attend_place" value='1' onclick="$('#current_active_blk_mac').css('display','none')">
+                                                    <span class="form-check-sign" ></span>
+                                                    ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
+                                                </label>
+                                            </div>
+                                            <div class="form-check-radio px-0">
+                                                <!-- <input class="form-check-input " type="radio" name="type" value='0'  onclick="selectType()"> -->
+                                                <label class="form-check-label" for="cpa_one_active_self">
+                                                    <!-- <span class="form-check-sign"></span> -->
+                                                    <input class="form-check-input" id="cpa_one_active_self" type="radio" name="cpa_one_active_attend_place" value='0' onclick="$('#current_active_blk_mac').css('display','none')">
+                                                    <span class="form-check-sign" ></span>
+                                                    ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
+                                                </label>
+                                            </div>
+                                            <div class="form-check-radio px-0">
+                                                <label  class="error attend_place_error" style="display:none;" for="cpa_one_active_attend_place">Please select one</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="row mb-3">
                                         <div class="form-check">
                                             <label class="form-check-label">
@@ -713,11 +789,13 @@
                 get_student_info(student_id).then(data => {
                     if(data){
                         var info = data.data;
-                        
+                        var student_course_regs = info.student_course_regs;
                         var student_course = info.student_course_regs.slice(-1);
                         var job_history = data.data.student_job;
                         var education_history = data.data.student_education_histroy;
                         var last_exam = info.exam_registers.slice(-1);
+
+                        console.log('student_course_regs',student_course_regs)
                       
                         if(info){
                             $('#stu_id').val(info.id);
@@ -761,7 +839,8 @@
                                 success: function (res) {
                                     
                                     $('.batch_number').append(res.data.number);
-                                    $('#batch_number').append(res.data.name_mm);
+                                    $('#batch_number').append(number2mm(res.data.number));
+                                    $('#active_batch_id').val(res.data.id);
                                 }
                         })
                         if(job_history){
@@ -808,16 +887,16 @@
                             $("#female").prop("checked",true);
                         }
 
-                        if(student_course[0].type == 0){
+                        if(student_course_regs[0].type == 0){
                             $("input[name=attend_place][value=0]").prop("checked",true);
 
                             
-                        }else if(student_course[0].type == 1){
+                        }else if(student_course_regs[0].type == 1){
                             $("input[name=attend_place][value=1]").prop("checked",true);
                         }else{
                             $("input[name=attend_place][value=2]").prop("checked",true);
                             selectType();
-                            if(student_course[0].mac_type == 1){
+                            if(student_course_regs[0].mac_type == 1){
                                 $("input[name=mac_type][value=1]").prop("checked",true);
                                 
                             }else{
@@ -826,8 +905,26 @@
                             }
                         }
 
+                        if(student_course[0].type == 0){
+                            $("input[name=cpa_one_active_attend_place][value=0]").prop("checked",true);
+
+                            
+                        }else if(student_course[0].type == 1){
+                            $("input[name=cpa_one_active_attend_place][value=1]").prop("checked",true);
+                        }else{
+                            $("input[name=cpa_one_active_attend_place][value=2]").prop("checked",true);
+                            selectType();
+                            if(student_course[0].mac_type == 1){
+                                $("input[name=cpa_one_active_mac_type][value=1]").prop("checked",true);
+                                
+                            }else{
+                                $("input[name=cpa_one_active_mac_type][value=2]").prop("checked",true);
+
+                            }
+                        }
+
                         $('#sr_no').val(student_course[0].sr_no);
-                        $('#selected_passed_batch_id').val(student_course[0].batch_id);
+                        $('#selected_passed_batch_id').val(student_course_regs[0].batch_id);
                         if(last_exam[0].is_full_module == "1"){
                             $(".module_one").prop("checked", true);                            
                             // $('.module_one').attr('disabled', true);
@@ -860,7 +957,8 @@
                             $("#entry_success_no_row").show();                                
                             $("#direct_access_no_row").hide();
 
-                            $("input[name=entry_success_no]").val(student_course[0].sr_no);
+                            $("input[name=entry_success_no]").val(last_exam[0].sr_no);
+                            $("input[name=entry_success_roll_no]").val(student_course[0].sr_no);
                             
                         }else{
                             $("#entry_success_no").prop("checked",false);

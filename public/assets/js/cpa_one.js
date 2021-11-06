@@ -306,10 +306,10 @@ function updateCPAExistingRegister() {
     if($("input[type='radio'][name='qt_entry']:checked").val()==0){
         send_data.append('sr_no',$("input[name=direct_access_no]").val());
     }else{
-        send_data.append('sr_no',$("input[name=entry_success_no]").val());
-    }
-
-    send_data.append('type', $("input[name='attend_place']:checked").val());
+        send_data.append('exam_sr_no',$("input[name=entry_success_no]").val());
+        send_data.append('sr_no',$("input[name=entry_success_roll_no]").val());
+        
+    }  
 
     if($("#cpa_type").val()=='cpa_2'){
         send_data.append('batch_id', $("#selected_current_batch_id").val());
@@ -319,6 +319,7 @@ function updateCPAExistingRegister() {
         send_data.append('cpa_two_pass_personal_no', $("input[name=cpa_two_pass_personal_no]").val());
         send_data.append('cpa2_mac_type', $("input[name='cpa2_attend_place']:checked").val() == 2 ? $("input[name='cpa2_mac_type']:checked").val() : 99);
     }
+
     send_data.append('type', $("input[name='attend_place']:checked").val());
     send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
 
@@ -336,7 +337,7 @@ function updateCPAExistingRegister() {
         processData: false,
         success: function (result) {
             EasyLoading.hide();
-            successMessage("You have successfully registered. Use your email and password to login.");
+            successMessage("You have successfully Update.");
             setInterval(() => {
                 location.href = FRONTEND_URL + '/';
             }, 3000);
