@@ -34,4 +34,7 @@ class ArticleController extends Controller
     public function articleCPATwoRenew(){
         return view('pages.article.article_cpa_two_renew');
     }
+    public function articleCPAOneTwoRenew(){
+        return view('pages.article.article_cpa_one_two_renew');
+    }
 }

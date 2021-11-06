@@ -85,7 +85,7 @@
                                             <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6>
                                         </div>
                                     </div>
-
+                                    <input type="hidden" id="active_batch_id">
                                     <div class="row">
                                         <div class="col-md-9">
                                         <div class="row mb-3">
@@ -230,7 +230,7 @@
                                     
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)<span style="color:red">*</span></label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၄။</span>ကျား / မ (Gender)<span style="color:red">*</span></label>
                                         <div class="row col-md-8 py-2">
                                             <div class="col-md-3 form-check-radio mx-2">
                                                 <label class="form-check-label">
@@ -254,42 +254,42 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၈။</span>လူမျိုး<span style="color:red">*</span></label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၅။</span>လူမျိုး<span style="color:red">*</span></label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="လူမျိုး" name="race" class="form-control" value="{{ old('race') }}" required="">
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၉။</span>ကိုးကွယ်သည့်ဘာသာ<span style="color:red">*</span></label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၆။</span>ကိုးကွယ်သည့်ဘာသာ<span style="color:red">*</span></label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="ကိုးကွယ်သည့်ဘာသာ" name="religion" class="form-control" value="{{ old('religion') }}" required="">
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၀။</span>မွေးသက္ကရာဇ်<span style="color:red">*</span></label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>မွေးသက္ကရာဇ်<span style="color:red">*</span></label>
                                         <div class="col-md-8">
                                             <input type="text" name="date_of_birth" class="form-control" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" required>
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၁။</span>ဖုန်းနံပါတ်<span style="color:red">*</span></label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၈။</span>ဖုန်းနံပါတ်<span style="color:red">*</span></label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="ဖုန်းနံပါတ်" name="phone" class="form-control" value="{{ old('phone') }}" required="">
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၂။</span>ဆက်သွယ်ရမည့်လိပ်စာ<span style="color:red">*</span></label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၉။</span>ဆက်သွယ်ရမည့်လိပ်စာ<span style="color:red">*</span></label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="ဆက်သွယ်ရမည့်လိပ်စာ" name="current_address" class="form-control" value="{{ old('address') }}" required="">
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၃။</span>အမြဲတမ်းနေရပ်လိပ်စာ<span style="color:red">*</span></label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၀။</span>အမြဲတမ်းနေရပ်လိပ်စာ<span style="color:red">*</span></label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="address" class="form-control" value="{{ old('current_address') }}" required="">
                                         </div>
@@ -300,56 +300,56 @@
                                     <input type="hidden" name="approve_reject_status">
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၄။</span>လက်ရှိအလုပ်အကိုင်</label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၁။</span>လက်ရှိအလုပ်အကိုင်</label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="current_job" class="form-control" value="{{ old('name') }}" >
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၅။</span>ရာထူး</label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၂။</span>ရာထူး</label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="ရာထူး" name="position" class="form-control" value="{{ old('position') }}" >
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၆။</span>ဌာန</label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၃။</span>ဌာန</label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="ဌာန" name="department" class="form-control" value="{{ old('department') }}" >
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၇။</span>အဖွဲ့အစည်း</label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၄။</span>အဖွဲ့အစည်း</label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="အဖွဲ့အစည်း" name="organization" class="form-control" value="{{ old('organization') }}">
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၈။</span>ကုမ္ပဏီအမည်</label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၅။</span>ကုမ္ပဏီအမည်</label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="ကုမ္ပဏီအမည်" name="company_name" class="form-control" value="{{ old('company_name') }}" >
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၉။</span>လစာနှင့်လစာနှုန်း</label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၆။</span>လစာနှင့်လစာနှုန်း</label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="လစာနှင့်လစာနှုန်း" name="salary" class="form-control" value="{{ old('salary') }}" >
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၀။</span>ရုံးလိပ်စာ</label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၇။</span>ရုံးလိပ်စာ</label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="ရုံးလိပ်စာ" name="office_address" class="form-control" value="{{ old('office_address') }}" >
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၁။</span>နိုင်ငံ့ဝန်ထမ်းဟုတ်/မဟုတ်<span style="color:red">*</span></label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၈။</span>နိုင်ငံ့ဝန်ထမ်းဟုတ်/မဟုတ်<span style="color:red">*</span></label>
                                         <div class="col-md-4 pt-2">
                                             <div class="form-check form-check-inline">
                                                 <input type="radio" class="form-check-input" id="yes" name="gov_staff" value="1" onclick="$('#rec_letter').show()">
@@ -382,7 +382,7 @@
                                     </div> --}}
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၂။</span>တက္ကသိုလ်တစ်ခုခုမှအောင်မြင်ပြီးခဲ့သော</label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၁၉။</span>တက္ကသိုလ်တစ်ခုခုမှအောင်မြင်ပြီးခဲ့သော</label>
 
                                         <div class="row mb-3" style="margin-left: 80px">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">(က)</span>ဘွဲ့အမည်</label>
@@ -436,7 +436,7 @@
                                     </div>     
                                     
                                     <div class="row mb-3">
-                                        <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၂၃။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
+                                        <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၂၀။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
                                     </div>
 
                                     <div class="row mb-3">
@@ -543,7 +543,7 @@
                                     <input type="hidden" id="current_course_id" value="2">
                                     <input type="hidden" id="da_type" value="da_2">
                                     {{-- <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၄။</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၁။</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <select class="form-control form-select" name="selected_current_batch_name1" id="selected_current_batch_id1" required>
@@ -555,7 +555,7 @@
 
 
                                     <div class="row mb-3">
-                                        <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၂၄။</span>ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
+                                        <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၂၁။</span>ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
                                     </div>
 
                                     <div class="row mb-3">
@@ -574,7 +574,7 @@
                                         <div class="row col-md-8 py-2" style="padding-left:24px">
                                             <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input module_one" type="radio" id="0"
+                                                    <input class="form-check-input module_one" type="radio" id="module_1"
                                                             name="is_full_module" value="1" >
                                                     <span class="form-check-sign"></span>
                                                     Module 1
@@ -582,10 +582,15 @@
                                             </div>
                                             <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input module_two" type="radio"
+                                                    <input class="form-check-input module_two" type="radio" id="module_2"
                                                             name="is_full_module" value='2' >
                                                     <span class="form-check-sign"></span>
                                                     Module 2
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3 form-check-radio">
+                                                <label class="form-check-label">
+                                                    <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckRadioButton()"/>
                                                 </label>
                                             </div>
                                             <div class="col-md-7 ">
@@ -685,7 +690,65 @@
                                         </div>
                                     </div>
 
-                                    
+                                    <div class="row mb-3">                                        
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၂။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span></label>
+                                        <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
+                                            <div class="form-check-radio px-0">
+                                                <label class="form-check-label" for="da_two_active_main_mac">
+                                                <input class="form-check-input " type="radio" id="da_two_active_main_mac" name="da_two_active_attend_place" value='2'  onclick="$('#current_active_blk_mac').css('display','inline-block')">
+                                                    <span class="form-check-sign"></span>
+                                                    ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး
+                                                </label>
+                                            </div>
+                                            <div class="col-md-12" id="current_active_blk_mac" style="display:none">
+                                                <div class="mx-5 row  ">
+
+                                                    <div class="col-md-5 form-check-radio px-0  ">
+                                                        <label class="form-check-label" for="da_two_active_sub_mac">
+                                                        <input class="form-check-input" type="radio" id="da_two_active_sub_mac" name="da_two_active_mac_type" value='1'    >
+                                                            <span class="form-check-sign"></span>
+                                                            ရန်ကုန်သင်တန်းကျောင်း
+                                                        </label>
+
+                                                    </div>
+                                                </div>
+                                                <div class="mx-5 row  ">
+                                                <div class="col-md-5  form-check-radio px-0  ">
+                                                    <label class="form-check-label" for="da_two_active_sub_mac2">
+                                                    <input class="form-check-input" type="radio" id="da_two_active_sub_mac2" name="da_two_active_mac_type" value='2'    >
+                                                        <span class="form-check-sign"></span>
+                                                        နေပြည်တော်သင်တန်းကျောင်း
+                                                    </label>
+                                                </div>
+                                                <label  class="error attend_place_error" style="display:none;" for="da_two_active_mac_type">Please select one</label>
+
+                                            </div>
+
+                                            </div>
+
+                                            <div class="form-check-radio px-0">
+                                                <!-- <input class="form-check-input" type="radio" name="type" value='1'  onclick="selectType()"> -->
+                                                <label class="form-check-label" for="da_two_active_private">
+
+                                                    <input class="form-check-input" type="radio" id="da_two_active_private" name="da_two_active_attend_place" value='1' onclick="$('#current_active_blk_mac').css('display','none')">
+                                                    <span class="form-check-sign" ></span>
+                                                    ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
+                                                </label>
+                                            </div>
+                                            <div class="form-check-radio px-0">
+                                                <!-- <input class="form-check-input " type="radio" name="type" value='0'  onclick="selectType()"> -->
+                                                <label class="form-check-label" for="da_two_active_self">
+                                                    <!-- <span class="form-check-sign"></span> -->
+                                                    <input class="form-check-input" id="da_two_active_self" type="radio" name="da_two_active_attend_place" value='0' onclick="$('#current_active_blk_mac').css('display','none')">
+                                                    <span class="form-check-sign" ></span>
+                                                    ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
+                                                </label>
+                                            </div>
+                                            <div class="form-check-radio px-0">
+                                                <label  class="error attend_place_error" style="display:none;" for="da_two_active_attend_place">Please select one</label>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="row mb-3">
                                         <div class="form-check">
@@ -875,6 +938,7 @@
                                 
                                 $('.batch_number').append(res.data.number);
                                 $('#batch_number').append(number2mm(res.data.number));
+                                $('#active_batch_id').val(res.data.id);
                             }
                         })
 
@@ -924,6 +988,7 @@
 
                         //show data depend on course code
                         student_course.forEach(function(element){
+                            console.log(element,'course');
                             if(element.batch.course.code == "da_1"){
                                  
                                 if(element.type == 0){
@@ -942,7 +1007,7 @@
                                         
                                     }
                                 }
-                            }else if(element.batch.course.code == "da_2"){
+                            }else if(element.batch.course.code == "da_2" && element.batch.id!=batch_id){
                                 if(element.type == 0){
                                     $("input[name=da_two_attend_place][value=0]").prop("checked",true);                                    
                                 }
@@ -957,6 +1022,24 @@
                                         
                                     }else{
                                         $("input[name=da_two_mac_type][value=2]").prop("checked",true);
+                                        
+                                    }
+                                }
+                            }else if(element.batch.course.code == "da_2" && element.batch.id==batch_id){
+                                if(element.type == 0){
+                                    $("input[name=da_two_active_attend_place][value=0]").prop("checked",true);                                    
+                                }
+                                else if(element.type == 1){
+                                    $("input[name=da_two_active_attend_place][value=1]").prop("checked",true);
+                                }else{
+                                    $("input[name=da_two_active_attend_place][value=2]").prop("checked",true);
+                                    $('#current_active_blk_mac').css('display','inline-block');
+                                    if(element.mac_type == 1){
+                                        $("input[name=da_two_active_mac_type][value=1]").prop("checked",true);
+
+                                        
+                                    }else{
+                                        $("input[name=da_two_active_mac_type][value=2]").prop("checked",true);
                                         
                                     }
                                 }
