@@ -1833,7 +1833,7 @@ function user_profile() {
                             } else if (latest_course_reg[0].approve_reject_status == 1) {
                                 let std_id = latest_course_reg[0].student_info_id;
 
-                                if (latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1") {
+                                if (latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1") {                                   
 
                                     $invoice_code = latest_course_reg[0].batch.course.code == "da_1" ? 'app_form' : 'cpa_app';
 

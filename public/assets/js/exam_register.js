@@ -142,6 +142,8 @@ function CPAExamRegister(){
     form_data.append('private_school_name', school_name);
     // send_data.append('invoice_image', $("input[name=invoice_image]").val());
     form_data.append('exam_department',$('#exam_department').val());
+    form_data.append('sr_no',$('#entry_success_no').val());
+
     // $('input[name="last_ans_module[]"]:checked').map(function (key, val) {
     //     form_data.append('last_ans_module[]', val.value);
     // });

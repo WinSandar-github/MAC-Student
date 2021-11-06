@@ -1794,19 +1794,17 @@
                         if(current_stu_course[0].mac_type == 1){
                             $("#sub_mac").prop("checked",true);
                         }else{
-                            console.log("Hello")
+                            console.log("Hello111")
                             $("#sub_mac2").prop("checked",true);
                         }
 
 
                             $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $('.course_name').val(current_stu_course[0].batch.course.name);
-                            $(".batch_number").append(number2mm(current_stu_course[0].batch.number));
                             $(".batch_no").val(current_stu_course[0].batch.number);
                             $(".batch_id").val(current_stu_course[0].batch.id);
                             if(last_exam.length!=0){
                                 console.log(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1')
-                                // $('.batch_number').append(last_exam[0].batch.id);
                                 // check last exam and show current data
                                 if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
                                     let batch_id = localStorage.getItem('batch_id');
@@ -1862,7 +1860,7 @@
                                 else{
                                     let batch_id = localStorage.getItem('batch_id');
                                     $('.batch_id').val(batch_id);
-                                    // $('.batch_id').val(current_stu_course[0].batch.id);
+                                    $(".batch_number").append(number2mm(current_stu_course[0].batch.number));
                                 } 
                             }
                             else{
@@ -2051,69 +2049,8 @@
                             $("#female_mac").prop("checked", true);
                         }
 
-                        // if(info.acca_cima){
-                        //     // document.getElementById(direct_access_no_self_div).style.display='block';
-                        //     $("#direct_access_no_self_div").show();
-                        //     $("#entry_success_no_self_div").hide();
-                        //     $("#direct_access_no_private_div").show();
-                        //     $("#entry_success_no_private_div").hide();
-                        //     $("#direct_access_no_mac_div").show();
-                        //     $("#entry_success_no_mac_div").hide();
-                        // }else if(!info.acca_cima && !info.da_pass_roll_number){
-                        //     $("#direct_access_no_self_div").hide();
-                        //     $("#entry_success_no_self_div").show();
-                        //     $("#direct_access_no_private_div").hide();
-                        //     $("#entry_success_no_private_div").show();
-                        //     $("#direct_access_no_mac_div").hide();
-                        //     $("#entry_success_no_mac_div").show();
-                        // }else{
-                        //     $("#direct_access_no_self_div").show();
-                        //     $("#entry_success_no_self_div").hide();
-                        //     $("#direct_access_no_private_div").show();
-                        //     $("#entry_success_no_private_div").hide();
-                        //     $("#direct_access_no_mac_div").show();
-                        //     $("#entry_success_no_mac_div").hide();
-                        // }
-
-                        // if(education_history){
-                        //     console.log("education_history",education_history);
-                        //   $("#self_study_container").find("input[name=degree_name]").val(education_history.degree_name);
-                        //   $("#mac_container").find("input[name=degree_name]").val(education_history.degree_name);
-                        //   $("#private_school_container").find("input[name=degree_name]").val(education_history.degree_name);
-                        // }
-
-                        // if(job_history){
-                        //   $("#mac_container").find("input[name=name]").val(job_history.company_name);
-                        //   $("#mac_container").find("input[name=position]").val(job_history.position);
-                        //   $("#mac_container").find("input[name=department]").val(job_history.department);
-                        //   $("#mac_container").find("input[name=organization]").val(job_history.organization);
-                        //   //$("#mac_container").find("input[name=address]").val(job_history.address);
-                        //   //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
-                        //   $("#mac_container").find("input[name=company_name]").val(job_history.company_name);
-                        //   $("#mac_container").find("input[name=salary]").val(job_history.salary);
-                        //   $("#mac_container").find("input[name=office_address]").val(job_history.office_address);
-
-                        //   $("#self_study_container").find("input[name=name]").val(job_history.company_name);
-                        //   $("#self_study_container").find("input[name=position]").val(job_history.position);
-                        //   $("#self_study_container").find("input[name=department]").val(job_history.department);
-                        //   $("#self_study_container").find("input[name=organization]").val(job_history.organization);
-                        //   //$("#mac_container").find("input[name=address]").val(job_history.address);
-                        //   //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
-                        //   $("#self_study_container").find("input[name=company_name]").val(job_history.company_name);
-                        //   $("#self_study_container").find("input[name=salary]").val(job_history.salary);
-                        //   $("#self_study_container").find("input[name=office_address]").val(job_history.office_address);
-
-                        //   $("#private_school_container").find("input[name=name]").val(job_history.company_name);
-                        //   $("#private_school_container").find("input[name=position]").val(job_history.position);
-                        //   $("#private_school_container").find("input[name=department]").val(job_history.department);
-                        //   $("#private_school_container").find("input[name=organization]").val(job_history.organization);
-                        //   //$("#mac_container").find("input[name=address]").val(job_history.address);
-                        //   //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
-                        //   $("#private_school_container").find("input[name=company_name]").val(job_history.company_name);
-                        //   $("#private_school_container").find("input[name=salary]").val(job_history.salary);
-                        //   $("#private_school_container").find("input[name=office_address]").val(job_history.office_address);
-                    //  }
                         if(data.data.exam_registers.length!=0){
+                            console.log("Hello")
                             $("input[name='office_address']").prop('readonly', false);
                             $("input[name='current_address']").prop('readonly', false);
                             $("input[name='address']").prop('readonly', false);
@@ -2129,6 +2066,7 @@
                             $("input[name='mac_type']").prop('disabled', false);
                         }
                         else{
+                            console.log("Hellowww")
                             $("input[name='office_address']").prop('readonly', true);
                             $("input[name='current_address']").prop('readonly', true);
                             $("input[name='address']").prop('readonly', true);
