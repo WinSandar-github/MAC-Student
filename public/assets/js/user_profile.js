@@ -3060,27 +3060,27 @@ function user_profile() {
                             }
 
                         } else if (current_class.approve_reject_status == 1) {
-                            if (current_class.offline_user==1){
+                            // if (current_class.offline_user==1){
 
-                                $('.status_history').append(`
-                                    <tr>
-                                        <td>Existing Registration For ${course_name}</td>
-                                        <td>${formatDate(current_class.created_at)}</td>
-                                        <td>${formatDate(current_class.updated_at)}</td>
-                                        <td><span class="badge bg-info text-dark">Approved</span></td>
-                                    </tr>
-                                `);
+                            //     $('.status_history').append(`
+                            //         <tr>
+                            //             <td>Existing Registration For ${course_name}</td>
+                            //             <td>${formatDate(current_class.created_at)}</td>
+                            //             <td>${formatDate(current_class.updated_at)}</td>
+                            //             <td><span class="badge bg-info text-dark">Approved</span></td>
+                            //         </tr>
+                            //     `);
 
-                            }else{
-                                $('.status_history').append(`
-                                    <tr>
-                                        <td>${current_class.batch.course.name} Application Form</td>
-                                        <td>${formatDate(current_class.created_at)}</td>
-                                        <td>${formatDate(current_class.updated_at)}</td>
-                                        <td><span class="badge bg-success">Approved</span></td>
-                                    </tr>
-                                `);
-                            }
+                            // }else{
+                                // $('.status_history').append(`
+                                //     <tr>
+                                //         <td>${current_class.batch.course.name} Application Form</td>
+                                //         <td>${formatDate(current_class.created_at)}</td>
+                                //         <td>${formatDate(current_class.updated_at)}</td>
+                                //         <td><span class="badge bg-success">Approved</span></td>
+                                //     </tr>
+                                // `);
+                            // }
 
                             //show data depend on Student Register status
                             if (data.student_register[i]) {
@@ -3200,27 +3200,27 @@ function user_profile() {
                                     `);
                                 }
                             } else {
-                                if(current_class.offline_user!=1){
-                                    switch (current_class.batch.course.code) {
-                                        case 'da_1':
-                                            register_url = '/da_one_register';
-                                            break;
-                                        case 'da_2':
-                                            register_url = '/da_two_register';
-                                            break;
-                                        case 'cpa_1':
-                                            register_url = '/cpa_one_register';
-                                            break;
-                                        case 'cpa_2':
-                                            register_url = '/cpa_two_register';
-                                            break;
-                                        default:
-                                            register_url = '/da_one_register';
-                                            break;
-                                    }
-                                    localStorage.setItem('course_id', current_class.batch.course.id);
-                                    $('.status_history').append(`<a href="${FRONTEND_URL + register_url}" class="btn btn-sm btn-success"> Registration Form</a>`);
-                                }
+                                // if(current_class.offline_user!=1){
+                                //     switch (current_class.batch.course.code) {
+                                //         case 'da_1':
+                                //             register_url = '/da_one_register';
+                                //             break;
+                                //         case 'da_2':
+                                //             register_url = '/da_two_register';
+                                //             break;
+                                //         case 'cpa_1':
+                                //             register_url = '/cpa_one_register';
+                                //             break;
+                                //         case 'cpa_2':
+                                //             register_url = '/cpa_two_register';
+                                //             break;
+                                //         default:
+                                //             register_url = '/da_one_register';
+                                //             break;
+                                //     }
+                                //     localStorage.setItem('course_id', current_class.batch.course.id);
+                                //     $('.status_history').append(`<a href="${FRONTEND_URL + register_url}" class="btn btn-sm btn-success"> Registration Form</a>`);
+                                // }
 
                             }
                         } else {
