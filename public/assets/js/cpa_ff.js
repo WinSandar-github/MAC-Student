@@ -750,12 +750,15 @@ function createCPAFFRegister() {
     });
 
     if (cpa_part_2.checked == true) {
-        send_data.append('pass_batch_no', $('input[name="pass_batch_no"]').val());
-        send_data.append('pass_personal_no', $('input[name="pass_personal_no"]').val());
+        send_data.append('cpa2_pass_date', $('input[name="cpa2_pass_date"]').val());
+        send_data.append('cpa2_reg_no', $('input[name="cpa2_reg_no"]').val());
     }
     else if (qt_pass.checked == true) {
-        send_data.append('qt_pass_date', $('input[name="qt_pass_date"]').val());
-        send_data.append('qt_pass_seat_no', $('input[name="qt_pass_seat_no"]').val());
+        send_data.append('country', $('input[name="country"]').val());
+        send_data.append('government', $('input[name="government"]').val());
+        send_data.append('exam_year', $('input[name="exam_year"]').val());
+        send_data.append('exam_month', $('input[name="exam_month"]').val());
+        send_data.append('roll_no', $('input[name="roll_no"]').val());
     }
 
     // if(cpa_part_2.checked==true){
@@ -783,7 +786,7 @@ function createCPAFFRegister() {
     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
 
     send_data.append('cpa_certificate', cpa_certificate);
-    send_data.append('mpa_mem_card', mpa_mem_card);
+    // send_data.append('mpa_mem_card', mpa_mem_card);
     send_data.append('nrc_front', nrc_front);
     send_data.append('nrc_back', nrc_back);
     send_data.append('mpa_mem_card', mpa_mem_card);
