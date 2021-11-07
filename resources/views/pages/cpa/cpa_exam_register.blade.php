@@ -78,8 +78,9 @@
                                     {{--<form method="post" id="cpa_exam_register" enctype="multipart/form-data">--}}
                                     <form  method="post" action="javascript:void();"  id="cpa_exam_form" enctype="multipart/form-data">
                                         @csrf
-                                        <input type="hidden" id="form_type" class="form-control" name="form_type">
+                                        <input type="hidden" id="form_type" class="form-control" name="form_type">                                        
                                         <input type="hidden" name="is_private" id="is_private" class="form-control">
+                                        <input type="hidden" id="entry_success_no" class="form-control" name="entry_success_no">
                                             <div class="col-md-12 mt-3">
 
                                                 <div class="row">
@@ -670,6 +671,12 @@
 
             let current_stu_reg=student_info.student_register.slice(-1);
 
+            console.log('current_stu_reg',current_stu_reg)
+
+            if(current_stu_reg[0].entry_success_no){
+                $("#entry_success_no").val(current_stu_reg[0].entry_success_no);
+ 
+            }
                     // if(current_stu_reg[0].module=="1"){
                     //      $("#module1").prop("checked", true);
                     // }

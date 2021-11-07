@@ -86,7 +86,7 @@
                             <form method="post" id="article_resign_register_form"  action="javascript:javascript:createArticleResignRegister();"
                                     enctype="multipart/form-data" novalidate>
                                 @csrf
-                                <input type="hidden" id="offline_user">
+                                <!-- <input type="hidden" id="offline_user"> -->
                                 <div class="row">
                                     <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
 
@@ -390,6 +390,7 @@
 
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
                                         <input type="hidden" id="article_form_type" name="article_form_type" >
+                                        <input type="hidden" id="offline_user" name="offline_user" >
 
                                         <div class="row mb-3">
                                             <div class="form-check">
@@ -493,6 +494,7 @@
             }else{
                 $("#student_info_id").val(latest_gov_article[0].student_info_id);
                 $("#recent_org").val("Government");
+                $("#offline_user").val(0);
             }
 
             $('#name_mm').val(student_info.name_mm);
