@@ -90,9 +90,9 @@ function loadMentorList(){
             result.forEach(function (element) {
                 array.push(element.papp_reg_no);
             });
-                    
+
             $('#papp_name').autocomplete({
-                source : array,              
+                source : array,
                 select : getMentorName,
                 //focus : getMentorName,
                 //change :getMentorName
@@ -258,7 +258,7 @@ function createArticleGovRegister() {
     send_data.append('phone_no', $("input[name=phone_no]").val());
     send_data.append('m_email', $("input[name=m_email]").val());
     //send_data.append('labor_registration_attach', labor_registration_attach);
-    
+
     $('input[name="labor_registration_attach[]"]').map(function () {
         for (var i = 0; i < $(this).get(0).files.length; ++i) {
             send_data.append('labor_registration_attach[]', $(this).get(0).files[i]);
@@ -321,7 +321,7 @@ function createArticleResignRegister() {
 
     var resign_date = new Date($("input[name=resign_date]").val());
     var change_contract_end_date = new Date(resign_date.getFullYear(), resign_date.getMonth(), (resign_date.getDate()) - 1);
-    change_contract_end_date = String(change_contract_end_date.getDate()).padStart(2, '0') + "-" + months[change_contract_end_date.getMonth()] + "-" + change_contract_end_date.getFullYear(); 
+    change_contract_end_date = String(change_contract_end_date.getDate()).padStart(2, '0') + "-" + months[change_contract_end_date.getMonth()] + "-" + change_contract_end_date.getFullYear();
 
     var resign_approve_attach = $("input[name=resign_approve_attach]")[0].files[0];
     send_data.append('phone_no', $("input[name=phone_no]").val());
@@ -338,7 +338,7 @@ function createArticleResignRegister() {
     }else{
         send_data.append('offline_user', 0);
     }
-    
+
     send_data.append('change_contract_end_date', change_contract_end_date);
 
     show_loader();
@@ -474,11 +474,11 @@ function createCPATwoPassOneYearArticle(){
             EasyLoading.hide();
             successMessage(data.message);
             location.href=FRONTEND_URL+'/';
-         
+
         },
         error: function (result) {
-          
-          
+
+
         },
     });
 }
