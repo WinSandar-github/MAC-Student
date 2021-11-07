@@ -154,7 +154,7 @@
                                                             <label class="form-check-label " for="">ကျွန်မ</label>
                                                         </li>
                                                         <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် </li>
-                                                             
+
                                                         <li>
                                                             <input type="radio" class="form-check-input" value="1" id="male2" name="gender3" >
                                                             <label class="form-check-label " for="">(ပထမပိုင်း)/</label>
@@ -162,7 +162,7 @@
                                                             <label class="form-check-label " for="">(ဒုတိယပိုင်း)</label>
                                                         </li>
                                                         <li> သင်တန်းအမှတ်စဥ်<input class="p-input" type="text" name="pass_no"> ကို </li>
-                                                        
+
                                                         <li>
                                                             <input type="radio" class="form-check-input" value="1" id="school" name="school" >
                                                             <label class="form-check-label " for="">မြန်မာနိုင်ငံစာရင်းကောင်စီ သင်တန်းကျောင်း</label>
@@ -187,9 +187,17 @@
                                             <div class="row mb-3">
                                                 <label class="col-md-1 col-form-label label"><span class="pull-left">{{__('၂။')}}</span></label>
                                                 <div class="col-md-11">
-                                                    <ul>
-                                                        <li>ယခင်က လက်တွေ့အလုပ်သင်ကြားမှုကို အလုပ်သင်ကြားပေးသည့်(PAPP အမည်) <input class="p-input" type="text" name="previous_papp_name"> ထံတွင် <input class="p-input" type="text"  name="previous_papp_start_date" id="previous_papp_start_date" placeholder="dd-mm-yyyy"> နေ့မှ <input class="p-input" type="text" name="previous_papp_end_date" id="previous_papp_end_date" placeholder="dd-mm-yyyy">နေ့အထိ <span id="result_name"><input class="p-input" type="text"> နှစ် ၊ <input class="p-input" type="text"> လ ၊ <input class="p-input" type="text"> ရက် </span> အလုပ်သင်ကြားမှုခံယူခဲ့ပါသည်။</li>
-                                                    </ul>
+                                                  <ul>
+                                                      <li>ယခင်က လက်တွေ့အလုပ်သင်ကြားမှုကို အလုပ်သင်ကြားပေးသည့်(PAPP အမည်)
+                                                        <input class="p-input" type="text" name="previous_papp_name"> ထံတွင်
+                                                        <input class="p-input" type="text"  name="previous_papp_start_date" id="previous_papp_start_date" placeholder="dd-mm-yyyy"> နေ့မှ
+                                                        <input class="p-input" type="text" name="previous_papp_end_date" id="previous_papp_end_date" placeholder="dd-mm-yyyy">နေ့အထိ
+                                                        <span id="result_name">
+                                                          <input class="p-input" type="text" name="exp_year"> နှစ် ၊
+                                                          <input class="p-input" type="text" name="exp_month"> လ ၊ <input class="p-input" name="exp_days" type="text"> ရက်
+                                                        </span> အလုပ်သင်ကြားမှုခံယူခဲ့ပါသည်။
+                                                      </li>
+                                                  </ul>
                                                 </div>
                                             </div>
                                         </div>
