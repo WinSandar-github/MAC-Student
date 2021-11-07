@@ -619,7 +619,7 @@ function user_profile() {
                                     // `);
                                     let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                                         var resign_end_date;
-                                        if(element.resign_date != null){
+                                        if(element.resign_date != null && element.resign_date != "N/A"){
                                             var end_date = new Date(element.resign_date);
                                             var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
                                             resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
@@ -670,7 +670,7 @@ function user_profile() {
                                     $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='CompleteDownloadForms();'>Download</button></div></div></td></tr>`);
                                     $('.qt_article_status').append(`<tr><td></td><td>Submit Done Form</td><td colspan=2><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='done_form'></div></div></td><td><button class='btn btn-primary btn-xs' id='done_form_btn' onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></td></tr>`);
                                 } else {
-                                    $('.qt_article_status').append(`<tr><td></td><td colspan=3>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
                                 }
                             } else if (latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1 && latest_article[0].done_status == 0) {
                                 resign_article_url = '/article_resign_registration';
@@ -1212,7 +1212,7 @@ function user_profile() {
                                     }else {
                                         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                                         var resign_end_date;
-                                        if(element.resign_date != null){
+                                        if(element.resign_date != null && element.resign_date != "N/A"){
                                             var end_date = new Date(element.resign_date);
                                             var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
                                             resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
@@ -1262,7 +1262,7 @@ function user_profile() {
                                     $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='CompleteDownloadForms();'>Download</button></div></div></td></tr>`);
                                     $('.qt_article_status').append(`<tr><td></td><td>Submit Done Form</td><td colspan=2><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='done_form'></div></div></td><td><button class='btn btn-primary btn-xs' id='done_form_btn' onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></td></tr>`);
                                 }else{
-                                    $('.qt_article_status').append(`<tr><td></td><td colspan=3>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
                                 }
                             } else if (latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1 && latest_article[0].done_status == 0) {
                                 resign_article_url = '/article_resign_registration';
@@ -1859,7 +1859,7 @@ function user_profile() {
                             } else if (latest_course_reg[0].approve_reject_status == 1) {
                                 let std_id = latest_course_reg[0].student_info_id;
 
-                                if (latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1") {
+                                if (latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1") {                                   
 
                                     $invoice_code = latest_course_reg[0].batch.course.code == "da_1" ? 'app_form' : 'cpa_app';
 
@@ -3060,27 +3060,27 @@ function user_profile() {
                             }
 
                         } else if (current_class.approve_reject_status == 1) {
-                            if (current_class.offline_user==1){
+                            // if (current_class.offline_user==1){
 
-                                $('.status_history').append(`
-                                    <tr>
-                                        <td>Existing Registration For ${course_name}</td>
-                                        <td>${formatDate(current_class.created_at)}</td>
-                                        <td>${formatDate(current_class.updated_at)}</td>
-                                        <td><span class="badge bg-info text-dark">Approved</span></td>
-                                    </tr>
-                                `);
+                            //     $('.status_history').append(`
+                            //         <tr>
+                            //             <td>Existing Registration For ${course_name}</td>
+                            //             <td>${formatDate(current_class.created_at)}</td>
+                            //             <td>${formatDate(current_class.updated_at)}</td>
+                            //             <td><span class="badge bg-info text-dark">Approved</span></td>
+                            //         </tr>
+                            //     `);
 
-                            }else{
-                                $('.status_history').append(`
-                                    <tr>
-                                        <td>${current_class.batch.course.name} Application Form</td>
-                                        <td>${formatDate(current_class.created_at)}</td>
-                                        <td>${formatDate(current_class.updated_at)}</td>
-                                        <td><span class="badge bg-success">Approved</span></td>
-                                    </tr>
-                                `);
-                            }
+                            // }else{
+                                // $('.status_history').append(`
+                                //     <tr>
+                                //         <td>${current_class.batch.course.name} Application Form</td>
+                                //         <td>${formatDate(current_class.created_at)}</td>
+                                //         <td>${formatDate(current_class.updated_at)}</td>
+                                //         <td><span class="badge bg-success">Approved</span></td>
+                                //     </tr>
+                                // `);
+                            // }
 
                             //show data depend on Student Register status
                             if (data.student_register[i]) {
@@ -3200,27 +3200,27 @@ function user_profile() {
                                     `);
                                 }
                             } else {
-                                if(current_class.offline_user!=1){
-                                    switch (current_class.batch.course.code) {
-                                        case 'da_1':
-                                            register_url = '/da_one_register';
-                                            break;
-                                        case 'da_2':
-                                            register_url = '/da_two_register';
-                                            break;
-                                        case 'cpa_1':
-                                            register_url = '/cpa_one_register';
-                                            break;
-                                        case 'cpa_2':
-                                            register_url = '/cpa_two_register';
-                                            break;
-                                        default:
-                                            register_url = '/da_one_register';
-                                            break;
-                                    }
-                                    localStorage.setItem('course_id', current_class.batch.course.id);
-                                    $('.status_history').append(`<a href="${FRONTEND_URL + register_url}" class="btn btn-sm btn-success"> Registration Form</a>`);
-                                }
+                                // if(current_class.offline_user!=1){
+                                //     switch (current_class.batch.course.code) {
+                                //         case 'da_1':
+                                //             register_url = '/da_one_register';
+                                //             break;
+                                //         case 'da_2':
+                                //             register_url = '/da_two_register';
+                                //             break;
+                                //         case 'cpa_1':
+                                //             register_url = '/cpa_one_register';
+                                //             break;
+                                //         case 'cpa_2':
+                                //             register_url = '/cpa_two_register';
+                                //             break;
+                                //         default:
+                                //             register_url = '/da_one_register';
+                                //             break;
+                                //     }
+                                //     localStorage.setItem('course_id', current_class.batch.course.id);
+                                //     $('.status_history').append(`<a href="${FRONTEND_URL + register_url}" class="btn btn-sm btn-success"> Registration Form</a>`);
+                                // }
 
                             }
                         } else {
@@ -3430,7 +3430,7 @@ function user_profile() {
                                         // `);
                                             let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                                             var resign_end_date;
-                                            if(element.resign_date != null){
+                                            if(element.resign_date != null && element.resign_date != "N/A"){
                                                 var end_date = new Date(element.resign_date);
                                                 var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
                                                 resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
@@ -3493,10 +3493,10 @@ function user_profile() {
                                             if (Difference_In_Days < 1095) {
                                                 $('.article_btn').append(`<tr><td colspan=4></td><td><button type='button' class='btn btn-md btn-success' id='continue_btn' value='${latest_article[0].contract_end_date}' onclick='continueArticle(${latest_article[0].id});'>Continue...</button></td></tr>`);
                                             } else {
-                                                $('.article_btn').append(`<tr><td></td><td colspan=3>Done form များကို Download ရယူရန်</td><td>Check By MAC</td></tr>`);
+                                                $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန်</td><td>Check By MAC</td></tr>`);
                                             }
                                         } else {
-                                            $('.article_btn').append(`<tr><td></td><td colspan=3>Done form များကို Download ရယူရန်</td><td>Check By MAC</td></tr>`);
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန်</td><td>Check By MAC</td></tr>`);
                                         }
                                     }
                                 } else if (latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1 && latest_article[0].done_status == 0) {
@@ -3637,7 +3637,7 @@ function user_profile() {
                                     // `);
                                         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                                             var resign_end_date;
-                                            if(element.resign_date != null){
+                                            if(element.resign_date != null && element.resign_date != "N/A"){
                                                 var end_date = new Date(element.resign_date);
                                                 var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
                                                 resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
@@ -3814,7 +3814,7 @@ function user_profile() {
                                             // `);
                                                 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                                                 var resign_end_date;
-                                                if(element.resign_date != null){
+                                                if(element.resign_date != null && element.resign_date != "N/A"){
                                                     var end_date = new Date(element.resign_date);
                                                     var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
                                                     resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
@@ -3868,7 +3868,7 @@ function user_profile() {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='CompleteDownloadForms();'>Download</button></div></div></td></tr>`);
                                             $('.article_btn').append(`<tr><td></td><td>Submit Done Form</td><td colspan=2><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='done_form'></div></div></td><td><button class='btn btn-primary btn-xs' id='done_form_btn' onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></td></tr>`);
                                         } else {
-                                            $('.article_btn').append(`<tr><td colspan=2></td><td colspan=3>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
                                         }
                                     } else if (latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1 && latest_article[0].done_status == 0) {
                                         resign_article_url = '/article_resign_registration';
@@ -3966,7 +3966,7 @@ function user_profile() {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='CompleteGovDownloadForms();'>Download</button></div></div></td></tr>`);
                                             $('.article_btn').append(`<tr><td></td><td>Submit Done Form</td><td colspan=2><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='gov_done_form'></div></div></td><td><button class='btn btn-primary btn-xs' id='gov_done_form_btn' onclick='saveGovDoneForm(${latest_gov_article[0].id})'>Submit</button></td></tr>`);
                                         } else {
-                                            $('.article_btn').append(`<tr><td></td><td colspan=3>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
                                         }
                                     }
                                     else if (latest_gov_article[0].status == 1 && latest_gov_article[0].done_status == 0) {
