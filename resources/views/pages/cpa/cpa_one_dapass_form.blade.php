@@ -109,7 +109,7 @@
                                                     <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>လျို့ဝှက်နံပါတ်</label>
                                                     <div class="col-md-6">
                                                         <div>
-                                                            <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ။" name="password" id="password" class="form-control" value="{{ old('password') }}" required="">
+                                                            <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ။" name="password" id="password" class="form-control" value="{{ old('password') }}" required="" minlength="8">
                                                         </div>
                                                     </div>
                                                 </div>
