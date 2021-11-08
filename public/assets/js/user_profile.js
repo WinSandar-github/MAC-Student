@@ -4998,8 +4998,8 @@ function loadMentorByDash(mentor, email) {
     } else {
         $('.mentor_status_history').append('Mentor Registration is Rejected.');
         $('.mentor_reject_btn').show();
-        $('.mentor_reject_p').append(`<button class="btn btn-success btn-hover-dark" disabled> Update </button>`);
-        // $('.mentor_reject_p').append(`<a href='${FRONTEND_URL}/mentor_register' class="btn btn-success btn-hover-dark" > Update </a>`);
+        // $('.mentor_reject_p').append(`<button class="btn btn-success btn-hover-dark" disabled> Update </button>`);
+        $('.mentor_reject_p').append(`<a href='${FRONTEND_URL}/update_mentor' class="btn btn-success btn-hover-dark" > Update </a>`);
         $('.mentor_reject_reason').append(mentor.reject_reason);
     }
 }

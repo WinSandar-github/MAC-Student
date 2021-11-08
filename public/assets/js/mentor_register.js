@@ -91,15 +91,30 @@ function createMentorRegister(){
   send_data.append('current_check_services_other', $("input[name=current_check_services_other]").val());
   //$(':radio:checked').map(function(){send_data.append('experience',$(this).val())});
   send_data.append('experience', $("input[name=experience]:checked").val());
-  send_data.append('started_teaching_year', $("input[name=started_teaching_year]").val());
-  send_data.append('current_accept_no', $("input[name=current_accept_no]").val());
-  send_data.append('trained_trainees_no', $("input[name=trained_trainees_no]").val());
-  send_data.append('internship_accept_no', $("input[name=internship_accept_no]").val());
+  if($('#experience_yes').attr('checked',true)) {
+    send_data.append('started_teaching_year', $("input[name=started_teaching_year]").val());
+    send_data.append('current_accept_no', $("input[name=current_accept_no]").val());
+    send_data.append('trained_trainees_no', $("input[name=trained_trainees_no]").val());
+    send_data.append('internship_accept_no', $("input[name=internship_accept_no]").val());
+    send_data.append('repeat_yearly', $("input[name=repeat_yearly]:checked").val());
+    if($('#training_absent_yes').attr('checked', true)){
+        send_data.append('training_absent', $("input[name=training_absent]:checked").val());
+        send_data.append('training_absent_reason', $("textarea[name=training_absent_reason]").val());
+    }else if($('#training_absent_yes').attr('checked', true)){
+        send_data.append('training_absent', $("input[name=training_absent]:checked").val());
+    }
+  }else if($('#experience_no').attr('checked',true)){
+    send_data.append('internship_accept_no', $("input[name=internship_accept_no]").val());
+    send_data.append('repeat_yearly', $("input[name=repeat_yearly]:checked").val());
+    send_data.append('training_absent', 0);
+    send_data.append('training_absent_reason', null);
+  }
+
+  
+  
   //$(':radio:checked').map(function(){send_data.append('repeat_yearly',$(this).val())});
   //$(':radio:checked').map(function(){send_data.append('training_absent',$(this).val())});
-  send_data.append('repeat_yearly', $("input[name=repeat_yearly]:checked").val());
-  send_data.append('training_absent', $("input[name=training_absent]:checked").val());
-  send_data.append('training_absent_reason', $("textarea[name=training_absent_reason]").val());
+  
   send_data.append('email', $("input[name=email]").val());
   send_data.append('password', $("input[name=password]").val());
   send_data.append('type', $("input[name=type]").val());
@@ -108,26 +123,50 @@ function createMentorRegister(){
 
   show_loader();
 
-  $.ajax({
-      type: "POST",
-      data: send_data,
-      url: BACKEND_URL + "/mentor",
-    //   async: false,
-      cache: false,
-      contentType: false,
-      processData: false,
-      success: function (data) {
-            EasyLoading.hide();
-          successMessage(data.message);
-          resetForm("#mentor_register_form");
-          // location.reload();
-          location.href = FRONTEND_URL+'/';
-          //$(".tbl_education").empty();
-      },
-      error: function (result) {
-        EasyLoading.hide();
-      },
-  });
+  if($('#mentor_id').val())
+  {
+      var id=$('#mentor_id').val();
+      send_data.append('mentor_id',id);   
+      $.ajax({
+          url: BACKEND_URL+"/update_reject_mentor",
+          type: 'post',
+          data:send_data,
+          contentType: false,
+          processData: false,
+          success: function(result){
+              EasyLoading.hide();
+              successMessage("You have successfully updated!");
+                  // location.reload();
+                  location.href = FRONTEND_URL+'/';
+              },
+          error:function (message){
+              EasyLoading.hide();
+              }
+          });
+  }
+  else{
+    $.ajax({
+        type: "POST",
+        data: send_data,
+        url: BACKEND_URL + "/mentor",
+      //   async: false,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+              EasyLoading.hide();
+            successMessage(data.message);
+            resetForm("#mentor_register_form");
+            // location.reload();
+            location.href = FRONTEND_URL+'/';
+            //$(".tbl_education").empty();
+        },
+        error: function (result) {
+          EasyLoading.hide();
+        },
+    });
+  }
+  
 }
 
 function loadService(){
