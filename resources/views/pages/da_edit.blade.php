@@ -321,7 +321,7 @@
                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၄။') }}</span>အဖွဲ့အစည်း</label>
                                 <div class="col-md-8">
                                     <input type="text" placeholder="အဖွဲ့အစည်း" name="organization"
-                                            class="form-control" value="{{ old('organization') }}"  required="">
+                                            class="form-control" value="{{ old('organization') }}" >
                                 </div>
                             </div>
 
@@ -329,7 +329,7 @@
                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၅။') }}</span>ကုမ္ပဏီအမည်</label>
                                 <div class="col-md-8">
                                     <input type="text" placeholder="ကုမ္ပဏီအမည်" name="company_name"
-                                            class="form-control" value="{{ old('company_name') }}"  required="">
+                                            class="form-control" value="{{ old('company_name') }}" >
                                 </div>
                             </div>
                             
@@ -337,7 +337,7 @@
                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>လစာနှင့်လစာနှုန်း</label>
                                 <div class="col-md-8">
                                     <input type="text" placeholder="လစာနှင့်လစာနှုန်း" name="salary"
-                                            class="form-control" value="{{ old('salary') }}"  required="">
+                                            class="form-control" value="{{ old('salary') }}">
                                 </div>
                             </div>
                                
