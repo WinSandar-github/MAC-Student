@@ -57,7 +57,7 @@ $().ready(function (){
         },
         messages:{
             email : "Please enter your email",
-            password : "Please provide your password",
+            password : "Please Enter at least 8 characters",
             confirm_password : {
                 required : "Please provide your password",
                 equalTo : "Please enter the same password as above"

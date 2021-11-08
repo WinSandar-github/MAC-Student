@@ -103,14 +103,14 @@
                                             <div class="row mb-5">
                                                 <label class="col-md-5 col-form-label label"><span class="pull-left">၂။</span>လျို့ဝှက်နံပါတ်<span style="color:red">*</span></label>
                                                 <div class="col-md-7" style="padding-left:35px;">
-                                                    <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password">
+                                                    <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password" minlength="8">
                                                 </div>
                                             </div>
 
                                             <div class="row mb-5">
                                                 <label class="col-md-5 col-form-label label"><span class="pull-left">၃။</span>လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း<span style="color:red">*</span></label>
                                                 <div class="col-md-7" style="padding-left:35px;">
-                                                    <input type="password" placeholder="လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း" name="confirm_password" class="form-control" id="confirm_password">
+                                                    <input type="password" placeholder="လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း" name="confirm_password" class="form-control" id="confirm_password" minlength="8">
                                                 </div>
                                             </div>
                                         </div>

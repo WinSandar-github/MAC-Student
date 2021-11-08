@@ -34,6 +34,7 @@ function loadPassedBatchList() {
         success: function (data) {
             var batch_data = data.data;
             batch_data.forEach(function (element) {
+                console.log('element_batch',element)
                 var option = document.createElement('option');
                 option.text = element.name + "/" + element.name_mm;
                 option.value = element.id;

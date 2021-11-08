@@ -100,7 +100,7 @@
                                             <div class="row mb-5">
                                                 <label class="col-md-5 col-form-label label"><span class="pull-left">၂။</span>လျို့ဝှက်နံပါတ်<span style="color:red">*</span></label>
                                                 <div class="col-md-7" style="padding-left:35px;">
-                                                    <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password">
+                                                    <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password" minlength="8">
                                                 </div>
                                             </div>
 
@@ -554,7 +554,7 @@
 
 
                                     <div class="row mb-3">
-                                        <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၂၄။</span>ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
+                                        <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၂၄။</span>ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်း တက်ရောက်ဖူးသူ/လျှောက်ထားဖူးသူ</label>
                                     </div>
 
                                     <div class="row mb-3">
@@ -630,7 +630,7 @@
                                     
 
                                     <div class="row mb-3">                                        
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(စ)</span>သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ</label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(စ)</span>သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ<span style="color:red">*</span></label>
                                         <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
                                             <div class="form-check-radio px-0">
                                                 <label class="form-check-label" for="da_two_main_mac">

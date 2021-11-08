@@ -323,7 +323,7 @@
                                         <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckPartTwo()" style="margin-top: 10px;">
                                     </div>
                                     <label class="col-md-10 col-form-label"><input type="text" name="country" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled> နိုင်ငံ <input type="text" name="government" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled>အဖွဲ့အစည်းကပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီက <br><br>
-                                    <input type="text" name="exam_year" id="exam_year" placeholder="ခုနှစ်" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled> ခုနှစ် <input type="text" name="exam_month" id="exam_month" placeholder="လ" class="form-control" autocomplete="off" style="display: inline;width: 100px;" disabled> <br><br>လတွင်
+                                    <input type="text" name="exam_year" id="exam_year" placeholder="ခုနှစ်" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled> ခုနှစ် <input type="text" name="exam_month" id="exam_month" placeholder="လ" class="form-control" autocomplete="off" style="display: inline;width: 100px;" disabled> လတွင်
                                     ကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို ခုံအမှတ်<input type="text" name="roll_no" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled>ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
 
                                 </div>

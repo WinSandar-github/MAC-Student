@@ -1805,6 +1805,7 @@ function user_profile() {
 
                             // console.log('latest_course_reg',latest_course_reg[0])
                             if (latest_course_reg[0].approve_reject_status == 0) {
+                                
                                 if(latest_course_reg[0].offline_user==1){
 
                                     switch (latest_course_reg[0].batch.course.code) {
@@ -1834,6 +1835,7 @@ function user_profile() {
                                     `);
 
                                 }else{
+                                    
                                     $('.status').append(`
                                         <tr>
                                             <td>${latest_course_reg[0].batch.course.name} Application Form</td>
@@ -1923,14 +1925,14 @@ function user_profile() {
                                     }
                                 }
 
-                                // $('.status').append(`
-                                // <tr>
-                                //     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
-                                //     <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                //     <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                //     <td><span class="badge bg-success">Approved</span></td>
-                                // </tr>
-                                // `);
+                                $('.status').append(`
+                                <tr>
+                                    <td>${latest_course_reg[0].batch.course.name} Application Form</td>
+                                    <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                    <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                    <td><span class="badge bg-success">Approved</span></td>
+                                </tr>
+                                `);
 
                                 // $('.status').append(`<p >Your ${latest_course_reg[0].batch.course.name}  Your Application Form is approved  on the   .</p>`)
                                 //show data depend on Student Register status
@@ -2884,18 +2886,18 @@ function user_profile() {
 
                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
 
-                                    if (latest_course_reg[0].offline_user==1){
-                                        $('.status').append(`
-                                            <tr>
-                                                <td>Existing Registration For ${latest_course_reg[0].batch.course.name}</td>
-                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                                <td>-</td>
-                                                <td><span class="badge bg-info text-dark">Approved</span></td>
-                                            </tr>
-                                        `);
+                                    // if (latest_course_reg[0].offline_user==1){
+                                    //     $('.status').append(`
+                                    //         <tr>
+                                    //             <td>Existing Registration For ${latest_course_reg[0].batch.course.name}</td>
+                                    //             <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                    //             <td>-</td>
+                                    //             <td><span class="badge bg-info text-dark">Approved</span></td>
+                                    //         </tr>
+                                    //     `);
 
 
-                                    }
+                                    // }
                                     $('.status').append(`
                                         <tr>
                                             <td colspan=2 ></td ><td>Action</td>
