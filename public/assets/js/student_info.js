@@ -687,6 +687,7 @@ function createSelfStudy() {
         contentType: false,
         processData: false,
         success: function (result) {
+            // console.log('result1234',result)
             EasyLoading.hide();
             successMessage(result);
             setInterval(() => {

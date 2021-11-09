@@ -435,14 +435,14 @@
                                     </div>     
                                     
                                     <div class="row mb-3">
-                                        <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၂၃။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်း တက်ရောက်ဖူးသူ/လျှောက်ထားဖူးသူ</label>
+                                        <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၂၃။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်း တက်ရောက်ခဲ့သူ/လျှောက်ထားခဲ့သူ</label>
                                     </div>
 
                                     <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <select class="form-control form-select" name="selected_passed_batch_name" id="selected_passed_batch_id" required>
+                                                <select class="form-control form-select" name="selected_passed_batch_name" id="selected_passed_batch_id">
                                                     <option value="" disabled selected>သင်တန်းအမှတ်စဉ် ရွေးချယ်ပါ</option>
                                                 </select>
                                             </div>
@@ -460,7 +460,7 @@
                                                     Module 1
                                                 </label>
                                             </div>
-                                            <div class="col-md-2 form-check-radio">
+                                            <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input module_two" type="radio" id="module_2"
                                                             name="is_full_module" value='2'>
@@ -468,16 +468,19 @@
                                                     Module 2
                                                 </label>
                                             </div>
-                                            <div class="col-md-3 form-check-radio">
-                                                <label class="form-check-label">
-                                                    <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckRadioButton()"/>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-7 ">
-                                                <label class="form-check-label text-danger">
-                                                    <span style="color:red">(Module 1 နှင့် Module 2 မအောင်မြင်သူများ ရွေးရန်မလိုပါ။)</span>
-                                                                                                        
-                                                </label>
+                                            
+                                            <div class="col-md-9">
+                                                <div class="row">
+                                                    <div class="col-md-3 form-check-radio" style="padding-left: 0px;">
+                                                        <label class="form-check-label">
+                                                            <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckRadioButton()"/>
+                                                        </label>
+                                                    </div>
+                                                    <label class=" col-md-9 form-check-label text-danger">
+                                                        <span style="color:red">(Module 1 နှင့် Module 2 မအောင်မြင်သူများ ရွေးရန်မလိုပါ။)</span>
+                                                                                                            
+                                                    </label>
+                                                </div>   
                                             </div>
                                             <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
                                         </div>
@@ -487,7 +490,7 @@
                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>ခုနှစ်/လ</label>                                            
                                         <div class="col-md-8">
                                             <div class="">
-                                            <input type="text" class="form-control" name="da_one_pass_exam_date"  placeholder="ခုနှစ်၊လ(MM-YYYY)" required>
+                                            <input type="text" class="form-control" name="da_one_pass_exam_date"  placeholder="ခုနှစ်၊လ(MM-YYYY)" >
                                             </div>
                                         </div>                                            
                                     </div>
@@ -509,7 +512,7 @@
                                     </div>                                    
 
                                     <div class="row mb-3">                                        
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(စ)</span>သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ<span style="color:red">*</span></label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(စ)</span>သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ</label>
                                         <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
                                             <div class="form-check-radio px-0">
                                                 <label class="form-check-label" for="main_mac">
@@ -562,9 +565,15 @@
                                                     ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
                                                 </label>
                                             </div>
-                                            <div class="form-check-radio px-0">
-                                                <label  class="error attend_place_error" style="display:none;" for="attend_place">Please select one</label>
+
+                                            <div class="col-md-3 form-check-radio">
+                                                <label class="form-check-label">
+                                                    <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckAttendPlace()"/>
+                                                </label>
                                             </div>
+                                            {{-- <div class="form-check-radio px-0">
+                                                <label  class="error attend_place_error" style="display:none;" for="attend_place">Please select one</label>
+                                            </div> --}}
                                         </div>
                                     </div>
 

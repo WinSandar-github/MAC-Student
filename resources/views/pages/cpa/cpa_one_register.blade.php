@@ -1438,7 +1438,7 @@
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-8 col-form-label label"><span class="pull-left" style="padding-left: 310px;">{{ __('(ခ)') }}</span>ပြစ်မှုကင်းရှုင်းကြောင်းထောက်ခံချက်</label>
+                                                    <label class="col-md-8 col-form-label label"><span class="pull-left" style="padding-left: 310px;">{{ __('(ခ)') }}</span>ပြစ်မှုကင်းရှင်းကြောင်းထောက်ခံချက်</label>
                                                     <div class="col-md-4" >
                                                         <input type="file" class="form-control" value="" id="no_crime_file" name="no_crime_file" >
                                                     </div>
