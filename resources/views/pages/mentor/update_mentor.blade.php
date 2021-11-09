@@ -395,6 +395,17 @@
                                     </div>
                                   </div>
 
+                                  <div id="check_other" style="display:none;">
+                                    <div class="row mb-3">
+                                        <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span></label>
+                                        <div class="col-md-9">
+                                            <div class="form-group">
+                                                <input type="text" id="current_check_services_other" name="current_check_services_other" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div>
+
                                   <div class="row mb-3">
                                       <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>လွန်ခဲ့သော၃နှစ်ကနှစ်အလိုက်စစ်ဆေးခဲ့သောလုပ်ငန်းများ<br>(Pdf file သာတင်ရန်)</label>
                                       <div class="col-md-1 attachment_file_old"></div>
@@ -699,7 +710,7 @@
           success: function (result) {
               // console.log(result);
             var mentor = result.data;
-            console.log(mentor)
+            // console.log(mentor)
             document.getElementById('mentor_image').src=BASE_URL + mentor.image;
             document.getElementById('nrc_front').src=BASE_URL + mentor.nrc_front;
             document.getElementById('nrc_back').src=BASE_URL + mentor.nrc_back;
@@ -730,6 +741,28 @@
             $('#audit_started_date').val(mentor.audit_started_date);
             $('#audit_structure').val(mentor.audit_structure);
             $('#audit_staff_no').val(mentor.audit_staff_no);
+
+            var service_data=mentor.current_check_service_id.split(',');
+            $.each(service_data, function( index, id ){
+                //alert(id)
+              $.ajax({
+                type: "get",
+                url: BACKEND_URL+"/service_by_id/"+id,
+                success: function (result) {
+                  // alert('here')
+                  var data=result.data;
+                  var $newOption = $("<option selected='selected'></option>").val(data[0].id).text(data[0].name);
+                  $("#selected_service_id").append($newOption).trigger('change');
+
+                }
+              })
+
+            })
+
+            if(mentor.current_check_services_other != null && mentor.current_check_services_other != ""){
+                $('#check_other').css('display', 'block');
+                $('#current_check_services_other').val(mentor.current_check_services_other);
+            }
             // console.log(mentor.experience)
             // mentor.experience=="1"? $('#experience_yes').attr('checked',true):$('#experience_no').attr('checked',true);
             if(mentor.experience == 1){
@@ -817,18 +850,6 @@
     //     $(".check-service-other").css('visibility','hidden');
     //   }
     // }
-    loadService();
-    $.ajax({
-        url: BACKEND_URL + '/check_service',
-        type: 'GET',
-        success: function(response) {
-            console.log(response)
-            var opt; //`<option value="" selected >Select</option>`;
-            $.each(response.data, function(i, v) {
-                opt += `<option value=${v.id} > ${v.name}</option>`;
-            });
-            $("#current_check_service_id").append(opt);
-        }
-    });
+    loadService(); 
 </script>
 @endpush
