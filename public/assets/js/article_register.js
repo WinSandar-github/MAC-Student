@@ -460,6 +460,57 @@ function createCPATwoPassOneYearArticle(){
         send_data.append('mentor_id', $("#mentor_name").val());
       }
       send_data.append('article_form_type', $("#article_form_type").val());
+      /////
+      
+      if($("#article_form_type").val() == 'c12_renew'){
+        // c12 renew form
+        if($('input[name=gender]:checked').val() == 1){
+          var gender = "ကျွန်တော်" ;
+        }
+        else{
+          var gender = "ကျွန်မ" ;
+        }
+        send_data.append('gender',gender);
+        ////
+        if($('input[name=course_part]:checked').val() == 1){
+          var course_part = "(ပထမပိုင်း)" ;
+        }
+        else{
+          var course_part = "(ဒုတိယပိုင်း)" ;
+        }
+        send_data.append('course_part',course_part);
+        ////
+        if($('input[name=school]:checked').val() == 1){
+          var school_name = "မြန်မာနိုင်ငံစာရင်းကောင်စီ သင်တန်းကျောင်းတွင်" ;
+        }
+        else if($('input[name=school]:checked').val() == 2){
+          var school_name = "ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်းတွင်" ;
+        }
+        else{
+          var school_name = "ကိုယ်ပိုင်လေ့လာသူအဖြစ်" ;
+        }
+        send_data.append('school_name',school_name);
+        ///
+        if($('input[name=‌attend_or_fail]:checked').val() == 1){
+          var attend_fail = "တက်ရောက်နေသူ" ;
+        }
+        else{
+          var attend_fail = "ကျရှုံးသူ" ;
+        }
+        send_data.append('attend_fail',attend_fail);
+
+      }
+      else if($("#article_form_type").val() == 'c2_pass_renew'){
+        // c2 pass renew form
+        if($('input[name=gender2]:checked').val() == 1){
+          var gender = "ကျွန်တော်" ;
+        }
+        else{
+          var gender = "ကျွန်မ" ;
+        }
+        send_data.append('gender',gender);
+      }
+
     show_loader();
     $.ajax({
         type: "POST",
