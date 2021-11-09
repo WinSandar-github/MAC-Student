@@ -1642,8 +1642,10 @@ function user_profile() {
                                         module = "Module-1";
                                     } else if (e.is_full_module == 2) {
                                         module = "Module-2";
-                                    } else {
-                                        module = "Full Module";
+                                    } else if (e.is_full_module == 3){
+                                        module = "All Module";
+                                    }else {
+                                        module = "-";
                                     }
                                     course_html += `<tr>
                                                     <td>${e.course.name}</td>
