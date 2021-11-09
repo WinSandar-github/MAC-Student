@@ -148,33 +148,33 @@
                                                 <div class="col-md-11">
                                                     <ul>
                                                         <li>
-                                                            <input type="radio" class="form-check-input" value="1" id="male2" name="gender3" >
+                                                            <input type="radio" class="form-check-input" value="1" id="male2" name="gender" >
                                                             <label class="form-check-label " for="">ကျွန်တော်</label>
-                                                            <input type="radio" class="form-check-input" value="0" id="female2" name="gender3" >
+                                                            <input type="radio" class="form-check-input" value="0" id="female2" name="gender" >
                                                             <label class="form-check-label " for="">ကျွန်မ</label>
                                                         </li>
                                                         <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် </li>
 
                                                         <li>
-                                                            <input type="radio" class="form-check-input" value="1" id="male2" name="gender3" >
+                                                            <input type="radio" class="form-check-input" value="1" id="part_1" name="course_part" >
                                                             <label class="form-check-label " for="">(ပထမပိုင်း)/</label>
-                                                            <input type="radio" class="form-check-input" value="0" id="female2" name="gender3" >
+                                                            <input type="radio" class="form-check-input" value="2" id="part_2" name="course_part" >
                                                             <label class="form-check-label " for="">(ဒုတိယပိုင်း)</label>
                                                         </li>
                                                         <li> သင်တန်းအမှတ်စဥ်<input class="p-input" type="text" name="pass_no"> ကို </li>
 
                                                         <li>
-                                                            <input type="radio" class="form-check-input" value="1" id="school" name="school" >
+                                                            <input type="radio" class="form-check-input" value="1" id="school1" name="school" >
                                                             <label class="form-check-label " for="">မြန်မာနိုင်ငံစာရင်းကောင်စီ သင်တန်းကျောင်း</label>
-                                                            <input type="radio" class="form-check-input" value="0" id="female2" name="school" >
+                                                            <input type="radio" class="form-check-input" value="2" id="school2" name="school" >
                                                             <label class="form-check-label " for="">ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်းတွင်</label>
-                                                            <input type="radio" class="form-check-input" value="0" id="female2" name="school" >
+                                                            <input type="radio" class="form-check-input" value="3" id="school3" name="school" >
                                                             <label class="form-check-label " for="">ကိုယ်ပိုင်လေ့လာသူအဖြစ်</label>
                                                         </li>
                                                         <li>
-                                                            <input type="radio" class="form-check-input" value="1" id="male2" name="pass" >
+                                                            <input type="radio" class="form-check-input" value="1" id="attend" name="‌attend_or_fail" >
                                                             <label class="form-check-label " for="">တက်ရောက်နေသူ/</label>
-                                                            <input type="radio" class="form-check-input" value="0" id="female2" name="pass" >
+                                                            <input type="radio" class="form-check-input" value="0" id="fail" name="‌attend_or_fail" >
                                                             <label class="form-check-label " for="">ကျရှုံးသူ</label>
                                                         </li>
                                                         တစ်ဦးဖြစ်ပါသည်။
