@@ -163,13 +163,17 @@ function createCPATwoRegDAOnePass(){
     if($("#cpa_type").val()=='cpa_2'){
         
         send_data.append('batch_id', $("#selected_current_batch_id").val());
-        send_data.append('type_cpa2', $("input[name='cpa2_attend_place']:checked").val());
+        if($("input[name='cpa2_attend_place']:checked").val()){
+            send_data.append('type_cpa2', $("input[name='cpa2_attend_place']:checked").val());
+        }        
         send_data.append('cpa_two_pass_level', $("input[name=cpa_two_pass_level]").val());
         send_data.append('cpa_two_pass_exam_date', $("input[name=cpa_two_pass_exam_date]").val());
         send_data.append('cpa_two_pass_personal_no', $("input[name=cpa_two_pass_personal_no]").val());
         send_data.append('cpa2_mac_type', $("input[name='cpa2_attend_place']:checked").val() == 2 ? $("input[name='cpa2_mac_type']:checked").val() : 99);
     }
-    send_data.append('type', $("input[name='attend_place']:checked").val());
+    if($("input[name='attend_place']:checked").val()){
+        send_data.append('type', $("input[name='attend_place']:checked").val());
+    }    
     send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
 
     send_data.append('active_batch_id', $("#active_batch_id").val());
@@ -228,17 +232,6 @@ function updateCPAExistingRegister() {
 
 
     }
-
-    // if ($("input[name=recommend_letter]")[0].files[0]) {
-
-
-    //     var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
-    //     send_data.append('recommend_letter', recommend_letter);
-
-    // }
-
-
-
 
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
@@ -313,14 +306,18 @@ function updateCPAExistingRegister() {
 
     if($("#cpa_type").val()=='cpa_2'){
         send_data.append('batch_id', $("#selected_current_batch_id").val());
-        send_data.append('type_cpa2', $("input[name='cpa2_attend_place']:checked").val());
+        if($("input[name='cpa2_attend_place']:checked").val()){
+            send_data.append('type_cpa2', $("input[name='cpa2_attend_place']:checked").val());
+        }        
         send_data.append('cpa_two_pass_level', $("input[name=cpa_two_pass_level]").val());
         send_data.append('cpa_two_pass_exam_date', $("input[name=cpa_two_pass_exam_date]").val());
         send_data.append('cpa_two_pass_personal_no', $("input[name=cpa_two_pass_personal_no]").val());
         send_data.append('cpa2_mac_type', $("input[name='cpa2_attend_place']:checked").val() == 2 ? $("input[name='cpa2_mac_type']:checked").val() : 99);
     }
 
-    send_data.append('type', $("input[name='attend_place']:checked").val());
+    if($("input[name='attend_place']:checked").val()){
+        send_data.append('type', $("input[name='attend_place']:checked").val());
+    }
     send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
 
     send_data.append('active_batch_id', $("#active_batch_id").val());
