@@ -23,12 +23,9 @@
         <div class="section"> <!-- section-padding mt-n10 -->
             <div class="container mt-5"> <!-- container-fluid p-4 -->
                 
-                <div class="col-md-12 text-center mb-5" style="font-weight:bold;font-size:20px;" name="remark" id="remark">
-                    <label>Reject လုပ်ရသည့်အကြောင်းအရင်း</label><label class="col-md-12 col-form-label text-danger" id="remark_description"></label>
-                </div>
-
-
-                                
+            {{--<div class="col-md-12 text-center mb-5" style="font-weight:bold;font-size:20px;" name="remark" id="remark">
+                <label>Reject လုပ်ရသည့်အကြောင်းအရင်း</label><label class="col-md-12 col-form-label text-danger" id="remark_description"></label>
+            </div>--}}
 
             <div class="card border-success mb-3" id="cpaff_renew_form"><br/><!---->
                 <div class="row mb-5">
