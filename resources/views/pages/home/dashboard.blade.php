@@ -855,6 +855,30 @@
                                        CPA(Full-Fledged) Application Status</h5>
                                 <div class="text-center status_history"></div>
                             </div>
+                            {{--reject cpaff--}}
+
+                            <div id="cpaff_other_reject_box" style="display:none;">
+                              <div class="row my-2">
+                                
+                                  <h5 class="text-center border-bottom pb-2"
+                                      style="font-weight:bold ;background-color:#E7F8EE;">Reject Remark</h5>
+                                  <div class="text-center text-danger cpaff_other_remark">
+
+                                  </div>
+                              </div>
+                            </div>
+                            {{--reject papp--}}
+
+                            <div id="papp_other_reject_box" style="display:none;">
+                              <div class="row my-2">
+                                
+                                  <h5 class="text-center border-bottom pb-2"
+                                      style="font-weight:bold ;background-color:#E7F8EE;">Reject Remark</h5>
+                                  <div class="text-center text-danger papp_other_remark">
+
+                                  </div>
+                              </div>
+                            </div>
                             <div class="row my-2">
                                 <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
                                        PAPP Application Status</h5>

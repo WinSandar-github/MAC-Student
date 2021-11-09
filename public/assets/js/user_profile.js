@@ -485,10 +485,23 @@ function user_profile() {
                                             </tr>
                                             `);
                                             if (cpaff_latest_data.type == 0) {
-                                                $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td></tr>`);
+                                                $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td>
+                                                    </tr>
+                                                    <tr><td></td><td><h5>Reject Remark</h5></td>
+                                                        <td>
+                                                            <h5 style="color:red">${cpaff_latest_data.reject_description}</h5>
+                                                        <td>
+                                                    </td>
+                                                    </tr>`);  
                                             }
                                             else {
-                                                $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td></tr>`);
+                                                $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td></tr>
+                                                    <tr><td></td><td><h5>Reject Remark</h5></td>
+                                                        <td>
+                                                            <h5 style="color:red">${cpaff_latest_data.reject_description}</h5>
+                                                        <td>
+                                                    </td>
+                                                    </tr>`);
                                             }
                                         }
 
@@ -589,10 +602,22 @@ function user_profile() {
                                                 </tr>
                                                 `);
                                                 if (papp_latest_data.type == 0) {
-                                                    $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit PAPP</a></td></tr>`);
+                                                    $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit PAPP</a></td></tr>
+                                                        <tr><td></td><td><h5>Reject Remark</h5></td>
+                                                            <td>
+                                                                <h5 style="color:red">${papp_latest_data.reject_description}</h5>
+                                                            <td>
+                                                        </td>
+                                                        </tr>`);
                                                 }
                                                 else if (papp_latest_data.type == 1) {
-                                                    $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit PAPP</a></td></tr>`);
+                                                    $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit PAPP</a></td></tr>
+                                                        <tr><td></td><td><h5>Reject Remark</h5></td>
+                                                            <td>
+                                                                <h5 style="color:red">${papp_latest_data.reject_description}</h5>
+                                                            <td>
+                                                        </td>
+                                                        </tr>`);
                                                 }
                                                 else {
                                                     localStorage.setItem('reconnect_papp_id', papp_latest_data.id);
@@ -600,7 +625,13 @@ function user_profile() {
                                                     localStorage.setItem('reconnect_student_id', student_id);
                                                     console.log('papp_latest_data.id', papp_latest_data.id);
                                                     console.log('cpaff_latest_data.id', cpaff_latest_data.id);
-                                                    $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_reconnect}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit PAPP</a></td></tr>`);
+                                                    $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_reconnect}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit PAPP</a></td></tr>
+                                                        <tr><td></td><td><h5>Reject Remark</h5></td>
+                                                            <td>
+                                                                <h5 style="color:red">${papp_latest_data.reject_description}</h5>
+                                                            <td>
+                                                        </td>
+                                                        </tr>`);
                                                 }
                                             }
                                         }
@@ -920,14 +951,20 @@ function user_profile() {
                     if (cpaff_latest_data.type == 1 && cpaff_latest_data.offline_user == 1) {
                         $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is Rejected.');
                         $('.status_history').append(`<a href="${reject_existing}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                        $('#cpaff_other_reject_box').css("display", "block");
+                        $('.cpaff_other_remark').text(cpaff_latest_data.reject_description);
                     }
                     else if (cpaff_latest_data.type == 0 && cpaff_latest_data.offline_user == 0) {
                         $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is Rejected.');
                         $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                        $('#cpaff_other_reject_box').css("display", "block");
+                        $('.cpaff_other_remark').text(cpaff_latest_data.reject_description);
                     }
                     else if (cpaff_latest_data.type == 1 && cpaff_latest_data.offline_user == 0) {
                         $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is Rejected.');
                         $('.status_history').append(`<a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                        $('#cpaff_other_reject_box').css("display", "block");
+                        $('.cpaff_other_remark').text(cpaff_latest_data.reject_description);
                     }
                 }
                 if (data.papp.length != 0 && data.student_course_regs == '') {
@@ -1025,10 +1062,14 @@ function user_profile() {
                         if (papp_latest_data.type == 0) {
                             $('.status_papp').append('PAPP ' + is_renew + ' Registration Form is Rejected.');
                             $('.status_papp').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                            $('#papp_other_reject_box').css("display", "block");
+                            $('.papp_other_remark').text(papp_latest_data.reject_description);
                         }
                         else if (papp_latest_data.type == 1) {
                             $('.status_papp').append('PAPP ' + is_renew + ' Registration Form is Rejected.');
                             $('.status_papp').append(`<a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                            $('#papp_other_reject_box').css("display", "block");
+                            $('.papp_other_remark').text(papp_latest_data.reject_description);
                         }
                         else {
                             $('.status_papp').append('PAPP ' + is_renew + ' Registration Form is Rejected.');
@@ -1038,6 +1079,8 @@ function user_profile() {
                             console.log('papp_latest_data.id', papp_latest_data.id);
                             console.log('cpaff_latest_data.id', cpaff_latest_data.id);
                             $('.status_papp').append(`<a href="${reject_reconnect}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                            $('#papp_other_reject_box').css("display", "block");
+                            $('.papp_other_remark').text(papp_latest_data.reject_description);
                         }
 
                     }
@@ -1474,11 +1517,24 @@ function user_profile() {
                             <td><span class="badge bg-danger">Reject</span></td>
                         </tr>
                         `);
+                        
                         if (cpaff_latest_data.type == 0) {
-                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td></tr>`);
+                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td></tr>
+                                <tr><td></td><td><h5>Reject Remark</h5></td>
+                                    <td>
+                                        <h5 style="color:red">${cpaff_latest_data.reject_description}</h5>
+                                    <td>
+                                </td>
+                                </tr>`);
                         }
                         else {
-                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td></tr>`);
+                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td></tr>
+                                <tr><td></td><td><h5>Reject Remark</h5></td>
+                                    <td>
+                                        <h5 style="color:red">${cpaff_latest_data.reject_description}</h5>
+                                    <td>
+                                </td>
+                                </tr>`);
                         }
                     }
 
@@ -1579,10 +1635,22 @@ function user_profile() {
                             </tr>
                             `);
                             if (papp_latest_data.type == 0) {
-                                $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit PAPP</a></td></tr>`);
+                                $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit PAPP</a></td></tr>
+                                    <tr><td></td><td><h5>Reject Remark</h5></td>
+                                        <td>
+                                            <h5 style="color:red">${papp_latest_data.reject_description}</h5>
+                                        <td>
+                                    </td>
+                                    </tr>`);
                             }
                             else if (papp_latest_data.type == 1) {
-                                $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit PAPP</a></td></tr>`);
+                                $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit PAPP</a></td></tr>
+                                    <tr><td></td><td><h5>Reject Remark</h5></td>
+                                        <td>
+                                            <h5 style="color:red">${papp_latest_data.reject_description}</h5>
+                                        <td>
+                                    </td>
+                                    </tr>`);
                             }
                             else {
                                 localStorage.setItem('reconnect_papp_id', papp_latest_data.id);
@@ -1590,7 +1658,13 @@ function user_profile() {
                                 localStorage.setItem('reconnect_student_id', student_id);
                                 console.log('papp_latest_data.id', papp_latest_data.id);
                                 console.log('cpaff_latest_data.id', cpaff_latest_data.id);
-                                $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_reconnect}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit PAPP</a></td></tr>`);
+                                $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_reconnect}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit PAPP</a></td></tr
+                                    <tr><td></td><td><h5>Reject Remark</h5></td>
+                                        <td>
+                                            <h5 style="color:red">${papp_latest_data.reject_description}</h5>
+                                        <td>
+                                    </td>
+                                    </tr>`);
                             }
                         }
                     }
