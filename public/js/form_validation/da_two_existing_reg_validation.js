@@ -51,10 +51,10 @@ $().ready(function (){
             da_one_mac_type : {
                 required : "#da_one_main_mac:checked"
             },
-            da_two_attend_place : "required",
-            da_two_mac_type : {
-                required : "#da_two_main_mac:checked"
-            },
+            // da_two_attend_place : "required",
+            // da_two_mac_type : {
+            //     required : "#da_two_main_mac:checked"
+            // },
             da_one_pass_exam_date : "required",
             da_one_pass_level : "required",
             da_one_pass_personal_no : "required",
@@ -117,10 +117,10 @@ $().ready(function (){
             da_two_active_mac_type : "Please select one",
             da_one_attend_place : "Please select one",
             da_one_mac_type : "Please select one",
-            da_two_attend_place : "Please select one",
-            da_two_mac_type : {
-                required : "Please select one"
-            },
+            // da_two_attend_place : "Please select one",
+            // da_two_mac_type : {
+            //     required : "Please select one"
+            // },
 
             da_one_pass_exam_date : "Please Enter Your DA One Pass Date",
             da_one_pass_level : "Please enter your DA One Pass Level",
@@ -205,10 +205,10 @@ $().ready(function (){
             da_one_mac_type : {
                 required : "#da_one_main_mac:checked"
             },
-            da_two_attend_place : "required",
-            da_two_mac_type : {
-                required : "#da_two_main_mac:checked"
-            },
+            // da_two_attend_place : "required",
+            // da_two_mac_type : {
+            //     required : "#da_two_main_mac:checked"
+            // },
             da_one_pass_exam_date : "required",
             da_one_pass_level : "required",
             da_one_pass_personal_no : "required",
@@ -261,10 +261,10 @@ $().ready(function (){
 
             da_one_attend_place : "Please select one",
             da_one_mac_type : "Please select one",
-            da_two_attend_place : "Please select one",
-            da_two_mac_type : {
-                required : "Please select one"
-            },
+            // da_two_attend_place : "Please select one",
+            // da_two_mac_type : {
+            //     required : "Please select one"
+            // },
             da_one_pass_exam_date : "Please Enter Your DA One Pass Date",
             da_one_pass_level : "Please enter your DA One Pass Level",
             da_one_pass_personal_no : "Please enter your DA One Pass Personal Number",

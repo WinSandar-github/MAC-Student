@@ -183,9 +183,9 @@ function loadService(){
                     option.text = element.name;
                     option.value = element.id;
                     select.add(option, 1);
-                    $("#selected_service_id").css('display','inline');
-                    $("#selected_service_id").siblings(".nice-select").css('display','none');
-                    $("#selected_service_id").siblings(".check-service-other").css('display','inline-table');
+                    // $("#selected_service_id").css('display','inline');
+                    // $("#selected_service_id").siblings(".nice-select").css('display','none');
+                    // $("#selected_service_id").siblings(".check-service-other").css('display','inline-table');
                 }
             });
         },

@@ -554,7 +554,7 @@
 
 
                                     <div class="row mb-3">
-                                        <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၂၄။</span>ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်း တက်ရောက်ဖူးသူ/လျှောက်ထားဖူးသူ</label>
+                                        <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၂၄။</span>ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်း တက်ရောက်ခဲ့သူ/လျှောက်ထားခဲ့သူ</label>
                                     </div>
 
                                     <div class="row mb-3">
@@ -587,16 +587,18 @@
                                                     Module 2
                                                 </label>
                                             </div>
-                                            <div class="col-md-3 form-check-radio">
-                                                <label class="form-check-label">
-                                                    <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckRadioButton()"/>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-7 ">
-                                                <label class="form-check-label text-danger">
-                                                    <span style="color:red">(Module 1 နှင့် Module 2 မအောင်မြင်သူများ ရွေးရန်မလိုပါ။)</span>
-                                                                                                        
-                                                </label>
+                                            <div class="col-md-9">
+                                                <div class="row">
+                                                    <div class="col-md-3 form-check-radio" style="padding-left: 0px;">
+                                                        <label class="form-check-label">
+                                                            <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckRadioButton()"/>
+                                                        </label>
+                                                    </div>
+                                                    <label class=" col-md-9 form-check-label text-danger">
+                                                        <span style="color:red">(Module 1 နှင့် Module 2 မအောင်မြင်သူများ ရွေးရန်မလိုပါ။)</span>
+                                                                                                            
+                                                    </label>
+                                                </div>   
                                             </div>
                                             <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
                                         </div>
@@ -630,7 +632,7 @@
                                     
 
                                     <div class="row mb-3">                                        
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(စ)</span>သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ<span style="color:red">*</span></label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(စ)</span>သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ</label>
                                         <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
                                             <div class="form-check-radio px-0">
                                                 <label class="form-check-label" for="da_two_main_mac">
@@ -681,6 +683,11 @@
                                                     <input class="form-check-input" id="da_two_self" type="radio" name="da_two_attend_place" value='0' onclick="selectCurrentType()">
                                                     <span class="form-check-sign" ></span>
                                                     ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3 form-check-radio">
+                                                <label class="form-check-label">
+                                                    <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckDATwoAttendPlace()"/>
                                                 </label>
                                             </div>
                                             <div class="form-check-radio px-0">
