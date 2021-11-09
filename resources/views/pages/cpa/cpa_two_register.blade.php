@@ -356,7 +356,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <div class="col-md-8">
                                                 <input type="text" readonly placeholder="ရာထူး" name="position"
                                                     id="position" class="form-control position"
-                                                    value="{{ old('position') }}" required="">
+                                                    value="{{ old('position') }}" >
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -365,7 +365,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <div class="col-md-8">
                                                 <input type="text" readonly placeholder="ဌာန" name="department"
                                                     id="department" class="form-control department"
-                                                    value="{{ old('department') }}" required="">
+                                                    value="{{ old('department') }}" >
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -374,7 +374,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <div class="col-md-8">
                                                 <input type="text" readonly placeholder="ရုံးလိပ်စာ" name="office_address"
                                                     id="office_address" class="form-control office_address"
-                                                    value="{{ old('office_address') }}" required="">
+                                                    value="{{ old('office_address') }}" >
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -840,7 +840,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-8">
                                                     <input type="text" readonly placeholder="ရာထူး" name="position"
                                                         id="position" class="form-control position"
-                                                        value="{{ old('position') }}" required="">
+                                                        value="{{ old('position') }}" >
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -849,7 +849,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-8">
                                                     <input type="text" readonly placeholder="ဌာန" name="department"
                                                         id="department" class="form-control department"
-                                                        value="{{ old('department') }}" required="">
+                                                        value="{{ old('department') }}">
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -859,7 +859,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <input type="text" readonly placeholder="ရုံးလိပ်စာ"
                                                         name="office_address" id="office_address"
                                                         class="form-control office_address"
-                                                        value="{{ old('office_address') }}" required="">
+                                                        value="{{ old('office_address') }}" >
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -1345,7 +1345,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <div class="col-md-8">
                                                 <input type="text" readonly placeholder="ရာထူး" name="position"
                                                     id="position" class="form-control position"
-                                                    value="{{ old('position') }}" required="">
+                                                    value="{{ old('position') }}">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -1354,7 +1354,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <div class="col-md-8">
                                                 <input type="text" readonly placeholder="ဌာန" name="department"
                                                     id="department" class="form-control department"
-                                                    value="{{ old('department') }}" required="">
+                                                    value="{{ old('department') }}" >
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -1363,7 +1363,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <div class="col-md-8">
                                                 <input type="text" readonly placeholder="ရုံးလိပ်စာ" name="office_address"
                                                     id="office_address" class="form-control office_address"
-                                                    value="{{ old('office_address') }}" required="">
+                                                    value="{{ old('office_address') }}">
                                             </div>
                                         </div>
                                         <div class="row mb-3">

@@ -181,6 +181,7 @@ Route::get('mentor_register', 'MentorController@index');
 
 // Mentor Information Page
 Route::get('mentor_information', 'MentorInfoController@info');
+Route::get('update_mentor', 'MentorController@updateMentor');
 
 // Article Register Form
 Route::get('article_gov_registration', 'ArticleController@articleGov');
