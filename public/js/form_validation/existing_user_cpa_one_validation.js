@@ -44,15 +44,15 @@ $().ready(function (){
             // roll_number : "required",
             // qualified_date : "required",
             // certificate : "required",
-            attend_place : "required",
-            mac_type : {
-                required : "#main_mac:checked"
-            },
+            // attend_place : "required",
+            // mac_type : {
+            //     required : "#main_mac:checked"
+            // },
             cpa_one_active_attend_place : "required",
             cpa_one_active_mac_type : {
                 required : "#cpa_one_active_main_mac:checked"
             },
-            // cpa_one_pass_exam_date : "required",
+            selected_passed_batch_name : "required",
             // cpa_one_pass_level : "required",
             cpa_one_pass_personal_no : "required",
             qt_entry: "required",
@@ -97,13 +97,13 @@ $().ready(function (){
             // recommend_letter : {
             //     required : "Please upload recommend letter"
             // },
-            attend_place : "Please select one",
-            mac_type : "Please select one",
+            // attend_place : "Please select one",
+            // mac_type : "Please select one",
             // is_full_module:"Please select one",
             cpa_one_active_attend_place : "Please select one",
             cpa_one_active_mac_type : "Please select one",
 
-            // cpa_one_pass_exam_date : "Please Enter Your CPA One Pass Date",
+            selected_passed_batch_name : "Please Select Batch",
             // cpa_one_pass_level : "Please enter your CPA One Pass Level",
             cpa_one_pass_personal_no : "Please enter your CPA One Pass Personal Number",
             qt_entry: "Please Select One",
@@ -169,10 +169,10 @@ $().ready(function (){
             address: "required",
             gov_staff: "required",
             qt_entry: "required",
-            attend_place: "required",
-            mac_type: {
-                required: "#main_mac:checked"
-            },
+            // attend_place: "required",
+            // mac_type: {
+            //     required: "#main_mac:checked"
+            // },
             cpa_one_active_attend_place : "required",
             cpa_one_active_mac_type : {
                 required : "#cpa_one_active_main_mac:checked"
@@ -186,7 +186,7 @@ $().ready(function (){
             entry_success_roll_no:{
                 required:"#entry_success_no:checked"
             },
-            // cpa_one_pass_exam_date : "required",
+            selected_passed_batch_name : "required",
             // cpa_one_pass_level : "required",
             cpa_one_pass_personal_no : "required",
             // is_full_module: "required",
@@ -230,8 +230,8 @@ $().ready(function (){
             // qualified_date : "Please fill your qualified date",
             // certificate : "Please upload your certificate",
             qt_entry: "Please select one",
-            attend_place: "Please select one",
-            mac_type: "Please select one",
+            // attend_place: "Please select one",
+            // mac_type: "Please select one",
 
             cpa_one_active_attend_place : "Please select One",
             cpa_one_active_mac_type : {
@@ -248,7 +248,7 @@ $().ready(function (){
                 required: "Please Enter Entry Success Roll Number"
             },
 
-            // cpa_one_pass_exam_date : "Please Enter Your CPA One Pass Date",
+            selected_passed_batch_name : "Please Select Batch",
             // cpa_one_pass_level : "Please enter your CPA One Pass Level",
             cpa_one_pass_personal_no : "Please enter your CPA One Pass Personal Number",
 

@@ -601,19 +601,26 @@ function CreateDAExistingRegister() {
     send_data.append('da_one_pass_exam_date', $("input[name=da_one_pass_exam_date]").val());
     send_data.append('da_one_pass_personal_no', $("input[name=da_one_pass_personal_no]").val());
 
-    send_data.append('type', $("input[name='attend_place']:checked").val());
+    
 
     if ($("#da_type").val() == 'da_2') {
         send_data.append('batch_id', $("#selected_current_batch_id").val());
-        send_data.append('type_da2', $("input[name='da_two_attend_place']:checked").val());
+        if($("input[name='da_two_attend_place']:checked").val()){
+            send_data.append('type_da2', $("input[name='da_two_attend_place']:checked").val());
+        }        
         send_data.append('da_two_pass_level', $("input[name=da_two_pass_level]").val());
         send_data.append('da_two_pass_exam_date', $("input[name=da_two_pass_exam_date]").val());
         send_data.append('da_two_pass_personal_no', $("input[name=da_two_pass_personal_no]").val());
         send_data.append('da_two_mac_type', $("input[name='da_two_attend_place']:checked").val() == 2 ? $("input[name='da_two_mac_type']:checked").val() : 99);
     }    
     send_data.append('active_batch_id', $("#active_batch_id").val());
+
     send_data.append('type_active_da2', $("input[name='da_two_active_attend_place']:checked").val());
     send_data.append('da_two_active_mac_type', $("input[name='da_two_active_attend_place']:checked").val() == 2 ? $("input[name='da_two_active_mac_type']:checked").val() : 99);
+    
+    if($("input[name='attend_place']:checked").val()){
+        send_data.append('type', $("input[name='attend_place']:checked").val());
+    }    
     send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
     if($("input[type='radio'][name='is_full_module']:checked").val()!=null){        
         send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
@@ -735,11 +742,15 @@ function updateDAExistingRegister() {
     send_data.append('da_one_pass_exam_date', $("input[name=da_one_pass_exam_date]").val());
     send_data.append('da_one_pass_personal_no', $("input[name=da_one_pass_personal_no]").val());
 
-    send_data.append('type', $("input[name='attend_place']:checked").val());
+    if($("input[name='attend_place']:checked").val()){
+        send_data.append('type', $("input[name='attend_place']:checked").val());
+    }    
 
     if ($("#da_type").val() == 'da_2') {
         send_data.append('batch_id', $("#selected_current_batch_id").val());
-        send_data.append('type_da2', $("input[name='da_two_attend_place']:checked").val());
+        if($("input[name='da_two_attend_place']:checked").val()){
+            send_data.append('type_da2', $("input[name='da_two_attend_place']:checked").val());
+        }        
         send_data.append('da_two_pass_level', $("input[name=da_two_pass_level]").val());
         send_data.append('da_two_pass_exam_date', $("input[name=da_two_pass_exam_date]").val());
         send_data.append('da_two_pass_personal_no', $("input[name=da_two_pass_personal_no]").val());
@@ -1191,6 +1202,32 @@ function uncheckRadioButton(){
     $("#module_1").prop('checked',false);
     $("#module_2").prop('checked',false);
 }
+
+function uncheckAttendPlace(){
+    $("#main_mac").prop('checked',false);
+    $("#sub_mac").prop('checked',false);
+    $("#sub_mac2").prop('checked',false);
+    $("#private").prop('checked',false);
+    $("#self").prop('checked',false);
+}
+
+function uncheckDATwoAttendPlace(){
+    $("#da_two_main_mac").prop('checked',false);
+    $("#da_two_sub_mac").prop('checked',false);
+    $("#da_two_sub_mac2").prop('checked',false);
+    $("#da_two_private").prop('checked',false);
+    $("#da_two_self").prop('checked',false);
+}
+
+function uncheckCPATwoAttendPlace(){
+    $("#cpa2_main_mac").prop('checked',false);
+    $("#cpa2_sub_mac").prop('checked',false);
+    $("#cpa2_sub_mac2").prop('checked',false);
+    $("#cpa2_private").prop('checked',false);
+    $("#cpa2_self").prop('checked',false);
+}
+
+
 
 // $( "#submit_btn_mac" ).click(function() {
 //     if(allFilled('#da_two_mac_form')){
