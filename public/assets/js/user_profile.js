@@ -366,13 +366,13 @@ function user_profile() {
                                     } else if (element.done_status == 3) {
                                         // alert("hello")
                                         $('.qt_article_status').append(`<tr>
-                                        <td>${form_type} Form</td>
-                                        <td>${contract_start_date}</td>
-                                        <td>${contract_end_date}</td>
-                                        <td><span class="badge bg-success">Done</span></td>
-                                        <td></td>
-                                    </tr>
-                                    `);
+                                            <td>${form_type} Form</td>
+                                            <td>${contract_start_date}</td>
+                                            <td>${contract_end_date}</td>
+                                            <td><span class="badge bg-success">Done</span></td>
+                                            <td></td>
+                                        </tr>
+                                        `);
 
                                         let cpaff = data.cpa_ff;
                                         if (cpaff.length !== 0) {
@@ -637,7 +637,8 @@ function user_profile() {
                                                 } else {
                                                     $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA(Full-Fledged) Form</a></td></tr > `);
                                                 }
-                                            } else {
+                                            }
+                                        } else {
                                             //     $('.qt_article_status').append(`<tr>
                                             //     <td>${form_type} Form</td>
                                             //     <td>${contract_start_date}</td>
@@ -675,7 +676,8 @@ function user_profile() {
                                 `);
                                     }
                                 }
-                            });
+                            }
+                        });
 
                         var invoice = data.invoice.filter(val => {
                             return val.invoiceNo == latest_article[0].article_form_type + latest_article[0].id && val.status == 0;
@@ -2129,7 +2131,7 @@ function user_profile() {
                                                     });
                                                     console.log(invoice, "Invoice")
                                                     if (latest_course_reg[0]?.is_finished == 0) {
-
+                                                        alert("hello Exam")
                                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
                                                             $('.status').append(`
