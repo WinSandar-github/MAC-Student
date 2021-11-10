@@ -938,7 +938,7 @@ function getNonAuditData(){
             count++;
           });
 
-           if(non_audit_data.offline_user == 1 && non_audit_data.status == 1){
+           if(non_audit_data.offline_user == 1 && non_audit_data.is_renew == 0 && non_audit_data.status == 1){
              // when approved offline user and submit renew form
              $("input[type=text]").not("input[name=verify_code]").attr('readonly',true);
              $("textarea").attr('readonly',true);
@@ -1855,7 +1855,7 @@ function nonAuditRenewRejectUpdate(){
       send_data.append('tax_reg_certificate[]',$(this).get(0).files[i]);
     }
   });
-  
+
   show_loader();
 
     $.ajax({
