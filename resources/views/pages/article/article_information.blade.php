@@ -262,7 +262,6 @@
                         }
                         $('#articleModal').modal('toggle');
                     }else{
-                        console.log("reach");
                         if((form_type == 3 && course == "cpa_1") || (form_type == 3 && course == "cpa_2")){
                             if(internship == "အစိုးရ ဌာနတွင်"){
                                 $("#firm_article_row").hide();
@@ -313,21 +312,12 @@
                             $("#firm_article_renew_row").hide();
                             $("#article_hr").hide();
                             $("#gov_article_row").hide();
-                            if(student_info.offline_user == 1){
-                                $("#c2_pass_3yr_btn").hide();
-                                $("#c2_pass_1yr_btn").hide();
-                                $("#qt_pass_3yr_btn").hide();
-                                $("#firm_article_renew_row").hide();
-                                $("#article_hr").hide();
-                                $("#gov_article_row").hide();
+                            if(exam_registers[0].form_type == 4 && (exam_results[0]?.registeration_id == exam_registers[0]?.id)){
+                                $("#c2_pass_3yr_btn").prop('disabled', false);
+                            }else if(student_info.registration_no == 0){
+                                $("#c2_pass_3yr_btn").prop('disabled', false);
                             }else{
-                                if(exam_registers[0].form_type == 4 && (exam_results[0]?.registeration_id == exam_registers[0]?.id)){
-                                    $("#c2_pass_3yr_btn").prop('disabled', false);
-                                }else if(student_info.registration_no == 0){
-                                    $("#c2_pass_3yr_btn").prop('disabled', false);
-                                }else{
-                                    $("#c2_pass_3yr_btn").prop('disabled', true);
-                                }
+                                $("#c2_pass_3yr_btn").prop('disabled', true);
                             }
                             $('#articleModal').modal('toggle');
                         }else if(qualified_test){
