@@ -492,7 +492,7 @@ function user_profile() {
                                                             <h5 style="color:red">${cpaff_latest_data.reject_description}</h5>
                                                         <td>
                                                     </td>
-                                                    </tr>`);  
+                                                    </tr>`);
                                             }
                                             else {
                                                 $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td></tr>
@@ -1517,7 +1517,7 @@ function user_profile() {
                             <td><span class="badge bg-danger">Reject</span></td>
                         </tr>
                         `);
-                        
+
                         if (cpaff_latest_data.type == 0) {
                             $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td></tr>
                                 <tr><td></td><td><h5>Reject Remark</h5></td>
@@ -1881,7 +1881,7 @@ function user_profile() {
 
                             // console.log('latest_course_reg',latest_course_reg[0])
                             if (latest_course_reg[0].approve_reject_status == 0) {
-                                
+
                                 if(latest_course_reg[0].offline_user==1){
 
                                     switch (latest_course_reg[0].batch.course.code) {
@@ -1911,7 +1911,7 @@ function user_profile() {
                                     `);
 
                                 }else{
-                                    
+
                                     $('.status').append(`
                                         <tr>
                                             <td>${latest_course_reg[0].batch.course.name} Application Form</td>
@@ -1937,7 +1937,7 @@ function user_profile() {
                             } else if (latest_course_reg[0].approve_reject_status == 1) {
                                 let std_id = latest_course_reg[0].student_info_id;
 
-                                if (latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1") {                                   
+                                if (latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1") {
 
                                     $invoice_code = latest_course_reg[0].batch.course.code == "da_1" ? 'app_form' : 'cpa_app';
 
@@ -5358,9 +5358,9 @@ function allowToRenew() {
           var today = new Date();
           var current_month = today.getMonth()+1;
           var current_year = today.getFullYear();
-          //var last_submit_date = new Date(acc_firm.register_date);
-          var last_submit_year = acc_firm.last_registered_year;
-          //var last_submit_year = last_submit_date.getFullYear();
+          var last_submit_date = new Date(acc_firm.register_date);
+          //var last_submit_year = acc_firm.last_registered_year;
+          var last_submit_year = last_submit_date.getFullYear();
 
           if(current_year > last_submit_year ){
             if(current_month >= 11 || current_month <= 4){
