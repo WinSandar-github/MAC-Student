@@ -2129,7 +2129,7 @@ function user_profile() {
                                                     });
                                                     console.log(invoice, "Invoice")
                                                     if (latest_course_reg[0]?.is_finished == 0) {
-                                                        alert("hello Exam")
+
                                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
                                                             $('.status').append(`
