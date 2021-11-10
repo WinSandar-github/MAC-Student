@@ -307,12 +307,6 @@
                             }
                             $('#articleModal').modal('toggle');
                         }else if(form_type == 4 && course == "cpa_2"){
-                            $("#c12_btn").hide();
-                            $("#c2_pass_1yr_btn").hide();
-                            $("#qt_pass_3yr_btn").hide();
-                            $("#firm_article_renew_row").hide();
-                            $("#article_hr").hide();
-                            $("#gov_article_row").hide();
                             if(student_info.offline_user == 1){
                                 $("#c2_pass_3yr_btn").hide();
                                 $("#c2_pass_1yr_btn").hide();
@@ -321,6 +315,12 @@
                                 $("#article_hr").hide();
                                 $("#gov_article_row").hide();
                             }else{
+                                $("#c12_btn").hide();
+                                $("#c2_pass_1yr_btn").hide();
+                                $("#qt_pass_3yr_btn").hide();
+                                $("#firm_article_renew_row").hide();
+                                $("#article_hr").hide();
+                                $("#gov_article_row").hide();
                                 if(exam_registers[0].form_type == 4 && (exam_results[0]?.registeration_id == exam_registers[0]?.id)){
                                     $("#c2_pass_3yr_btn").prop('disabled', false);
                                 }else if(student_info.registration_no == 0){
