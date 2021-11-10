@@ -727,8 +727,7 @@ function getAuditData(){
           }
           else{
             // normal users
-            //var last_year = new Date(audit_data.register_date);
-            var last_year = new Date(audit_data.last_registered_year);
+            var last_year = new Date(audit_data.register_date);
             $("input[name=last_registered_year][type=text]").val(last_year.getFullYear());
             $("input[name=last_registered_year][type=text]").prop('readonly',true);
           }
