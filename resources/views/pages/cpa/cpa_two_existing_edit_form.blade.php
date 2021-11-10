@@ -534,11 +534,11 @@
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၂၃။</span>လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်း တက်ရောက်ဖူးသူ/လျှောက်ထားဖူးသူ</label>
+                                        <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၂၃။</span>လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်း တက်ရောက်ခဲ့သူ/လျှောက်ထားခဲ့သူ</label>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>သင်တန်းအမှတ်စဉ်</label>                                            
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <select class="form-control form-select" name="selected_current_batch_name" id="selected_current_batch_id" >
@@ -548,7 +548,7 @@
                                         </div>                                            
                                     </div>
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label_align_right"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>Module <span style="color:red">*</span>-</label>
+                                        <label class="col-md-4 col-form-label label_align_right"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>Module </label>
                                         <div class="row col-md-8 py-2" style="padding-left:24px">
                                             <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
@@ -566,16 +566,18 @@
                                                     Module 2
                                                 </label>
                                             </div>
-                                            <div class="col-md-3 form-check-radio">
-                                                <label class="form-check-label">
-                                                    <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckRadioButton()"/>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-7 ">
-                                                <label class="form-check-label text-danger">
-                                                    <span style="color:red">(Module 1 နှင့် Module 2 မအောင်မြင်သူများ ရွေးရန်မလိုပါ။)</span>
-                                                                                                        
-                                                </label>
+                                            <div class="col-md-9">
+                                                <div class="row">
+                                                    <div class="col-md-3 form-check-radio" style="padding-left: 0px;">
+                                                        <label class="form-check-label">
+                                                            <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckRadioButton()"/>
+                                                        </label>
+                                                    </div>
+                                                    <label class=" col-md-9 form-check-label text-danger">
+                                                        <span style="color:red">(Module 1 နှင့် Module 2 မအောင်မြင်သူများ ရွေးရန်မလိုပါ။)</span>
+                                                                                                            
+                                                    </label>
+                                                </div>   
                                             </div>
                                             <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
                                         </div>
@@ -605,7 +607,7 @@
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(င)</span>သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ<span style="color:red">*</span>-</label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(င)</span>သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ</label>
                                         <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
                                             <div class="form-check-radio px-0">
                                                 <label class="form-check-label" for="cpa2_main_mac">
@@ -656,6 +658,11 @@
                                                     <input class="form-check-input" id="cpa2_self" type="radio" name="cpa2_attend_place" value='0' onclick="selectCPACurrentType()">
                                                     <span class="form-check-sign" ></span>
                                                     ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3 form-check-radio">
+                                                <label class="form-check-label">
+                                                    <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckCPATwoAttendPlace()"/>
                                                 </label>
                                             </div>
                                             <div class="form-check-radio px-0">

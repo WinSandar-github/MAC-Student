@@ -30,9 +30,9 @@
         <div class="section"> <!-- section-padding mt-n10 -->
             <div class="container mt-5"> <!-- container-fluid p-4 -->
                 
-                <div class="col-md-12 text-center mb-5" style="font-weight:bold;font-size:20px;" name="remark" id="remark">
+                {{--<div class="col-md-12 text-center mb-5" style="font-weight:bold;font-size:20px;" name="remark" id="remark">
                     <label>Reject လုပ်ရသည့်အကြောင်းအရင်း</label><label class="col-md-12 col-form-label text-danger" id="remark_description"></label>
-                </div>
+                </div>--}}
 
 
                                 
@@ -44,7 +44,7 @@
                     </div>
                     <h5 class="card-title text-center fw-bolder" style="margin-top:1%;">
                         မြန်မာနိုင်ငံစာရင်းကောင်စီ<br><br>
-                        လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်ထားခြင်းကိုသက်တမ်းတိုးမြှင့်ရန်လျှောက်ထားခြင်း
+                        လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မီ) အဖြစ်မှတ်ပုံတင်ထားခြင်းကိုသက်တမ်းတိုးမြှင့်ရန်လျှောက်ထားခြင်း
                     </h5>
                     {{--<div class="d-flex justify-content-between">
                         <h6>ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
