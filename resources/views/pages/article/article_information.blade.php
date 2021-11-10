@@ -262,7 +262,6 @@
                         }
                         $('#articleModal').modal('toggle');
                     }else{
-                        console.log("reach");
                         if((form_type == 3 && course == "cpa_1") || (form_type == 3 && course == "cpa_2")){
                             if(internship == "အစိုးရ ဌာနတွင်"){
                                 $("#firm_article_row").hide();

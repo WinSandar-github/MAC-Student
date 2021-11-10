@@ -738,7 +738,7 @@ function getNonAuditData(){
           }
           else{
             // normal users
-            var last_year = new Date(non_audit_data.last_registered_year);
+            var last_year = new Date(non_audit_data.register_date);
             $("input[name=last_registered_year][type=text]").val(last_year.getFullYear());
             $("input[name=last_registered_year][type=text]").prop('readonly',true);
           }
@@ -1855,7 +1855,7 @@ function nonAuditRenewRejectUpdate(){
       send_data.append('tax_reg_certificate[]',$(this).get(0).files[i]);
     }
   });
-
+  
   show_loader();
 
     $.ajax({
