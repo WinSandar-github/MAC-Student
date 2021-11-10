@@ -1787,6 +1787,7 @@
                     if(data){
                         console.log('data',data);
                         let current_stu_course = data.data.student_course_regs.slice(-1);
+                        let student_course_regs = data.data.student_course_regs;
                         let last_exam = data.data.exam_registers.slice(-1);
                         console.log('current_stu_course',current_stu_course); 
                         console.log('last_exam',last_exam);  
@@ -1910,6 +1911,18 @@
                             $("#entry_success_no_self").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
                             $("#entry_success_no_private").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
                             $("#entry_success_no_mac").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
+                        }else if(student_course_regs[1].qt_entry != 1){
+                            console.log("for existing direct");
+                            $("#direct_access_no_self_div").show();
+                            $("#entry_success_no_self_div").hide();
+                            $("#direct_access_no_private_div").show();
+                            $("#entry_success_no_private_div").hide();
+                            $("#direct_access_no_mac_div").show();
+                            $("#entry_success_no_mac_div").hide();
+
+                            $("#direct_access_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                         }else{
                             console.log("for entry2");
                             $("#direct_access_no_self_div").hide();
