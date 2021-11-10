@@ -68,7 +68,7 @@
                     </div>
 
                     <div class="card text-white bg-primary my-3">
-                        <div class="card-body add_exam">
+                        <div class="caard-body add_exam">
                         </div>
                     </div>
                 </div>
