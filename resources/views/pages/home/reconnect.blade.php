@@ -53,17 +53,17 @@
                     <div class="swiper-container">
 
                         <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
-                        
+
                             <li>
                                     <button value="course_list" onclick="loadExistingForm('da_1')"> Diploma In Accountancy Part One Registration</button>
-                            </li>                            
-                       
+                            </li>
+
                             <li>
                                     <button class="course_list" onclick="loadExistingForm('cpa_1')"> Certified Public Accountant Part One Registration</button>
                             </li>
                         </ul>
                         <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
-                        
+
                             <li>
                                     <button value="course_list" onclick="loadExistingForm('da_2')"> Diploma In Accountancy Part Two Registration</button>
                             </li>
@@ -72,24 +72,24 @@
                             </li>
                         </ul>
                         <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
-                       
+
                             <li>
                                   <button value="exam" onclick="location.href =`${FRONTEND_URL}/cpaff_reconnect`">Certificate of Certified Public Accountant (Full-Fledged)</button>
                             </li>
                             <li>
                                  <button class="course_list" onclick="location.href =`${FRONTEND_URL}/reconnect_papp`"> Certificate of Professional Accountant in Public Practice (PAPP) </button>
                             </li>
-                            
-                        </ul>   
+
+                        </ul>
                         <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
-                       
+
                             <li>
                                   <button value="exam" onclick="location.href =`${FRONTEND_URL}/audit_initial_renew_reconnect`">Audit Firm</button>
                             </li>
                             <li>
                                  <button class="course_list" onclick="location.href =`${FRONTEND_URL}/non_audit_initial_renew_reconnect`">Non-Audit Firm</button>
                             </li>
-                            
+
                             <li>
                                  <button class="course_list" onclick="location.href =`${FRONTEND_URL}/teacher_existing_user_register`"> Teacher </button>
                             </li>
@@ -100,7 +100,7 @@
                                  <button class="course_list" data-bs-toggle="modal" data-bs-target="#articleModal"> Article </button>
                             </li>
                         </ul>
-                               
+
                     </div>
                 </div>
             </div>
@@ -108,13 +108,13 @@
         <!-- Contact End -->
 
         <!-- Download App Start -->
-        
+
                 <!-- Download App Wrapper End -->
 
-            
+
         <!-- Download App End -->
 
-        
+
 
 <!--Back To Start-->
 <a href="#" class="back-to-top">
@@ -130,15 +130,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    
+
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    
+
                     <a onclick="location.href =`${FRONTEND_URL}/article_cpa_two_one_pass_year`"  class="btn btn-md btn-success">CII Pass 1 Year</a>
                     <hr>
-                    
-                    <a onclick="location.href =`${FRONTEND_URL}/article_cpa_two_three_pass_year`" class="btn btn-md btn-success">CII Pass 3 Year</a>
+
+                    <a onclick="location.href =`${FRONTEND_URL}/article_cpa_two_three_pass_year`" class="btn btn-md btn-success">CII Pass/QT Pass 3 Year</a>
                     <hr>
                     <a onclick="location.href =`${FRONTEND_URL}/article_cpa_one_two_renew`" class="btn btn-md btn-success">CI CII Renew</a>
                     <hr>
@@ -167,31 +167,31 @@
 @push('scripts')
 <script type="text/javascript">
 
-$('document').ready(function(){ 
+$('document').ready(function(){
     let ls_course_type = localStorage.getItem('course_type');
     let batch_id = localStorage.getItem('batch_id');
 
     async function getCurrentBatch(){
         const response =    await fetch(BACKEND_URL+"/publish_batch/1");
         const result   = await response.json();
-    
+
         const course = result.course.filter(function(res) {
             return    res.code == 'da_1'
         }
         );
-       
+
        if(course[0].active_batch[0] !== undefined){
            batch_id =  course[0].active_batch[0].id;
            $('.route_reg').append(`You dont have account  <a href={{url('/da_one_form/${batch_id}')}}>Register</a>`)
 
        }else{
         $('.route_reg').append(`You dont have account  <a href="javascript:void(0)" onclick='alert("The class is not currently ‌available")'>Register</a>`)
-       }       
-     } 
+       }
+     }
     if(batch_id == null ){
         getCurrentBatch();
     }else{
-    
+
         if(ls_course_type == 2){
 
             // $('.route_reg').append(`You dont have account  <a href={{url('${FRONTEND_URL}/cpa_register/${batch_id}')}}>Register</a>`)
