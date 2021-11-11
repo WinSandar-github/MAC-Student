@@ -204,7 +204,9 @@
                     let course = student_reg[lastest_row]?.course?.code;  // cpa1/cpa2
                     // let exam_result = student_reg[lastest_row]?.status;  // pass/fail
                     let module = student_reg[lastest_row]?.module;  // module 1/2/all
-                    let type = student_reg[lastest_row]?.type;  //  0-self_study / 1-private / 2-mac
+                    //let type = student_reg[lastest_row]?.type;  //  0-self_study / 1-private / 2-mac
+                    let type_data=student_info.student_course_regs.pop();
+                    let type=type_data.type;
                     let form_type = student_reg[lastest_row]?.form_type;
                     let internship = student_reg[lastest_row]?.internship;
                     //let exam_result = student_info.exam_results.length;
