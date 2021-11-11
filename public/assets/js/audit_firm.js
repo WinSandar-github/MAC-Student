@@ -884,7 +884,7 @@ function getAuditData(){
             });
           });
 
-          if(audit_data.offline_user == 1 && audit_data.status == 1){
+          if(audit_data.offline_user == 1 && audit_data.is_renew == 0 && audit_data.status == 1){
             // when approved offline user and submit renew form
             $("input[type=text]").not("input[name=verify_code]").attr('readonly',true);
             $("textarea").attr('readonly',true);

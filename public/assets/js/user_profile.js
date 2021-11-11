@@ -2039,7 +2039,7 @@ function user_profile() {
 
 
                                 if (latest_stu_reg[0] && latest_course_reg[0].batch.id == latest_stu_reg[0].batch.id) {
-
+                                    alert("student register")
                                     $('.regi_fee_txt').text('Exam Registration Date')
                                     $('.self_study').hide();
                                     $('.private_school').hide();
@@ -2061,11 +2061,13 @@ function user_profile() {
                                         // $('.status').append('<p>Your Registration Form is checking.</p>')
 
                                     } else if (latest_stu_reg[0].status == 1) {
+                                        // alert("BBBB");
 
                                         // $('.status').append(`<p>Your Registration Form is Approved  on the  ${formatDate(latest_course_reg[0].updated_at)}.</p>`)
 
                                         var course_code = latest_course_reg[0].batch.course.code == "da_1";
 
+                                        // alert(latest_course_reg[0].batch.course.code)
                                         var invoice = data.invoice.filter(val => {
                                             return (val.invoiceNo == 'mac_reg_' + latest_course_reg[0].batch.course.code
                                                 || val.invoiceNo == 'prv_reg_' + latest_course_reg[0].batch.course.code
@@ -3403,6 +3405,7 @@ function user_profile() {
                     }
                     // console.log(latest_course_reg[0],'aa');
                     if (latest_stu_reg[0].form_type == 3 && latest_stu_reg[0].status == 1 && latest_stu_reg[0].course.code == "cpa_1" || latest_stu_reg[0].course.code == "cpa_2") {
+                    
                         let latest_article = data.article.slice(-1);
                         let latest_gov_article = data.gov_article.slice(-1);
                         let exam_results = data.exam_results.slice(-1);
@@ -5419,51 +5422,93 @@ function allowToRenew() {
                 var last_submit_year = acc_firm.last_registered_year;
                 //var last_submit_year = last_submit_date.getFullYear();
 
-                if (current_year > last_submit_year) {
-                    if (current_month >= 11 || current_month <= 4) {
-                        if (acc_firm.audit_firm_type_id == 1) {
-                            // audit firm
-                            var audit_invoice_status = data[0].audit_invoice_status[0] ? data[0].audit_invoice_status[0].status : '';
-                            if (acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1) {
-                                // to renew approved offline users
-                                console.log("1");
-                                $('#check_renew').css('display', 'block');
-                                $('#check_renew_nonaudit').css('display', 'none');
-                                $("#renew_btn").css('display', 'block'); // renew btn in information page
-                                $(".register-btn").css('display', 'none'); // register btn in information page
-                            }
-                            else if (acc_firm.status == 1 && acc_firm.offline_user != 1 && audit_invoice_status == "AP") {
-                                // to renew normal users who are expired
-                                console.log("2");
+                // if(current_year > last_submit_year ){
+                //
+                // }
+
+                if (current_month >= 11 || current_month <= 4) {
+                    if (acc_firm.audit_firm_type_id == 1) {
+                        // audit firm
+                        //&& acc_firm.is_renew == 0
+                        var invoice_status = data[0].invoice_status[0] ? data[0].invoice_status[0].status : '';
+                        if (acc_firm.status == 1 && acc_firm.offline_user == 1 && acc_firm.is_renew == 0) {
+                            // to renew approved offline users
+                            console.log("1");
+                            $('#check_renew').css('display', 'block');
+                            $('#check_renew_nonaudit').css('display', 'none');
+                            $("#renew_btn").css('display', 'block'); // renew btn in information page
+                            $(".register-btn").css('display', 'none'); // register btn in information page
+                        }
+
+                        else if (acc_firm.status == 1 && acc_firm.offline_user == 1 && acc_firm.is_renew == 1) {
+
+                            if (invoice_status == "AP") {
+                                console.log("offline audit renew again");
+                                // to renew again approved offline users
                                 $('#check_renew').css('display', 'block');
                                 $('#check_renew_nonaudit').css('display', 'none');
                                 $("#renew_btn").css('display', 'block'); // renew btn in information page
                                 $(".register-btn").css('display', 'none'); // register btn in information page
                             }
                         }
-                        else {
-                            console.log("3");
-                            // non-audit firm
-                            var nonaudit_invoice_status = data[0].nonaudit_invoice_status[0] ? data[0].nonaudit_invoice_status[0].status : '';
-                            if (acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1) {
-                                // to renew approved offline users
-                                $('#check_renew').css('display', 'none');
-                                $('#check_renew_nonaudit').css('display', 'block');
-                                $("#renew_btn_nonaudit").css('display', 'block'); // renew btn in information page
-                                $(".register-btn").css('display', 'none'); // register btn in information page
-                            }
 
-                            else if (acc_firm.status == 1 && acc_firm.offline_user != 1 && nonaudit_invoice_status == "AP") {
-                                // to renew normal users who are expired
-                                console.log("4");
+                        else if (acc_firm.status == 1 && acc_firm.offline_user != 1 && invoice_status == "AP") {
+                            // to renew normal users who are expired
+                            console.log("2");
+                            $('#check_renew').css('display', 'block');
+                            $('#check_renew_nonaudit').css('display', 'none');
+                            $("#renew_btn").css('display', 'block'); // renew btn in information page
+                            $(".register-btn").css('display', 'none'); // register btn in information page
+                        }
+                    }
+                    else {
+                        // non-audit firm
+                        //&& acc_firm.is_renew == 0
+                        var invoice_status = data[0].invoice_status[0] ? data[0].invoice_status[0].status : '';
+                        if (acc_firm.status == 1 && acc_firm.offline_user == 1 && acc_firm.is_renew == 0) {
+                            console.log("3");
+                            // to renew approved offline users
+                            $('#check_renew').css('display', 'none');
+                            $('#check_renew_nonaudit').css('display', 'block');
+                            $("#renew_btn_nonaudit").css('display', 'block'); // renew btn in information page
+                            $(".register-btn").css('display', 'none'); // register btn in information page
+                        }
+
+                        else if (acc_firm.status == 1 && acc_firm.offline_user == 1 && acc_firm.is_renew == 1) {
+
+                            if (invoice_status == "AP") {
+                                console.log("offline nonaudit renew again");
+                                // to renew again approved offline users
                                 $('#check_renew').css('display', 'none');
                                 $('#check_renew_nonaudit').css('display', 'block');
                                 $("#renew_btn_nonaudit").css('display', 'block'); // renew btn in information page
                                 $(".register-btn").css('display', 'none'); // register btn in information page
                             }
+                        }
+
+                        else if (acc_firm.status == 1 && acc_firm.offline_user != 1 && invoice_status == "AP") {
+                            // to renew normal users who are expired
+                            console.log("4");
+                            $('#check_renew').css('display', 'none');
+                            $('#check_renew_nonaudit').css('display', 'block');
+                            $("#renew_btn_nonaudit").css('display', 'block'); // renew btn in information page
+                            $(".register-btn").css('display', 'none'); // register btn in information page
                         }
                     }
                 }
+
+                // var register_date = new Date(acc_firm.register_date);
+                // var register_year = register_date.getFullYear();
+                // var register_month = register_date.getMonth()+1;
+
+                // if(register_year == current_year){
+                //   if(register_month >= 11 || register_month <= 4){
+                //
+                //     console.log("renew updated");
+                //     $('#check_renew').find('a').addClass("disabled");
+                //     $('#check_renew_nonaudit').find('a').addClass("disabled");
+                //   }
+                // }
             }
         })
     }
