@@ -1863,8 +1863,8 @@ $nrc_characters = config('myanmarnrc.characters');
                         $('.cpa_one_pass_date_private').val(formatDate(exam_registers[0].updated_at));
                         $('.cpa_one_pass_date_mac').val(formatDate(exam_registers[0].updated_at));
 
-                        $('.cpa_one_success_no_private').val(exam_registers[0].grade);
-                        $('.cpa_one_success_no_mac').val(exam_registers[0].grade);
+                        $('.cpa_one_success_no_private').val(exam_registers[0].passed_level);
+                        $('.cpa_one_success_no_mac').val(exam_registers[0].passed_level);
 
                         $('.father_name_mm').val(student_info.father_name_mm);
                         $('.father_name_eng').val(student_info.father_name_eng);

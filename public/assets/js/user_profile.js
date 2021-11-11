@@ -1991,9 +1991,22 @@ function user_profile() {
 
 
                                             }
+                                            else{
+                                                //for existing user approved
+                                                $('.status').append(`
+                                                    <tr>
+                                                        <td>${latest_course_reg[0].batch.course.name} Application Form</td>
+                                                        <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                        <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                                        <td><span class='badge bg-success'>Approved</span></td>
+                                                    </tr>
+                                                `);
+                                            }
+                                        
                                         }
                                     }
                                 } else if ((latest_course_reg[0].batch.course.code == "da_2" || latest_course_reg[0].batch.course.code == "cpa_2") && latest_course_reg[0].offline_user == 1) {
+                                    alert("AAA")
                                     if (latest_course_reg[0].offline_user == 1) {
 
                                         switch (latest_course_reg[0].batch.course.code) {
@@ -2133,7 +2146,6 @@ function user_profile() {
                                                     });
                                                     console.log(invoice, "Invoice")
                                                     if (latest_course_reg[0]?.is_finished == 0) {
-
                                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
                                                             $('.status').append(`
@@ -2414,6 +2426,7 @@ function user_profile() {
                                                                     `);
 
                                                 } else if (last_exam[0].status == 1) {
+                                                    alert("HH")
                                                     console.log(latest_course_reg[0].batch.course.code, data.invoice)
 
                                                     var invoice = data.invoice.filter(val => {
