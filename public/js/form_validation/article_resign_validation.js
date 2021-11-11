@@ -56,4 +56,23 @@ $().ready(function (){
         },
         
     });
+    $("#update_article_resign_register_form").validate({
+        rules:{
+            phone_no : "required",
+            m_email : "required",
+            resign_date : "required",
+            resign_reason : "required",
+            resign_org : "required",
+            know_policy : "required",
+        },
+        messages:{
+            phone_no : "Please enter your phone number",
+            m_email : "Please enter your email",
+            resign_date : "Please enter your resign data",
+            resign_reason : "Please enter your reason",
+            resign_org : "Please enter your department or firm name",
+            know_policy : "Please check one",
+        },
+        
+    });
 });
