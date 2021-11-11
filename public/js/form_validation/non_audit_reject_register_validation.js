@@ -25,6 +25,8 @@ $().ready(function (){
             foa_authority_to_sign : "required",
             head_office_address : "required",
             head_office_address_mm : "required",
+            last_registered_year : "required",
+            suspended_year : "required",
             choose_firm_type : {
               required: true
             },
@@ -56,7 +58,9 @@ $().ready(function (){
             head_office_address : "Please enter head office address(English)",
             head_office_address_mm : "Please enter head office address(Myanmar)",
             choose_firm_type : "Please select firm type",
-            dir_passport_csc : "Please enter Passport/CSC No."
+            dir_passport_csc : "Please enter Passport/CSC No.",
+            last_registered_year : "Please enter last registered year",
+            suspended_year : "Please select one",
         },
         submitHandler: function(form) {
             // $('#cpaffModal').modal('show');
