@@ -81,6 +81,44 @@ $().ready(function (){
         },
         
     });
+    $("#update_article_register_form").validate({
+        rules:{
+            current_address : "required",
+            phone_no : "required",
+            m_email : "required",
+            papp_name : "required",
+            mentor_name : "required",
+            pass_date : "required",
+            pass_no : "required",
+            current_job : "required",
+            position : {
+                required : "#current_job_yes:checked"
+            },
+            job_started_date : {
+                required : "#current_job_yes:checked"
+            },
+            experience : "required",
+            confirm_142 : "required",
+            confirm_status : "required",
+            mentor_declare : "required",
+        },
+        messages:{
+            current_address : "Please enter your current address",
+            phone_no : "Please enter your phone number",
+            m_email : "Please enter your email",
+            papp_name : "Please enter your papp name",
+            mentor_name : "Please select mentor name",
+            current_job : "Please select one",
+            position : "Please enter your position",
+            job_started_date : "Please select your date",
+            pass_date : "Please select your pass exam date",
+            pass_no : "Please enter your pass exam number",
+            experience : "Please select one",
+            confirm_142 : "Please check one",
+            confirm_status : "Please check one",
+        },
+        
+    });
     $("#article_renew_register_form").validate({
         rules:{
             current_address : "required",
@@ -112,6 +150,38 @@ $().ready(function (){
             confirm_142 : "Please check one",
             confirm_status : "Please check one",
             request_papp_attach : "Please enter your attachment",
+        },
+        
+    });
+    $("#update_article_renew_register_form").validate({
+        rules:{
+            current_address : "required",
+            phone_no : "required",
+            m_email : "required",
+            papp_name : "required",
+            mentor_name : "required",
+            pass_date : "required",
+            pass_no : "required",
+            experience : "required",
+            experience_file : {
+                required : "#experience_yes:checked"
+            },
+            confirm_142 : "required",
+            confirm_status : "required",
+            mentor_declare : "required",
+        },
+        messages:{
+            current_address : "Please enter your current address",
+            phone_no : "Please enter your phone number",
+            m_email : "Please enter your email",
+            papp_name : "Please enter your papp name",
+            mentor_name : "Please select mentor name",
+            pass_date : "Please select your pass exam date",
+            pass_no : "Please enter your pass exam number",
+            experience : "Please select one",
+            experience_file : "Please enter your attachment",
+            confirm_142 : "Please check one",
+            confirm_status : "Please check one",
         },
         
     });

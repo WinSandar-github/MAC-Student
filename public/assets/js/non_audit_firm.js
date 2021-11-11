@@ -938,7 +938,7 @@ function getNonAuditData(){
             count++;
           });
 
-           if(non_audit_data.offline_user == 1 && non_audit_data.status == 1){
+           if(non_audit_data.offline_user == 1 && non_audit_data.is_renew == 0 && non_audit_data.status == 1){
              // when approved offline user and submit renew form
              $("input[type=text]").not("input[name=verify_code]").attr('readonly',true);
              $("textarea").attr('readonly',true);
@@ -1286,7 +1286,7 @@ function getNonAuditDataForRejectUpdate(){
       type: "GET",
       url: BACKEND_URL+"/get_non_audit_data_for_renew/"+student_id,
       success: function (data){
-          console.log("non audit >>>",data);
+          console.log("non audit ***",data);
           var non_audit_data = data.data;
           var other_data = data.other_data;
           var student_data = data.student_infos;
@@ -1352,7 +1352,7 @@ function getNonAuditDataForRejectUpdate(){
           }
 
 
-          if(non_audit_data.is_renew == 1){
+          if(non_audit_data.is_renew == 1 || non_audit_data.offline_user == 1){
 
             $("#last_registered_year_box").css("display","block");
             $("input[name=last_registered_year]").val(non_audit_data.last_registered_year);
@@ -1855,7 +1855,7 @@ function nonAuditRenewRejectUpdate(){
       send_data.append('tax_reg_certificate[]',$(this).get(0).files[i]);
     }
   });
-  
+
   show_loader();
 
     $.ajax({

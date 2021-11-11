@@ -240,7 +240,7 @@ function createCpaffReconnectRegister(){
     send_data.append('resign', $("input[type='radio'][name='resign']:checked").val());//new field
     send_data.append('resign_date', $("input[name=resign_date]").val());//new field
     // send_data.append('end_date', $("input[name=end_date]").val());//new field
-    send_data.append('self_confession',$("input[name=self_confession]").val());
+    send_data.append('self_confession',$("input[type='radio'][name='self_confession']:checked").val());
     send_data.append('form_type', 2);
     send_data.append('is_renew', 1);
     send_data.append('type', 1);
@@ -350,7 +350,7 @@ function updateRejectCpaffExisting(){
     send_data.append('resign', $("input[type='radio'][name='resign']:checked").val());//new field
     send_data.append('resign_date', $("input[name=resign_date]").val());//new field
     // send_data.append('end_date', $("input[name=end_date]").val());//new field
-    send_data.append('self_confession',$("input[name=self_confession]").val());
+    send_data.append('self_confession',$("input[type='radio'][name='self_confession']:checked").val());
     send_data.append('form_type', 2);
     send_data.append('is_renew', 1);
     send_data.append('type', 1);
@@ -450,7 +450,7 @@ function RenewOfflineCPAFF() {
     send_data.append('resign_date', $("input[name=resign_date]").val());
     
     send_data.append('is_renew', 1);
-    send_data.append('self_confession_renew',$("input[name=self_confession_renew]").val());
+    send_data.append('self_confession_renew',$("input[type='radio'][name='self_confession_renew']:checked").val());
     send_data.append('type',1);
     var self_confession_accept = document.getElementById("accept_cpaffRenew");
     var self_confession_not_accept = document.getElementById("not-accept_cpaffRenew");

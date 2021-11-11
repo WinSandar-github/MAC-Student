@@ -81,6 +81,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <!-- <fieldset id="fieldset" disabled> -->
                                             <input type="hidden" id="form_type" class="form-control" id="form_type">
                                             <input type="hidden" name="is_private" id="is_private" class="form-control">
+                                            <input type="hidden" name="batch_id" id="batch_id" class="form-control">
                                                 <h5 class="card-title text-center fw-bolder">မြန်မာနိုင်ငံစာရင်းကောင်စီ<br/>
                                                 ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းစာမေးပွဲဖြေဆိုခွင့်လျှောက်လွှာ</h5><br/>
                                                 <div class="d-flex justify-content-between mb-3">
@@ -581,6 +582,7 @@ $nrc_characters = config('myanmarnrc.characters');
                 // let last_exam = data.data.exam_registers.slice(-1);
                 // console.log('current_stu_course',current_stu_course);
                 $("#batch_number").append(number2mm(current_stu_course[0].batch.number));
+                $("#batch_id").val(current_stu_course[0].batch.id);
                 $('#exam_date').append(formatDateMY(current_stu_course[0].batch.exam_start_date));
                 //console.log("student_reg >>>>",student_reg.personal_no);
                 if(data){
@@ -627,7 +629,7 @@ $nrc_characters = config('myanmarnrc.characters');
                         if(last_exam[0].course.code == 'da_2') {
                             // $("input[name='date']").val(formatDate(last_exam[0].created_at));
 
-                            if(last_exam[0].is_full_module == "1")
+                            if(last_exam[0].pass_module == "1")
                             {
                                 
                                 $(".module_two").prop("checked", true);
@@ -635,15 +637,15 @@ $nrc_characters = config('myanmarnrc.characters');
                                 $(':radio:not(:checked)').attr('disabled', true);
 
                             }
-                            else if(last_exam[0].is_full_module=="2"){
+                            else if(last_exam[0].pass_module=="2"){
                                 $(".module_one").prop("checked", true);
                                 $(':radio:not(:checked)').attr('disabled', true);
 
                             }
-                            else if(last_exam[0].is_full_module=="3"){
+                            else if(last_exam[0].pass_module=="3"){
                                 $(".module_full").prop("checked", true);
 
-                            $(':radio:not(:checked)').attr('disabled', true);
+                                $(':radio:not(:checked)').attr('disabled', true);
                                 
                             }
 

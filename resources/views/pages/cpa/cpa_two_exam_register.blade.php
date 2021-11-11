@@ -532,25 +532,25 @@
                     if(exam_registers[0].course.code == 'cpa_2') {
                             // $("input[name='date']").val(formatDate(last_exam[0].created_at));
 
-                            if(exam_registers[0].is_full_module == "1")
-                            {
+                            // if(exam_registers[0].is_full_module == "1")
+                            // {
                                 
-                                $("#module2").prop("checked", true);
+                            //     $("#module2").prop("checked", true);
                                 
-                                $(':radio:not(:checked)').attr('disabled', true);
+                            //     $(':radio:not(:checked)').attr('disabled', true);
 
-                            }
-                            else if(exam_registers[0].is_full_module=="2"){
-                                $("#module1").prop("checked", true);
-                                $(':radio:not(:checked)').attr('disabled', true);
+                            // }
+                            // else if(exam_registers[0].is_full_module=="2"){
+                            //     $("#module1").prop("checked", true);
+                            //     $(':radio:not(:checked)').attr('disabled', true);
 
-                            }
-                            else if(exam_registers[0].is_full_module=="3"){
-                                $("#allmodule").prop("checked", true);
+                            // }
+                            // else if(exam_registers[0].is_full_module=="3"){
+                            //     $("#allmodule").prop("checked", true);
 
-                            $(':radio:not(:checked)').attr('disabled', true);
+                            // $(':radio:not(:checked)').attr('disabled', true);
                                 
-                            }
+                            // }
 
                             // if(last_exam[0].is_full_module == "1"){
                                 

@@ -65,6 +65,7 @@
                             @csrf
                             <input type="hidden" name="form_type" id="form_type" class="form-control">
                             <input type="hidden" name="is_private" id="is_private" class="form-control">
+                            <input type="hidden" name="batch_id" id="batch_id" class="form-control">
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
                                     <h5 class="card-title text-center fw-bolder">မြန်မာနိုင်ငံစာရင်းကောင်စီ<br/>
@@ -74,6 +75,7 @@
                                           <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
                                           <h6 style="padding-right:80px">စာမေးပွဲဖြေဆိုမည့် လ/ခုနှစ် - <span name="exam_date" id="exam_date"></span></h6>
                                           <h6>အမှတ်စဥ် - <span name="da_batch_no" id="da_batch_no"></span></h6>
+                                          
                                       </div>
                                     </div>
                                     <div class="row">
@@ -575,6 +577,7 @@
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
                 $("#exam_date").append(formatDateMY(current_stu_course[0].batch.exam_start_date));
                 $("#da_batch_no").append(number2mm(current_stu_course[0].batch.number));
+                $("#batch_id").val(current_stu_course[0].batch.id);
                 $("input[name='name_mm']").val(data.data.name_mm);
                 $("input[name='name_eng']").val(data.data.name_eng);
                 $("input[name='nrc_state_region']").val(data.data.nrc_state_region);

@@ -44,7 +44,7 @@
                     </div>
                     <h5 class="card-title text-center fw-bolder" style="margin-top:1%;">
                         မြန်မာနိုင်ငံစာရင်းကောင်စီ<br><br>
-                        လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်ထားခြင်းကိုသက်တမ်းတိုးမြှင့်ရန်လျှောက်ထားခြင်း
+                        လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မီ) အဖြစ်မှတ်ပုံတင်ထားခြင်းကိုသက်တမ်းတိုးမြှင့်ရန်လျှောက်ထားခြင်း
                     </h5>
                     {{--<div class="d-flex justify-content-between">
                         <h6>ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
@@ -543,11 +543,17 @@
                 <div class="pull-right mt-1">
                     <h6 class="pull-left me-4 fw-bold">အထက်ဖော်ပြပါအချက်များအား</h6>
                     <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="self_confession_renew" id="accept_cpaffRenew" value="1">
+                    {{--<input class="form-check-input" type="radio" name="self_confession_renew" id="accept_cpaffRenew" value="1">
                     <label class="fw-bold">လက်ခံသည်</label>
                     </div>
                     <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="self_confession_renew" id="not-accept_cpaffRenew" value="2">
+                    <label class="fw-bold">လက်မခံပါ</label>--}}
+                    <input class="form-check-input" type="radio" name="self_confession" id="accept" value="1">
+                    <label class="fw-bold">လက်ခံသည်</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="self_confession" id="not-accept" value="2">
                     <label class="fw-bold">လက်မခံပါ</label>
                     </div>
                     <div class="text-danger" id="valid_self_confession" style="display : none">
