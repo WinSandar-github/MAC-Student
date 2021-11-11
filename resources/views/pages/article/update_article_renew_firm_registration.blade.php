@@ -90,7 +90,7 @@
                         <!-- Form Wrapper Start -->
                         <div class="form-wrapper">
 
-                            <form method="post" id="article_renew_register_form"  action="javascript:javascript:createArticleRenewRegister();"
+                            <form method="post" id="update_article_renew_register_form"  action="javascript:javascript:createArticleRenewRegister();"
                                     enctype="multipart/form-data" novalidate>
                                 @csrf
 
@@ -552,7 +552,8 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>လက်ခံသင်ကြားပေးကြောင်းအကြောင်းကြားစာ</label>
-                                            <div class="col-md-9">
+                                            <div class="col-md-2 request_papp_attach_old"></div>
+                                            <div class="col-md-7">
                                                 <input type="file" name="request_papp_attach" class="form-control">
                                             </div>
                                         </div>
@@ -560,6 +561,7 @@
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
                                         <input type="hidden" id="article_form_type" name="article_form_type" >
                                         <input type="hidden" id="offline_user" name="offline_user" >
+                                        <input type="hidden" id="article_id" name="article_id" >
 
                                         <div class="row mb-3">
                                             <div class="form-check">
@@ -626,7 +628,7 @@
 
                                         <div class="row justify-content-center">
                                             <button type="submit" id="submit_btn" class="btn btn-success btn-hover-dark w-25" disabled>
-                                                Submit
+                                            Update
                                             </button>
                                         </div>
 
@@ -677,6 +679,7 @@
             let latest_article = data.data.article.slice(-1);
             let qualified_test = data.data.qualified_test;
             let latest_gov_article = data.data.gov_article.slice(-1);
+            $("#article_id").val(latest_article[0].id);
 
             if(qualified_test == null){
                 let student_reg = data.data.student_register
@@ -787,9 +790,23 @@
                     $("#end_date").text(latest_article[0].resign_date);
                 }
             }
-            console.log(latest_article[0].offline_user);
+
             $("#student_info_id").val(latest_article[0].student_info_id);
             $('#offline_user').val(latest_article[0].offline_user);
+
+            if (latest_article[0].request_papp_attach != "") {
+                $(".request_papp_attach_old").append(`<a href='${BASE_URL + latest_article[0].request_papp_attach}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'  align="center">View File</a>`);
+            } else {
+                $('.req-papp_attach_old').hide();
+            }
+
+            $("#papp_name").val(latest_article[0].request_papp);
+            if(latest_article[0].mentor!=null){
+                $("#mentor_name").val(latest_article[0]?.mentor?.name_eng);
+            }
+            else{
+                $("#mentor_name").val(latest_article[0].mentor_id);
+            }
 
             $('#name_mm').val(student_info.name_mm);
             $("#name_eng").val(student_info.name_eng);
@@ -832,21 +849,26 @@
             $("#address").val(student_info.address);
             $("#phone_no").val(student_info.phone);
 
-            let article_length = data.data.article.length - 2;
-            let gov_article_length = data.data.gov_article.length - 2;
+            // let article_length = data.data.article.length - 2;
+            // let gov_article_length = data.data.gov_article.length - 2;
 
-            if(article_length == -1){
-                $("#m_email").val(latest_gov_article[0].m_email);
-                $("#current_address").val(latest_gov_article[0].current_address);
-                //$("#previous_papp_name").val(student_info.address);
-                $("#previous_papp_start_date").val(latest_gov_article[0].contract_start_date);
-            }else{
-                $("#m_email").val(data.data.article[article_length].m_email);
-                $("#current_address").val(data.data.article[article_length].current_address);
-                $("#previous_papp_name").val(data.data.article[article_length].request_papp);
-                $("#previous_papp_start_date").val(data.data.article[article_length].contract_start_date);
-            }
-            $("#previous_papp_end_date").val(latest_article[0].resign_date);
+            // if(article_length == -1){
+            //     $("#m_email").val(latest_gov_article[0].m_email);
+            //     $("#current_address").val(latest_gov_article[0].current_address);
+            //     //$("#previous_papp_name").val(student_info.address);
+            //     $("#previous_papp_start_date").val(latest_gov_article[0].contract_start_date);
+            // }else{
+            //     $("#m_email").val(data.data.article[article_length].m_email);
+            //     $("#current_address").val(data.data.article[article_length].current_address);
+            //     $("#previous_papp_name").val(data.data.article[article_length].request_papp);
+            //     $("#previous_papp_start_date").val(data.data.article[article_length].contract_start_date);
+            // }
+            // $("#previous_papp_end_date").val(latest_article[0].resign_date);
+            $("#m_email").val(latest_article[0].m_email);
+            $("#current_address").val(latest_article[0].current_address);
+            $("#previous_papp_name").val(latest_article[0].ex_papp);
+            $("#previous_papp_start_date").val(latest_article[0].exp_start_date);
+            $("#previous_papp_end_date").val(latest_article[0].exp_end_date);
 
             document.getElementById('previewImg').src = BASE_URL + student_info.image;
             document.getElementById('previewNRCFrontImg').src = BASE_URL + student_info.nrc_front;
