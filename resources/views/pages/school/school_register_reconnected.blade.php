@@ -99,7 +99,7 @@
                                         <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
                                         <label class="col-md-5 col-form-label label">{{ __('လျို့ဝှက်နံပါတ်') }}</label>
                                         <div class="col-md-6">
-                                            <input type="password" name="password" id="password" class="form-control" placeholder="လျို့ဝှက်နံပါတ် ထည့်ပါ။" autocomplete='off' maxlength="8" minlength="8">
+                                            <input type="password" name="password" id="password" class="form-control" placeholder="လျို့ဝှက်နံပါတ် ထည့်ပါ။" autocomplete='off' minlength="8">
                                         </div>
                                     </div>
 
@@ -939,7 +939,7 @@
                                         <tr>
                                             <th class="less-font-weight text-center">စဉ်</th>
                                             <th class="less-font-weight text-center">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</th>
-                                            <th class="less-font-weight text-center">အမည်</th>
+                                            <th class="less-font-weight text-center">သင်တန်းဆရာအမည်</th>
                                             <th class="less-font-weight text-center">နိုင်ငံသားစိစစ်ရေးကတ်အမှတ်</th>
                                             <th class="less-font-weight text-center">ပညာအရည်အချင်း</th>
                                             <th class="less-font-weight text-center">သင်ကြားမည့်ဘာသာရပ်(များ)</th>
