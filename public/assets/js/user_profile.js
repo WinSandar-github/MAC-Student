@@ -735,7 +735,22 @@ function user_profile() {
                             if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
                                 $('.qt_article_status').append(`<tr><td colspan=3></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                             }
-                        } else if (latest_article[0]?.article_form_type == 'resign') {
+                        }  else if (latest_article[0].status == 2) {   //Form Reject
+                            if(latest_article[0]?.article_form_type == 'c12'){
+                                article_url = '/update_article_firm_registration?data=' + 'c12';
+                            }else if(latest_article[0]?.article_form_type == 'c2_pass_3yr'){
+                                article_url = '/update_article_firm_registration?data=' + 'c2_pass_3yr';
+                            }else if(latest_article[0]?.article_form_type == 'c2_pass_1yr'){
+                                article_url = '/update_article_firm_registration?data=' + 'c2_pass_1yr';
+                            }else if(latest_article[0]?.article_form_type == 'c2_pass_renew'){
+                                article_url = '/update_article_renew_firm_registration?data=' + 'c2_pass_renew';
+                            }else if(latest_article[0]?.article_form_type == 'c12_renew'){
+                                article_url = '/update_article_renew_firm_registration?data=' + 'c12_renew';
+                            }else if(latest_article[0]?.article_form_type == 'qt_firm'){
+                                article_url = '/update_article_qt_firm_registration';
+                            }
+                            $('.qt_article_status').append(`<tr><td colspan=3></td><td>Update Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Update </a></td></tr>`);
+                        }else if (latest_article[0]?.article_form_type == 'resign') {
                             // if(latest_article[0].done_status == 0){
                             //     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                             //         $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
@@ -768,6 +783,11 @@ function user_profile() {
                                 } else {
                                     $('.qt_article_status').append(`<tr><td colspan=3></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
                                 }
+                            } else if (latest_article[0]?.resign_status == 2) {  //Form Reject
+                                if(latest_article[0]?.article_form_type == 'resign'){
+                                    article_url = '/update_article_resign_registration';
+                                }
+                                $('.qt_article_status').append(`<tr><td colspan=3></td><td>Update Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Update </a></td></tr>`);
                             }
                             // }
                         }
@@ -1712,11 +1732,11 @@ function user_profile() {
                                 // console.log('exam', exam)
                                 exam.map(e => {
                                     var module;
-                                    if (e.is_full_module == 1) {
+                                    if (e.pass_module == 1) {
                                         module = "Module-1";
-                                    } else if (e.is_full_module == 2) {
+                                    } else if (e.pass_module == 2) {
                                         module = "Module-2";
-                                    } else if (e.is_full_module == 3) {
+                                    } else if (e.pass_module == 3) {
                                         module = "All Module";
                                     } else {
                                         module = "-";
@@ -2115,7 +2135,7 @@ function user_profile() {
 
                                         exam_register.filter(exam => {
                                             if (exam.course.id == latest_course_reg[0].batch.course.id && exam.exam_type_id != 3) {
-                                                module.push(exam.is_full_module)
+                                                module.push(exam.pass_module)
                                             }
                                         });
 
@@ -2125,7 +2145,7 @@ function user_profile() {
 
                                             if (
                                                 (last_exam[0].course.code == latest_course_reg[0].batch.course.code) &&
-                                                (last_exam[0].exam_type_id !== 3 && (last_exam[0].is_full_module == 3 || containsAll([1, 2], module) == true))
+                                                (last_exam[0].exam_type_id !== 3 && (last_exam[0].pass_module == 3 || containsAll([1, 2], module) == true))
                                             ) {
 
                                                 if (last_exam[0].status == 0) {
@@ -2196,7 +2216,7 @@ function user_profile() {
                                                             let show_text;
 
                                                             //Check moudule for next course
-                                                            if (last_exam[0].is_full_module == 3 || containsAll([1, 2], module) == true) {
+                                                            if (last_exam[0].pass_module == 3 || containsAll([1, 2], module) == true) {
 
 
                                                                 switch (last_exam[0].course.code) {
@@ -2485,7 +2505,7 @@ function user_profile() {
                                                             //Check moudule for next course
                                                             console.log(containsAll([1, 2], module));
                                                             console.log(module);
-                                                            if (last_exam[0].is_full_module == 3 || containsAll([1, 2], module) == true) {
+                                                            if (last_exam[0].pass_module == 3 || containsAll([1, 2], module) == true) {
 
                                                                 switch (last_exam[0].course.code) {
                                                                     case 'da_1':
@@ -3418,6 +3438,7 @@ function user_profile() {
                     }
                     // console.log(latest_course_reg[0],'aa');
                     if (latest_stu_reg[0].form_type == 3 && latest_stu_reg[0].status == 1 && latest_stu_reg[0].course.code == "cpa_1" || latest_stu_reg[0].course.code == "cpa_2") {
+
                         let latest_article = data.article.slice(-1);
                         let latest_gov_article = data.gov_article.slice(-1);
                         let exam_results = data.exam_results.slice(-1);
@@ -3641,7 +3662,11 @@ function user_profile() {
                                             var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
 
                                             if (Difference_In_Days < 1095) {
-                                                $('.article_btn').append(`<tr><td colspan=4></td><td><button type='button' class='btn btn-md btn-success' id='continue_btn' value='${latest_article[0].contract_end_date}' onclick='continueArticle(${latest_article[0].id});'>Continue...</button></td></tr>`);
+                                                //if (latest_stu_reg[0].course.code == "cpa_2" && exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)){
+                                                    $('.article_btn').append(`<tr><td colspan=4></td><td><button type='button' class='btn btn-md btn-success' id='continue_btn' value='${latest_article[0].contract_end_date}' onclick='continueArticle(${latest_article[0].id});'>Continue...</button></td></tr>`);
+                                                //}else {
+                                                    //$('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန်</td><td>Check By MAC</td></tr>`);
+                                                //}
                                             } else {
                                                 $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန်</td><td>Check By MAC</td></tr>`);
                                             }
@@ -3678,13 +3703,13 @@ function user_profile() {
                                     let exam_reg = data.exam_registers;
                                     let count = 0;
                                     exam_reg.forEach(element => {
-                                        if (element.form_type == "4" && element.is_full_module == 3 && element.grade == "1") {
+                                        if (element.form_type == "4" && element.pass_module == 3 && element.grade == "1") {
                                             count = 2;
                                         }
-                                        else if (element.form_type == "4" && element.is_full_module == 1 && element.grade == "1") {
+                                        else if (element.form_type == "4" && element.pass_module == 1 && element.grade == "1") {
                                             count++;
                                         }
-                                        else if (element.form_type == "4" && element.is_full_module == 2 && element.grade == "1") {
+                                        else if (element.form_type == "4" && element.pass_module == 2 && element.grade == "1") {
                                             count++;
                                         }
                                     });
@@ -3695,6 +3720,19 @@ function user_profile() {
                                 if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
                                     $('.article_btn').append(`<tr><td colspan=3></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                                 }
+                            } else if (latest_article[0]?.status == 2) {  //Form Reject
+                                if(latest_article[0]?.article_form_type == 'c12'){
+                                    article_url = '/update_article_firm_registration?data=' + 'c12';
+                                }else if(latest_article[0]?.article_form_type == 'c2_pass_3yr'){
+                                    article_url = '/update_article_firm_registration?data=' + 'c2_pass_3yr';
+                                }else if(latest_article[0]?.article_form_type == 'c2_pass_1yr'){
+                                    article_url = '/update_article_firm_registration?data=' + 'c2_pass_1yr';
+                                }else if(latest_article[0]?.article_form_type == 'c2_pass_renew'){
+                                    article_url = '/update_article_renew_firm_registration?data=' + 'c2_pass_renew';
+                                }else if(latest_article[0]?.article_form_type == 'c12_renew'){
+                                    article_url = '/update_article_renew_firm_registration?data=' + 'c12_renew';
+                                }
+                                $('.article_btn').append(`<tr><td colspan=3></td><td>Update Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Update </a></td></tr>`);
                             } else if (latest_article[0]?.article_form_type == 'resign') {
                                 // if (latest_article[0].done_status == 0) {
                                 //     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
@@ -3728,6 +3766,11 @@ function user_profile() {
                                     } else {
                                         $('.article_btn').append(`<tr><td colspan=3></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
                                     }
+                                } else if (latest_article[0]?.resign_status == 2) {  //Form Reject
+                                    if(latest_article[0]?.article_form_type == 'resign'){
+                                        article_url = '/update_article_resign_registration';
+                                    }
+                                    $('.article_btn').append(`<tr><td colspan=3></td><td>Update Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Update </a></td></tr>`);
                                 }
                                 // }
                             }
@@ -4053,7 +4096,20 @@ function user_profile() {
                                     if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                                     }
-                                } else if (latest_article[0]?.article_form_type == 'resign') {
+                                } else if (latest_article[0]?.status == 2) {  //Form Reject
+                                    if(latest_article[0]?.article_form_type == 'c12'){
+                                        article_url = '/update_article_firm_registration?data=' + 'c12';
+                                    }else if(latest_article[0]?.article_form_type == 'c2_pass_3yr'){
+                                        article_url = '/update_article_firm_registration?data=' + 'c2_pass_3yr';
+                                    }else if(latest_article[0]?.article_form_type == 'c2_pass_1yr'){
+                                        article_url = '/update_article_firm_registration?data=' + 'c2_pass_1yr';
+                                    }else if(latest_article[0]?.article_form_type == 'c2_pass_renew'){
+                                        article_url = '/update_article_renew_firm_registration?data=' + 'c2_pass_renew';
+                                    }else if(latest_article[0]?.article_form_type == 'c12_renew'){
+                                        article_url = '/update_article_renew_firm_registration?data=' + 'c12_renew';
+                                    }
+                                    $('.article_btn').append(`<tr><td colspan=3></td><td>Update Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Update </a></td></tr>`);
+                                }  else if (latest_article[0]?.article_form_type == 'resign') {
                                     // if (latest_article[0].done_status == 0) {
                                     //     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                                     //         $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
@@ -4086,6 +4142,11 @@ function user_profile() {
                                         } else {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
                                         }
+                                    } else if (latest_article[0]?.resign_status == 2) {  //Form Reject
+                                        if(latest_article[0]?.article_form_type == 'resign'){
+                                            article_url = '/update_article_resign_registration';
+                                        }
+                                        $('.article_btn').append(`<tr><td colspan=3></td><td>Update Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Update </a></td></tr>`);
                                     }
                                     // }
                                 }
@@ -4159,7 +4220,10 @@ function user_profile() {
                                     // else {
                                     //     $('.article_btn').append(`<tr><td colspan=3></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                                     // }
-                                }
+                                } else if (latest_gov_article[0]?.status == 2) {  //Form Reject
+                                    article_url = '/update_article_gov_registration';
+                                    $('.article_btn').append(`<tr><td colspan=3></td><td>Update Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Update </a></td></tr>`);
+                                } 
                             }
                         }
 
@@ -4884,7 +4948,7 @@ function loadSchoolByDash(school_data, school_invoice) {
                                 //var period_date = school.from_valid_date.split(' ');
                                 var new_period_date = sch_invoice.dateTime.split('-');
                                 var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                                $('#sch_period_time').text(period + " to 31-12-" + (now.getFullYear() + 3));
+                                $('#sch_period_time').text(period + " to 31-12-" + (now.getFullYear()));
                                 $('.sch_status_history').append('School Registration is Approved.');
                                 $('.sch_period').show();
                                 $('.sch_payment-status').show();
@@ -4892,7 +4956,12 @@ function loadSchoolByDash(school_data, school_invoice) {
                                 var period_date = school.renew_date.split(' ');
                                 var new_period_date = period_date[0].split('-');
                                 var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                                $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + (now.getFullYear() + 3));
+                                var renew_date=new Date(school.renew_date);
+                                if((renew_date.getMonth()+1)=='11' || (renew_date.getMonth()+1)=='12'){
+                                    $('#sch_period_time').text('01-01-' + (now.getFullYear()+1) + " to 31-12-" + (now.getFullYear() + 3));
+                                }else{
+                                    $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + (now.getFullYear() + 2));
+                                }
                                 $('.sch_status_history').append('School Registration is Approved.');
                                 $('.sch_period').show();
                                 $('.sch_payment-status').show();
@@ -5044,7 +5113,13 @@ function laodTeacherByDash(teacher_data, _invoice) {
                             } else if (teacher.initial_status == 1) {
                                 $('.teacher_status_history').append('Teacher Registration is Approved.');
                                 $('.teacher_period').show();
-                                $('#teacher_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear());
+                                var renew_date=new Date(teacher.renew_date);
+                                if((renew_date.getMonth()+1)=='11' || (renew_date.getMonth()+1)=='12'){
+                                    $('#teacher_period_time').text('01-01-' + (now.getFullYear()+1) + " to 31-12-" + (now.getFullYear()+1));
+                                }else{
+                                    $('#teacher_period_time').text('01-01-' + (now.getFullYear()) + " to 31-12-" + (now.getFullYear()));
+                                }
+                               
                                 $('.teacher_payment-status').show();
                             } else {
                                 $('.teacher_status_history').append('Teacher is request stop.');
@@ -5434,51 +5509,93 @@ function allowToRenew() {
                 var last_submit_year = acc_firm.last_registered_year;
                 //var last_submit_year = last_submit_date.getFullYear();
 
-                if (current_year > last_submit_year) {
-                    if (current_month >= 11 || current_month <= 4) {
-                        if (acc_firm.audit_firm_type_id == 1) {
-                            // audit firm
-                            var audit_invoice_status = data[0].audit_invoice_status[0] ? data[0].audit_invoice_status[0].status : '';
-                            if (acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1) {
-                                // to renew approved offline users
-                                console.log("1");
-                                $('#check_renew').css('display', 'block');
-                                $('#check_renew_nonaudit').css('display', 'none');
-                                $("#renew_btn").css('display', 'block'); // renew btn in information page
-                                $(".register-btn").css('display', 'none'); // register btn in information page
-                            }
-                            else if (acc_firm.status == 1 && acc_firm.offline_user != 1 && audit_invoice_status == "AP") {
-                                // to renew normal users who are expired
-                                console.log("2");
+                // if(current_year > last_submit_year ){
+                //
+                // }
+
+                if (current_month >= 11 || current_month <= 4) {
+                    if (acc_firm.audit_firm_type_id == 1) {
+                        // audit firm
+                        //&& acc_firm.is_renew == 0
+                        var invoice_status = data[0].invoice_status[0] ? data[0].invoice_status[0].status : '';
+                        if (acc_firm.status == 1 && acc_firm.offline_user == 1 && acc_firm.is_renew == 0) {
+                            // to renew approved offline users
+                            console.log("1");
+                            $('#check_renew').css('display', 'block');
+                            $('#check_renew_nonaudit').css('display', 'none');
+                            $("#renew_btn").css('display', 'block'); // renew btn in information page
+                            $(".register-btn").css('display', 'none'); // register btn in information page
+                        }
+
+                        else if (acc_firm.status == 1 && acc_firm.offline_user == 1 && acc_firm.is_renew == 1) {
+
+                            if (invoice_status == "AP") {
+                                console.log("offline audit renew again");
+                                // to renew again approved offline users
                                 $('#check_renew').css('display', 'block');
                                 $('#check_renew_nonaudit').css('display', 'none');
                                 $("#renew_btn").css('display', 'block'); // renew btn in information page
                                 $(".register-btn").css('display', 'none'); // register btn in information page
                             }
                         }
-                        else {
-                            console.log("3");
-                            // non-audit firm
-                            var nonaudit_invoice_status = data[0].nonaudit_invoice_status[0] ? data[0].nonaudit_invoice_status[0].status : '';
-                            if (acc_firm.status == 1 && acc_firm.is_renew == 0 && acc_firm.offline_user == 1) {
-                                // to renew approved offline users
-                                $('#check_renew').css('display', 'none');
-                                $('#check_renew_nonaudit').css('display', 'block');
-                                $("#renew_btn_nonaudit").css('display', 'block'); // renew btn in information page
-                                $(".register-btn").css('display', 'none'); // register btn in information page
-                            }
 
-                            else if (acc_firm.status == 1 && acc_firm.offline_user != 1 && nonaudit_invoice_status == "AP") {
-                                // to renew normal users who are expired
-                                console.log("4");
+                        else if (acc_firm.status == 1 && acc_firm.offline_user != 1 && invoice_status == "AP") {
+                            // to renew normal users who are expired
+                            console.log("2");
+                            $('#check_renew').css('display', 'block');
+                            $('#check_renew_nonaudit').css('display', 'none');
+                            $("#renew_btn").css('display', 'block'); // renew btn in information page
+                            $(".register-btn").css('display', 'none'); // register btn in information page
+                        }
+                    }
+                    else {
+                        // non-audit firm
+                        //&& acc_firm.is_renew == 0
+                        var invoice_status = data[0].invoice_status[0] ? data[0].invoice_status[0].status : '';
+                        if (acc_firm.status == 1 && acc_firm.offline_user == 1 && acc_firm.is_renew == 0) {
+                            console.log("3");
+                            // to renew approved offline users
+                            $('#check_renew').css('display', 'none');
+                            $('#check_renew_nonaudit').css('display', 'block');
+                            $("#renew_btn_nonaudit").css('display', 'block'); // renew btn in information page
+                            $(".register-btn").css('display', 'none'); // register btn in information page
+                        }
+
+                        else if (acc_firm.status == 1 && acc_firm.offline_user == 1 && acc_firm.is_renew == 1) {
+
+                            if (invoice_status == "AP") {
+                                console.log("offline nonaudit renew again");
+                                // to renew again approved offline users
                                 $('#check_renew').css('display', 'none');
                                 $('#check_renew_nonaudit').css('display', 'block');
                                 $("#renew_btn_nonaudit").css('display', 'block'); // renew btn in information page
                                 $(".register-btn").css('display', 'none'); // register btn in information page
                             }
+                        }
+
+                        else if (acc_firm.status == 1 && acc_firm.offline_user != 1 && invoice_status == "AP") {
+                            // to renew normal users who are expired
+                            console.log("4");
+                            $('#check_renew').css('display', 'none');
+                            $('#check_renew_nonaudit').css('display', 'block');
+                            $("#renew_btn_nonaudit").css('display', 'block'); // renew btn in information page
+                            $(".register-btn").css('display', 'none'); // register btn in information page
                         }
                     }
                 }
+
+                // var register_date = new Date(acc_firm.register_date);
+                // var register_year = register_date.getFullYear();
+                // var register_month = register_date.getMonth()+1;
+
+                // if(register_year == current_year){
+                //   if(register_month >= 11 || register_month <= 4){
+                //
+                //     console.log("renew updated");
+                //     $('#check_renew').find('a').addClass("disabled");
+                //     $('#check_renew_nonaudit').find('a').addClass("disabled");
+                //   }
+                // }
             }
         })
     }

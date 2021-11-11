@@ -52,9 +52,9 @@ if($("#teacher_register_form").validate({
     },
     messages:{
         email : "Please enter your email",
-        password : "Please provide your password",
+        password : "Please enter at least 8 characters",
         confirm_password : {
-            required : "Please provide your password",
+            required : "Please enter at least 8 characters",
             equalTo : "Please enter the same password as above"
         },
         profile_photo : "Upload photo",

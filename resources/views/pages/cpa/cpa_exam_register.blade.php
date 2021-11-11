@@ -766,27 +766,27 @@
                 if(exam_registers && exam_registers[0].exam_type_id !== 3)
                 {
                      
-                    if(exam_registers[0].is_full_module == "1")
-                    {
+                    // if(exam_registers[0].is_full_module == "1")
+                    // {
                             
-                        $("#module2").prop("checked", true);
+                    //     $("#module2").prop("checked", true);
                         
-                        $(':radio:not(:checked)').attr('disabled', true);
+                    //     $(':radio:not(:checked)').attr('disabled', true);
 
-                    }
-                    else if(exam_registers[0].is_full_module=="2")
-                    {
-                            $("#module1").prop("checked", true);
-                            $(':radio:not(:checked)').attr('disabled', true);
+                    // }
+                    // else if(exam_registers[0].is_full_module=="2")
+                    // {
+                    //         $("#module1").prop("checked", true);
+                    //         $(':radio:not(:checked)').attr('disabled', true);
 
-                    }
-                    else if(exam_registers[0].is_full_module=="3")
-                    {
-                            $("#allmodule").prop("checked", true);
+                    // }
+                    // else if(exam_registers[0].is_full_module=="3")
+                    // {
+                    //         $("#allmodule").prop("checked", true);
 
-                        $(':radio:not(:checked)').attr('disabled', true);
+                    //     $(':radio:not(:checked)').attr('disabled', true);
                         
-                    }
+                    // }
 
                     if(exam_registers[0].is_full_module == "1")
                     {

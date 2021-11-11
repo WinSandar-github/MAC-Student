@@ -524,7 +524,7 @@
                                         
                                     </div>
                             </div>
-                                <div class="row mb-3">
+                                <div class="row mb-3 renew_date_class" >
                                     <label class="col-md-4 col-form-label label"><span
                                                 class="pull-left">၁၁။</span>နောက်ဆုံးသက်တမ်းတိုးခဲ့သည့် ခုနှစ်</label>
                                     <div class="col-md-8">
@@ -532,17 +532,18 @@
                                         
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <label class="col-md-4 col-form-label label"><span
-                                                class="pull-left">၁၂။</span>Status</label>
+                                <input type="hidden" id="hrenew_date">
+                                <div class="row mb-3 ">
+                                    <label class="col-md-4 col-form-label label "><span
+                                                class="pull-left status">၁၂။</span>Status</label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" id="message" readonly>
                                        
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <label class="col-md-8 col-form-label label"><span
-                                                class="pull-left">၁၃။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
+                                <div class="row mb-3 ">
+                                    <label class="col-md-8 col-form-label label "><span
+                                                class="pull-left info">၁၃။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
 
                                     
                                 </div>
@@ -993,7 +994,7 @@
                                                 <tr>
                                                     <th class="less-font-weight text-center">စဉ်</th>
                                                     <th class="less-font-weight text-center">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</th>
-                                                    <th class="less-font-weight text-center">အမည်</th>
+                                                    <th class="less-font-weight text-center">သင်တန်းဆရာအမည်</th>
                                                     <th class="less-font-weight text-center">နိုင်ငံသားစိစစ်ရေးကတ်အမှတ်</th>
                                                     <th class="less-font-weight text-center">ပညာအရည်အချင်း</th>
                                                     <th class="less-font-weight text-center">သင်ကြားမည့်ဘာသာရပ်(များ)</th>

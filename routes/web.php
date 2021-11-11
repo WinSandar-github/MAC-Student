@@ -193,6 +193,11 @@ Route::get('article_cpa_two_one_pass_year', 'ArticleController@articleCPATwoOne'
 Route::get('article_cpa_two_three_pass_year', 'ArticleController@articleCPATwoThree');
 Route::get('article_cpa_two_renew', 'ArticleController@articleCPATwoRenew');
 Route::get('article_cpa_one_two_renew', 'ArticleController@articleCPAOneTwoRenew');
+Route::get('update_article_firm_registration', 'ArticleController@updateArticleFirm');
+Route::get('update_article_gov_registration', 'ArticleController@updateArticleGov');
+Route::get('update_article_renew_firm_registration', 'ArticleController@updateArticleRenewFirm');
+Route::get('update_article_qt_firm_registration', 'ArticleController@updateArticleQTFirm');
+Route::get('update_article_resign_registration', 'ArticleController@updateArticleResign');
 // Article Information Page
 Route::get('article_information', 'ArticleInfoController@info');
 
