@@ -4814,7 +4814,7 @@ function loadSchoolByDash(school_data, school_invoice) {
                                 //var period_date = school.from_valid_date.split(' ');
                                 var new_period_date = sch_invoice.dateTime.split('-');
                                 var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                                $('#sch_period_time').text(period + " to 31-12-" + (now.getFullYear() + 3));
+                                $('#sch_period_time').text(period + " to 31-12-" + (now.getFullYear()));
                                 $('.sch_status_history').append('School Registration is Approved.');
                                 $('.sch_period').show();
                                 $('.sch_payment-status').show();
@@ -4822,7 +4822,12 @@ function loadSchoolByDash(school_data, school_invoice) {
                                 var period_date = school.renew_date.split(' ');
                                 var new_period_date = period_date[0].split('-');
                                 var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                                $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + (now.getFullYear() + 3));
+                                var renew_date=new Date(school.renew_date);
+                                if((renew_date.getMonth()+1)=='11' || (renew_date.getMonth()+1)=='12'){
+                                    $('#sch_period_time').text('01-01-' + (now.getFullYear()+1) + " to 31-12-" + (now.getFullYear() + 3));
+                                }else{
+                                    $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + (now.getFullYear() + 2));
+                                }
                                 $('.sch_status_history').append('School Registration is Approved.');
                                 $('.sch_period').show();
                                 $('.sch_payment-status').show();
@@ -4974,7 +4979,13 @@ function laodTeacherByDash(teacher_data, _invoice) {
                             } else if (teacher.initial_status == 1) {
                                 $('.teacher_status_history').append('Teacher Registration is Approved.');
                                 $('.teacher_period').show();
-                                $('#teacher_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear());
+                                var renew_date=new Date(teacher.renew_date);
+                                if((renew_date.getMonth()+1)=='11' || (renew_date.getMonth()+1)=='12'){
+                                    $('#teacher_period_time').text('01-01-' + (now.getFullYear()+1) + " to 31-12-" + (now.getFullYear()+1));
+                                }else{
+                                    $('#teacher_period_time').text('01-01-' + (now.getFullYear()) + " to 31-12-" + (now.getFullYear()));
+                                }
+                               
                                 $('.teacher_payment-status').show();
                             } else {
                                 $('.teacher_status_history').append('Teacher is request stop.');
