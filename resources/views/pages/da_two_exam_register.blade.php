@@ -627,7 +627,7 @@ $nrc_characters = config('myanmarnrc.characters');
                         if(last_exam[0].course.code == 'da_2') {
                             // $("input[name='date']").val(formatDate(last_exam[0].created_at));
 
-                            if(last_exam[0].is_full_module == "1")
+                            if(last_exam[0].pass_module == "1")
                             {
                                 
                                 $(".module_two").prop("checked", true);
@@ -635,15 +635,15 @@ $nrc_characters = config('myanmarnrc.characters');
                                 $(':radio:not(:checked)').attr('disabled', true);
 
                             }
-                            else if(last_exam[0].is_full_module=="2"){
+                            else if(last_exam[0].pass_module=="2"){
                                 $(".module_one").prop("checked", true);
                                 $(':radio:not(:checked)').attr('disabled', true);
 
                             }
-                            else if(last_exam[0].is_full_module=="3"){
+                            else if(last_exam[0].pass_module=="3"){
                                 $(".module_full").prop("checked", true);
 
-                            $(':radio:not(:checked)').attr('disabled', true);
+                                $(':radio:not(:checked)').attr('disabled', true);
                                 
                             }
 
