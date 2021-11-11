@@ -787,7 +787,7 @@
                     $("#end_date").text(latest_article[0].resign_date);
                 }
             }
-
+            console.log(latest_article[0].offline_user);
             $("#student_info_id").val(latest_article[0].student_info_id);
             $('#offline_user').val(latest_article[0].offline_user);
 

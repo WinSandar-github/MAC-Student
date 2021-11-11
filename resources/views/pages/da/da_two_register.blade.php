@@ -342,7 +342,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-5">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>အဆင့်</label>                                            
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>အဆင့်<span style="color:red">*</span></label>                                            
                                                     <div class="col-md-8">
                                                         <div class="">
                                                             <input type="text" placeholder="အဆင့်" id="da_one_pass_level_self" name="da_one_pass_level" class="form-control ">
@@ -350,10 +350,10 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>                                            
                                                 </div>
                                                 <div class="row mb-4">
-                                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>ကိုယ်ပိုင်အမှတ်</label>
+                                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
                                                         <div class="col-md-8">
                                                             <input type="text" name="personal_no_self" class="form-control personal_no_self"
-                                                                placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self">
+                                                                placeholder="သင်တန်းသားကိုယ်ပိုင်အမှတ်" id="personal_no_self">
 
                                                         </div>
                                                     </div>        
@@ -888,7 +888,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>အဆင့်</label>                                            
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>အဆင့်<span style="color:red">*</span></label>                                            
                                                     <div class="col-md-8">
                                                         <div class="">
                                                             <input type="text" placeholder="အဆင့်" id="da_one_pass_level_private" name="da_one_pass_level" class="form-control year">
@@ -897,12 +897,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
                                                 <div class="row mb-4">
                                                     <label class="col-md-4 col-form-label label">
-                                                        <span class="pull-left" style="padding-left:85px">(ဂ)</span>ကိုယ်ပိုင်အမှတ်
+                                                        <span class="pull-left" style="padding-left:85px">(ဂ)</span>သင်တန်းသားကိုယ်ပိုင်အမှတ်
                                                     </label>
 
                                                     <div class="col-md-8">
                                                         <input type="text" name="personal_no_private" class="form-control personal_no_private"
-                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_private">
+                                                            placeholder="သင်တန်းသားကိုယ်ပိုင်အမှတ်" id="personal_no_private">
                                                     </div>
                                                 </div>
 
@@ -1284,7 +1284,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>အဆင့်</label>                                            
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>အဆင့်<span style="color:red">*</span></label>                                            
                                                     <div class="col-md-8">
                                                         <div class="">
                                                             <input type="text" placeholder="အဆင့်" id="da_one_pass_level_mac" name="da_one_pass_level" class="form-control year">
@@ -1292,10 +1292,10 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>                                            
                                                 </div>
                                                 <div class="row mb-4">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>ကိုယ်ပိုင်အမှတ်</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="personal_no_mac" class="form-control personal_no_mac"
-                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac">
+                                                            placeholder="သင်တန်းသားကိုယ်ပိုင်အမှတ်" id="personal_no_mac">
                                                     </div>
                                                 </div>
                                                 <div class="row mb-3" style="display:none">
@@ -1647,7 +1647,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
 
                     let batch_id = localStorage.getItem('batch_id');
-                    if( last_exam[0] && (( last_exam[0].batch_id == current_stu_course[0].batch_id )||(last_exam[0].batch_id != current_stu_course[0].batch_id && current_stu_course[0].offline_user==1)) && last_exam[0].is_full_module !== 3 && last_exam[0].course.code=="da_2"){
+                    if( last_exam[0] && (( last_exam[0].batch_id == current_stu_course[0].batch_id )||(last_exam[0].batch_id != current_stu_course[0].batch_id && current_stu_course[0].offline_user==1)) && last_exam[0].pass_module !== 3 && last_exam[0].course.code=="da_2"){
                        
                         $.ajax({
                         type: "get",
@@ -1662,9 +1662,9 @@ $nrc_characters = config('myanmarnrc.characters');
                             $('.batch_no').val(res.data.number);
                             $('.batch_id').val(res.data.id);
                             $('.personal_no').val(data.data.personal_no);
-                            $('#remain_module').val(last_exam[0].is_full_module)
+                            $('#remain_module').val(last_exam[0].pass_module)
 
-                            if(last_exam[0].is_full_module == "1"){
+                            if(last_exam[0].pass_module == "1"){
                                  $(".module_two").prop("checked", true);
                               
                                 $('.module_one').attr('disabled', true);
@@ -1672,7 +1672,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
 
                             }
-                            else if(last_exam[0].is_full_module=="2"){
+                            else if(last_exam[0].pass_module == "2"){
                                 $(".module_one").prop("checked", true);
                                 $('.module_two').attr('disabled', true);
                                 $('.module_full').attr('disabled', true);
@@ -1680,7 +1680,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
  
                             }
-                            else if(last_exam[0].is_full_module=="3"){
+                            else if(last_exam[0].pass_module == "3"){
                                 $(".module_full").prop("checked", true);
                                  $('.module_two').attr('disabled', true);
                                 $('.module_full').attr('disabled', true);
@@ -1689,9 +1689,9 @@ $nrc_characters = config('myanmarnrc.characters');
                                   
                             }
 
-                            $("#da_one_pass_level_self").val(last_exam[0].grade);
-                            $("#da_one_pass_level_private").val(last_exam[0].grade);
-                            $("#da_one_pass_level_mac").val(last_exam[0].grade);
+                            $("#da_one_pass_level_self").val(last_exam[0].passed_level);
+                            $("#da_one_pass_level_private").val(last_exam[0].passed_level);
+                            $("#da_one_pass_level_mac").val(last_exam[0].passed_level);
 
                             
                            
@@ -1703,9 +1703,9 @@ $nrc_characters = config('myanmarnrc.characters');
                     }else{
                          $('.batch_no').val();                         
                          $('.batch_id').val();
-                         $("#da_one_pass_level_self").val(last_exam[0].grade);
-                         $("#da_one_pass_level_private").val(last_exam[0].grade);
-                         $("#da_one_pass_level_mac").val(last_exam[0].grade);
+                         $("#da_one_pass_level_self").val(last_exam[0].passed_level);
+                         $("#da_one_pass_level_private").val(last_exam[0].passed_level);
+                         $("#da_one_pass_level_mac").val(last_exam[0].passed_level);
                     }
 
                     let education = student_info.student_education_histroy;

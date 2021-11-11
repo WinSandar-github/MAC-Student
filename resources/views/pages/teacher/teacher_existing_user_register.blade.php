@@ -104,7 +104,7 @@
                                   <div class="row mb-5">
                                         <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>လျို့ဝှက်နံပါတ်</label>
                                         <div class="col-md-6">
-                                            <input type="password" name="password" id="password" class="form-control" placeholder="လျို့ဝှက်နံပါတ် ထည့်ပါ။" autocomplete='off' maxlength="8" minlength="8">
+                                            <input type="password" name="password" id="password" class="form-control" placeholder="လျို့ဝှက်နံပါတ် ထည့်ပါ။" autocomplete='off'  minlength="8">
                                            
                                         </div>
                                   </div>

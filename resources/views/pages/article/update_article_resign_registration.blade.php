@@ -83,7 +83,7 @@
                         <!-- Form Wrapper Start -->
                         <div class="form-wrapper">
 
-                            <form method="post" id="article_resign_register_form"  action="javascript:javascript:createArticleResignRegister();"
+                            <form method="post" id="update_article_resign_register_form"  action="javascript:javascript:createArticleResignRegister();"
                                     enctype="multipart/form-data" novalidate>
                                 @csrf
                                 <!-- <input type="hidden" id="offline_user"> -->
@@ -312,7 +312,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody class="tbl_degree_body">
-
+                                                        
                                                     </tbody>
                                                 </table>
 
@@ -383,7 +383,8 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>Firm တွင် အလုပ်သင်ဆင်းနေသူဖြစ်ပါက သက်ဆိုင်ရာ PAPP ၏နုတ်ထွက်ခွင့်ပြုသည့် အကြောင်းကြားစာပူးတွဲတင်ပြရန်</label>
-                                            <div class="col-md-9">
+                                            <div class="col-md-2 resign_approve_attach_old"></div>
+                                            <div class="col-md-7">
                                                 <input type="file" name="resign_approve_attach"  class="form-control">
                                             </div>
                                         </div>
@@ -391,6 +392,7 @@
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
                                         <input type="hidden" id="article_form_type" name="article_form_type" >
                                         <input type="hidden" id="offline_user" name="offline_user" >
+                                        <input type="hidden" id="article_id" name="article_id" >
 
                                         <div class="row mb-3">
                                             <div class="form-check">
@@ -417,7 +419,7 @@
                                                 <label  class="error attend_place_error" style="display:none;" for="confirm_142">Please check one</label>
                                             </div>
                                         </div>
-
+                                        
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
@@ -433,13 +435,10 @@
 
                                         <input type="hidden" name="type" value="Student" class="form-control" placeholder="" autocomplete="off" >
                                         <input type="hidden" name="status" value="0" class="form-control" placeholder="" autocomplete="off" >
-                                        <input type="hidden" name="contract_start_date" id="contract_start_date" value="" class="form-control" placeholder="" autocomplete="off" >
-                                        <input type="hidden" name="contract_end_date" id="contract_end_date" value="" class="form-control" placeholder="" autocomplete="off" >
-                                        <input type="hidden" name="mentor_id" id="mentor_id" value="" class="form-control" placeholder="" autocomplete="off" >
 
                                         <div class="row justify-content-center">
                                             <button type="submit" id="submit_btn" class="btn btn-success btn-hover-dark w-25" disabled>
-                                                Submit
+                                            Update
                                             </button>
                                         </div>
 
@@ -479,14 +478,7 @@
         $("#article_form_type").val("resign");
 
         get_student_info(student_id).then(data => {
-
             let student_info = data.data
-            let article_info = data.data.article;
-            
-            $("#contract_start_date").val(article_info[0].contract_start_date);
-            $("#contract_end_date").val(article_info[0].contract_end_date);
-            $("#mentor_id").val(article_info[0].mentor_id);
-
             // let student_reg = data.data.student_register
             // let lastest_row = student_reg.length - 1;
             // let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
@@ -496,7 +488,8 @@
             let latest_gov_article = data.data.gov_article.slice(-1);
             let latest_article = data.data.article.slice(-1);
             let qualified_test = data.data.qualified_test;
-
+            $("#article_id").val(latest_article[0].id);
+            
             if(latest_article[0]){
                 $("#student_info_id").val(latest_article[0].student_info_id);
                 $("#recent_org").val("Firm");
@@ -546,7 +539,7 @@
 
                     })
                 }
-
+                
                 // if(latest_article[0]?.offline_user == 1){
                 //     $(".stu_certificate").append(`<a href='${BASE_URL+student_info.student_education_histroy.certificate}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'  align="center">View Attach File</a>`);
                 // }else{
@@ -561,6 +554,18 @@
 
             $("#address").val(student_info.address);
             $("#phone_no").val(student_info.phone);
+
+            $("#m_email").val(latest_article[0].m_email);
+
+            $("#resign_date").val(latest_article[0].resign_date);
+            $("#resign_reason").val(latest_article[0].resign_reason);
+            $("#recent_org").val(latest_article[0].recent_org);
+
+            if (latest_article[0].resign_approve_file == "") {
+                $(".resign_approve_attach_old").append(``);
+            } else {
+                $(".resign_approve_attach_old").append(`<a href = '${BASE_URL + latest_article[0].resign_approve_file}' style = 'display:block; font-size:16px;text-decoration: none;' target = '_blank' align = "center" > View Photo</a > `);
+            }
 
             if(student_info.article[0]){
                 student_info.article[0] == undefined ? $("#m_email").val() : $("#m_email").val(student_info.article[student_info.article.length-1].m_email);
@@ -648,7 +653,7 @@
       }
     }
     function loadEductaionHistory(id,table){
-
+    
         $.ajax({
             type : 'POST',
             url : BACKEND_URL+"/getEducationHistory",
@@ -665,8 +670,8 @@
                 });
             }
         });
-
-
+    
+    
     }
 </script>
 @endpush

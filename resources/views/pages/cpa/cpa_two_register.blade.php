@@ -1863,8 +1863,8 @@ $nrc_characters = config('myanmarnrc.characters');
                         $('.cpa_one_pass_date_private').val(formatDate(exam_registers[0].updated_at));
                         $('.cpa_one_pass_date_mac').val(formatDate(exam_registers[0].updated_at));
 
-                        $('.cpa_one_success_no_private').val(exam_registers[0].grade);
-                        $('.cpa_one_success_no_mac').val(exam_registers[0].grade);
+                        $('.cpa_one_success_no_private').val(exam_registers[0].passed_level);
+                        $('.cpa_one_success_no_mac').val(exam_registers[0].passed_level);
 
                         $('.father_name_mm').val(student_info.father_name_mm);
                         $('.father_name_eng').val(student_info.father_name_eng);
@@ -1934,17 +1934,17 @@ $nrc_characters = config('myanmarnrc.characters');
                                         $('.batch_id').val(res.data.id);
                                         $('.personal_no').val(data.data.personal_no);
 
-                                        if (exam_registers[0].is_full_module == "1") {
+                                        if (exam_registers[0].pass_module == "1") {
                                             $(".module_two").prop("checked", true);
                                             $('.module_one').attr('disabled', true);
                                             $('.module_full').attr('disabled', true);
 
-                                        } else if (exam_registers[0].is_full_module == "2") {
+                                        } else if (exam_registers[0].pass_module == "2") {
                                             $(".module_one").prop("checked", true);
                                             $('.module_two').attr('disabled', true);
                                             $('.module_full').attr('disabled', true);
 
-                                        } else if (exam_registers[0].is_full_module == "3") {
+                                        } else if (exam_registers[0].pass_module == "3") {
                                             $(".module_full").prop("checked", true);
                                             $('.module_two').attr('disabled', true);
                                             $('.module_full').attr('disabled', true);
