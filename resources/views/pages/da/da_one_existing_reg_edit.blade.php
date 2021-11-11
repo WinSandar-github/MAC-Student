@@ -931,6 +931,15 @@
                 }
             }
 
+            $(document).on('keydown', '#da_one_pass_personal_no', function () {
+                engLetterOnly($(this));
+            });
+
+            function engLetterOnly(self) {
+                val = self.val(); 
+                self.val(val.replace(/[^A-Za-z0-9? _@.,''/#&+-]*$/, ''));               
+            }
+
             $('#btn_cash').click(function () {
                 setTimeout(function () {
                     $('#exampleModal1').modal('hide');
