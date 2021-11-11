@@ -1823,32 +1823,28 @@
                                             $('.batch_id').val(res.data.id);
                                             $('.batch_number').append(number2mm(res.data.number))
                                             // $('.personal_no').val(data.data.cpersonal_no);
-                                            $('#remain_module').val(last_exam[0].is_full_module)
+                                            $('#remain_module').val(last_exam[0].pass_module)
 
-                                            if(last_exam[0].is_full_module == "1"){
+                                            if(last_exam[0].pass_module == "1"){
                                                 $(".module_two").prop("checked", true);
                                             
                                                 $('.module_one').attr('disabled', true);
                                                 $('.module_full').attr('disabled', true);
 
-                                                if(last_exam[0].is_full_module == "1"){
+                                                if(last_exam[0].pass_module == "1"){
                                                     $(".module_two").prop("checked", true);
                                                 
                                                     $('.module_one').attr('disabled', true);
                                                     $('.module_full').attr('disabled', true);
 
                                                 }
-                                                else if(last_exam[0].is_full_module=="2"){
+                                                else if(last_exam[0].pass_module ==  "2"){
                                                     $(".module_one").prop("checked", true);
                                                     $('.module_two').attr('disabled', true);
                                                     $('.module_full').attr('disabled', true);
 
                                                 }
-                                                else if(last_exam[0].is_full_module=="2"){
-                                                    $(".module_one").prop("checked", true);
-                                                    $('.module_two').attr('disabled', true);
-                                                    $('.module_full').attr('disabled', true);
-                                                }
+                                          
                                                 else{
                                                     $(".module_full").prop("checked", true);
                                                     $('.module_two').attr('disabled', true);

@@ -1647,7 +1647,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
 
                     let batch_id = localStorage.getItem('batch_id');
-                    if( last_exam[0] && (( last_exam[0].batch_id == current_stu_course[0].batch_id )||(last_exam[0].batch_id != current_stu_course[0].batch_id && current_stu_course[0].offline_user==1)) && last_exam[0].is_full_module !== 3 && last_exam[0].course.code=="da_2"){
+                    if( last_exam[0] && (( last_exam[0].batch_id == current_stu_course[0].batch_id )||(last_exam[0].batch_id != current_stu_course[0].batch_id && current_stu_course[0].offline_user==1)) && last_exam[0].pass_module !== 3 && last_exam[0].course.code=="da_2"){
                        
                         $.ajax({
                         type: "get",
@@ -1662,9 +1662,9 @@ $nrc_characters = config('myanmarnrc.characters');
                             $('.batch_no').val(res.data.number);
                             $('.batch_id').val(res.data.id);
                             $('.personal_no').val(data.data.personal_no);
-                            $('#remain_module').val(last_exam[0].is_full_module)
+                            $('#remain_module').val(last_exam[0].pass_module)
 
-                            if(last_exam[0].is_full_module == "1"){
+                            if(last_exam[0].pass_module == "1"){
                                  $(".module_two").prop("checked", true);
                               
                                 $('.module_one').attr('disabled', true);
@@ -1672,7 +1672,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
 
                             }
-                            else if(last_exam[0].is_full_module=="2"){
+                            else if(last_exam[0].pass_module == "2"){
                                 $(".module_one").prop("checked", true);
                                 $('.module_two').attr('disabled', true);
                                 $('.module_full').attr('disabled', true);
@@ -1680,7 +1680,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
  
                             }
-                            else if(last_exam[0].is_full_module=="3"){
+                            else if(last_exam[0].pass_module == "3"){
                                 $(".module_full").prop("checked", true);
                                  $('.module_two').attr('disabled', true);
                                 $('.module_full').attr('disabled', true);

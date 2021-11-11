@@ -1712,11 +1712,11 @@ function user_profile() {
                                 // console.log('exam', exam)
                                 exam.map(e => {
                                     var module;
-                                    if (e.is_full_module == 1) {
+                                    if (e.pass_module == 1) {
                                         module = "Module-1";
-                                    } else if (e.is_full_module == 2) {
+                                    } else if (e.pass_module == 2) {
                                         module = "Module-2";
-                                    } else if (e.is_full_module == 3) {
+                                    } else if (e.pass_module == 3) {
                                         module = "All Module";
                                     } else {
                                         module = "-";
@@ -2100,7 +2100,7 @@ function user_profile() {
 
                                         exam_register.filter(exam => {
                                             if (exam.course.id == latest_course_reg[0].batch.course.id && exam.exam_type_id != 3) {
-                                                module.push(exam.is_full_module)
+                                                module.push(exam.pass_module)
                                             }
                                         });
 
@@ -2110,7 +2110,7 @@ function user_profile() {
 
                                             if (
                                                 (last_exam[0].course.code == latest_course_reg[0].batch.course.code) &&
-                                                (last_exam[0].exam_type_id !== 3 && (last_exam[0].is_full_module == 3 || containsAll([1, 2], module) == true))
+                                                (last_exam[0].exam_type_id !== 3 && (last_exam[0].pass_module == 3 || containsAll([1, 2], module) == true))
                                             ) {
 
                                                 if (last_exam[0].status == 0) {
@@ -2182,7 +2182,7 @@ function user_profile() {
                                                             let show_text;
 
                                                             //Check moudule for next course
-                                                            if (last_exam[0].is_full_module == 3 || containsAll([1, 2], module) == true) {
+                                                            if (last_exam[0].pass_module == 3 || containsAll([1, 2], module) == true) {
 
 
                                                                 switch (last_exam[0].course.code) {
@@ -2470,7 +2470,7 @@ function user_profile() {
                                                             //Check moudule for next course
                                                             console.log(containsAll([1, 2], module));
                                                             console.log(module);
-                                                            if (last_exam[0].is_full_module == 3 || containsAll([1, 2], module) == true) {
+                                                            if (last_exam[0].pass_module == 3 || containsAll([1, 2], module) == true) {
 
                                                                 switch (last_exam[0].course.code) {
                                                                     case 'da_1':
@@ -3663,13 +3663,13 @@ function user_profile() {
                                     let exam_reg = data.exam_registers;
                                     let count = 0;
                                     exam_reg.forEach(element => {
-                                        if (element.form_type == "4" && element.is_full_module == 3 && element.grade == "1") {
+                                        if (element.form_type == "4" && element.pass_module == 3 && element.grade == "1") {
                                             count = 2;
                                         }
-                                        else if (element.form_type == "4" && element.is_full_module == 1 && element.grade == "1") {
+                                        else if (element.form_type == "4" && element.pass_module == 1 && element.grade == "1") {
                                             count++;
                                         }
-                                        else if (element.form_type == "4" && element.is_full_module == 2 && element.grade == "1") {
+                                        else if (element.form_type == "4" && element.pass_module == 2 && element.grade == "1") {
                                             count++;
                                         }
                                     });
