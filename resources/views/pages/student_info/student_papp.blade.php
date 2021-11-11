@@ -555,7 +555,7 @@
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(က)</div>
                                     <div class="col-md-7">
-                                            <label style="font-size:15px;">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်၊</label>
+                                            <label style="font-size:15px;">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မီ) မှတ်ပုံတင်လက်မှတ်၊</label>
                                     </div>
                                     <div class="col-md-3">
                                             <input type="file" class="form-control" name="cpa_ff_file"  id="cpa_ff_file" >

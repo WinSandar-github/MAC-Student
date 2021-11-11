@@ -240,7 +240,7 @@
                                                 </div>
 
                                                 <div class="row mb-5">
-                                                    <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၅။') }}</span>ကိုယ်ပိုင်အမှတ်</label>
+                                                    <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၅။') }}</span>ကိုယ်ပိုင်အမှတ်/ခုံအမှတ်</label>
                                                     <div class="col-md-9">
                                                         <input type="text" placeholder="ကိုယ်ပိုင်အမှတ်" name="personal_no" id="personal_no" class="form-control" >
                                                     </div>
