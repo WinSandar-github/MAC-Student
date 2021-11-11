@@ -250,7 +250,7 @@
 
                         <div class="row">
                             <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                            <label class="col-md-10 col-form-label">ကျွန်ုပ်အား <input type="text" name="cpaff_pass_date" id="cpaff_pass_date" class="form-control" style="display: inline;width: 100px;" > ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။ ထိုမှတ်ပုံတင်ကို <input type="text" name="cpaff_renew_date" id="cpaff_renew_date" class="form-control" style="display: inline;width: 100px;" > ခုနှစ်အတွက် သက်တမ်းတိုးမြှင့်ပေးပါရန် လျှောက်ထားပါသည်။</label>                                
+                            <label class="col-md-10 col-form-label">ကျွန်ုပ်အား <input type="text" name="cpaff_pass_date" id="cpaff_pass_date" class="form-control" style="display: inline;width: 100px;" > ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မီ) မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။ ထိုမှတ်ပုံတင်ကို <input type="text" name="cpaff_renew_date" id="cpaff_renew_date" class="form-control" style="display: inline;width: 100px;" > ခုနှစ်အတွက် သက်တမ်းတိုးမြှင့်ပေးပါရန် လျှောက်ထားပါသည်။</label>                                
                         </div><br/>
 
                         <div class="row">
@@ -303,7 +303,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ)မှတ်ပုံတင်လက်မှတ်</div>
+                                <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မီ)မှတ်ပုံတင်လက်မှတ်</div>
                                 <div class="col-md-1 cpa_certificate_old"></div>
                                 <div class="col-md-3">
                                             <input type="file"  class="form-control" name="cpa_certificate" id="cpa_certificate">
@@ -534,9 +534,9 @@
         url: BACKEND_URL + "/cpa_ff/" + cpaff_id,
         type: 'get',
         success: function (result) {
-            console.log(result);
+            // console.log(result);
             var cpaff=result.data[0];
-            console.log(cpaff)
+            // console.log("Hello",cpaff)
             document.getElementById('cpaff_img').src=BASE_URL + cpaff.student_info.image;
             document.getElementById('nrc_front').src=BASE_URL + cpaff.student_info.nrc_front;
             document.getElementById('nrc_back').src=BASE_URL + cpaff.student_info.nrc_back;
@@ -547,7 +547,7 @@
             $('#total_hours').val(cpaff.total_hours);
             $('#fine_person').val(cpaff.fine_person);
             $('#papp_reg_no').val(cpaff.papp_reg_no);
-            $('#last_paid_year').val(cpaff.last_paid_year);
+            $('#last_paid_year').val(cpaff.previous_last_paid_year);
             $('#cpaff_reg_no').val(cpaff.cpaff_reg_no);
 
             var cpaff_pass_date=new Date(cpaff.cpaff_pass_date);

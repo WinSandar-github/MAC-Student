@@ -21,7 +21,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">PAPP Existing User Registeration<span>Form</span></h2>
+                    <h2 class="title">PAPP Existing User Registration<span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
 
@@ -580,7 +580,7 @@
                                 <div class="row" style="padding-left: 110px;">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(၁)') }}</label>
-                                    <div class="col-md-4 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ)မှတ်ပုံတင်လက်မှတ်</div>
+                                    <div class="col-md-4 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မီ)မှတ်ပုံတင်လက်မှတ်</div>
                                     <div class="col-md-2 cpa_certificate_old"></div>
                                     <div class="col-md-4">
                                         <input type="file"  class="form-control" name="cpa_certificate" >

@@ -816,7 +816,7 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
-                                    <div class="col-md-6 col-form-label">CPA(Full-Fledged) Registeration No.</div>
+                                    <div class="col-md-6 col-form-label">CPA(Full-Fledged) Registration No.</div>
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" name="reg_no" id="cpaff_reg_no">
                                     </div>
@@ -825,9 +825,9 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
-                                    <div class="col-md-6 col-form-label">PAPP Registeration No.</div>
+                                    <div class="col-md-6 col-form-label">PAPP Registration No.</div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="papp_reg_no" placeholder="Enter PAPP Registeration No.">
+                                        <input type="text" class="form-control" name="papp_reg_no" placeholder="Enter PAPP Registration No.">
                                     </div>
                                 </div><br/><br>
 
