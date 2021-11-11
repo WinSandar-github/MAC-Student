@@ -1773,7 +1773,7 @@
                                     
                                     $('.batch_no').val(res.data.number);
                                     $('.personal_no').val(data.data.personal_no);
-                                    $('#remain_module').val(last_exam[0].is_full_module)
+                                    $('#remain_module').val(last_exam[0].pass_module)
                                     if(last_exam[0].pass_module == "1"){
                                         $(".module_two").prop("checked", true);
                                     
@@ -1782,13 +1782,13 @@
 
 
                                     }
-                                    else if(last_exam[0].is_full_module=="2"){
+                                    else if(last_exam[0].pass_module=="2"){
                                         $(".module_one").prop("checked", true);
                                         $('.module_two').attr('disabled', true);
                                         $('.module_full').attr('disabled', true);
         
                                     }
-                                    else if(last_exam[0].is_full_module=="3"){
+                                    else if(last_exam[0].pass_module=="3"){
                                         $(".module_full").prop("checked", true);
                                         $('.module_two').attr('disabled', true);
                                         $('.module_one').attr('disabled', true);                              
@@ -1878,6 +1878,7 @@
                         if(current_stu_course[0].offline_user==1){
                             $("input[name='mac_type']").prop('disabled', true);
                         }else{
+                            alert("hello")
                             $("input[name='mac_type']").prop('disabled', false);
                         }
                     }

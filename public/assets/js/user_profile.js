@@ -2039,7 +2039,7 @@ function user_profile() {
 
 
                                 if (latest_stu_reg[0] && latest_course_reg[0].batch.id == latest_stu_reg[0].batch.id) {
-                                    alert("student register")
+
                                     $('.regi_fee_txt').text('Exam Registration Date')
                                     $('.self_study').hide();
                                     $('.private_school').hide();
@@ -3405,7 +3405,7 @@ function user_profile() {
                     }
                     // console.log(latest_course_reg[0],'aa');
                     if (latest_stu_reg[0].form_type == 3 && latest_stu_reg[0].status == 1 && latest_stu_reg[0].course.code == "cpa_1" || latest_stu_reg[0].course.code == "cpa_2") {
-                    
+
                         let latest_article = data.article.slice(-1);
                         let latest_gov_article = data.gov_article.slice(-1);
                         let exam_results = data.exam_results.slice(-1);

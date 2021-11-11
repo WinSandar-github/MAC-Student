@@ -588,11 +588,16 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     }); 
-    $("#exam_month").datepicker({
-        format: "mm",
-        viewMode: "months", 
-        minViewMode: "months",
-        autoclose:true //to close picker once year is selected
+    // $("#exam_month").datepicker({
+    //     format: "mm",
+    //     viewMode: "months", 
+    //     minViewMode: "months",
+    //     autoclose:true //to close picker once year is selected
+    // }); 
+    $("#exam_month").flatpickr({
+        enableTime: false,
+        dateFormat: "M",
+        allowInput: true,
     }); 
 
     $.ajax({
