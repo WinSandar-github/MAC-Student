@@ -2037,11 +2037,13 @@ function user_profile() {
                                         // $('.status').append('<p>Your Registration Form is checking.</p>')
 
                                     } else if (latest_stu_reg[0].status == 1) {
+                                        // alert("BBBB");
 
                                         // $('.status').append(`<p>Your Registration Form is Approved  on the  ${formatDate(latest_course_reg[0].updated_at)}.</p>`)
 
                                         var course_code = latest_course_reg[0].batch.course.code == "da_1";
 
+                                        // alert(latest_course_reg[0].batch.course.code)
                                         var invoice = data.invoice.filter(val => {
                                             return (val.invoiceNo == 'mac_reg_' + latest_course_reg[0].batch.course.code
                                                 || val.invoiceNo == 'prv_reg_' + latest_course_reg[0].batch.course.code

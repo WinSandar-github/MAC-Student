@@ -1791,9 +1791,18 @@
                                     else if(last_exam[0].is_full_module=="3"){
                                         $(".module_full").prop("checked", true);
                                         $('.module_two').attr('disabled', true);
-                                        $('.module_full').attr('disabled', true);                              
+                                        $('.module_one').attr('disabled', true);                              
                                         
-                                    }                          
+                                    }
+                                    else{
+                                        $(".module_one").prop("checked", false);
+                                        $('.module_two').attr('checked', false);
+                                        $('.module_full').attr('checked', false);
+                                        
+                                        $(".module_one").prop("disabled", false);
+                                        $('.module_two').attr('disabled', false);
+                                        $('.module_full').attr('disabled', false);                                                    
+                                    }                         
                                 }
                             }) 
                         
@@ -1866,7 +1875,11 @@
                         $("input[name='recommend_letter_private']").prop('disabled', false);
                         $("input[name='gov_staff']").prop('disabled', false);
                         $("#mac_school").show();
-                        $("input[name='mac_type']").prop('disabled', false);
+                        if(current_stu_course[0].offline_user==1){
+                            $("input[name='mac_type']").prop('disabled', true);
+                        }else{
+                            $("input[name='mac_type']").prop('disabled', false);
+                        }
                     }
                     else{
                         $("input[name='office_address']").prop('readonly', true);
