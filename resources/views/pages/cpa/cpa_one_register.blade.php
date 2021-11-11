@@ -1785,17 +1785,17 @@
 
                 get_student_info(student_id).then(data => {
                     if(data){
-                        console.log('data',data);
+                        // console.log('data',data);
                         let current_stu_course = data.data.student_course_regs.slice(-1);
                         let student_course_regs = data.data.student_course_regs;
                         let last_exam = data.data.exam_registers.slice(-1);
-                        console.log('current_stu_course',current_stu_course); 
-                        console.log('last_exam',last_exam);  
+                        // console.log('current_stu_course',current_stu_course); 
+                        // console.log('last_exam',last_exam);  
                         
                         if(current_stu_course[0].mac_type == 1){
                             $("#sub_mac").prop("checked",true);
                         }else{
-                            console.log("Hello111")
+                            // console.log("Hello111")
                             $("#sub_mac2").prop("checked",true);
                         }
 
@@ -1805,11 +1805,11 @@
                             $(".batch_no").val(current_stu_course[0].batch.number);
                             $(".batch_id").val(current_stu_course[0].batch.id);
                             if(last_exam.length!=0){
-                                console.log(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1')
+                                // console.log(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1')
                                 // check last exam and show current data
                                 if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
                                     let batch_id = localStorage.getItem('batch_id');
-                                    console.log("natch-id",batch_id);
+                                    // console.log("natch-id",batch_id);
                                     // $('.batch_id').val(batch_id);
                                     $.ajax({
                                         type: "get",
@@ -1818,18 +1818,12 @@
                                         processData: false,
                                         async:false,
                                         success: function (res) {
-                                            console.log('res',res)
+                                            // console.log('res',res)
                                             $('.batch_no').val(res.data.number);                                            
                                             $('.batch_id').val(res.data.id);
                                             $('.batch_number').append(number2mm(res.data.number))
                                             // $('.personal_no').val(data.data.cpersonal_no);
-                                            $('#remain_module').val(last_exam[0].is_full_module)
-
-                                            if(last_exam[0].is_full_module == "1"){
-                                                $(".module_two").prop("checked", true);
-                                            
-                                                $('.module_one').attr('disabled', true);
-                                                $('.module_full').attr('disabled', true);
+                                            $('#remain_module').val(last_exam[0].is_full_module)                                            
 
                                                 if(last_exam[0].is_full_module == "1"){
                                                     $(".module_two").prop("checked", true);
@@ -1844,17 +1838,21 @@
                                                     $('.module_full').attr('disabled', true);
 
                                                 }
-                                                else if(last_exam[0].is_full_module=="2"){
-                                                    $(".module_one").prop("checked", true);
-                                                    $('.module_two').attr('disabled', true);
-                                                    $('.module_full').attr('disabled', true);
-                                                }
-                                                else{
+                                                else if(last_exam[0].is_full_module=="3"){
                                                     $(".module_full").prop("checked", true);
                                                     $('.module_two').attr('disabled', true);
-                                                    $('.module_full').attr('disabled', true);                                                    
+                                                    $('.module_one').attr('disabled', true);
+                                                }
+                                                else{
+                                                    $(".module_one").prop("checked", false);
+                                                    $('.module_two').attr('checked', false);
+                                                    $('.module_full').attr('checked', false);
+
+                                                    $(".module_one").prop("disabled", false);
+                                                    $('.module_two').attr('disabled', false);
+                                                    $('.module_full').attr('disabled', false);                                                    
                                                 }                                    
-                                            }   
+                                               
                                         }
                                     })   
                                 }
@@ -1872,11 +1870,11 @@
                             
 
                         var info = data.data;
-                        console.log('info',info);
+                        // console.log('info',info);
 
                         //show or hide direct_access_no and entry_success
                         if(last_exam.length==0){
-                            console.log("for direct");
+                            // console.log("for direct");
                             $("#direct_access_no_self_div").show();
                             $("#entry_success_no_self_div").hide();
                             $("#direct_access_no_private_div").show();
@@ -1888,7 +1886,7 @@
                             $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                         }else if(info.da_pass_roll_number){
-                            console.log("for da2pass");
+                            // console.log("for da2pass");
                             $("#direct_access_no_self_div").show();
                             $("#entry_success_no_self_div").hide();
                             $("#direct_access_no_private_div").show();
@@ -1900,7 +1898,7 @@
                             $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                         }else if(last_exam[0].exam_type_id == 3 || last_exam[0].exam_type_id == 2){   
-                            console.log("for entry1");                        
+                            // console.log("for entry1");                        
                             $("#direct_access_no_self_div").hide();
                             $("#entry_success_no_self_div").show();
                             $("#direct_access_no_private_div").hide();
@@ -1912,7 +1910,7 @@
                             $("#entry_success_no_private").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
                             $("#entry_success_no_mac").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
                         }else if(student_course_regs[1].qt_entry != 1){
-                            console.log("for existing direct");
+                            // console.log("for existing direct");
                             $("#direct_access_no_self_div").show();
                             $("#entry_success_no_self_div").hide();
                             $("#direct_access_no_private_div").show();
@@ -1924,7 +1922,7 @@
                             $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                         }else{
-                            console.log("for entry2");
+                            // console.log("for entry2");
                             $("#direct_access_no_self_div").hide();
                             $("#entry_success_no_self_div").show();
                             $("#direct_access_no_private_div").hide();
@@ -2062,8 +2060,9 @@
                             $("#female_mac").prop("checked", true);
                         }
 
+                        console.log("Hello",data.data)
                         if(data.data.exam_registers.length!=0){
-                            console.log("Hello")
+                            // alert("Hello")
                             $("input[name='office_address']").prop('readonly', false);
                             $("input[name='current_address']").prop('readonly', false);
                             $("input[name='address']").prop('readonly', false);
@@ -2076,10 +2075,15 @@
                             $("input[name='recommend_letter_private']").prop('disabled', false);
                             $("input[name='gov_staff']").prop('disabled', false);
                             $("#mac_school").show();
-                            $("input[name='mac_type']").prop('disabled', false);
+                            if(current_stu_course[0].offline_user==1){
+                                $("input[name='mac_type']").prop('disabled', true);
+                            }else{
+                                $("input[name='mac_type']").prop('disabled', false);
+                            }
+                            
                         }
                         else{
-                            console.log("Hellowww")
+                            // console.log("Hellowww")
                             $("input[name='office_address']").prop('readonly', true);
                             $("input[name='current_address']").prop('readonly', true);
                             $("input[name='address']").prop('readonly', true);

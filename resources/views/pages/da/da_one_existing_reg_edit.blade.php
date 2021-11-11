@@ -449,7 +449,7 @@
                                     </div>
 
                                     <div class="row mb-3" >
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>Module<span style="color:red">*</span></label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>အောင်မြင်ခဲ့သည့် Module<span style="color:red">*</span></label>
                                         <div class="row col-md-8 py-2" style="padding-left:24px">
                                             <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
@@ -929,6 +929,15 @@
                 if (/[a-zA-Z0-9]+$/.test(val)) {
                     self.val(val.replace(/[a-zA-Z0-9]+$/, ''));
                 }
+            }
+
+            $(document).on('keydown', '#da_one_pass_personal_no', function () {
+                engLetterOnly($(this));
+            });
+
+            function engLetterOnly(self) {
+                val = self.val(); 
+                self.val(val.replace(/[^A-Za-z0-9? _@.,''/#&+-]*$/, ''));               
             }
 
             $('#btn_cash').click(function () {
