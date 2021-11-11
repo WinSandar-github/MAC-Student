@@ -27,6 +27,7 @@ function createDAExamRegister()
     });
     send_data.append('form_type',$("#form_type").val());
     send_data.append('exam_department',$('#exam_department').val());
+    send_data.append('batch_id',$('#batch_id').val());
 
     show_loader();
     $.ajax({

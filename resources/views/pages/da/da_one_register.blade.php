@@ -412,7 +412,6 @@
                                                     <input type="text" name="phone" class="form-control">{{--Users should update their phone number. so remove readonly attribute--}}
                                                 </div>
                                             </div>
-
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label_align_right"><span
                                                             class="pull-left">၁၆။</span>တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
@@ -422,6 +421,7 @@
 
                                                 </div>
                                             </div>
+                                            
 
                                             {{--<div class="row mb-3">
                                                 <div class="col-md-1">
@@ -444,7 +444,7 @@
 
                                             <div class="row mb-3" style="display:none;">
                                                 <label class="col-md-2 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၇။</span>(က)
+                                                            class="pull-left">၁၈။</span>(က)
                                                 </label>
                                                 <label class="col-md-2 col-form-label label_align_right">တက်ရောက်မည့်သင်တန်း</label>
 
@@ -470,18 +470,18 @@
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-3" style="display:none;">
-                                                <label class="col-md-2 col-form-label label_align_right"><span
-                                                            class="pull-left"></span>(ဂ)
+                                            <div class="row mb-3" >
+                                                <label class="col-md-2 col-form-label label_align_right">
+                                                    <span class="pull-left">၁၇။</span>
                                                 </label>
-                                                <label class="col-md-2 col-form-label label_align_right">ကိုယ်ပိုင်အမှတ်</label>
+                                                <label class="col-md-2 col-form-label label_align_right">သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="personal_no_mac" id="personal_no_mac"
                                                            class="form-control personal_no" placeholder="ကိုယ်ပိုင်အမှတ်"> {{-- ကိုယ်ပိုင်နံပါတ် not sure to get in this state --}}
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၆။</span>ယခုဖြေဆိုမည့် Module -</label>
+                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၈။</span>ယခုဖြေဆိုမည့် Module -</label>
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
@@ -511,7 +511,7 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-3" id="mac_school" style="display:none">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၁၇။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၁၉။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
                                                 <div class="row  col-md-8 checkbox-radios   py-2">
                                                     
                                                 
@@ -928,8 +928,8 @@
 
 
                                             <div class="row mb-3"  style="display:none">
-                                                <label class="col-md-1 col-form-label"></label>
-                                                <label class="col-md-1 col-form-label">(ဂ)</label>
+                                                {{-- <label class="col-md-1 col-form-label"></label> --}}
+                                                <label class="col-md-2 col-form-label">၁၇။</label>
                                                 <label class="col-md-2 col-form-label label_align_right">ကိုယ်ပိုင်အမှတ်</label>
 
                                                 <div class="col-md-8">
@@ -939,7 +939,7 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၇။</span>ယခုဖြေဆိုမည့် Module -</label>
+                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၈။</span>ယခုဖြေဆိုမည့် Module -</label>
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
@@ -1463,7 +1463,7 @@
 
                                             <div class="row mb-3" style="display:none;">
                                                 <label class="col-md-2 col-form-label label_align_right">
-                                                    <span class="pull-left"></span>(ဂ)
+                                                    <span class="pull-left">၁၉။</span>
                                                 </label>
                                                 <label class="col-md-2 col-form-label label_align_right">ကိုယ်ပိုင်အမှတ်</label>
                                                 <div class="col-md-8">
@@ -1473,7 +1473,7 @@
 
                                             <div class="row mb-3" style="display:none;">
                                                 <label class="col-md-4 col-form-label label_align_right">
-                                                    <span class="pull-left">၁၈။</span>
+                                                    <span class="pull-left">၂၀။</span>
                                                     နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့်ခုနှစ်/လ
                                                 </label>
                                                 <div class="col-md-8">
@@ -1755,6 +1755,7 @@
                         // console.log("Hello")
                         $("#sub_mac2").prop("checked",true);
                     }
+                    $('.personal_no').val(data.data.personal_no);
                     // console.log(data.data.citizen)
                     if(last_exam[0]){
                         if(last_exam[0].grade == 1){
