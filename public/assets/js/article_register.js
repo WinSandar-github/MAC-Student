@@ -332,6 +332,9 @@ function createArticleResignRegister() {
     send_data.append('recent_org', $("input[name=recent_org]").val());
     send_data.append('resign_approve_attach', resign_approve_attach);
     send_data.append('article_form_type', $("input[name=article_form_type]").val());
+    send_data.append('contract_start_date', $("input[name=contract_start_date]").val());
+    send_data.append('contract_end_date', $("input[name=contract_end_date]").val());
+    send_data.append('mentor_id', $("input[name=mentor_id]").val());
     send_data.append('know_policy', 1);
     if($("#offline_user").val()==1){
         send_data.append('offline_user', $("#offline_user").val());
@@ -461,7 +464,7 @@ function createCPATwoPassOneYearArticle(){
       }
       send_data.append('article_form_type', $("#article_form_type").val());
       /////
-      
+
       if($("#article_form_type").val() == 'c12_renew'){
         // c12 renew form
         if($('input[name=gender]:checked').val() == 1){

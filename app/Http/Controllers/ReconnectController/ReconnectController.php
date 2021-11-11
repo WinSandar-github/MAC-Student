@@ -8,7 +8,7 @@ use App\Http\Controllers\CustomClass\Helper;
 
 class ReconnectController extends Controller
 {
-    
+
     public function reconnect()
     {
         return view('pages.home.reconnect');
@@ -19,14 +19,14 @@ class ReconnectController extends Controller
         return view('pages.student_info.reconnect_papp');
     }
 
-    
+
     //show da existing register form
     public function da_two_registerForm($id)
     {
         $client = new \GuzzleHttp\Client();
-       
+
         $res = json_decode($client->request('GET', Helper::$domain.'/batch/'.$id)->getBody(),true);
-       
+
         $batch = $res['data'];
         return view('pages.da.da_two_existing_reg_form',compact('batch'));
     }
@@ -34,26 +34,26 @@ class ReconnectController extends Controller
     public function DAOneExistingRegForm($id)
     {
         $client = new \GuzzleHttp\Client();
-       
+
         $res = json_decode($client->request('GET', Helper::$domain.'/batch/'.$id)->getBody(),true);
-       
+
         $batch = $res['data'];
-      
-       
+
+
         return view('pages.da.da_one_existing_reg_form',compact('batch'));
     }
 
     public function daOneExistingEditForm()
     {
-         
-       
+
+
         return view('pages.da.da_one_existing_reg_edit');
     }
 
     public function daTwoExistingEditForm()
     {
-         
-       
+
+
         return view('pages.da.da_two_existing_reg_edit');
     }
 
@@ -61,9 +61,9 @@ class ReconnectController extends Controller
     public function CPATwoRegCpaOnePassForm($id)
     {
         $client = new \GuzzleHttp\Client();
-       
+
         $res = json_decode($client->request('GET', Helper::$domain.'/batch/'.$id)->getBody(),true);
-       
+
         $batch = $res['data'];
         return view('pages.cpa.cpa_two_reg_cpaone_pass',compact('batch'));
     }
@@ -71,9 +71,9 @@ class ReconnectController extends Controller
     public function existing_user_cpa_one($id)
     {
         $client = new \GuzzleHttp\Client();
-       
+
         $res = json_decode($client->request('GET', Helper::$domain.'/batch/'.$id)->getBody(),true);
-       
+
         $batch = $res['data'];
         return view('pages.cpa.existing_user_cpa_one',compact('batch'));
     }

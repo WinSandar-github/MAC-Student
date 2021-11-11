@@ -312,7 +312,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody class="tbl_degree_body">
-                                                        
+
                                                     </tbody>
                                                 </table>
 
@@ -417,7 +417,7 @@
                                                 <label  class="error attend_place_error" style="display:none;" for="confirm_142">Please check one</label>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
@@ -433,6 +433,9 @@
 
                                         <input type="hidden" name="type" value="Student" class="form-control" placeholder="" autocomplete="off" >
                                         <input type="hidden" name="status" value="0" class="form-control" placeholder="" autocomplete="off" >
+                                        <input type="hidden" name="contract_start_date" id="contract_start_date" value="" class="form-control" placeholder="" autocomplete="off" >
+                                        <input type="hidden" name="contract_end_date" id="contract_end_date" value="" class="form-control" placeholder="" autocomplete="off" >
+                                        <input type="hidden" name="mentor_id" id="mentor_id" value="" class="form-control" placeholder="" autocomplete="off" >
 
                                         <div class="row justify-content-center">
                                             <button type="submit" id="submit_btn" class="btn btn-success btn-hover-dark w-25" disabled>
@@ -476,7 +479,14 @@
         $("#article_form_type").val("resign");
 
         get_student_info(student_id).then(data => {
+
             let student_info = data.data
+            let article_info = data.data.article;
+            
+            $("#contract_start_date").val(article_info[0].contract_start_date);
+            $("#contract_end_date").val(article_info[0].contract_end_date);
+            $("#mentor_id").val(article_info[0].mentor_id);
+
             // let student_reg = data.data.student_register
             // let lastest_row = student_reg.length - 1;
             // let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
@@ -536,7 +546,7 @@
 
                     })
                 }
-                
+
                 // if(latest_article[0]?.offline_user == 1){
                 //     $(".stu_certificate").append(`<a href='${BASE_URL+student_info.student_education_histroy.certificate}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'  align="center">View Attach File</a>`);
                 // }else{
@@ -638,7 +648,7 @@
       }
     }
     function loadEductaionHistory(id,table){
-    
+
         $.ajax({
             type : 'POST',
             url : BACKEND_URL+"/getEducationHistory",
@@ -655,8 +665,8 @@
                 });
             }
         });
-    
-    
+
+
     }
 </script>
 @endpush
