@@ -186,27 +186,51 @@ function createArticleFirmRegister() {
     send_data.append('accept_policy', 1);
 
     show_loader();
-    $.ajax({
-        type: "POST",
-        data: send_data,
-        url: BACKEND_URL + "/article_firm_register",
-        // contentType: false,
-        // processData: false,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function (result) {
-            EasyLoading.hide();
-            successMessage("You have successfully registered.");
-            setInterval(() => {
-                location.href = FRONTEND_URL + '/';
-            }, 3000);
-        },
-        error: function (message) {
-            EasyLoading.hide();
-            errorMessage(message);
-        }
-    });
+
+    if($('#article_id').val())
+    {
+        var id=$('#article_id').val();
+        send_data.append('article_id',id);   
+        $.ajax({
+            url: BACKEND_URL+"/update_reject_article",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                EasyLoading.hide();
+                successMessage("You have successfully updated!");
+                    // location.reload();
+                    location.href = FRONTEND_URL+'/';
+                },
+            error:function (message){
+                EasyLoading.hide();
+                }
+            });
+    }
+    else{
+        $.ajax({
+            type: "POST",
+            data: send_data,
+            url: BACKEND_URL + "/article_firm_register",
+            // contentType: false,
+            // processData: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                EasyLoading.hide();
+                successMessage("You have successfully registered.");
+                setInterval(() => {
+                    location.href = FRONTEND_URL + '/';
+                }, 3000);
+            },
+            error: function (message) {
+                EasyLoading.hide();
+                errorMessage(message);
+            }
+        });
+    }
 }
 
 function createArticleGovRegister() {
@@ -282,24 +306,48 @@ function createArticleGovRegister() {
     send_data.append('accept_policy', 1);
 
     show_loader();
-    $.ajax({
-        url: BACKEND_URL + "/article_gov_register",
-        type: 'post',
-        data: send_data,
-        contentType: false,
-        processData: false,
-        success: function (result) {
-            EasyLoading.hide();
-            successMessage("You have successfully registered.");
-            setInterval(() => {
-                location.href = FRONTEND_URL + '/';
-            }, 3000);
-        },
-        error: function (message) {
-            EasyLoading.hide();
-            errorMessage(message);
-        }
-    });
+
+    if($('#article_id').val())
+    {
+        var id=$('#article_id').val();
+        send_data.append('article_id',id);   
+        $.ajax({
+            url: BACKEND_URL+"/update_reject_gov_article",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                EasyLoading.hide();
+                successMessage("You have successfully updated!");
+                    // location.reload();
+                    location.href = FRONTEND_URL+'/';
+                },
+            error:function (message){
+                EasyLoading.hide();
+                }
+            });
+    }
+    else{
+        $.ajax({
+            url: BACKEND_URL + "/article_gov_register",
+            type: 'post',
+            data: send_data,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                EasyLoading.hide();
+                successMessage("You have successfully registered.");
+                setInterval(() => {
+                    location.href = FRONTEND_URL + '/';
+                }, 3000);
+            },
+            error: function (message) {
+                EasyLoading.hide();
+                errorMessage(message);
+            }
+        });
+    }
 }
 
 function createArticleResignRegister() {
@@ -342,24 +390,48 @@ function createArticleResignRegister() {
     send_data.append('change_contract_end_date', change_contract_end_date);
 
     show_loader();
-    $.ajax({
-        url: BACKEND_URL + "/article_resign_register",
-        type: 'post',
-        data: send_data,
-        contentType: false,
-        processData: false,
-        success: function (result) {
-            EasyLoading.hide();
-            successMessage("You have successfully registered.");
-            setInterval(() => {
-                location.href = FRONTEND_URL + "/payment_method/" + result.student_info_id + "/" + result.invoiceNo;
-            }, 3000);
-        },
-        error: function (message) {
-            EasyLoading.hide();
-            errorMessage(message);
-        }
-    });
+
+    if($('#article_id').val())
+    {
+        var id=$('#article_id').val();
+        send_data.append('article_id',id);   
+        $.ajax({
+            url: BACKEND_URL+"/update_reject_resign_article",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                EasyLoading.hide();
+                successMessage("You have successfully updated!");
+                    // location.reload();
+                    location.href = FRONTEND_URL+'/';
+                },
+            error:function (message){
+                EasyLoading.hide();
+                }
+            });
+    }
+    else{
+        $.ajax({
+            url: BACKEND_URL + "/article_resign_register",
+            type: 'post',
+            data: send_data,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                EasyLoading.hide();
+                successMessage("You have successfully registered.");
+                setInterval(() => {
+                    location.href = FRONTEND_URL + "/payment_method/" + result.student_info_id + "/" + result.invoiceNo;
+                }, 3000);
+            },
+            error: function (message) {
+                EasyLoading.hide();
+                errorMessage(message);
+            }
+        });
+    }
 }
 
 function createArticleRenewRegister() {
@@ -405,32 +477,67 @@ function createArticleRenewRegister() {
     send_data.append('exp_start_date', $("input[name=previous_papp_start_date]").val());
     send_data.append('exp_end_date', $("input[name=previous_papp_end_date]").val());
     send_data.append('request_papp', $("input[name=papp_name]").val());
-    send_data.append('mentor_id', $("#mentor_id").val());
+    // send_data.append('mentor_id', $("#mentor_id").val());
+    if($("#mentor_id").val()){
+        send_data.append('mentor_id', $("#mentor_id").val());
+    }
+    else{
+        send_data.append('mentor_id', $("#mentor_name").val());
+    }
     send_data.append('request_papp_attach', request_papp_attach);
     send_data.append('student_info_id', $("input[name=student_info_id]").val());
     send_data.append('article_form_type', $("input[name=article_form_type]").val());
     send_data.append('accept_policy', 1);
+    if($("#offline_user").val()==1){
+        send_data.append('offline_user', $("#offline_user").val());
+    }else{
+        send_data.append('offline_user', 0);
+    }
 
     show_loader();
-    $.ajax({
-        type: "POST",
-        data: send_data,
-        url: BACKEND_URL + "/article_renew_register",
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function (result) {
-            EasyLoading.hide();
-            successMessage("You have successfully registered.");
-            setInterval(() => {
-                location.href = FRONTEND_URL + '/';
-            }, 3000);
-        },
-        error: function (message) {
-            EasyLoading.hide();
-            errorMessage(message);
-        }
-    });
+
+    if($('#article_id').val())
+    {
+        var id=$('#article_id').val();
+        send_data.append('article_id',id);   
+        $.ajax({
+            url: BACKEND_URL+"/update_reject_renew_article",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                EasyLoading.hide();
+                successMessage("You have successfully updated!");
+                    // location.reload();
+                    location.href = FRONTEND_URL+'/';
+                },
+            error:function (message){
+                EasyLoading.hide();
+                }
+            });
+    }
+    else{
+        $.ajax({
+            type: "POST",
+            data: send_data,
+            url: BACKEND_URL + "/article_renew_register",
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                EasyLoading.hide();
+                successMessage("You have successfully registered.");
+                setInterval(() => {
+                    location.href = FRONTEND_URL + '/';
+                }, 3000);
+            },
+            error: function (message) {
+                EasyLoading.hide();
+                errorMessage(message);
+            }
+        });
+    }
 }
 function check_email_cpaTwoPassOneYear()
 {

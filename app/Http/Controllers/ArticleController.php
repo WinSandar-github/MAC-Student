@@ -37,4 +37,20 @@ class ArticleController extends Controller
     public function articleCPAOneTwoRenew(){
         return view('pages.article.article_cpa_one_two_renew');
     }
+
+    public function updateArticleFirm(){
+        return view('pages.article.update_article_firm_registration');
+    }
+    public function updateArticleGov(){
+        return view('pages.article.update_article_gov_registration');
+    }
+    public function updateArticleRenewFirm(){
+        return view('pages.article.update_article_renew_firm_registration');
+    }
+    public function updateArticleQTFirm(){
+        return view('pages.article.update_article_qt_firm_registration');
+    }
+    public function updateArticleResign(){
+        return view('pages.article.update_article_resign_registration');
+    }
 }
