@@ -409,13 +409,8 @@
                                     </div>
                                     <div class="col-md-11">
                                         <div class="row">
-                                            {{--<label class="col-md-4"  style="font-size:15px;">ကျွန်ုပ်သည် ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံသားဖြစ်ပြီး ကျွန်ုပ်အား</label>
-                                            <div class="col-md-2">
-                                                <input type="text" name="cpaff_pass_date" class="form-control cpaff_pass_date" placeholder="ခုနှစ်/YYYY">
-                                            </div>
-                                            <label class="col-md-5"  style="font-size:15px;">ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။</label>--}}
 
-                                            <label class="col-md-11" class="form-control" style="font-size:15px;">ကျွန်ုပ်သည် ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံသားဖြစ်ပြီး ကျွန်ုပ်အား <input type="text" name="cpaff_pass_date" id="cpaff_pass_date" class="form-control cpaff_pass_date" placeholder="ခုနှစ်/YYYY" style="width: 100px;display: inline;"> ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။</label>
+                                            <label class="col-md-11" class="form-control" style="font-size:15px;">ကျွန်ုပ်သည် ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံသားဖြစ်ပြီး ကျွန်ုပ်အား <input type="text" name="cpaff_pass_date" id="cpaff_pass_date" class="form-control cpaff_pass_date" placeholder="ခုနှစ်/YYYY" style="width: 100px;display: inline;"> ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မီ) အဖြစ်မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။</label>
                                         </div>
 
 
@@ -428,11 +423,6 @@
                                     </div>
                                     <div class="col-md-11">
                                         <div class="row">
-                                            {{--<label class="col-md-6"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်</label>
-                                            <div class="col-md-2">
-                                                <input type="text" name="papp_date" class="form-control papp_date" placeholder="ခုနှစ်/YYYY">
-                                            </div>
-                                            <label class="col-md-4"  style="font-size:15px;">ခုနှစ်အတွက်မှတ်ပုံတင်ပေးပါရန်လျှောက်ထားပါသည်။</label>--}}
 
                                             <label class="col-md-11"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ် <input type="text" name="papp_date" id="papp_date" style="display: inline; width: 100px;" class="form-control papp_date" placeholder="ခုနှစ်/YYYY"> ခုနှစ်အတွက်မှတ်ပုံတင်ပေးပါရန်လျှောက်ထားပါသည်။</label>
                                         </div>

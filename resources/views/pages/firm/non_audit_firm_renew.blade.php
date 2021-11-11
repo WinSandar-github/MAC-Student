@@ -163,7 +163,7 @@
 
                                         {{--<div class="row">
                                             <label class="col-md-1 col-form-label" >{{ __('3.') }}</label>
-                                            <label class="col-md-5 col-form-label label_align_right" >{{ __('Accountancy Firm Registeration No') }}</label>
+                                            <label class="col-md-5 col-form-label label_align_right" >{{ __('Accountancy Firm Registration No') }}</label>
                                             <div class="col-md-6">
                                                 <div class="form-group ">
                                                 <input type="text" class="form-control" name="accountancy_firm_reg_no" id="accountancy_firm_reg_no" readonly="">

@@ -104,7 +104,7 @@
                                     <td width="20%"></td>
                                     <td width="30%">
                                         <div class="single-form">
-                                            <label class="col-form-label">Accountancy Firm Registeration No</label>
+                                            <label class="col-form-label">Accountancy Firm Registration No</label>
                                         </div>
                                     </td>
                                     <td width="30%">
