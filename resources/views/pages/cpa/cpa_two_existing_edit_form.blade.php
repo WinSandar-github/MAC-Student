@@ -548,7 +548,7 @@
                                         </div>                                            
                                     </div>
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label_align_right"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>Module </label>
+                                        <label class="col-md-4 col-form-label label_align_right"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>အောင်မြင်ခဲ့သည့် Module </label>
                                         <div class="row col-md-8 py-2" style="padding-left:24px">
                                             <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
@@ -603,7 +603,7 @@
                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဃ)</span>ကိုယ်ပိုင်အမှတ်</label>
                                         <div class="col-md-8">
                                             <input type="text" name="cpa_two_pass_personal_no" class="form-control cpa_two_pass_personal_no"
-                                                placeholder="ကိုယ်ပိုင်အမှတ်" id="cpa_one_pass_personal_no">
+                                                placeholder="ကိုယ်ပိုင်အမှတ်" id="cpa_two_pass_personal_no">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -883,6 +883,19 @@
                 if (/[a-zA-Z0-9]+$/.test(val)) {
                     self.val(val.replace(/[a-zA-Z0-9]+$/, ''));
                 }
+            }
+
+            $(document).on('keydown', '#cpa_one_pass_personal_no', function () {
+                engLetterOnly($(this));
+            }); 
+            
+            $(document).on('keydown', '#cpa_two_pass_personal_no', function () {
+                engLetterOnly($(this));
+            });
+
+            function engLetterOnly(self) {
+                val = self.val(); 
+                self.val(val.replace(/[^A-Za-z0-9? _@.,''/#&+-]*$/, ''));               
             }
 
             $('#btn_cash').click(function () {

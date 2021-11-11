@@ -52,7 +52,13 @@
                         </select>
                       </div>--}}
                         <div class="col-md-2 pull-right">
-                          <h6>For the year - {{ date('Y') }}</h6>
+                          <h6>For the year -
+    												@if(date('M') == 'Nov' || date('M') == 'Dec')
+    													{{date('Y') + 1}}
+    												@else
+    													{{date('Y')}}
+    												@endif
+    											</h6>
                         </div>
                         <div id="reg_no_box" style="display:none;" >
                           <div class="col-md-3 pull-left">
