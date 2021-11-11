@@ -4467,7 +4467,10 @@ function DownloadForms(form_type) {
     if (form_type != "c12_renew") {
         $('#downloadFormModel').modal('toggle');
         $('#c2_not_pass_attach').hide();
-    } else {
+    }else if(form_type =="c12_renew"){
+        $('#downloadFormModel').modal('toggle');
+        $('#c2_pass_attach').hide();
+    }else{
         $('#downloadFormModel').modal('toggle');
     }
 
