@@ -51,11 +51,11 @@ $().ready(function (){
             mpa_mem_card_front : "Please upload MPA member card (Front)",
             mpa_mem_card_back : "Please upload MPA member card (Back)",
             letter : "Please upload your file",
-            cpaff_reg_no : "Please enter your CPAFF registeration number",
+            cpaff_reg_no : "Please enter your CPAFF registration number",
             work_name:"Please select one.",
             papp_reg_date:"Please fill this field",
             papp_renew_year:"Please fill this field",
-            papp_reg_no:"Please enter your PAPP registeration number",
+            papp_reg_no:"Please enter your PAPP registration number",
             old_papp_reg_no:"Please fill this field"
         },
         submitHandler: function(form) {

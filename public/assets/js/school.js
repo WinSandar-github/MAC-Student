@@ -646,7 +646,7 @@ function loadRenewSchool(){
                     if(month=='11' || month=='12'){
                       var y=year+3;
                       if(now.getFullYear()>=y){
-                        $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                        $("#message").val("Your registration is expired! You need to submit new registeration form again.");
                         $('.renew_submit').prop('disabled', true);
                         $('#submit_confirm').prop('disabled', false);
                       
@@ -658,7 +658,7 @@ function loadRenewSchool(){
                     }else if(month=="01"){
                       var y=year+2;
                       if(now.getFullYear()>=y){
-                        $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                        $("#message").val("Your registration is expired! You need to submit new registeration form again.");
                         $('.renew_submit').prop('disabled', true);
                         $('#submit_confirm').prop('disabled', false);
                       
