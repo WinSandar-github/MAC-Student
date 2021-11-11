@@ -47,17 +47,18 @@ $().ready(function (){
             mac_type : {
                 required : "#main_mac:checked"
             },
-            cpa_one_attend_place : "required",
-            cpa_one_mac_type : {
-                required : "#da_one_main_mac:checked"
-            },
             cpa_one_pass_exam_date : "required",
             cpa_one_pass_level : "required",
             cpa_one_pass_personal_no : "required",
+            cpa_one_active_attend_place : "required",
+            cpa_one_active_mac_type : {
+                required : "#cpa_one_active_main_mac:checked"
+            },
+            selected_passed_batch_name : "required",
         },
         messages:{
             email : "Please enter your email",
-            password : "Please provide your password",
+            password : "Please Enter at least 8 characters",
             confirm_password : {
                 required : "Please provide your password",
                 equalTo : "Please enter the same password as above"
@@ -101,13 +102,13 @@ $().ready(function (){
             attend_place : "Please select one",
             mac_type : "Please select one",
 
-            cpa_one_attend_place : "Please select one",
-            cpa_one_mac_type : "Please select one",
+            cpa_one_active_attend_place : "Please select one",
+            cpa_one_active_mac_type : "Please select one",
 
             cpa_one_pass_exam_date : "Please Enter Your CPA One Pass Date",
             cpa_one_pass_level : "Please enter your CPA One Pass Level",
             cpa_one_pass_personal_no : "Please enter your CPA One Pass Personal Number",
-
+            selected_passed_batch_name : "Please Select Batch",
         },
         submitHandler: function(form) {
             var send_data = new FormData();
@@ -188,6 +189,7 @@ $().ready(function (){
             cpa_one_pass_exam_date : "required",
             cpa_one_pass_level : "required",
             cpa_one_pass_personal_no : "required",
+            selected_passed_batch_name : "required",
             // da_two_pass_personal_no : {
             //     required : true,
             //     equalTo : "#da_two_pass_personal_no"
@@ -243,6 +245,7 @@ $().ready(function (){
             cpa_one_pass_personal_no : "Please enter your CPA One Pass Personal Number",
             // da_two_pass_personal_no : "Need to equal DA One personal number",
             // is_full_module : "Please Select One",
+            selected_passed_batch_name : "Please Select Batch",
 
         },
         submitHandler: function(form) {

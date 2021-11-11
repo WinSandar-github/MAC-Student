@@ -317,7 +317,7 @@
                                 <div class="row mb-3" style="padding-left: 15px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no">
+                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no" readonly>
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 15px;">
@@ -555,7 +555,7 @@
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(က)</div>
                                     <div class="col-md-7">
-                                            <label style="font-size:15px;">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်၊</label>
+                                            <label style="font-size:15px;">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မီ) မှတ်ပုံတင်လက်မှတ်၊</label>
                                     </div>
                                     <div class="col-md-3">
                                             <input type="file" class="form-control" name="cpa_ff_file"  id="cpa_ff_file" >
@@ -682,7 +682,7 @@
                                 </div><br/><br>
 
                                 <div class="row mt-3">
-                                    <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm" onchange="$('#papp_submit').prop('disabled', !this.checked)"></div>
                                     <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                 </div><br/><br><br>

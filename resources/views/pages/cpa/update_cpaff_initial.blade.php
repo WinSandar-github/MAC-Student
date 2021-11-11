@@ -45,9 +45,9 @@
         <div class="container" style="overflow: hidden;">
 
             <div class="row mt-5">
-                <div class="col-md-12 text-center mb-5" style="font-weight:bold;font-size:20px;" name="remark" id="remark">
+                {{--<div class="col-md-12 text-center mb-5" style="font-weight:bold;font-size:20px;" name="remark" id="remark">
                     <label>Reject လုပ်ရသည့်အကြောင်းအရင်း</label><label class="col-md-12 col-form-label text-danger" id="remark_description"></label>
-                </div>
+                </div>--}}
                 <div id="expiry_card" style="display:none;">
                     <div class="card border-danger my-3" style="height:60px;">
                         <div class="card-body">
@@ -62,7 +62,7 @@
                         </div>
                         <h5 class="card-title text-center fw-bolder" style="margin-top:1%;">
                             မြန်မာနိုင်ငံစာရင်းကောင်စီ<br><br>
-                            လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်ရန်ကနဦးလျှောက်ထားခြင်း
+                            လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မီ) အဖြစ်မှတ်ပုံတင်ရန်ကနဦးလျှောက်ထားခြင်း
                         </h5>
                     </div>
                     <div class="card-body">
@@ -588,11 +588,16 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     }); 
-    $("#exam_month").datepicker({
-        format: "mm",
-        viewMode: "months", 
-        minViewMode: "months",
-        autoclose:true //to close picker once year is selected
+    // $("#exam_month").datepicker({
+    //     format: "mm",
+    //     viewMode: "months", 
+    //     minViewMode: "months",
+    //     autoclose:true //to close picker once year is selected
+    // }); 
+    $("#exam_month").flatpickr({
+        enableTime: false,
+        dateFormat: "M",
+        allowInput: true,
     }); 
 
     $.ajax({

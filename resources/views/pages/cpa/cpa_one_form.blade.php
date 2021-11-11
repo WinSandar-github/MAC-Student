@@ -110,7 +110,7 @@
                                                     <label class="col-md-6 col-form-label label"><span class="pull-left">၂။</span>လျို့ဝှက်နံပါတ်<span style="color:red">*</span></label>
                                                     <div class="col-md-6">
                                                         <div>
-                                                            <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ။" name="password" id="password" class="form-control" value="{{ old('password') }}" >
+                                                            <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ။" name="password" id="password" class="form-control" value="{{ old('password') }}" minlength="8">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -119,7 +119,7 @@
                                                     <label class="col-md-6 col-form-label label"><span class="pull-left">၃။</span>လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း<span style="color:red">*</span></label>
                                                     <div class="col-md-6">
                                                         <div>
-                                                            <input type="password" placeholder="လျို့ဝှက်နံပါတ်ကို ထပ်မံထည့်ပါ။" name="confirm_password" class="form-control" >
+                                                            <input type="password" placeholder="လျို့ဝှက်နံပါတ်ကို ထပ်မံထည့်ပါ။" name="confirm_password" class="form-control" minlength="8">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -270,12 +270,12 @@
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">၆။</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)<span style="color:red">*</span></label>
                                             <div class="col-md-4">
                                                 <div>
-                                                    <input type="text" placeholder="အဘအမည်(မြန်မာ)-နာမ်မည်သာရေးပါ။" name="father_name_mm" id="father_name_mm" class="form-control" value="{{ old('father_name_mm') }}">
+                                                    <input type="text" placeholder="အဘအမည်(မြန်မာ)" name="father_name_mm" id="father_name_mm" class="form-control" value="{{ old('father_name_mm') }}">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div>
-                                                    <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)-နာမ်မည်သာရေးပါ။" name="father_name_eng" class="form-control" id="father_name_eng" value="{{ old('father_name_eng') }}" >
+                                                    <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" name="father_name_eng" class="form-control" id="father_name_eng" value="{{ old('father_name_eng') }}" >
                                                 </div>
                                             </div>
                                          </div>
@@ -363,7 +363,7 @@
                                         <input type="hidden" name="approve_reject_status">                                    
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၁၄။</span>လက်ရှိအလုပ်အကိုင်<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၁၄။</span>လက်ရှိအလုပ်အကိုင်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="name" class="form-control" value="{{ old('name') }}" id="name">
@@ -372,7 +372,7 @@
                                          </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၁၅။</span>ရာထူး<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၁၅။</span>ရာထူး</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" placeholder="ရာထူး" name="position" id="position" class="form-control" value="{{ old('position') }}">
@@ -381,7 +381,7 @@
                                          </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၁၆။</span>ဌာန<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၁၆။</span>ဌာန</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" placeholder="ဌာန" name="department" id="department" class="form-control" value="{{ old('department') }}" >
@@ -390,7 +390,7 @@
                                          </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၁၇။</span>အဖွဲ့အစည်း<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၁၇။</span>အဖွဲ့အစည်း</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" placeholder="အဖွဲ့အစည်း" id="organization" name="organization" class="form-control" value="{{ old('organization') }}" >
@@ -399,7 +399,7 @@
                                          </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၁၈။</span>ကုမ္ပဏီအမည်<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၁၈။</span>ကုမ္ပဏီအမည်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" placeholder="ကုမ္ပဏီအမည်" id="company_name" name="company_name" class="form-control" value="{{ old('company_name') }}" >
@@ -408,7 +408,7 @@
                                          </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၁၉။</span>လစာနှင့်လစာနှုန်း<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၁၉။</span>လစာနှင့်လစာနှုန်း</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" placeholder="လစာနှင့်လစာနှုန်း" name="salary" id="salary" class="form-control" value="{{ old('salary') }}">
@@ -417,7 +417,7 @@
                                          </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၂၀။</span>ရုံးလိပ်စာ<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၂၀။</span>ရုံးလိပ်စာ</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" placeholder="ရုံးလိပ်စာ" name="office_address" id="office_address" class="form-control" value="{{ old('office_address') }}" >
@@ -465,21 +465,21 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>ဘွဲ့အမည်<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>ဘွဲ့အမည်</label>
                                             <div class="col-md-8">
                                                 <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" >
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>တက္ကသိုလ်အမည်<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>တက္ကသိုလ်အမည်</label>
                                             <div class="col-md-8">
                                                 <input type="text" placeholder="တက္ကသိုလ်အမည်" name="university_name" class="form-control" value="{{ old('university_name') }}" >
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဂ)') }}</span>ခုံအမှတ်<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဂ)') }}</span>ခုံအမှတ်</label>
                                             <div class="col-md-8">
                                                 <input type="text" placeholder="ခုံအမှတ်" name="roll_number" class="form-control" value="{{ old('roll_number') }}" >
                                             </div>
@@ -487,7 +487,7 @@
 
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဃ)') }}</span>နှစ်၊လ<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဃ)') }}</span>နှစ်၊လ</label>
                                             <div class="col-md-8">
                                                 <input type="text" placeholder="နှစ်၊လ(MMM-YYYY)" name="qualified_date" class="form-control" >
                                             </div>
@@ -495,9 +495,9 @@
 
                                         <div  id="edu" >
                                             <div class="row mb-3" id="edu0" >
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(င)') }}</span>Attached Certificate<span style="color:red">*</span></label>
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(င)') }}</span>Attached Certificate</label>
                                                 <div class="col-md-7"  id="degree_edu" >
-                                                    <input type="file"  class="form-control" id="certificate0"  name="certificate[]" required="">
+                                                    <input type="file"  class="form-control" id="certificate0"  name="certificate[]" >
                                                 </div>
                                                 <div class="col-md-1 text-left mt-1" id="add_div" >
                                                     <button type="button" class="btn btn-sm btn-primary" id="add_btn" onclick="AddCPAEdu()" >

@@ -40,25 +40,9 @@
                 <!-- Page Banner End -->
             </div>
 
-            <!-- Shape Icon Box Start -->
-            {{--<div class="shape-icon-box">
-
-                <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}" alt="Shape">
-
-                <div class="box-content">
-                    <div class="box-wrapper">
-                        <i class="flaticon-badge"></i>
-                    </div>
-                </div>
-
-                <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
-
-            </div>--}}
             <!-- Shape Icon Box End -->
 
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
-
-            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
 
         </div>
         <div class="container" style="overflow: hidden;">
@@ -71,9 +55,9 @@
                     <br/>
                     <br/>
                 </div>
-                <div class="col-md-12 text-center mb-5" style="font-weight:bold;font-size:20px;" name="remark" id="remark">
+                {{--<div class="col-md-12 text-center mb-5" style="font-weight:bold;font-size:20px;" name="remark" id="remark">
                     <label>Reject လုပ်ရသည့်အကြောင်းအရင်း</label><label class="col-md-12 col-form-label text-danger" id="remark_description"></label>
-                </div>
+                </div>--}}
                 <div id="expiry_card" style="display:none;">
                     <div class="card border-danger my-3" style="height:60px;">
                         <div class="card-body">
@@ -107,10 +91,10 @@
                                 <div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(က)') }}</span>{{ __('အမည် (မြန်မာ/အင်္ဂလိပ်)') }}</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="name_mm" id="name_mm">
+                                        <input type="text"  class="form-control" name="name_mm" id="name_mm" readonly>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="name_eng" id="name_eng">
+                                        <input type="text"  class="form-control" name="name_eng" id="name_eng" readonly>
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 100px;">
@@ -136,10 +120,10 @@
                                 <div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>{{ __('အဘအမည် (မြန်မာ/အင်္ဂလိပ်)') }}</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="father_name_mm" id="father_name_mm">
+                                        <input type="text"  class="form-control" name="father_name_mm" id="father_name_mm" readonly>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="father_name_eng" id="father_name_eng">
+                                        <input type="text"  class="form-control" name="father_name_eng" id="father_name_eng" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -317,7 +301,7 @@
                                 <div class="row mb-3" style="padding-left: 15px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no">
+                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no" readonly>
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 15px;">
@@ -558,7 +542,7 @@
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(က)</div>
                                     <div class="col-md-6">
-                                            <label style="font-size:15px;">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်၊</label>
+                                            <label style="font-size:15px;">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မီ) မှတ်ပုံတင်လက်မှတ်၊</label>
                                     </div>
                                     <div class="col-md-1 cpa_ff_file_old"></div>
                                     <div class="col-md-3">
@@ -687,12 +671,12 @@
 
                                     <div class="col-md-7 col-form-label">CPA(FF) Registeraion No.</div>
                                     <div class="col-md-3">
-                                        <input type="text"  class="form-control" name="cpaff_reg_no"  id="cpaff_reg_no">
+                                        <input type="text"  class="form-control" name="cpaff_reg_no"  id="cpaff_reg_no" readonly>
                                     </div>
                                 </div><br/><br>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm" onchange="$('#papp_submit').prop('disabled', !this.checked)"></div>
                                     <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                 </div><br/><br>

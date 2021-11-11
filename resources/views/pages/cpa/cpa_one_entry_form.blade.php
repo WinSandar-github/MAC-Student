@@ -109,7 +109,7 @@
                                                     <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>လျို့ဝှက်နံပါတ်</label>
                                                     <div class="col-md-6">
                                                         <div>
-                                                            <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ။" name="password" id="password" class="form-control" value="{{ old('password') }}" >
+                                                            <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ။" name="password" id="password" class="form-control" value="{{ old('password') }}" minlength="8">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -269,12 +269,12 @@
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၆။') }}</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                             <div class="col-md-4">
                                                 <div>
-                                                    <input type="text" placeholder="အဘအမည်(မြန်မာ)-နာမ်မည်သာရေးပါ။" name="father_name_mm" id="father_name_mm" class="form-control" value="{{ old('father_name_mm') }}" >
+                                                    <input type="text" placeholder="အဘအမည်(မြန်မာ)" name="father_name_mm" id="father_name_mm" class="form-control" value="{{ old('father_name_mm') }}" >
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div>
-                                                    <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)-နာမ်မည်သာရေးပါ။" name="father_name_eng" class="form-control" id="father_name_eng" value="{{ old('father_name_eng') }}">
+                                                    <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" name="father_name_eng" class="form-control" id="father_name_eng" value="{{ old('father_name_eng') }}">
                                                 </div>
                                             </div>
                                         </div>

@@ -43,22 +43,22 @@ $().ready(function () {
             // roll_number : "required",
             // qualified_date : "required",
             // certificate : "required",
-            attend_place: "required",
-            mac_type: {
-                required: "#main_mac:checked"
+            // attend_place: "required",
+            // mac_type: {
+            //     required: "#main_mac:checked"
+            // },
+            da_two_active_attend_place: "required",
+            da_two_active_mac_type: {
+                required: "#da_two_active_main_mac:checked"
             },
-            da_one_attend_place: "required",
-            da_one_mac_type: {
-                required: "#da_one_main_mac:checked"
-            },
-            da_one_pass_exam_date: "required",
-            da_one_pass_level: "required",
+            selected_passed_batch_name: "required",
+            // da_one_pass_level: "required",
             da_one_pass_personal_no: "required",
             // is_full_module: "required",
         },
         messages: {
             email: "Please enter your email",
-            password: "Please provide your password",
+            password: "Please Enter at least 8 characters",
             confirm_password: {
                 required: "Please provide your password",
                 equalTo: "Please enter the same password as above"
@@ -99,14 +99,14 @@ $().ready(function () {
             // roll_number : "Please enter your roll number",
             // qualified_date : "Please fill your qualified date",
             // certificate : "Please upload your certificate",
-            attend_place: "Please select one",
-            mac_type: "Please select one",
+            // attend_place: "Please select one",
+            // mac_type: "Please select one",
 
-            da_one_attend_place: "Please select one",
-            da_one_mac_type: "Please select one",
+            da_two_active_attend_place: "Please select one",
+            da_two_active_mac_type: "Please select one",
 
-            da_one_pass_exam_date: "Please Enter Your DA One Pass Date",
-            da_one_pass_level: "Please enter your DA One Pass Level",
+            selected_passed_batch_name: "Please Select Batch",
+            // da_one_pass_level: "Please enter your DA One Pass Level",
             da_one_pass_personal_no: "Please enter your DA One Pass Personal Number",
             // is_full_module: "Please Select One",
 
@@ -162,16 +162,16 @@ $().ready(function () {
             address: "required",
             gov_staff: "required",
 
-            attend_place: "required",
-            mac_type: {
-                required: "#main_mac:checked"
+            // attend_place: "required",
+            // mac_type: {
+            //     required: "#main_mac:checked"
+            // },
+            da_two_active_attend_place: "required",
+            da_two_active_mac_type: {
+                required: "#da_two_active_main_mac:checked"
             },
-            da_one_attend_place: "required",
-            da_one_mac_type: {
-                required: "#da_one_main_mac:checked"
-            },
-            da_one_pass_exam_date: "required",
-            da_one_pass_level: "required",
+            selected_passed_batch_name: "required",
+            // da_one_pass_level: "required",
             da_one_pass_personal_no: "required",
             // is_full_module: "required",
         },
@@ -218,14 +218,14 @@ $().ready(function () {
             // roll_number : "Please enter your roll number",
             // qualified_date : "Please fill your qualified date",
             // certificate : "Please upload your certificate",
-            attend_place: "Please select one",
-            mac_type: "Please select one",
+            // attend_place: "Please select one",
+            // mac_type: "Please select one",
 
-            da_one_attend_place: "Please select one",
-            da_one_mac_type: "Please select one",
+            da_two_active_attend_place: "Please select one",
+            da_two_active_mac_type: "Please select one",
 
-            da_one_pass_exam_date: "Please Enter Your DA One Pass Date",
-            da_one_pass_level: "Please enter your DA One Pass Level",
+            selected_passed_batch_name: "Please Select Batch",
+            // da_one_pass_level: "Please enter your DA One Pass Level",
             da_one_pass_personal_no: "Please enter your DA One Pass Personal Number",
             // is_full_module: "Please Select One",
 
