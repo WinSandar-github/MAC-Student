@@ -512,7 +512,28 @@ function loadRenewSchool(){
                   }else{
                     if(school.renew_date!=null){
                       var renew_date=new Date(school.renew_date);
-                      $('input[name=renew_date]').val(school.renew_date);
+                      var renew_date_to = '31-12-'+renew_date.getFullYear();
+                      $('input[name=renew_date]').val(renew_date_to);
+                    }else{
+                      var current_year=new Date();
+                      var renew_date=new Date(school.reg_date);
+                      //if(current_year.getFullYear()==renew_date.getFullYear()){
+                        $('.renew_date_class').hide();
+                        $('.status').text('၁၁။');
+                        $('.info').text('၁၂။');
+                        
+                        var renew_date_to = addZero(renew_date.getDate())+'-'+addZero(renew_date.getMonth()+1)+'-'+renew_date.getFullYear();
+                        $('#hrenew_date').val(renew_date_to);
+                      //}
+                      // else if(current_year.getFullYear() > renew_date.getFullYear()){
+                      //   $('.renew_date_class').hide();
+                      //   $('.status').text('၁၁။');
+                      //   $('.info').text('၁၂။');
+                      
+                      // var renew_date_to = addZero(renew_date.getDate())+'-'+addZero(renew_date.getMonth()+1)+'-'+renew_date.getFullYear();
+                      // $('hrenew_date').val(renew_date_to);
+                      // }
+                      
                     }
                   }
                   
@@ -642,38 +663,55 @@ function loadRenewSchool(){
                   
                   
                     var now=new Date();
-                    $('#register_date').val("Nov-1-"+now.getFullYear()+" to Dec-31-"+y);
-                    if(month=='11' || month=='12'){
-                      var y=year+3;
-                      if(now.getFullYear()>=y){
-                        $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
-                        $('.renew_submit').prop('disabled', true);
-                        $('#submit_confirm').prop('disabled', false);
-                      
-                      }else{
-                        $('#message').val("You are verified!");
-                        $('.renew_submit').prop('disabled', true);
-                        $('#submit_confirm').prop('disabled', true);
-                      }
-                    }else if(month=="01"){
-                      var y=year+2;
-                      if(now.getFullYear()>=y){
-                        $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
-                        $('.renew_submit').prop('disabled', true);
-                        $('#submit_confirm').prop('disabled', false);
-                      
-                      }else{
-                        $('#message').val("You are verified!");
-                        $('.renew_submit').prop('disabled', true);
-                        $('#submit_confirm').prop('disabled', true);
-                      }
-                    }else{
+                    //$('#register_date').val("Nov-1-"+now.getFullYear()+" to Dec-31-"+y);
+                    if(now.getFullYear() >=year){
                       if(((now.getMonth()+1) == '11') || ((now.getMonth()+1) == '12') || ((now.getMonth()+1) == '01')){
                         $("#message").val("You can renew your form!");
                         $('.renew_submit').prop('disabled', true);
                         $('#submit_confirm').prop('disabled', false);
+                      }else{
+                        $('#message').val("You are verified!");
+                        $('.renew_submit').prop('disabled', true);
+                        $('#submit_confirm').prop('disabled', true);
+                      }
+                      
+                    
+                    }else{
+                      $('#message').val("You are verified!");
+                      $('.renew_submit').prop('disabled', true);
+                      $('#submit_confirm').prop('disabled', true);
                     }
-                    }
+                    // if(month=='11' || month=='12'){
+                    //   var y=year+3;
+                    //   if(now.getFullYear()>=y){
+                    //     $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                    //     $('.renew_submit').prop('disabled', true);
+                    //     $('#submit_confirm').prop('disabled', false);
+                      
+                    //   }else{
+                    //     $('#message').val("You are verified!");
+                    //     $('.renew_submit').prop('disabled', true);
+                    //     $('#submit_confirm').prop('disabled', true);
+                    //   }
+                    // }else if(month=="01"){
+                    //   var y=year+2;
+                    //   if(now.getFullYear()>=y){
+                    //     $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                    //     $('.renew_submit').prop('disabled', true);
+                    //     $('#submit_confirm').prop('disabled', false);
+                      
+                    //   }else{
+                    //     $('#message').val("You are verified!");
+                    //     $('.renew_submit').prop('disabled', true);
+                    //     $('#submit_confirm').prop('disabled', true);
+                    //   }
+                    // }else{
+                    //   if(((now.getMonth()+1) == '11') || ((now.getMonth()+1) == '12') || ((now.getMonth()+1) == '01')){
+                    //     $("#message").val("You can renew your form!");
+                    //     $('.renew_submit').prop('disabled', true);
+                    //     $('#submit_confirm').prop('disabled', false);
+                    // }
+                    // }
                     // if((now.getFullYear()>=y && (((now.getMonth()+1)=='10') ||((now.getMonth()+1)=='11') || ((now.getMonth()+1)=='12') || ((now.getMonth()+1)=='1')))){
                     //   $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
                     //   $('.renew_submit').prop('disabled', true);
@@ -760,6 +798,7 @@ function renewSchool(){
     send_data.append('old_school_name',  $('#school_name').val());
     send_data.append('old_school_address',  $('#school_address').val());
     send_data.append('old_course',  $('#hcourse').val());
+    send_data.append('renew_date',  $('#hrenew_date').val());
     $("input[id=branch_sch_own_type]").map(function(){send_data.append('branch_sch_own_type[]',$(this).val())});
     $("input[id=old_branch_sch_own_type]").map(function(){send_data.append('old_branch_sch_own_type[]',$(this).val())});
     
@@ -1363,7 +1402,8 @@ function getSchoolInfo(){
 
 
         }
-        loadStudentCourse(school.attend_course.replace(/[\'"[\]']+/g, ''));
+        loadStudentCourse(school.attend_course);
+        //loadStudentCourse(school.attend_course.replace(/[\'"[\]']+/g, ''));
         if(school.own_type== "private"){
           $('#'+school.own_type).prop("checked", true);
           //$('input[id=rent]').attr('disabled', 'disabled');
@@ -1875,7 +1915,8 @@ function getSchoolByRenew(id){
 
 
               }
-              loadStudentCourse(school.attend_course.replace(/[\'"[\]']+/g, ''));
+              loadStudentCourse(school.attend_course);
+              //loadStudentCourse(school.attend_course.replace(/[\'"[\]']+/g, ''));
               if(school.own_type== "private"){
                 $('#'+school.own_type).prop("checked", true);
                 //$('input[id=rent]').attr('disabled', 'disabled');

@@ -519,7 +519,7 @@
                                 <div class="row" style="padding-left: 110px;">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(၁)') }}</label>
-                                    <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ)မှတ်ပုံတင်လက်မှတ်</div>
+                                    <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မီ)မှတ်ပုံတင်လက်မှတ်</div>
                                     <div class="col-md-4">
                                         <input type="file"  class="form-control" name="cpa_certificate" required="">
                                     </div>
@@ -560,7 +560,7 @@
                                 <div class="row mt-3" style="padding-left: 110px;">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(၅)') }}</label>
-                                    <div class="col-md-6 col-form-label">CPA(FF) နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်</div>
+                                    <div class="col-md-6 col-form-label">CPA(Full-Fledged) နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်</div>
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" name="cpaff_last_renew_year" id="cpaff_last_renew_year" placeholder="CPA(Full-Fledged) နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်" required autocomplete="off">
                                     </div>
