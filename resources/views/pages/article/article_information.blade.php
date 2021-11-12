@@ -84,7 +84,7 @@
                                                     <h4 class="col-md-12 card-title text-success">Requirement</h4>
                                                     <hr>
                                                     <div class="requirement-info">
-                                                
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -158,7 +158,7 @@
                     </div>
                     <!-- <h5 >Resign</h5>
                         <button class="btn btn-success btn-hover-dark " id="articel_resign_btn">Aticle Resign</button> -->
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"
