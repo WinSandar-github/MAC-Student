@@ -485,7 +485,7 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>ခုနှစ်/လ<span style="color:red">*</span></label>                                            
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>ခုနှစ်/လ</label>                                            
                                         <div class="col-md-8">
                                             <div class="">
                                             <input type="text" class="form-control" name="da_one_pass_exam_date"  placeholder="ခုနှစ်၊လ(MM-YYYY)" >
@@ -494,7 +494,7 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဃ)</span>အဆင့်<span style="color:red">*</span></label>                                            
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဃ)</label>                                            
                                         <div class="col-md-8">
                                             <div class="">
                                                 <input type="text" placeholder="အဆင့်" id="da_one_pass_level" name="da_one_pass_level" class="form-control ">

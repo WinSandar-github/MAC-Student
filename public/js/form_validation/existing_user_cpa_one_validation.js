@@ -54,7 +54,9 @@ $().ready(function (){
             },
             selected_passed_batch_name : "required",
             // cpa_one_pass_level : "required",
-            cpa_one_pass_personal_no : "required",
+            cpa_one_pass_personal_no : {
+                required:".is_full_module:checked"
+            },
             qt_entry: "required",
             direct_access_no:{
                 required:"#direct_access_no:checked"
@@ -105,7 +107,9 @@ $().ready(function (){
 
             selected_passed_batch_name : "Please Select Batch",
             // cpa_one_pass_level : "Please enter your CPA One Pass Level",
-            cpa_one_pass_personal_no : "Please enter your CPA One Pass Personal Number",
+            cpa_one_pass_personal_no : {
+                required:"Please enter your CPA One Pass Personal Number",
+            },
             qt_entry: "Please Select One",
             direct_access_no:{
                 required: "Please Enter Direct Access Number"
@@ -188,7 +192,9 @@ $().ready(function (){
             },
             selected_passed_batch_name : "required",
             // cpa_one_pass_level : "required",
-            cpa_one_pass_personal_no : "required",
+            cpa_one_pass_personal_no : {
+                required:".is_full_module:checked"
+            },
             // is_full_module: "required",
         },
         messages: {
@@ -250,7 +256,9 @@ $().ready(function (){
 
             selected_passed_batch_name : "Please Select Batch",
             // cpa_one_pass_level : "Please enter your CPA One Pass Level",
-            cpa_one_pass_personal_no : "Please enter your CPA One Pass Personal Number",
+            cpa_one_pass_personal_no : {
+                required:"Please enter your CPA One Pass Personal Number",
+            },
 
 
         },

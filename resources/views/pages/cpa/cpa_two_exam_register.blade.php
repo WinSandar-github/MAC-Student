@@ -82,6 +82,7 @@
                                         @csrf
                                         <input type="hidden" id="form_type" class="form-control" name="form_type">
                                         <input type="hidden" name="is_private" id="is_private" class="form-control">
+                                        <input type="hidden" id="batch_id" class="form-control" name="batch_id">
                                             <div class="col-md-12 mt-3">
                                                 <div class="row">
                                                     <div class="col-md-8">
@@ -459,6 +460,7 @@
                 let current_stu_reg=student_info.student_register.slice(-1);
                 // console.log('current_stu_reg',current_stu_reg);
                 $('.batch_number').append(number2mm(current_course_reg[0].batch.number));
+                $('#batch_id').val(current_course_reg[0].batch.id);
                 $('#exam_date').append(formatDateMY(current_course_reg[0].batch.exam_start_date))
                     if(current_stu_reg[0].module=="1"){
                          $("#module1").prop("checked", true);

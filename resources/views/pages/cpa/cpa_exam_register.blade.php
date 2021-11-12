@@ -81,6 +81,7 @@
                                         <input type="hidden" id="form_type" class="form-control" name="form_type">                                        
                                         <input type="hidden" name="is_private" id="is_private" class="form-control">
                                         <input type="hidden" id="entry_success_no" class="form-control" name="entry_success_no">
+                                        <input type="hidden" id="batch_id" class="form-control" name="batch_id">
                                             <div class="col-md-12 mt-3">
 
                                                 <div class="row">
@@ -401,10 +402,19 @@
                                                     </div>
                                                 </div>
 
+                                                <div class="row mb-3">
+                                                    <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၂၃။') }}</span>သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" name="personal_no" id="personal_no" class="form-control" readonly>
+
+
+                                                    </div>
+                                                </div>
+
                                                 <div id="is_private_school" style="display=none;">
                                                     <div class="row mb-3">
                                                         <label class="col-md-1 col-form-label"
-                                                            id="cpa1_label1">{{ __('၂၃။') }}</label>
+                                                            id="cpa1_label1">{{ __('၂၄။') }}</label>
                                                         <label
                                                             class="col-md-3 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                                         <div class="col-md-8">
@@ -641,13 +651,13 @@
         if (boo == "true") {
             if (document.getElementById('is_private_school')) {
                 document.getElementById('is_private_school').style.display = 'block';
-                document.getElementById('cpa1_label1').innerHTML = "၂၃။";
-                document.getElementById('cpa1_label2').innerHTML = "၂၄။";
+                document.getElementById('cpa1_label1').innerHTML = "၂၄။";
+                document.getElementById('cpa1_label2').innerHTML = "၂၅။";
             }
         } else {
             if (document.getElementById('is_private_school')) {
                 document.getElementById('is_private_school').style.display = 'none';
-                document.getElementById('cpa1_label2').innerHTML = "၂၃။";
+                document.getElementById('cpa1_label2').innerHTML = "၂၄။";
             }
         }
 
@@ -661,6 +671,7 @@
         //    console.log('student_info',student_info);
             let current_stu_course = data.data.student_course_regs.slice(-1);
             $(".batch_number").append(number2mm(current_stu_course[0].batch.number));
+            $("#batch_id").val(current_stu_course[0].batch.id);
             $("#exam_date").append(formatDateMY(current_stu_course[0].batch.exam_start_date));
            if(student_info.acca_cima){
                $('#last_exam_data').hide();
@@ -760,7 +771,7 @@
 
                 $("input[name='private_school_name']").val(current_stu_reg[0].private_school_name);
 
-              
+                $("input[name='personal_no']").val(data.data.cpersonal_no);
                 // console.log(exam_registers)
 
                 if(exam_registers && exam_registers[0].exam_type_id !== 3)
