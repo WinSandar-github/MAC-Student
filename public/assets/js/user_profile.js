@@ -389,14 +389,14 @@ function user_profile() {
                                                         return val.invoiceNo == "cpaff_initial" + cpaff_latest_data.id;
                                                     });
                                                     if (invoice[0]?.status == 0) {
-                                                        var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                                        var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                                         var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                                     }
                                                     else if (invoice[0]?.status == 'AP') {
                                                         var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                                                     }
                                                     else {
-                                                        var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                                        var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                                         var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                                     }
                                                 }
@@ -406,14 +406,14 @@ function user_profile() {
                                                         return val.invoiceNo == "cpaff_renew" + cpaff_latest_data.id;
                                                     });
                                                     if (invoice[0]?.status == 0) {
-                                                        var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                                        var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                                         var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                                     }
                                                     else if (invoice[0]?.status == 'AP') {
                                                         var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                                                     }
                                                     else {
-                                                        var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                                        var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                                         var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                                     }
                                                 }
@@ -518,14 +518,14 @@ function user_profile() {
                                                                 return val.invoiceNo == "papp_initial" + papp_latest_data.id;
                                                             });
                                                             if (invoice[0]?.status == 0) {
-                                                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                                             }
                                                             else if (invoice[0]?.status == 'AP') {
                                                                 var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                                                             }
                                                             else {
-                                                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                                             }
                                                         }
@@ -535,14 +535,14 @@ function user_profile() {
                                                                 return val.invoiceNo == "papp_renew" + papp_latest_data.id;
                                                             });
                                                             if (invoice[0]?.status == 0) {
-                                                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                                             }
                                                             else if (invoice[0]?.status == 'AP') {
                                                                 var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                                                             }
                                                             else {
-                                                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                                             }
                                                         }
@@ -883,14 +883,14 @@ function user_profile() {
                             return val.invoiceNo == "cpaff_initial" + cpaff_latest_data.id;
                         });
                         if (invoice[0]?.status == 0) {
-                            var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                            var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                             var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`;
                         }
                         else if (invoice[0]?.status == 'AP') {
                             var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`;
                         }
                         else {
-                            var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                            var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                             var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                         }
                     }
@@ -900,14 +900,14 @@ function user_profile() {
                             return val.invoiceNo == "cpaff_renew" + cpaff_latest_data.id;
                         });
                         if (invoice[0]?.status == 0) {
-                            var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                            var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                             var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`;
                         }
                         else if (invoice[0]?.status == 'AP') {
                             var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`;
                         }
                         else {
-                            var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                            var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                             var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                         }
                     }
@@ -1001,14 +1001,14 @@ function user_profile() {
                                 return val.invoiceNo == "papp_initial" + papp_latest_data.id;
                             });
                             if (invoice[0]?.status == 0) {
-                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`;
                             }
                             else if (invoice[0]?.status == 'AP') {
                                 var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`;
                             }
                             else {
-                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                             }
                         }
@@ -1018,14 +1018,14 @@ function user_profile() {
                                 return val.invoiceNo == "papp_renew" + papp_latest_data.id;
                             });
                             if (invoice[0]?.status == 0) {
-                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`;
                             }
                             else if (invoice[0]?.status == 'AP') {
                                 var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`;
                             }
                             else {
-                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                             }
                         }
@@ -1444,14 +1444,14 @@ function user_profile() {
                                 return val.invoiceNo == "cpaff_initial" + cpaff_latest_data.id;
                             });
                             if (invoice[0]?.status == 0) {
-                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                             }
                             else if (invoice[0]?.status == 'AP') {
                                 var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                             }
                             else {
-                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                             }
                         }
@@ -1461,14 +1461,14 @@ function user_profile() {
                                 return val.invoiceNo == "cpaff_renew" + cpaff_latest_data.id;
                             });
                             if (invoice[0]?.status == 0) {
-                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                             }
                             else if (invoice[0]?.status == 'AP') {
                                 var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                             }
                             else {
-                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                             }
                         }
@@ -1572,14 +1572,14 @@ function user_profile() {
                                     return val.invoiceNo == "papp_initial" + papp_latest_data.id && val.status == 0;
                                 });
                                 if (invoice[0]?.status == 0) {
-                                    var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                    var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                     var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                 }
                                 else if (invoice[0]?.status == 'AP') {
                                     var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                                 }
                                 else {
-                                    var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                    var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                     var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                 }
                             }
@@ -1589,14 +1589,14 @@ function user_profile() {
                                     return val.invoiceNo == "papp_renew" + papp_latest_data.id && val.status == 0;
                                 });
                                 if (invoice[0]?.status == 0) {
-                                    var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                    var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                     var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                 }
                                 else if (invoice[0]?.status == 'AP') {
                                     var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                                 }
                                 else {
-                                    var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
+                                    var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
                                     var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                 }
                             }
