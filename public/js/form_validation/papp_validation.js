@@ -46,7 +46,7 @@ $().ready(function (){
             mpa_mem_card_front : "Please upload MPA member card (Front)",
             mpa_mem_card_back : "Please upload MPA member card (Back)",
             // letter : "Please upload your file",
-            cpaff_reg_no : "Please upload your registeration number",
+            cpaff_reg_no : "Please upload your registration number",
 
         },
         submitHandler: function(form) {

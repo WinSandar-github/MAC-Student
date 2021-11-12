@@ -293,7 +293,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ)မှတ်ပုံတင်လက်မှတ်</div>
+                                <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မီ)မှတ်ပုံတင်လက်မှတ်</div>
                                 <div class="col-md-4">
                                             <input type="file"  class="form-control" name="cpa_certificate" required="" accept="image/*">
                                 </div>

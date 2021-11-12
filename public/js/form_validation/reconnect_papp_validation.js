@@ -101,8 +101,8 @@ $().ready(function (){
             tax_free_file : "Please upload your file",
             mpa_mem_card_front : "Please upload MPA member card (Front)",
             mpa_mem_card_back : "Please upload MPA member card (Back)",
-            reg_no : "Please upload your registeration number",
-            papp_reg_no : "Please upload your registeration number",
+            reg_no : "Please upload your registration number",
+            papp_reg_no : "Please upload your registration number",
             latest_reg_year:"Please enter this field"
         },
         submitHandler: function(form) {

@@ -146,7 +146,7 @@
 
                                                 <li id="dyn-block"
                                                     class="list-group-item d-flex justify-content-between lh-condensed">
-                                                    <h6 class="my-0">TransFee</h6>
+                                                    <h6 class="my-0">Trans Fee</h6>
                                                     <span class="text-muted" id="dyn-fee"></span>
                                                 </li>
 

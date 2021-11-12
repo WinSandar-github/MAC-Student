@@ -2063,14 +2063,46 @@ function user_profile() {
                                                 course_code = "Diploma In Accountancy Part One"
                                                 break;
                                         }
-                                        // $('.status').append(`
-                                        //     <tr>
-                                        //         <td>Existing Registration For ${course_code}</td>
-                                        //         <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                        //         <td>-</td>
-                                        //         <td><span class="badge bg-info text-dark">Approved</span></td>
-                                        //     </tr>
-                                        // `);
+                                        $('.status').append(`
+                                            <tr>
+                                                <td>Existing Registration For ${course_code}</td>
+                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+
+                                                <td><span class="badge bg-success">Approved</span></td>
+                                            </tr>
+                                        `);
+
+                                    } else {
+
+
+                                        switch (latest_course_reg[0].batch.course.code) {
+                                            case 'da_1':
+                                                course_code = "Diploma In Accountancy Part One"
+                                                break;
+                                            case 'da_2':
+                                                course_code = "Diploma In Accountancy Part Two"
+                                                break;
+                                            case 'cpa_1':
+                                                course_code = "Certified Public Accountant Part One"
+                                                break;
+                                            case 'cpa_2':
+                                                course_code = "Certified Public Accountant Part Two"
+                                                break;
+                                            default:
+                                                course_code = "Diploma In Accountancy Part One"
+                                                break;
+                                        }
+                                        $('.status').append(`
+                                                <tr>
+                                                    <td>Existing Registration For ${course_code}</td>
+                                                    <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                    <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+    
+                                                    <td><span class="badge bg-success">Approved</span></td>
+                                                </tr>
+                                            `);
+
 
                                     }
                                 }
@@ -2089,6 +2121,7 @@ function user_profile() {
 
 
                                 if (latest_stu_reg[0] && latest_course_reg[0].batch.id == latest_stu_reg[0].batch.id) {
+
 
                                     $('.regi_fee_txt').text('Exam Registration Date')
                                     $('.self_study').hide();
@@ -2155,6 +2188,7 @@ function user_profile() {
                                                 module.push(exam.pass_module)
                                             }
                                         });
+                                        console.log(module, "MOdule")
 
                                         var data_exam = {};
 
@@ -2165,8 +2199,10 @@ function user_profile() {
                                                 (last_exam[0].exam_type_id !== 3 && (last_exam[0].pass_module == 3 || containsAll([1, 2], module) == true))
                                             ) {
 
+
+
                                                 if (last_exam[0].status == 0) {
-                                                    alert("Exam status ")
+
 
                                                     $('.status').append(`
                                                                     <tr>
@@ -2429,6 +2465,7 @@ function user_profile() {
                                                         `);
 
                                                         } else {
+
                                                             $('.status').append(`
                                                                             <tr>
                                                                 <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
@@ -2453,8 +2490,9 @@ function user_profile() {
                                                 }
                                             } else if ((JSON.stringify([1]) === JSON.stringify(module) || JSON.stringify([2]) && JSON.stringify(module)) && (last_exam[0].batch_id === latest_course_reg[0].batch.id)) {
 
+
                                                 if (last_exam[0].status == 0) {
-                                                    alert("2456 Hello")
+
 
                                                     $('.status').append(`
                                                                     <tr>
@@ -2466,7 +2504,7 @@ function user_profile() {
                                                                     `);
 
                                                 } else if (last_exam[0].status == 1) {
-                                                    console.log(latest_course_reg[0].batch.course.code, data.invoice)
+
 
                                                     var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
@@ -2500,6 +2538,7 @@ function user_profile() {
 
                                                     //check payment 
                                                     if (last_invoice.status === 'AP') {
+
                                                         if (last_exam[0].grade == 1) {
 
                                                             $('.regi_fee_txt').text('Application Form Fees')
@@ -2760,6 +2799,7 @@ function user_profile() {
                                                             }
                                                         } else if (last_exam[0].grade == 2) {
                                                             if (latest_course_reg[0].offline_user == 1) {
+
                                                                 // console.log('latest_course_reg', latest_course_reg[0]);
                                                                 get_course_by_code(latest_course_reg[0].batch.course.code).then(data => {
 
@@ -2857,6 +2897,7 @@ function user_profile() {
 
 
                                                         } else {
+
                                                             $('.status').append(`
                                                                             <tr>
                                                                 <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
@@ -2954,6 +2995,7 @@ function user_profile() {
                                             }
                                         }
                                         else {
+
                                             // $('.status').append(`
                                             // <tr>
                                             //     <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
