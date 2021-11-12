@@ -743,22 +743,22 @@ function user_profile() {
                             if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
                                 $('.qt_article_status').append(`<tr><td colspan=3></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                             }
-                        }  else if (latest_article[0].status == 2) {   //Form Reject
-                            if(latest_article[0]?.article_form_type == 'c12'){
+                        } else if (latest_article[0].status == 2) {   //Form Reject
+                            if (latest_article[0]?.article_form_type == 'c12') {
                                 article_url = '/update_article_firm_registration?data=' + 'c12';
-                            }else if(latest_article[0]?.article_form_type == 'c2_pass_3yr'){
+                            } else if (latest_article[0]?.article_form_type == 'c2_pass_3yr') {
                                 article_url = '/update_article_firm_registration?data=' + 'c2_pass_3yr';
-                            }else if(latest_article[0]?.article_form_type == 'c2_pass_1yr'){
+                            } else if (latest_article[0]?.article_form_type == 'c2_pass_1yr') {
                                 article_url = '/update_article_firm_registration?data=' + 'c2_pass_1yr';
-                            }else if(latest_article[0]?.article_form_type == 'c2_pass_renew'){
+                            } else if (latest_article[0]?.article_form_type == 'c2_pass_renew') {
                                 article_url = '/update_article_renew_firm_registration?data=' + 'c2_pass_renew';
-                            }else if(latest_article[0]?.article_form_type == 'c12_renew'){
+                            } else if (latest_article[0]?.article_form_type == 'c12_renew') {
                                 article_url = '/update_article_renew_firm_registration?data=' + 'c12_renew';
-                            }else if(latest_article[0]?.article_form_type == 'qt_firm'){
+                            } else if (latest_article[0]?.article_form_type == 'qt_firm') {
                                 article_url = '/update_article_qt_firm_registration';
                             }
                             $('.qt_article_status').append(`<tr><td colspan=3></td><td>Update Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Update </a></td></tr>`);
-                        }else if (latest_article[0]?.article_form_type == 'resign') {
+                        } else if (latest_article[0]?.article_form_type == 'resign') {
                             // if(latest_article[0].done_status == 0){
                             //     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                             //         $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
@@ -792,7 +792,7 @@ function user_profile() {
                                     $('.qt_article_status').append(`<tr><td colspan=3></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
                                 }
                             } else if (latest_article[0]?.resign_status == 2) {  //Form Reject
-                                if(latest_article[0]?.article_form_type == 'resign'){
+                                if (latest_article[0]?.article_form_type == 'resign') {
                                     article_url = '/update_article_resign_registration';
                                 }
                                 $('.qt_article_status').append(`<tr><td colspan=3></td><td>Update Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Update </a></td></tr>`);
@@ -1982,7 +1982,9 @@ function user_profile() {
 
 
                                     if (latest_course_reg[0]?.is_finished == 0) {
+
                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+
 
                                             $('.status').append(`
                                             <tr>
@@ -2024,23 +2026,38 @@ function user_profile() {
 
 
 
-                                            }
-                                            else{
-                                                //for existing user approved
+                                            } else {
+                                                switch (latest_course_reg[0].batch.course.code) {
+                                                    case 'da_1':
+                                                        course_code = "Diploma In Accountancy Part One"
+                                                        break;
+                                                    case 'da_2':
+                                                        course_code = "Diploma In Accountancy Part Two"
+                                                        break;
+                                                    case 'cpa_1':
+                                                        course_code = "Certified Public Accountant Part One"
+                                                        break;
+                                                    case 'cpa_2':
+                                                        course_code = "Certified Public Accountant Part Two"
+                                                        break;
+                                                    default:
+                                                        course_code = "Diploma In Accountancy Part One"
+                                                        break;
+                                                }
                                                 $('.status').append(`
-                                                    <tr>
-                                                        <td>${latest_course_reg[0].batch.course.name} Application Form</td>
-                                                        <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                                        <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                                        <td><span class='badge bg-success'>Approved</span></td>
-                                                    </tr>
-                                                `);
+                                                <tr>
+                                                    <td>Existing Registration For ${course_code}</td>
+                                                    <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                    <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+
+                                                    <td><span class="badge bg-success ">Approved</span></td>
+                                                </tr>
+                                            `);
+
                                             }
-                                        
                                         }
                                     }
                                 } else if ((latest_course_reg[0].batch.course.code == "da_2" || latest_course_reg[0].batch.course.code == "cpa_2") && latest_course_reg[0].offline_user == 1) {
-                                    alert("AAA")
                                     if (latest_course_reg[0].offline_user == 1) {
 
                                         switch (latest_course_reg[0].batch.course.code) {
@@ -2060,14 +2077,46 @@ function user_profile() {
                                                 course_code = "Diploma In Accountancy Part One"
                                                 break;
                                         }
-                                        // $('.status').append(`
-                                        //     <tr>
-                                        //         <td>Existing Registration For ${course_code}</td>
-                                        //         <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                        //         <td>-</td>
-                                        //         <td><span class="badge bg-info text-dark">Approved</span></td>
-                                        //     </tr>
-                                        // `);
+                                        $('.status').append(`
+                                            <tr>
+                                                <td>Existing Registration For ${course_code}</td>
+                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+
+                                                <td><span class="badge bg-success">Approved</span></td>
+                                            </tr>
+                                        `);
+
+                                    } else {
+
+
+                                        switch (latest_course_reg[0].batch.course.code) {
+                                            case 'da_1':
+                                                course_code = "Diploma In Accountancy Part One"
+                                                break;
+                                            case 'da_2':
+                                                course_code = "Diploma In Accountancy Part Two"
+                                                break;
+                                            case 'cpa_1':
+                                                course_code = "Certified Public Accountant Part One"
+                                                break;
+                                            case 'cpa_2':
+                                                course_code = "Certified Public Accountant Part Two"
+                                                break;
+                                            default:
+                                                course_code = "Diploma In Accountancy Part One"
+                                                break;
+                                        }
+                                        $('.status').append(`
+                                                <tr>
+                                                    <td>Existing Registration For ${course_code}</td>
+                                                    <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                    <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+    
+                                                    <td><span class="badge bg-success">Approved</span></td>
+                                                </tr>
+                                            `);
+
 
                                     }
                                 }
@@ -2086,6 +2135,7 @@ function user_profile() {
 
 
                                 if (latest_stu_reg[0] && latest_course_reg[0].batch.id == latest_stu_reg[0].batch.id) {
+
 
                                     $('.regi_fee_txt').text('Exam Registration Date')
                                     $('.self_study').hide();
@@ -2152,6 +2202,7 @@ function user_profile() {
                                                 module.push(exam.pass_module)
                                             }
                                         });
+                                        console.log(module, "MOdule")
 
                                         var data_exam = {};
 
@@ -2162,7 +2213,10 @@ function user_profile() {
                                                 (last_exam[0].exam_type_id !== 3 && (last_exam[0].pass_module == 3 || containsAll([1, 2], module) == true))
                                             ) {
 
+
+
                                                 if (last_exam[0].status == 0) {
+
 
                                                     $('.status').append(`
                                                                     <tr>
@@ -2180,6 +2234,7 @@ function user_profile() {
                                                     });
                                                     console.log(invoice, "Invoice")
                                                     if (latest_course_reg[0]?.is_finished == 0) {
+
                                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
                                                             $('.status').append(`
@@ -2424,6 +2479,7 @@ function user_profile() {
                                                         `);
 
                                                         } else {
+
                                                             $('.status').append(`
                                                                             <tr>
                                                                 <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
@@ -2448,7 +2504,9 @@ function user_profile() {
                                                 }
                                             } else if ((JSON.stringify([1]) === JSON.stringify(module) || JSON.stringify([2]) && JSON.stringify(module)) && (last_exam[0].batch_id === latest_course_reg[0].batch.id)) {
 
+
                                                 if (last_exam[0].status == 0) {
+
 
                                                     $('.status').append(`
                                                                     <tr>
@@ -2460,8 +2518,7 @@ function user_profile() {
                                                                     `);
 
                                                 } else if (last_exam[0].status == 1) {
-                                                    alert("HH")
-                                                    console.log(latest_course_reg[0].batch.course.code, data.invoice)
+
 
                                                     var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
@@ -2495,6 +2552,7 @@ function user_profile() {
 
                                                     //check payment
                                                     if (last_invoice.status === 'AP') {
+
                                                         if (last_exam[0].grade == 1) {
 
                                                             $('.regi_fee_txt').text('Application Form Fees')
@@ -2755,6 +2813,7 @@ function user_profile() {
                                                             }
                                                         } else if (last_exam[0].grade == 2) {
                                                             if (latest_course_reg[0].offline_user == 1) {
+
                                                                 // console.log('latest_course_reg', latest_course_reg[0]);
                                                                 get_course_by_code(latest_course_reg[0].batch.course.code).then(data => {
 
@@ -2852,6 +2911,7 @@ function user_profile() {
 
 
                                                         } else {
+
                                                             $('.status').append(`
                                                                             <tr>
                                                                 <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
@@ -2949,6 +3009,7 @@ function user_profile() {
                                             }
                                         }
                                         else {
+
                                             // $('.status').append(`
                                             // <tr>
                                             //     <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
@@ -3677,9 +3738,9 @@ function user_profile() {
 
                                             if (Difference_In_Days < 1095) {
                                                 //if (latest_stu_reg[0].course.code == "cpa_2" && exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)){
-                                                    $('.article_btn').append(`<tr><td colspan=4></td><td><button type='button' class='btn btn-md btn-success' id='continue_btn' value='${latest_article[0].contract_end_date}' onclick='continueArticle(${latest_article[0].id});'>Continue...</button></td></tr>`);
+                                                $('.article_btn').append(`<tr><td colspan=4></td><td><button type='button' class='btn btn-md btn-success' id='continue_btn' value='${latest_article[0].contract_end_date}' onclick='continueArticle(${latest_article[0].id});'>Continue...</button></td></tr>`);
                                                 //}else {
-                                                    //$('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန်</td><td>Check By MAC</td></tr>`);
+                                                //$('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန်</td><td>Check By MAC</td></tr>`);
                                                 //}
                                             } else {
                                                 $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန်</td><td>Check By MAC</td></tr>`);
@@ -3735,15 +3796,15 @@ function user_profile() {
                                     $('.article_btn').append(`<tr><td colspan=3></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                                 }
                             } else if (latest_article[0]?.status == 2) {  //Form Reject
-                                if(latest_article[0]?.article_form_type == 'c12'){
+                                if (latest_article[0]?.article_form_type == 'c12') {
                                     article_url = '/update_article_firm_registration?data=' + 'c12';
-                                }else if(latest_article[0]?.article_form_type == 'c2_pass_3yr'){
+                                } else if (latest_article[0]?.article_form_type == 'c2_pass_3yr') {
                                     article_url = '/update_article_firm_registration?data=' + 'c2_pass_3yr';
-                                }else if(latest_article[0]?.article_form_type == 'c2_pass_1yr'){
+                                } else if (latest_article[0]?.article_form_type == 'c2_pass_1yr') {
                                     article_url = '/update_article_firm_registration?data=' + 'c2_pass_1yr';
-                                }else if(latest_article[0]?.article_form_type == 'c2_pass_renew'){
+                                } else if (latest_article[0]?.article_form_type == 'c2_pass_renew') {
                                     article_url = '/update_article_renew_firm_registration?data=' + 'c2_pass_renew';
-                                }else if(latest_article[0]?.article_form_type == 'c12_renew'){
+                                } else if (latest_article[0]?.article_form_type == 'c12_renew') {
                                     article_url = '/update_article_renew_firm_registration?data=' + 'c12_renew';
                                 }
                                 $('.article_btn').append(`<tr><td colspan=3></td><td>Update Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Update </a></td></tr>`);
@@ -3781,7 +3842,7 @@ function user_profile() {
                                         $('.article_btn').append(`<tr><td colspan=3></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
                                     }
                                 } else if (latest_article[0]?.resign_status == 2) {  //Form Reject
-                                    if(latest_article[0]?.article_form_type == 'resign'){
+                                    if (latest_article[0]?.article_form_type == 'resign') {
                                         article_url = '/update_article_resign_registration';
                                     }
                                     $('.article_btn').append(`<tr><td colspan=3></td><td>Update Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Update </a></td></tr>`);
@@ -4111,19 +4172,19 @@ function user_profile() {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                                     }
                                 } else if (latest_article[0]?.status == 2) {  //Form Reject
-                                    if(latest_article[0]?.article_form_type == 'c12'){
+                                    if (latest_article[0]?.article_form_type == 'c12') {
                                         article_url = '/update_article_firm_registration?data=' + 'c12';
-                                    }else if(latest_article[0]?.article_form_type == 'c2_pass_3yr'){
+                                    } else if (latest_article[0]?.article_form_type == 'c2_pass_3yr') {
                                         article_url = '/update_article_firm_registration?data=' + 'c2_pass_3yr';
-                                    }else if(latest_article[0]?.article_form_type == 'c2_pass_1yr'){
+                                    } else if (latest_article[0]?.article_form_type == 'c2_pass_1yr') {
                                         article_url = '/update_article_firm_registration?data=' + 'c2_pass_1yr';
-                                    }else if(latest_article[0]?.article_form_type == 'c2_pass_renew'){
+                                    } else if (latest_article[0]?.article_form_type == 'c2_pass_renew') {
                                         article_url = '/update_article_renew_firm_registration?data=' + 'c2_pass_renew';
-                                    }else if(latest_article[0]?.article_form_type == 'c12_renew'){
+                                    } else if (latest_article[0]?.article_form_type == 'c12_renew') {
                                         article_url = '/update_article_renew_firm_registration?data=' + 'c12_renew';
                                     }
                                     $('.article_btn').append(`<tr><td colspan=3></td><td>Update Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Update </a></td></tr>`);
-                                }  else if (latest_article[0]?.article_form_type == 'resign') {
+                                } else if (latest_article[0]?.article_form_type == 'resign') {
                                     // if (latest_article[0].done_status == 0) {
                                     //     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                                     //         $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
@@ -4157,7 +4218,7 @@ function user_profile() {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
                                         }
                                     } else if (latest_article[0]?.resign_status == 2) {  //Form Reject
-                                        if(latest_article[0]?.article_form_type == 'resign'){
+                                        if (latest_article[0]?.article_form_type == 'resign') {
                                             article_url = '/update_article_resign_registration';
                                         }
                                         $('.article_btn').append(`<tr><td colspan=3></td><td>Update Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Update </a></td></tr>`);
@@ -4237,7 +4298,7 @@ function user_profile() {
                                 } else if (latest_gov_article[0]?.status == 2) {  //Form Reject
                                     article_url = '/update_article_gov_registration';
                                     $('.article_btn').append(`<tr><td colspan=3></td><td>Update Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Update </a></td></tr>`);
-                                } 
+                                }
                             }
                         }
 
@@ -4481,10 +4542,7 @@ function DownloadForms(form_type) {
     if (form_type != "c12_renew") {
         $('#downloadFormModel').modal('toggle');
         $('#c2_not_pass_attach').hide();
-    }else if(form_type =="c12_renew"){
-        $('#downloadFormModel').modal('toggle');
-        $('#c2_pass_attach').hide();
-    }else{
+    } else {
         $('#downloadFormModel').modal('toggle');
     }
 
@@ -4973,10 +5031,10 @@ function loadSchoolByDash(school_data, school_invoice) {
                                 var period_date = school.renew_date.split(' ');
                                 var new_period_date = period_date[0].split('-');
                                 var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                                var renew_date=new Date(school.renew_date);
-                                if((renew_date.getMonth()+1)=='11' || (renew_date.getMonth()+1)=='12'){
-                                    $('#sch_period_time').text('01-01-' + (now.getFullYear()+1) + " to 31-12-" + (now.getFullYear() + 3));
-                                }else{
+                                var renew_date = new Date(school.renew_date);
+                                if ((renew_date.getMonth() + 1) == '11' || (renew_date.getMonth() + 1) == '12') {
+                                    $('#sch_period_time').text('01-01-' + (now.getFullYear() + 1) + " to 31-12-" + (now.getFullYear() + 3));
+                                } else {
                                     $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + (now.getFullYear() + 2));
                                 }
                                 $('.sch_status_history').append('School Registration is Approved.');
@@ -5130,13 +5188,13 @@ function laodTeacherByDash(teacher_data, _invoice) {
                             } else if (teacher.initial_status == 1) {
                                 $('.teacher_status_history').append('Teacher Registration is Approved.');
                                 $('.teacher_period').show();
-                                var renew_date=new Date(teacher.renew_date);
-                                if((renew_date.getMonth()+1)=='11' || (renew_date.getMonth()+1)=='12'){
-                                    $('#teacher_period_time').text('01-01-' + (now.getFullYear()+1) + " to 31-12-" + (now.getFullYear()+1));
-                                }else{
+                                var renew_date = new Date(teacher.renew_date);
+                                if ((renew_date.getMonth() + 1) == '11' || (renew_date.getMonth() + 1) == '12') {
+                                    $('#teacher_period_time').text('01-01-' + (now.getFullYear() + 1) + " to 31-12-" + (now.getFullYear() + 1));
+                                } else {
                                     $('#teacher_period_time').text('01-01-' + (now.getFullYear()) + " to 31-12-" + (now.getFullYear()));
                                 }
-                               
+
                                 $('.teacher_payment-status').show();
                             } else {
                                 $('.teacher_status_history').append('Teacher is request stop.');
