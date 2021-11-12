@@ -83,7 +83,7 @@
                         <!-- Form Wrapper Start -->
                         <div class="form-wrapper">
 
-                            <form method="post" id="article_register_form"  action="javascript:javascript:createArticleFirmRegister();"
+                            <form method="post" id="update_article_register_form"  action="javascript:javascript:createArticleFirmRegister();"
                                     enctype="multipart/form-data" novalidate>
                                 @csrf
 
@@ -450,7 +450,8 @@
                                         <div id="experience_attach_row" style="display:none">
                                             <div class="row mb-3">
                                                 <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>ရှိပါက အထောက်အထားများဖြင့် တင်ပြပေးပါရန်</label>
-                                                <div class="col-md-9" id="experience">
+                                                <div class="col-md-1 experience_old"></div>
+                                                <div class="col-md-8" id="experience">
                                                     <div class="row mb-3" id="experience0">
                                                         <div class="col-md-11" id="experience_file">
                                                             <input type="file" class="form-control" id="experience_file0" name="experience_file[]" autocomplete="off">
@@ -579,8 +580,9 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>လက်ခံသင်ကြားပေးကြောင်းအကြောင်းကြားစာ</label>
-                                            <div class="col-md-9">
-                                                <input type="file" name="request_papp_attach" class="form-control">
+                                            <div class="col-md-1 request_papp_attach_old"></div>
+                                            <div class="col-md-8">
+                                                <input type="file" id="request_papp_attach" name="request_papp_attach" class="form-control">
                                             </div>
                                         </div>
 
@@ -602,6 +604,7 @@
 
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
                                         <input type="hidden" id="article_form_type" name="article_form_type" >
+                                        <input type="hidden" id="article_id" name="article_id" >
 
                                         <div class="row mb-3">
                                             <div class="form-check">
@@ -668,7 +671,7 @@
 
                                         <div class="row justify-content-center">
                                             <button type="submit" id="submit_btn" class="btn btn-success btn-hover-dark w-25" disabled>
-                                                Submit
+                                                Update
                                             </button>
                                         </div>
 
@@ -711,7 +714,7 @@
         var url = new URL(result);
         var get_data = url.searchParams.get("data");
 
-        $("#article_form_type").val(get_data);
+        //$("#article_form_type").val(get_data);
 
         get_student_info(student_id).then(data => {
             let student_info = data.data
@@ -720,9 +723,7 @@
             let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
             let exam_result ;  // pass/fail
             let module = student_reg[lastest_row].module;  // module 1/2/all
-            //let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
-            var type_data=student_info.student_course_regs.pop();
-            let type=type_data.type;
+            let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
             let batch = student_reg[lastest_row].batch;  // module 1/2/all
             let last_exam_register = data.data.exam_registers[student_reg.length - 1];
             if(last_exam_register == undefined){
@@ -800,11 +801,13 @@
                 $('input:radio[name=gender3][value=0]').attr('checked',true);
             }
 
+            let latest_article = data.data.article.slice(-1);
+            $("#article_form_type").val(latest_article[0].article_form_type);
+            $("#article_id").val(latest_article[0].id);
+
             if(get_data == "c2_pass_3yr"){
                 $("#previous_exam_pass_row").css('display','block');
                 document.getElementById('exam_pass_date_label').innerHTML="၁၅။";
-            }else if(get_data == "c12"){
-
             }else if(get_data == "c2_pass_1yr"){
                 $("#all_first_row").css('display','none');
                 $("#renew_first_row").css('display','block');
@@ -820,25 +823,59 @@
                 $("#previous_papp_date_row").css('display','block');
                 document.getElementById('papp_name_label').innerHTML="၁၅။";
                 $("#previous_exam_pass_row").css('display','block');
-
-                let latest_article = data.data.article.slice(-1);
-                let latest_gov_article = data.data.gov_article.slice(-1);
-
-                if(latest_gov_article[0]){
-                    $("#m_email").val(latest_gov_article[0].m_email);
-                    $("#current_address").val(latest_gov_article[0].current_address);
-                    //$("#previous_papp_name").val(latest_gov_article[0].current_address);
-                    $("#previous_papp_start_date").val(latest_gov_article[0].contract_start_date);
-                    $("#previous_papp_end_date").val(latest_gov_article[0].contract_end_date);
-                }else{
-                    $("#m_email").val(latest_article[0].m_email);
-                    $("#current_address").val(latest_article[0].current_address);
-                    $("#previous_papp_name").val(latest_article[0].request_papp);
-                    $("#previous_papp_start_date").val(latest_article[0].contract_start_date);
-                    $("#previous_papp_end_date").val(latest_article[0].contract_end_date);
-                }
             }
-            console.log(student_info.student_course_regs.pop());
+
+            $("#m_email").val(latest_article[0].m_email);
+            $("#current_address").val(latest_article[0].current_address);
+            $("#previous_papp_name").val(latest_article[0].ex_papp);
+            $("#previous_papp_start_date").val(latest_article[0].exp_start_date);
+            $("#previous_papp_end_date").val(latest_article[0].exp_end_date);
+            $("#pass_date").val(latest_article[0].exam_pass_date);
+            $("#pass_no").val(latest_article[0].exam_pass_batch);
+            $("#papp_name").val(latest_article[0].request_papp);
+            if(latest_article[0].mentor!=null){
+                $("#mentor_name").val(latest_article[0]?.mentor?.name_eng);
+            }
+            else{
+                $("#mentor_name").val(latest_article[0].mentor_id);
+            }
+
+            if (latest_article[0].apprentice_exp == 1) {
+                $('input:radio[name=experience][value=1]').attr('checked', true);
+                // $('input:radio[name=experience][value=0]').attr('disabled', true);
+                $('#experience_attach_row').css('display', 'block');
+                let apprentice_exp_file = JSON.parse(latest_article[0].apprentice_exp_file);
+                $.each(apprentice_exp_file, function (fileCount, fileName) {
+                    $(".experience_old").append(`<a href='${BASE_URL + "/storage/student_info/" + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
+
+                })
+            }
+            else {
+                $('input:radio[name=experience][value=0]').attr('checked', true);
+                // $('input:radio[name=experience][value=1]').attr('disabled', true);
+                $('#experience_attach_row').css('display', 'none');
+            }
+
+            if (latest_article[0].gov_staff == 1) {
+                $('input:radio[name=current_job][value=1]').attr('checked', true);
+                // $('input:radio[name=current_job][value=0]').attr('disabled', true);
+                $('#current_job_row').css('display', 'block');
+                $("#position").val(latest_article[0].gov_position);
+                $("#gov_joining_date").val(latest_article[0].gov_joining_date);
+            }
+            else {
+                $('input:radio[name=current_job][value=0]').attr('checked', true);
+                // $('input:radio[name=current_job][value=1]').attr('disabled', true);
+                $('#current_job_row').css('display', 'none');
+            }
+
+            if (latest_article[0].request_papp_attach != "") {
+                $(".request_papp_attach_old").append(`<a href='${BASE_URL + latest_article[0].request_papp_attach}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'  align="center">View File</a>`);
+            } else {
+                $('.request_papp_attach_old').hide();
+            }
+
+            console.log(student_info.cpersonal_no);
             $('#name_mm').val(student_info.name_mm);
             $("#name_eng").val(student_info.name_eng);
             $("#personal_no").val(student_info.cpersonal_no);

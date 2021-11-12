@@ -79,4 +79,40 @@ $().ready(function (){
         },
         
     });
+    $("#update_article_gov_register_form").validate({
+        rules:{
+            labor_registration_no : "required",
+            // phone_no : "required",
+            m_email : "required",
+            // address : "required",
+            home_address : "required",
+            current_address : "required",
+            tempory_address : "required",
+            permanent_address : "required",
+            married : "required",
+            married_name : {
+                required : "#married_yes:checked"
+            },
+            married_job : {
+                required : "#married_yes:checked"
+            },
+            confirm_142 : "required",
+            mentor_declare : "required",
+        },
+        messages:{
+            labor_registration_no : "Please enter your labor registration no",
+            // phone_no : "Please enter your phone number",
+            m_email : "Please enter your email",
+            // address : "Please enter your address",
+            home_address : "Please enter your home address",
+            current_address : "Please enter your current address",
+            tempory_address : "Please enter your tempory address",
+            permanent_address : "Please enter your permanent address",
+            married : "Please enter your status",
+            married_name : "Please enter name",
+            married_job : "Please enter job",
+            confirm_142 : "Please check one",
+        },
+        
+    });
 });
