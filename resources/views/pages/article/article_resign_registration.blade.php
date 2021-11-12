@@ -94,7 +94,7 @@
                                             <h5 class="card-title text-center fw-bolder">
                                                 ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော်<br><br>
                                                 ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး<br><br>
-                                                စာရင်းကိုင်အလုပ်သင်လျှောက်လွှာပုံစံ
+                                                စာရင်းကိုင်အလုပ်သင်နုတ်ထွက်လျှောက်လွှာပုံစံ
                                             </h5>
                                             <div>
                                                 <h6 align="right">ရက်စွဲ - {{ date('d-M-Y') }}</h6>
@@ -481,11 +481,11 @@
         get_student_info(student_id).then(data => {
 
             let student_info = data.data
-            let article_info = data.data.article;
+            let article_info = data.data.article[0] && data.data.article[0];
             
-            $("#contract_start_date").val(article_info[0].contract_start_date);
-            $("#contract_end_date").val(article_info[0].contract_end_date);
-            $("#mentor_id").val(article_info[0].mentor_id);
+            $("#contract_start_date").val(article_info ? article_info.contract_start_date : 'N/A');
+            $("#contract_end_date").val(article_info ? article_info.contract_end_date : 'N/A');
+            $("#mentor_id").val(article_info ? article_info.mentor_id : '');
 
             // let student_reg = data.data.student_register
             // let lastest_row = student_reg.length - 1;
@@ -506,7 +506,7 @@
                 $("#recent_org").val("Government");
                 $("#offline_user").val(0);
             }
-
+            
             $('#name_mm').val(student_info.name_mm);
             $("#name_eng").val(student_info.name_eng);
             $("#personal_no").val(student_info.cpersonal_no);
