@@ -284,11 +284,11 @@ function loadRenewMentor(id){
                 $('#regno').val(mentor.id);
                 $('#register_date').val(mentor.renew_date);
                 if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
-                    $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                    $("#message").val("Your registration is expired! You need to submit new registeration form again.");
                     $('.renew_submit').prop('disabled', false);
 
                 }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
-                    $("#message").val("Your registeration will start in "+now.getFullYear()+" year!");
+                    $("#message").val("Your registration will start in "+now.getFullYear()+" year!");
                     $('.renew_submit').prop('disabled', true);
                 }else{
                     $('#message').val("You are verified!");

@@ -619,11 +619,11 @@ function loadPAPP(){
                         $('#regno').val(data.id);
                         $('#register_date').val(data.renew_accepted_date);
                         if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
-                            $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                            $("#message").val("Your registration is expired! You need to submit new registeration form again.");
                             $('.renew_submit').prop('disabled', false);
 
                         }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
-                            $("#message").val("Your registeration will start in "+y+" year!");
+                            $("#message").val("Your registration will start in "+y+" year!");
                             // $('.renew_submit').prop('disabled', true);
                             $('.renew_submit').prop('disabled', false);
                         }else{

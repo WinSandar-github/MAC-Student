@@ -424,9 +424,15 @@ function loadCpaffData() {
                         $('#nrc_number').val(cpaff_data.nrc_number);
                         $('#nrc_state_region').val(cpaff_data.nrc_state_region);
                         $('#father_name_mm').val(cpaff_data.father_name_mm);
-                        $('#father_name_eng').val(cpaff_data.father_name_eng);                        
-                        
-                        cpaff_data.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
+                        $('#father_name_eng').val(cpaff_data.father_name_eng); 
+                        // cpaff_data.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
+                        if(cpaff_data.gender == "Male"){
+                            $('#male').attr('checked',true);
+                            $('#female').attr('disabled', true);
+                        }else{
+                            $('#female').attr('checked',true);
+                            $('#male').attr('disabled', true);
+                        } 
                     }
                 });
             }
@@ -448,11 +454,18 @@ function loadCpaffData() {
                             $('#nrc_state_region').val(student.nrc_state_region);
                             $('#father_name_mm').val(student.father_name_mm);
                             $('#father_name_eng').val(student.father_name_eng);
-                            student.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
+                            // student.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
                             // $('#remark').css('display', 'block');
                             // $('#remark_description').text(cpaff_data.reject_description);
                             // $('#cpaff_submit').html('Update');
                             // $("#cpaff_submit").addClass("update-profile");
+                            if(student.gender == "Male"){
+                                $('#male').attr('checked',true);
+                                $('#female').attr('disabled', true);
+                            }else{
+                                $('#female').attr('checked',true);
+                                $('#male').attr('disabled', true);
+                            } 
 
                         }
                     });
@@ -478,7 +491,14 @@ function loadCpaffData() {
                             $('#father_name_eng').val(cpaff_data.father_name_eng);
                             $('#address').val(cpaff_data.address);
                             $('#phone').val(cpaff_data.phone);
-                            cpaff_data.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
+                            // cpaff_data.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
+                            if(cpaff_data.gender == "Male"){
+                                $('#male').attr('checked',true);
+                                $('#female').attr('disabled', true);
+                            }else{
+                                $('#female').attr('checked',true);
+                                $('#male').attr('disabled', true);
+                            }
                         }
                     });
                 }
@@ -1038,11 +1058,11 @@ function loadCPAFF() {
                         $('#regno').val(data.id);
                         $('#register_date').val(data.renew_accepted_date);
                         if ((now.getFullYear() == y && (now.getMonth() + 1) == month) || now.getFullYear() > year) {
-                            $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                            $("#message").val("Your registration is expired! You need to submit new registeration form again.");
                             $('.renew_submit').prop('disabled', false);
 
                         } else if ((now.getFullYear() == accept.getFullYear() && month == '10') || (now.getFullYear() == accept.getFullYear() && month == '11') || (now.getFullYear() == accept.getFullYear() && month == '12')) {
-                            $("#message").val("Your registeration will start in " + now.getFullYear() + " year!");
+                            $("#message").val("Your registration will start in " + now.getFullYear() + " year!");
                             // $('.renew_submit').prop('disabled', true);
                             $('.renew_submit').prop('disabled', false);
                         } else {
