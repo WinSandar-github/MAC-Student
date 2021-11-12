@@ -1511,7 +1511,6 @@ function user_profile() {
                         `);
                         // $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                     } else if (cpaff_latest_data.status == 1) {
-                        console.log("invoice", data.invoice);
                         $('.status').append(`
                         <tr>
                             <td>CPA(Full-Fledged) ${is_renew}</td>
@@ -1676,8 +1675,6 @@ function user_profile() {
                                 localStorage.setItem('reconnect_papp_id', papp_latest_data.id);
                                 localStorage.setItem('reconnect_cpaff_id', cpaff_latest_data.id);
                                 localStorage.setItem('reconnect_student_id', student_id);
-                                console.log('papp_latest_data.id', papp_latest_data.id);
-                                console.log('cpaff_latest_data.id', cpaff_latest_data.id);
                                 $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_reconnect}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit PAPP</a></td></tr
                                     <tr><td></td><td><h5>Reject Remark</h5></td>
                                         <td>
@@ -2164,7 +2161,7 @@ function user_profile() {
                                                     var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
                                                     });
-                                                    console.log(invoice, "Invoice")
+                                                   
                                                     if (latest_course_reg[0]?.is_finished == 0) {
                                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
@@ -2446,10 +2443,7 @@ function user_profile() {
                                                                     `);
 
                                                 } else if (last_exam[0].status == 1) {
-                                                    alert("HH")
-                                                    console.log(latest_course_reg[0].batch.course.code, data.invoice)
-
-                                                    var invoice = data.invoice.filter(val => {
+                                                   var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
                                                     });
 
@@ -3428,22 +3422,23 @@ function user_profile() {
                 // }
 
                 // Show Article Status
-                if (latest_stu_reg[0]) {
-                    console.log(data.student_course_regs, 'a');
+                if (latest_stu_reg[0]) {                 
                     if (latest_course_reg[0].status == 0) {
                         $('#article_row').css('display', 'none');
                     }
                     else {
                         $('#article_row').css('display', 'block');
                     }
-                    // console.log(latest_course_reg[0],'aa');
-                    if (latest_stu_reg[0].form_type == 3 && latest_stu_reg[0].status == 1 && latest_stu_reg[0].course.code == "cpa_1" || latest_stu_reg[0].course.code == "cpa_2") {
-
+                    var payment_success = data.invoice.at(-1) && data.invoice.at(-1).status;
+                    if ( latest_stu_reg[0].status ==  1 && latest_course_reg[0].status == 1 
+                        && latest_course_reg.batch_id == latest_stu_reg.batch_id && payment_success == 'AP'
+                        && (latest_stu_reg[0].course.code == "cpa_1" || latest_stu_reg[0].course.code == "cpa_2")) {                       
+                        
                         let latest_article = data.article.slice(-1);
                         let latest_gov_article = data.gov_article.slice(-1);
                         let exam_results = data.exam_results.slice(-1);
                         let exam_registers = data.exam_registers.slice(-1);
-
+                        
                         //doens't have article list
                         if (data.article.length == 0 && data.gov_article.length == 0) {
                             article_url = '/article_information';
@@ -3451,7 +3446,6 @@ function user_profile() {
                         }
 
                         if (data.gov_article.length == 0) {
-                            console.log(data);
                             let article = data.article;
                             article.forEach(function (element) {
                                 article_form_type = element.article_form_type;
