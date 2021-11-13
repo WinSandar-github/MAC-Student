@@ -34,7 +34,7 @@ function loadPassedBatchList() {
         success: function (data) {
             var batch_data = data.data;
             batch_data.forEach(function (element) {
-                console.log('element_batch',element)
+                console.log('element_batch', element)
                 var option = document.createElement('option');
                 option.text = element.name + "/" + element.name_mm;
                 option.value = element.id;
@@ -56,7 +56,7 @@ function loadPassedBatchList() {
 function loadCurrentBatchList() {
     var course_id = document.getElementById("current_course_id").value;
     var select = document.getElementById("selected_current_batch_id");
-    
+
     $.ajax({
         url: BACKEND_URL + "/get_current_batch/" + course_id,
         type: 'get',
@@ -596,38 +596,38 @@ function CreateDAExistingRegister() {
     send_data.append('payment_method', $("input[name=payment_method]").val());
     send_data.append('verify_code', $("input[name=verify_code]").val());
 
-    send_data.append('pass_batch_id', $("#selected_passed_batch_id").val());   
+    send_data.append('pass_batch_id', $("#selected_passed_batch_id").val());
     send_data.append('da_one_pass_level', $("input[name=da_one_pass_level]").val());
     send_data.append('da_one_pass_exam_date', $("input[name=da_one_pass_exam_date]").val());
     send_data.append('da_one_pass_personal_no', $("input[name=da_one_pass_personal_no]").val());
 
-    
+
 
     if ($("#da_type").val() == 'da_2') {
         send_data.append('batch_id', $("#selected_current_batch_id").val());
-        if($("input[name='da_two_attend_place']:checked").val()){
+        if ($("input[name='da_two_attend_place']:checked").val()) {
             send_data.append('type_da2', $("input[name='da_two_attend_place']:checked").val());
-        }        
+        }
         send_data.append('da_two_pass_level', $("input[name=da_two_pass_level]").val());
         send_data.append('da_two_pass_exam_date', $("input[name=da_two_pass_exam_date]").val());
         send_data.append('da_two_pass_personal_no', $("input[name=da_two_pass_personal_no]").val());
         send_data.append('da_two_mac_type', $("input[name='da_two_attend_place']:checked").val() == 2 ? $("input[name='da_two_mac_type']:checked").val() : 99);
-    }    
+    }
     send_data.append('active_batch_id', $("#active_batch_id").val());
 
     send_data.append('type_active_da2', $("input[name='da_two_active_attend_place']:checked").val());
     send_data.append('da_two_active_mac_type', $("input[name='da_two_active_attend_place']:checked").val() == 2 ? $("input[name='da_two_active_mac_type']:checked").val() : 99);
-    
-    if($("input[name='attend_place']:checked").val()){
+
+    if ($("input[name='attend_place']:checked").val()) {
         send_data.append('type', $("input[name='attend_place']:checked").val());
-    }    
+    }
     send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
-    if($("input[type='radio'][name='is_full_module']:checked").val()!=null){        
+    if ($("input[type='radio'][name='is_full_module']:checked").val() != null) {
         send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
-    }else if($("input[type='radio'][name='is_full_module']:checked").val()==null){        
+    } else if ($("input[type='radio'][name='is_full_module']:checked").val() == null) {
         send_data.append('module', 0);
     }
-    
+
     send_data.append('da_type', $("#da_type").val());
     show_loader();
     $.ajax({
@@ -742,15 +742,15 @@ function updateDAExistingRegister() {
     send_data.append('da_one_pass_exam_date', $("input[name=da_one_pass_exam_date]").val());
     send_data.append('da_one_pass_personal_no', $("input[name=da_one_pass_personal_no]").val());
 
-    if($("input[name='attend_place']:checked").val()){
+    if ($("input[name='attend_place']:checked").val()) {
         send_data.append('type', $("input[name='attend_place']:checked").val());
-    }    
+    }
 
     if ($("#da_type").val() == 'da_2') {
         send_data.append('batch_id', $("#selected_current_batch_id").val());
-        if($("input[name='da_two_attend_place']:checked").val()){
+        if ($("input[name='da_two_attend_place']:checked").val()) {
             send_data.append('type_da2', $("input[name='da_two_attend_place']:checked").val());
-        }        
+        }
         send_data.append('da_two_pass_level', $("input[name=da_two_pass_level]").val());
         send_data.append('da_two_pass_exam_date', $("input[name=da_two_pass_exam_date]").val());
         send_data.append('da_two_pass_personal_no', $("input[name=da_two_pass_personal_no]").val());
@@ -759,7 +759,7 @@ function updateDAExistingRegister() {
     send_data.append('active_batch_id', $("#active_batch_id").val());
     send_data.append('type_active_da2', $("input[name='da_two_active_attend_place']:checked").val());
     send_data.append('da_two_active_mac_type', $("input[name='da_two_active_attend_place']:checked").val() == 2 ? $("input[name='da_two_active_mac_type']:checked").val() : 99);
-    send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);     
+    send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('da_type', $("#da_type").val());
     show_loader();
@@ -1198,33 +1198,33 @@ function selectdType() {
     }
 }
 
-function uncheckRadioButton(){
-    $("#module_1").prop('checked',false);
-    $("#module_2").prop('checked',false);
+function uncheckRadioButton() {
+    $("#module_1").prop('checked', false);
+    $("#module_2").prop('checked', false);
 }
 
-function uncheckAttendPlace(){
-    $("#main_mac").prop('checked',false);
-    $("#sub_mac").prop('checked',false);
-    $("#sub_mac2").prop('checked',false);
-    $("#private").prop('checked',false);
-    $("#self").prop('checked',false);
+function uncheckAttendPlace() {
+    $("#main_mac").prop('checked', false);
+    $("#sub_mac").prop('checked', false);
+    $("#sub_mac2").prop('checked', false);
+    $("#private").prop('checked', false);
+    $("#self").prop('checked', false);
 }
 
-function uncheckDATwoAttendPlace(){
-    $("#da_two_main_mac").prop('checked',false);
-    $("#da_two_sub_mac").prop('checked',false);
-    $("#da_two_sub_mac2").prop('checked',false);
-    $("#da_two_private").prop('checked',false);
-    $("#da_two_self").prop('checked',false);
+function uncheckDATwoAttendPlace() {
+    $("#da_two_main_mac").prop('checked', false);
+    $("#da_two_sub_mac").prop('checked', false);
+    $("#da_two_sub_mac2").prop('checked', false);
+    $("#da_two_private").prop('checked', false);
+    $("#da_two_self").prop('checked', false);
 }
 
-function uncheckCPATwoAttendPlace(){
-    $("#cpa2_main_mac").prop('checked',false);
-    $("#cpa2_sub_mac").prop('checked',false);
-    $("#cpa2_sub_mac2").prop('checked',false);
-    $("#cpa2_private").prop('checked',false);
-    $("#cpa2_self").prop('checked',false);
+function uncheckCPATwoAttendPlace() {
+    $("#cpa2_main_mac").prop('checked', false);
+    $("#cpa2_sub_mac").prop('checked', false);
+    $("#cpa2_sub_mac2").prop('checked', false);
+    $("#cpa2_private").prop('checked', false);
+    $("#cpa2_self").prop('checked', false);
 }
 
 

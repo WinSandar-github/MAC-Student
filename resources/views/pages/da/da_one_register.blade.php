@@ -1876,10 +1876,12 @@
                         $("input[name='recommend_letter_private']").prop('disabled', false);
                         $("input[name='gov_staff']").prop('disabled', false);
                         $("#mac_school").show();
-                        if(current_stu_course[0].offline_user==1){
+                    
+                        if(current_stu_course[0].offline_user == 1 && last_exam[0].grade == 2){
+                            alert("hello")
                             $("input[name='mac_type']").prop('disabled', true);
                         }else{
-                            alert("hello")
+                          
                             $("input[name='mac_type']").prop('disabled', false);
                         }
                     }

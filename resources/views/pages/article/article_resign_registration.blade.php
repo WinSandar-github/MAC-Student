@@ -480,7 +480,11 @@
         get_student_info(student_id).then(data => {
 
             let student_info = data.data
-            //let article_info = data.data.article;
+            let article_info = data.data.article[0] && data.data.article[0];
+
+            $("#contract_start_date").val(article_info ? article_info.contract_start_date : 'N/A');
+            $("#contract_end_date").val(article_info ? article_info.contract_end_date : 'N/A');
+            $("#mentor_id").val(article_info ? article_info.mentor_id : '');
 
             // let student_reg = data.data.student_register
             // let lastest_row = student_reg.length - 1;
