@@ -1812,7 +1812,7 @@
                         }
 
 
-                            $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
                             $('.course_name').val(current_stu_course[0].batch.course.name);
                             $(".batch_no").val(current_stu_course[0].batch.number);
                             $(".batch_id").val(current_stu_course[0].batch.id);
@@ -1895,9 +1895,9 @@
                             $("#direct_access_no_mac_div").show();
                             $("#entry_success_no_mac_div").hide();
 
-                            $("#direct_access_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                            $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                            $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $("#direct_access_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
+                            $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
+                            $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
                         }
                         else if(student_register[0].entry_success_no || last_exam[0].exam_type_id == 3 || last_exam[0].exam_type_id == 2){   
                             console.log("for entry1");                        
@@ -1908,9 +1908,9 @@
                             $("#direct_access_no_mac_div").hide();
                             $("#entry_success_no_mac_div").show();
 
-                            $("#entry_success_no_self").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
-                            $("#entry_success_no_private").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
-                            $("#entry_success_no_mac").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
+                            $("#entry_success_no_self").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : "");
+                            $("#entry_success_no_private").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : "");
+                            $("#entry_success_no_mac").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : "");
                         }else if(student_course_regs[1].qt_entry != 1){
                             // console.log("for existing direct");
                             $("#direct_access_no_self_div").show();
@@ -1920,9 +1920,9 @@
                             $("#direct_access_no_mac_div").show();
                             $("#entry_success_no_mac_div").hide();
 
-                            $("#direct_access_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                            $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                            $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $("#direct_access_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
+                            $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
+                            $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
                         }else{
                             console.log("for entry2");
                             $("#direct_access_no_self_div").hide();
