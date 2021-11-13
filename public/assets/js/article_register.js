@@ -190,7 +190,7 @@ function createArticleFirmRegister() {
     if($('#article_id').val())
     {
         var id=$('#article_id').val();
-        send_data.append('article_id',id);   
+        send_data.append('article_id',id);
         $.ajax({
             url: BACKEND_URL+"/update_reject_article",
             type: 'post',
@@ -310,7 +310,7 @@ function createArticleGovRegister() {
     if($('#article_id').val())
     {
         var id=$('#article_id').val();
-        send_data.append('article_id',id);   
+        send_data.append('article_id',id);
         $.ajax({
             url: BACKEND_URL+"/update_reject_gov_article",
             type: 'post',
@@ -381,7 +381,7 @@ function createArticleResignRegister() {
     send_data.append('resign_approve_attach', resign_approve_attach);
     send_data.append('article_form_type', $("input[name=article_form_type]").val());
     send_data.append('contract_start_date', $("input[name=contract_start_date]").val());
-    send_data.append('contract_end_date', $("input[name=contract_end_date]").val());
+    //send_data.append('contract_end_date', $("input[name=contract_end_date]").val());
     send_data.append('mentor_id', $("input[name=mentor_id]").val());
     send_data.append('know_policy', 1);
     if($("#offline_user").val()==1){
@@ -397,7 +397,7 @@ function createArticleResignRegister() {
     if($('#article_id').val())
     {
         var id=$('#article_id').val();
-        send_data.append('article_id',id);   
+        send_data.append('article_id',id);
         $.ajax({
             url: BACKEND_URL+"/update_reject_resign_article",
             type: 'post',
@@ -502,7 +502,7 @@ function createArticleRenewRegister() {
     if($('#article_id').val())
     {
         var id=$('#article_id').val();
-        send_data.append('article_id',id);   
+        send_data.append('article_id',id);
         $.ajax({
             url: BACKEND_URL+"/update_reject_renew_article",
             type: 'post',

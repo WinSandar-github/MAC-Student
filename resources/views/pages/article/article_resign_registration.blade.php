@@ -434,7 +434,6 @@
                                         <input type="hidden" name="type" value="Student" class="form-control" placeholder="" autocomplete="off" >
                                         <input type="hidden" name="status" value="0" class="form-control" placeholder="" autocomplete="off" >
                                         <input type="hidden" name="contract_start_date" id="contract_start_date" value="" class="form-control" placeholder="" autocomplete="off" >
-                                        <input type="hidden" name="contract_end_date" id="contract_end_date" value="" class="form-control" placeholder="" autocomplete="off" >
                                         <input type="hidden" name="mentor_id" id="mentor_id" value="" class="form-control" placeholder="" autocomplete="off" >
 
                                         <div class="row justify-content-center">
@@ -481,11 +480,7 @@
         get_student_info(student_id).then(data => {
 
             let student_info = data.data
-            let article_info = data.data.article;
-
-            $("#contract_start_date").val(article_info[0].contract_start_date);
-            $("#contract_end_date").val(article_info[0].contract_end_date);
-            $("#mentor_id").val(article_info[0].mentor_id);
+            //let article_info = data.data.article;
 
             // let student_reg = data.data.student_register
             // let lastest_row = student_reg.length - 1;
@@ -496,15 +491,21 @@
             let latest_gov_article = data.data.gov_article.slice(-1);
             let latest_article = data.data.article.slice(-1);
             let qualified_test = data.data.qualified_test;
-
+            console.log("latest_gov_article >>>>",latest_gov_article);
             if(latest_article[0]){
                 $("#student_info_id").val(latest_article[0].student_info_id);
                 $("#recent_org").val("Firm");
                 $('#offline_user').val(latest_article[0].offline_user);
+                $("#contract_start_date").val(latest_article[0].contract_start_date);
+                //$("#contract_end_date").val(latest_article[0].contract_end_date);
+                $("#mentor_id").val(latest_article[0].mentor_id);
             }else{
                 $("#student_info_id").val(latest_gov_article[0].student_info_id);
                 $("#recent_org").val("Government");
                 $("#offline_user").val(0);
+                $("#contract_start_date").val(latest_gov_article[0].contract_start_date);
+                //$("#contract_end_date").val(latest_gov_article[0].contract_end_date);
+                //$("#mentor_id").val(latest_gov_article[0].mentor_id);
             }
 
             $('#name_mm').val(student_info.name_mm);

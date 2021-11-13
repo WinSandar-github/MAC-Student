@@ -2028,7 +2028,7 @@ function user_profile() {
                                                     </tr>
                                                 `);
                                             }
-                                        
+
                                         }
                                     }
                                 } else if ((latest_course_reg[0].batch.course.code == "da_2" || latest_course_reg[0].batch.course.code == "cpa_2") && latest_course_reg[0].offline_user == 1) {
@@ -4229,7 +4229,7 @@ function user_profile() {
                                 } else if (latest_gov_article[0]?.status == 2) {  //Form Reject
                                     article_url = '/update_article_gov_registration';
                                     $('.article_btn').append(`<tr><td colspan=3></td><td>Update Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Update </a></td></tr>`);
-                                } 
+                                }
                             }
                         }
 
@@ -5128,7 +5128,7 @@ function laodTeacherByDash(teacher_data, _invoice) {
                                 }else{
                                     $('#teacher_period_time').text('01-01-' + (now.getFullYear()) + " to 31-12-" + (now.getFullYear()));
                                 }
-                               
+
                                 $('.teacher_payment-status').show();
                             } else {
                                 $('.teacher_status_history').append('Teacher is request stop.');
@@ -5529,7 +5529,7 @@ function allowToRenew() {
                         var invoice_status = data[0].invoice_status[0] ? data[0].invoice_status[0].status : '';
                         if (acc_firm.status == 1 && acc_firm.offline_user == 1 && acc_firm.is_renew == 0) {
                             // to renew approved offline users
-                            
+
                             $('#check_renew').css('display', 'block');
                             $('#check_renew_nonaudit').css('display', 'none');
                             $("#renew_btn").css('display', 'block'); // renew btn in information page
