@@ -1608,8 +1608,8 @@ $nrc_characters = config('myanmarnrc.characters');
                     let current_stu_course = data.data.student_course_regs.slice(-1);
                     let last_exam = data.data.exam_registers.slice(-1);
 
-                    var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
-                    $('#mac_type_name').text(mac_name);
+                    // var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
+                    // $('#mac_type_name').text(mac_name);
 
                     $('input[type=radio][name=mac_type]').map((k, v) => {
                         return $(v).val() == current_stu_course[0].mac_type ? $(v).attr('checked', 'true') : '';
