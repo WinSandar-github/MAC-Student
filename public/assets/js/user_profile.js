@@ -5019,8 +5019,9 @@ function loadSchoolByDash(school_data, school_invoice) {
                             if (school.initial_status == 0) {
                                 //var period_date = school.from_valid_date.split(' ');
                                 var new_period_date = sch_invoice.dateTime.split('-');
+                                var to_valid_date=new Date(school.to_valid_date);
                                 var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                                $('#sch_period_time').text(period + " to 31-12-" + (now.getFullYear()));
+                                $('#sch_period_time').text(period + " to 31-12-" + (to_valid_date.getFullYear()));
                                 $('.sch_status_history').append('School Registration is Approved.');
                                 $('.sch_period').show();
                                 $('.sch_payment-status').show();
@@ -5028,11 +5029,11 @@ function loadSchoolByDash(school_data, school_invoice) {
                                 var period_date = school.renew_date.split(' ');
                                 var new_period_date = period_date[0].split('-');
                                 var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                                var renew_date = new Date(school.renew_date);
-                                if ((renew_date.getMonth() + 1) == '11' || (renew_date.getMonth() + 1) == '12') {
-                                    $('#sch_period_time').text('01-01-' + (now.getFullYear() + 1) + " to 31-12-" + (now.getFullYear() + 3));
-                                } else {
-                                    $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + (now.getFullYear() + 2));
+                                var renew_date=new Date(school.renew_date);
+                                if((renew_date.getMonth()+1)=='11' || (renew_date.getMonth()+1)=='12'){
+                                    $('#sch_period_time').text('01-01-' + (renew_date.getFullYear()-2) + " to 31-12-" + (renew_date.getFullYear()));
+                                }else{
+                                    $('#sch_period_time').text('01-01-' + (renew_date.getFullYear()-2) + " to 31-12-" + (renew_date.getFullYear()));
                                 }
                                 $('.sch_status_history').append('School Registration is Approved.');
                                 $('.sch_period').show();
@@ -5180,16 +5181,16 @@ function laodTeacherByDash(teacher_data, _invoice) {
                                 var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
                                 $('.teacher_status_history').append('Teacher Registration is Approved.');
                                 $('.teacher_period').show();
-                                $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
+                                $('#teacher_period_time').text(period + " to 31-12-" + new_period_date[0]);
                                 $('.teacher_payment-status').show();
                             } else if (teacher.initial_status == 1) {
                                 $('.teacher_status_history').append('Teacher Registration is Approved.');
                                 $('.teacher_period').show();
-                                var renew_date = new Date(teacher.renew_date);
-                                if ((renew_date.getMonth() + 1) == '11' || (renew_date.getMonth() + 1) == '12') {
-                                    $('#teacher_period_time').text('01-01-' + (now.getFullYear() + 1) + " to 31-12-" + (now.getFullYear() + 1));
-                                } else {
-                                    $('#teacher_period_time').text('01-01-' + (now.getFullYear()) + " to 31-12-" + (now.getFullYear()));
+                                var renew_date=new Date(teacher.renew_date);
+                                if((renew_date.getMonth()+1)=='11' || (renew_date.getMonth()+1)=='12'){
+                                    $('#teacher_period_time').text('01-01-' + (renew_date.getFullYear()+1) + " to 31-12-" + (renew_date.getFullYear()+1));
+                                }else{
+                                    $('#teacher_period_time').text('01-01-' + (renew_date.getFullYear()) + " to 31-12-" + (renew_date.getFullYear()));
                                 }
 
                                 $('.teacher_payment-status').show();
