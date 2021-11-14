@@ -611,15 +611,14 @@ function loadCpaffInfo() {
         type: 'get',
         data: "",
         success: function (data) {
-            console.log(data,"aa");
+            // console.log(data,"aa");
             var cpaff_data = data.data;
             $('#cpa_batch_no').val(cpaff_data.cpa_batch_no);
-            // $('#address').val(cpaff_data.student_info.address);
-            // $('#phone').val(cpaff_data.phone);
             $('#contact_mail').val(cpaff_data.contact_mail);
             $('#last_paid_year').val(cpaff_data.last_paid_year==null? '-':cpaff_data.last_paid_year);
             $('#resign_date').val(cpaff_data.resign_date);
             $('#cpaff_reg_no').val(cpaff_data.cpaff_reg_no);   
+            $('#offline_user').val(cpaff_data.offline_user);  
         }
     });
 }
@@ -631,12 +630,12 @@ function loadCpaffOfflineInitialData() {
         type: 'get',
         data: "",
         success: function (data) {
-            console.log(data)
+            // console.log(data)
             var cpaff_data = data.data;
 
             // document.getElementById('cpaff_img').src=BASE_URL + cpaff.profile_photo;
             $('#cpaff_img').src = BASE_URL + cpaff_data.profile_photo;
-            console.log('cpaff_data11',cpaff_data)
+            // console.log('cpaff_data11',cpaff_data)
             $('#cpa_batch_no').val(cpaff_data.cpa_batch_no);
             $('#address').val(cpaff_data.address);
             $('#phone').val(cpaff_data.phone);
@@ -1306,6 +1305,7 @@ function RenewCPAFF() {
     send_data.append('self_confession_renew', $("input[type='radio'][name='self_confession_renew']:checked").val());
     send_data.append('last_paid_year', $("input[name=last_paid_year]").val());
     send_data.append('resign_date', $("input[name=resign_date]").val());
+    send_data.append('offline_user', $("input[name=offline_user]").val());
     send_data.append('type',1);
     var self_confession_accept = document.getElementById("accept_cpaffRenew");
     var self_confession_not_accept = document.getElementById("not-accept_cpaffRenew");
