@@ -1320,7 +1320,7 @@ function user_profile() {
                 }
 
                 if (latest_article[0] != null && latest_article[0].contract_end_date != null && latest_article[0].article_form_type != "resign") {
-                  console.log("here");
+                    console.log("here");
                     var end_date = new Date(latest_article[0].contract_end_date);
                     var today = new Date();
 
@@ -1378,7 +1378,7 @@ function user_profile() {
                             $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
                         }
                     } else if (latest_article[0].resign_status == 1) {
-                      console.log("youk 2");
+                        console.log("youk 2");
                         var resign_date = new Date(latest_article[0].resign_date);
                         var year = resign_date.getFullYear();
                         var month = resign_date.getMonth();
@@ -1392,10 +1392,10 @@ function user_profile() {
                         article_url = '/article_information';
 
                         if (resign_time <= today_time) {
-                          console.log("1");
+                            console.log("1");
                             $('.qt_article_status').append(`<tr><td colspan=3></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
                         } else {
-                          console.log("2");
+                            console.log("2");
                             $('.qt_article_status').append(`<tr><td colspan=3></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
                         }
                     }
@@ -2208,6 +2208,7 @@ function user_profile() {
 
                                         if (last_exam[0] && module.length !== 0 && latest_course_reg[0].batch.id == last_exam[0].batch_id) {
 
+
                                             if (
                                                 (last_exam[0].course.code == latest_course_reg[0].batch.course.code) &&
                                                 (last_exam[0].exam_type_id !== 3 && (last_exam[0].pass_module == 3 || containsAll([1, 2], module) == true))
@@ -2518,7 +2519,6 @@ function user_profile() {
                                                                     `);
 
                                                 } else if (last_exam[0].status == 1) {
-
 
                                                     var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
@@ -3599,12 +3599,12 @@ function user_profile() {
                                         `);
                                         } else if (element.done_status == 3) {
                                             $('.article_status').append(`<tr>
-                                            <td>${form_type} Form</td>
-                                            <td>${contract_start_date}</td>
-                                            <td>${contract_end_date}</td>
-                                            <td><span class="badge bg-success">Done</span></td>
-                                            <td></td>
-                                        </tr>
+                                                <td>${form_type} Form</td>
+                                                <td>${contract_start_date}</td>
+                                                <td>${contract_end_date}</td>
+                                                <td><span class="badge bg-success">Done</span></td>
+                                                <td></td>
+                                            </tr>
                                         `);
                                         } else {
                                             $('.article_status').append(`<tr>
@@ -5595,7 +5595,7 @@ function allowToRenew() {
                         var invoice_status = data[0].invoice_status[0] ? data[0].invoice_status[0].status : '';
                         if (acc_firm.status == 1 && acc_firm.offline_user == 1 && acc_firm.is_renew == 0) {
                             // to renew approved offline users
-                            
+
                             $('#check_renew').css('display', 'block');
                             $('#check_renew_nonaudit').css('display', 'none');
                             $("#renew_btn").css('display', 'block'); // renew btn in information page

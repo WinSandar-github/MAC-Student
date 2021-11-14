@@ -51,7 +51,7 @@ $().ready(function () {
             da_two_active_mac_type: {
                 required: "#da_two_active_main_mac:checked"
             },
-            selected_passed_batch_name: "required",
+            selected_passed_batch_name: "required",            
             // da_one_pass_level: "required",
             da_one_pass_personal_no: "required",
             // is_full_module: "required",

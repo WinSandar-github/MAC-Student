@@ -1007,7 +1007,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                     <div class="card border-success mb-3 " style="padding:3% 5% 3% 5%;">
                                         <div class="card-body">
                                             <div class="row mb-5">
-                                                <h5 class="card-title text-center fw-bolder"> မြန်မာနိုင်ငံစာရင်းကောင်စီ <span id="mac_type_name"></span> <br>
+                                                <h5 class="card-title text-center fw-bolder"> မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
                                                 ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>                                                
                                             
                                             </div>
