@@ -171,7 +171,7 @@
                                                           <div class="">
                                                             <select class="form-control form-select" name="nrc_state_region"
                                                                     id="nrc_state_region"
-                                                                    style="margin-top: 0px; margin-bottom: 0px;">
+                                                                    style="margin-top: 0px; margin-bottom: 0px;line-height: 1.8">
                                                                 <option value="" disabled selected>ရွေးပါ</option>
                                                                 @foreach($nrc_regions as $region)
                                                                     <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
@@ -185,7 +185,7 @@
                                                         <div class="col-md-3">
                                                           <div class="">
                                                             <select class="form-control form-select" name="nrc_township" id="nrc_township"
-                                                                    style="margin-top: 0px; margin-bottom: 0px;">
+                                                                    style="margin-top: 0px; margin-bottom: 0px;line-height: 1.8">
                                                                 <option value="" disabled selected>ရွေးပါ</option>
                                                                 @foreach($nrc_townships as $township)
                                                                     <option value="{{ $township['township_mm'] }}">
@@ -199,7 +199,7 @@
                                                         <div class="col-md-2">
                                                           <div class="">
                                                             <select class="form-control form-select" name="nrc_citizen" id="nrc_citizen"
-                                                                    style="margin-top: 0px; margin-bottom: 0px;">
+                                                                    style="margin-top: 0px; margin-bottom: 0px;line-height: 1.8">
                                                                 <option value="" disabled selected>ရွေးပါ</option>
                                                                 @foreach($nrc_citizens as $citizen)
                                                                     <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
@@ -216,7 +216,7 @@
                                                                    id="nrc_number" pattern=".{6,6}" class="form-control"
                                                                    oninput="this.value= en2mm(this.value);"
                                                                    maxlength="6" minlength="6" placeholder=""
-                                                                   style="height: 38px" value="{{ old('nrc_number') }}"
+                                                                   style="height: 38px;line-height: 1.8" value="{{ old('nrc_number') }}"
                                                                    >
                                                           </div>
                                                         </div>
