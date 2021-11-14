@@ -2109,7 +2109,7 @@ function user_profile() {
                                                     <td>Existing Registration For ${course_code}</td>
                                                     <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                                     <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-    
+
                                                     <td><span class="badge bg-success">Approved</span></td>
                                                 </tr>
                                             `);
@@ -2205,6 +2205,7 @@ function user_profile() {
 
                                         if (last_exam[0] && module.length !== 0 && latest_course_reg[0].batch.id == last_exam[0].batch_id) {
 
+
                                             if (
                                                 (last_exam[0].course.code == latest_course_reg[0].batch.course.code) &&
                                                 (last_exam[0].exam_type_id !== 3 && (last_exam[0].pass_module == 3 || containsAll([1, 2], module) == true))
@@ -2229,7 +2230,7 @@ function user_profile() {
                                                     var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
                                                     });
-                                                   
+
                                                     if (latest_course_reg[0]?.is_finished == 0) {
 
                                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
@@ -2515,7 +2516,6 @@ function user_profile() {
                                                                     `);
 
                                                 } else if (last_exam[0].status == 1) {
-
 
                                                     var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
@@ -3500,7 +3500,7 @@ function user_profile() {
                 // }
 
                 // Show Article Status
-                if (latest_stu_reg[0]) {                 
+                if (latest_stu_reg[0]) {
                     if (latest_course_reg[0].status == 0) {
                         $('#article_row').css('display', 'none');
                     }
@@ -3516,7 +3516,7 @@ function user_profile() {
                         let latest_gov_article = data.gov_article.slice(-1);
                         let exam_results = data.exam_results.slice(-1);
                         let exam_registers = data.exam_registers.slice(-1);
-                        
+
                         //doens't have article list
                         if (data.article.length == 0 && data.gov_article.length == 0) {
                             article_url = '/article_information';
@@ -5024,8 +5024,9 @@ function loadSchoolByDash(school_data, school_invoice) {
                             if (school.initial_status == 0) {
                                 //var period_date = school.from_valid_date.split(' ');
                                 var new_period_date = sch_invoice.dateTime.split('-');
+                                var to_valid_date=new Date(school.to_valid_date);
                                 var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                                $('#sch_period_time').text(period + " to 31-12-" + (now.getFullYear()));
+                                $('#sch_period_time').text(period + " to 31-12-" + (to_valid_date.getFullYear()));
                                 $('.sch_status_history').append('School Registration is Approved.');
                                 $('.sch_period').show();
                                 $('.sch_payment-status').show();
@@ -5033,11 +5034,11 @@ function loadSchoolByDash(school_data, school_invoice) {
                                 var period_date = school.renew_date.split(' ');
                                 var new_period_date = period_date[0].split('-');
                                 var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                                var renew_date = new Date(school.renew_date);
-                                if ((renew_date.getMonth() + 1) == '11' || (renew_date.getMonth() + 1) == '12') {
-                                    $('#sch_period_time').text('01-01-' + (now.getFullYear() + 1) + " to 31-12-" + (now.getFullYear() + 3));
-                                } else {
-                                    $('#sch_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + (now.getFullYear() + 2));
+                                var renew_date=new Date(school.renew_date);
+                                if((renew_date.getMonth()+1)=='11' || (renew_date.getMonth()+1)=='12'){
+                                    $('#sch_period_time').text('01-01-' + (renew_date.getFullYear()-2) + " to 31-12-" + (renew_date.getFullYear()));
+                                }else{
+                                    $('#sch_period_time').text('01-01-' + (renew_date.getFullYear()-2) + " to 31-12-" + (renew_date.getFullYear()));
                                 }
                                 $('.sch_status_history').append('School Registration is Approved.');
                                 $('.sch_period').show();
@@ -5185,16 +5186,16 @@ function laodTeacherByDash(teacher_data, _invoice) {
                                 var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
                                 $('.teacher_status_history').append('Teacher Registration is Approved.');
                                 $('.teacher_period').show();
-                                $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
+                                $('#teacher_period_time').text(period + " to 31-12-" + new_period_date[0]);
                                 $('.teacher_payment-status').show();
                             } else if (teacher.initial_status == 1) {
                                 $('.teacher_status_history').append('Teacher Registration is Approved.');
                                 $('.teacher_period').show();
-                                var renew_date = new Date(teacher.renew_date);
-                                if ((renew_date.getMonth() + 1) == '11' || (renew_date.getMonth() + 1) == '12') {
-                                    $('#teacher_period_time').text('01-01-' + (now.getFullYear() + 1) + " to 31-12-" + (now.getFullYear() + 1));
-                                } else {
-                                    $('#teacher_period_time').text('01-01-' + (now.getFullYear()) + " to 31-12-" + (now.getFullYear()));
+                                var renew_date=new Date(teacher.renew_date);
+                                if((renew_date.getMonth()+1)=='11' || (renew_date.getMonth()+1)=='12'){
+                                    $('#teacher_period_time').text('01-01-' + (renew_date.getFullYear()+1) + " to 31-12-" + (renew_date.getFullYear()+1));
+                                }else{
+                                    $('#teacher_period_time').text('01-01-' + (renew_date.getFullYear()) + " to 31-12-" + (renew_date.getFullYear()));
                                 }
 
                                 $('.teacher_payment-status').show();
@@ -5597,7 +5598,7 @@ function allowToRenew() {
                         var invoice_status = data[0].invoice_status[0] ? data[0].invoice_status[0].status : '';
                         if (acc_firm.status == 1 && acc_firm.offline_user == 1 && acc_firm.is_renew == 0) {
                             // to renew approved offline users
-                            
+
                             $('#check_renew').css('display', 'block');
                             $('#check_renew_nonaudit').css('display', 'none');
                             $("#renew_btn").css('display', 'block'); // renew btn in information page

@@ -1007,7 +1007,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                     <div class="card border-success mb-3 " style="padding:3% 5% 3% 5%;">
                                         <div class="card-body">
                                             <div class="row mb-5">
-                                                <h5 class="card-title text-center fw-bolder"> မြန်မာနိုင်ငံစာရင်းကောင်စီ <span id="mac_type_name"></span> <br>
+                                                <h5 class="card-title text-center fw-bolder"> မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
                                                 ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>                                                
                                             
                                             </div>
@@ -1608,8 +1608,8 @@ $nrc_characters = config('myanmarnrc.characters');
                     let current_stu_course = data.data.student_course_regs.slice(-1);
                     let last_exam = data.data.exam_registers.slice(-1);
 
-                    var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
-                    $('#mac_type_name').text(mac_name);
+                    // var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
+                    // $('#mac_type_name').text(mac_name);
 
                     $('input[type=radio][name=mac_type]').map((k, v) => {
                         return $(v).val() == current_stu_course[0].mac_type ? $(v).attr('checked', 'true') : '';
@@ -1683,11 +1683,18 @@ $nrc_characters = config('myanmarnrc.characters');
                             else if(last_exam[0].pass_module == "3"){
                                 $(".module_full").prop("checked", true);
                                  $('.module_two').attr('disabled', true);
-                                $('.module_full').attr('disabled', true);
-                                
+                                $('.module_one').attr('disabled', true);                            
 
                                   
-                            }
+                            }else{
+                                $(".module_one").prop("checked", false);
+                                $('.module_two').attr('checked', false);
+                                $('.module_full').attr('checked', false);
+
+                                $(".module_one").prop("disabled", false);
+                                $('.module_two').attr('disabled', false);
+                                $('.module_full').attr('disabled', false);                                                    
+                            }     
 
                             $("#da_one_pass_level_self").val(last_exam[0].passed_level);
                             $("#da_one_pass_level_private").val(last_exam[0].passed_level);

@@ -465,7 +465,7 @@
                                             <div class="row">
                                                 <div class="col-md-3 form-check-radio">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input module_one" type="radio" id="module_1"
+                                                        <input class="form-check-input module_one is_full_module" type="radio" id="module_1"
                                                                 name="is_full_module" value="1" >
                                                         <span class="form-check-sign"></span>
                                                         Module 1
@@ -473,7 +473,7 @@
                                                 </div>
                                                 <div class="col-md-3 form-check-radio">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input module_two" type="radio" id="module_2"
+                                                        <input class="form-check-input module_two is_full_module" type="radio" id="module_2"
                                                                 name="is_full_module" value='2' >
                                                         <span class="form-check-sign"></span>
                                                         Module 2
@@ -518,7 +518,7 @@
                                         </div>                                            
                                     </div>
                                     <div class="row mb-4">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(င)</span>ကိုယ်ပိုင်အမှတ်<span style="color:red">*</span></label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(င)</span>ကိုယ်ပိုင်အမှတ်</label>
                                         <div class="col-md-8">
                                             <input type="text" name="cpa_one_pass_personal_no" class="form-control cpa_one_pass_personal_no"
                                                 placeholder="ကိုယ်ပိုင်အမှတ်" id="cpa_one_pass_personal_no">

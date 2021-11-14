@@ -237,17 +237,21 @@ function school_reg_feedback(){
                         $('.register-btn').css('display','none');
                         $('.update-btn').css('display','none');
                     }else if(school.approve_reject_status == 1){
-                      $('#school_approve').css('display','block');
-                      $('#school_pending').css('display','none');
-                      $('.register-btn').css({'display':'none'});
-                      $('.register-btn').removeClass('mt-4');
+                      // $('#school_approve').css('display','block');
+                      // $('#school_pending').css('display','none');
+                      // $('.register-btn').css({'display':'none'});
+                      // $('.register-btn').removeClass('mt-4');
                       if(school.initial_status==0){
-                        $('.payment-btn').css('display','block');
-                        $('.update-btn').css('display','none');
+                        // $('.payment-btn').css('display','block');
+                        // $('.update-btn').css('display','none');
+                        loadRenewSchool();
                       }else if(school.initial_status==1){
-                        $('.payment-btn').css('display','none');
-                        $('.update-btn').css('display','none');
-                        $('.renew_payment-btn').css('display','block');
+                        // $('.payment-btn').css('display','none');
+                        // $('.update-btn').css('display','none');
+                        // $('.renew_payment-btn').css('display','block');
+                        loadRenewSchool();
+                      }else{
+                        loadRenewSchool();
                       }
                         
                     }

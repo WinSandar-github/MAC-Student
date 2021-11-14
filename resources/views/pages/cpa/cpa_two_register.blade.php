@@ -1947,8 +1947,16 @@ $nrc_characters = config('myanmarnrc.characters');
                                         } else if (exam_registers[0].pass_module == "3") {
                                             $(".module_full").prop("checked", true);
                                             $('.module_two').attr('disabled', true);
-                                            $('.module_full').attr('disabled', true);
-                                        }
+                                            $('.module_one').attr('disabled', true);
+                                        }else{
+                                            $(".module_one").prop("checked", false);
+                                            $('.module_two').attr('checked', false);
+                                            $('.module_full').attr('checked', false);
+
+                                            $(".module_one").prop("disabled", false);
+                                            $('.module_two').attr('disabled', false);
+                                            $('.module_full').attr('disabled', false);                                                    
+                                        }     
                                     }
                                 });
 

@@ -117,7 +117,7 @@
                     </div> --}}
 
                 <div class="comment-form study" >     
-                        <input type="text" name="remain_module" id="remain_module">
+                        <input type="hidden" name="remain_module" id="remain_module">
 
 
                         <div class="row" id="private_school_container">
@@ -493,16 +493,17 @@
                                     </div>
                                 </div>
 
-                                <div class="row mb-4" style="display: none;">
+                                <div class="row mb-4" >
                                     <label class="col-md-4 col-form-label label">
-                                        <span class="pull-left" style="padding-left: 113px;">{{ __('(ဂ)') }}</span>ကိုယ်ပိုင်အမှတ်</label>
+                                        <span class="pull-left">{{ __('၁၉။') }}</span>သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
+                                        {{-- <span class="pull-left" style="padding-left: 113px;">{{ __('(ဂ)') }}</span>ကိုယ်ပိုင်အမှတ်</label> --}}
                                     <div class="col-md-8">
-                                        <input type="text" name="batch_personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_private" >
+                                        <input type="text" name="batch_personal_no" class="form-control" placeholder="သင်တန်းသားကိုယ်ပိုင်အမှတ်" id="personal_no_private" >
 
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>ဖြေဆိုမည့် Module</label>
+                                                <label class="col-md-4 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၂၀။') }}</span>ဖြေဆိုမည့် Module</label>
                                                 <div class="col-md-7">
                                                     <div class="row" style="padding-left:10px;">
                                                         <div class="col-md-4 form-check">
@@ -1092,11 +1093,12 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-4" style="display:none">
+                                        <div class="row mb-4" >
                                             <label class="col-md-4 col-form-label label">
-                                                        <span class="pull-left" style="padding-left: 113px;">{{ __('(ဂ)') }}</span>ကိုယ်ပိုင်အမှတ်</label>
+                                                <span class="pull-left">{{ __('၁၈။') }}</span>သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
+                                                        {{-- <span class="pull-left" style="padding-left: 113px;">{{ __('(ဂ)') }}</span>ကိုယ်ပိုင်အမှတ်</label> --}}
                                             <div class="col-md-8">
-                                                <input type="text" name="batch_personal_no" class="form-control personal_no_self" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self"  >
+                                                <input type="text" name="batch_personal_no" class="form-control personal_no_self" placeholder="သင်တန်းသားကိုယ်ပိုင်အမှတ်" id="personal_no_self"  >
 
                                             </div>
                                         </div>
@@ -1510,6 +1512,16 @@
                                                 </div>
                                             </div>--}}
 
+                                            <div class="row mb-4" >
+                                                <label class="col-md-4 col-form-label label">
+                                                    <span class="pull-left">{{ __('၁၈။') }}</span>သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
+                                                            {{-- <span class="pull-left" style="padding-left: 113px;">{{ __('(ဂ)') }}</span>ကိုယ်ပိုင်အမှတ်</label> --}}
+                                                <div class="col-md-8">
+                                                    <input type="text" name="batch_personal_no" class="form-control personal_no_mac" placeholder="သင်တန်းသားကိုယ်ပိုင်အမှတ်" id="personal_no_mac"  >
+    
+                                                </div>
+                                            </div>
+
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>ဖြေဆိုမည့် Module</label>
                                                 <div class="col-md-7">
@@ -1789,7 +1801,7 @@
                         let current_stu_course = data.data.student_course_regs.slice(-1);
                         let student_course_regs = data.data.student_course_regs;
                         let last_exam = data.data.exam_registers.slice(-1);
-                        // console.log('current_stu_course',current_stu_course); 
+                        console.log('current_stu_course',data.data); 
                         // console.log('last_exam',last_exam);  
                         
                         if(current_stu_course[0].mac_type == 1){
@@ -1800,7 +1812,7 @@
                         }
 
 
-                            $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
                             $('.course_name').val(current_stu_course[0].batch.course.name);
                             $(".batch_no").val(current_stu_course[0].batch.number);
                             $(".batch_id").val(current_stu_course[0].batch.id);
@@ -1869,11 +1881,12 @@
                             }                    // $('.batch_no').val(current_stu_course[0].batch.number);
                             
 
-                        var info = data.data;
-                        // console.log('info',info);
+                        var info = data.data;                        
+                        var student_register = info.student_register.slice(-1)
+                        
 
                         //show or hide direct_access_no and entry_success
-                        if(last_exam.length==0){
+                        if(last_exam.length==0 || info.da_pass_roll_number || student_register[0].direct_access_no){
                             // console.log("for direct");
                             $("#direct_access_no_self_div").show();
                             $("#entry_success_no_self_div").hide();
@@ -1882,23 +1895,12 @@
                             $("#direct_access_no_mac_div").show();
                             $("#entry_success_no_mac_div").hide();
 
-                            $("#direct_access_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                            $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                            $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                        }else if(info.da_pass_roll_number){
-                            // console.log("for da2pass");
-                            $("#direct_access_no_self_div").show();
-                            $("#entry_success_no_self_div").hide();
-                            $("#direct_access_no_private_div").show();
-                            $("#entry_success_no_private_div").hide();
-                            $("#direct_access_no_mac_div").show();
-                            $("#entry_success_no_mac_div").hide();
-
-                            $("#direct_access_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                            $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                            $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                        }else if(last_exam[0].exam_type_id == 3 || last_exam[0].exam_type_id == 2){   
-                            // console.log("for entry1");                        
+                            $("#direct_access_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
+                            $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
+                            $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
+                        }
+                        else if(student_register[0].entry_success_no || last_exam[0].exam_type_id == 3 || last_exam[0].exam_type_id == 2){   
+                            console.log("for entry1");                        
                             $("#direct_access_no_self_div").hide();
                             $("#entry_success_no_self_div").show();
                             $("#direct_access_no_private_div").hide();
@@ -1906,9 +1908,9 @@
                             $("#direct_access_no_mac_div").hide();
                             $("#entry_success_no_mac_div").show();
 
-                            $("#entry_success_no_self").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
-                            $("#entry_success_no_private").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
-                            $("#entry_success_no_mac").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
+                            $("#entry_success_no_self").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : "");
+                            $("#entry_success_no_private").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : "");
+                            $("#entry_success_no_mac").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : "");
                         }else if(student_course_regs[1].qt_entry != 1){
                             // console.log("for existing direct");
                             $("#direct_access_no_self_div").show();
@@ -1918,11 +1920,11 @@
                             $("#direct_access_no_mac_div").show();
                             $("#entry_success_no_mac_div").hide();
 
-                            $("#direct_access_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                            $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                            $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $("#direct_access_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
+                            $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
+                            $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
                         }else{
-                            // console.log("for entry2");
+                            console.log("for entry2");
                             $("#direct_access_no_self_div").hide();
                             $("#entry_success_no_self_div").show();
                             $("#direct_access_no_private_div").hide();
@@ -1955,7 +1957,7 @@
                         $("#mac_container").find("input[name=phone]").val(info.phone);
                         $("#mac_container").find("input[name=address]").val(info.address);
                         $("#mac_container").find("input[name=current_address]").val(info.current_address);
-
+                        $("#mac_container").find("input[id=personal_no_mac]").val(info.cpersonal_no);
                         $("#mac_container").find("input[name=degree_name]").val(education_history.degree_name);
 
                         $("#mac_container").find("input[name=name]").val(job_history.company_name);
@@ -2060,7 +2062,7 @@
                             $("#female_mac").prop("checked", true);
                         }
 
-                        console.log("Hello",data.data)
+                        // console.log("Hello",data.data)
                         if(data.data.exam_registers.length!=0){
                             // alert("Hello")
                             $("input[name='office_address']").prop('readonly', false);

@@ -149,9 +149,9 @@
                                                 <div class="col-md-11">
                                                     <ul>
                                                         <li>
-                                                            <input type="radio" class="form-check-input" value="1" id="male2" name="gender3" >
+                                                            <input type="radio" class="form-check-input" value="1" id="male2" name="gender2" >
                                                             <label class="form-check-label " for="">ကျွန်တော်</label>
-                                                            <input type="radio" class="form-check-input" value="0" id="female2" name="gender3" >
+                                                            <input type="radio" class="form-check-input" value="0" id="female2" name="gender2" >
                                                             <label class="form-check-label " for="">ကျွန်မ</label>
                                                         </li>
                                                         <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ဒုတိယပိုင်း စာမေးပွဲကို <br> <input class="p-input" type="text" name="pass_date" placeholder="mm-yyyy">  တွင်ကျင်းပခဲ့သော CPA II အမှတ်စဥ်<input class="p-input" type="text" name="pass_no"> တွင်အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li><!--ခုနှစ် <input class="p-input" type="text" name="pass_month" placeholder="mm"> လ!-->
@@ -191,7 +191,7 @@
                                                 <div class="row mb-5">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>လျို့ဝှက်နံပါတ်</label>
                                                     <div class="col-md-8">
-                                                        <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password">
+                                                        <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password" minlength="8">
                                                     </div>
                                                 </div>
 

@@ -529,6 +529,12 @@
                                                         CIMA
                                                     </label>
                                                 </div>
+
+                                                <div class="col-md-3 form-check-radio">
+                                                    <label class="form-check-label">
+                                                        <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckACCA_CIMA()"/>
+                                                    </label>
+                                                </div>
                                                 {{--<label  class="error attend_place_error" name="attend_place_error" style="display:none; padding-left:353px" for="acca_cima">Please select One.</label>--}}
                                                          
                                                 </div>
@@ -627,7 +633,7 @@
                                                     </div>
                                                     <label  class="error attend_place_error" style="display:none;" for="attend_place">Please select one</label>
                                             </div>       
-                                        
+                                        </div>
                                              
                                         <div class="row mb-3 mt-3">
                                             <div class="form-check">
