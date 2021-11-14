@@ -146,6 +146,7 @@ function CPAExamRegister(){
     if($('#entry_success_no').val()){
         form_data.append('sr_no',$('#entry_success_no').val());
     }
+    form_data.append('batch_id',$('#batch_id').val());
     
 
     // $('input[name="last_ans_module[]"]:checked').map(function (key, val) {

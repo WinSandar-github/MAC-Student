@@ -2205,6 +2205,7 @@ function user_profile() {
 
                                         if (last_exam[0] && module.length !== 0 && latest_course_reg[0].batch.id == last_exam[0].batch_id) {
 
+
                                             if (
                                                 (last_exam[0].course.code == latest_course_reg[0].batch.course.code) &&
                                                 (last_exam[0].exam_type_id !== 3 && (last_exam[0].pass_module == 3 || containsAll([1, 2], module) == true))
@@ -2515,7 +2516,6 @@ function user_profile() {
                                                                     `);
 
                                                 } else if (last_exam[0].status == 1) {
-
 
                                                     var invoice = data.invoice.filter(val => {
                                                         return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
