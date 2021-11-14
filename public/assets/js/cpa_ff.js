@@ -1424,6 +1424,7 @@ function renewRejectCpaff() {
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
     send_data.append('total_hours', $("input[name=total_hours]").val());
     send_data.append('fine_person', $("input[name=fine_person]").val());
+    send_data.append('offline_user', $("input[name=offline_user]").val());
     send_data.append('is_renew', 1);
     send_data.append('self_confession_renew',$("input[type='radio'][name='self_confession_renew']:checked").val());
     send_data.append('type',1);
