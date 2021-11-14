@@ -397,6 +397,7 @@
                           </div><br/><br>
                           <input type="hidden" name="last_paid_year" id="last_paid_year">
                           <input type="hidden" name="resign_date" id="resign_date">
+                          <input type="hidden" name="offline_user" id="offline_user">
 
                           <div class="row mb-3" style="padding-left:50px;">
                               <div class="form-check">
@@ -415,19 +416,6 @@
                                   <button type="submit" id="cpaff_submit" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
                               </div>
                           </div>
-
-                            {{--<div class="row">
-                                <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
-                                <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" ></div>
-                                <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
-                            </div><br/>
-                                            
-                            <br/>
-                            <div class="row ">
-                                <div class="col-md-2 offset-md-5">
-                                    <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Submit') }}</button>
-                              </div>
-                            </div>--}}
                     </div>
                 </form>
             </div>
@@ -526,7 +514,7 @@
     // form_feedback();
     // loadDescription('CPAFF');
     // checkPaymentCpaff();
-    loadCpaffData();
+    loadCpaffData();//std info
     loadCpaffInitialData();
     loadCpaffInfo();
 </script>
