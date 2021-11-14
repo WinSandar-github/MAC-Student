@@ -195,6 +195,7 @@
                 location.href = FRONTEND_URL + '/login';
             }else{
                 get_student_info(student_id).then(data => {
+
                     let student_info = data.data
                     let student_reg = data.data.student_register
                     let qualified_test = data.data.qualified_test
@@ -205,16 +206,25 @@
                     // let exam_result = student_reg[lastest_row]?.status;  // pass/fail
                     let module = student_reg[lastest_row]?.module;  // module 1/2/all
                     //let type = student_reg[lastest_row]?.type;  //  0-self_study / 1-private / 2-mac
-                    if(!qualified_test){
-                        let type_data=student_info.student_course_regs.pop();
-                        let type=type_data.type;
-                    }
-                    
+                    let type_data=student_info.student_course_regs.pop();
+                    let type=type_data?.type;
                     let form_type = student_reg[lastest_row]?.form_type;
                     let internship = student_reg[lastest_row]?.internship;
                     //let exam_result = student_info.exam_results.length;
                     let exam_results = student_info.exam_results.slice(-1);
                     let exam_registers = student_info.exam_registers.slice(-1);
+										let article_invoice = data.data.invoice;
+										let previous_article_invoice = article_invoice[article_invoice.length -2];
+
+										// validate c12_renew or c2_pass_renew
+										if(previous_article_invoice.invoiceNo.includes("c12_renew")){
+											$("#c2_pass_renew_btn").css('display','none');
+										}
+										else if(previous_article_invoice.invoiceNo.includes("c2_pass_renew")){
+											$("#c12_renew_btn").css('display','none');
+										}
+
+
                     //var get_year = 0;
 
                     if(latest_article[0]?.done_status == 1 && latest_article[0]?.article_form_type == 'c12' ){

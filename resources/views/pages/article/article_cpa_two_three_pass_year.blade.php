@@ -141,12 +141,20 @@
                                                 <div class="col-md-11">
                                                     <ul>
                                                         <li>
-                                                            <input type="radio" class="form-check-input" value="1" id="male3" name="gender3" >
+                                                            <input type="radio" class="form-check-input" value="1" id="male3" name="gender2" >
                                                             <label class="form-check-label " for="">ကျွန်တော်</label>
-                                                            <input type="radio" class="form-check-input" value="0" id="female3" name="gender3" >
+                                                            <input type="radio" class="form-check-input" value="0" id="female3" name="gender2" >
                                                             <label class="form-check-label " for="">ကျွန်မ</label>
                                                         </li>
-                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( ဒုတိယပိုင်း ) သင်တန်းကို အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li>
+                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင်
+                                                            <li>
+                                                                <input type="radio" class="form-check-input" value="( ဒုတိယပိုင်း ) သင်တန်း"  name="course_exam" >
+                                                                <label class="form-check-label " for=""> ( ဒုတိယပိုင်း ) သင်တန်း/</label><br/>
+                                                                <input type="radio" class="form-check-input" value="အရည်အချင်းစစ်စာမေးပွဲ"  name="course_exam" >
+                                                                <label class="form-check-label " for="">အရည်အချင်းစစ်စာမေးပွဲ</label>
+                                                            </li>
+                                                            
+                                                            ကို အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -191,7 +199,7 @@
                                                 <div class="row mb-5">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>လျို့ဝှက်နံပါတ်</label>
                                                     <div class="col-md-8">
-                                                        <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password">
+                                                        <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password" minlength="8">
                                                     </div>
                                                 </div>
 
@@ -575,7 +583,7 @@
                                         </div>
 
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
-                                        <input type="hidden" id="article_form_type" name="article_form_type" value="c2_pass_3yr">
+                                        <input type="hidden" id="article_form_type" name="article_form_type" value="c2_pass/qt_pass_3yr">
                                         <input type="hidden" id="offline_user" value="true">
                                         <div class="row mb-3">
                                             <div class="form-check">
