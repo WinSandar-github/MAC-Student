@@ -761,7 +761,7 @@ function createMac() {
     send_data.append('form_type', $("input[name='form_type']").val());
     send_data.append('remain_module', $("input[name='remain_module']").val())
     send_data.append('batch_id', $("input[name='batch_id']").val());
-    send_data.append('mac_type', $("input[name='mac_type']").val());
+    send_data.append('mac_type', $("input[name='mac_type']:checked").val());
     //send student info data
     send_data.append('office_address', $("#mac_container").find("input[name=office_address]").val());
     send_data.append('current_address', $("#mac_container").find("input[name=current_address]").val());

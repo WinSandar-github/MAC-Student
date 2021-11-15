@@ -454,7 +454,7 @@
 
                                         <div id="rec_letter" style="display:none" >
                                             <div class="row mb-3"  >
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ</label>
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ<span style="color:red">*</span></label>
                                                 <div class="col-md-8"  id="degree_edu" >
                                                     <input type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
                                                 </div>
