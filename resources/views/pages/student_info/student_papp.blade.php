@@ -639,27 +639,18 @@
                                     <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
                                     <div class="col-md-7 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အရှေ့)</div>
                                     <div class="col-md-3">
-                                                <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front" accept="image/*">
+                                        <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front" accept="image/*">
                                     </div>
-                                </div><br/><br>
+                                </div><br/><br><br>
 
                                 <div class="row mt-1">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label"></label>
                                     <div class="col-md-7 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အနောက်)</div>
                                     <div class="col-md-3">
-                                                <input type="file"  class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back" accept="image/*">
+                                        <input type="file"  class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back" accept="image/*">
                                     </div>
                                 </div>
-                                {{--<div class="row">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(ဈ)') }}</label>
-
-                                    <div class="col-md-6 col-form-label">ကိုယ်တိုင်ဝန်ခံချက်</div>
-                                    <div class="col-md-4">
-                                        <input type="file"  class="form-control" name="letter" id="letter" >
-                                    </div>
-                                </div>--}}
                                 <br/><br>
                                 <div class="row mt-3">
                                     <div class="col-md-1"></div>

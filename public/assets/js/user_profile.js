@@ -952,10 +952,6 @@ function user_profile() {
                 }
                 if (cpaff_latest_data.status == 0) {
                     $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is checking.<br><br>');
-                    if(cpaff_latest_data.status == 0 && cpaff_latest_data.offline_user == 1 && data.papp == ''){
-                        $('.status_papp').append('Action &nbsp;&nbsp;');
-                        $('.status_papp').append(`<a href= ${FRONTEND_URL}/student_papp class="btn btn-success btn-sm xl-auto" > PAPP Form </a><hr>`);
-                    }
                 } else if (cpaff_latest_data.status == 1) {
                     var cpaff_renew_url = FRONTEND_URL + "/cpaff_renew";
                     $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is Approved.<br><br>');
@@ -970,11 +966,9 @@ function user_profile() {
                         }
                     }
                     else {
-                        if (check_month >= renew_form_open_month || check_month <= renew_form_close_month && invoice[0]?.status == 'AP') {
+                        if (check_month >= renew_form_open_month || check_month <= renew_form_close_month) {
                             $('.status_history').append('Action &nbsp;&nbsp;');
-                            $('.status_history').append(btn_payment);
-                            // $('.status_history').append('Action &nbsp;&nbsp;');
-                            // $('.status_history').append(`<a href= ${cpaff_renew_url} class="btn btn-success btn-sm xl-auto" > CPA(Full-Fledged) Renew Form </a><hr>`);
+                            $('.status_history').append(`<a href= ${cpaff_renew_url} class="btn btn-success btn-sm xl-auto" > CPA(Full-Fledged) Renew Form </a><hr>`);
                         }
                     }
 
