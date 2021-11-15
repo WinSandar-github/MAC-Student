@@ -51,7 +51,7 @@ $().ready(function (){
             cpa_one_pass_level : "required",
             cpa_one_pass_personal_no : "required",
             cpa_two_pass_personal_no : {
-                required:".cpa_two_pass_personal_no:checked",
+                required:".is_full_module_two:checked",
             },
             cpa_one_active_attend_place : "required",
             cpa_one_active_mac_type : {
@@ -197,7 +197,7 @@ $().ready(function (){
             cpa_one_pass_personal_no : "required",
             selected_passed_batch_name : "required",
             cpa_two_pass_personal_no : {
-                required:".cpa_two_pass_personal_no:checked",
+                required:".is_full_module_two:checked",
             },
             // da_two_pass_personal_no : {
             //     required : true,

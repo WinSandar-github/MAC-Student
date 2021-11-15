@@ -114,7 +114,7 @@
                                                 <div class="col-md-6">
                                                     <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                         <div class="col-md-2">
-                                                            <select class="form-control form-select" name="nrc_state_region" id="nrc_state_region" style="padding: 6px;">
+                                                            <select class="form-control form-select" name="nrc_state_region" id="nrc_state_region" style="padding: 6px;line-height: 1.8">
                                                                 <option value="" disabled selected>ရွေးပါ</option>
                                                                 @foreach($nrc_regions as $region)
                                                                     <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
@@ -124,7 +124,7 @@
                                                             </select>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <select class="form-control form-select" name="nrc_township" id="nrc_township" style="padding: 6px;">
+                                                            <select class="form-control form-select" name="nrc_township" id="nrc_township" style="padding: 6px;line-height: 1.8">
                                                                 <option value="" disabled selected>ရွေးပါ</option>
                                                                 @foreach($nrc_townships as $township)
                                                                     <option value="{{ $township['township_mm'] }}">
@@ -134,7 +134,7 @@
                                                             </select>
                                                         </div>
                                                         <div class="col-md-3 ">
-                                                            <select class="form-control form-select" name="nrc_citizen" id="nrc_citizen" style="padding: 6px;">
+                                                            <select class="form-control form-select" name="nrc_citizen" id="nrc_citizen" style="padding: 6px; line-height: 1.8">
                                                                 <option value="" disabled selected>ရွေးပါ</option>
                                                                 @foreach($nrc_citizens as $citizen)
                                                                     <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
@@ -145,7 +145,7 @@
                                                         </div>
 
                                                         <div class="col-md-4 ">
-                                                            <input type="text" name="nrc_number" placeholder="၁၂၃၄၅၆" id="nrc_number" class="form-control" maxlength="6" minlength="6" oninput="this.value = en2mm(this.value);" pattern=".{6,6}">
+                                                            <input type="text" name="nrc_number" placeholder="၁၂၃၄၅၆" id="nrc_number" class="form-control" maxlength="6" minlength="6" oninput="this.value = en2mm(this.value);" pattern=".{6,6}" style="line-height: 1.8">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -574,7 +574,7 @@
                                         <div class="row col-md-8 py-2" style="padding-left:24px">
                                             <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input module_one" type="radio" id="module_1"
+                                                    <input class="form-check-input module_one is_full_module_two" type="radio" id="module_1"
                                                             name="is_full_module" value="1" >
                                                     <span class="form-check-sign"></span>
                                                     Module 1
@@ -582,7 +582,7 @@
                                             </div>
                                             <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input module_two" type="radio" id="module_2"
+                                                    <input class="form-check-input module_two is_full_module_two" type="radio" id="module_2"
                                                             name="is_full_module" value='2' >
                                                     <span class="form-check-sign"></span>
                                                     Module 2
