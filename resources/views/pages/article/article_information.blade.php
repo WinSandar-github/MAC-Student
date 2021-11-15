@@ -313,6 +313,7 @@
                                         $("#gov_article_row").hide();
                                     }
                                 }else{
+																		$("#gov_article_row").hide();
                                     $("#c2_pass_3yr_btn").hide();
                                     $("#c2_pass_1yr_btn").hide();
                                     $("#qt_pass_3yr_btn").hide();
