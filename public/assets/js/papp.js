@@ -805,6 +805,7 @@ function RenewPAPP(){
                 send_data.append('address', $("input[name=address]").val());
                 send_data.append('phone', $("input[name=phone]").val());
                 send_data.append('contact_mail', $("input[name=contact_mail]").val());
+                send_data.append('offline_user', $("input[name=offline_user]").val());
                 // send_data.append('reg_no', $("input[name=reg_no]").val());
                 send_data.append('type',1);
                 //send_data.append('_method', 'POST');

@@ -217,10 +217,10 @@
 										let previous_article_invoice = article_invoice[article_invoice.length -2];
 
 										// validate c12_renew or c2_pass_renew
-										if(previous_article_invoice.invoiceNo.includes("c12_renew")){
+										if(previous_article_invoice?.invoiceNo.includes("c12_renew")){
 											$("#c2_pass_renew_btn").css('display','none');
 										}
-										else if(previous_article_invoice.invoiceNo.includes("c2_pass_renew")){
+										else if(previous_article_invoice?.invoiceNo.includes("c2_pass_renew")){
 											$("#c12_renew_btn").css('display','none');
 										}
 
@@ -313,6 +313,7 @@
                                         $("#gov_article_row").hide();
                                     }
                                 }else{
+																		$("#gov_article_row").hide();
                                     $("#c2_pass_3yr_btn").hide();
                                     $("#c2_pass_1yr_btn").hide();
                                     $("#qt_pass_3yr_btn").hide();

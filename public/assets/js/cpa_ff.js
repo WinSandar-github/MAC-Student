@@ -617,8 +617,7 @@ function loadCpaffInfo() {
             $('#contact_mail').val(cpaff_data.contact_mail);
             $('#last_paid_year').val(cpaff_data.last_paid_year==null? '-':cpaff_data.last_paid_year);
             $('#resign_date').val(cpaff_data.resign_date);
-            $('#cpaff_reg_no').val(cpaff_data.cpaff_reg_no);   
-            $('#offline_user').val(cpaff_data.offline_user);  
+            $('#cpaff_reg_no').val(cpaff_data.cpaff_reg_no);  
         }
     });
 }
@@ -1305,7 +1304,7 @@ function RenewCPAFF() {
     send_data.append('self_confession_renew', $("input[type='radio'][name='self_confession_renew']:checked").val());
     send_data.append('last_paid_year', $("input[name=last_paid_year]").val());
     send_data.append('resign_date', $("input[name=resign_date]").val());
-    send_data.append('offline_user', $("input[name=offline_user]").val());
+    // send_data.append('offline_user', $("input[name=offline_user]").val());
     send_data.append('type',1);
     var self_confession_accept = document.getElementById("accept_cpaffRenew");
     var self_confession_not_accept = document.getElementById("not-accept_cpaffRenew");
@@ -1424,7 +1423,7 @@ function renewRejectCpaff() {
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
     send_data.append('total_hours', $("input[name=total_hours]").val());
     send_data.append('fine_person', $("input[name=fine_person]").val());
-    send_data.append('offline_user', $("input[name=offline_user]").val());
+    // send_data.append('offline_user', $("input[name=offline_user]").val());
     send_data.append('is_renew', 1);
     send_data.append('self_confession_renew',$("input[type='radio'][name='self_confession_renew']:checked").val());
     send_data.append('type',1);

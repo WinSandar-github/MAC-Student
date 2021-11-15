@@ -242,8 +242,8 @@ function createCpaffReconnectRegister(){
     // send_data.append('end_date', $("input[name=end_date]").val());//new field
     send_data.append('self_confession',$("input[type='radio'][name='self_confession']:checked").val());
     send_data.append('form_type', 2);
-    send_data.append('is_renew', 1);
-    send_data.append('type', 1);
+    send_data.append('is_renew', 2);
+    send_data.append('type', 2);
     // save to student_info
     send_data.append('email', $("input[name=email]").val());
     send_data.append('password', $("input[name=password]").val());
@@ -352,8 +352,8 @@ function updateRejectCpaffExisting(){
     // send_data.append('end_date', $("input[name=end_date]").val());//new field
     send_data.append('self_confession',$("input[type='radio'][name='self_confession']:checked").val());
     send_data.append('form_type', 2);
-    send_data.append('is_renew', 1);
-    send_data.append('type', 1);
+    send_data.append('is_renew', 2);
+    send_data.append('type', 2);
     // save to student_info
     send_data.append('email', $("input[name=email]").val());
     send_data.append('password', $("input[name=password]").val());
@@ -378,110 +378,110 @@ function updateRejectCpaffExisting(){
     
 }
 
-function RenewOfflineCPAFF() {
-    var student = JSON.parse(localStorage.getItem('studentinfo'));
+// function RenewOfflineCPAFF() {
+//     var student = JSON.parse(localStorage.getItem('studentinfo'));
 
-    var profile_photo = $("input[name=profile_photo]")[0].files[0];
-    var cpa = $("input[name=cpa]")[0].files[0];
-    var ra = $("input[name=ra]")[0].files[0];
-    show_loader();
-    var send_data = new FormData($("#cpaff_renew_form_submit")[0]);
-    send_data.append('student_info_id', student.id);
+//     var profile_photo = $("input[name=profile_photo]")[0].files[0];
+//     var cpa = $("input[name=cpa]")[0].files[0];
+//     var ra = $("input[name=ra]")[0].files[0];
+//     show_loader();
+//     var send_data = new FormData($("#cpaff_renew_form_submit")[0]);
+//     send_data.append('student_info_id', student.id);
 
-    send_data.append('name_mm', $("input[name=name_mm]").val());
-    send_data.append('name_eng', $("input[name=name_eng]").val());
-    var nrc_state_region = $("#nrc_state_region").val();
-    var nrc_township = $("#nrc_township").val();
-    var nrc_citizen = $("#nrc_citizen").val();
-    send_data.append('nrc_state_region', nrc_state_region);
-    send_data.append('nrc_township', nrc_township);
-    send_data.append('nrc_citizen', nrc_citizen);
-    send_data.append('nrc_number', $("input[name=nrc_number]").val());
-    send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
-    send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
-    send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
+//     send_data.append('name_mm', $("input[name=name_mm]").val());
+//     send_data.append('name_eng', $("input[name=name_eng]").val());
+//     var nrc_state_region = $("#nrc_state_region").val();
+//     var nrc_township = $("#nrc_township").val();
+//     var nrc_citizen = $("#nrc_citizen").val();
+//     send_data.append('nrc_state_region', nrc_state_region);
+//     send_data.append('nrc_township', nrc_township);
+//     send_data.append('nrc_citizen', nrc_citizen);
+//     send_data.append('nrc_number', $("input[name=nrc_number]").val());
+//     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
+//     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
+//     send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
 
-    if ($("#cpa_edu").prop("checked")) {
-        send_data.append('cpa', cpa);
-    }
-    else if ($("#ra_edu").prop("checked")) {
-        send_data.append('ra', ra);
-    }
-    else if ($("#education").prop("checked")) {
-        $('input[name="degree_name[]"]').map(function () {
-            send_data.append('degree_name[]', $(this).val());
-        });
-        $('input[name="degree_pass_year[]"]').map(function () {
-            send_data.append('degree_pass_year[]', $(this).val());
-        });
-        $('input[name="degree_file[]"]').map(function () {
-            for (var i = 0; i < $(this).get(0).files.length; ++i) {
-                send_data.append('degree_file[]', $(this).get(0).files[i]);
-            }
-        });
-    }
-    send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
-    send_data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
-    send_data.append('address', $("input[name=address]").val());
-    send_data.append('phone', $("input[name=phone]").val());
-    send_data.append('contact_mail', $("input[name=contact_mail]").val());
-    send_data.append('cpaff_pass_date', $("input[name=cpaff_pass_date]").val());
-    send_data.append('cpaff_renew_date', $("input[name=cpaff_renew_date]").val());
-    send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
-    send_data.append('papp_reg_year', $("input[name=papp_reg_year]").val());
-    send_data.append('renew_file', $("input[name=renew_file]")[0].files[0]);
-    send_data.append('fine_person', $("input[name=fine_person]").val());
-    send_data.append('cpa_certificate', $("input[name=cpa_certificate]")[0].files[0]);
-    send_data.append('mpa_mem_card', $("input[name=mpa_mem_card]")[0].files[0]);
-    send_data.append('mpa_mem_card_back', $("input[name=mpa_mem_card_back]")[0].files[0]);
-    if ($("input[name=nrc_front]")[0].files[0]) {
-        send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
-    } else {
-        send_data.append('nrc_front', $('#hidden_nrc_front').val());
-    }
-    if ($("input[name=nrc_back]")[0].files[0]) {
-        send_data.append('nrc_back', $("input[name=nrc_back]")[0].files[0]);
-    } else {
-        send_data.append('nrc_back', $('#hidden_nrc_back').val());
-    }
-    send_data.append('cpd_record', $("input[name=cpd_record]")[0].files[0]);
-    send_data.append('total_hours', $("input[name=total_hours]").val());
-    send_data.append('last_paid_year', $("input[name=last_paid_year]").val());
-    send_data.append('resign_date', $("input[name=resign_date]").val());
+//     if ($("#cpa_edu").prop("checked")) {
+//         send_data.append('cpa', cpa);
+//     }
+//     else if ($("#ra_edu").prop("checked")) {
+//         send_data.append('ra', ra);
+//     }
+//     else if ($("#education").prop("checked")) {
+//         $('input[name="degree_name[]"]').map(function () {
+//             send_data.append('degree_name[]', $(this).val());
+//         });
+//         $('input[name="degree_pass_year[]"]').map(function () {
+//             send_data.append('degree_pass_year[]', $(this).val());
+//         });
+//         $('input[name="degree_file[]"]').map(function () {
+//             for (var i = 0; i < $(this).get(0).files.length; ++i) {
+//                 send_data.append('degree_file[]', $(this).get(0).files[i]);
+//             }
+//         });
+//     }
+//     send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
+//     send_data.append('cpaff_reg_no', $("input[name=cpaff_reg_no]").val());
+//     send_data.append('address', $("input[name=address]").val());
+//     send_data.append('phone', $("input[name=phone]").val());
+//     send_data.append('contact_mail', $("input[name=contact_mail]").val());
+//     send_data.append('cpaff_pass_date', $("input[name=cpaff_pass_date]").val());
+//     send_data.append('cpaff_renew_date', $("input[name=cpaff_renew_date]").val());
+//     send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
+//     send_data.append('papp_reg_year', $("input[name=papp_reg_year]").val());
+//     send_data.append('renew_file', $("input[name=renew_file]")[0].files[0]);
+//     send_data.append('fine_person', $("input[name=fine_person]").val());
+//     send_data.append('cpa_certificate', $("input[name=cpa_certificate]")[0].files[0]);
+//     send_data.append('mpa_mem_card', $("input[name=mpa_mem_card]")[0].files[0]);
+//     send_data.append('mpa_mem_card_back', $("input[name=mpa_mem_card_back]")[0].files[0]);
+//     if ($("input[name=nrc_front]")[0].files[0]) {
+//         send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
+//     } else {
+//         send_data.append('nrc_front', $('#hidden_nrc_front').val());
+//     }
+//     if ($("input[name=nrc_back]")[0].files[0]) {
+//         send_data.append('nrc_back', $("input[name=nrc_back]")[0].files[0]);
+//     } else {
+//         send_data.append('nrc_back', $('#hidden_nrc_back').val());
+//     }
+//     send_data.append('cpd_record', $("input[name=cpd_record]")[0].files[0]);
+//     send_data.append('total_hours', $("input[name=total_hours]").val());
+//     send_data.append('last_paid_year', $("input[name=last_paid_year]").val());
+//     send_data.append('resign_date', $("input[name=resign_date]").val());
     
-    send_data.append('is_renew', 1);
-    send_data.append('self_confession_renew',$("input[type='radio'][name='self_confession_renew']:checked").val());
-    send_data.append('type',1);
-    var self_confession_accept = document.getElementById("accept_cpaffRenew");
-    var self_confession_not_accept = document.getElementById("not-accept_cpaffRenew");
-    if(self_confession_accept.checked == true || self_confession_not_accept.checked == true){
-         $.ajax({
-            url: BACKEND_URL + "/renew_cpaff",
-            type: 'post',
-            data: send_data,
-            contentType: false,
-            processData: false,
-            success: function (result) {
-                EasyLoading.hide();
-                console.log(result);
-                successMessage(result.message);
-                // location.reload();
-                location.href = FRONTEND_URL + "/";
-                document.getElementById('approved').style.display = 'none';
-                document.getElementById('rejected').style.display = 'none';
-                document.getElementById('pending').style.display = 'none';
-                document.getElementById('cpaff_form').style.display = 'none';
-                document.getElementById('cpaff_renew_form').style.display = 'none';
-                document.getElementById('expiry_card').style.display = 'none';
-            },
-            error: function (message) {
-                EasyLoading.hide();
-            }
-        });
-    }
-    else{
-        $('#valid_self_confession').text("Please choose Yes Or No");
-        $('#valid_self_confession').css('display','block');
-        errorMessage("Please choose Yes or No");
-    }
-}
+//     send_data.append('is_renew', 1);
+//     send_data.append('self_confession_renew',$("input[type='radio'][name='self_confession_renew']:checked").val());
+//     send_data.append('type',1);
+//     var self_confession_accept = document.getElementById("accept_cpaffRenew");
+//     var self_confession_not_accept = document.getElementById("not-accept_cpaffRenew");
+//     if(self_confession_accept.checked == true || self_confession_not_accept.checked == true){
+//          $.ajax({
+//             url: BACKEND_URL + "/renew_cpaff",
+//             type: 'post',
+//             data: send_data,
+//             contentType: false,
+//             processData: false,
+//             success: function (result) {
+//                 EasyLoading.hide();
+//                 console.log(result);
+//                 successMessage(result.message);
+//                 // location.reload();
+//                 location.href = FRONTEND_URL + "/";
+//                 document.getElementById('approved').style.display = 'none';
+//                 document.getElementById('rejected').style.display = 'none';
+//                 document.getElementById('pending').style.display = 'none';
+//                 document.getElementById('cpaff_form').style.display = 'none';
+//                 document.getElementById('cpaff_renew_form').style.display = 'none';
+//                 document.getElementById('expiry_card').style.display = 'none';
+//             },
+//             error: function (message) {
+//                 EasyLoading.hide();
+//             }
+//         });
+//     }
+//     else{
+//         $('#valid_self_confession').text("Please choose Yes Or No");
+//         $('#valid_self_confession').css('display','block');
+//         errorMessage("Please choose Yes or No");
+//     }
+// }
