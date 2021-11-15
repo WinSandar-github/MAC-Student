@@ -397,7 +397,6 @@
                           </div><br/><br>
                           <input type="hidden" name="last_paid_year" id="last_paid_year">
                           <input type="hidden" name="resign_date" id="resign_date">
-                          <input type="hidden" name="offline_user" id="offline_user">
 
                           <div class="row mb-3" style="padding-left:50px;">
                               <div class="form-check">
