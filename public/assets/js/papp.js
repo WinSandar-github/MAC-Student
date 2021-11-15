@@ -461,6 +461,7 @@ function loadPappData()
             $('#contact_mail').val(papp_data.contact_mail);
             $('#cpaff_reg_no').val(papp_data.cpaff_reg_no);
             $('#latest_reg_year').val(papp_data.latest_reg_year==null?'-':papp_data.latest_reg_year);
+            $('#offline_user').val(papp_data.offline_user);
         }
     });
 }
@@ -805,6 +806,7 @@ function RenewPAPP(){
                 send_data.append('address', $("input[name=address]").val());
                 send_data.append('phone', $("input[name=phone]").val());
                 send_data.append('contact_mail', $("input[name=contact_mail]").val());
+                send_data.append('offline_user', $("input[name=offline_user]").val());
                 // send_data.append('reg_no', $("input[name=reg_no]").val());
                 send_data.append('type',1);
                 //send_data.append('_method', 'POST');
