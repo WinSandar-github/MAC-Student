@@ -3078,10 +3078,11 @@ function user_profile() {
                                             }
                                         }
                                     } else {
+
                                         // $('.status').append('<P>Your Registration Form is checking</P>')
                                         $('.status').append(`
                                         <tr>
-                                            <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                            <td>${latest_course_reg[0].batch.course.name} Registraion Form</td>
                                             <td>${formatDate(latest_stu_reg[0].created_at)}</td>
                                             <td>${formatDate(latest_stu_reg[0].updated_at)}</td>
                                             <td><span class="badge bg-danger">Reject</span></td>
