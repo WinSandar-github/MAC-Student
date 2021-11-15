@@ -3514,10 +3514,11 @@ function user_profile() {
                         $('#article_row').css('display', 'block');
                     }
                     var payment_success = data.invoice.at(-1) && data.invoice.at(-1).status;
-                    if ( latest_stu_reg[0].status ==  1 && latest_course_reg[0].status == 1 
-                        && latest_course_reg.batch_id == latest_stu_reg.batch_id && (payment_success == 'AP' || data.article)
-                        && (latest_stu_reg[0].course.code == "cpa_1" || latest_stu_reg[0].course.code == "cpa_2")) {                       
-                        // alert("hello article")
+                    console.log(payment_success,data.article);
+                    if ( latest_stu_reg[0].status ==  1 && latest_course_reg[0].status == 1
+                        && latest_course_reg.batch_id == latest_stu_reg.batch_id && (payment_success == 'AP' || data.article.length != 0)
+                        && (latest_stu_reg[0].course.code == "cpa_1" || latest_stu_reg[0].course.code == "cpa_2")) {
+                        
                         let latest_article = data.article.slice(-1);
                         let latest_gov_article = data.gov_article.slice(-1);
                         let exam_results = data.exam_results.slice(-1);
