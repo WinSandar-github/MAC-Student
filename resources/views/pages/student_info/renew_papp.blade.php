@@ -627,7 +627,6 @@
                                         <input type="text" class="form-control" name="latest_reg_year" id="latest_reg_year" placeholder="PAPP နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်" autocomplete="off" disabled>
                                     </div>
                                 </div>
-                                <input type="hidden" name="offline_user" id="offline_user">
                                 <div class="row mb-3" style="padding-left:100px;margin-top: 15px;margin-bottom: 10px;">
                                     <div class="form-check">
                                         <label class="form-check-label">

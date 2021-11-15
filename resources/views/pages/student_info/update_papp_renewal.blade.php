@@ -783,8 +783,6 @@
                                     </div>
                                 </div><br/><br>
 
-                                <input type="hidden" name="offline_user" id="offline_user">  
-
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
@@ -890,7 +888,6 @@
                 $('#address').val(papp.address);
                 $('#phone').val(papp.phone);
                 $('#contact_mail').val(papp.contact_mail);
-                $('#offline_user').val(papp.offline_user);
                 if(papp.use_firm==1){
                     $('#firm_check').attr('checked',true);
                 }
