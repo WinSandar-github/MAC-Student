@@ -3510,7 +3510,7 @@ function user_profile() {
                     var payment_success = data.invoice.at(-1) && data.invoice.at(-1).status;
                     console.log(payment_success,data.article);
                     if ( latest_stu_reg[0].status ==  1 && latest_course_reg[0].status == 1
-                        && latest_course_reg.batch_id == latest_stu_reg.batch_id && (payment_success == 'AP' || data.article.length != 0)
+                        && latest_course_reg.batch_id == latest_stu_reg.batch_id && (payment_success == 'AP' || data.article.length != 0 || data.gov_article != 0)
                         && (latest_stu_reg[0].course.code == "cpa_1" || latest_stu_reg[0].course.code == "cpa_2")) {
                         
                         let latest_article = data.article.slice(-1);
