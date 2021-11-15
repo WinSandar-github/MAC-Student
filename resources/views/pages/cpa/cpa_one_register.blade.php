@@ -465,14 +465,30 @@
                                             </div>
                                         </div> 
 
-                                         <div class="row" id="entry_success_no_private_div">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
+                                         <div class="row" id="entry_success_no_private_div">                                             
+                                            <label class="col-md-4 col-form-label label">
+                                                <span class="pull-left">{{ __('၁၈။') }}</span>
+                                                <span class="pull-left" style="padding-left: 70px;">{{ __('(က)') }}</span>
+                                                ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" id="entry_success_no_private" name="entry_success_no_private" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်" >
                                                 </div>
                                             </div>
-                                        </div><br/>
+                                        </div>
+
+                                        <div class="row" id="entry_success_roll_no_private_div">
+                                            <label class="col-md-4 col-form-label label">
+                                                <span class="pull-left" style="padding-left: 95px;">{{ __('(ခ)') }}</span>
+                                                ခုံအမှတ်</label>
+                                            <div class="col-md-8">
+                                                <div>
+                                                    <input type="text" id="entry_success_roll_no_private" name="entry_success_roll_no_private" class="form-control" value="" placeholder="ခုံအမှတ်" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                            
+                                        <br/>
 
                                 <div class="row mb-3" style="display: none;">
                                     <label class="col-md-4 col-form-label label">
@@ -888,9 +904,20 @@
                                                         </div>
 
                                                         <div class="row mb-3" id="entry_success_no_self_div" >
-                                                            <label class="col-md-7 col-form-label label"><span class="pull-left" style="padding-left:85px">{{ __('') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
+                                                            
+                                                                <label class="col-md-7 col-form-label label"><span class="pull-left" style="padding-left:85px">{{ __('') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
+                                                                <div class="col-md-5">
+                                                                        <input type="text" id="entry_success_no_self" name="entry_success_no_self" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်">
+                                                                </div>
+                                                        </div>
+                                                        <div class="row  mb-3" id="entry_success_roll_no_self_div" >
+                                                            <label class="col-md-7 col-form-label label">
+                                                                <span class="pull-left" style="padding-left:85px">{{ __('') }}</span>
+                                                                ခုံအမှတ်</label>
                                                             <div class="col-md-5">
-                                                                    <input type="text" id="entry_success_no_self" name="entry_success_no_self" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်">
+                                                                <div>
+                                                                    <input type="text" id="entry_success_roll_no_self" name="entry_success_roll_no_self" class="form-control" value="" placeholder="ခုံအမှတ်" >
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1556,11 +1583,24 @@
                                             </div>
 
                                             <div class="row mb-3" id="entry_success_no_mac_div">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၉။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
+                                                
+                                                    <label class="col-md-4 col-form-label label">
+                                                        <span class="pull-left">{{ __('၁၉။') }}</span>
+                                                        <span class="pull-left" style="padding-left: 75px;">{{ __('(က)') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
+                                                    <div class="col-md-8">
+                                                    <input type="text" id="entry_success_no_mac" name="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်" >
+                                                    </div>
+                                            </div>
+
+                                            <div class="row mb-3" id="entry_success_roll_no_mac_div">
+                                                <label class="col-md-4 col-form-label label">
+                                                    <span class="pull-left" style="padding-left: 100px;">{{ __('(ခ)') }}</span>ခုံအမှတ်</label>
                                                 <div class="col-md-8">
-                                                <input type="text" id="entry_success_no_mac" name="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်" >
+                                                <input type="text" id="entry_success_roll_no_mac" name="entry_success_roll_no_mac" class="form-control" value="" placeholder="ခုံအမှတ်" >
                                                 </div>
                                             </div>
+                                                
+                                            
 
                                             <div class="row mb-3" id="mac_school" style="display:none">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">၂၀။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
@@ -1801,7 +1841,7 @@
                         let current_stu_course = data.data.student_course_regs.slice(-1);
                         let student_course_regs = data.data.student_course_regs;
                         let last_exam = data.data.exam_registers.slice(-1);
-                        console.log('current_stu_course',data.data); 
+                        console.log('current_stu_course',current_stu_course); 
                         // console.log('last_exam',last_exam);  
                         
                         if(current_stu_course[0].mac_type == 1){
@@ -1890,51 +1930,79 @@
                             // console.log("for direct");
                             $("#direct_access_no_self_div").show();
                             $("#entry_success_no_self_div").hide();
+                            $("#entry_success_roll_no_self_div").hide();
+
                             $("#direct_access_no_private_div").show();
                             $("#entry_success_no_private_div").hide();
+                            $("#entry_success_roll_no_private_div").hide();
+
                             $("#direct_access_no_mac_div").show();
                             $("#entry_success_no_mac_div").hide();
+                            $("#entry_success_roll_no_mac_div").hide();
 
-                            $("#direct_access_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
-                            $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
-                            $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
+                            $("#direct_access_no_self").val(current_stu_course[0].batch.number);
+                            $("#direct_access_no_private").val(current_stu_course[0].batch.number);
+                            $("#direct_access_no_mac").val(current_stu_course[0].batch.number);
                         }
                         else if(student_register[0].entry_success_no || last_exam[0].exam_type_id == 3 || last_exam[0].exam_type_id == 2){   
                             console.log("for entry1");                        
                             $("#direct_access_no_self_div").hide();
                             $("#entry_success_no_self_div").show();
+                            $("#entry_success_roll_no_self_div").show();
+
                             $("#direct_access_no_private_div").hide();
                             $("#entry_success_no_private_div").show();
+                            $("#entry_success_roll_no_private_div").show();
+
                             $("#direct_access_no_mac_div").hide();
                             $("#entry_success_no_mac_div").show();
+                            $("#entry_success_roll_no_mac_div").show();
 
-                            $("#entry_success_no_self").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : "");
+                            $("#entry_success_no_self").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : "");                            
                             $("#entry_success_no_private").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : "");
                             $("#entry_success_no_mac").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : "");
+
+                            $("#entry_success_roll_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
+                            $("#entry_success_roll_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
+                            $("#entry_success_roll_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
                         }else if(student_course_regs[1].qt_entry != 1){
                             // console.log("for existing direct");
                             $("#direct_access_no_self_div").show();
                             $("#entry_success_no_self_div").hide();
+                            $("#entry_success_roll_no_self_div").hide();
+
                             $("#direct_access_no_private_div").show();
                             $("#entry_success_no_private_div").hide();
+                            $("#entry_success_roll_no_private_div").hide();
+
                             $("#direct_access_no_mac_div").show();
                             $("#entry_success_no_mac_div").hide();
+                            $("#entry_success_roll_no_mac_div").hide();
 
-                            $("#direct_access_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
-                            $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
-                            $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
+                            $("#direct_access_no_self").val(current_stu_course[0].batch.number);
+                            $("#direct_access_no_private").val(current_stu_course[0].batch.number);
+                            $("#direct_access_no_mac").val(current_stu_course[0].batch.number);
                         }else{
                             console.log("for entry2");
                             $("#direct_access_no_self_div").hide();
                             $("#entry_success_no_self_div").show();
+                            $("#entry_success_roll_no_self_div").show();
+
                             $("#direct_access_no_private_div").hide();
                             $("#entry_success_no_private_div").show();
+                            $("#entry_success_roll_no_private_div").show();
+
                             $("#direct_access_no_mac_div").hide();
                             $("#entry_success_no_mac_div").show();
+                            $("#entry_success_roll_no_mac_div").show();
 
                             $("#entry_success_no_self").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
                             $("#entry_success_no_private").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
                             $("#entry_success_no_mac").val(last_exam[0].sr_no != null ? last_exam[0].sr_no : 1);
+
+                            $("#entry_success_roll_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
+                            $("#entry_success_roll_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
+                            $("#entry_success_roll_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
                         }
                         
 
