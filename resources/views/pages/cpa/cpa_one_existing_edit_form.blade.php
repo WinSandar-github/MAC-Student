@@ -466,7 +466,7 @@
                                         <div class="row col-md-8 py-2" style="padding-left:24px">
                                             <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input module_one" type="radio" id="module_1"
+                                                    <input class="form-check-input module_one is_full_module" type="radio" id="module_1"
                                                             name="is_full_module" value="1" >
                                                     <span class="form-check-sign"></span>
                                                     Module 1
@@ -474,7 +474,7 @@
                                             </div>
                                             <div class="col-md-3 form-check-radio">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input module_two" type="radio"
+                                                    <input class="form-check-input module_two is_full_module" type="radio"
                                                             name="is_full_module" value='2' id="module_2">
                                                     <span class="form-check-sign"></span>
                                                     Module 2
