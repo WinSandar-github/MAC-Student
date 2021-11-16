@@ -254,7 +254,7 @@
                                             </div>
 
                                             <button class="btn btn-success btn-block" type="submit" disabled>Continue to checkout</button>
-
+                                            <button class="btn btn-success btn-block" type="button" onclick="cashPayment()">Cash Payment</button>
                                         </div>
                                     </div>
                                 </form>

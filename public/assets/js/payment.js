@@ -122,3 +122,16 @@ function deviceOS() {
 
     location.href = FRONTEND_URL + '/cbpay_qr';
 }
+function cashPayment(){
+    let url = window.location.href;
+    var final =url.substr(url.lastIndexOf('/') + 1);
+    $.ajax({
+        url: BACKEND_URL + "/cashPayment",
+        data: "invoiceNo="+final,
+        type: 'post',
+        success: function(result){
+            successMessage(result.message);
+            location.href = FRONTEND_URL + '/';
+        }
+    })
+}
