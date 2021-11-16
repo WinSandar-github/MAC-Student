@@ -370,11 +370,11 @@ function teacher_reg_feedback(){
                     }
                     else{
                         if(teacher_data.initial_status!=2){
-                            $('.status-reject').css('display','block');
-                            $('.reject-reason').append(teacher_data.reason);
-                            $('.register-btn').css('display','none');
-                            $('.payment-btn').css('display','none');
-                            $('.update-btn').css('display','block');
+                            // $('.status-reject').css('display','block');
+                            // $('.reject-reason').append(teacher_data.reason);
+                            // $('.register-btn').css('display','none');
+                            // $('.payment-btn').css('display','none');
+                            // $('.update-btn').css('display','block');
                         }
                         
                     }

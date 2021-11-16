@@ -225,7 +225,7 @@ function school_reg_feedback(){
         url: BACKEND_URL+"/getSchoolInfo/"+student.id,//getSchoolStatus
         type: 'GET',
         success: function(result){
-
+          
           // var form_data = data;
           // form_data.forEach(function(element){
             var school=result.data.pop();
@@ -256,11 +256,11 @@ function school_reg_feedback(){
                         
                     }
                     else{
-                        $('.status-reject').css('display','block');
-                        $('.reject-reason').append(school.reason);
-                        $('.register-btn').css('display','none');
-                        $('.payment-btn').css('display','none');
-                        $('.update-btn').css('display','block');
+                        // $('.status-reject').css('display','block');
+                        // $('.reject-reason').append(school.reason);
+                        // $('.register-btn').css('display','none');
+                        // $('.payment-btn').css('display','none');
+                        // $('.update-btn').css('display','block');
                         if(school.initial_status==1){
                           loadRenewSchool();
                         }else{

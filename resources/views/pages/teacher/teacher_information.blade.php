@@ -777,7 +777,7 @@
         localStorage.setItem('course_type',course_type[2])
         }
         teacher_reg_feedback();
-        checkPaymentTeacher();
+        //checkPaymentTeacher();
         loadDescription('Teacher');
         $('.select2').select2({
                 placeholder: "Select"
