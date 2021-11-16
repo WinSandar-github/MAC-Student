@@ -1174,7 +1174,7 @@
         loadDescription('School');
         getCourses();
         school_reg_feedback();
-        checkPaymentSchool();
+        //checkPaymentSchool();
     })
     //app_form_feedback();
     
