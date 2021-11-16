@@ -760,7 +760,11 @@ function updateDAExistingRegister() {
     send_data.append('type_active_da2', $("input[name='da_two_active_attend_place']:checked").val());
     send_data.append('da_two_active_mac_type', $("input[name='da_two_active_attend_place']:checked").val() == 2 ? $("input[name='da_two_active_mac_type']:checked").val() : 99);
     send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
-    send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
+    if ($("input[type='radio'][name='is_full_module']:checked").val() != null) {
+        send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
+    } else if ($("input[type='radio'][name='is_full_module']:checked").val() == null) {
+        send_data.append('module', 0);
+    }
     send_data.append('da_type', $("#da_type").val());
     show_loader();
     $.ajax({
