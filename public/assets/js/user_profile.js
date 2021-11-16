@@ -5625,7 +5625,6 @@ function allowToRenew() {
                             var submit_mth = submit_date.getMonth() + 1;
 
                             if(last_submit_year == current_year){
-                              console.log("here");
                               if(submit_mth == 11 || submit_mth == 12){
                                 console.log("is already renew audit");
                                 $("#check_renew").find("a").addClass('disabled');
