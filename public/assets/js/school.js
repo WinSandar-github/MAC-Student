@@ -651,7 +651,11 @@ function loadRenewSchool(){
                  
                   if(school.initial_status==0){
                     
-                     accept=new Date(school.from_valid_date);
+                     if(school.offline_user=="true"){
+                      accept=new Date(school.last_registration_fee_year);
+                     }else{
+                      accept=new Date(school.to_valid_date);
+                     }
                     
                   }else if(school.initial_status==1){
                      accept=new Date(school.renew_date);
