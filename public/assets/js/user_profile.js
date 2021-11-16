@@ -976,7 +976,7 @@ function user_profile() {
                     localStorage.setItem('cpaff_id', cpaff_latest_data.id);
                     localStorage.setItem('reject_reason', cpaff_latest_data.reject_description);
 
-                    if (cpaff_latest_data.type == 1 && cpaff_latest_data.offline_user == 1) {
+                    if (cpaff_latest_data.type == 2 && cpaff_latest_data.offline_user == 1) {
                         $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is Rejected.');
                         $('.status_history').append(`<a href="${reject_existing}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                         $('#cpaff_other_reject_box').css("display", "block");
