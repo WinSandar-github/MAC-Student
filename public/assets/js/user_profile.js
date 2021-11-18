@@ -1166,6 +1166,9 @@ function user_profile() {
                         case 'c12_renew':
                             form_type = 'CPA I,II Renew';
                             break;
+                        case 'c2_pass/qt_pass_3yr':
+                            form_type = 'CPA II Pass/QT Pass 3 yr';
+                            break;
                         default:
                             form_type = 'Resign';
                             break;
