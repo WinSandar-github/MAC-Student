@@ -477,7 +477,7 @@
                                                 <label class="col-md-2 col-form-label label_align_right">သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="personal_no_mac" id="personal_no_mac"
-                                                           class="form-control personal_no" placeholder="ကိုယ်ပိုင်အမှတ်"> {{-- ကိုယ်ပိုင်နံပါတ် not sure to get in this state --}}
+                                                           class="form-control personal_no" placeholder="သင်တန်းသားကိုယ်ပိုင်အမှတ်" readonly> {{-- ကိုယ်ပိုင်နံပါတ် not sure to get in this state --}}
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -927,14 +927,14 @@
                                             </div>
 
 
-                                            <div class="row mb-3"  style="display:none">
+                                            <div class="row mb-3"  >
                                                 {{-- <label class="col-md-1 col-form-label"></label> --}}
                                                 <label class="col-md-2 col-form-label">၁၇။</label>
-                                                <label class="col-md-2 col-form-label label_align_right">ကိုယ်ပိုင်အမှတ်</label>
+                                                <label class="col-md-2 col-form-label label_align_right">သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
 
                                                 <div class="col-md-8">
                                                     <input type="text" name="personal_no_private" class="form-control personal_no"
-                                                           placeholder="ကိုယ်ပိုင်အမှတ်" id="">
+                                                           placeholder="သင်တန်းသားကိုယ်ပိုင်အမှတ်" id="" readonly>
 
                                                 </div>
                                             </div>
@@ -1461,13 +1461,13 @@
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-3" style="display:none;">
+                                            <div class="row mb-3" >
                                                 <label class="col-md-2 col-form-label label_align_right">
                                                     <span class="pull-left">၁၉။</span>
                                                 </label>
-                                                <label class="col-md-2 col-form-label label_align_right">ကိုယ်ပိုင်အမှတ်</label>
+                                                <label class="col-md-2 col-form-label label_align_right">သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="personal_no_self" class="form-control _no" placeholder="ကိုယ်ပိုင်အမှတ်">
+                                                    <input type="text" name="personal_no_self" class="form-control personal_no" placeholder="သင်တန်းသားကိုယ်ပိုင်အမှတ်" readonly>
                                                 </div>
                                             </div>
 
@@ -1878,7 +1878,7 @@
                         $("#mac_school").show();
                     
                         if(current_stu_course[0].offline_user == 1 && last_exam[0].grade == 2){
-                            alert("hello")
+                            // alert("hello")
                             $("input[name='mac_type']").prop('disabled', true);
                         }else{
                           
