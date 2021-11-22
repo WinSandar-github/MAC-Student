@@ -717,14 +717,12 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='current_address']").val(student_info.current_address);
 
                     $(".personal_no_self").val(student_info.registration_no);
-                    if(data.data.student_register[0].type == 0){
+                    if(current_stu_course[0].type == 0){
                         $("input[name='class_address']").val("ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူ");
-                    }else if(data.data.student_register[0].type == 1){
+                    }else if(current_stu_course[0].type == 1){
                         $("input[name='class_address']").val("ကိုယ်ပိုင်သင်တန်းကျောင်း");
                     }else{
-
-                        var mac_name = data.data.student_course_regs[0].mac_type == 2 ?   "စာရင်းကောင်စီ(နေပြည်တော်သင်တန်းကျောင်း)" : "စာရင်းကောင်စီ(ရန်ကုန်သင်တန်းကျောင်း)";
-
+                        var mac_name = current_stu_course[0].mac_type == 2 ?   "စာရင်းကောင်စီ(နေပြည်တော်သင်တန်းကျောင်း)" : "စာရင်းကောင်စီ(ရန်ကုန်သင်တန်းကျောင်း)";
 
                         $("input[name='class_address']").val(mac_name);
                     }

@@ -53,7 +53,9 @@ $().ready(function () {
             },
             selected_passed_batch_name: "required",            
             // da_one_pass_level: "required",
-            da_one_pass_personal_no: "required",
+            da_one_pass_personal_no: {
+                required:".is_full_module:checked",
+            },
             // is_full_module: "required",
         },
         messages: {
@@ -172,7 +174,9 @@ $().ready(function () {
             },
             selected_passed_batch_name: "required",
             // da_one_pass_level: "required",
-            da_one_pass_personal_no: "required",
+            da_one_pass_personal_no: {
+                required:".is_full_module:checked",
+            },
             // is_full_module: "required",
         },
         messages: {

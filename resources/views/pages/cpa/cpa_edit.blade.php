@@ -120,7 +120,7 @@
                                         <div class="col-md-6">
                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                 <div class="col-md-2">
-                                                    <select class="form-control form-select" name="nrc_state_region" id="nrc_state_region" style="padding: 6px;">
+                                                    <select class="form-control form-select" name="nrc_state_region" id="nrc_state_region" style="padding: 6px;line-height: 1.8">
                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_regions as $region)
                                                             <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
@@ -130,7 +130,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <select class="form-control form-select" name="nrc_township" id="nrc_township">
+                                                    <select class="form-control form-select" name="nrc_township" id="nrc_township" style="line-height: 1.8">
                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_townships as $township)
                                                             <option value="{{ $township['township_mm'] }}">
@@ -140,7 +140,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <select class="form-control form-select" name="nrc_citizen" id="nrc_citizen">
+                                                    <select class="form-control form-select" name="nrc_citizen" id="nrc_citizen" style="line-height: 1.8">
                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_citizens as $citizen)
                                                             <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
@@ -151,7 +151,7 @@
                                                 </div>
 
                                                 <div class="col-md-4 ">
-                                                    <input type="text" name="nrc_number" placeholder="၁၂၃၄၅၆" id="nrc_number" class="form-control" maxlength="6" minlength="6" oninput="this.value = en2mm(this.value);" pattern=".{6,6}">
+                                                    <input type="text" name="nrc_number" placeholder="၁၂၃၄၅၆" id="nrc_number" class="form-control" maxlength="6" minlength="6" oninput="this.value = en2mm(this.value);" pattern=".{6,6}" style="line-height: 1.8">
                                                 </div>
                                             </div>
                                         </div>
@@ -477,6 +477,11 @@
                                                 CIMA
                                             </label>
                                         </div>
+                                        <div class="col-md-3 form-check-radio">
+                                            <label class="form-check-label">
+                                                <input type="button" value="Refresh" style="font-size:12px;" class="btn btn-success" onclick="uncheckACCA_CIMA()"/>
+                                            </label>
+                                        </div>
                                                      
                                         </div>
     
@@ -618,7 +623,8 @@
                                                         </div>
                                                     </div>
                                                     <label  class="error attend_place_error" style="display:none;" for="attend_place">Please select one</label>
-                                            </div>       
+                                            </div>  
+                                        </div>     
                                         
                                              
                                         <div class="row mb-3 mt-3">
@@ -677,61 +683,59 @@
         {
               get_student_info(student_id).then(data => {
                   if(data){
-                      var info = data.data;
-                      var exam_register = info.exam_registers.slice(-1);
-                      if(info.da_pass_date){
-                        $('#da_pass_date').val(info.da_pass_date);
-                        $('#da_pass_roll_number').val(info.da_pass_roll_number);
-                        if(exam_register[0]){
-                            // console.log("is not certi");
-                            $('#da_certi').hide();
-                            $("input[name=old_da_pass_certificate]").val();
+                        var info = data.data;
+                        var exam_register = info.exam_registers.slice(-1);
+                        
+                        if(info.da_pass_date){
+                            $('#da_pass_date').val(info.da_pass_date);
+                            $('#da_pass_roll_number').val(info.da_pass_roll_number);
+                            if(exam_register[0]){
+                                // console.log("is not certi");
+                                $('#da_certi').hide();
+                                $("input[name=old_da_pass_certificate]").val();
+                                
+                            }else{
+                                // console.log("is certi");
+                                $('#da_certi').show();
+                                $("input[name=old_da_pass_certificate]").val(info.da_pass_certificate);
+
+                                if(info.da_pass_certificate !=null){
+
+                                    $(".dapass_deg").append("<a class='m-2' href='"+BASE_URL+info.da_pass_certificate+"'  target='_blank'>View File</a><br/>")
+                                }
                             
-                        }else{
-                            // console.log("is certi");
-                            $('#da_certi').show();
-                            $("input[name=old_da_pass_certificate]").val(info.da_pass_certificate);
+                            }
+                            $('.da_pass').show();
 
-                            if(info.da_pass_certificate !=null){
+                        }else if(info.acca_cima){
+                            $('.acca_cima').show();
+                            $("input[name=direct_degree]").val(info.direct_degree);
+                            $("input[name=degree_rank]").val(info.degree_rank);
+                            $("input[name=degree_date]").val(info.degree_date);
+                            $("input[name=old_deg_certi]").val(info.degree_certificate_image);
+                            if(info.acca_cima == 1){
+                            $("input[name=acca_cima][value=1]").prop("checked",true);                       
+                            
+                            }
+                            else{
+                                $("input[name=acca_cima][value=2]").prop("checked",true);
+                            }
 
-                                $(".dapass_deg").append("<a class='m-2' href='"+BASE_URL+info.da_pass_certificate+"'  target='_blank'>View File</a><br/>")
+
+
+                            if(info.degree_certificate_image !=null){
+
+                                $(".pre_deg_certi").append("<a class='m-2' href='"+BASE_URL+info.degree_certificate_image+"'  target='_blank'>View File</a><br/>")
                             }
                             
+
                         }
-
                       
-
-
-                         $('.da_pass').show();
-                      }else if(info.acca_cima == 1){
-                        $("input[name=direct_degree]").val(info.direct_degree);
-                        $("input[name=degree_rank]").val(info.degree_rank);
-                        $("input[name=degree_date]").val(info.degree_date);
-                        $("input[name=old_deg_certi]").val(info.degree_certificate_image);
-                        if(info.acca_cima == 1){
-                        $("input[name=acca_cima][value=1]").prop("checked",true);
-                       
-                        
-                      }
-                      else{
-                        $("input[name=acca_cima][value=2]").prop("checked",true);
-                      }
-
-
-
-                        if(info.degree_certificate_image !=null){
-
-                        $(".pre_deg_certi").append("<a class='m-2' href='"+BASE_URL+info.degree_certificate_image+"'  target='_blank'>View File</a><br/>")
-                        }
-                        $('.acca_cima').show();
-
-                      }
-                      
-                      var student_course = info.student_course_regs.slice(-1);
-                      var job_history = data.data.student_job;
-                      var education_history = data.data.student_education_histroy;
+                        var student_course = info.student_course_regs.slice(-1);
+                        var job_history = data.data.student_job;
+                        var education_history = data.data.student_education_histroy;
                       if(info){
-                    $('#stu_id').val(info.id);
+                        $('#stu_id').val(info.id);
 
                         $("input[name=name_mm]").val(info.name_mm);
                         $("input[name=name_eng]").val(info.name_eng);

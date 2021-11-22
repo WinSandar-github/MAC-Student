@@ -355,23 +355,26 @@ function teacher_reg_feedback(){
                             $('.update-btn').css('display','none');
                         if(teacher.initial_status == 0){
                             
-                            $('.payment-btn').css('display','block');
-                            
+                            // $('.payment-btn').css('display','block');
+                            loadRenewTeacher();
                         }else if(teacher.initial_status == 1){
                             
-                            $('.payment-btn').css('display','none');
-                            $('.renew-payment-btn').css('display','block');
+                            // $('.payment-btn').css('display','none');
+                            // $('.renew-payment-btn').css('display','block');
+                            loadRenewTeacher();
+                        }else{
+                            loadRenewTeacher();
                         }
                         
                         
                     }
                     else{
                         if(teacher_data.initial_status!=2){
-                            $('.status-reject').css('display','block');
-                            $('.reject-reason').append(teacher_data.reason);
-                            $('.register-btn').css('display','none');
-                            $('.payment-btn').css('display','none');
-                            $('.update-btn').css('display','block');
+                            // $('.status-reject').css('display','block');
+                            // $('.reject-reason').append(teacher_data.reason);
+                            // $('.register-btn').css('display','none');
+                            // $('.payment-btn').css('display','none');
+                            // $('.update-btn').css('display','block');
                         }
                         
                     }
@@ -422,10 +425,13 @@ function loadRenewTeacher(){
                                     //$('#from_valid_date').val(teacher.from_valid_date);
                                     
                                   }
-                                  var from_valid_date = new Date(teacher.from_valid_date);
+                                  if(teacher.from_valid_date!=null){
+                                    var from_valid_date = new Date(teacher.from_valid_date);
                                     var now=new Date();
                                     var date = from_valid_date.getFullYear()+'-'+addZero(from_valid_date.getMonth()+1)+'-'+addZero(from_valid_date.getDate());
                                     $('#from_valid_date').val(date);
+                                  }
+                                  
                                     
                                   $('#hschool_name').val(teacher.school_name);
                                   if(teacher.nrc_front==null){

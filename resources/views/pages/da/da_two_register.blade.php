@@ -1608,8 +1608,8 @@ $nrc_characters = config('myanmarnrc.characters');
                     let current_stu_course = data.data.student_course_regs.slice(-1);
                     let last_exam = data.data.exam_registers.slice(-1);
 
-                    var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
-                    $('#mac_type_name').text(mac_name);
+                    // var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
+                    // $('#mac_type_name').text(mac_name);
 
                     $('input[type=radio][name=mac_type]').map((k, v) => {
                         return $(v).val() == current_stu_course[0].mac_type ? $(v).attr('checked', 'true') : '';
@@ -1683,11 +1683,18 @@ $nrc_characters = config('myanmarnrc.characters');
                             else if(last_exam[0].pass_module == "3"){
                                 $(".module_full").prop("checked", true);
                                  $('.module_two').attr('disabled', true);
-                                $('.module_full').attr('disabled', true);
-                                
+                                $('.module_one').attr('disabled', true);                            
 
                                   
-                            }
+                            }else{
+                                $(".module_one").prop("checked", false);
+                                $('.module_two').attr('checked', false);
+                                $('.module_full').attr('checked', false);
+
+                                $(".module_one").prop("disabled", false);
+                                $('.module_two').attr('disabled', false);
+                                $('.module_full').attr('disabled', false);                                                    
+                            }     
 
                             $("#da_one_pass_level_self").val(last_exam[0].passed_level);
                             $("#da_one_pass_level_private").val(last_exam[0].passed_level);

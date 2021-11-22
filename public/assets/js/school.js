@@ -225,7 +225,7 @@ function school_reg_feedback(){
         url: BACKEND_URL+"/getSchoolInfo/"+student.id,//getSchoolStatus
         type: 'GET',
         success: function(result){
-
+          
           // var form_data = data;
           // form_data.forEach(function(element){
             var school=result.data.pop();
@@ -237,26 +237,30 @@ function school_reg_feedback(){
                         $('.register-btn').css('display','none');
                         $('.update-btn').css('display','none');
                     }else if(school.approve_reject_status == 1){
-                      $('#school_approve').css('display','block');
-                      $('#school_pending').css('display','none');
-                      $('.register-btn').css({'display':'none'});
-                      $('.register-btn').removeClass('mt-4');
+                      // $('#school_approve').css('display','block');
+                      // $('#school_pending').css('display','none');
+                      // $('.register-btn').css({'display':'none'});
+                      // $('.register-btn').removeClass('mt-4');
                       if(school.initial_status==0){
-                        $('.payment-btn').css('display','block');
-                        $('.update-btn').css('display','none');
+                        // $('.payment-btn').css('display','block');
+                        // $('.update-btn').css('display','none');
+                        loadRenewSchool();
                       }else if(school.initial_status==1){
-                        $('.payment-btn').css('display','none');
-                        $('.update-btn').css('display','none');
-                        $('.renew_payment-btn').css('display','block');
+                        // $('.payment-btn').css('display','none');
+                        // $('.update-btn').css('display','none');
+                        // $('.renew_payment-btn').css('display','block');
+                        loadRenewSchool();
+                      }else{
+                        loadRenewSchool();
                       }
                         
                     }
                     else{
-                        $('.status-reject').css('display','block');
-                        $('.reject-reason').append(school.reason);
-                        $('.register-btn').css('display','none');
-                        $('.payment-btn').css('display','none');
-                        $('.update-btn').css('display','block');
+                        // $('.status-reject').css('display','block');
+                        // $('.reject-reason').append(school.reason);
+                        // $('.register-btn').css('display','none');
+                        // $('.payment-btn').css('display','none');
+                        // $('.update-btn').css('display','block');
                         if(school.initial_status==1){
                           loadRenewSchool();
                         }else{
@@ -647,7 +651,11 @@ function loadRenewSchool(){
                  
                   if(school.initial_status==0){
                     
-                     accept=new Date(school.from_valid_date);
+                     if(school.offline_user=="true"){
+                      accept=new Date(school.last_registration_fee_year);
+                     }else{
+                      accept=new Date(school.to_valid_date);
+                     }
                     
                   }else if(school.initial_status==1){
                      accept=new Date(school.renew_date);
