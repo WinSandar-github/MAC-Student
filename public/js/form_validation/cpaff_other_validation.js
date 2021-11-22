@@ -59,7 +59,7 @@ $().ready(function (){
         messages:{
             profile_photo : "Upload photo",
             email : "Please enter your email",
-            password : "Please provide your password",
+            password : "Please provide your password with minimum length eight. ",
             confirm_password : {
                 required : "Please provide your password",
                 equalTo : "Please enter the same password as above"
