@@ -3681,11 +3681,12 @@ function user_profile() {
                                         </tr>
                                         `);
                                         let cpaff = data.cpa_ff;
+                                        // console.log(cpaff.length)
                                         if (cpaff.length !== 0) {
                                             $('.cpaff').show();
-                                        }
+                                        } $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA(Full-Fledged) Form</a></td></tr > `);
                                         } else {
-                                            $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA(Full-Fledged) Form</a></td></tr > `);
+                                            // $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA(Full-Fledged) Form</a></td></tr > `);
                                             //     $('.article_status').append(`<tr>
                                             //     <td>${form_type} Form</td>
                                             //     <td>${contract_start_date}</td>
