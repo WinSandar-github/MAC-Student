@@ -593,17 +593,18 @@
                 $("input[name='personal_no']").val(data.data.personal_no);
                 
 
-                if(data.data.student_register[0].type == 0){
+                if(current_stu_course[0].type == 0){
                     $("input[name='class_address']").val("ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူ");
-                }else if(data.data.student_register[0].type == 1){
-                    $("input[name='class_address']").val("ကိုယ်ပိုင်သင်တန်းကျောင်း");
+                }else if(current_stu_course[0].type == 1){
+                    $("input[name='class_address']").val("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း");
+                }else if(current_stu_course[0].type == 2 && current_stu_course[0].mac_type == 1){   
+                    $("input[name='class_address']").val("စာရင်းကောင်စီ(ရန်ကုန်သင်တန်းကျောင်း)");
+                }else if(current_stu_course[0].type == 2 && current_stu_course[0].mac_type == 2){
+                    $("input[name='class_address']").val("စာရင်းကောင်စီ(နေပြည်တော်သင်တန်းကျောင်း)");
                 }else{
-
-                    var mac_name = current_stu_course[0].mac_type == 2 ?   "စာရင်းကောင်စီ(နေပြည်တော်သင်တန်းကျောင်း)" : "စာရင်းကောင်စီ(ရန်ကုန်သင်တန်းကျောင်း)";
-
-
-                    $("input[name='class_address']").val(mac_name);
+                    $("input[name='class_address']").val("");
                 }
+                
 
             }
 
