@@ -70,15 +70,15 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 100px;">
-                                    <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ခ)') }}</span>{{ __('လျို့ဝှက်နံပါတ်') }}</div>
+                                    <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ခ)') }}</span>{{ __('လျှို့ဝှက်နံပါတ်') }}</div>
                                     <div class="col-md-8">
                                         <input type="password" placeholder="လျှို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 100px;">
-                                    <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>{{ __('လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း') }}</div>
+                                    <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>{{ __('လျှို့ဝှက်နံပါတ်အတည်ပြုခြင်း') }}</div>
                                     <div class="col-md-8">
-                                        <input type="password" placeholder="လျှို့ဝှက်နံပါတ်အတည်ပြုခြင်း" name="confirm_password" class="form-control" id="confirm_password">
+                                        <input type="password" placeholder="လျှို့ဝှက်နံပါတ်ကို နောက်တစ်ကြိမ်ထပ်မံထည့်ပါ။" name="confirm_password" class="form-control" id="confirm_password">
                                     </div>
                                 </div>
                             </div>

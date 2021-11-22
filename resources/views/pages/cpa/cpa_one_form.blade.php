@@ -107,19 +107,19 @@
                                                 </div>
 
                                                 <div class="row mb-4">
-                                                    <label class="col-md-6 col-form-label label"><span class="pull-left">၂။</span>လျို့ဝှက်နံပါတ်<span style="color:red">*</span></label>
+                                                    <label class="col-md-6 col-form-label label"><span class="pull-left">၂။</span>လျှို့ဝှက်နံပါတ်<span style="color:red">*</span></label>
                                                     <div class="col-md-6">
                                                         <div>
-                                                            <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ။" name="password" id="password" class="form-control" value="{{ old('password') }}" minlength="8">
+                                                            <input type="password" placeholder="လျှို့ဝှက်နံပါတ်ထည့်ပါ။" name="password" id="password" class="form-control" value="{{ old('password') }}" minlength="8">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-6 col-form-label label"><span class="pull-left">၃။</span>လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း<span style="color:red">*</span></label>
+                                                    <label class="col-md-6 col-form-label label"><span class="pull-left">၃။</span>လျှို့ဝှက်နံပါတ်အတည်ပြုခြင်း<span style="color:red">*</span></label>
                                                     <div class="col-md-6">
                                                         <div>
-                                                            <input type="password" placeholder="လျို့ဝှက်နံပါတ်ကို ထပ်မံထည့်ပါ။" name="confirm_password" class="form-control" minlength="8">
+                                                            <input type="password" placeholder="လျှို့ဝှက်နံပါတ်ကို နောက်တစ်ကြိမ်ထပ်မံထည့်ပါ။" name="confirm_password" class="form-control" minlength="8">
                                                         </div>
                                                     </div>
                                                 </div>

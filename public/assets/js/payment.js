@@ -122,9 +122,11 @@ function deviceOS() {
 
     location.href = FRONTEND_URL + '/cbpay_qr';
 }
+
 function cashPayment(){
     let url = window.location.href;
     var final =url.substr(url.lastIndexOf('/') + 1);
+    console.log('final',final)
     $.ajax({
         url: BACKEND_URL + "/cashPayment",
         data: "invoiceNo="+final,
