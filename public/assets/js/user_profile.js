@@ -1975,7 +1975,7 @@ function user_profile() {
 
                                 if (latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1") {
 
-                                    $invoice_code = latest_course_reg[0].batch.course.code == "da_1" ? 'app_form' : 'cpa_app';
+                                    $invoice_code = latest_course_reg[0].batch.course.code == "da_1" ? 'app_form_' : 'cpa_app';
 
                                     var invoice = data.invoice.filter(val => {
                                         return val.invoiceNo == $invoice_code && val.status == 0;
@@ -2330,7 +2330,6 @@ function user_profile() {
 
 
                                                                     if (Object.keys(data.data).length === 0) {
-
 
                                                                         // $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" > CPA(Full-Fledged) Form</a></td></tr > `);
 
@@ -3333,7 +3332,7 @@ function user_profile() {
 
 
                                     let last_invoice = data.invoice.at(-1);
-                                    console.log(last_invoice)
+
                                     last_invoice.status === 'AP' &&
                                         $('.status').append(`
                                             <tr>
