@@ -84,7 +84,7 @@
                                 <div class="row mb-3" style="padding-left: 100px;">
                                     <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ခ)') }}</span>{{ __('လျှို့ဝှက်နံပါတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="password" placeholder="လျှို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password">
+                                        <input type="password" placeholder="လျှို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password" autocomplete="off" minlength="8">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 100px;">

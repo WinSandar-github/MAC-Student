@@ -583,7 +583,7 @@
                                         </div>
 
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
-                                        <input type="hidden" id="article_form_type" name="article_form_type" value="c2_pass/qt_pass_3yr">
+                                        <input type="hidden" id="article_form_type" name="article_form_type" value="c2_pass_qt_pass_3yr">
                                         <input type="hidden" id="offline_user" value="true">
                                         <div class="row mb-3">
                                             <div class="form-check">

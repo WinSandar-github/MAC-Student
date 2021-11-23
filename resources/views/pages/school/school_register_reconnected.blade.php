@@ -450,7 +450,7 @@
                                 <label class="col-md-4 col-form-label label"><span
                                             class="pull-left">{{ __('၁၄။') }}</span>{{ __('နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးခဲ့သည့် ကာလ') }}</label>
                                 <div class="col-md-8">
-                                    <input type="text" name="last_registration_fee_year" class="form-control" placeholder="mm-yyyy"
+                                    <input type="text" name="last_registration_fee_year" class="form-control" placeholder="dd-mm-yyyy"
                                                autocomplete='off' required>
 
                                 </div>
@@ -1298,7 +1298,7 @@
             }
             $("input[name='last_registration_fee_year']").flatpickr({
                 enableTime: false,
-                dateFormat: "M-Y",
+                dateFormat: "d-M-Y",
                 allowInput: true,
             });
             $("input[name='from_request_stop_date']").flatpickr({
