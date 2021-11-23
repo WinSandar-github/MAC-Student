@@ -447,6 +447,7 @@ function createArticleRenewRegister() {
     var nrc_township = $("#nrc_township").val();
     var nrc_citizen = $("#nrc_citizen").val();
     var request_papp_attach = $("input[name=request_papp_attach]")[0].files[0];
+    var office_order_attach = $("input[name=office_order_attach]")[0].files[0];
 
     send_data.append('image', image);
     // send_data.append('name_mm', $("input[name=name_mm]").val());
@@ -496,6 +497,7 @@ function createArticleRenewRegister() {
     }else{
         send_data.append('offline_user', 0);
     }
+    send_data.append('office_order_attach', office_order_attach);
 
     show_loader();
 
@@ -620,6 +622,9 @@ function createCPATwoPassOneYearArticle(){
         }
         send_data.append('gender',gender);
       }
+
+      var office_order_attach = $("input[name=office_order_attach]")[0].files[0];
+      send_data.append('office_order_attach',office_order_attach);
 
     show_loader();
     $.ajax({

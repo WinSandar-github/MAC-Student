@@ -1229,7 +1229,7 @@ function user_profile() {
                                 $('.qt_article_status').append(`<tr>
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
-                                        <td>${contract_end_date}</td>
+                                        <td>${element.resign_date}</td>
                                         <td><span class="badge bg-success">Approved</span></td>
                                         <td></td>
                                     </tr>
@@ -1290,6 +1290,7 @@ function user_profile() {
                                     var end_date = new Date(element.resign_date);
                                     var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
                                     resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+
                                 } else {
                                     resign_end_date = contract_end_date;
                                 }
@@ -1331,7 +1332,6 @@ function user_profile() {
                     var today_time = today.getTime();
 
                     if (end_time <= today_time && latest_article[0].done_status == 0) {
-
                         if (latest_article[0].done_form_attach && latest_article[0].done_status == 0) {
                             $('.qt_article_status').append(`<tr><td colspan=3></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
                         } else if (latest_article[0].yes_done_attach == 1) {
@@ -1408,10 +1408,8 @@ function user_profile() {
                         article_url = '/article_information';
 
                         if (resign_time <= today_time) {
-                          console.log("1");
                             $('.qt_article_status').append(`<tr><td colspan=3></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
                         } else {
-                          console.log("2");
                             $('.qt_article_status').append(`<tr><td colspan=3></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
                         }
                     }
