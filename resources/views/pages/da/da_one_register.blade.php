@@ -1742,8 +1742,7 @@
 
                     
                     var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
-                    $('#mac_type_name').text(mac_name)
-                    $(".batch_number").append(number2mm(current_stu_course[0].batch.number));
+                    $('#mac_type_name').text(mac_name)                    
                     
                     $('.batch_id').val(current_stu_course[0].batch.id);
                     
@@ -1758,8 +1757,11 @@
                     $('.personal_no').val(data.data.personal_no);
                     // console.log(data.data.citizen)
                     if(last_exam[0]){
+                        // alert("yes")
+                       
+                        let batch_id = localStorage.getItem('batch_id');
                         if(last_exam[0].grade == 1){
-                            let batch_id = localStorage.getItem('batch_id');
+                            // alert("1")
                             $.ajax({
                                 type: "get",
                                 url: BACKEND_URL+"/batch/"+batch_id,
@@ -1807,8 +1809,29 @@
                                 }
                             }) 
                         
+                        }else{
+
+                            $.ajax({
+                                type: "get",
+                                url: BACKEND_URL+"/batch/"+batch_id,
+                                contentType: false,
+                                processData: false,
+                                async:false,
+                                success: function (res) {
+                                    $('#batch_name').text(res.data.name);
+                                    $('.batch_number').text(number2mm(res.data.number));
+                                    $('.batch_id').val(res.data.id);                          
+                                }
+                            }) 
+                            // alert("other");
+                            // $(".batch_number").append(number2mm(current_stu_course[0].batch.number));
+                            // $('.batch_id').val(batch_id);
+                            $('#remain_module').val("fail");
+
                         }
                     }else{
+                        // alert("no")
+                        $(".batch_number").append(number2mm(current_stu_course[0].batch.number));
                         $('.batch_no').val(current_stu_course[0]?.batch?.number);
                         $('.batch_id').val(current_stu_course[0]?.batch?.id);
                     }

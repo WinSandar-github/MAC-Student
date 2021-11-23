@@ -13,7 +13,7 @@ $(document).ready(function () {
 
         // submit button will enable when document load finished
         // to prevent null form submit or submit without payment
-        if($('input[type=radio][name=payment_method]:checked').val() != null){
+        if ($('input[type=radio][name=payment_method]:checked').val() != null) {
             $('button[type=submit]').attr('disabled', false);
         }
 
@@ -123,15 +123,14 @@ function deviceOS() {
     location.href = FRONTEND_URL + '/cbpay_qr';
 }
 
-function cashPayment(){
+function cashPayment() {
     let url = window.location.href;
-    var final =url.substr(url.lastIndexOf('/') + 1);
-    console.log('final',final)
+    var final = url.substr(url.lastIndexOf('/') + 1);
     $.ajax({
         url: BACKEND_URL + "/cashPayment",
-        data: "invoiceNo="+final,
+        data: "invoiceNo=" + final,
         type: 'post',
-        success: function(result){
+        success: function (result) {
             successMessage(result.message);
             location.href = FRONTEND_URL + '/';
         }

@@ -687,7 +687,7 @@ function createSelfStudy() {
         contentType: false,
         processData: false,
         success: function (result) {
-            // console.log('result1234',result)
+            
             EasyLoading.hide();
             successMessage(result);
             setInterval(() => {
@@ -759,7 +759,7 @@ function createMac() {
     send_data.append('personal_no_mac', $("input[name='personal_no_mac']").val());
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('form_type', $("input[name='form_type']").val());
-    send_data.append('remain_module', $("input[name='remain_module']").val())
+    send_data.append('remain_module', $("input[name='remain_module']").val());
     send_data.append('batch_id', $("input[name='batch_id']").val());
     send_data.append('mac_type', $("input[name='mac_type']:checked").val());
     //send student info data
@@ -778,6 +778,7 @@ function createMac() {
         contentType: false,
         processData: false,
         success: function (result) {
+            // console.log('result1234',result)
             EasyLoading.hide();
             successMessage(result);
             setInterval(() => {
