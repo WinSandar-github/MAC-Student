@@ -1758,8 +1758,9 @@
                     $('.personal_no').val(data.data.personal_no);
                     // console.log(data.data.citizen)
                     if(last_exam[0]){
+                       
+                        let batch_id = localStorage.getItem('batch_id');
                         if(last_exam[0].grade == 1){
-                            let batch_id = localStorage.getItem('batch_id');
                             $.ajax({
                                 type: "get",
                                 url: BACKEND_URL+"/batch/"+batch_id,
@@ -1807,8 +1808,13 @@
                                 }
                             }) 
                         
+                        }else{
+                            $('.batch_id').val(batch_id);
+                            $('#remain_module').val("fail");
+
                         }
                     }else{
+                         
                         $('.batch_no').val(current_stu_course[0]?.batch?.number);
                         $('.batch_id').val(current_stu_course[0]?.batch?.id);
                     }
