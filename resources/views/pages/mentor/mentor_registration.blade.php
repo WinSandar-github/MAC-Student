@@ -106,16 +106,16 @@
                                         </div>
 
                                         <div class="row mb-5">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>လျို့ဝှက်နံပါတ်<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>လျှို့ဝှက်နံပါတ်<span style="color:red">*</span></label>
                                             <div class="col-md-8">
-                                                <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password">
+                                                <input type="password" placeholder="လျှို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password">
                                             </div>
                                         </div>
 
                                         <div class="row mb-5">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၃။') }}</span>လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၃။') }}</span>လျှို့ဝှက်နံပါတ်အတည်ပြုခြင်း<span style="color:red">*</span></label>
                                             <div class="col-md-8">
-                                                <input type="password" placeholder="လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း" name="confirm_password" class="form-control" id="confirm_password">
+                                                <input type="password" placeholder="လျှို့ဝှက်နံပါတ်ကို နောက်တစ်ကြိမ်ထပ်မံထည့်ပါ။" name="confirm_password" class="form-control" id="confirm_password">
                                             </div>
                                         </div>
                                     </div>

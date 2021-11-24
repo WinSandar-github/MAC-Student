@@ -93,26 +93,7 @@
 
                                     <div class="row">
                                         <div class="col-md-9">
-                                            {{-- <div class="row mb-5">
-                                                <label class="col-md-5 col-form-label label"><span class="pull-left">၁။</span>အီးမေးလ်<span style="color:red">*</span></label>
-                                                <div class="col-md-7" style="padding-left:35px;">
-                                                    <input type="email" placeholder="အီးမေးလ်လိပ်စာထည့်ပါ" name="email" class="form-control" id="email">
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-5">
-                                                <label class="col-md-5 col-form-label label"><span class="pull-left">၂။</span>လျို့ဝှက်နံပါတ်<span style="color:red">*</span></label>
-                                                <div class="col-md-7" style="padding-left:35px;">
-                                                    <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password">
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-5">
-                                                <label class="col-md-5 col-form-label label"><span class="pull-left">၃။</span>လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း<span style="color:red">*</span></label>
-                                                <div class="col-md-7" style="padding-left:35px;">
-                                                    <input type="password" placeholder="လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း" name="confirm_password" class="form-control" id="confirm_password">
-                                                </div>
-                                            </div> --}}
+                                            
                                             <div class="row mb-3 mt-3">
                                                 <label class="col-md-6 col-form-label label"><span class="pull-left">၁။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)<span style="color:red">*</span></label>
                                                 <div class="col-md-3">

@@ -682,8 +682,6 @@
 
             let current_stu_reg=student_info.student_register.slice(-1);
 
-            console.log('current_stu_reg',current_stu_reg)
-
             if(current_stu_reg[0].entry_success_no){
                 $("#entry_success_no").val(current_stu_reg[0].entry_success_no);
  
@@ -723,19 +721,16 @@
                 $("#female").prop("checked",true);
             }
 
-            if(current_stu_reg[0].type == 0){
+            if(current_stu_course[0].type == 0){
                 $("input[name='attend_place']").val("ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ");
-            }else if(current_stu_reg[0].type == 1){
+            }else if(current_stu_course[0].type == 1){
                 $("input[name='attend_place']").val("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း");
-            }else if(student_info.student_register[0].type == 2 && student_info.student_course_regs[0].mac_type == 1){
-
-                // var mac_name =   current_stu_course[0].mac_type == 2 ?   "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(နေပြည်တော်သင်တန်းကျောင်း)" : "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(ရန်ကုန်သင်တန်းကျောင်း)";
-
-
-                // $("input[name='attend_place']").val(mac_name);
+            }else if(current_stu_course[0].type == 2 && current_stu_course[0].mac_type == 1){
                 $("input[name='attend_place']").val("ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(ရန်ကုန်သင်တန်းကျောင်း)");
-            }else {
+            }else if(current_stu_course[0].type == 2 && current_stu_course[0].mac_type == 2){
                 $("input[name='attend_place']").val("ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(နေပြည်တော်သင်တန်းကျောင်း)");
+            }else{
+                $("input[name='attend_place']").val("");
             }
 
             let exam_registers = student_info.exam_registers.slice(-1);
