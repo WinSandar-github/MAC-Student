@@ -107,7 +107,7 @@
                                             <div class="row mb-5">
                                                 <label class="col-md-5 col-form-label label"><span class="pull-left">၃။</span>လျှို့ဝှက်နံပါတ်အတည်ပြုခြင်း<span style="color:red">*</span></label>
                                                 <div class="col-md-7" style="padding-left:35px;">
-                                                    <input type="password" placeholder="လျှို့ဝှက်နံပါတ်အတည်ပြုခြင်း" name="confirm_password" class="form-control" id="confirm_password">
+                                                    <input type="password" placeholder="လျှို့ဝှက်နံပါတ်ကို နောက်တစ်ကြိမ်ထပ်မံထည့်ပါ။" name="confirm_password" class="form-control" id="confirm_password">
                                                 </div>
                                             </div>
                                         </div>

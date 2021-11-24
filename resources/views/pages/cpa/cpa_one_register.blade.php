@@ -1912,6 +1912,7 @@
                                     let batch_id = localStorage.getItem('batch_id');
                                     $('.batch_id').val(batch_id);
                                     $(".batch_number").append(number2mm(current_stu_course[0].batch.number));
+                                    $('#remain_module').val("fail");
                                 } 
                             }
                             else{
@@ -1926,7 +1927,7 @@
                         
 
                         //show or hide direct_access_no and entry_success
-                        if(last_exam.length==0 || info.da_pass_roll_number || student_register[0].direct_access_no){
+                        if(last_exam.length==0 || info.da_pass_roll_number || student_register[0]?.direct_access_no){
                             // console.log("for direct");
                             $("#direct_access_no_self_div").show();
                             $("#entry_success_no_self_div").hide();
@@ -1944,7 +1945,7 @@
                             $("#direct_access_no_private").val(current_stu_course[0].batch.number);
                             $("#direct_access_no_mac").val(current_stu_course[0].batch.number);
                         }
-                        else if(student_register[0].entry_success_no || last_exam[0].exam_type_id == 3 || last_exam[0].exam_type_id == 2){   
+                        else if(student_register[0]?.entry_success_no || last_exam[0].exam_type_id == 3 || last_exam[0].exam_type_id == 2){   
                             console.log("for entry1");                        
                             $("#direct_access_no_self_div").hide();
                             $("#entry_success_no_self_div").show();

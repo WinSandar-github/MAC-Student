@@ -173,7 +173,6 @@ function user_profile() {
                     `);
 
                 } else if (qt.approve_reject_status == 1) {
-                    // alert('hello')
                     article_url = '/article_information';
                     if (data.invoice.length != 0) {
                         var invoice = data.invoice.filter(val => {
@@ -356,7 +355,6 @@ function user_profile() {
                                     </tr>
                                     `);
                                     } else if (element.done_status == 3) {
-                                        // alert("hello")
                                         $('.qt_article_status').append(`<tr>
                                             <td>${form_type} Form</td>
                                             <td>${contract_start_date}</td>
@@ -1221,7 +1219,7 @@ function user_profile() {
                                 $('.qt_article_status').append(`<tr>
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
-                                        <td>${contract_end_date}</td>
+                                        <td>${element.resign_date}</td>
                                         <td><span class="badge bg-success">Approved</span></td>
                                         <td></td>
                                     </tr>
@@ -1285,6 +1283,7 @@ function user_profile() {
                                     var end_date = new Date(element.resign_date);
                                     var resign_date = new Date(end_date.getFullYear(), end_date.getMonth(), (end_date.getDate()) - 1);
                                     resign_end_date = String(resign_date.getDate()).padStart(2, '0') + "-" + months[resign_date.getMonth()] + "-" + resign_date.getFullYear();
+
                                 } else {
                                     resign_end_date = contract_end_date;
                                 }
@@ -1349,7 +1348,6 @@ function user_profile() {
                 }
 
                 if (latest_article[0] != null && latest_article[0].contract_end_date != null && latest_article[0].article_form_type != "resign") {
-                  console.log("here");
                     var end_date = new Date(latest_article[0].contract_end_date);
                     var today = new Date();
 
@@ -1366,16 +1364,19 @@ function user_profile() {
                             $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန် </td><td>Check By MAC</td></tr>`);
                         }
                     } else if (latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1 && latest_article[0].done_status == 0) {
+
                         resign_article_url = '/article_resign_registration';
                         $('.qt_article_status').append(`<tr><td colspan=3></td><td>Leave Request Register</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs leave_request_btn' onclick='leaveRequestRegister(${latest_article[0].id})'>Leave Request</button></div></div></td></tr>`);
                         $('.qt_article_status').append(`<tr><td colspan=3></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
                         // $('.qt_article_status').append(`<tr><td colspan=2></td><td>Resign Register</td><td><button type='button' class='btn btn-md btn-success' id='resign_btn' onclick='resignRegister();'>Resign Register</button></td></tr>`);
                     } else if (latest_article[0].done_status == 1) {
+
                         if (latest_stu_reg[0].course.code == "cpa_2" && exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)) {
                             article_url = '/article_information';
                             $('.qt_article_status').append(`<tr><td colspan=3></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
                         }
                     } else if (latest_article[0].done_status == 2) {
+
                         $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='CompleteDownloadForms();'>Download</button></div></div></td></tr>`);
                         $('.qt_article_status').append(`<tr><td colspan=2></td><td>Reject Reason </td><td colspan=2>${latest_article[0].done_remark}</td></tr>`);
                         $('.qt_article_status').append(`<tr><td></td><td>Submit Done Form</td><td colspan=2><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='done_form'></div></div></td><td><button class='btn btn-primary btn-xs' id='done_form_btn' onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></td></tr>`);
@@ -1385,18 +1386,27 @@ function user_profile() {
                     if (latest_article[0].registration_fee == null) {
                         // $('.qt_article_status').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
                         //if(latest_article[0].offline_user!='1'){
+
                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                             $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
                         } else {
-                            $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'>Payment Success</div></div></td></tr>`);
+                            //$('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'>Payment Success</div></div></td></tr>`);
+                            $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><span class="badge bg-success">Payment Success</span></td></tr>`);
+                            if (!latest_article[0].mentor_attach_file) {
+
+                                $('.qt_article_status').append(`<tr><td colspan=4>Mentor နှင့်ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='DownloadForms("` + latest_article[0].article_form_type + `");'>Download</button></div></div></td></tr>`);
+                                $('.qt_article_status').append(`<tr><td colspan=5>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတမ်းများအားတင်သွင်းရန်</td><td></td></tr>`);
+                                $('.qt_article_status').append(`<tr><td colspan=3>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></td></tr>`);
+                            }
                         }
                         //}
                     }
-                    if (!latest_article[0].mentor_attach_file) {
-                        $('.qt_article_status').append(`<tr><td colspan=4>Mentor နှင့်ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='DownloadForms("` + latest_article[0].article_form_type + `");'>Download</button></div></div></td></tr>`);
-                        $('.qt_article_status').append(`<tr><td colspan=5>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတမ်းများအားတင်သွင်းရန်</td><td></td></tr>`);
-                        $('.qt_article_status').append(`<tr><td colspan=3>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></td></tr>`);
-                    }
+                    // if (!latest_article[0].mentor_attach_file) {
+                    //   console.log("attach file");
+                    //     $('.qt_article_status').append(`<tr><td colspan=4>Mentor နှင့်ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='DownloadForms("` + latest_article[0].article_form_type + `");'>Download</button></div></div></td></tr>`);
+                    //     $('.qt_article_status').append(`<tr><td colspan=5>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတမ်းများအားတင်သွင်းရန်</td><td></td></tr>`);
+                    //     $('.qt_article_status').append(`<tr><td colspan=3>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></td></tr>`);
+                    // }
                     if (latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null) {
                         $('.qt_article_status').append(`<tr><td colspan=3></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                     }
@@ -1407,7 +1417,6 @@ function user_profile() {
                             $('.qt_article_status').append(`<tr><td colspan=2></td><td colspan=2>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Try Again ... </a></div></div></td></tr>`);
                         }
                     } else if (latest_article[0].resign_status == 1) {
-                      console.log("youk 2");
                         var resign_date = new Date(latest_article[0].resign_date);
                         var year = resign_date.getFullYear();
                         var month = resign_date.getMonth();
@@ -1421,10 +1430,10 @@ function user_profile() {
                         article_url = '/article_information';
 
                         if (resign_time <= today_time) {
-                          console.log("1");
+                            console.log("1");
                             $('.qt_article_status').append(`<tr><td colspan=3></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
                         } else {
-                          console.log("2");
+                            console.log("2");
                             $('.qt_article_status').append(`<tr><td colspan=3></td><td>Article Renew Form</td><td> <button class="btn btn-md btn-success" id="article_renew_btn" onclick='renewRegister()'> Article Renew </button></td></tr>`);
                         }
                     }
@@ -1768,7 +1777,7 @@ function user_profile() {
                         if (last_exam[0]) {
                             if (last_exam[0].exam_type_id !== 3) {
 
-                                let exam = exam_register.filter(exam => exam.grade == 1 && exam.exam_type_id !== 3)
+                                let exam = exam_register.filter(exam => exam.grade !=0 && exam.exam_type_id !== 3)
                                 // console.log('exam', exam)
                                 exam.map(e => {
                                     var module;
@@ -1781,10 +1790,21 @@ function user_profile() {
                                     } else {
                                         module = "-";
                                     }
+
+                                    if (e.grade == 1) {
+                                        remark = "Passed";
+                                    }
+                                    else if (e.grade == 2) {
+                                        remark = "Failed";
+                                    }
+                                    else {
+                                        remark = "-";
+                                    }
                                     course_html += `<tr>
                                                     <td>${e.course.name}</td>
                                                     <td>${e.batch.name}</td>
                                                     <td>${module}</td>
+                                                    <td>${remark}</td>
                                                     <td>${formatDate(e.updated_at)}</td>
                                                 </tr>`
                                 });
@@ -1793,7 +1813,7 @@ function user_profile() {
 
                         //check entry exam or direct
                         if (latest_course_reg[0].qt_entry == 1) {
-
+                            let std_id = latest_course_reg[0].student_info_id;
                             if (last_exam[0].status == 0) {
                                 $('.status').append(`
                                 <tr>
@@ -1806,6 +1826,94 @@ function user_profile() {
 
 
                             } else if (last_exam[0].status == 1) {
+                                if (latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1") {
+                                   
+                                    $invoice_code = latest_course_reg[0].batch.course.code == "da_1" ? 'app_form_' + std_id : 'cpa_app_'+ std_id;
+                                    
+                                    var invoice = data.invoice.filter(val => {
+                                        return val.invoiceNo == $invoice_code && val.status == 0;
+                                    });
+                                    if (latest_course_reg[0]?.is_finished == 0) {
+
+                                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+
+
+                                            $('.status').append(`
+                                            <tr>
+                                                <td>Cpa One Entry Exam Registration Form</td>
+                                                <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                                <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info">Payment for Cpa One Entry Exam Form</a></td>
+                                            </tr>
+                                            `);
+
+                                        } else {
+                                            if (data.offline_user != 1) {
+                                                let lst_invoice = data.invoice.at(-1);
+                                                // console.log("aa",latest_stu_reg[0])
+                                                // var course_code = latest_course_reg[0].batch.course.code == "da_1";
+
+                                                if (lst_invoice.invoiceNo == 'mac_reg_' + latest_course_reg[0].batch.course.code + '_' + latest_stu_reg[0]?.id
+                                                    || lst_invoice.invoiceNo == 'prv_reg_' + latest_course_reg[0].batch.course.code + '_' + latest_stu_reg[0]?.id
+                                                    || lst_invoice.invoiceNo == 'self_reg_' + latest_course_reg[0].batch.course.code + '_' + latest_stu_reg[0]?.id) {
+                                                    $('.status').append(`
+                                                    <tr>
+                                                        <td>Cpa One Entry Exam Registration Form1</td>
+                                                        <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                        <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                                        <td><span class='badge bg-success'>Approved</span></td>
+                                                    </tr>
+                                                `);
+                                                } else {
+                                                    
+                                                    $('.status').append(`
+                                                    <tr>
+                                                        <td>Cpa One Entry Exam Registration Form</td>
+                                                        <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                                        <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                                        <td><span class='badge bg-info'>Payment Success</span></td>
+                                                    </tr>
+                                                `);
+                                                }
+
+
+
+
+                                            } 
+                                            // else {
+                                            //     alert("entryofflineuser");
+                                            //     switch (latest_course_reg[0].batch.course.code) {
+                                            //         case 'da_1':
+                                            //             course_code = "Diploma In Accountancy Part One"
+                                            //             break;
+                                            //         case 'da_2':
+                                            //             course_code = "Diploma In Accountancy Part Two"
+                                            //             break;
+                                            //         case 'cpa_1':
+                                            //             course_code = "Certified Public Accountant Part One"
+                                            //             break;
+                                            //         case 'cpa_2':
+                                            //             course_code = "Certified Public Accountant Part Two"
+                                            //             break;
+                                            //         default:
+                                            //             course_code = "Diploma In Accountancy Part One"
+                                            //             break;
+                                            //     }
+                                            //     $('.status').append(`
+                                            //     <tr>
+                                            //         <td>Existing Registration For ${course_code}</td>
+                                            //         <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                            //         <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+
+                                            //         <td><span class="badge bg-success ">Approved</span></td>
+                                            //     </tr>
+                                            // `);
+
+                                            // }
+                                        }
+                                    }
+                                }
+                                
                                 if (last_exam[0].grade == 1) {
                                     let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
@@ -1884,7 +1992,7 @@ function user_profile() {
                                     // }
 
 
-                                } else {
+                                } else if(last_exam[0].grade == 0){
 
                                     // console.log('latest_course_reg_entry', latest_course_reg[0]);
                                     if (latest_course_reg[0].offline_user == 1) {
@@ -1896,13 +2004,14 @@ function user_profile() {
                                                 <td><span class="badge bg-info ">Checking</span></td>
                                             </tr>
                                         `);
-                                    } else {
+                                    } 
+                                    else {
                                         $('.status').append(`
                                             <tr>
-                                                <td>Cpa One Entry Exam Registration Form</td>
+                                                <td>Cpa One Entry Exam Result </td>
                                                 <td>${formatDate(last_exam[0].created_at)}</td>
                                                 <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                <td><span class="badge bg-success">Approved</span></td>
+                                                <td><span class="badge bg-info">Checking</span></td>
                                             </tr>
                                         `);
                                     }
@@ -1932,7 +2041,6 @@ function user_profile() {
                             }
 
                         } else {
-                            // alert("hello")
                             let status_course;
                             // let std_id = latest_course_reg[0].student_info_id;
                             // let course_id = latest_course_reg[0].batch.course_id;
@@ -1996,11 +2104,12 @@ function user_profile() {
 
                             } else if (latest_course_reg[0].approve_reject_status == 1) {
 
+
                                 let std_id = latest_course_reg[0].student_info_id;
 
                                 if (latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1") {
 
-                                    $invoice_code = latest_course_reg[0].batch.course.code == "da_1" ? 'app_form' : 'cpa_app';
+                                    $invoice_code = latest_course_reg[0].batch.course.code == "da_1" ? 'app_form_' + std_id : 'cpa_app_'+ std_id;
 
                                     var invoice = data.invoice.filter(val => {
                                         return val.invoiceNo == $invoice_code && val.status == 0;
@@ -2024,12 +2133,12 @@ function user_profile() {
                                         } else {
                                             if (data.offline_user != 1) {
                                                 let lst_invoice = data.invoice.at(-1);
+                                                // console.log("aa",latest_stu_reg[0])
                                                 // var course_code = latest_course_reg[0].batch.course.code == "da_1";
-                                                // alert('prv_reg_' + latest_course_reg[0].batch.course.code)
 
-                                                if (lst_invoice.invoiceNo == 'mac_reg_' + latest_course_reg[0].batch.course.code
-                                                    || lst_invoice.invoiceNo == 'prv_reg_' + latest_course_reg[0].batch.course.code
-                                                    || lst_invoice.invoiceNo == 'self_reg_' + latest_course_reg[0].batch.course.code) {
+                                                if (lst_invoice.invoiceNo == 'mac_reg_' + latest_course_reg[0].batch.course.code + '_' + latest_stu_reg[0]?.id
+                                                    || lst_invoice.invoiceNo == 'prv_reg_' + latest_course_reg[0].batch.course.code + '_' + latest_stu_reg[0]?.id
+                                                    || lst_invoice.invoiceNo == 'self_reg_' + latest_course_reg[0].batch.course.code + '_' + latest_stu_reg[0]?.id) {
                                                     $('.status').append(`
                                                     <tr>
                                                         <td>${latest_course_reg[0].batch.course.name} Application Form</td>
@@ -2039,6 +2148,7 @@ function user_profile() {
                                                     </tr>
                                                 `);
                                                 } else {
+                                                    
                                                     $('.status').append(`
                                                     <tr>
                                                         <td>${latest_course_reg[0].batch.course.name} Application Form</td>
@@ -2184,18 +2294,18 @@ function user_profile() {
                                         // $('.status').append('<p>Your Registration Form is checking.</p>')
 
                                     } else if (latest_stu_reg[0].status == 1) {
-                                        // alert("BBBB");
+                                      
 
                                         // $('.status').append(`<p>Your Registration Form is Approved  on the  ${formatDate(latest_course_reg[0].updated_at)}.</p>`)
 
                                         var course_code = latest_course_reg[0].batch.course.code == "da_1";
 
-                                        // alert(latest_course_reg[0].batch.course.code)
                                         var invoice = data.invoice.filter(val => {
-                                            return (val.invoiceNo == 'mac_reg_' + latest_course_reg[0].batch.course.code
-                                                || val.invoiceNo == 'prv_reg_' + latest_course_reg[0].batch.course.code
-                                                || val.invoiceNo == 'self_reg_' + latest_course_reg[0].batch.course.code) && val.status == 0;
+                                            return (val.invoiceNo == 'mac_reg_' + latest_course_reg[0].batch.course.code + '_' +latest_stu_reg[0].id
+                                                || val.invoiceNo == 'prv_reg_' + latest_course_reg[0].batch.course.code + '_' + latest_stu_reg[0].id
+                                                || val.invoiceNo == 'self_reg_' + latest_course_reg[0].batch.course.code + '_' + latest_stu_reg[0].id) && val.status == 0;
                                         });
+                                        console.log("invoice", invoice)
                                         if (latest_course_reg[0]?.is_finished == 0) {
 
                                             if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
@@ -2234,7 +2344,6 @@ function user_profile() {
 
                                         if (last_exam[0] && module.length !== 0 && latest_course_reg[0].batch.id == last_exam[0].batch_id) {
 
-
                                             if (
                                                 (last_exam[0].course.code == latest_course_reg[0].batch.course.code) &&
                                                 (last_exam[0].exam_type_id !== 3 && (last_exam[0].pass_module == 3 || containsAll([1, 2], module) == true))
@@ -2257,7 +2366,7 @@ function user_profile() {
                                                 } else if (last_exam[0].status == 1) {
 
                                                     var invoice = data.invoice.filter(val => {
-                                                        return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
+                                                        return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code + '_'+ last_exam[0].id && val.status == 0;
                                                     });
 
                                                     if (latest_course_reg[0]?.is_finished == 0) {
@@ -2355,7 +2464,6 @@ function user_profile() {
 
 
                                                                     if (Object.keys(data.data).length === 0) {
-
 
                                                                         // $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" > CPA(Full-Fledged) Form</a></td></tr > `);
 
@@ -2495,15 +2603,91 @@ function user_profile() {
                                                             }
                                                         } else if (last_exam[0].grade == 2) {
 
-                                                            $('.status').append(`
-                                                                            <tr>
-                                                                <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
-                                                                <td>${formatDate(last_exam[0].created_at)}</td>
-                                                                <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                                <td><span class="badge bg-warning">Failed</span></td>
-                                                            </tr >
+                                                            get_course_by_code(latest_course_reg[0].batch.course.code).then(data => {
+                                                                // console.log('latest_course_reg', latest_course_reg[0]);
 
-                                                        `);
+                                                                var next_batch = data.data[0].active_batch.length === 0 ? null : data.data[0].active_batch;
+                                                                console.log('next_batch', next_batch)
+                                                                localStorage.setItem('batch_id', next_batch[0].id);
+                                                                localStorage.setItem('course_id', next_batch.course_id);
+
+
+                                                                $('#batch_name').text(next_batch[0].name);
+                                                                if (next_batch[0].id != last_exam[0]?.batch_id) {
+                                                                    console.log(next_batch[0].id, 'a');
+                                                                    console.log(last_exam[0]?.batch_id, 'b');
+                                                                    console.log(latest_course_reg[0].batch.course.code, 'c');
+                                                                    localStorage.setItem('course_id', next_batch[0]?.course.id);
+                                                                    switch (latest_course_reg[0].batch.course.code) {
+                                                                        case 'da_1':
+                                                                            register_url = '/da_one_register';
+                                                                            break;
+                                                                        case 'da_2':
+                                                                            register_url = `/da_two_register/${latest_course_reg[0].batch.id}`;
+                                                                            break;
+                                                                        case 'cpa_1':
+                                                                            register_url = '/cpa_one_register';
+                                                                            break;
+                                                                        case 'cpa_2':
+                                                                            register_url = `/cpa_two_register/${latest_course_reg[0].batch.id}`;
+                                                                            break;
+                                                                        default:
+                                                                            register_url = '/da_one_register';
+                                                                            break;
+
+
+                                                                    }
+                                                                    $('.status').append(`
+                                                                        <tr>
+                                                                            <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
+                                                                            <td>${formatDate(last_exam[0].created_at)}</td>
+                                                                            <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                                            <td><span class="badge bg-warning">Failed</span></td>
+                                                                        </tr >
+
+                                                                        <tr>
+                                                                            <td colspan=2 ></td >
+                                                                            <td>Action</td>
+                                                                            <td>
+                                                                                <span class="nav-item dropdown ">
+                                                                                    <a href="#" class="nav-link dropdown-toggle bg-success text-white" data-toggle="dropdown">Registration for<br> ${latest_course_reg[0].batch.course.name}</a>
+                                                                                    <div class="dropdown-menu">
+                                                                                        <a href="${FRONTEND_URL + register_url}?study_type=3" class="dropdown-item">Mac</a>
+                                                                                        <a href="${FRONTEND_URL + register_url}?study_type=1" class="dropdown-item">Selfstudy</a>
+                                                                                        <a href="${FRONTEND_URL + register_url}?study_type=2" class="dropdown-item">Private School</a>
+                                                                                    </div>
+                                                                                </span>
+                                                                            </td>
+
+                                                                        </tr>
+
+                                                                    `);
+                                                                } else {
+
+                                                                    $('.status').append(`
+                                                                        <tr>
+                                                                            <td>Existing Registration For ${latest_course_reg[0].batch.course.name} </td>
+                                                                            <td>${formatDate(last_exam[0].created_at)}</td>
+                                                                            <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                                            <td><span class="badge bg-success">Approved</span></td>
+                                                                        </tr >
+
+                                                                        <tr>
+                                                                            <td colspan=2></td><td>Action</td>
+                                                                            <td>
+                                                                                <span class="nav-item dropdown ">
+                                                                                    <a href="javascript:void(0)" class="btn-sm btn btn-success">Coming Soon</a>
+
+                                                                                </span>
+                                                                            <td></td>
+                                                                        </tr>
+
+                                                                    `);
+                                                                }
+                                                            })
+
+
+
 
                                                         } else {
 
@@ -2547,7 +2731,7 @@ function user_profile() {
                                                 } else if (last_exam[0].status == 1) {
 
                                                     var invoice = data.invoice.filter(val => {
-                                                        return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code && val.status == 0;
+                                                        return val.invoiceNo == 'exm_' + latest_course_reg[0].batch.course.code+ '_' + last_exam[0].id  && val.status == 0;
                                                     });
 
                                                     if (latest_course_reg[0].is_finished == 0) {
@@ -2840,7 +3024,6 @@ function user_profile() {
                                                         } else if (last_exam[0].grade == 2) {
                                                             if (latest_course_reg[0].offline_user == 1) {
 
-                                                                // console.log('latest_course_reg', latest_course_reg[0]);
                                                                 get_course_by_code(latest_course_reg[0].batch.course.code).then(data => {
 
                                                                     var next_batch = data.data[0].active_batch.length === 0 ? null : data.data[0].active_batch;
@@ -2898,13 +3081,12 @@ function user_profile() {
 
                                                                         `);
                                                                     } else {
-
                                                                         $('.status').append(`
                                                                             <tr>
-                                                                                <td>Existing Registration For ${latest_course_reg[0].batch.course.name} </td>
+                                                                                <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
                                                                                 <td>${formatDate(last_exam[0].created_at)}</td>
                                                                                 <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                                                <td><span class="badge bg-success">Approved</span></td>
+                                                                                <td><span class="badge bg-warning">Failed</span></td>
                                                                             </tr >
 
                                                                             <tr>
@@ -2922,16 +3104,92 @@ function user_profile() {
                                                                 })
 
                                                             } else {
+                                                                // alert("normal_fail")
+                                                                get_course_by_code(latest_course_reg[0].batch.course.code).then(data => {
+                                                                    // console.log('latest_course_reg', latest_course_reg[0]);
 
-                                                                $('.status').append(`
-                                                                <tr>
-                                                                    <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
-                                                                    <td>${formatDate(last_exam[0].created_at)}</td>
-                                                                    <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                                    <td><span class="badge bg-warning">Failed</span></td>
-                                                                </tr >
+                                                                    var next_batch = data.data[0].active_batch.length === 0 ? null : data.data[0].active_batch;
+                                                                    console.log('next_batch', next_batch)
+                                                                    console.log('last_exam_batch',last_exam[0])
+                                                                    localStorage.setItem('batch_id', next_batch[0].id);
+                                                                    localStorage.setItem('course_id', next_batch.course_id);
 
-                                                            `);
+
+                                                                    $('#batch_name').text(next_batch[0].name);
+                                                                    if (next_batch[0].id != last_exam[0]?.batch_id) {
+                                                                        console.log(next_batch[0].id, 'a');
+                                                                        console.log(last_exam[0]?.batch_id, 'b');
+                                                                        console.log(latest_course_reg[0].batch.course.code, 'c');
+                                                                        localStorage.setItem('course_id', next_batch[0]?.course.id);
+                                                                        switch (latest_course_reg[0].batch.course.code) {
+                                                                            case 'da_1':
+                                                                                register_url = '/da_one_register';
+                                                                                break;
+                                                                            case 'da_2':
+                                                                                register_url = `/da_two_register/${latest_course_reg[0].batch.id}`;
+                                                                                break;
+                                                                            case 'cpa_1':
+                                                                                register_url = '/cpa_one_register';
+                                                                                break;
+                                                                            case 'cpa_2':
+                                                                                register_url = `/cpa_two_register/${latest_course_reg[0].batch.id}`;
+                                                                                break;
+                                                                            default:
+                                                                                register_url = '/da_one_register';
+                                                                                break;
+
+
+                                                                        }
+                                                                        $('.status').append(`
+                                                                            <tr>
+                                                                                <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
+                                                                                <td>${formatDate(last_exam[0].created_at)}</td>
+                                                                                <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                                                <td><span class="badge bg-warning">Failed</span></td>
+                                                                            </tr >
+
+                                                                            <tr>
+                                                                                <td colspan=2 ></td >
+                                                                                <td>Action</td>
+                                                                                <td>
+                                                                                    <span class="nav-item dropdown ">
+                                                                                        <a href="#" class="nav-link dropdown-toggle bg-success text-white" data-toggle="dropdown">Registration for<br> ${latest_course_reg[0].batch.course.name}</a>
+                                                                                        <div class="dropdown-menu">
+                                                                                            <a href="${FRONTEND_URL + register_url}?study_type=3" class="dropdown-item">Mac</a>
+                                                                                            <a href="${FRONTEND_URL + register_url}?study_type=1" class="dropdown-item">Selfstudy</a>
+                                                                                            <a href="${FRONTEND_URL + register_url}?study_type=2" class="dropdown-item">Private School</a>
+                                                                                        </div>
+                                                                                    </span>
+                                                                                </td>
+
+                                                                            </tr>
+
+                                                                        `);
+                                                                    } else {
+
+                                                                        $('.status').append(`
+                                                                            <tr>
+                                                                                <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
+                                                                                <td>${formatDate(last_exam[0].created_at)}</td>
+                                                                                <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                                                <td><span class="badge bg-warning">Failed</span></td>
+                                                                            </tr >
+
+                                                                            <tr>
+                                                                                <td colspan=2></td><td>Action</td>
+                                                                                <td>
+                                                                                    <span class="nav-item dropdown ">
+                                                                                        <a href="javascript:void(0)" class="btn-sm btn btn-success">Coming Soon</a>
+
+                                                                                    </span>
+                                                                                <td></td>
+                                                                            </tr>
+
+                                                                        `);
+                                                                    }
+                                                                })
+
+
 
                                                             }
 
@@ -3187,7 +3445,6 @@ function user_profile() {
                                             register_url = '/da_one_register';
                                             break;
                                     }
-
                                     localStorage.setItem('course_id', latest_course_reg[0].batch.course.id);
                                     localStorage.setItem('batch_id', latest_course_reg[0].batch.id);
                                     let action_url;
@@ -3210,7 +3467,7 @@ function user_profile() {
 
 
                                     let last_invoice = data.invoice.at(-1);
-                                    console.log(last_invoice)
+
                                     last_invoice.status === 'AP' &&
                                         $('.status').append(`
                                             <tr>
@@ -3328,6 +3585,7 @@ function user_profile() {
                             }
 
                         } else if (current_class.approve_reject_status == 1) {
+
                             // if (current_class.offline_user==1){
 
                             //     $('.status_history').append(`
@@ -3538,8 +3796,8 @@ function user_profile() {
                         $('#article_row').css('display', 'block');
                     }
                     var payment_success = data.invoice.at(-1) && data.invoice.at(-1).status;
-                    console.log(payment_success,data.article);
-                    if ( latest_stu_reg[0].status ==  1 && latest_course_reg[0].status == 1
+                    console.log(payment_success, data.article);
+                    if (latest_stu_reg[0].status == 1 && latest_course_reg[0].status == 1
                         && latest_course_reg.batch_id == latest_stu_reg.batch_id && (payment_success == 'AP' || data.article.length != 0 || data.gov_article != 0)
                         && (latest_stu_reg[0].course.code == "cpa_1" || latest_stu_reg[0].course.code == "cpa_2")) {
 
@@ -3627,12 +3885,12 @@ function user_profile() {
                                         `);
                                         } else if (element.done_status == 3) {
                                             $('.article_status').append(`<tr>
-                                            <td>${form_type} Form</td>
-                                            <td>${contract_start_date}</td>
-                                            <td>${contract_end_date}</td>
-                                            <td><span class="badge bg-success">Done</span></td>
-                                            <td></td>
-                                        </tr>
+                                                <td>${form_type} Form</td>
+                                                <td>${contract_start_date}</td>
+                                                <td>${contract_end_date}</td>
+                                                <td><span class="badge bg-success">Done</span></td>
+                                                <td></td>
+                                            </tr>
                                         `);
                                         } else {
                                             $('.article_status').append(`<tr>
@@ -3684,7 +3942,7 @@ function user_profile() {
                                         </tr>
                                         `);
                                         } else if (element.done_status == 3) {
-                                            // alert("hello")
+
                                             $('.article_status').append(`<tr>
                                             <td>${form_type} Form</td>
                                             <td>${contract_start_date}</td>
@@ -3693,12 +3951,14 @@ function user_profile() {
                                             <td></td>
                                         </tr>
                                         `);
-                                        let cpaff = data.cpa_ff;
-                                        if (cpaff.length !== 0) {
-                                            $('.cpaff').show();
-                                        }
-                                        } else {
+                                            let cpaff = data.cpa_ff;
+                                            // console.log(cpaff.length)
+                                            if (cpaff.length !== 0) {
+                                                $('.cpaff').show();
+                                            }
                                             $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA(Full-Fledged) Form</a></td></tr > `);
+                                        } else {
+                                            // $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA(Full-Fledged) Form</a></td></tr > `);
                                             //     $('.article_status').append(`<tr>
                                             //     <td>${form_type} Form</td>
                                             //     <td>${contract_start_date}</td>
@@ -5056,7 +5316,7 @@ function loadSchoolByDash(school_data, school_invoice) {
                             if (school.initial_status == 0) {
                                 //var period_date = school.from_valid_date.split(' ');
                                 var new_period_date = sch_invoice.dateTime.split('-');
-                                var to_valid_date=new Date(school.to_valid_date);
+                                var to_valid_date = new Date(school.to_valid_date);
                                 var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
                                 $('#sch_period_time').text(period + " to 31-12-" + (to_valid_date.getFullYear()));
                                 $('.sch_status_history').append('School Registration is Approved.');
@@ -5066,11 +5326,11 @@ function loadSchoolByDash(school_data, school_invoice) {
                                 var period_date = school.renew_date.split(' ');
                                 var new_period_date = period_date[0].split('-');
                                 var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                                var renew_date=new Date(school.renew_date);
-                                if((renew_date.getMonth()+1)=='11' || (renew_date.getMonth()+1)=='12'){
-                                    $('#sch_period_time').text('01-01-' + (renew_date.getFullYear()-2) + " to 31-12-" + (renew_date.getFullYear()));
-                                }else{
-                                    $('#sch_period_time').text('01-01-' + (renew_date.getFullYear()-2) + " to 31-12-" + (renew_date.getFullYear()));
+                                var renew_date = new Date(school.renew_date);
+                                if ((renew_date.getMonth() + 1) == '11' || (renew_date.getMonth() + 1) == '12') {
+                                    $('#sch_period_time').text('01-01-' + (renew_date.getFullYear() - 2) + " to 31-12-" + (renew_date.getFullYear()));
+                                } else {
+                                    $('#sch_period_time').text('01-01-' + (renew_date.getFullYear() - 2) + " to 31-12-" + (renew_date.getFullYear()));
                                 }
                                 $('.sch_status_history').append('School Registration is Approved.');
                                 $('.sch_period').show();
@@ -5223,10 +5483,10 @@ function laodTeacherByDash(teacher_data, _invoice) {
                             } else if (teacher.initial_status == 1) {
                                 $('.teacher_status_history').append('Teacher Registration is Approved.');
                                 $('.teacher_period').show();
-                                var renew_date=new Date(teacher.renew_date);
-                                if((renew_date.getMonth()+1)=='11' || (renew_date.getMonth()+1)=='12'){
-                                    $('#teacher_period_time').text('01-01-' + (renew_date.getFullYear()+1) + " to 31-12-" + (renew_date.getFullYear()+1));
-                                }else{
+                                var renew_date = new Date(teacher.renew_date);
+                                if ((renew_date.getMonth() + 1) == '11' || (renew_date.getMonth() + 1) == '12') {
+                                    $('#teacher_period_time').text('01-01-' + (renew_date.getFullYear() + 1) + " to 31-12-" + (renew_date.getFullYear() + 1));
+                                } else {
                                     $('#teacher_period_time').text('01-01-' + (renew_date.getFullYear()) + " to 31-12-" + (renew_date.getFullYear()));
                                 }
 
@@ -5630,7 +5890,6 @@ function allowToRenew() {
                         var invoice_status = data[0].invoice_status[0] ? data[0].invoice_status[0].status : '';
                         if (acc_firm.status == 1 && acc_firm.offline_user == 1 && acc_firm.is_renew == 0) {
                             // to renew approved offline users
-                            console.log("1");
                             $('#check_renew').css('display', 'block');
                             $('#check_renew_nonaudit').css('display', 'none');
                             $("#renew_btn").css('display', 'block'); // renew btn in information page
@@ -5655,11 +5914,11 @@ function allowToRenew() {
                             var submit_date = new Date(acc_firm.register_date);
                             var submit_mth = submit_date.getMonth() + 1;
 
-                            if(last_submit_year == current_year){
-                              if(submit_mth == 11 || submit_mth == 12){
-                                console.log("is already renew audit");
-                                $("#check_renew").find("a").addClass('disabled');
-                              }
+                            if (last_submit_year == current_year) {
+                                if (submit_mth == 11 || submit_mth == 12) {
+                                    console.log("is already renew audit");
+                                    $("#check_renew").find("a").addClass('disabled');
+                                }
                             }
 
                             $('#check_renew').css('display', 'block');
@@ -5699,11 +5958,11 @@ function allowToRenew() {
                             var submit_date = new Date(acc_firm.register_date);
                             var submit_mth = submit_date.getMonth() + 1;
 
-                            if(last_submit_year == current_year){
-                              if(submit_mth == 11 || submit_mth == 12){
-                                console.log("is already renew non-audit");
-                                $("#check_renew_nonaudit").find("a").addClass('disabled');
-                              }
+                            if (last_submit_year == current_year) {
+                                if (submit_mth == 11 || submit_mth == 12) {
+                                    console.log("is already renew non-audit");
+                                    $("#check_renew_nonaudit").find("a").addClass('disabled');
+                                }
                             }
 
                             $('#check_renew').css('display', 'none');

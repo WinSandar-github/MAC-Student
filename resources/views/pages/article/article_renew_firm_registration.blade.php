@@ -381,7 +381,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody class="tbl_degree_body">
-                                                        
+
                                                     </tbody>
                                                 </table>
 
@@ -554,6 +554,13 @@
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>လက်ခံသင်ကြားပေးကြောင်းအကြောင်းကြားစာ</label>
                                             <div class="col-md-9">
                                                 <input type="file" name="request_papp_attach" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>ရုံးအမိန့်</label>
+                                            <div class="col-md-9">
+                                                <input type="file" name="office_order_attach" class="form-control">
                                             </div>
                                         </div>
 
@@ -973,7 +980,7 @@
     }
 
     function loadEductaionHistory(id,table){
-    
+
         $.ajax({
             type : 'POST',
             url : BACKEND_URL+"/getEducationHistory",
@@ -990,8 +997,8 @@
                 });
             }
         });
-    
-    
+
+
     }
 
 </script>
