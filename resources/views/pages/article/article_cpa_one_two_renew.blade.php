@@ -576,6 +576,13 @@
                                             </div>
                                         </div>
 
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="exam_pass_date_label">{{ __('၁၆။') }}</span>ရုံးအမိန့် </label>
+                                            <div class="col-md-9">
+                                                <input type="file" name="office_order_attach" class="form-control">
+                                            </div>
+                                        </div>
+
                                         <!-- <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၂။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
