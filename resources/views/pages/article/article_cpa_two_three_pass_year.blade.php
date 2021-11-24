@@ -153,7 +153,7 @@
                                                                 <input type="radio" class="form-check-input" value="အရည်အချင်းစစ်စာမေးပွဲ"  name="course_exam" >
                                                                 <label class="form-check-label " for="">အရည်အချင်းစစ်စာမေးပွဲ</label>
                                                             </li>
-                                                            
+
                                                             ကို အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li>
                                                     </ul>
                                                 </div>
@@ -579,6 +579,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="exam_pass_date_label">{{ __('၁၈။') }}</span>ရုံးအမိန့် </label>
+                                            <div class="col-md-9">
+                                                <input type="file" name="office_order_attach" class="form-control">
                                             </div>
                                         </div>
 
