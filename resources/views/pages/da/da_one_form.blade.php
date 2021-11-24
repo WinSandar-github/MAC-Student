@@ -491,7 +491,14 @@
                                         <div class="row mb-3" style="margin-left: 80px">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">(က)</span>ဘွဲ့အမည်</label>
                                             <div class="col-md-8">
-                                                <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" >
+                                                {{-- <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" > --}}
+                                                <div class="form-group">
+                                                    <select class="form-control form-select"
+                                                            name="degree_name" id="selected_degree_id"
+                                                            style="width: 100%;">
+                                                        <option disabled selected>ဘွဲ့အမည် ရွေးပါ</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -874,5 +881,7 @@
             });
             $('#btn_cash').prop('disabled', true);
         });
+
+        loadDegreeList();
     </script>
 @endpush

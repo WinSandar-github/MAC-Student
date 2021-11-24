@@ -135,7 +135,7 @@ function createDARegister() {
     send_data.append('salary', $("input[name=salary]").val());
     send_data.append('office_address', $("input[name=office_address]").val());
     send_data.append('university_name', $("input[name=university_name]").val());
-    send_data.append('degree_name', $("input[name=degree_name]").val());
+    send_data.append('degree_name', $("#selected_degree_id option:selected").text());
     // send_data.append('certificate', certificate);
     $('input[name="certificate[]"]').map(function () {
 

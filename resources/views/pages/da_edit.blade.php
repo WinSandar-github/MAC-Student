@@ -405,8 +405,12 @@
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>ဘွဲ့အမည်</label>
                                 <div class="col-md-8">
-                                    <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name"
-                                            class="form-control" value="" >
+                                    {{-- <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="" > --}}
+                                    <div class="form-group">
+                                        <select class="form-control" id="val_selected_degree" style="width: 100%;">
+                                            <option value="" disabled selected>ဘွဲ့အမည် ရွေးပါ</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 
@@ -673,7 +677,8 @@
                       }
 
                       if(education_history){
-                        $("input[name=degree_name]").val(education_history.degree_name);
+                          console.log('edu',education_history.degree_name)
+                        $('#selected_degree_id').val(education_history.degree_name);
                         $("input[name=university_name]").val(education_history.university_name);
                         $("input[name=roll_number]").val(education_history.roll_number);
                         $("input[name=qualified_date]").val(education_history.qualified_date);
@@ -745,5 +750,20 @@
             }
         }
     });
+    function loadEductaionHistoryDegree(id){
+    $.ajax({
+        type : 'POST',
+        url : BACKEND_URL+"/getEducationHistory",
+        data: 'student_info_id='+id,
+        success: function(result){
+            //alert()
+            $.each(result.data, function( index, value ){
+                
+                $("#val_selected_degree").val("a");
+            });
+        }
+    });
+}
+    //loadDegreeList();
 </script>
 @endpush
