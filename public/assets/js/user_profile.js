@@ -4450,7 +4450,14 @@ function user_profile() {
                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
                                         } else {
+                                          console.log("pm success");
+                                          console.log("**",latest_gov_article[0].mentor_attach_file);
                                             $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </a></div></div></td></tr>`);
+                                            // if (!latest_gov_article[0].mentor_attach_file) {
+                                            //     $('.article_btn').append(`<tr><td colspan=4>ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='GovDownloadForms();'>Download</button></div></div></td></tr>`);
+                                            //     $('.article_btn').append(`<tr><td colspan=5>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတမ်းများအားတင်သွင်းရန်</td></tr>`);
+                                            //     $('.article_btn').append(`<tr><td colspan=3>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='gov_attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='gov_attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='gov_attach_file_btn' onclick='saveGovAttachFile(${latest_gov_article[0].id})'>Submit</button></td></tr>`);
+                                            // }
                                         }
                                     }
                                     if (!latest_gov_article[0].mentor_attach_file) {
