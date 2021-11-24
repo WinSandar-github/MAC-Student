@@ -401,6 +401,7 @@
                                                     <th>Course Name</th>
                                                     <th>Batch Name</th>
                                                     <th>Module</th>
+                                                    <th>Remark</th>
                                                     <th>Year</th>
 
                                                 </thead>
