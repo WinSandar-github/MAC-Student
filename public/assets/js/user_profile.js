@@ -122,22 +122,14 @@ function user_profile() {
                 $('.teacher_pw').hide();
                 laodTeacherByDash(data.teacher, data.invoice);
                 loadSchoolByDash(data.school, data.invoice);
-                // var invoice = data.invoice.filter( val => {
-                //     if(val.invoiceNo=="init_tec" || val.invoiceNo=="renew_tec" ){
-                //         laodTeacherByDash(data.teacher,val.invoiceNo);
-                //     }else if(val.invoiceNo=="init_sch" || val.invoiceNo=="renew_sch" || val.invoiceNo=="exit_sch" || val.invoiceNo=="renew_exit_sch"){
-                //         loadSchoolByDash(data.school,val.invoiceNo);
-                //     }
-
-                // });
-
+                
 
             } else if (data.school && data.teacher == null && data.mentor) {
                 $('.dashboard_name').append('School And Mentor');
                 loadSchoolByDash(data.school, data.invoice);
                 loadMentorByDash(data.mentor, data.email);
             } else if (data.teacher && data.mentor && data.school == null) {
-                console.log("Reach");
+               
                 $('.dashboard_name').append('Teacher And Mentor');
                 laodTeacherByDash(data.teacher, data.invoice);
                 loadMentorByDash(data.mentor, data.email);
@@ -1242,6 +1234,9 @@ function user_profile() {
                                     <td></td>
                                 </tr>
                                 `);
+                                $('.article_reject-btn').show();
+                                $('.article-reject-p').append(`<a href='${FRONTEND_URL}/article_resign_registration?id=`+element.id+`' class="btn btn-success btn-hover-dark" > Update </a>`);
+                                
                         }
                     } else {
                         if (element.status == 0) {
@@ -1307,9 +1302,40 @@ function user_profile() {
                                     <td>${contract_start_date}</td>
                                     <td>${contract_end_date}</td>
                                     <td><span class="badge bg-danger">Reject</span></td>
-                                    <td></td>
+                                    <td>${element.remark}</td>
                                 </tr>
-                                `);
+                            `);
+                            switch (article_form_type) {
+                                case 'c12':
+                                    form_type = 'CPA I,II';
+                                    break;
+                                case 'c2_pass_3yr':
+                                    form_type = 'CPA II Pass 3 yr';
+                                    break;
+                                case 'c2_pass_1yr':
+                                    $('.article_reject-btn').show();
+                                    $('.article-reject-p').append(`<a href='${FRONTEND_URL}/article_cpa_two_one_pass_year?id=`+element.id+`' class="btn btn-success btn-hover-dark" > Update </a>`);
+                                    break;
+                                case 'qt_firm':
+                                    form_type = 'QT Pass 3 yr';
+                                    break;
+                                case 'c2_pass_renew':
+                                    $('.article_reject-btn').show();
+                                    $('.article-reject-p').append(`<a href='${FRONTEND_URL}/article_cpa_two_renew?id=`+element.id+`' class="btn btn-success btn-hover-dark" > Update </a>`);
+                                    break;
+                                case 'c12_renew':
+                                    $('.article_reject-btn').show();
+                                    $('.article-reject-p').append(`<a href='${FRONTEND_URL}/article_cpa_one_two_renew?id=`+element.id+`' class="btn btn-success btn-hover-dark" > Update </a>`);
+                                    break;
+                                case 'c2_pass_qt_pass_3yr':
+                                    $('.article_reject-btn').show();
+                                    $('.article-reject-p').append(`<a href='${FRONTEND_URL}/article_cpa_two_three_pass_year?id=`+element.id+`' class="btn btn-success btn-hover-dark" > Update </a>`);
+                                    break;
+                                default:
+                                    $('.article_reject-btn').show();
+                                    $('.article-reject-p').append(`<a href='${FRONTEND_URL}/article_resign_registration?id=`+element.id+`' class="btn btn-success btn-hover-dark" > Update </a>`);
+                                    break;
+                            }
                         }
                     }
                 });
@@ -4821,6 +4847,7 @@ function DownloadForms(form_type) {
         $('#downloadFormModel').modal('toggle');
         $('#c2_not_pass_attach').hide();
     } else {
+        $('#c2_pass_attach').hide();
         $('#downloadFormModel').modal('toggle');
     }
 

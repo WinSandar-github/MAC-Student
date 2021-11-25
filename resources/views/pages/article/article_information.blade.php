@@ -261,6 +261,9 @@
                         //         $("#c2_pass_renew_btn").hide();
                         //     }
                         // }
+                        if(data.data.article[0].article_form_type=="c2_pass_qt_pass_3yr"){
+                            $("#c12_renew_btn").hide();
+                        }
                         $("#firm_article_row").hide();
                         $("#c12_btn").hide();
                         $("#c2_pass_1yr_btn").hide();
@@ -319,7 +322,7 @@
                                         $("#gov_article_row").hide();
                                     }
                                 }else{
-																		$("#gov_article_row").hide();
+									$("#gov_article_row").hide();
                                     $("#c2_pass_3yr_btn").hide();
                                     $("#c2_pass_1yr_btn").hide();
                                     $("#qt_pass_3yr_btn").hide();
