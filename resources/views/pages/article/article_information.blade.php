@@ -241,7 +241,7 @@
                         }
                         $('#articleModal').modal('toggle');
                     }else if(latest_article[0]?.resign_status == 1 && latest_article[0]?.article_form_type == 'resign'){
-                        
+
                         if(student_info.offline_user == 1){
                             if(exam_registers[0].form_type == 4){
                                 $("#c12_renew_btn").hide();
@@ -249,6 +249,11 @@
                                 $("#c2_pass_renew_btn").hide();
                             }
                         }
+
+												if(student_info.article[0].article_form_type == 'c2_pass_1yr'){
+													$("#c12_renew_btn").hide();
+												}
+
                         // else{
                         //     if(exam_registers[0].form_type == 4 && (exam_results[0]?.registeration_id == exam_registers[0]?.id)){
                         //         $("#c12_renew_btn").hide();
