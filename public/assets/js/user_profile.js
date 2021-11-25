@@ -1827,9 +1827,9 @@ function user_profile() {
 
                             } else if (last_exam[0].status == 1) {
                                 if (latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1") {
-                                   
+
                                     $invoice_code = latest_course_reg[0].batch.course.code == "da_1" ? 'app_form_' + std_id : 'cpa_app_'+ std_id;
-                                    
+
                                     var invoice = data.invoice.filter(val => {
                                         return val.invoiceNo == $invoice_code && val.status == 0;
                                     });
@@ -1865,7 +1865,7 @@ function user_profile() {
                                                     </tr>
                                                 `);
                                                 } else {
-                                                    
+
                                                     $('.status').append(`
                                                     <tr>
                                                         <td>Cpa One Entry Exam Registration Form</td>
@@ -1879,7 +1879,7 @@ function user_profile() {
 
 
 
-                                            } 
+                                            }
                                             // else {
                                             //     alert("entryofflineuser");
                                             //     switch (latest_course_reg[0].batch.course.code) {
@@ -1913,7 +1913,7 @@ function user_profile() {
                                         }
                                     }
                                 }
-                                
+
                                 if (last_exam[0].grade == 1) {
                                     let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
@@ -2004,7 +2004,7 @@ function user_profile() {
                                                 <td><span class="badge bg-info ">Checking</span></td>
                                             </tr>
                                         `);
-                                    } 
+                                    }
                                     else {
                                         $('.status').append(`
                                             <tr>
@@ -2148,7 +2148,7 @@ function user_profile() {
                                                     </tr>
                                                 `);
                                                 } else {
-                                                    
+
                                                     $('.status').append(`
                                                     <tr>
                                                         <td>${latest_course_reg[0].batch.course.name} Application Form</td>
@@ -2294,7 +2294,7 @@ function user_profile() {
                                         // $('.status').append('<p>Your Registration Form is checking.</p>')
 
                                     } else if (latest_stu_reg[0].status == 1) {
-                                      
+
 
                                         // $('.status').append(`<p>Your Registration Form is Approved  on the  ${formatDate(latest_course_reg[0].updated_at)}.</p>`)
 
@@ -4015,6 +4015,7 @@ function user_profile() {
 
                                 if (end_time <= today_time && latest_article[0].done_status == 0) {
 
+
                                     if (latest_article[0].done_form_attach && latest_article[0].done_status == 0) {
                                         $('.article_btn').append(`<tr><td colspan=3></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
                                     } else if (latest_article[0].yes_done_attach == 1) {
@@ -4144,6 +4145,7 @@ function user_profile() {
                             }
 
                         } else {
+
                             let gov_article = data.gov_article;
                             let article = data.article;
                             gov_article.forEach(function (element) {
@@ -4151,6 +4153,7 @@ function user_profile() {
                                 let contract_end_date = element.contract_end_date === null ? "-" : element.contract_end_date;
                                 form_type = "Government Article";
                                 if (element.status == 0) {
+
                                     $('.article_status').append(`<tr>
                                     <td>${form_type} Form</td>
                                     <td>${contract_start_date}</td>
@@ -4205,6 +4208,7 @@ function user_profile() {
                                         } else {
                                             resign_end_date = contract_end_date;
                                         }
+
                                         $('.article_status').append(`<tr>
                                             <td>${form_type} Form</td>
                                             <td>${contract_start_date}</td>
@@ -4574,7 +4578,14 @@ function user_profile() {
                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
                                         } else {
+                                          console.log("pm success");
+                                          console.log("**",latest_gov_article[0].mentor_attach_file);
                                             $('.article_btn').append(`<tr><td colspan=2></td><td colspan=2>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </a></div></div></td></tr>`);
+                                            // if (!latest_gov_article[0].mentor_attach_file) {
+                                            //     $('.article_btn').append(`<tr><td colspan=4>ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><button class="btn btn-info btn-hover-dark" onclick='GovDownloadForms();'>Download</button></div></div></td></tr>`);
+                                            //     $('.article_btn').append(`<tr><td colspan=5>Download ရယူပြီး MACရုံး ဒု-ညွှန်မှူး ရှေ့မှောက်တွင်ကိုယ်တိုင်ကတိဝန်ခံချက်လက်မှတ်ရေးထိုးပြီးမှသာ စာချုပ်စာတမ်းများအားတင်သွင်းရန်</td></tr>`);
+                                            //     $('.article_btn').append(`<tr><td colspan=3>ချုပ်ဆိုပြီးစာချုပ်နှင့် တာဝန်စတင်ထမ်းဆောင်ကြောင်းအစီရင်ခံစာတင်ရန်</td><td><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='gov_attach_file[]'></div></div><br><div class='row'><div class='col-md-12'><input type='file' class='form-control' name='gov_attach_file[]'></div></div></td><td><button class='btn btn-primary btn-xs' id='gov_attach_file_btn' onclick='saveGovAttachFile(${latest_gov_article[0].id})'>Submit</button></td></tr>`);
+                                            // }
                                         }
                                     }
                                     if (!latest_gov_article[0].mentor_attach_file) {

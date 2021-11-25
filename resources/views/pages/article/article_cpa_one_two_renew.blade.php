@@ -687,7 +687,7 @@
 
                             <form method="post" id="article_reject_form"  action="javascript:updateArticle();"
                                     enctype="multipart/form-data" class="needs-validation" autocomplete="off" novalidate>
-                                
+
 
                                 <div class="row">
                                     <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
@@ -980,7 +980,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody class="tbl_degree_body">
-                                                        
+
                                                     </tbody>
                                                 </table>
 
@@ -996,7 +996,7 @@
                                             </div>
                                         </div>
 
-                                        
+
 
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>လူမျိုး/ကိုးကွယ်သည့်ဘာသာ</label>
@@ -1166,7 +1166,7 @@
                                             </div>
                                         </div>
 
-                                    
+
                                         <div class="row justify-content-center">
                                             <button type="submit" id="reject_submit_btn" class="btn btn-success btn-hover-dark w-25" disabled>
                                                 Submit
@@ -1371,30 +1371,30 @@
     }
 
     function validateSubmitClick(){
-      
+
       var check_confirm_142 = $("input[name=confirm_142]").prop('checked');
       var check_confirm_status = $("input[name=confirm_status]").prop('checked');
       var check_mentor_declare = $("input[name=mentor_declare]").prop('checked');
       var check_confirm_142_rej = $("input[name=confirm_142_rej]").prop('checked');
       var check_confirm_status_rej = $("input[name=confirm_status_rej]").prop('checked');
       var check_mentor_declare_rej = $("input[name=mentor_declare_rej]").prop('checked');
-      
+
       if(check_confirm_142 == true && check_confirm_status == true && check_mentor_declare == true){
         $("#submit_btn").prop('disabled',false);
-        
-        
+
+
       }
       else if(check_confirm_142 == false || check_confirm_status == false || check_mentor_declare == false){
         $("#submit_btn").prop('disabled',true);
-        
-        
+
+
       }
         if(check_confirm_142_rej == true && check_confirm_status_rej == true && check_mentor_declare_rej == true){
         $("#reject_submit_btn").prop('disabled',false);
-       
+
       }else if(check_confirm_142_rej == false && check_confirm_status_rej == false && check_mentor_declare_rej == false){
         $("#reject_submit_btn").prop('disabled',true);
-       
+
       }
     }
 

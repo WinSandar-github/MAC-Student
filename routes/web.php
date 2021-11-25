@@ -193,6 +193,7 @@ Route::get('article_cpa_two_one_pass_year', 'ArticleController@articleCPATwoOne'
 Route::get('article_cpa_two_three_pass_year', 'ArticleController@articleCPATwoThree');
 Route::get('article_cpa_two_renew', 'ArticleController@articleCPATwoRenew');
 Route::get('article_cpa_one_two_renew', 'ArticleController@articleCPAOneTwoRenew');
+Route::get('article_cpa_one_two_renew_update', 'ArticleController@articleCPAOneTwoRenewUpdate');
 Route::get('update_article_firm_registration', 'ArticleController@updateArticleFirm');
 Route::get('update_article_gov_registration', 'ArticleController@updateArticleGov');
 Route::get('update_article_renew_firm_registration', 'ArticleController@updateArticleRenewFirm');
@@ -247,4 +248,3 @@ Route::get('cpa_two_reg_cpaone_pass/{batch_id}','ReconnectController\ReconnectCo
 
 Route::get('cpa_one_existing_edit_form', 'ReconnectController\ReconnectController@cpaOneExistingEditForm');
 Route::get('cpa_two_existing_edit_form', 'ReconnectController\ReconnectController@cpaTwoExistingEditForm');
-
