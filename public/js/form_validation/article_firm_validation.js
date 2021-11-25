@@ -79,7 +79,7 @@ $().ready(function (){
             confirm_status : "Please check one",
             request_papp_attach : "Please enter your attachment",
         },
-        
+
     });
     $("#update_article_register_form").validate({
         rules:{
@@ -117,7 +117,7 @@ $().ready(function (){
             confirm_142 : "Please check one",
             confirm_status : "Please check one",
         },
-        
+
     });
     $("#article_renew_register_form").validate({
         rules:{
@@ -151,7 +151,7 @@ $().ready(function (){
             confirm_status : "Please check one",
             request_papp_attach : "Please enter your attachment",
         },
-        
+
     });
     $("#update_article_renew_register_form").validate({
         rules:{
@@ -183,7 +183,7 @@ $().ready(function (){
             confirm_142 : "Please check one",
             confirm_status : "Please check one",
         },
-        
+
     });
     $("#leave_request_form").validate({
         rules:{
@@ -198,7 +198,7 @@ $().ready(function (){
             end_date : "Please select your date",
             total_date : "Please enter your total date",
         },
-        
+
     });
     $("#article_cpaTwoPassOneYear_form").validate({
         rules:{
@@ -253,6 +253,7 @@ $().ready(function (){
             previous_papp_name:"required",
             previous_papp_start_date:"required",
             previous_papp_end_date:"required",
+            office_order_attach : "required",
         },
         messages:{
             name_mm : "Please enter your name",
@@ -292,10 +293,11 @@ $().ready(function (){
             previous_papp_name:"Please enter name",
             previous_papp_start_date:"Please enter name",
             previous_papp_end_date:"Please enter name",
+            office_order_attach : "Please upload attach file",
         },
         submitHandler: function (form) {
             $( "#submit_btn" ).click(function() {
-               
+
                 var send_data = new FormData();
                 send_data.append('email', $("input[name='email']").val());
                 send_data.append('nrc_state_region', $("#nrc_state_region").val());
@@ -322,7 +324,7 @@ $().ready(function (){
                     }
                 });
             })
-            
+
         }
     });
 });

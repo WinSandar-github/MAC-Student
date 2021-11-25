@@ -94,7 +94,7 @@
                                             <h5 class="card-title text-center fw-bolder">
                                                 ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော်<br><br>
                                                 ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး<br><br>
-                                                စာရင်းကိုင်အလုပ်သင်လျှောက်လွှာပုံစံ
+                                                စာရင်းကိုင်အလုပ်သင်နုတ်ထွက်လျှောက်လွှာပုံစံ
                                             </h5>
                                             <div>
                                                 <h6 align="right">ရက်စွဲ - {{ date('d-M-Y') }}</h6>
@@ -312,7 +312,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody class="tbl_degree_body">
-                                                        
+
                                                     </tbody>
                                                 </table>
 
@@ -419,7 +419,7 @@
                                                 <label  class="error attend_place_error" style="display:none;" for="confirm_142">Please check one</label>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
@@ -489,7 +489,7 @@
             let latest_article = data.data.article.slice(-1);
             let qualified_test = data.data.qualified_test;
             $("#article_id").val(latest_article[0].id);
-            
+
             if(latest_article[0]){
                 $("#student_info_id").val(latest_article[0].student_info_id);
                 $("#recent_org").val("Firm");
@@ -539,7 +539,7 @@
 
                     })
                 }
-                
+
                 // if(latest_article[0]?.offline_user == 1){
                 //     $(".stu_certificate").append(`<a href='${BASE_URL+student_info.student_education_histroy.certificate}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'  align="center">View Attach File</a>`);
                 // }else{
@@ -653,7 +653,7 @@
       }
     }
     function loadEductaionHistory(id,table){
-    
+
         $.ajax({
             type : 'POST',
             url : BACKEND_URL+"/getEducationHistory",
@@ -670,8 +670,8 @@
                 });
             }
         });
-    
-    
+
+
     }
 </script>
 @endpush
