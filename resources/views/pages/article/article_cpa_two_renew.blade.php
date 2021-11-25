@@ -92,6 +92,7 @@
 
                             <form method="post" id="article_cpaTwoPassOneYear_form"  action="javascript:void();"
                                     enctype="multipart/form-data" class="needs-validation" autocomplete="off" novalidate>
+                                
                                 @csrf
 
                                 <div class="row">
@@ -249,7 +250,7 @@
                                                 </div>
 
                                                 <div class="row mb-5">
-                                                    <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၆။') }}</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                                    <label class="col-md-3 col-form-label label"><span class="pull-left renew_nrc">{{ __('၆။') }}</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
                                                     <div class="col-md-9">
                                                         <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                             <div class="col-md-2 col-5 pr-1">
@@ -340,8 +341,8 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၇။') }}</span>ပညာအရည်အချင်း</label>
+                                        <div class="row mb-3 edu">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left renew_edu">{{ __('၇။') }}</span>ပညာအရည်အချင်း</label>
 
                                             <div class="col-md-9">
                                                 <table class="table tbl_degree table-bordered input-table">
@@ -365,7 +366,7 @@
 
                                             </div>
                                         </div>
-
+                                        
                                         <div id="qt_education" style="display:none;">
                                             <div class="row mb-3">
                                                 <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၇။') }}</span>ပညာအရည်အချင်း</label>
@@ -478,21 +479,21 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_address_label">{{ __('၁၂။') }}</span>ဆက်သွယ်ရန်လိပ်စာ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left " id="current_address_label">{{ __('၁၂။') }}</span>ဆက်သွယ်ရန်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="current_address" id="current_address" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="address_label">{{ __('၁၃။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left " id="address_label">{{ __('၁၃။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="address"  id="address" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="phone_label">{{ __('၁၄။') }}</span>ဖုန်းနံပါတ်<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left " id="phone_label">{{ __('၁၄။') }}</span>ဖုန်းနံပါတ်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="phone" id="phone_no" class="form-control" placeholder="ဖုန်းနံပါတ်">
                                             </div>
@@ -532,7 +533,7 @@
                                         </div> -->
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၅။') }}</span>ယခုအလုပ်သင်ကြားလိုသည့် PAPP အမှတ်<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left " id="papp_name_label">{{ __('၁၅။') }}</span>ယခုအလုပ်သင်ကြားလိုသည့် PAPP အမှတ်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -547,7 +548,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="exam_pass_date_label">{{ __('၁၆။') }}</span>ရုံးအမိန့် </label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left " id="exam_pass_date_label">{{ __('၁၆။') }}</span>ရုံးအမိန့် </label>
                                             <div class="col-md-9">
                                                 <input type="file" name="office_order_attach" class="form-control">
                                             </div>
@@ -651,6 +652,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                             </form>
                         </div>
                         <div class="reject_article" style="display:none;">
@@ -762,7 +764,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="row mb-5">
+                                                <div class="row mb-5 renew">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၃။') }}</span>လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း</label>
                                                     <div class="col-md-8">
                                                         <input type="password" placeholder="လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း" name="update_confirm_password" class="form-control" id="update_confirm_password">
@@ -794,7 +796,7 @@
                                             </div>
                                         </div>
                                         <div class="row mb-5">
-                                                    <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                    <label class="col-md-3 col-form-label label"><span class="pull-left renew_name">{{ __('၄။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                     <div class="col-md-9">
                                                         <div class="row">
                                                             <div class="col-md-6">
@@ -808,7 +810,7 @@
                                                 </div>
 
                                                 <div class="row mb-5">
-                                                    <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၅။') }}</span>ကိုယ်ပိုင်အမှတ်</label>
+                                                    <label class="col-md-3 col-form-label label"><span class="pull-left renew_no">{{ __('၅။') }}</span>ကိုယ်ပိုင်အမှတ်</label>
                                                     <div class="col-md-9">
                                                         <input type="text" placeholder="ကိုယ်ပိုင်အမှတ်" name="update_personal_no" id="update_personal_no" class="form-control" >
                                                     </div>
@@ -907,7 +909,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၇။') }}</span>ပညာအရည်အချင်း</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left renew_edu">{{ __('၇။') }}</span>ပညာအရည်အချင်း</label>
 
                                             <div class="col-md-9">
                                                 <table class="table tbl_degree table-bordered input-table">
@@ -939,7 +941,7 @@
                                         
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>လူမျိုး/ကိုးကွယ်သည့်ဘာသာ</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left renew_race">{{ __('၈။') }}</span>လူမျိုး/ကိုးကွယ်သည့်ဘာသာ</label>
                                             <div class="col-md-9">
                                                 <div class="row">
                                                 <div class="col-md-6">
@@ -953,14 +955,14 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>မွေးသက္ကရာဇ်</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left renew_birth">{{ __('၉။') }}</span>မွေးသက္ကရာဇ်</label>
                                             <div class="col-md-9">
                                                 <input type="text" name="update_date_of_birth" id="update_date_of_birth" class="form-control" placeholder="dd-mm-yyyy" value="{{ old('date_of_birth') }}" >
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၀။') }}</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left renew_father">{{ __('၁၀။') }}</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                             <div class="col-md-9">
                                                 <div class="row">
                                                 <div class="col-md-6">
@@ -974,16 +976,16 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_job_label">{{ __('၁၁။') }}</span>ပုဂ္ဂလိကနှင့် အစိုးရဌာနအဖွဲအစည်းများ၊ အခြားဌာနအဖွဲ့အစည်းများ၊ ကုမ္ပဏီများ၊ Non Audit Service လုပ်ငန်းများတွင် အချိန်ပြည့်/ အချိန်ပိုင်းဝန်ထမ်း အဖြစ်ဆောင်ရွက်နေခြင်း ရှိ/မရှိ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left renew_job" id="current_job_label">{{ __('၁၁။') }}</span>ပုဂ္ဂလိကနှင့် အစိုးရဌာနအဖွဲအစည်းများ၊ အခြားဌာနအဖွဲ့အစည်းများ၊ ကုမ္ပဏီများ၊ Non Audit Service လုပ်ငန်းများတွင် အချိန်ပြည့်/ အချိန်ပိုင်းဝန်ထမ်း အဖြစ်ဆောင်ရွက်နေခြင်း ရှိ/မရှိ<span style="color:red">*</span></label>
                                             <div class="col-md-4">
                                                 <div class="form-check">
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <input type="radio" class="form-check-input mr-3" value="1" id="current_job_yes" name="update_current_job" >
+                                                            <input type="radio" class="form-check-input mr-3" value="1" id="current_job_yes" name="current_job" >
                                                             <label class="form-check-label " for="">ရှိ</label>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <input type="radio" class="form-check-input mr-3" value="0" id="current_job_no" name="update_current_job" >
+                                                            <input type="radio" class="form-check-input mr-3" value="0" id="current_job_no" name="current_job" >
                                                             <label class="form-check-label " for="">မရှိ</label>
                                                         </div>
                                                         <label  class="error attend_place_error" style="display:none;" for="current_job">Please select one</label>
@@ -1009,21 +1011,21 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_address_label">{{ __('၁၂။') }}</span>ဆက်သွယ်ရန်လိပ်စာ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left renew_curaddress" id="current_address_label">{{ __('၁၂။') }}</span>ဆက်သွယ်ရန်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="update_current_address" id="update_current_address" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="address_label">{{ __('၁၃။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left renew_address" id="address_label">{{ __('၁၃။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="update_address"  id="update_address" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="phone_label">{{ __('၁၄။') }}</span>ဖုန်းနံပါတ်<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left renew_phone" id="phone_label">{{ __('၁၄။') }}</span>ဖုန်းနံပါတ်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="update_phone" id="update_phone_no" class="form-control" placeholder="ဖုန်းနံပါတ်">
                                             </div>
@@ -1032,7 +1034,7 @@
                                         
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၅။') }}</span>ယခုအလုပ်သင်ကြားလိုသည့် PAPP အမှတ်<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left renew_papp" id="papp_name_label">{{ __('၁၅။') }}</span>ယခုအလုပ်သင်ကြားလိုသည့် PAPP အမှတ်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -1043,6 +1045,16 @@
                                                         <input type="text" name="update_mentor_name" id="update_mentor_name" class="form-control" placeholder="Mentor Name">
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left renew_office">{{ __('၁၆။') }}</span>ရုံးအမိန့်</label>
+                                            <div class="col-md-9">
+                                                <input type="file" name="office_order_attach" class="form-control">
+                                            </div>
+                                            <div class="col-md-2"></div>
+                                            <div class="col-md-3 office_order_attach">
+                                                <input type="hidden" id="hoffice_order_attach" >
                                             </div>
                                         </div>
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
@@ -1328,12 +1340,12 @@
       
       if(check_confirm_142 == true && check_confirm_status == true && check_mentor_declare == true){
         $("#submit_btn").prop('disabled',false);
-        
+        $("#submit_btn2").prop('disabled',false);
         
       }
       else if(check_confirm_142 == false || check_confirm_status == false || check_mentor_declare == false){
         $("#submit_btn").prop('disabled',true);
-        
+        $("#submit_btn2").prop('disabled',true);
         
       }
         if(check_confirm_142_rej == true && check_confirm_status_rej == true && check_mentor_declare_rej == true){

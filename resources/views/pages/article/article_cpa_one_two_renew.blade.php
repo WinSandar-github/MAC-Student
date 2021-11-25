@@ -1104,7 +1104,16 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left renew_office">{{ __('၁၆။') }}</span>ရုံးအမိန့်</label>
+                                            <div class="col-md-9">
+                                                <input type="file" name="office_order_attach" class="form-control">
+                                            </div>
+                                            <div class="col-md-2"></div>
+                                            <div class="col-md-3 office_order_attach">
+                                                <input type="hidden" id="hoffice_order_attach" >
+                                            </div>
+                                        </div>
 
                                         <div class="row mb-3">
                                             <div class="form-check">

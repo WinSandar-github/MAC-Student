@@ -569,6 +569,7 @@ function check_email_cpaTwoPassOneYear()
     }
 }
 function createCPATwoPassOneYearArticle(){
+   
     var send_data = new FormData($( "#article_cpaTwoPassOneYear_form" )[0]);
     if($('#offline_user').val()){
         send_data.append('offline_user',$('#offline_user').val());
@@ -670,6 +671,59 @@ function loadArticle()
         data: "",
         success: function (data) {
             var student_info = data.student_info;
+            if(data.status!=2){
+                // if(data.article_form_type=="c2_pass_qt_pass_3yr" || data.article_form_type=="c2_pass_1yr"){
+                    $('input[name=update_gender]').attr('disabled',true);
+                    $('input[name=update_gender2]').attr('disabled',true);
+                    // $('input[name=pass_date]').attr('disabled',true);
+                   
+                    // $('input[name=update_pass_no]').attr('disabled',true);
+                    
+                    $('input[name=update_email]').attr('disabled',true);
+                    
+                    $('input[name=update_name_mm]').attr('disabled',true);
+                    
+                    $('input[name=update_name_eng]').attr('disabled',true);
+                    // $('input[name=update_password]').attr('disabled',true);
+                    
+                    // $('.renew').css('display', 'none');
+                    $('.office_order_attach').css('display', 'none');
+                    // $(".renew_name").text('၃။');
+                    // $(".renew_no").text('၄။');
+                    // $(".renew_nrc").text('၅။');
+                    // $(".renew_edu").text('၆။');
+                    // $(".renew_race").text('၇။');
+                    // $(".renew_birth").text('၈။');
+                    // $(".renew_father").text('၉။');
+                    // $(".renew_job").text('၁၀။');
+                    // $(".renew_curaddress").text('၁၁။');
+                    // $(".renew_address").text('၁၂။');
+                    // $(".renew_phone").text('၁၃။');
+                    // $(".renew_papp").text('၁၄။');
+                    // $(".renew_office").text('၁၅။');
+                    
+                    $('input[name=update_personal_no]').attr('disabled',true);
+                    
+                    $('#update_nrc_state_region').attr('disabled',true);
+                    
+                    $('#update_nrc_township').attr('disabled',true);
+                   
+                    $('#update_nrc_citizen').attr('disabled',true);
+                    
+                    $('input[name=update_nrc_number]').attr('disabled',true);
+                    
+                    $('input[name=update_father_name_mm]').attr('disabled',true);
+                   
+                    $('input[name=update_father_name_eng]').attr('disabled',true);
+                   
+                    $("#update_date_of_birth").attr('disabled',true);
+                   
+                    $('#article_reject_form').attr('action', 'javascript:updateArticleByResign();');
+                    
+                //}
+                
+            }
+            
             if(data.total_experience){
                 var total_exp_array = JSON.parse(data.total_experience);
                 var exp_year = total_exp_array[0];
@@ -724,7 +778,13 @@ function loadArticle()
             $("input:radio[value='"+data.course_part+"']").attr('checked',true);
             $("input:radio[value='"+data.school_name+"']").attr('checked',true);
             $("input:radio[value='"+data.attend_or_fail+"']").attr('checked',true);
-
+            if(data.status!=2){
+                $('.edu').hide();
+                $('.renew_edu_div').show();
+                loadEductaionHistory(student_info.id,'tbl_degree');
+            }else{
+                loadEductaionHistoryByArticle(data.student_info_id);
+            }
             if (student_info.qualified_test != null) {
                 $("#firm_education").hide();
                 $("#qt_education").show();
@@ -742,7 +802,7 @@ function loadArticle()
                     $('.offline_user').show();
                     $('#firm_education').hide();
                     $('#certificate_row').hide();
-                    loadEductaionHistoryByArticle(data.student_info_id);
+                    
                 } else {
                     $("#education").val(student_info.student_education_histroy.degree_name);
 
@@ -755,36 +815,34 @@ function loadArticle()
             $("#update_address").val(student_info.address);
             $("#update_current_address").val(student_info.current_address);
             $("#update_phone_no").val(student_info.phone);
+            //$(".office_order_attach").append(`<a href='${BASE_URL + data.office_order_attach}' style='display:block; font-size:16px;text-decoration: none;' target='_blank' align="center">View File</a>`);
+            $("#hoffice_order_attach").val(data.office_order_attach);
             
 
             if (data.article_form_type == "c2_pass_renew" || data.article_form_type == "c12_renew") {
                 if ((data.offline_user == 1 && data.article_form_type == "c2_pass_renew")) {
                     $('#exp_row').css('display', 'none');
                     $('#exp_attach_row').css('display', 'none');
-                    $("#gov_lab").text('၈။');
-                    $("#current_lab").text('၉။');
-                    $("#address_label").text('၁၀။');
-                    $("#phone_lab").text('၁၁။');
-                    $("#email_lab").text('၁၂။');
-                    $("#c2_papp_lab").text('၁၃။');
-                    $("#previous_papp_lab").text('၁၄။');
-                    $("#previous_lab").text('၁၅။');
-                    $("#exam_pass_date_label").text('၁၆။');
+                    
                     $('.praticle').hide();
                     $('.c2_pass_renew').show();
-                    $('input[name=update_papp_name]').val(data.request_papp);
-                    if(data.mentor!=null){
-                        $("input[name=update_mentor_name]").val(data?.mentor?.name_eng);
+                    if(data.status==2){
+                        $('input[name=update_papp_name]').val(data.request_papp);
+                        if(data.mentor!=null){
+                            $("input[name=update_mentor_name]").val(data?.mentor?.name_eng);
+                        }
+                        else{
+                            $("input[name=update_mentor_name]").val(data.mentor_id);
+                        }
                     }
-                    else{
-                        $("input[name=update_mentor_name]").val(data.mentor_id);
-                    }
+                    
                     
                     $('#previous_papp_name_row').show();
                     $('#previous_papp_date_row').show();
                     $("input[name=update_previous_papp_name]").val(data.ex_papp);
                     $("input[name=update_previous_papp_start_date]").val(data.exp_start_date);
                     $("input[name=update_previous_papp_end_date]").val(data.exp_end_date);
+                    $(".office_order_attach").append(`<a href='${BASE_URL + data.office_order_attach}' style='display:block; font-size:16px;text-decoration: none;' target='_blank' align="center">View File</a>`);
                 }else{
 
                         $('#exp_row').css('display','none');
@@ -798,12 +856,14 @@ function loadArticle()
                         $("#previous_papp_lab").text('၁၄။');
                         $("#previous_lab").text('၁၅။');
                         $("#exam_pass_date_label").text('၁၆။');
-                        $('input[name=update_papp_name]').val(data.request_papp);
-                        if(data.mentor!=null){
-                            $("input[name=update_mentor_name]").val(data?.mentor?.name_eng);
-                        }
-                        else{
-                            $("input[name=update_mentor_name]").val(data.mentor_id);
+                        if(data.status==2){
+                            $('input[name=update_papp_name]').val(data.request_papp);
+                            if(data.mentor!=null){
+                                $("input[name=update_mentor_name]").val(data?.mentor?.name_eng);
+                            }
+                            else{
+                                $("input[name=update_mentor_name]").val(data.mentor_id);
+                            }
                         }
                         $("input[name=update_previous_papp_name]").val(data.ex_papp);
                         $("input[name=update_previous_papp_start_date]").val(data.exp_start_date);
@@ -836,35 +896,36 @@ function loadArticle()
                     $('.praticle').hide();
                     $('.c2_pass_renew').show();
                     $('#office_order_row').show();
-                    $('input[name=update_papp_name]').val(data.request_papp);
-                    if(data.mentor!=null){
-                        $("input[name=update_mentor_name]").val(data?.mentor?.name_eng);
+                    if(data.status==2){
+                        $('input[name=update_papp_name]').val(data.request_papp);
+                        if(data.mentor!=null){
+                            $("input[name=update_mentor_name]").val(data?.mentor?.name_eng);
+                        }
+                        else{
+                            $("input[name=update_mentor_name]").val(data.mentor_id);
+                        }
                     }
-                    else{
-                        $("input[name=update_mentor_name]").val(data.mentor_id);
-                    }
-                    $('#exp_row').hide();
-                    $('#gov_lab').text('၈။');
-                    $('#current_lab').text('၉။');
-                    $('#address_label').text('၁၀။');
-                    $('#phone_lab').text('၁၁။');
-                    $('#email_lab').text('၁၂။');
-                    $('#papp_lab').text('၁၃။');
-                    $('#previous_papp_lab').text('၁၄။');
-                    $('#previous_lab').text('၁၅။');
-                    $('#exam_pass_date_label').text('၁၆။');
+                    
                     $("#update_previous_papp_name").val(data.ex_papp);
                     $("#update_previous_papp_start_date").val(data.exp_start_date);
                     $("#update_previous_papp_end_date").val(data.exp_end_date);
                     $(".office_order_attach").append(`<a href='${BASE_URL + data.office_order_attach}' style='display:block; font-size:16px;text-decoration: none;' target='_blank' align="center">View File</a>`);
                     $("#hoffice_order_attach").val(data.office_order_attach);
                 } else {
-                    $('input[name=update_papp_name]').val(data.request_papp);
-                    if(data.mentor!=null){
-                        $("input[name=update_mentor_name]").val(data?.mentor?.name_eng);
+                    
+                    if(data.status==2){
+                        
+                        $('input[name=update_papp_name]').val(data.request_papp);
+                        if(data.mentor!=null){
+                            $("input[name=update_mentor_name]").val(data?.mentor?.name_eng);
+                        }
+                        else{
+                            $("input[name=update_mentor_name]").val(data.mentor_id);
+                        }
                     }
-                    else{
-                        $("input[name=update_mentor_name]").val(data.mentor_id);
+                    if(data.article_form_type=="c2_pass_qt_pass_3yr"){
+                        $(".office_order_attach").append(`<a href='${BASE_URL + data.office_order_attach}' style='display:block; font-size:16px;text-decoration: none;' target='_blank' align="center">View File</a>`);
+                        $("#hoffice_order_attach").val(data.office_order_attach);
                     }
                 }
 
@@ -890,33 +951,7 @@ function loadArticle()
             }
 
 
-            var leave_requests = student_info.leave_requests;
-            var r = 1;
-            leave_requests.forEach(function (element) {
-                if (data.article_form_type == element.form_type) {
-                    var status = element.status == 0 ? "-" : "Done";
-                    var tr = "<tr>";
-                    tr += "<td class='alignright'>" + r + "</td>";
-                    tr += "<td>" + element.remark + "</td>";
-                    tr += "<td>" + element.start_date + "</td>";
-                    tr += "<td>" + element.end_date + "</td>";
-                    tr += "<td>" + element.total_leave + "</td>";
-                    tr += "<td>" + status + "</td>";
-                    tr += "</tr>";
-                    r = r + 1;
-                    $("#leave_request_body").append(tr);
-                }
-            })
-            $('#leave_request_table').DataTable({
-                'destroy': true,
-                'paging': true,
-                'lengthChange': false,
-                "pageLength": 5,
-                'searching': false,
-                'info': false,
-                'autoWidth': true,
-                "scrollX": false,
-            });
+            
 
             if (data.contract_end_date != null) {
                 var end_date = new Date(data.contract_end_date);
@@ -942,14 +977,14 @@ function loadArticle()
                 $("#attach_file_row").show();
                 let mentor_attach_file = JSON.parse(data.mentor_attach_file);
                 $.each(mentor_attach_file, function (fileCount, fileName) {
-                    $(".mentor_attach_file").append(`<a href='${PDF_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
+                    $(".mentor_attach_file").append(`<a href='${BASE_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
 
                 })
             }
 
             if (data.done_form_attach != null) {
                 $("#done_form_row").show();
-                $(".done_form_attach").append(`<a href='${PDF_URL + data.done_form_attach}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'  align="center">View File</a>`);
+                $(".done_form_attach").append(`<a href='${BASE_URL + data.done_form_attach}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'  align="center">View File</a>`);
                 $("#reject_done_attach").show();
                 $("#article_id").val(data.id);
                 if (data.done_status == 0 || data.done_status == 2) {
@@ -1147,6 +1182,64 @@ function updateResignArticle(){
 
         },
         error: function (result) {
+        },
+    });
+}
+function updateArticleByResign(){
+    var send_data = new FormData($( "#article_reject_form" )[0]);
+    if($("input[name=update_nrc_front]")[0].files[0]){
+        send_data.append('nrc_front', $("input[name=update_nrc_front]")[0].files[0]);
+    }else{
+        send_data.append('nrc_front', $('#hnrc_front').val());
+    }
+    if($("input[name=update_nrc_back]")[0].files[0]){
+        send_data.append('nrc_back', $("input[name=update_nrc_back]")[0].files[0]);
+    }else{
+        send_data.append('nrc_back', $('#hnrc_back').val());
+    }
+    if($("input[name=update_image]")[0].files[0]){
+        send_data.append('image', $("input[name=update_image]")[0].files[0]);
+    }else{
+        send_data.append('image', $('#himage').val());
+    }
+    send_data.append('student_info_id', $("input[id=student_info_id]").val());
+    send_data.append('offline_user',$('#offline_user').val());
+    
+    send_data.append('gov_position',$('input[name=update_gov_position]').val());
+    send_data.append('gov_joining_date',$('input[name=update_gov_joining_date]').val());
+    send_data.append('current_address',$('input[name=update_current_address]').val());
+    send_data.append('address',$('input[name=update_address]').val());
+    send_data.append('phone',$('input[name=update_phone]').val());
+    send_data.append('papp_name',$('input[name=update_papp_name]').val());
+    send_data.append('mentor_id',$('input[name=update_mentor_name]').val());
+    send_data.append('article_form_type',$('input[name=article_form_type]').val());
+    
+    send_data.append('pass_date',$('input[name=pass_date]').val());
+    send_data.append('pass_no',$('input[name=update_pass_no]').val());
+    send_data.append('previous_papp_name',$('input[name=update_previous_papp_name]').val());
+    send_data.append('previous_papp_start_date',$('input[name=update_previous_papp_start_date]').val());
+    send_data.append('previous_papp_end_date',$('input[name=update_previous_papp_end_date]').val());
+    send_data.append('exp_year',$('input[name=update_exp_year]').val());
+    send_data.append('exp_month',$('input[name=update_exp_month]').val());
+    send_data.append('exp_days',$('input[name=update_exp_days]').val());
+
+    show_loader();
+    $.ajax({
+        type: "POST",
+        data: send_data,
+        url: BACKEND_URL + "/article_firm_register",
+        contentType: false,
+        processData: false,
+        success: function (data) {
+
+            EasyLoading.hide();
+            successMessage(data.message);
+            location.href=FRONTEND_URL+'/';
+
+        },
+        error: function (result) {
+
+
         },
     });
 }

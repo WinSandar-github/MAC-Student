@@ -1132,6 +1132,7 @@ function user_profile() {
 
                 let article = data.article;
                 let latest_article = data.article.slice(-1);
+                
                 $("#qt_article_row").show();
                 //article.forEach(function (element) {
                 article.forEach(function (element) {
