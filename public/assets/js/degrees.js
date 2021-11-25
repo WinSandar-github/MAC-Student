@@ -1,24 +1,20 @@
-function loadDegreeList(){
-    var select = document.getElementById("selected_degree_id");
+function getDegree() {
     $.ajax({
-        url: BACKEND_URL+"/degrees",
+        url: BACKEND_URL + "/degrees",
         type: 'get',
-        data:"",
-        success: function(data){
+        data: "",
+        success: function (data) {
 
             var degree_data = data.data;
-            
+            var opt = `<option  disabled  >Select Degree </option>`;
+
             degree_data.forEach(function (element) {
-                console.log('degree_data',element)
-                var option = document.createElement('option');
-                option.text = element.name;
-                option.value = element.id;
-                select.add(option,0);
+                opt += `<option value=${element.id}  >${element.degree_name}</option>`;
 
             });
-            
+            $(".degree_id").append(opt);
         },
-        error:function (message){
+        error: function (message) {
 
         }
 

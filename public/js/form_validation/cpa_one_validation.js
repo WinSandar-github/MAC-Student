@@ -37,7 +37,7 @@ $().ready(function (){
             recommend_letter : {
                 required : "#yes:checked"
             },
-            // degree_name : "required",
+            degree_id: "required",
             // university_name : "required",
             // roll_number : "required",
             // qualified_date : "required",
@@ -89,7 +89,7 @@ $().ready(function (){
             recommend_letter : {
                 required : "Please upload recommend letter"
             },
-            // degree_name : "Please enter your degree name",
+            degree_id: "Please Select One",
             // university_name : "Please enter your university name",
             // roll_number : "Please enter your roll number",
             // qualified_date : "Please fill your qualified date",

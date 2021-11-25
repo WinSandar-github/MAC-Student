@@ -404,13 +404,15 @@
 
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>ဘွဲ့အမည်</label>
-                                <div class="col-md-8">
-                                    {{-- <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="" > --}}
-                                    <div class="form-group">
-                                        <select class="form-control" id="val_selected_degree" style="width: 100%;">
-                                            <option value="" disabled selected>ဘွဲ့အမည် ရွေးပါ</option>
-                                        </select>
-                                    </div>
+                                <div class="col-md-4">
+                                    <select name="degree_id" class="form-control degree_id">
+                                        
+                                    </select>
+                                <label  class="error degree_id_error" style="display:none;" for="degree_id">Please select one</label>
+
+                                </div>
+                                <div class="col-md-4" id="other_degree_name" style="display:none;">
+                                    <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name" required >
                                 </div>
                             </div>
 
@@ -568,6 +570,11 @@
 <script type="text/javascript">
     $(document).ready(function (e) {
         // da_edit();
+        getDegree();
+        $('.degree_id').select2({
+            placeholder: "Select Degree"
+        });
+
         $("input[name='date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
@@ -608,138 +615,141 @@
         
         if (localStorage.getItem("studentinfo") != null)
         {
-              get_student_info(student_id).then(data => {
-                  if(data){
-                      var info = data.data;
-                    //   console.log(info)
-                      
-                      var student_course = info.student_course_regs.slice(-1);
-                      var job_history = data.data.student_job;
-                      var education_history = data.data.student_education_histroy;
-                      if(info){
-                    $('#stu_id').val(info.id);
-                 
-                         $("input[name=email]").val(info.email);
-                        $("input[name=name_mm]").val(info.name_mm);
-                        $("input[name=name_eng]").val(info.name_eng);
-                        $("#nrc_state_region").val(info.nrc_state_region);
-                        $("#nrc_township").val(info.nrc_township);
-                        $("#nrc_citizen").val(info.nrc_citizen);
-                        $("#nrc_number").val(info.nrc_number);
-                        $("input[name=father_name_mm]").val(info.father_name_mm);
-                        $("input[name=father_name_eng]").val(info.father_name_eng);
-                        $("input[name=race]").val(info.race);
-                        $("input[name=religion]").val(info.religion);
-                        $("input[name=date_of_birth]").val(info.date_of_birth);
-                        $("input[name=phone]").val(info.phone);
-                        $("input[name=address]").val(info.address);
-                        $("input[name=current_address]").val(info.current_address);
- 
- 
-                        document.getElementById('da_to_cpa_preview_img').src = BASE_URL + info.image;
-                        $("input[name=old_image]").val(info.image);
-
-                        document.getElementById('nrc_front_update').src = BASE_URL + info.nrc_front;
-                        $("input[name=old_nrc_front]").val(info.nrc_front);
+            get_student_info(student_id).then(data => {
+                if(data){
+                    var info = data.data;
+                //   console.log(info)
+                    
+                    var student_course = info.student_course_regs.slice(-1);
+                    var job_history = data.data.student_job;
+                    var education_history = data.data.student_education_histroy;
+                    if(info){
+                $('#stu_id').val(info.id);
+                
+                        $("input[name=email]").val(info.email);
+                    $("input[name=name_mm]").val(info.name_mm);
+                    $("input[name=name_eng]").val(info.name_eng);
+                    $("#nrc_state_region").val(info.nrc_state_region);
+                    $("#nrc_township").val(info.nrc_township);
+                    $("#nrc_citizen").val(info.nrc_citizen);
+                    $("#nrc_number").val(info.nrc_number);
+                    $("input[name=father_name_mm]").val(info.father_name_mm);
+                    $("input[name=father_name_eng]").val(info.father_name_eng);
+                    $("input[name=race]").val(info.race);
+                    $("input[name=religion]").val(info.religion);
+                    $("input[name=date_of_birth]").val(info.date_of_birth);
+                    $("input[name=phone]").val(info.phone);
+                    $("input[name=address]").val(info.address);
+                    $("input[name=current_address]").val(info.current_address);
 
 
-                        document.getElementById('nrc_back_update').src = BASE_URL + info.nrc_back;
-                        $("input[name=old_nrc_back]").val(info.nrc_back); 
+                    document.getElementById('da_to_cpa_preview_img').src = BASE_URL + info.image;
+                    $("input[name=old_image]").val(info.image);
 
-                        $("input[name=old_rec_letter]").val(info.recommend_letter);
-
-                      }
-
-                      var batch_id = student_course[0].batch_id; 
-
-                      $('#batch_id').val(batch_id)
-                      $.ajax({
-                            type: "get",
-                            url: BACKEND_URL + "/batch/" + batch_id,
-                            contentType: false,
-                            processData: false,
-                            async:false,
-                            success: function (res) {
-                                 
-                                $('.batch_number').append(number2mm(res.data.number));
-                            }
-                        })
-                      if(job_history){
-                        $("input[name=job_name]").val(job_history.name);
-                        $("input[name=position]").val(job_history.position);
-                        $("input[name=department]").val(job_history.department);
-                        $("input[name=organization]").val(job_history.organization);
-                        //$("input[name=address]").val(job_history.address);
-                        //$("input[name=current_address]").val(job_history.current_address);
-                        $("input[name=company_name]").val(job_history.company_name);
-                        $("input[name=salary]").val(job_history.salary);
-                        $("input[name=office_address]").val(job_history.office_address);
-                      }
-
-                      if(education_history){
-                          console.log('edu',education_history.degree_name)
-                        $('#selected_degree_id').val(education_history.degree_name);
-                        $("input[name=university_name]").val(education_history.university_name);
-                        $("input[name=roll_number]").val(education_history.roll_number);
-                        $("input[name=qualified_date]").val(education_history.qualified_date);
-                        $("input[name=old_certificate]").val(JSON.parse(education_history.certificate));
-                        // console.log('certificate',JSON.parse(education_history.certificate));
-
-                        let certificate = JSON.parse(education_history.certificate);
-                        // console.log('certificate',certificate);
-                        $.each(certificate, function (fileCount, fileName) {
-
-                            $(".certificate").append(`<a href='${BASE_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
-
-                        })
-                      }
-                      // government staff OR not
-                      if(info.gov_staff == 1){
-                        $("input[name=gov_staff][value=1]").prop("checked",true);
-                        $("#rec_letter_da_to_cpa").css("display",'block');
-                        if(info.recommend_letter!=null){
-                                $(".recommend_letter").append("<a href='"+BASE_URL+info.recommend_letter+"'  target='_blank'>View File</a><br/>")
-                            }
-                      }
-                      else{
-                        $("input[name=gov_staff][value=0]").prop("checked",true);
-                      }
-
-                      if(info.gender=="Male"){
-                            $("#male").prop("checked",true);
-                        }else{
-                            $("#female").prop("checked",true);
-                        }
-
-                      if(student_course[0].type == 0){
-                        $("input[name=dtype][value=0]").prop("checked",true);
-
-                         
-                      }
-                      else if(student_course[0].type == 1){
-                        $("input[name=dtype][value=1]").prop("checked",true);
-                      }else{
-                        $("input[name=dtype][value=2]").prop("checked",true);
-                        selectdType();
-                        if(student_course[0].mac_type == 1){
-                            $("input[name=mac_dtype][value=1]").prop("checked",true);
-
-                            
-                        }else{
-                            $("input[name=mac_dtype][value=2]").prop("checked",true);
-                            
+                    document.getElementById('nrc_front_update').src = BASE_URL + info.nrc_front;
+                    $("input[name=old_nrc_front]").val(info.nrc_front);
 
 
-                        }
+                    document.getElementById('nrc_back_update').src = BASE_URL + info.nrc_back;
+                    $("input[name=old_nrc_back]").val(info.nrc_back); 
 
+                    $("input[name=old_rec_letter]").val(info.recommend_letter);
 
-
-                      }
                     }
 
-                    //$("input").prop('',true);
-              })
-            }
+                    var batch_id = student_course[0].batch_id; 
+
+                    $('#batch_id').val(batch_id)
+                    $.ajax({
+                        type: "get",
+                        url: BACKEND_URL + "/batch/" + batch_id,
+                        contentType: false,
+                        processData: false,
+                        async:false,
+                        success: function (res) {
+                                
+                            $('.batch_number').append(number2mm(res.data.number));
+                        }
+                    })
+                    if(job_history){
+                    $("input[name=job_name]").val(job_history.name);
+                    $("input[name=position]").val(job_history.position);
+                    $("input[name=department]").val(job_history.department);
+                    $("input[name=organization]").val(job_history.organization);
+                    //$("input[name=address]").val(job_history.address);
+                    //$("input[name=current_address]").val(job_history.current_address);
+                    $("input[name=company_name]").val(job_history.company_name);
+                    $("input[name=salary]").val(job_history.salary);
+                    $("input[name=office_address]").val(job_history.office_address);
+                    }
+
+                    if(education_history){ 
+                        $(".degree_id").select2().val(education_history.degree_id).trigger('change');
+                        if(education_history.degree_id == 40){
+                            $("input[name=degree_name]").val(education_history.degree_name);
+                            $('#other_degree_name').show();
+                        }
+                    $("input[name=university_name]").val(education_history.university_name);
+                    $("input[name=roll_number]").val(education_history.roll_number);
+                    $("input[name=qualified_date]").val(education_history.qualified_date);
+                    $("input[name=old_certificate]").val(JSON.parse(education_history.certificate));
+                    // console.log('certificate',JSON.parse(education_history.certificate));
+
+                    let certificate = JSON.parse(education_history.certificate);
+                    // console.log('certificate',certificate);
+                    $.each(certificate, function (fileCount, fileName) {
+
+                        $(".certificate").append(`<a href='${BASE_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
+
+                    })
+                    }
+                    // government staff OR not
+                    if(info.gov_staff == 1){
+                    $("input[name=gov_staff][value=1]").prop("checked",true);
+                    $("#rec_letter_da_to_cpa").css("display",'block');
+                    if(info.recommend_letter!=null){
+                            $(".recommend_letter").append("<a href='"+BASE_URL+info.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                        }
+                    }
+                    else{
+                    $("input[name=gov_staff][value=0]").prop("checked",true);
+                    }
+
+                    if(info.gender=="Male"){
+                        $("#male").prop("checked",true);
+                    }else{
+                        $("#female").prop("checked",true);
+                    }
+
+                    if(student_course[0].type == 0){
+                    $("input[name=dtype][value=0]").prop("checked",true);
+
+                        
+                    }
+                    else if(student_course[0].type == 1){
+                    $("input[name=dtype][value=1]").prop("checked",true);
+                    }else{
+                    $("input[name=dtype][value=2]").prop("checked",true);
+                    selectdType();
+                    if(student_course[0].mac_type == 1){
+                        $("input[name=mac_dtype][value=1]").prop("checked",true);
+
+                        
+                    }else{
+                        $("input[name=mac_dtype][value=2]").prop("checked",true);
+                        
+
+
+                    }
+
+
+
+                    }
+                }
+
+                //$("input").prop('',true);
+            })
+        }
 
 
         function myanmarLetterOnly( self )
@@ -749,21 +759,22 @@
               self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
             }
         }
-    });
-    function loadEductaionHistoryDegree(id){
-    $.ajax({
-        type : 'POST',
-        url : BACKEND_URL+"/getEducationHistory",
-        data: 'student_info_id='+id,
-        success: function(result){
-            //alert()
-            $.each(result.data, function( index, value ){
+
+ 
+        $('.degree_id').change(function(){
+                var selectedDegree = $(this).val();
+                if(selectedDegree == 40){ 
+                    $('#other_degree_name').show()
+                    $('#degree_name').prop('required',true)
                 
-                $("#val_selected_degree").val("a");
-            });
-        }
+                }
+                else{
+                    $('#other_degree_name').hide()
+                    $('#degree_name').prop('required',false)
+
+                };
+                
+            })
     });
-}
-    //loadDegreeList();
 </script>
 @endpush

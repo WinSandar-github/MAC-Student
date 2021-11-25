@@ -137,7 +137,7 @@ function createCPATwoRegDAOnePass(){
 
     send_data.append('university_name', $("input[name=university_name]").val());
     send_data.append('degree_name', $("input[name=degree_name]").val());
-    // send_data.append('certificate', certificate);
+    send_data.append('degree_id', $(".degree_id").val());
     $('input[name="certificate[]"]').map(function () {
 
         for (var i = 0; i < $(this).get(0).files.length; ++i) {
@@ -279,7 +279,7 @@ function updateCPAExistingRegister() {
 
     send_data.append('university_name', $("input[name=university_name]").val());
     send_data.append('degree_name', $("input[name=degree_name]").val());
-    // send_data.append('certificate', certificate);
+    send_data.append('degree_id', $(".degree_id").val());
 
     $('input[name="certificate[]"]').map(function () {
 
@@ -607,6 +607,7 @@ function SubmitCPAforDaTwoPass() {
 
     send_data.append('university_name', $("input[name=university_name]").val());
     send_data.append('degree_name', $("input[name=degree_name]").val());
+    send_data.append('degree_id', $(".degree_id").val());
     certificate.map(function () {
         for (var i = 0; i < $(this).get(0).files.length; ++i) {
             send_data.append('certificate[]', $(this).get(0).files[i]);
@@ -635,6 +636,7 @@ function SubmitCPAforDaTwoPass() {
         processData: false,
         data: send_data,
         success: function (data) {
+            console.log(data)
             EasyLoading.hide();
             successMessage("You have successfully registerd!");
 
@@ -927,6 +929,7 @@ function SubmitCPAEntryForm() {
 
     send_data.append('university_name', $("input[name=university_name]").val());
     send_data.append('degree_name', $("input[name=degree_name]").val());
+    send_data.append('degree_id', $(".degree_id").val());
     certificate.map(function () {
         for (var i = 0; i < $(this).get(0).files.length; ++i) {
             send_data.append('certificate[]', $(this).get(0).files[i]);
