@@ -566,6 +566,12 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="exam_pass_date_label">{{ __('၁၈။') }}</span>ရုံးအမိန့် </label>
+                                            <div class="col-md-9">
+                                                <input type="file" name="office_order_attach" class="form-control">
+                                            </div>
+                                        </div>
 
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
                                         <input type="hidden" id="article_form_type" name="article_form_type" value="c2_pass_qt_pass_3yr">
@@ -1145,7 +1151,16 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>ရုံးအမိန့်</label>
+                                            <div class="col-md-9">
+                                                <input type="file" name="office_order_attach" class="form-control">
+                                            </div>
+                                            <div class="col-md-2"></div>
+                                            <div class="col-md-3 office_order_attach">
+                                                <input type="hidden" id="hoffice_order_attach" >
+                                            </div>
+                                        </div>
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
