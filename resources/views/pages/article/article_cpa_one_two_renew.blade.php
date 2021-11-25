@@ -745,6 +745,11 @@
 
         loadMentorList();
 
+        var result = window.location.href;
+        var url = new URL(result);
+        var get_data = url.searchParams.get("data");
+
+
     })
 
     $(document).ready(function (e) {

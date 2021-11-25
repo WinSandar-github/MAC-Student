@@ -38,6 +38,10 @@ class ArticleController extends Controller
         return view('pages.article.article_cpa_one_two_renew');
     }
 
+    public function articleCPAOneTwoRenewUpdate(){
+        return view('pages.article.article_cpa_one_two_renew_update');
+    }
+
     public function updateArticleFirm(){
         return view('pages.article.update_article_firm_registration');
     }

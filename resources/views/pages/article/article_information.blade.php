@@ -385,7 +385,7 @@
         });
         $('#c12_renew_btn').click(function () {
             //location.href = FRONTEND_URL + '/article_renew_firm_registration?data=' + 'c12_renew';
-						location.href = FRONTEND_URL + '/article_cpa_one_two_renew?data=' + 'c12_renew';
+						location.href = FRONTEND_URL + '/article_cpa_one_two_renew_update?data=' + 'c12_renew';
         });
 
         $('#articel_gov_btn').click(function () {
