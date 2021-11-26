@@ -674,6 +674,7 @@ function createCPATwoPassOneYearArticle(){
 }
 function loadArticle()
 {
+    
     $('.article').hide();
     $('.reject_article').show();
     let result = window.location.href;
@@ -685,6 +686,7 @@ function loadArticle()
         type: 'get',
         data: "",
         success: function (data) {
+           
             var student_info = data.student_info;
             $("#offline_user").val(data.offline_user);
             if(data.status!=2){
@@ -739,7 +741,7 @@ function loadArticle()
                 //}
                 
             }
-            
+            $('#firm_gov').val(data.recent_org);
             if(data.total_experience){
                 var total_exp_array = JSON.parse(data.total_experience);
                 var exp_year = total_exp_array[0];
@@ -1245,21 +1247,23 @@ function updateArticleByResign(){
     
     show_loader();
     $.ajax({
-        type: "POST",
+        url: BACKEND_URL + "/article_gov_register",
+        type: 'post',
         data: send_data,
-        url: BACKEND_URL + "/article_firm_register",
         contentType: false,
         processData: false,
-        success: function (data) {
-
+        success: function (result) {
             EasyLoading.hide();
-            successMessage(data.message);
-            location.href=FRONTEND_URL+'/';
-
+            successMessage(result.message);
+            setInterval(() => {
+                location.href = FRONTEND_URL + '/';
+            }, 3000);
         },
-        error: function (result) {
-
-
-        },
+        error: function (message) {
+            EasyLoading.hide();
+            errorMessage(message);
+        }
     });
+    
+    
 }

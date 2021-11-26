@@ -966,6 +966,7 @@
                                             </div>
                                         </div>
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
+                                        <input type="hidden" id="firm_gov">
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၇။') }}</span>ပညာအရည်အချင်း</label>
 
