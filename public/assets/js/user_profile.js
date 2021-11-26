@@ -19,7 +19,7 @@ function user_profile() {
                     // Audit Firm
                     if (firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user == 0) {
                         // to do payment for approved normal renew user
-                        console.log('to do payment for approved normal user');
+                        // console.log('to do payment for approved normal user');
                         var invoice = data.invoice.filter(val => {
                             return val.invoiceNo == 'audit_renew' + firm_info[0].id && val.status == 0;
                         });
@@ -27,13 +27,13 @@ function user_profile() {
                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                             $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
                         } else {
-                            $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                            $('#firm_payment_btn').append(`<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
                         }
                     }
 
                     else if (firm_info[0].status == 1 && firm_info[0].is_renew == 0 && firm_info[0].offline_user == 0) {
                         // to do payment for approved initial user
-                        console.log('to do payment for approved initial user');
+                        // console.log('to do payment for approved initial user');
                         var invoice = data.invoice.filter(val => {
                             return val.invoiceNo == 'audit_initial' + firm_info[0].id && val.status == 0;
                         });
@@ -41,14 +41,17 @@ function user_profile() {
                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                             $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment</a><hr>`);
                         } else {
-                            $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                            $('#firm_payment_btn').append(`<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                            if(firm_info[0].esign_id != null && firm_info[0].esign_status == 1){
+                                $('#firm_payment_btn').append(`<a href=${BASE_URL}/get_audit_card/${firm_info[0].id}/${firm_info[0].esign_id} class="btn btn-primary btn-sm xl-auto" >Download Certificate</a><hr>`);
+                            }
                         }
 
                     }
 
                     else if (firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user == 1) {
                         // to do payment for approved offline user
-                        console.log('to do payment for approved offline user');
+                        // console.log('to do payment for approved offline user');
                         var invoice = data.invoice.filter(val => {
                             return val.invoiceNo == 'off_audit_renew' + firm_info[0].id && val.status == 0;
                         });
@@ -56,15 +59,19 @@ function user_profile() {
                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                             $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
                         } else {
-                            $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                            $('#firm_payment_btn').append(`<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                            if(firm_info[0].esign_id != null && firm_info[0].esign_status == 1){
+                                $('#firm_payment_btn').append(`<a href=${BASE_URL}/get_audit_card/${firm_info[0].id}/${firm_info[0].esign_id} class="btn btn-primary btn-sm xl-auto" >Download Certificate</a><hr>`);
+                            }
                         }
                     }
                 }
                 else {
+                    // console.log("hello", firm_info[0]);
                     // Non-Audit Firm
                     if (firm_info[0].status == 1 && firm_info[0].is_renew == 1 && firm_info[0].offline_user != 1) {
                         // to do payment for approved normal renew user
-                        console.log("non audit 1");
+                        // console.log("non audit 1");
                         var invoice = data.invoice.filter(val => {
                             return val.invoiceNo == 'non_audit_renew' + firm_info[0].id && val.status == 0;
                         });
@@ -72,14 +79,17 @@ function user_profile() {
                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                             $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment for Renew</a><hr>`);
                         } else {
-                            $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                            $('#firm_payment_btn').append(`<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                            if(firm_info[0].esign_id != null && firm_info[0].esign_status == 1){
+                                $('#firm_payment_btn').append(`<a href=${BASE_URL}/get_non_audit_card/${firm_info[0].id}/${firm_info[0].esign_id} class="btn btn-primary btn-sm xl-auto" >Download Certificate</a><hr>`);
+                            }
                         }
                     }
 
                     else if (firm_info[0].status == 1 && firm_info[0].is_renew == 0 && firm_info[0].offline_user == 0) {
                         // to do payment for approved initial user
                         //checkRenewForInitial();
-                        console.log('non audit 2');
+                        // console.log('non audit 2');
                         var invoice = data.invoice.filter(val => {
                             return val.invoiceNo == 'non_audit_initial' + firm_info[0].id && val.status == 0;
                         });
@@ -87,7 +97,10 @@ function user_profile() {
                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                             $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment</a><hr>`);
                         } else {
-                            $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                            $('#firm_payment_btn').append(`<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                            if(firm_info[0].esign_id != null && firm_info[0].esign_status == 1){
+                                $('#firm_payment_btn').append(`<a href="${BASE_URL}/get_non_audit_card/${firm_info[0].id}/${firm_info[0].esign_id}" class="btn btn-primary btn-sm xl-auto" target="_blank">Download Certificate</a><hr>`);
+                            }
                         }
                     }
 
@@ -102,7 +115,10 @@ function user_profile() {
                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
                             $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo} class="btn btn-info btn-sm xl-auto" >Payment</a><hr>`);
                         } else {
-                            $('#firm_payment_btn').append(`<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                            $('#firm_payment_btn').append(`<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`);
+                            if(firm_info[0].esign_id != null && firm_info[0].esign_status == 1){
+                                $('#firm_payment_btn').append(`<a href=${BASE_URL}/get_non_audit_card/${firm_info[0].id}/${firm_info[0].esign_id} class="btn btn-primary btn-sm xl-auto" >Download Certificate</a><hr>`);
+                            }
                         }
                     }
                 }
@@ -183,7 +199,7 @@ function user_profile() {
                             var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                         }
                         else if (invoice[0]?.status == 'AP') {
-                            var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
+                            var btn_payment = `<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                         }
                         else {
                             var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0].invoiceNo;
@@ -383,7 +399,7 @@ function user_profile() {
                                                         var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                                     }
                                                     else if (invoice[0]?.status == 'AP') {
-                                                        var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
+                                                        var btn_payment = `<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                                                     }
                                                     else {
                                                         var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
@@ -400,7 +416,7 @@ function user_profile() {
                                                         var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                                     }
                                                     else if (invoice[0]?.status == 'AP') {
-                                                        var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
+                                                        var btn_payment = `<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                                                     }
                                                     else {
                                                         var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
@@ -512,7 +528,7 @@ function user_profile() {
                                                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                                             }
                                                             else if (invoice[0]?.status == 'AP') {
-                                                                var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
+                                                                var btn_payment = `<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                                                             }
                                                             else {
                                                                 var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
@@ -529,7 +545,7 @@ function user_profile() {
                                                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                                             }
                                                             else if (invoice[0]?.status == 'AP') {
-                                                                var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
+                                                                var btn_payment = `<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                                                             }
                                                             else {
                                                                 var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
@@ -885,7 +901,7 @@ function user_profile() {
                             var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`;
                         }
                         else if (invoice[0]?.status == 'AP') {
-                            var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`;
+                            var btn_payment = `<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`;
                         }
                         else {
                             var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
@@ -902,7 +918,7 @@ function user_profile() {
                             var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`;
                         }
                         else if (invoice[0]?.status == 'AP') {
-                            var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`;
+                            var btn_payment = `<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`;
                         }
                         else {
                             var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
@@ -1003,7 +1019,7 @@ function user_profile() {
                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`;
                             }
                             else if (invoice[0]?.status == 'AP') {
-                                var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`;
+                                var btn_payment = `<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`;
                             }
                             else {
                                 var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
@@ -1020,7 +1036,7 @@ function user_profile() {
                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`;
                             }
                             else if (invoice[0]?.status == 'AP') {
-                                var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`;
+                                var btn_payment = `<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a><hr>`;
                             }
                             else {
                                 var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
@@ -1501,7 +1517,7 @@ function user_profile() {
                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                             }
                             else if (invoice[0]?.status == 'AP') {
-                                var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
+                                var btn_payment = `<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                             }
                             else {
                                 var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
@@ -1518,7 +1534,7 @@ function user_profile() {
                                 var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                             }
                             else if (invoice[0]?.status == 'AP') {
-                                var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
+                                var btn_payment = `<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                             }
                             else {
                                 var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
@@ -1628,7 +1644,7 @@ function user_profile() {
                                     var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                 }
                                 else if (invoice[0]?.status == 'AP') {
-                                    var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
+                                    var btn_payment = `<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                                 }
                                 else {
                                     var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
@@ -1645,7 +1661,7 @@ function user_profile() {
                                     var btn_payment = `<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a>`;
                                 }
                                 else if (invoice[0]?.status == 'AP') {
-                                    var btn_payment = `<a herf='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
+                                    var btn_payment = `<a href='#' class="btn btn-info btn-sm xl-auto" >Payment Success</a>`;
                                 }
                                 else {
                                     var payment_url = FRONTEND_URL + "/payment_method/" + student_id + "/" + invoice[0]?.invoiceNo;
