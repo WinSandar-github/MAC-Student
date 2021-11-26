@@ -298,9 +298,14 @@
                                 
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>ပညာအရည်အချင်း</label>
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="" id="degree_name" name="degree_name"
-                                                    class="form-control" value="" readonly="" >
+                                            <div class="col-md-4">        
+                                                <select disabled name="degree_id" class="form-control degree_id">
+                                                
+                                                </select>
+
+                                            </div>
+                                            <div class="col-md-4 other_degree_name" style="display:none;">
+                                                <input disabled type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name"   >
                                             </div>
                                         </div>
                                         
@@ -739,9 +744,14 @@
                                 
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>ပညာအရည်အချင်း</label>
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="" id="degree_name" name="degree_name"
-                                                    class="form-control" value="" readonly="" >
+                                            <div class="col-md-4">        
+                                                <select disabled name="degree_id" class="form-control degree_id">
+                                                
+                                                </select>
+
+                                            </div>
+                                            <div class="col-md-4 other_degree_name" style="display:none;">
+                                                <input disabled type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name"   >
                                             </div>
                                         </div>
                                         
@@ -1291,9 +1301,14 @@
 
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>ပညာအရည်အချင်း</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" placeholder="ဘွဲ့အမည်" id="degree_name" name="degree_name"
-                                                        class="form-control" value="{{ old('degree_name') }}" readonly="">
+                                                <div class="col-md-4">        
+                                                    <select disabled name="degree_id" class="form-control degree_id">
+                                                    
+                                                    </select>
+    
+                                                </div>
+                                                <div class="col-md-4 other_degree_name" style="display:none;">
+                                                    <input disabled type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name"   >
                                                 </div>
                                             </div>                                            
                                             
@@ -1832,7 +1847,7 @@
 
                 const queryString = location.search;
                 const urlParams = new URLSearchParams(queryString);
-                
+                getDegree();
                 selectedRegistration(urlParams.get("study_type"))
 
                 get_student_info(student_id).then(data => {
@@ -1841,7 +1856,7 @@
                         let current_stu_course = data.data.student_course_regs.slice(-1);
                         let student_course_regs = data.data.student_course_regs;
                         let last_exam = data.data.exam_registers.slice(-1);
-                        console.log('current_stu_course',current_stu_course); 
+                        // console.log('current_stu_course',current_stu_course); 
                         // console.log('last_exam',last_exam);  
                         
                         if(current_stu_course[0].mac_type == 1){
@@ -1912,6 +1927,7 @@
                                     let batch_id = localStorage.getItem('batch_id');
                                     $('.batch_id').val(batch_id);
                                     $(".batch_number").append(number2mm(current_stu_course[0].batch.number));
+                                    $('#remain_module').val("fail");
                                 } 
                             }
                             else{
@@ -1921,13 +1937,14 @@
                             }                    // $('.batch_no').val(current_stu_course[0].batch.number);
                             
 
-                        var info = data.data;                        
+                        var info = data.data;   
+                                         
                         var student_register = info.student_register.slice(-1)
                         
 
                         //show or hide direct_access_no and entry_success
-                        if(last_exam.length==0 || info.da_pass_roll_number || student_register[0].direct_access_no){
-                            // console.log("for direct");
+                        if(last_exam.length==0 || info.da_pass_roll_number || student_register[0]?.direct_access_no || student_course_regs[1].qt_entry != 1){
+                            // alert("for direct");
                             $("#direct_access_no_self_div").show();
                             $("#entry_success_no_self_div").hide();
                             $("#entry_success_roll_no_self_div").hide();
@@ -1944,7 +1961,7 @@
                             $("#direct_access_no_private").val(current_stu_course[0].batch.number);
                             $("#direct_access_no_mac").val(current_stu_course[0].batch.number);
                         }
-                        else if(student_register[0].entry_success_no || last_exam[0].exam_type_id == 3 || last_exam[0].exam_type_id == 2){   
+                        else if(student_register[0]?.entry_success_no || last_exam[0].exam_type_id == 3 || last_exam[0].exam_type_id == 2){   
                             console.log("for entry1");                        
                             $("#direct_access_no_self_div").hide();
                             $("#entry_success_no_self_div").show();
@@ -1965,23 +1982,6 @@
                             $("#entry_success_roll_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
                             $("#entry_success_roll_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
                             $("#entry_success_roll_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : "");
-                        }else if(student_course_regs[1].qt_entry != 1){
-                            // console.log("for existing direct");
-                            $("#direct_access_no_self_div").show();
-                            $("#entry_success_no_self_div").hide();
-                            $("#entry_success_roll_no_self_div").hide();
-
-                            $("#direct_access_no_private_div").show();
-                            $("#entry_success_no_private_div").hide();
-                            $("#entry_success_roll_no_private_div").hide();
-
-                            $("#direct_access_no_mac_div").show();
-                            $("#entry_success_no_mac_div").hide();
-                            $("#entry_success_roll_no_mac_div").hide();
-
-                            $("#direct_access_no_self").val(current_stu_course[0].batch.number);
-                            $("#direct_access_no_private").val(current_stu_course[0].batch.number);
-                            $("#direct_access_no_mac").val(current_stu_course[0].batch.number);
                         }else{
                             console.log("for entry2");
                             $("#direct_access_no_self_div").hide();
@@ -2026,8 +2026,13 @@
                         $("#mac_container").find("input[name=address]").val(info.address);
                         $("#mac_container").find("input[name=current_address]").val(info.current_address);
                         $("#mac_container").find("input[id=personal_no_mac]").val(info.cpersonal_no);
-                        $("#mac_container").find("input[name=degree_name]").val(education_history.degree_name);
-
+                        // $("#mac_container").find("input[name=degree_name]").val(education_history.degree_name);
+                        $("#mac_container").find(".degree_id").val(education_history.degree_id);
+                        if(education_history.degree_id == 40){
+                                
+                            $("#mac_container").find("input[name=degree_name]").val(education_history.degree_name);
+                            $("#mac_container").find('.other_degree_name').show();
+                        }
                         $("#mac_container").find("input[name=name]").val(job_history.company_name);
                         $("#mac_container").find("input[name=position]").val(job_history.position);
                         $("#mac_container").find("input[name=department]").val(job_history.department);
@@ -2056,8 +2061,13 @@
                         $("#self_study_container").find("input[name=current_address]").val(info.current_address);
                         $("#self_study_container").find("input[id=personal_no_self]").val(info.cpersonal_no);
 
-                        $("#self_study_container").find("input[name=degree_name]").val(education_history.degree_name);
-
+                        // $("#self_study_container").find("input[name=degree_name]").val(education_history.degree_name);
+                        $("#self_study_container").find(".degree_id").val(education_history.degree_id);
+                        if(education_history.degree_id == 40){
+                                
+                            $("#self_study_container").find("input[name=degree_name]").val(education_history.degree_name);
+                            $("#self_study_container").find('.other_degree_name').show();
+                        }
                         $("#self_study_container").find("input[name=name]").val(job_history.company_name);
                         $("#self_study_container").find("input[name=position]").val(job_history.position);
                         $("#self_study_container").find("input[name=department]").val(job_history.department);
@@ -2086,8 +2096,13 @@
                         $("#private_school_container").find("input[name=current_address]").val(info.current_address);
                         $("#private_school_container").find("input[id=personal_no_private]").val(info.cpersonal_no);
 
-                        $("#private_school_container").find("input[name=degree_name]").val(education_history.degree_name);
-
+                        // $("#private_school_container").find("input[name=degree_name]").val(education_history.degree_name);
+                        $("#private_school_container").find(".degree_id").val(education_history.degree_id);
+                        if(education_history.degree_id == 40){
+                                
+                            $("#private_school_container").find("input[name=degree_name]").val(education_history.degree_name);
+                            $("#private_school_container").find('.other_degree_name').show();
+                        }
                         $("#private_school_container").find("input[name=name]").val(job_history.company_name);
                         $("#private_school_container").find("input[name=position]").val(job_history.position);
                         $("#private_school_container").find("input[name=department]").val(job_history.department);

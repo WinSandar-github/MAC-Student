@@ -303,6 +303,7 @@
                                                         <span class="btn btn-round btn-secondary btn-file">
                                                         <span class="fileinput-new">ဓာတ်ပုံ</span>
                                                         <span class="fileinput-exists">Change</span>
+                                                        <input type="hidden" id="himage">
                                                         <input type="file" id="profile_photo" name="profile_photo" accept="image/*"></span>
                                                         <br>
                                                         <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
@@ -323,7 +324,7 @@
                                                         <span class="btn btn-secondary btn-round btn-file">
                                                             <span class="fileinput-new">နိုင်ငံသားစိစစ်ရေးကတ်ပြား(အရှေ့)</span>
                                                             <span class="fileinput-exists">Change</span>
-                                                            <input type="hidden" value="">
+                                                            <input type="hidden" id="hnrc_front">
                                                             <input type="file" id="nrc_front" name="nrc_front" value="{{ old('nrc_front') }}" accept="image/*">
                                                         </span>
                                                         <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
@@ -343,7 +344,7 @@
                                                             <span class="btn btn-secondary btn-round btn-file">
                                                                 <span class="fileinput-new">နိုင်ငံသားစိစစ်ရေးကတ်ပြား(အနောက်)</span>
                                                                 <span class="fileinput-exists">Change</span>
-                                                                <input type="hidden" value=""><input type="file" id="nrc_back" name="nrc_back" value="{{ old('nrc_back') }}" accept="image/*">
+                                                                <input type="hidden" id="hnrc_back"><input type="file" id="nrc_back" name="nrc_back" value="{{ old('nrc_back') }}" accept="image/*">
                                                             </span>
                                                         <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                     </div>
@@ -747,7 +748,9 @@
             var pass_month = pass_date.getMonth();
             $("#pass_year").text(pass_year);
             $("#pass_month").text(pass_month);
-
+            $("#hnrc_front").val(student_info.nrc_front);
+            $("#hnrc_back").val(student_info.nrc_back);
+            $("#himage").val(student_info.image);
             // if(module == 1){
             //     $("#module_name").text("1");
             // }else if(module == 2){

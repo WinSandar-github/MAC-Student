@@ -195,9 +195,13 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                 <div class="row mb-3">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ပညာအရည်အချင်း</label>
-                                                    <div class="col-md-8">
-                                                        <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name"
-                                                            class="form-control" value="{{ old('degree_name') }}" readonly="">
+                                                    <div class="col-md-4">
+                                                        <select disabled name="degree_id"  class="form-control degree_id" >
+                                                            
+                                                        </select>    
+                                                    </div>
+                                                    <div class="col-md-4 other_degree_name" style="display:none;">
+                                                        <input readonly type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name"   >
                                                     </div>
                                                 </div>
 
@@ -569,7 +573,7 @@ $nrc_characters = config('myanmarnrc.characters');
 <script src="{{ asset('js/form_validation/da_two_exam_validation.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function(e) {
-
+            getDegree();
             get_student_info(student_id).then(data => {
             
                 let student_info = data.data
@@ -678,7 +682,13 @@ $nrc_characters = config('myanmarnrc.characters');
                     }
 
                     let education = student_info.student_education_histroy;
-                    $("input[name='degree_name']").val(education.degree_name);
+                    // $("input[name='degree_name']").val(education.degree_name);
+                    $(".degree_id").val(education.degree_id);
+                    if(education.degree_id == 40){
+                            
+                        $("input[name=degree_name]").val(education.degree_name);
+                        $('.other_degree_name').show();
+                    }
 
                     let job = student_info.student_job;
                     $("input[name='job_name']").val(job.name);
@@ -720,11 +730,13 @@ $nrc_characters = config('myanmarnrc.characters');
                     if(current_stu_course[0].type == 0){
                         $("input[name='class_address']").val("ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူ");
                     }else if(current_stu_course[0].type == 1){
-                        $("input[name='class_address']").val("ကိုယ်ပိုင်သင်တန်းကျောင်း");
+                        $("input[name='class_address']").val("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း");
+                    }else if(current_stu_course[0].type == 2 && current_stu_course[0].mac_type == 1){   
+                        $("input[name='class_address']").val("စာရင်းကောင်စီ(ရန်ကုန်သင်တန်းကျောင်း)");
+                    }else if(current_stu_course[0].type == 2 && current_stu_course[0].mac_type == 2){
+                        $("input[name='class_address']").val("စာရင်းကောင်စီ(နေပြည်တော်သင်တန်းကျောင်း)");
                     }else{
-                        var mac_name = current_stu_course[0].mac_type == 2 ?   "စာရင်းကောင်စီ(နေပြည်တော်သင်တန်းကျောင်း)" : "စာရင်းကောင်စီ(ရန်ကုန်သင်တန်းကျောင်း)";
-
-                        $("input[name='class_address']").val(mac_name);
+                        $("input[name='class_address']").val("");
                     }
                 }
 

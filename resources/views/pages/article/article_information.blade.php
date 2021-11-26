@@ -241,6 +241,7 @@
                         }
                         $('#articleModal').modal('toggle');
                     }else if(latest_article[0]?.resign_status == 1 && latest_article[0]?.article_form_type == 'resign'){
+
                         if(student_info.offline_user == 1){
                             if(exam_registers[0].form_type == 4){
                                 $("#c12_renew_btn").hide();
@@ -248,6 +249,11 @@
                                 $("#c2_pass_renew_btn").hide();
                             }
                         }
+
+												if(student_info.article[0].article_form_type == 'c2_pass_1yr'){
+													$("#c12_renew_btn").hide();
+												}
+
                         // else{
                         //     if(exam_registers[0].form_type == 4 && (exam_results[0]?.registeration_id == exam_registers[0]?.id)){
                         //         $("#c12_renew_btn").hide();
@@ -255,6 +261,17 @@
                         //         $("#c2_pass_renew_btn").hide();
                         //     }
                         // }
+                        if(data.data.article[0].article_form_type=="c2_pass_qt_pass_3yr" || data.data.article[0].article_form_type=="c2_pass_1yr" || data.data.article[0].article_form_type=="c2_pass_renew"){
+                            $("#c12_renew_btn").hide();
+                            $('#c2_pass_renew_btn').click(function () {
+                                location.href = FRONTEND_URL + '/article_cpa_two_renew?id=' + data.data.article[0].id;
+                            });
+                        }else if(data.data.article[0].article_form_type=="c12_renew" || data.data.article[0].article_form_type=="c12"){
+                            $("#c2_pass_renew_btn").hide();
+                            $('#c12_renew_btn').click(function () {
+                                location.href = FRONTEND_URL + '/article_cpa_one_two_renew?id=' + data.data.article[0].id;
+                            });
+                        }
                         $("#firm_article_row").hide();
                         $("#c12_btn").hide();
                         $("#c2_pass_1yr_btn").hide();
@@ -313,7 +330,7 @@
                                         $("#gov_article_row").hide();
                                     }
                                 }else{
-																		$("#gov_article_row").hide();
+									$("#gov_article_row").hide();
                                     $("#c2_pass_3yr_btn").hide();
                                     $("#c2_pass_1yr_btn").hide();
                                     $("#qt_pass_3yr_btn").hide();
@@ -368,18 +385,19 @@
         $('#c12_btn').click(function () {
             location.href = FRONTEND_URL + '/article_firm_registration?data=' + 'c12';
         });
-        $('#c2_pass_1yr_btn').click(function () {
-            location.href = FRONTEND_URL + '/article_firm_registration?data=' + 'c2_pass_1yr';
-        });
+        // $('#c2_pass_1yr_btn').click(function () {
+        //     location.href = FRONTEND_URL + '/article_firm_registration?data=' + 'c2_pass_1yr';
+        // });
         $('#qt_pass_3yr_btn').click(function () {
             location.href = FRONTEND_URL + '/article_qt_firm_registration';
         });
-        $('#c2_pass_renew_btn').click(function () {
-            location.href = FRONTEND_URL + '/article_renew_firm_registration?data=' + 'c2_pass_renew';
-        });
-        $('#c12_renew_btn').click(function () {
-            location.href = FRONTEND_URL + '/article_renew_firm_registration?data=' + 'c12_renew';
-        });
+        // $('#c2_pass_renew_btn').click(function () {
+        //     //location.href = FRONTEND_URL + '/article_renew_firm_registration?data=' + 'c2_pass_renew';
+        //     location.href = FRONTEND_URL + '/article_cpa_two_renew?data=' + 'c2_pass_renew';
+        // });
+        // $('#c12_renew_btn').click(function () {
+        //     location.href = FRONTEND_URL + '/article_renew_firm_registration?data=' + 'c12_renew';
+        // });
 
         $('#articel_gov_btn').click(function () {
             location.href = FRONTEND_URL + '/article_gov_registration';

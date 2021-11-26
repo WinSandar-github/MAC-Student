@@ -39,7 +39,7 @@ $().ready(function (){
             // recommend_letter : {
             //     required : "#gov_staff:checked"
             // },
-            // degree_name : "required",
+            degree_id: "required",
             // university_name : "required",
             // roll_number : "required",
             // qualified_date : "required",
@@ -96,6 +96,7 @@ $().ready(function (){
             current_address : "Please enter your current address",
             address : "Please enter your address",
             gov_staff : "Please select one",
+            degree_id: "Please Select One",
             // recommend_letter : {
             //     required : "Please upload recommend letter"
             // },
@@ -173,6 +174,7 @@ $().ready(function (){
             address: "required",
             gov_staff: "required",
             qt_entry: "required",
+            degree_id: "required",
             // attend_place: "required",
             // mac_type: {
             //     required: "#main_mac:checked"
@@ -230,7 +232,7 @@ $().ready(function (){
             // recommend_letter: {
             //     required: "Please upload recommend letter"
             // },
-            // degree_name : "Please enter your degree name",
+            degree_id: "Please select one",
             // university_name : "Please enter your university name",
             // roll_number : "Please enter your roll number",
             // qualified_date : "Please fill your qualified date",

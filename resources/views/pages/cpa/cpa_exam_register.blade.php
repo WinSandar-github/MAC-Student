@@ -326,8 +326,14 @@
                                                 <div class="row mb-3">
                                                     <label class="col-md-4 col-form-label label">
                                                         <span class="pull-left" style="padding-left: 113px;">{{ __('(ခ)') }}</span>ဘွဲ့အမည်</label>
-                                                    <div class="col-md-8">
-                                                        <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" id="degree_name" class="form-control" readonly>
+                                                    <div class="col-md-4">        
+                                                        <select disabled name="degree_id" class="form-control degree_id">
+                                                        
+                                                        </select>
+        
+                                                    </div>
+                                                    <div class="col-md-4 other_degree_name" style="display:none;">
+                                                        <input disabled type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name"   >
                                                     </div>
                                                 </div>
                                                 
@@ -663,7 +669,7 @@
 
         const queryString = location.search;
         const urlParams = new URLSearchParams(queryString);
-
+        getDegree();
         selectedRegistration(urlParams.get("study_type"));
 // console.log("study_type",selectedRegistration(urlParams.get("study_type")));
         get_student_info(student_id).then(data => {
@@ -681,8 +687,6 @@
            }
 
             let current_stu_reg=student_info.student_register.slice(-1);
-
-            console.log('current_stu_reg',current_stu_reg)
 
             if(current_stu_reg[0].entry_success_no){
                 $("#entry_success_no").val(current_stu_reg[0].entry_success_no);
@@ -723,19 +727,16 @@
                 $("#female").prop("checked",true);
             }
 
-            if(current_stu_reg[0].type == 0){
+            if(current_stu_course[0].type == 0){
                 $("input[name='attend_place']").val("ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ");
-            }else if(current_stu_reg[0].type == 1){
+            }else if(current_stu_course[0].type == 1){
                 $("input[name='attend_place']").val("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း");
-            }else if(student_info.student_register[0].type == 2 && student_info.student_course_regs[0].mac_type == 1){
-
-                // var mac_name =   current_stu_course[0].mac_type == 2 ?   "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(နေပြည်တော်သင်တန်းကျောင်း)" : "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(ရန်ကုန်သင်တန်းကျောင်း)";
-
-
-                // $("input[name='attend_place']").val(mac_name);
+            }else if(current_stu_course[0].type == 2 && current_stu_course[0].mac_type == 1){
                 $("input[name='attend_place']").val("ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(ရန်ကုန်သင်တန်းကျောင်း)");
-            }else {
+            }else if(current_stu_course[0].type == 2 && current_stu_course[0].mac_type == 2){
                 $("input[name='attend_place']").val("ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(နေပြည်တော်သင်တန်းကျောင်း)");
+            }else{
+                $("input[name='attend_place']").val("");
             }
 
             let exam_registers = student_info.exam_registers.slice(-1);
@@ -765,16 +766,22 @@
                 $("input[name='phone']").val(data.data.phone);
 
                 $("input[name='university_name']").val(data.data.student_education_histroy.university_name);
-                $("input[name='degree_name']").val(data.data.student_education_histroy.degree_name);
+                // $("input[name='degree_name']").val(data.data.student_education_histroy.degree_name);
+                $(".degree_id").val(data.data.student_education_histroy.degree_id);
+                if(data.data.student_education_histroy.degree_id == 40){
+                        
+                    $("input[name=degree_name]").val(data.data.student_education_histroy.degree_name);
+                    $('.other_degree_name').show();
+                }
                 $("input[name='roll_number']").val(data.data.student_education_histroy.roll_number);
                 $("input[name='qualified_date']").val(data.data.student_education_histroy.qualified_date);
 
                 $("input[name='private_school_name']").val(current_stu_reg[0].private_school_name);
 
                 $("input[name='personal_no']").val(data.data.cpersonal_no);
-                // console.log(exam_registers)
+                console.log(exam_registers[0])
 
-                if(exam_registers && exam_registers[0].exam_type_id !== 3)
+                if(exam_registers && exam_registers[0]?.exam_type_id !== 3)
                 {
                      
                     // if(exam_registers[0].is_full_module == "1")
@@ -799,21 +806,21 @@
                         
                     // }
 
-                    if(exam_registers[0].is_full_module == "1")
+                    if(exam_registers[0]?.is_full_module == "1")
                     {
                         
                         $("#lst_m1").prop("checked", true);
                         $("#lst_m2").attr("disabled", "disabled"); 
                         
                     }
-                    else if(exam_registers[0].is_full_module=="2"){
+                    else if(exam_registers[0]?.is_full_module=="2"){
                         $("#lst_m2").prop("checked", true);
                         $("#lst_m1").attr("disabled", "disabled"); 
 
 
                     }
-                    $("#last_ans_exam_no").val(exam_registers[0].batch.number);
-                    $("#date").val(formatDate(exam_registers[0].updated_at));
+                    $("#last_ans_exam_no").val(exam_registers[0]?.batch.number);
+                    $("#date").val(formatDate(exam_registers[0]?.updated_at));
                 }
 
                 

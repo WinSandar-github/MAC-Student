@@ -107,19 +107,19 @@
                                                 </div>
 
                                                 <div class="row mb-4">
-                                                    <label class="col-md-6 col-form-label label"><span class="pull-left">၂။</span>လျို့ဝှက်နံပါတ်<span style="color:red">*</span></label>
+                                                    <label class="col-md-6 col-form-label label"><span class="pull-left">၂။</span>လျှို့ဝှက်နံပါတ်<span style="color:red">*</span></label>
                                                     <div class="col-md-6">
                                                         <div>
-                                                            <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ။" name="password" id="password" class="form-control" value="{{ old('password') }}" minlength="8">
+                                                            <input type="password" placeholder="လျှို့ဝှက်နံပါတ်ထည့်ပါ။" name="password" id="password" class="form-control" value="{{ old('password') }}" minlength="8">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-6 col-form-label label"><span class="pull-left">၃။</span>လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း<span style="color:red">*</span></label>
+                                                    <label class="col-md-6 col-form-label label"><span class="pull-left">၃။</span>လျှို့ဝှက်နံပါတ်အတည်ပြုခြင်း<span style="color:red">*</span></label>
                                                     <div class="col-md-6">
                                                         <div>
-                                                            <input type="password" placeholder="လျို့ဝှက်နံပါတ်ကို ထပ်မံထည့်ပါ။" name="confirm_password" class="form-control" minlength="8">
+                                                            <input type="password" placeholder="လျှို့ဝှက်နံပါတ်ကို နောက်တစ်ကြိမ်ထပ်မံထည့်ပါ။" name="confirm_password" class="form-control" minlength="8">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -466,8 +466,15 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>ဘွဲ့အမည်</label>
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" >
+                                            <div class="col-md-4">
+                                                <select name="degree_id"  class="form-control degree_id" >
+                                                    
+                                                </select>
+                                            <label  class="error degree_id_error" style="display:none;" for="degree_id">Please select one</label>
+
+                                            </div>
+                                            <div class="col-md-4" id="other_degree_name" style="display:none;">
+                                                <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name" required >
                                             </div>
                                         </div>
 
@@ -933,9 +940,13 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>ဘွဲ့အမည်</label>
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name"
-                                                        class="form-control" value="" disabled>
+                                            <div class="col-md-4">
+                                                <select disabled name="degree_id"  class="form-control degree_id" >
+                                                    
+                                                </select>    
+                                            </div>
+                                            <div class="col-md-4 other_degree_name" style="display:none;">
+                                                <input readonly type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name"   >
                                             </div>
                                         </div>
 
@@ -1268,8 +1279,27 @@
         localStorage.removeItem('course_type');
         localStorage.removeItem('batch_id');
         direct_or_da();
-
         
+
+        $(".dir_cpa_app_form").find('.degree_id').select2({
+            placeholder: "Select Degree"
+        });
+
+        $(".dir_cpa_app_form").find('.degree_id').change(function(){
+            var selectedDegree = $(this).val();
+            if(selectedDegree == 40){ 
+                $(".dir_cpa_app_form").find('#other_degree_name').show()
+                $(".dir_cpa_app_form").find('#degree_name').prop('required',true)
+            
+            }
+            else{
+                $(".dir_cpa_app_form").find('#other_degree_name').hide()
+                $(".dir_cpa_app_form").find('#degree_name').prop('required',false)
+
+            };
+            
+        })
+        getDegree();
 
         $("input[name='degree_date']").flatpickr({
                 enableTime: false,
@@ -1402,7 +1432,14 @@
                       }
 
                       if(education_history){
-                        $(".da_to_cpa").find("input[name=degree_name]").val(education_history.degree_name);
+                        // $(".da_to_cpa").find("input[name=degree_name]").val(education_history.degree_name);
+                        $(".da_to_cpa").find(".degree_id").val(education_history.degree_id);
+                        if(education_history.degree_id == 40){
+                                
+                            $(".da_to_cpa").find("input[name=degree_name]").val(education_history.degree_name);
+                            $(".da_to_cpa").find('.other_degree_name').show();
+                        }
+
                         $(".da_to_cpa").find("input[name=university_name]").val(education_history.university_name);
                         $(".da_to_cpa").find("input[name=roll_number]").val(education_history.roll_number);
                         $(".da_to_cpa").find("input[name=qualified_date]").val(education_history.qualified_date);

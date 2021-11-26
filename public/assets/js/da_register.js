@@ -136,6 +136,7 @@ function createDARegister() {
     send_data.append('office_address', $("input[name=office_address]").val());
     send_data.append('university_name', $("input[name=university_name]").val());
     send_data.append('degree_name', $("input[name=degree_name]").val());
+    send_data.append('degree_id', $(".degree_id").val());
     // send_data.append('certificate', certificate);
     $('input[name="certificate[]"]').map(function () {
 
@@ -581,7 +582,7 @@ function CreateDAExistingRegister() {
 
     send_data.append('university_name', $("input[name=university_name]").val());
     send_data.append('degree_name', $("input[name=degree_name]").val());
-    // send_data.append('certificate', certificate);
+    send_data.append('degree_id', $(".degree_id").val());
     $('input[name="certificate[]"]').map(function () {
 
         for (var i = 0; i < $(this).get(0).files.length; ++i) {
@@ -726,8 +727,7 @@ function updateDAExistingRegister() {
 
     send_data.append('university_name', $("input[name=university_name]").val());
     send_data.append('degree_name', $("input[name=degree_name]").val());
-    // send_data.append('certificate', certificate);
-
+    send_data.append('degree_id', $(".degree_id").val());
     $('input[name="certificate[]"]').map(function () {
 
         for (var i = 0; i < $(this).get(0).files.length; ++i) {

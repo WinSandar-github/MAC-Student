@@ -99,16 +99,16 @@
                                             </div>
 
                                             <div class="row mb-5">
-                                                <label class="col-md-5 col-form-label label"><span class="pull-left">၂။</span>လျို့ဝှက်နံပါတ်<span style="color:red">*</span></label>
+                                                <label class="col-md-5 col-form-label label"><span class="pull-left">၂။</span>လျှို့ဝှက်နံပါတ်<span style="color:red">*</span></label>
                                                 <div class="col-md-7" style="padding-left:35px;">
-                                                    <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password" minlength="8">
+                                                    <input type="password" placeholder="လျှို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password" minlength="8">
                                                 </div>
                                             </div>
 
                                             <div class="row mb-5">
-                                                <label class="col-md-5 col-form-label label"><span class="pull-left">၃။</span>လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း<span style="color:red">*</span></label>
+                                                <label class="col-md-5 col-form-label label"><span class="pull-left">၃။</span>လျှို့ဝှက်နံပါတ်အတည်ပြုခြင်း<span style="color:red">*</span></label>
                                                 <div class="col-md-7" style="padding-left:35px;">
-                                                    <input type="password" placeholder="လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း" name="confirm_password" class="form-control" id="confirm_password">
+                                                    <input type="password" placeholder="လျှို့ဝှက်နံပါတ်ကို နောက်တစ်ကြိမ်ထပ်မံထည့်ပါ။" name="confirm_password" class="form-control" id="confirm_password">
                                                 </div>
                                             </div>
                                         </div>
@@ -392,8 +392,15 @@
 
                                         <div class="row mb-3" style="margin-left: 80px">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">(က)</span>ဘွဲ့အမည်</label>
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" >
+                                            <div class="col-md-4">
+                                                <select name="degree_id"  class="form-control degree_id" >
+                                                    
+                                                </select>
+                                            <label  class="error degree_id_error" style="display:none;" for="degree_id">Please select one</label>
+
+                                            </div>
+                                            <div class="col-md-4" id="other_degree_name" style="display:none;">
+                                                <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name" required >
                                             </div>
                                         </div>
 
@@ -793,6 +800,11 @@
 
         $(document).ready(function (e) {
             localStorage.removeItem('course_type');
+            $('.degree_id').select2({
+                placeholder: "Select Degree"
+            });            
+ 
+            getDegree();
 
             $("#batch_number").append(number2mm($(".batch_number").val()));
             $("input[name='date']").flatpickr({
@@ -886,6 +898,21 @@
             $("input.entry_success_roll_no").keypress(function(event) {
                 return /\d/.test(String.fromCharCode(event.keyCode));
             });
+
+            $('.degree_id').change(function(){
+                var selectedDegree = $(this).val();
+                if(selectedDegree == 40){ 
+                    $('#other_degree_name').show()
+                    $('#degree_name').prop('required',true)
+                
+                }
+                else{
+                    $('#other_degree_name').hide()
+                    $('#degree_name').prop('required',false)
+
+                };
+                
+            })
 
             // $(document).on('keydown', '#cpa_one_pass_personal_no', function () {
             //     EngLetterOnly($(this));

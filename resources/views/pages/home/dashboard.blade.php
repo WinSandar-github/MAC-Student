@@ -401,6 +401,7 @@
                                                     <th>Course Name</th>
                                                     <th>Batch Name</th>
                                                     <th>Module</th>
+                                                    <th>Remark</th>
                                                     <th>Year</th>
 
                                                 </thead>
@@ -755,6 +756,17 @@
                                     </table>
                                 </div>
                             </div>
+                            <div class="row article_reject-btn" style="display:none;">
+                                    <div class="col-md-6"></div>
+                                    <div>
+
+                                            <div class=" pull-right mt-4">
+                                                <p class="info-btn text-dark h6 article-reject-p">
+
+                                                </p>
+                                            </div>
+                                    </div>
+                                </div>
                         </div>
                         <div id="article_row_exist" style="display:none;">
                                 <div class="col-md-12 ">
@@ -779,9 +791,12 @@
                                             </tfoot>
                                         </table>
                                     </div>
+                                    
                                 </div>
-                            </div>
+                                
+                        </div>
                     </div>
+                    
                     <div class="card-body cpaff_other">
                             <div class="row">
                                 <div class="col-md-3">
