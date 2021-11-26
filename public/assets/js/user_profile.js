@@ -1814,7 +1814,9 @@ function user_profile() {
 
                         //check entry exam or direct
                         if (latest_course_reg[0].qt_entry == 1) {
+                            
                             let std_id = latest_course_reg[0].student_info_id;
+                            let exam_reg_id =last_exam[0].id;
                             if (last_exam[0].status == 0) {
                                 $('.status').append(`
                                 <tr>
@@ -1827,17 +1829,18 @@ function user_profile() {
 
 
                             } else if (last_exam[0].status == 1) {
+                         
                                 if (latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1") {
-
-                                    $invoice_code = latest_course_reg[0].batch.course.code == "da_1" ? 'app_form_' + std_id : 'cpa_app_'+ std_id;
-
+                                    
+                                    $invoice_code = latest_course_reg[0].batch.course.code == "da_1" ? 'app_form_' + exam_reg_id : 'exm_cpa_1_'+ exam_reg_id;
                                     var invoice = data.invoice.filter(val => {
                                         return val.invoiceNo == $invoice_code && val.status == 0;
                                     });
+                                    
                                     if (latest_course_reg[0]?.is_finished == 0) {
+                                       
 
                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
-
 
                                             $('.status').append(`
                                             <tr>
@@ -2107,10 +2110,11 @@ function user_profile() {
 
 
                                 let std_id = latest_course_reg[0].student_info_id;
+                                let std_course_id = latest_course_reg[0].id;
 
                                 if (latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1") {
 
-                                    $invoice_code = latest_course_reg[0].batch.course.code == "da_1" ? 'app_form_' + std_id : 'cpa_app_'+ std_id;
+                                    $invoice_code = latest_course_reg[0].batch.course.code == "da_1" ? 'app_form_' + std_course_id : 'cpa_app_'+ std_course_id;
 
                                     var invoice = data.invoice.filter(val => {
                                         return val.invoiceNo == $invoice_code && val.status == 0;

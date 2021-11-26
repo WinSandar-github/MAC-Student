@@ -228,6 +228,9 @@
 
 <script src="{{ asset('assets/js/da_one_existing.js') }}"></script>
 
+{{-- Degree --}}
+<script src="{{ asset('assets/js/degrees.js') }}"></script>
+
 <!-- <script src="{{ asset('assets/js/da_two_exam_register.js') }}"></script> -->
 <script src="{{ asset('assets/js/non_audit_firm.js') }}"></script>
 <script src="{{ asset('assets/js/mentor_mac.js') }}"></script>

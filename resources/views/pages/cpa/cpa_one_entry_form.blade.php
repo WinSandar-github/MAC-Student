@@ -467,8 +467,15 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>ဘွဲ့အမည်</label>
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" >
+                                            <div class="col-md-4">
+                                                <select name="degree_id"  class="form-control degree_id" >
+                                                    
+                                                </select>
+                                            <label  class="error degree_id_error" style="display:none;" for="degree_id">Please select one</label>
+
+                                            </div>
+                                            <div class="col-md-4" id="other_degree_name" style="display:none;">
+                                                <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name" required >
                                             </div>
                                         </div>
 
@@ -834,6 +841,12 @@
         localStorage.removeItem('course_type');
         localStorage.removeItem('batch_id');
         direct_or_da();
+        $('.degree_id').select2({
+                placeholder: "Select Degree"
+            });            
+ 
+            getDegree();
+
 
         $("input[name='degree_date']").flatpickr({
                 enableTime: false,
@@ -967,6 +980,21 @@
                     //$(".da_to_cpa").find("input").prop('disabled',true);
               })
             }
+
+            $('.degree_id').change(function(){
+                var selectedDegree = $(this).val();
+                if(selectedDegree == 40){ 
+                    $('#other_degree_name').show()
+                    $('#degree_name').prop('required',true)
+                
+                }
+                else{
+                    $('#other_degree_name').hide()
+                    $('#degree_name').prop('required',false)
+
+                };
+                
+            })
 
 
     });

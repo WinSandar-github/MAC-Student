@@ -204,9 +204,13 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                 <div class="row mb-3">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ပညာအရည်အချင်း</label>
-                                                    <div class="col-md-8">
-                                                        <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name"
-                                                            class="form-control" value="{{ old('degree_name') }}" readonly="">
+                                                    <div class="col-md-4">
+                                                        <select disabled name="degree_id"  class="form-control degree_id" >
+                                                            
+                                                        </select>    
+                                                    </div>
+                                                    <div class="col-md-4 other_degree_name" style="display:none;">
+                                                        <input readonly type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name"   >
                                                     </div>
                                                 </div>
 
@@ -749,9 +753,13 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                 <div class="row mb-3">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ပညာအရည်အချင်း</label>
-                                                    <div class="col-md-8">
-                                                        <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name"
-                                                            class="form-control" value="{{ old('degree_name') }}" readonly="">
+                                                    <div class="col-md-4">
+                                                        <select disabled name="degree_id"  class="form-control degree_id" >
+                                                            
+                                                        </select>    
+                                                    </div>
+                                                    <div class="col-md-4 other_degree_name" style="display:none;">
+                                                        <input readonly type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name"   >
                                                     </div>
                                                 </div>
 
@@ -1144,9 +1152,13 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                 <div class="row mb-3">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ပညာအရည်အချင်း</label>
-                                                    <div class="col-md-8">
-                                                        <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name"
-                                                            class="form-control" value="{{ old('degree_name') }}" readonly="">
+                                                    <div class="col-md-4">
+                                                        <select disabled name="degree_id"  class="form-control degree_id" >
+                                                            
+                                                        </select>    
+                                                    </div>
+                                                    <div class="col-md-4 other_degree_name" style="display:none;">
+                                                        <input readonly type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name"   >
                                                     </div>
                                                 </div>
 
@@ -1594,6 +1606,7 @@ $nrc_characters = config('myanmarnrc.characters');
             const queryString = location.search;
             const urlParams = new URLSearchParams(queryString);
             $('#form_type').val(localStorage.getItem("course_id"));
+            getDegree();
             selectedRegistration(urlParams.get("study_type"));
 
             $(".batch_name").append(number2mm($(".batch_number").val()));
@@ -1716,8 +1729,13 @@ $nrc_characters = config('myanmarnrc.characters');
                     }
 
                     let education = student_info.student_education_histroy;
-                    $("input[name='degree_name']").val(education.degree_name);
-
+                    // $("input[name='degree_name']").val(education.degree_name);
+                    $(".degree_id").val(education.degree_id);
+                    if(education.degree_id == 40){
+                            
+                        $("input[name=degree_name]").val(education.degree_name);
+                        $('.other_degree_name').show();
+                    }
                     let job = student_info.student_job;
                     $("input[name='job_name']").val(job.name);
                     $("input[name='position']").val(job.position);
