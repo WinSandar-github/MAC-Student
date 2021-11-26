@@ -896,7 +896,9 @@
             $("#race").val(student_info.race);
             $("#religion").val(student_info.religion);
             $("#date_of_birth").val(student_info.date_of_birth);
-
+            console.log(BASE_URL+student_info.nrc_front)
+            $("#previewNRCFrontImg").attr("src",BASE_URL+student_info.nrc_front);
+            $("#previewNRCBackImg").attr("src",BASE_URL+student_info.nrc_back);
             if(qualified_test != null){
                 $("#firm_education").hide();
                 $("#qt_education").show();

@@ -217,6 +217,21 @@ function createArticleFirmRegister() {
             });
     }
     else{
+        if($("input[name=nrc_front]")[0].files[0]){
+            send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
+        }else{
+            send_data.append('nrc_front', $('#hnrc_front').val());
+        }
+        if($("input[name=nrc_back]")[0].files[0]){
+            send_data.append('nrc_back', $("input[name=nrc_back]")[0].files[0]);
+        }else{
+            send_data.append('nrc_back', $('#hnrc_back').val());
+        }
+        if($("input[name=profile_photo]")[0].files[0]){
+            send_data.append('image', $("input[name=profile_photo]")[0].files[0]);
+        }else{
+            send_data.append('image', $('#himage').val());
+        }
         $.ajax({
             type: "POST",
             data: send_data,
@@ -671,6 +686,7 @@ function loadArticle()
         data: "",
         success: function (data) {
             var student_info = data.student_info;
+            $("#offline_user").val(data.offline_user);
             if(data.status!=2){
                 // if(data.article_form_type=="c2_pass_qt_pass_3yr" || data.article_form_type=="c2_pass_1yr"){
                     $('input[name=update_gender]').attr('disabled',true);
@@ -762,12 +778,12 @@ function loadArticle()
             
             $('input[name=pass_date]').val(data.exam_pass_date);
 
-            if(student_info.gender == 1){
+            if(student_info.gender == 1 || student_info.gender=="Male"){
                 $('input:radio[id=male1]').attr('checked',true);
             }else{
                 $('input:radio[id=female1]').attr('checked',true);
             }
-            if(student_info.gender == 1){
+            if(student_info.gender == 1 || student_info.gender=="Male"){
                 $('input:radio[id=male2]').attr('checked',true);
                 
             }else{
@@ -793,7 +809,7 @@ function loadArticle()
 
                 let certificate = JSON.parse(student_info.qualified_test.local_education_certificate);
                 $.each(certificate, function (fileCount, fileName) {
-                    $(".certificate").append(`<a href='${PDF_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);
+                    $(".certificate").append(`<a href='${BASE_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);
 
                 })
 
@@ -808,7 +824,7 @@ function loadArticle()
 
                     let certificate = JSON.parse(student_info.student_education_histroy.certificate);
                     $.each(certificate, function (fileCount, fileName) {
-                        $(".certificate").append(`<a href='${PDF_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);
+                        $(".certificate").append(`<a href='${BASE_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);
                     })
                 }
             }
@@ -1102,6 +1118,7 @@ function loadResignArticle() {
             $("#update_race").val(student_info.race);
             $("#update_religion").val(student_info.religion);
             $("#update_date_of_birth").val(student_info.date_of_birth);
+            $("#offline_user").val(data.offline_user);
 
             if (qualified_test != null) {
                 $("#firm_education").hide();
@@ -1111,7 +1128,7 @@ function loadResignArticle() {
 
                 let certificate = JSON.parse(qualified_test.local_education_certificate);
                 $.each(certificate, function (fileCount, fileName) {
-                    $(".certificate").append(`<a href = '${PDF_URL + fileName}' style = 'display:block; font-size:16px;text-decoration: none;' target = '_blank' > View Attach File</a > `);
+                    $(".certificate").append(`<a href = '${BASE_URL + fileName}' style = 'display:block; font-size:16px;text-decoration: none;' target = '_blank' > View Attach File</a > `);
 
                 })
             } else {
@@ -1187,6 +1204,9 @@ function updateResignArticle(){
 }
 function updateArticleByResign(){
     var send_data = new FormData($( "#article_reject_form" )[0]);
+    if($('#offline_user').val()){
+        send_data.append('offline_user',$('#offline_user').val());
+      }
     if($("input[name=update_nrc_front]")[0].files[0]){
         send_data.append('nrc_front', $("input[name=update_nrc_front]")[0].files[0]);
     }else{
@@ -1203,13 +1223,13 @@ function updateArticleByResign(){
         send_data.append('image', $('#himage').val());
     }
     send_data.append('student_info_id', $("input[id=student_info_id]").val());
-    send_data.append('offline_user',$('#offline_user').val());
+    //send_data.append('offline_user',$('#offline_user').val());
     
     send_data.append('gov_position',$('input[name=update_gov_position]').val());
     send_data.append('gov_joining_date',$('input[name=update_gov_joining_date]').val());
     send_data.append('current_address',$('input[name=update_current_address]').val());
     send_data.append('address',$('input[name=update_address]').val());
-    send_data.append('phone',$('input[name=update_phone]').val());
+    send_data.append('phone',$('#update_phone_no').val());
     send_data.append('papp_name',$('input[name=update_papp_name]').val());
     send_data.append('mentor_id',$('input[name=update_mentor_name]').val());
     send_data.append('article_form_type',$('input[name=article_form_type]').val());
@@ -1222,7 +1242,7 @@ function updateArticleByResign(){
     send_data.append('exp_year',$('input[name=update_exp_year]').val());
     send_data.append('exp_month',$('input[name=update_exp_month]').val());
     send_data.append('exp_days',$('input[name=update_exp_days]').val());
-
+    
     show_loader();
     $.ajax({
         type: "POST",
