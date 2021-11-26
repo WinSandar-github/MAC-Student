@@ -751,9 +751,9 @@
                                                         <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် </li>
 
                                                         <li>
-                                                            <input type="radio" class="form-check-input" value="(ပထမပိုင်း)" id="part_1" name="update_course_part" >
+                                                            <input type="radio" class="form-check-input" value="(ပထမပိုင်း)" id="part_3" name="update_course_part" >
                                                             <label class="form-check-label " for="">(ပထမပိုင်း)/</label>
-                                                            <input type="radio" class="form-check-input" value="(ဒုတိယပိုင်း)" id="part_2" name="update_course_part" >
+                                                            <input type="radio" class="form-check-input" value="(ဒုတိယပိုင်း)" id="part_4" name="update_course_part" >
                                                             <label class="form-check-label " for="">(ဒုတိယပိုင်း)</label>
                                                         </li>
                                                         <li> သင်တန်းအမှတ်စဥ်<input class="p-input" type="text" name="update_pass_no"> ကို </li>
@@ -767,9 +767,9 @@
                                                             <label class="form-check-label " for="">ကိုယ်ပိုင်လေ့လာသူအဖြစ်</label>
                                                         </li>
                                                         <li>
-                                                            <input type="radio" class="form-check-input" value="တက်ရောက်နေသူ" id="attend" name="‌update_attend_or_fail" >
+                                                            <input type="radio" class="form-check-input" value="တက်ရောက်နေသူ" id="update_attend" name="‌update_attend_or_fail" >
                                                             <label class="form-check-label " for="">တက်ရောက်နေသူ/</label>
-                                                            <input type="radio" class="form-check-input" value="ကျရှုံးသူ" id="fail" name="‌update_attend_or_fail" >
+                                                            <input type="radio" class="form-check-input" value="ကျရှုံးသူ" id="update_fail" name="‌update_attend_or_fail" >
                                                             <label class="form-check-label " for="">ကျရှုံးသူ</label>
                                                         </li>
                                                         တစ်ဦးဖြစ်ပါသည်။

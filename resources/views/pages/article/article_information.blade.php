@@ -266,7 +266,7 @@
                             $('#c2_pass_renew_btn').click(function () {
                                 location.href = FRONTEND_URL + '/article_cpa_two_renew?id=' + data.data.article[0].id;
                             });
-                        }else if(data.data.article[0].article_form_type=="c12_renew"){
+                        }else if(data.data.article[0].article_form_type=="c12_renew" || data.data.article[0].article_form_type=="c12"){
                             $("#c2_pass_renew_btn").hide();
                             $('#c12_renew_btn').click(function () {
                                 location.href = FRONTEND_URL + '/article_cpa_one_two_renew?id=' + data.data.article[0].id;
