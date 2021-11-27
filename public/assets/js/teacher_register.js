@@ -945,6 +945,9 @@ function updateTeacher(){
                                     $('input:radio[id=school_staff2]').attr('checked',true);
                                     $('.individual_type').css('display','block');
                                     $('.private_type').css('display','none');
+                                    
+                                }
+                                if(teacher.school_name!=null && teacher.school_id==null){
                                     $('input[name=update_school_name]').val(teacher.school_name);
                                 }
                                 if(teacher.gender == "male"){
