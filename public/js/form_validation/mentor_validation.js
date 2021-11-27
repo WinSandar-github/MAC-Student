@@ -120,6 +120,9 @@ $().ready(function (){
             training_absent_reason : "Please enter your training absent reason",
             confirm_129: "Please check one",
         },
-        
+        submitHandler: function(form) {
+            $('#mentorModal').modal('show');
+            send_email();
+        }
     });
 });

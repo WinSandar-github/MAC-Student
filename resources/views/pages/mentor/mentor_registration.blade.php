@@ -77,7 +77,7 @@
                   <!-- Form Wrapper Start -->
                   <div class="form-wrapper">
 
-                      <form method="post" id="mentor_register_form"  action="javascript:createMentorRegister();"
+                      <form method="post" id="mentor_register_form"  action="javascript:void();"
                             enctype="multipart/form-data" novalidate>
                           @csrf
                           <div class="row">
@@ -576,7 +576,39 @@
               </div>
               <br><br>
           </div>
-
+<!-- Modal -->
+<form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+                novalidate>
+                @csrf
+                <div class="modal fade" id="mentorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
+                                <div class="mb-3" style="text-align:center;">
+                                    <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
+                                    <label>We have been sent verification code on your email.Please check your email.</label>
+                                </div><br>
+                                <div class="mb-3" style="text-align:center;">
+                                    <label style="margin-bottom: 2%;">Enter your verification code</label>
+                                    <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Enter Verification Code"></center>
+                                </div>
+                            </div>
+                            <center>
+                                <button type="submit" id="btn1" onclick="check_email_mentor()" class="btn btn-success btn-hover-dark w-30">Verify
+                                </button>
+                            </center><br>
+                            <div class="col-md-12" style="text-align:center;">
+                                <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
+                            </div><br><br>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
 
 
@@ -718,23 +750,26 @@
         }else if(data.data?.school){
           result = data.data.school;
         }
-        $('#student_info_id').val(student_info.id);
-        $('#email').val(result.email);
-        $('#name_mm').val(result.name_mm);
-        $("#name_eng").val(result.name_eng);
-        $("#nrc_state_region").val(result.nrc_state_region);
-        $("#nrc_township").val(result.nrc_township);
-        $("#nrc_citizen").val(result.nrc_citizen);
-        $("#nrc_number").val(result.nrc_number);
-        $("#father_name_mm").val(result.father_name_mm);
-        $("#father_name_eng").val(result.father_name_eng);
-        $("#race").val(result.race);
-        $("#religion").val(result.religion);
-        $("#date_of_birth").val(result.date_of_birth);
-        $("#education").val(student_info.student_education_histroy.degree_name);
-        $("#address").val(result.address);
-        $("#phone_no").val(result.phone);
-
+        if(result!=null){
+          $('#student_info_id').val(student_info.id);
+          $('#email').val(result.email);
+          $('#name_mm').val(result.name_mm);
+          $("#name_eng").val(result.name_eng);
+          $("#nrc_state_region").val(result.nrc_state_region);
+          $("#nrc_township").val(result.nrc_township);
+          $("#nrc_citizen").val(result.nrc_citizen);
+          $("#nrc_number").val(result.nrc_number);
+          $("#father_name_mm").val(result.father_name_mm);
+          $("#father_name_eng").val(result.father_name_eng);
+          $("#race").val(result.race);
+          $("#religion").val(result.religion);
+          $("#date_of_birth").val(result.date_of_birth);
+          $("#education").val(student_info.student_education_histroy.degree_name);
+          $("#address").val(result.address);
+          $("#phone_no").val(result.phone);
+        }
+          
+        
         // $('#email').prop('readonly', true);
         // $('#password').prop('readonly', true);
         // //$('#confirm_password').prop('readonly', true);

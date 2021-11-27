@@ -1044,7 +1044,7 @@ function addRowBranchSchool(tbody){
   var row=$('.'+tbody+' tr').length;
   cols += '<td class="text-center">'+row+'</td>';
   cols += '<td><input type="text" class="form-control" name="branch_school_address[]" id="branch_school_address'+ row + '" autocomplete="off" required oninput="allow_alphabets(this)"><span class="form-text text-danger">please enter english letters</span></td>';
-  cols += '<td><input type="file" class="form-control" name="branch_school_attach[]"  accept="image/*" id="branch_school_attach'+ row + '" required></td>';
+  cols += '<td><input type="file" class="form-control" name="branch_school_attach[]"  accept="image/*,.pdf" id="branch_school_attach'+ row + '" required></td>';
   cols += '<td>'+
           '<div class="form-group">'+
                                         '<div class="form-check mt-2 form-check-inline">'+
@@ -1079,7 +1079,7 @@ function addRowBranchSchool(tbody){
   //             '</div>'+
   //           '</div>'+
   // '</td>';
-  cols += '<td><input type="file" class="form-control" name="branch_sch_letter[]"  accept="image/*" id="branch_sch_letter' + row + '" required></td>';
+  cols += '<td><input type="file" class="form-control" name="branch_sch_letter[]"  accept="image/*,.pdf" id="branch_sch_letter' + row + '" required></td>';
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowBranchSchool("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
@@ -1114,7 +1114,7 @@ function addRowBuldingType(tbody){
   cols += '<td><input type="text" class="form-control" name="bulding_type[]" autocomplete="off" id="bulding_type'+row+'" required></td>';
   cols += '<td><input type="text" class="form-control" name="building_measurement[]" autocomplete="off" id="building_measurement'+row+'" required></td>';
   cols += '<td><input type="number" class="form-control" name="floor_numbers[]" autocomplete="off" id="floor_numbers'+row+'" required></td>';
-  cols += '<td><input type="file" class="form-control" name="school_building_attach[]"  accept="image/*" id="school_building_attach'+row+'" required></td>';
+  cols += '<td><input type="file" class="form-control" name="school_building_attach[]"  accept="image/*,.pdf" id="school_building_attach'+row+'" required></td>';
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowBuldingType("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
@@ -1144,7 +1144,7 @@ function addRowClassroom(tbody){
   cols += '<td><input type="text" class="form-control" name="classroom_measurement[]" autocomplete="off" id="classroom_measurement'+row+'" required></td>';
   cols += '<td><input type="text" class="form-control" name="student_num_limit[]" autocomplete="off" id="student_num_limit'+row+'" required></td>';
   cols += '<td><input type="number" class="form-control" name="air_con[]" autocomplete="off" id="air_con'+row+'" required></td>';
-  cols += '<td><input type="file" class="form-control" name="classroom_attach[]"  accept="image/*" id="classroom_attach'+row+'" required></td>';
+  cols += '<td><input type="file" class="form-control" name="classroom_attach[]"  accept="image/*,.pdf" id="classroom_attach'+row+'" required></td>';
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowClassroom("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
@@ -1172,7 +1172,7 @@ function addRowToiletType(tbody){
   cols += '<td class="text-center">'+row+'</td>';
   cols += '<td><input type="text" class="form-control" name="toilet_type[]" autocomplete="off" id="toilet_type'+row+'" required></td>';
   cols += '<td><input type="number" class="form-control" name="toilet_number[]" autocomplete="off" id="toilet_number'+row+'" required></td>';
-  cols += '<td><input type="file" class="form-control" name="toilet_attach[]" accept="image/*" id="toilet_attach'+row+'" required></td>';
+  cols += '<td><input type="file" class="form-control" name="toilet_attach[]" accept="image/*,.pdf" id="toilet_attach'+row+'" required></td>';
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowToiletType("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
@@ -1200,7 +1200,7 @@ function addRowManageRoomNumber(tbody){
   cols += '<td class="text-center">'+row+'</td>';
   cols += '<td><input type="number" class="form-control" name="manage_room_numbers[]" autocomplete="off" id="manage_room_numbers'+row+'" required></td>';
   cols += '<td><input type="text" class="form-control" name="manage_room_measurement[]" autocomplete="off" id="manage_room_measurement'+row+'" required/></td>';
-  cols += '<td><input type="file" class="form-control" name="manage_room_attach[]"  accept="image/*" id="manage_room_attach'+row+'" required></td>';
+  cols += '<td><input type="file" class="form-control" name="manage_room_attach[]"  accept="image/*,.pdf" id="manage_room_attach'+row+'" required></td>';
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowManageRoomNumber("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);

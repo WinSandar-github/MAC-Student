@@ -335,3 +335,17 @@ function loadRenewMentor(id){
           },
       });
   }
+  function check_email_mentor()
+  {
+      var text = localStorage.getItem('verify_code');
+      var obj = JSON.parse(text);
+      var verify_code = obj.data.verify_code;
+      var code = $("input[name=verify_code]").val();
+      if(verify_code != code){
+          successMessage("Your code is not correct.Please check your email inbox again!");
+          
+      }else{
+            createMentorRegister();
+            $('#mentorModal').modal('hide');
+      }
+  }

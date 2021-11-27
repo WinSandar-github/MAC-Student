@@ -503,7 +503,7 @@
                                 <div class="col-md-8">
                                     <div class="mb-3 col-auto">
                                         <input type="file"  name="school_location_attach" class="form-control"
-                                            accept="image/*" required/>
+                                            accept="image/*,.pdf" required/>
                                     </div>
                                 </div>
                             </div>
@@ -549,7 +549,7 @@
                                                             <div class="entry3">
                                                                 <div class="row mb-3">
                                                                     <div class="col-md-11 col-auto">
-                                                                        <input type="file" class="form-control" id="own_type_letter" name="own_type_letter[]" accept="image/*" required>
+                                                                        <input type="file" class="form-control" id="own_type_letter" name="own_type_letter[]" accept="image/*,.pdf" required>
 
                                                                     </div>
                                                                     <div class="col-md-1 col-auto">
@@ -657,7 +657,7 @@
                                         <div class="entry2">
                                             <div class="row mb-3">
                                                 <div class="col-md-11 col-auto">
-                                                    <input type="file" class="form-control" id="business_license" name="business_license[]" accept="image/*" required>
+                                                    <input type="file" class="form-control" id="business_license" name="business_license[]" accept="image/*,.pdf" required>
 
                                                 </div>
                                                 <div class="col-md-1 col-auto">
@@ -720,7 +720,7 @@
                                         <div class="entry6">
                                             <div class="row mb-3">
                                                 <div class="col-md-11 col-auto">
-                                                    <input type="file" class="form-control" id="sch_establish_notes_attach" name="sch_establish_notes_attach[]" accept="image/*" required>
+                                                    <input type="file" class="form-control" id="sch_establish_notes_attach" name="sch_establish_notes_attach[]" accept="image/*,.pdf" required>
 
                                                 </div>
                                                 <div class="col-md-1 col-auto">
