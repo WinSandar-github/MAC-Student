@@ -241,7 +241,7 @@
                         }
                         $('#articleModal').modal('toggle');
                     }else if(latest_article[0]?.resign_status == 1 && latest_article[0]?.article_form_type == 'resign'){
-
+                        
                         if(student_info.offline_user == 1){
                             if(exam_registers[0].form_type == 4){
                                 $("#c12_renew_btn").hide();
@@ -261,15 +261,35 @@
                         //         $("#c2_pass_renew_btn").hide();
                         //     }
                         // }
-                        if(data.data.article[0].article_form_type=="c2_pass_qt_pass_3yr" || data.data.article[0].article_form_type=="c2_pass_1yr" || data.data.article[0].article_form_type=="c2_pass_renew"){
+                        if(data.data.article[0].article_form_type=="c2_pass_qt_pass_3yr" || data.data.article[0].article_form_type=="c2_pass_1yr" || data.data.article[0].article_form_type=="c2_pass_renew" ){
                             $("#c12_renew_btn").hide();
                             $('#c2_pass_renew_btn').click(function () {
-                                location.href = FRONTEND_URL + '/article_cpa_two_renew?id=' + data.data.article[0].id;
+                                
+                                if(data.data.article[0].offline_user==1){
+                                    location.href = FRONTEND_URL + '/article_cpa_two_renew?id=' + data.data.article[0].id;
+                                }else{
+                                    location.href = FRONTEND_URL + '/article_renew_firm_registration?data=' + 'c2_pass_renew';
+                                }
                             });
-                        }else if(data.data.article[0].article_form_type=="c12_renew" || data.data.article[0].article_form_type=="c12"){
+                        }else if(data.data.article[0].article_form_type=="c12_renew" || data.data.article[0].article_form_type=="c12" ){
                             $("#c2_pass_renew_btn").hide();
                             $('#c12_renew_btn').click(function () {
-                                location.href = FRONTEND_URL + '/article_cpa_one_two_renew?id=' + data.data.article[0].id;
+                                if(data.data.article[0].offline_user==1){
+                                    location.href = FRONTEND_URL + '/article_cpa_one_two_renew?id=' + data.data.article[0].id;
+                                }else{
+                                    location.href = FRONTEND_URL + '/article_renew_firm_registration?data=' + 'c12_renew';
+                                }
+                                
+                            });
+                        }else if(course=="cpa_1"){
+                            $("#c2_pass_renew_btn").hide();
+                            $('#c12_renew_btn').click(function () {
+                                location.href = FRONTEND_URL + '/article_renew_firm_registration?data=' + 'c12_renew';
+                            });
+                        }else if(course=="cpa_2"){
+                            $("#c12_renew_btn").hide();
+                            $('#c2_pass_renew_btn').click(function () {
+                                location.href = FRONTEND_URL + '/article_renew_firm_registration?data=' + 'c2_pass_renew';
                             });
                         }
                         $("#firm_article_row").hide();
